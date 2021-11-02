@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlayerFeatModelSet Name="">
+  <PlayerFeatModel Description="Skilled at mimicry and dramatics" Name="Actor" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Actor" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.&#xD;&#xA;You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked." ChoicesAllowed="0" />
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="You’ve developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:&#xD;&#xA;&#xD;&#xA;- You have advantage on attack rolls against a creature you are grappling.&#xD;&#xA;- You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends." Name="Grappler" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Grappler" FeatureType="Trait" LevelAvailable="1" Details="You’ve developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:&#xD;&#xA;&#xD;&#xA;You have advantage on attack rolls against a creature you are grappling.&#xD;&#xA;You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:" Name="Great Weapon Master" IsValidated="False" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Great Weapon Master" FeatureType="Trait" LevelAvailable="1" Details="On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action." ChoicesAllowed="0" />
+      <FeatureModel Name="Great Weapon Master" FeatureType="Trait" LevelAvailable="1" Details="Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="Prerequisite: Charisma 13 or higher.&#xD;&#xA;You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest." Name="Inspiring Leader" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Inspiring Leader" FeatureType="Trait" LevelAvailable="1" Details="You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:&#xD;&#xA;&#xD;&#xA;When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.&#xD;&#xA;When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.&#xD;&#xA;You have advantage on saving throws against spells cast by creatures within 5 feet of you." Name="Mage Slayer" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Mage Slayer" FeatureType="Trait" LevelAvailable="1" Details="You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:&#xD;&#xA;&#xD;&#xA;When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.&#xD;&#xA;When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.&#xD;&#xA;You have advantage on saving throws against spells cast by creatures within 5 feet of you." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon’s damage dice and use either total." Name="Savage Attacker" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Savage Attacker" FeatureType="Trait" LevelAvailable="1" Details="Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon’s damage dice and use either total." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerFeatModel>
+  <PlayerFeatModel Description="Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points." Name="Tough" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Tough" FeatureType="Trait" LevelAvailable="1" Details="Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points." ChoicesAllowed="0" />
+      <FeatureModel Name="Extra Hit Points" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Hit Point Maximum per Level" Description="" Quantity="2" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerFeatModel>
+</PlayerFeatModelSet>

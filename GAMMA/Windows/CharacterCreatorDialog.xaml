@@ -1,0 +1,1036 @@
+﻿<Window x:Class="GAMMA.Windows.CharacterCreatorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        xmlns:tool="clr-namespace:GAMMA.Toolbox"
+        mc:Ignorable="d"
+        WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PrimaryBackground}"
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        Title="CharacterCreatorDialog" Height="720" Width="680">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="AttributeScore">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="AttributeBonus">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="AttributeModifier">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style TargetType="{x:Type Separator}">
+                <Setter Property="Width" Value="4" />
+                <Setter Property="Visibility" Value="Hidden" />
+            </Style>
+            <Style TargetType="{x:Type Rectangle}" BasedOn="{StaticResource HorizontalDivider}" />
+            <Style TargetType="{x:Type cc:FieldLabel}" x:Key="BaseFieldLabel">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Width" Value="120" />
+                <Setter Property="Margin" Value="4" />
+            </Style>
+            <Style TargetType="{x:Type cc:FieldLabel}" BasedOn="{StaticResource BaseFieldLabel}" />
+            <Style TargetType="{x:Type cc:GammaComboBox}" BasedOn="{StaticResource CustomComboBox}">
+                <Setter Property="Width" Value="200" />
+                <Setter Property="IsTextSearchEnabled" Value="True" />
+                <Setter Property="IsTextSearchCaseSensitive" Value="False" />
+                <Setter Property="IsEditable" Value="True" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            </Style>
+            <Style TargetType="{x:Type cc:GammaTextBox}" BasedOn="{StaticResource PartialBorderTextBox}" />
+            <Style TargetType="{x:Type cc:ImageButton}" BasedOn="{StaticResource ImageButton}" />
+            <Style TargetType="TabControl">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+            </Style>
+            <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource BlueTab}">
+                <Setter Property="Width" Value="128" />
+            </Style>
+        </StackPanel.Resources>
+        <Label Content="Character Creation" FontSize="14" FontWeight="SemiBold" MouseDown="Window_MouseDown" />
+        <TabControl Height="648" BorderThickness="0 2 0 0">
+            <TabItem Header="Name / Info">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Name and Character Information" />
+                    <Rectangle />
+                    <ScrollViewer Height="576">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Character Name" />
+                                <cc:GammaTextBox Text="{Binding Name}" />
+                            </StackPanel>
+                            <Separator />
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Height" />
+                                <cc:GammaTextBox Text="{Binding RawHeight, UpdateSourceTrigger=PropertyChanged}" Width="64" />
+                                <TextBlock Text="in." VerticalAlignment="Bottom" />
+                                <Separator />
+                                <TextBlock Text="{Binding ProcessedHeight}" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Separator />
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Weight" />
+                                <cc:GammaTextBox Text="{Binding RawWeight, UpdateSourceTrigger=PropertyChanged}" Width="64" />
+                                <TextBlock Text="lbs" VerticalAlignment="Bottom" />
+                            </StackPanel>
+                            <Separator />
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Alignment" />
+                                <cc:GammaComboBox ItemsSource="{Binding Alignments}" Text="{Binding Alignment, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <Separator />
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Backstory" />
+                                <cc:GammaTextBox Text="{Binding Backstory, UpdateSourceTrigger=PropertyChanged}" Height="128" Width="488" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                            </StackPanel>
+                            <Separator />
+                            <Grid HorizontalAlignment="Left" Margin="128 0 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="8" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition Height="4" />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Personality Traits" Grid.Column="0" Grid.Row="0" />
+                                <cc:GammaTextBox Text="{Binding Personality, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0 2" Height="96" Width="240" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Grid.Column="0" Grid.Row="1" />
+                                <TextBlock Text="Ideals" Grid.Column="0" Grid.Row="3" />
+                                <cc:GammaTextBox Text="{Binding Ideals, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0 2" Height="96" Width="240" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Grid.Column="0" Grid.Row="4" />
+                                <TextBlock Text="Bonds" Grid.Column="2" Grid.Row="0" />
+                                <cc:GammaTextBox Text="{Binding Bonds, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0 2" Height="96" Width="240" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Grid.Column="2" Grid.Row="1" />
+                                <TextBlock Text="Flaws" Grid.Column="2" Grid.Row="3" />
+                                <cc:GammaTextBox Text="{Binding Flaws, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0 2" Height="96" Width="240" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Grid.Column="2" Grid.Row="4" />
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Race / Class / Stats">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Race and Class Selection" />
+                    <Rectangle />
+                    <ScrollViewer Height="576">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <cc:FieldLabel Text="Race" />
+                                        <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding Races}" Text="{Binding Race, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <Separator />
+                                    <StackPanel Orientation="Horizontal">
+                                        <cc:FieldLabel Text="Subrace" />
+                                        <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding Subraces, UpdateSourceTrigger=PropertyChanged}" Text="{Binding Subrace, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <Separator />
+                                    <StackPanel Orientation="Horizontal">
+                                        <cc:FieldLabel Text="Background" />
+                                        <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding Backgrounds}" Text="{Binding Background, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="24 2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Style="{StaticResource Icon_Heart}" />
+                                        <TextBlock Text=" Hit Point Maximum: " />
+                                        <TextBlock Text="{Binding MaxHpCalc}" />
+                                    </StackPanel>
+                                    <Separator />
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Style="{StaticResource Icon_Miniature}" />
+                                        <TextBlock Text=" Size: " />
+                                        <TextBlock Text="{Binding LinkedRace.Size}" />
+                                    </StackPanel>
+                                    <Separator />
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Style="{StaticResource Icon_Step}" />
+                                        <TextBlock Text=" Base Speed: " />
+                                        <TextBlock Text="{Binding LinkedRace.BaseSpeed}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Total Level" />
+                                <cc:FieldLabel Text="{Binding TotalLevel, FallbackValue=0}" Width="16" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <cc:FieldLabel Text="Proficiency Bonus" />
+                                <cc:FieldLabel Text="{Binding ProficiencyBonus, FallbackValue=0}" Width="16" />
+                            </StackPanel>
+                            <DockPanel Width="400" HorizontalAlignment="Left">
+                                <cc:FieldLabel Text="Classes and Levels" VerticalAlignment="Center" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddClassLink}" HorizontalAlignment="Right" />
+                            </DockPanel>
+                            <ItemsControl ItemsSource="{Binding PlayerClasses, UpdateSourceTrigger=PropertyChanged}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}" Margin="2">
+                                            <StackPanel>
+                                                <StackPanel.Resources>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                                        <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                                                    </Style>
+                                                </StackPanel.Resources>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Style="{StaticResource Icon_Debuff}" />
+                                                    <Separator />
+                                                    <TextBlock Text="Class" Width="48" />
+                                                    <Separator />
+                                                    <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding ClassList}" Text="{Binding ClassName}" Width="196" />
+                                                    <Separator />
+                                                    <TextBlock Text="Level" />
+                                                    <Separator />
+                                                    <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding ClassLevels}" Text="{Binding ClassLevel}" Width="48" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveClassLink}" CommandParameter="Character Creation" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Separator Width="20" />
+                                                    <TextBlock Text="Subclass" Width="48" />
+                                                    <Separator />
+                                                    <cc:GammaComboBox IsEditable="False" ItemsSource="{Binding SubclassList}" Text="{Binding SubClassName}" Width="196" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Attribute Points" />
+                            <Rectangle />
+
+                            <Border Style="{StaticResource StandardBorder}" BorderBrush="{StaticResource ScrollBarBackground}" CornerRadius="2" Background="{StaticResource ScrollBarBackground}" Margin="2">
+                                <StackPanel Margin="6">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="140" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Text="STR" FontSize="18" HorizontalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Grid.Row="0" Text="DEX" FontSize="18" HorizontalAlignment="Center" />
+                                        <TextBlock Grid.Column="3" Grid.Row="0" Text="CON" FontSize="18" HorizontalAlignment="Center" />
+                                        <TextBlock Grid.Column="4" Grid.Row="0" Text="INT" FontSize="18" HorizontalAlignment="Center" />
+                                        <TextBlock Grid.Column="5" Grid.Row="0" Text="WIS" FontSize="18" HorizontalAlignment="Center" />
+                                        <TextBlock Grid.Column="6" Grid.Row="0" Text="CHA" FontSize="18" HorizontalAlignment="Center" />
+
+                                    </Grid>
+                                    <Grid Margin="8 0 0 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="128" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                                            <TextBlock Text="Base Scores" FontSize="16" Width="auto" VerticalAlignment="Center" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Refresh}" Command="{Binding ResetAttributes}" HorizontalAlignment="Left" />
+                                        </StackPanel>
+                                        <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
+                                    <Run Text="Points Remaining:" />
+                                    <Run Text="{Binding BaseAttributePoints, FallbackValue=0}" FontWeight="Bold" />
+                                        </TextBlock>
+
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding StrengthBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                        <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding DexterityBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                        <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding ConstitutionBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                        <TextBlock Grid.Column="4" Grid.Row="0" Text="{Binding IntelligenceBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                        <TextBlock Grid.Column="5" Grid.Row="0" Text="{Binding WisdomBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                        <TextBlock Grid.Column="6" Grid.Row="0" Text="{Binding CharismaBaseScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+
+                                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Strength,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Strength,Increment" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Dexterity,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Dexterity,Increment" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Constitution,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Constitution,Increment" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="4" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Intelligence,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Intelligence,Increment" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="5" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Wisdom,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Wisdom,Increment" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="6" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Charisma,Decrement" />
+                                            <Separator />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Charisma,Increment" />
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+
+                            <ItemsControl ItemsSource="{Binding CCAttributeSets}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource StandardBorder}" BorderBrush="{StaticResource ScrollBarBackground}" CornerRadius="2" Background="{StaticResource ScrollBarBackground}" Margin="2">
+                                            <Grid Margin="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="128" />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Grid.Column="0" Grid.Row="0" FontSize="12" VerticalAlignment="Center" />
+
+                                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Strength, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Strength, FallbackValue=0}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Dexterity, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Dexterity, FallbackValue=0}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="3" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Constitution, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Constitution, FallbackValue=0}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Intelligence, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Intelligence, FallbackValue=0}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="5" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Wisdom, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Wisdom, FallbackValue=0}" />
+                                                </TextBlock>
+                                                <TextBlock Grid.Column="6" Grid.Row="0" Style="{StaticResource AttributeBonus}">
+                                                <Run Text="{Binding Charisma, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding Charisma, FallbackValue=0}" />
+                                                </TextBlock>
+
+                                                <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                <Run Text="Points Remaining:" />
+                                                <Run Text="{Binding PointsRemaining, FallbackValue=0}" FontWeight="Bold" />
+                                                </TextBlock>
+
+                                                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Strength,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Strength,Increment" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Dexterity,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Dexterity,Increment" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Constitution,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Constitution,Increment" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="4" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Intelligence,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Intelligence,Increment" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="5" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Wisdom,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Wisdom,Increment" />
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="6" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Charisma,Decrement" />
+                                                    <Separator />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Charisma,Increment" />
+                                                </StackPanel>
+
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Grid Margin="8 4 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="128" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Rectangle Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="0" />
+
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Final Scores" FontSize="16" VerticalAlignment="Center" />
+
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding StrengthFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding DexterityFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding ConstitutionFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding IntelligenceFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                <TextBlock Grid.Column="5" Grid.Row="1" Text="{Binding WisdomFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+                                <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding CharismaFinalScore, FallbackValue=8}" Style="{StaticResource AttributeScore}" />
+
+                                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding StrengthFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding StrengthFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="2" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding DexterityFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding DexterityFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="3" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding ConstitutionFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding ConstitutionFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="4" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding IntelligenceFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding IntelligenceFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="5" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding WisdomFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding WisdomFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="6" Grid.Row="2" Style="{StaticResource AttributeModifier}">
+                                    <Run Text="(" /><Run Text="{Binding CharismaFinalModifier, Converter={tool:ModSymbol}, FallbackValue=+}" /><Run Text="{Binding CharismaFinalModifier, FallbackValue=0}" /><Run Text=")" />
+                                </TextBlock>
+
+                            </Grid>
+
+                            <Separator Height="16" />
+                            
+                            <TextBlock Text="Attribute or Feat Selection" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding AttributeFeatChoices}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Source}" />
+                                            <ItemsControl ItemsSource="{Binding Choices}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <RadioButton IsChecked="{Binding Marked}" GroupName="{Binding ChoiceSet}" />
+                                                            <TextBlock Text="{Binding Name}" />
+                                                            <Separator />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Other Stat Selections" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding StatBonusChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Source}" />
+                                            <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                            </TextBlock>
+                                            <ItemsControl ItemsSource="{Binding Choices}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel></WrapPanel>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                            <StackPanel Margin="2" Orientation="Horizontal">
+                                                                <CheckBox IsChecked="{Binding Marked}" />
+                                                                <Separator />
+                                                                <TextBlock Text="{Binding Name}" />
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Skills" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetSkillProfs}" Margin="0 0 0 16">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <ItemsControl ItemsSource="{Binding SkillChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Source}" />
+                                            <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                            </TextBlock>
+                                            <ItemsControl ItemsSource="{Binding Choices}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel></WrapPanel>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                            <StackPanel Margin="2" Orientation="Horizontal">
+                                                                <CheckBox IsChecked="{Binding Marked, UpdateSourceTrigger=PropertyChanged}" />
+                                                                <Separator />
+                                                                <TextBlock Text="{Binding Name}" />
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Expertise" />
+                            <Rectangle />
+                            
+                            <ItemsControl ItemsSource="{Binding ExpertiseChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Source}" />
+                                            <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                            </TextBlock>
+                                            <ItemsControl ItemsSource="{Binding Choices}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel></WrapPanel>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                            <StackPanel Margin="2" Orientation="Horizontal">
+                                                                <CheckBox IsChecked="{Binding Marked, UpdateSourceTrigger=PropertyChanged}" />
+                                                                <Separator />
+                                                                <TextBlock Text="{Binding Name}" />
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+                            <TextBlock>
+                                <Run Text="Feats - Points Remaining:" />
+                                <Run Text="{Binding FeatPoints, FallbackValue=0}" />
+                            </TextBlock>
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding FeatChoices}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel></WrapPanel>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                            <DockPanel Margin="2">
+                                                <CheckBox IsChecked="{Binding Marked}" />
+                                                <Separator />
+                                                <TextBlock Text="{Binding Name}" />
+                                                <Image Style="{StaticResource Icon_Info}" ToolTipService.InitialShowDelay="500" ToolTipService.ShowDuration="60000" HorizontalAlignment="Right">
+                                                    <Image.ToolTip>
+                                                        <TextBlock TextWrapping="Wrap" Width="320">
+                                                            <Run Text="{Binding Name}" FontWeight="SemiBold" />
+                                                            <Run Text="{Binding Description}" FontWeight="Normal" />
+                                                        </TextBlock>
+                                                    </Image.ToolTip>
+                                                </Image>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Other Proficiencies">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Languages, Tools, and Other Proficiencies" />
+                    <Rectangle />
+                    <ScrollViewer Height="576">
+                        <StackPanel Margin="4">
+
+                            <TextBlock Text="Weapon Proficiencies" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetWeaponProfs}" Margin="0 0 0 16">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <ItemsControl ItemsSource="{Binding WeaponChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                                <StackPanel Margin="2" Orientation="Horizontal">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Name}" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Armor Proficiencies" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetArmorProfs}" Margin="0 0 0 16">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <ItemsControl ItemsSource="{Binding ArmorChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                                <StackPanel Margin="2" Orientation="Horizontal">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Name}" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Language Proficiencies" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetLanguageProfs}" Margin="0 0 0 16">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <ItemsControl ItemsSource="{Binding LanguageChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                                <StackPanel Margin="2" Orientation="Horizontal">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Name}" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Tool Proficiencies" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetToolProfs}" Margin="0 0 0 16">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <ItemsControl ItemsSource="{Binding ToolChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="128">
+                                                                <StackPanel Margin="2" Orientation="Horizontal">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Name}" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Traits / Equipment">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Starting Equipment and Character Traits" />
+                    <Rectangle />
+                    <ScrollViewer Height="576">
+                        <StackPanel Margin="4">
+
+                            <TextBlock>
+                                <Run Text="Starting Gold:" />
+                                <Run Text="{Binding StartingGold, FallbackValue=10}" /><Run Text="gp" />
+                            </TextBlock>
+                            <TextBlock Text="Equipment Choices" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding StartingEquipmentChoiceSets}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Label}" />
+                                            <StackPanel Margin="4 0">
+                                                <ItemsControl ItemsSource="{Binding Values}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
+                                                                <cc:MiniButton ImageResource="{StaticResource Icon_AddItem}" Command="{Binding AddItemsToActiveCharacterStartingEquipment}" />
+                                                                <Separator />
+                                                                <TextBlock Text="{Binding Value}" VerticalAlignment="Center" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Chosen Equipment" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding ChosenEquipment}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <cc:GammaTextBox Text="{Binding Quantity}" Width="32" />
+                                            <Separator />
+                                            <TextBlock Width="200" VerticalAlignment="Center">
+                                                <Run Text="x" />
+                                                <Run Text="{Binding Name}" />
+                                            </TextBlock>
+                                            <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveItemLink}" CommandParameter="Active Character Chosen Equipment" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Additional Granted Equipment" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding GrantedEquipment}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="2">
+                                            <Run Text="{Binding Quantity}" />
+                                            <Run Text="x" />
+                                            <Run Text="{Binding Name}" />
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Trait Choices" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding TraitChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock>
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2">
+                                                                <StackPanel Margin="2" Orientation="Horizontal">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <StackPanel>
+                                                                        <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+                                                                        <TextBlock Text="{Binding Description}" FontWeight="Normal" Width="272" TextWrapping="Wrap" />
+                                                                    </StackPanel>
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                            <TextBlock Text="Set Traits" />
+                            <Rectangle />
+
+                            <ItemsControl ItemsSource="{Binding SetTraits}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}" Margin="2">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                                <TextBlock Text="{Binding Description}" FontWeight="Normal" TextWrapping="Wrap" Margin="4 0 0 0" />
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <Separator Height="16" />
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Spellcasting">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Spellcasting Ability, Cantrips and Spells Known" />
+                    <Rectangle />
+                    <ScrollViewer Height="576">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding SpellChoiceSegments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource SegmentTile}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Source}" />
+                                                <TextBlock Visibility="{Binding ChoiceRestricted, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
+                                                <Run Text="Choices Remaining:" />
+                                                <Run Text="{Binding ChoicesRemaining}" />
+                                                </TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Choices}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Style="{StaticResource StandardBorder}" CornerRadius="2" Margin="2" Width="200">
+                                                                <DockPanel Margin="2">
+                                                                    <CheckBox IsChecked="{Binding Marked}" />
+                                                                    <Separator />
+                                                                    <TextBlock Visibility="{Binding Quantity, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
+                                                                        <Run Text="Lv." />
+                                                                        <Run Text="{Binding Quantity}" />
+                                                                        <Run Text="- " />
+                                                                    </TextBlock>
+                                                                    <TextBlock Text="{Binding Name}" />
+                                                                    <Image Style="{StaticResource Icon_Info}" ToolTipService.InitialShowDelay="500" ToolTipService.ShowDuration="60000" HorizontalAlignment="Right">
+                                                                        <Image.ToolTip>
+                                                                            <TextBlock TextWrapping="Wrap" Width="320">
+                                                                                <Run Text="{Binding Name}" FontWeight="SemiBold" />
+                                                                                <Run Text="{Binding Description}" FontWeight="Normal" />
+                                                                            </TextBlock>
+                                                                        </Image.ToolTip>
+                                                                    </Image>
+                                                                </DockPanel>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <Rectangle />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="8 2">
+            <cc:ImageButton Text="Finish" ImageResource="{StaticResource Icon_Pass}" Width="64" Click="SubmitButton_Click" />
+            <cc:ImageButton Text="Cancel" ImageResource="{StaticResource Icon_Fail}" Width="64" Click="CancelButton_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

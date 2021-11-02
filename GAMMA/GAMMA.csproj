@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F7CD173-01BB-4EE5-A676-3EF7B62300C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GAMMA</RootNamespace>
+    <AssemblyName>GAMMA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.24.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gammabluewash.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CustomControls\CreatureInfoCard.xaml.cs">
+      <DependentUpon>CreatureInfoCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\TextBlocks.cs" />
+    <Compile Include="CustomControls\GammaTextBox.cs" />
+    <Compile Include="CustomControls\GammaComboBox.cs" />
+    <Compile Include="Models\ActiveEffectModel.cs" />
+    <Compile Include="Models\AttackOptionModel.cs" />
+    <Compile Include="Models\AudioCollectionModel.cs" />
+    <Compile Include="Models\CharacterAlterant.cs" />
+    <Compile Include="Models\CharacterAttributeSet.cs" />
+    <Compile Include="Models\CounterModel.cs" />
+    <Compile Include="Models\AttackModel.cs" />
+    <Compile Include="Models\CharacterModel.cs" />
+    <Compile Include="Models\AudioFileModel.cs" />
+    <Compile Include="Models\EldritchInvocation.cs" />
+    <Compile Include="Models\FeatureModel.cs" />
+    <Compile Include="Models\GameAudio.cs" />
+    <Compile Include="Models\GameCalendar.cs" />
+    <Compile Include="Models\GameCampaign.cs" />
+    <Compile Include="Models\GameMessage.cs" />
+    <Compile Include="Models\GameplayComponents\CACondition.cs" />
+    <Compile Include="Models\GameplayComponents\CAPostAction.cs" />
+    <Compile Include="Models\GameplayComponents\CAPreAction.cs" />
+    <Compile Include="Models\GameplayComponents\CAVariable.cs" />
+    <Compile Include="Models\GameplayComponents\CustomAbility.cs" />
+    <Compile Include="Models\ItemLink.cs" />
+    <Compile Include="Models\CreaturePackModel.cs" />
+    <Compile Include="Models\CustomDiceModel.cs" />
+    <Compile Include="Models\EntityModel.cs" />
+    <Compile Include="Models\HitDiceSet.cs" />
+    <Compile Include="Models\InventoryModel.cs" />
+    <Compile Include="Models\LanguageModel.cs" />
+    <Compile Include="Models\LootBoxModel.cs" />
+    <Compile Include="Models\NotebookModel.cs" />
+    <Compile Include="Models\NoteModel.cs" />
+    <Compile Include="Models\NpcModel.cs" />
+    <Compile Include="Models\PackCreatureModel.cs" />
+    <Compile Include="Models\PlayerBackgroundModel.cs" />
+    <Compile Include="Models\PlayerBuildingBlock.cs" />
+    <Compile Include="Models\PlayerClassLinkModel.cs" />
+    <Compile Include="Models\PlayerClassModel.cs" />
+    <Compile Include="Models\PlayerFeatModel.cs" />
+    <Compile Include="Models\PlayerRaceModel.cs" />
+    <Compile Include="Models\PlayerSubclassModel.cs" />
+    <Compile Include="Models\PlayerSubraceModel.cs" />
+    <Compile Include="Models\RollTableModel.cs" />
+    <Compile Include="Models\RollTableRowModel.cs" />
+    <Compile Include="Models\ShopModel.cs" />
+    <Compile Include="Models\ChoiceSet.cs" />
+    <Compile Include="Models\Sourcebook.cs" />
+    <Compile Include="Models\SpellLink.cs" />
+    <Compile Include="Models\SpellModel.cs" />
+    <Compile Include="Models\GameCharacterSelection.cs" />
+    <Compile Include="Models\SpellTableRowModel.cs" />
+    <Compile Include="Models\Timestamp.cs" />
+    <Compile Include="Models\TraitModel.cs" />
+    <Compile Include="Models\Weather.cs" />
+    <Compile Include="Models\WeatherRow.cs" />
+    <Compile Include="Models\WebActionModel.cs" />
+    <Compile Include="Toolbox\DataImport.cs" />
+    <Compile Include="Toolbox\HelperClasses.cs" />
+    <Compile Include="Toolbox\HelperMethods.cs" />
+    <Compile Include="ViewModels\AudioViewModel.cs" />
+    <Compile Include="ViewModels\CampaignBuilderViewModel.cs" />
+    <Compile Include="ViewModels\CharacterBuilderViewModel.cs" />
+    <Compile Include="ViewModels\MultiObjectSelectionViewModel.cs" />
+    <None Include="GAMMA 1.26.02 User Manual.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Legacy\NotebookViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\ShopViewModel.cs" />
+    <Compile Include="ViewModels\SpellBuilderViewModel.cs" />
+    <Compile Include="ViewModels\ToolsViewModel.cs" />
+    <Compile Include="ViewModels\VirtualTableTop.cs" />
+    <Compile Include="Windows\AbilityOptionSelection.xaml.cs">
+      <DependentUpon>AbilityOptionSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AttackOptionWindow.xaml.cs">
+      <DependentUpon>AttackOptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CharacterCreatorDialog.xaml.cs">
+      <DependentUpon>CharacterCreatorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CurrencyDialog.xaml.cs">
+      <DependentUpon>CurrencyDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EncounterMultiTargetDialog.xaml.cs">
+      <DependentUpon>EncounterMultiTargetDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ItemTransfer.xaml.cs">
+      <DependentUpon>ItemTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MultiObjectSelectionDialog.xaml.cs">
+      <DependentUpon>MultiObjectSelectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NoteSearchDialog.xaml.cs">
+      <DependentUpon>NoteSearchDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NotificationDialog.xaml.cs">
+      <DependentUpon>NotificationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NumberInputDialog.xaml.cs">
+      <DependentUpon>NumberInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ObjectSelectionDialog.xaml.cs">
+      <DependentUpon>ObjectSelectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\QAPrompt.xaml.cs">
+      <DependentUpon>QAPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShopWindow.xaml.cs">
+      <DependentUpon>ShopWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ValuePrompt.xaml.cs">
+      <DependentUpon>ValuePrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\YesNoDialog.xaml.cs">
+      <DependentUpon>YesNoDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomControls\CreatureInfoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Base.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Borders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Checkboxes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ListViews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Rectangles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\SearchableDropdowns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TabItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBlocks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBoxes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TreeViewItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AbilityOptionSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AttackOptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CharacterCreatorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CurrencyDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EncounterMultiTargetDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ItemTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ImageButton.cs" />
+    <Compile Include="CustomControls\SearchableDropdown.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CreatureModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Toolbox\Configuration.cs" />
+    <Compile Include="Toolbox\Converters.cs" />
+    <Compile Include="Toolbox\CustomAttributes.cs" />
+    <Compile Include="Toolbox\DataTemplateSelector.cs" />
+    <Compile Include="Toolbox\RelayCommand.cs" />
+    <Compile Include="Toolbox\XmlMethods.cs" />
+    <Compile Include="ViewModels\CreatureBuilderViewModel.cs" />
+    <Compile Include="ViewModels\ItemBuilderViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <None Include="Legacy\TrackerViewModel.cs" />
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\MultiObjectSelectionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NoteSearchDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NotificationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NumberInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ObjectSelectionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\QAPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShopWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ValuePrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\YesNoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Change.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Directory.Build.props" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\arrow_down.png" />
+    <Resource Include="Images\Icons\arrow_down_blue.png" />
+    <Resource Include="Images\Icons\arrow_up.png" />
+    <Resource Include="Images\Icons\arrow_up_blue.png" />
+    <Resource Include="Images\Icons\cube.png" />
+    <Resource Include="Images\Icons\download.png" />
+    <Resource Include="Images\Icons\error.png" />
+    <Resource Include="Images\Icons\filter.png" />
+    <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\pass.png" />
+    <Resource Include="Images\Icons\pause.png" />
+    <Resource Include="Images\Icons\play.png" />
+    <Resource Include="Images\Icons\plus_green.png" />
+    <Resource Include="Images\Icons\step.png" />
+    <Resource Include="Images\Icons\stop.png" />
+    <Resource Include="Images\Icons\upload.png" />
+    <Resource Include="Images\Icons\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Legacy\EncounterAutosave.xml" />
+    <None Include="Data\Creatures.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Items.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Spells.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\tree.png" />
+    <Resource Include="Images\Icons\scott.png" />
+    <Resource Include="Images\Icons\clock.png" />
+    <Resource Include="Images\Icons\heart.png" />
+    <Resource Include="Images\Icons\heart_pink.png" />
+    <None Include="Data\Characters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\hitdice.png" />
+    <Resource Include="Images\Icons\spell.png" />
+    <Resource Include="Images\Icons\sleep.png" />
+    <Resource Include="Images\Icons\explosion.png" />
+    <Resource Include="Images\Icons\coins.png" />
+    <Resource Include="Images\Icons\potion.png" />
+    <Resource Include="Images\Icons\quantity.png" />
+    <Resource Include="Images\Icons\hammer.png" />
+    <Resource Include="Images\Icons\musicnote.png" />
+    <Resource Include="Images\Icons\aberration.png" />
+    <Resource Include="Images\Icons\fiend.png" />
+    <Resource Include="Images\Icons\beast.png" />
+    <Resource Include="Images\Icons\celestial.png" />
+    <Resource Include="Images\Icons\construct.png" />
+    <Resource Include="Images\Icons\dragonclaw.png" />
+    <Resource Include="Images\Icons\fey.png" />
+    <Resource Include="Images\Icons\monster.png" />
+    <Resource Include="Images\Icons\ring.png" />
+    <Resource Include="Images\Icons\scroll.png" />
+    <Resource Include="Images\Icons\shirt.png" />
+    <Resource Include="Images\Icons\leaf.png" />
+    <Resource Include="Images\Icons\food.png" />
+    <Resource Include="Images\Icons\abjuration.png" />
+    <Resource Include="Images\Icons\conjuration.png" />
+    <Resource Include="Images\Icons\divination.png" />
+    <Resource Include="Images\Icons\enchantment.png" />
+    <Resource Include="Images\Icons\evocation.png" />
+    <Resource Include="Images\Icons\illusion.png" />
+    <Resource Include="Images\Icons\necromancy.png" />
+    <Resource Include="Images\Icons\transmutation.png" />
+    <Resource Include="Images\Icons\orb.png" />
+    <Resource Include="Images\Icons\health_minus_five.png" />
+    <Resource Include="Images\Icons\health_minus_one.png" />
+    <Resource Include="Images\Icons\health_minus_ten.png" />
+    <Resource Include="Images\Icons\health_plus_five.png" />
+    <Resource Include="Images\Icons\health_plus_one.png" />
+    <Resource Include="Images\Icons\health_plus_ten.png" />
+    <Resource Include="Images\Icons\shield.png" />
+    <Resource Include="Images\Icons\bag.png" />
+    <Resource Include="Images\Icons\bow.png" />
+    <Resource Include="Images\Icons\sword.png" />
+    <Resource Include="Images\Icons\ampersand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\magicweapon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\coppercoin.png" />
+    <Resource Include="Images\Icons\goldcoin.png" />
+    <Resource Include="Images\Icons\silvercoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Audio\System\DiceRoll.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\feather.png" />
+    <Resource Include="Images\Icons\fish.png" />
+    <Resource Include="Images\Icons\mountain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\civic.png" />
+    <Resource Include="Images\Icons\pack.png" />
+    <Resource Include="Images\Icons\wagonwheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\burrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\anvil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\book.png" />
+    <Resource Include="Images\Icons\campfire.png" />
+    <Resource Include="Images\Icons\dice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\buff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\debuff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\tag_a.png" />
+    <Resource Include="Images\Icons\tag_c.png" />
+    <Resource Include="Images\Icons\tag_i.png" />
+    <Resource Include="Images\Icons\tag_n.png" />
+    <Resource Include="Images\Icons\tag_r.png" />
+    <Resource Include="Images\Icons\tag_s.png" />
+    <Resource Include="Images\Icons\tag_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\tag_x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\tag_ci.png" />
+    <Resource Include="Images\Icons\tag_di.png" />
+    <Resource Include="Images\Icons\tag_dr.png" />
+    <Resource Include="Images\Icons\tag_dv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\LootBoxes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Legacy\Notebooks.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\arrow_left.png" />
+    <Resource Include="Images\Icons\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\additem.png" />
+    <Resource Include="Images\Icons\creature_add.png" />
+    <Resource Include="Images\Icons\weather_clear.png" />
+    <Resource Include="Images\Icons\weather_cloudy.png" />
+    <Resource Include="Images\Icons\weather_heavyrain.png" />
+    <Resource Include="Images\Icons\weather_partlycloudy.png" />
+    <Resource Include="Images\Icons\weather_raining.png" />
+    <Resource Include="Images\Icons\weather_storm.png" />
+    <Resource Include="Images\Icons\rune.png" />
+    <Resource Include="Images\Icons\link.png" />
+    <Resource Include="Images\Icons\dm_import.png" />
+    <Resource Include="Images\Icons\page_new.png" />
+    <Resource Include="Images\Icons\page_paste.png" />
+    <Resource Include="Images\Icons\person.png" />
+    <Resource Include="Images\Icons\person_add.png" />
+    <Resource Include="Images\Icons\search_alt.png" />
+    <Resource Include="Images\Icons\dm_hand.png" />
+    <Resource Include="Images\Icons\dm_save.png" />
+    <Resource Include="Images\Icons\dm_add.png" />
+    <Resource Include="Images\Icons\dm_x.png" />
+    <Resource Include="Images\Icons\page_note.png" />
+    <Resource Include="Images\Icons\dm_folder.png" />
+    <Resource Include="Images\Icons\dm_sort.png" />
+    <Resource Include="Images\Icons\dm_skull.png" />
+    <Resource Include="Images\Icons\dm_eraser.png" />
+    <Resource Include="Images\Icons\coin_copper.png" />
+    <Resource Include="Images\Icons\dm_shield.png" />
+    <Resource Include="Images\Icons\dm_fail.png" />
+    <Resource Include="Images\Icons\dm_pass.png" />
+    <Resource Include="Images\Icons\dm_initiative.png" />
+    <Resource Include="Images\Icons\dm_mask.png" />
+    <Resource Include="Images\Icons\ninja.png" />
+    <Resource Include="Images\Icons\window.png" />
+    <Resource Include="Images\Icons\minimize.png" />
+    <Resource Include="Images\Icons\dm_step.png" />
+    <Resource Include="Images\Icons\dm_weight.png" />
+    <Resource Include="Images\Icons\coin_gold.png" />
+    <Resource Include="Images\Icons\coin_silver.png" />
+    <Resource Include="Images\Icons\dm_pause.png" />
+    <Resource Include="Images\Icons\dm_play.png" />
+    <Resource Include="Images\Icons\dm_stop.png" />
+    <Resource Include="Images\Icons\dm_audio.png" />
+    <Resource Include="Images\Icons\dm_music.png" />
+    <Resource Include="Images\Icons\dm_dragon.png" />
+    <Resource Include="Images\Icons\dm_dropdown.png" />
+    <Resource Include="Images\Icons\dm_dropup.png" />
+    <Resource Include="gammabluewash.ico" />
+    <Resource Include="Images\Icons\gammabluewash.png" />
+    <Resource Include="Images\Icons\wrench.png" />
+    <SplashScreen Include="Images\GammaSplashBlue.png" />
+    <Resource Include="Images\Icons\treasure.png" />
+    <Resource Include="Images\Icons\dm_refresh.png" />
+    <Resource Include="Images\Icons\dm_blindsight.png" />
+    <Resource Include="Images\Icons\dm_darkvision.png" />
+    <Resource Include="Images\Icons\dm_perception.png" />
+    <Resource Include="Images\Icons\dm_tremorsense.png" />
+    <Resource Include="Images\Icons\dm_truesight.png" />
+    <Resource Include="Images\Icons\dm_info.png" />
+    <Resource Include="Images\Icons\page_delete.png" />
+    <Resource Include="Images\Icons\coins_transfer.png" />
+    <Resource Include="Images\Icons\minus.png" />
+    <Resource Include="Images\Icons\gear.png" />
+    <Resource Include="Images\Icons\letter_s.png" />
+    <None Include="Data\RollTables.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\dm_table.png" />
+    <Resource Include="Images\Icons\magicitem.png" />
+    <Resource Include="Images\Icons\bullet.png" />
+    <Resource Include="Images\Icons\vendor.png" />
+    <Resource Include="Images\Icons\users.png" />
+    <Resource Include="Images\Icons\gemstone.png" />
+    <Resource Include="Images\Icons\key_copper.png" />
+    <Resource Include="Images\Icons\key_gold.png" />
+    <Resource Include="Images\Icons\key_silver.png" />
+    <None Include="FeatureRequests.txt" />
+    <None Include="Audio\System\ShopItemMove.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Audio\System\ShopFarewell.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Audio\System\ShopGreeting.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\gamepad.png" />
+    <None Include="Data\Settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\hex.png" />
+    <Resource Include="Images\Icons\d20.png" />
+    <Resource Include="Images\Icons\hex_a.png" />
+    <Resource Include="Images\Icons\suite.png" />
+    <Resource Include="Images\Icons\map.png" />
+    <Resource Include="Images\Icons\paperclip.png" />
+    <Resource Include="Images\Icons\trajectory.png" />
+    <Resource Include="Images\Icons\dodge.png" />
+    <Resource Include="Images\Icons\disengage.png" />
+    <Resource Include="Images\Icons\action.png" />
+    <Resource Include="Images\Icons\creaturepack.png" />
+    <Resource Include="Images\Icons\booze.png" />
+    <Resource Include="Images\Icons\foodstuff.png" />
+    <None Include="Data\PlayerClasses.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\PlayerSubclasses.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\calculator.png" />
+    <Resource Include="Images\Icons\ale.png" />
+    <Resource Include="Images\Icons\liquid.png" />
+    <Resource Include="Images\Icons\fishing.png" />
+    <None Include="Data\PlayerRaces.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\PlayerSubraces.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\PlayerBackgrounds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\crossbow.png" />
+    <Resource Include="Images\Icons\gun.png" />
+    <Resource Include="Images\Icons\holy.png" />
+    <Resource Include="Images\Icons\poison.png" />
+    <Resource Include="Images\Icons\spear.png" />
+    <Resource Include="Images\Icons\location.png" />
+    <Resource Include="Images\Icons\miniature.png" />
+    <Resource Include="Images\Icons\matchround.png" />
+    <Resource Include="Images\Icons\user_next.png" />
+    <Resource Include="Images\Icons\user_previous.png" />
+    <None Include="Data\PlayerFeats.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Languages.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\coins_add.png" />
+    <Resource Include="Images\Icons\coins_subtract.png" />
+    <Resource Include="Images\Icons\transfer.png" />
+    <Resource Include="Images\Icons\poison_b.png" />
+    <Resource Include="Images\Icons\potion_b.png" />
+    <None Include="Data\Shops.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\art.png" />
+    <Resource Include="Images\Icons\crate.png" />
+    <Resource Include="Images\Icons\smile.png" />
+    <Resource Include="Images\Icons\gp.png" />
+    <Resource Include="Images\Icons\tabletop.png" />
+    <Resource Include="Images\Icons\screen_on.png" />
+    <Resource Include="Images\Icons\screen_off.png" />
+    <Resource Include="Images\Icons\rubberduck.png" />
+    <Resource Include="Images\Icons\patreon.png" />
+    <Resource Include="Images\Icons\fall.png" />
+    <Resource Include="Images\Icons\paintbrush.png" />
+    <None Include="Data\EldritchInvocations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\checkmark_green.png" />
+    <Resource Include="Images\Icons\reddit.png" />
+    <Resource Include="Images\Icons\rpg_arrow.png" />
+    <Resource Include="Images\Icons\rpg_axe.png" />
+    <Resource Include="Images\Icons\rpg_boot.png" />
+    <Resource Include="Images\Icons\rpg_bow.png" />
+    <Resource Include="Images\Icons\rpg_clothing.png" />
+    <Resource Include="Images\Icons\rpg_fancybow.png" />
+    <Resource Include="Images\Icons\rpg_fish.png" />
+    <Resource Include="Images\Icons\rpg_food.png" />
+    <Resource Include="Images\Icons\rpg_gemstone.png" />
+    <Resource Include="Images\Icons\rpg_heavyarmor.png" />
+    <Resource Include="Images\Icons\rpg_key.png" />
+    <Resource Include="Images\Icons\rpg_lightarmor.png" />
+    <Resource Include="Images\Icons\rpg_medicine.png" />
+    <Resource Include="Images\Icons\rpg_mediumarmor.png" />
+    <Resource Include="Images\Icons\rpg_orb.png" />
+    <Resource Include="Images\Icons\rpg_resource.png" />
+    <Resource Include="Images\Icons\rpg_ring.png" />
+    <Resource Include="Images\Icons\rpg_scroll.png" />
+    <Resource Include="Images\Icons\rpg_shield.png" />
+    <Resource Include="Images\Icons\rpg_skull.png" />
+    <Resource Include="Images\Icons\rpg_staff.png" />
+    <Resource Include="Images\Icons\rpg_sword.png" />
+    <Resource Include="Images\Icons\rpg_wand.png" />
+    <Resource Include="Images\Icons\rpg_fancy_bow.png" />
+    <Resource Include="Images\Icons\rpg_heavy_armor.png" />
+    <Resource Include="Images\Icons\rpg_light_armor.png" />
+    <Resource Include="Images\Icons\rpg_medium_armor.png" />
+    <Resource Include="Images\Icons\rpg_book.png" />
+    <Resource Include="Images\Icons\rpg_eye.png" />
+    <Resource Include="Images\Icons\rpg_feather.png" />
+    <Resource Include="Images\Icons\rpg_holy_symbol.png" />
+    <Resource Include="Images\Icons\rpg_magic_weapon.png" />
+    <Resource Include="Images\Icons\rpg_note.png" />
+    <Resource Include="Images\Icons\rpg_plant.png" />
+    <None Include="Data\Campaigns.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Weathers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Calendars.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\Icons\puzzle.png" />
+    <Resource Include="Images\Icons\trap.png" />
+    <Resource Include="Images\Icons\crossed_swords.png" />
+    <Resource Include="Legacy\LegacyDmTabs.txt" />
+    <Resource Include="Data\EncounterAutosave.xml" />
+    <Resource Include="Data\Notebooks.xml" />
+    <Resource Include="OutputSwapperBases.txt" />
+    <Resource Include="Images\EquipmentBadge.png" />
+    <Resource Include="Images\Icons\linked.png" />
+    <Resource Include="Images\Icons\orb_gray.png" />
+    <Resource Include="Images\Icons\orb_green.png" />
+    <Resource Include="Images\Icons\unlinked.png" />
+    <Resource Include="Images\Icons\workflow.png" />
+    <None Include="Data\Sourcebooks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Audio\System\MenuSelect.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="WebDriver\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WebDriver\Google Chrome.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

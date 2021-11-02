@@ -1,0 +1,16 @@
+﻿#region {name}
+private {type} _{name};
+[XmlSaveMode("{savemode}")]
+public {type} {name}
+{
+	get
+	{
+		return _{name};
+	}
+	set
+	{
+		_{name} = value;
+		NotifyPropertyChanged();
+	}
+}
+#endregion

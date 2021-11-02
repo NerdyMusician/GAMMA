@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlayerSubraceModelSet Name="">
+  <PlayerSubraceModel SubraceOf="Genasi" Name="Air Genasi" IsValidated="True" Sourcebook="PHB" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Dexterity" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Unending Breath" FeatureType="Trait" LevelAvailable="1" Details="You can hold your breath indefinitely while you’re not incapacitated." ChoicesAllowed="0" />
+      <FeatureModel Name="Mingle with the Wind" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Levitate" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Shifter" Name="Beasthide" IsValidated="True" Sourcebook="Eberron: Rising From the Last War" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Natural Athlete" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Athletics" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Shifting Feature" FeatureType="Trait" LevelAvailable="1" Details="Whenever you shift, you gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Elf" Name="Dark Elf" IsValidated="True" Sourcebook="Player's Handbook" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Superior Darkvision" FeatureType="Trait" LevelAvailable="1" Details="Your darkvision has a range of 120 feet, instead of 60." ChoicesAllowed="0" />
+      <FeatureModel Name="Sunlight Sensitivity" FeatureType="Trait" LevelAvailable="1" Details="You have disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when you, the target of the attack, or whatever you are trying to perceive is in direct sunlight." ChoicesAllowed="0" />
+      <FeatureModel Name="Drow Magic (Dancing Lights)" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Dancing Lights" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Drow Magic (Faerie Fire)" FeatureType="Extra Known Spells - Set" LevelAvailable="3" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Faerie Fire" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Drow Magic (Darkness)" FeatureType="Extra Known Spells - Set" LevelAvailable="5" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Darkness" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Drow Magic" FeatureType="Trait" LevelAvailable="1" Details="You know the Dancing Lights cantrip. When you reach 3rd level, you can cast the Faerie Fire spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the Darkness spell onceand regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells." ChoicesAllowed="0" />
+      <FeatureModel Name="Drow Weapon Training" FeatureType="Weapon Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Hand Crossbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Rapier" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Shortsword" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Gnome" Name="Deep Gnome" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Dexterity" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Superior Darkvision" FeatureType="Trait" LevelAvailable="1" Details="Your darkvision has a radius of 120 feet." ChoicesAllowed="0" />
+      <FeatureModel Name="Stone Camoflauge" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on Dexterity (Stealth) checks to hide in rocky terrain." ChoicesAllowed="0" />
+      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Gnomish" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Undercommon" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Aasimar" Name="Fallen Aasimar" IsValidated="True" Sourcebook="http://dnd5e.wikidot.com/aasimar" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Strength" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Necrotic Shroud" FeatureType="Trait" LevelAvailable="3" Details="Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn.&#xD;&#xA;&#xD;&#xA;Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.&#xD;&#xA;&#xD;&#xA;Once you use this trait, you can't use it again until you finish a long rest." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Halfling" Name="Ghostwise Halfling" IsValidated="True" Sourcebook="Sword Coast Adventurer's Guide" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Silent Speech" FeatureType="Trait" LevelAvailable="1" Details="You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Elf" Name="High Elf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Intelligence" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Elf Weapon Proficiency" FeatureType="Weapon Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Longbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Longsword" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Shortbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Shortsword" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Cantrip" FeatureType="Additional Known Cantrips" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Wizard" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Extra Language" FeatureType="Language Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="[Exotic Languages]" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="[Standard Languages]" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Dwarf" Name="Hill Dwarf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Dwarven Toughness" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Hit Point Maximum per Level" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Halfling" Name="Lightfoot Halfling" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Naturally Stealthy" FeatureType="Trait" LevelAvailable="1" Details="You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Halfling" Name="Lotusden Halfling" IsValidated="True" Sourcebook="Explorer's Guide to Wildemount" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Children of the Woods" FeatureType="Trait" LevelAvailable="1" Details="You know the Druidcraft Cantrip. At 3rd level, you can cast the Entangle spell once per long rest. At 5th level, you can cast Spike Growth spell once per long rest. These spells don't require the material components normally required. Wisdom is your spellcasting ability for these spells." ChoicesAllowed="0" />
+      <FeatureModel Name="Druidcraft" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Druidcraft" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Timberwalk" FeatureType="Trait" LevelAvailable="1" Details="Ability checks made to track you have disadvantage, and you can move across difficult terrain made of nonmagical plants and undergrowth without expending extra movement." ChoicesAllowed="0" />
+      <FeatureModel Name="Entangle" FeatureType="Extra Known Spells - Set" LevelAvailable="3" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Entangle" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Spike Growth" FeatureType="Extra Known Spells - Set" LevelAvailable="5" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Spike Growth" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Dwarf" Name="Mountain Dwarf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Strength" Description="" Quantity="2" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Base Armor Proficiencies" FeatureType="Armor Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Light Armor" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Medium Armor" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Gnome" Name="Rock Gnome" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Artificer’s Lore" FeatureType="Trait" LevelAvailable="1" Details="Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply." ChoicesAllowed="0" />
+      <FeatureModel Name="Tinker" FeatureType="Trait" LevelAvailable="1" Details="You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.&#xD;&#xA;&#xD;&#xA;When you create a device, choose one of the following options:&#xD;&#xA;&#xD;&#xA;Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.&#xD;&#xA;&#xD;&#xA;Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.&#xD;&#xA;&#xD;&#xA;Music Box. When opened, this music box plays a single song at a moderate volume.&#xD;&#xA;The box stops playing when it reaches the song’s end or when it is closed." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Elf" Name="Sea Elf" IsValidated="True" Sourcebook="Mordenkainen's Tome of Foes" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Sea Elf Training" FeatureType="Weapon Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Light Crossbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Net" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Spear" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Trident" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Child of the Sea" FeatureType="Trait" LevelAvailable="1" Details="You have a swimming speed of 30 feet, and you can breathe air and water" ChoicesAllowed="0" />
+      <FeatureModel Name="Friend of the Sea" FeatureType="Trait" LevelAvailable="1" Details="Using gestures and sounds, you can communicate simple ideas with any beast that has an innate swimming speed." ChoicesAllowed="0" />
+      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Aquan" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Elf" Name="Shadar-Kai" IsValidated="True" Sourcebook="Mordenkainen's Tome of Foes" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Necrotic Resistance" FeatureType="Trait" LevelAvailable="1" Details="You have resistance to necrotic damage." ChoicesAllowed="0" />
+      <FeatureModel Name="Blessing of the Raven Queen" FeatureType="Trait" LevelAvailable="1" Details="As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can't do so again until you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Halfling" Name="Stout Halfling" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Stout Resilience" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on saving throws against poison, and you have resistance against poison damage." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+  <PlayerSubraceModel SubraceOf="Elf" Name="Wood Elf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+    <FeatureModelSet Name="Features">
+      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Base Weapon Proficiencies" FeatureType="Weapon Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
+        <FeatureDataSet Name="Choices">
+          <FeatureData Name="Longbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Longsword" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Shortbow" Description="" Quantity="0" Form="0" />
+          <FeatureData Name="Shortsword" Description="" Quantity="0" Form="0" />
+        </FeatureDataSet>
+      </FeatureModel>
+      <FeatureModel Name="Fleet of Foot" FeatureType="Trait" LevelAvailable="1" Details="Your base walking speed increases to 35 feet." ChoicesAllowed="0" />
+      <FeatureModel Name="Mask of the Wild" FeatureType="Trait" LevelAvailable="1" Details="You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena." ChoicesAllowed="0" />
+    </FeatureModelSet>
+  </PlayerSubraceModel>
+</PlayerSubraceModelSet>

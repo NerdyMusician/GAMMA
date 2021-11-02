@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GameCalendarSet Name="">
+  <GameCalendar Name="Eyre" IsValidated="True" WeeksPerMonth="4" UseEras="True" YearsPerEra="350">
+    <ConvertibleValueSet Name="Months">
+      <ConvertibleValue Value="Heimstell" ValueType="String" />
+      <ConvertibleValue Value="Ortucto" ValueType="String" />
+      <ConvertibleValue Value="Puermen" ValueType="String" />
+      <ConvertibleValue Value="Magnuvi" ValueType="String" />
+      <ConvertibleValue Value="Cresmen" ValueType="String" />
+      <ConvertibleValue Value="Ignarim" ValueType="String" />
+      <ConvertibleValue Value="Vetmen" ValueType="String" />
+      <ConvertibleValue Value="Venidus" ValueType="String" />
+      <ConvertibleValue Value="Dearitus" ValueType="String" />
+      <ConvertibleValue Value="Tenediuk" ValueType="String" />
+    </ConvertibleValueSet>
+    <ConvertibleValueSet Name="Days">
+      <ConvertibleValue Value="Lysdag" ValueType="String" />
+      <ConvertibleValue Value="Brandag" ValueType="String" />
+      <ConvertibleValue Value="Vandag" ValueType="String" />
+      <ConvertibleValue Value="Luftdag" ValueType="String" />
+      <ConvertibleValue Value="Jordag" ValueType="String" />
+    </ConvertibleValueSet>
+  </GameCalendar>
+  <GameCalendar Name="Standard" IsValidated="True" WeeksPerMonth="4" UseEras="False" YearsPerEra="0">
+    <ConvertibleValueSet Name="Months">
+      <ConvertibleValue Value="January" ValueType="String" />
+      <ConvertibleValue Value="February" ValueType="String" />
+      <ConvertibleValue Value="March" ValueType="String" />
+      <ConvertibleValue Value="April" ValueType="String" />
+      <ConvertibleValue Value="May" ValueType="String" />
+      <ConvertibleValue Value="June" ValueType="String" />
+      <ConvertibleValue Value="July" ValueType="String" />
+      <ConvertibleValue Value="August" ValueType="String" />
+      <ConvertibleValue Value="September" ValueType="String" />
+      <ConvertibleValue Value="October" ValueType="String" />
+      <ConvertibleValue Value="November" ValueType="String" />
+      <ConvertibleValue Value="December" ValueType="String" />
+    </ConvertibleValueSet>
+    <ConvertibleValueSet Name="Days">
+      <ConvertibleValue Value="Sunday" ValueType="String" />
+      <ConvertibleValue Value="Monday" ValueType="String" />
+      <ConvertibleValue Value="Tuesday" ValueType="String" />
+      <ConvertibleValue Value="Wednesday" ValueType="String" />
+      <ConvertibleValue Value="Thursday" ValueType="String" />
+      <ConvertibleValue Value="Friday" ValueType="String" />
+      <ConvertibleValue Value="Saturday" ValueType="String" />
+    </ConvertibleValueSet>
+  </GameCalendar>
+</GameCalendarSet>

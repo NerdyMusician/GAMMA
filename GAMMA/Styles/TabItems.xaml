@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="TabItem" x:Key="BlueTab">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="4 0 4 0" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Border Name="Border"
+                                BorderThickness="2 2 2 0"
+                                BorderBrush="{StaticResource ButtonBorder}"
+                                Margin="2 0 0 -2">
+                        <ContentPresenter
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="10 2 10 4" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border"  Property="Background" Value="{StaticResource PrimaryBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ButtonBorder}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="TabItem" x:Key="BlueHorizontalTab">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Width" Value="136" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Border Name="Border"
+                                BorderThickness="2 2 0 2"
+                                BorderBrush="{StaticResource ButtonBorder}"
+                                CornerRadius="0"
+                                Margin="0 2 -2 0">
+                        <ContentPresenter
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    ContentSource="Header"
+                                    Margin="4 2"
+                                    />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border"  Property="Background" Value="{StaticResource PrimaryBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ButtonBorder}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="LightGray" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="4 0 0 4" />
+    </Style>
+    
+</ResourceDictionary>

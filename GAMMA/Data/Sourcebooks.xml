@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourcebookSet Name="">
+  <Sourcebook Name="Basic Rules" PreserveFromDataWipe="True" IsValidated="True" />
+  <Sourcebook Name="Homebrew" PreserveFromDataWipe="True" IsValidated="True" />
+  <Sourcebook Name="Volo's Guide to Monsters" PreserveFromDataWipe="False" IsValidated="True" />
+</SourcebookSet>

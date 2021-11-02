@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SettingsViewModelSet Name="">
+  <SettingsViewModel InDmModeModern="True" ShowData="True" ShowMiniatureUtilization="True" UseExperiencePoints="False" EnableCampaignsAutosave="True" InDmModeClassic="False" ShowDiceRolls="True" UseCriticalHitMaxDamage="True" UsePlatinum="False" UseVariantEncumbrance="False" UseCoinWeight="True" UseAveragedHitPoints="False" EnforceSpellComponentConsumption="False" EnableCharacterAutosave="False" EnableCharacterExitsave="True" PromptCharacterExitsave="True" Roll20Email="jorden.finne@gmail.com" Roll20Password="" ClearPasswordOnClose="True" EnableSoundEffects="True" EnableSfx_DiceRoll="True" EnableSfx_ShopItemMove="True" EnableSfx_ShopGreeting="True">
+    <GameCharacterSelectionSet Name="Roll20GameCharacterList">
+      <GameCharacterSelection IsSelected="False" Game="Elemental Protection Agenc" Character="Nade" />
+      <GameCharacterSelection IsSelected="False" Game="Elemental Protection Agency" Character="Wrix" />
+      <GameCharacterSelection IsSelected="True" Game="Curse of Strahd" Character="Vatel" />
+    </GameCharacterSelectionSet>
+  </SettingsViewModel>
+</SettingsViewModelSet>

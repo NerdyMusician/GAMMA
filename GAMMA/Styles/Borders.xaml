@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="Border" x:Key="StandardBorder">
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="{StaticResource PrimaryBackground}" />
+    </Style>
+
+    <Style TargetType="Border" x:Key="ListBorder" BasedOn="{StaticResource StandardBorder}">
+        <Setter Property="BorderThickness" Value="0 2" />
+    </Style>
+
+    <Style TargetType="Border" x:Key="SegmentTile">
+        <Setter Property="BorderBrush" Value="{StaticResource ScrollBarBackground}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Background" Value="{StaticResource ScrollBarBackground}" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+    
+</ResourceDictionary>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WeatherSet Name="">
+  <Weather Name="Default Weather" IsValidated="True" Climate="">
+    <WeatherRowSet Name="WeatherEntries">
+      <WeatherRow Icon="Icon_Weather_Clear" Name="Clear" Description="No effects." LowValue="1" HighValue="34" />
+      <WeatherRow Icon="Icon_Weather_PartlyCloudy" Name="Partly Cloudy" Description="No effects." LowValue="35" HighValue="49" />
+      <WeatherRow Icon="Icon_Weather_Cloudy" Name="Cloudy" Description="Creatures no longer affected by Sunlight Sensitivity." LowValue="50" HighValue="64" />
+      <WeatherRow Icon="Icon_Weather_Raining" Name="Light Rain" Description="Creatures no longer affected by Sunlight Sensitivity.&#xA;-1 to Passive Perception outdoors.&#xA;Unable to rest outdoors." LowValue="65" HighValue="76" />
+      <WeatherRow Icon="Icon_Weather_HeavyRain" Name="Heavy Rain" Description="Creatures no longer affected by Sunlight Sensitivity.&#xA;-2 to Passive Perception outdoors.&#xA;Unable to rest outdoors." LowValue="77" HighValue="88" />
+      <WeatherRow Icon="Icon_Weather_Storm" Name="Heavy Storm" Description="Creatures no longer affected by Sunlight Sensitivity.&#xA;-5 to Passive Perception outdoors.&#xA;Unable to rest outdoors.&#xA;Every hour without shelter raises exhaustion by 1." LowValue="89" HighValue="100" />
+    </WeatherRowSet>
+  </Weather>
+</WeatherSet>

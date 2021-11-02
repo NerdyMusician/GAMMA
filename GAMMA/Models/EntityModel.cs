@@ -1,0 +1,268 @@
+﻿using System;
+
+namespace GAMMA.Models
+{
+    [Serializable]
+    public class EntityModel : BaseModel
+    {
+        // Constructors
+        public EntityModel()
+        {
+            IsBlinded_Tooltip = "- A blinded creature can’t see and automatically fails any ability check that requires sight.\n- Attack rolls against the creature have advantage, and the creature’s Attack rolls have disadvantage.";
+            IsCharmed_Tooltip = "- A charmed creature can’t Attack the charmer or target the charmer with harmful Abilities or magical Effects.\n- The charmer has advantage on any ability check to interact socially with the creature.";
+            IsDeafened_Tooltip = "- A deafened creature can’t hear and automatically fails any ability check that requires hearing.";
+            IsFrightened_Tooltip = "- A frightened creature has disadvantage on Ability Checks and Attack rolls while the source of its fear is within line of sight.\n- The creature can’t willingly move closer to the source of its fear.";
+            IsGrappled_Tooltip = "- A grappled creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.\n- The condition ends if the Grappler is incapacitated.\n- The condition also ends if an Effect removes the grappled creature from the reach of the Grappler or Grappling Effect, such as when a creature is hurled away by the Thunderwave spell.";
+            IsIncapacitated_Tooltip = "- An incapacitated creature can’t take Actions or Reactions.";
+            IsInvisible_Tooltip = "- An invisible creature is impossible to see without the aid of magic or a Special sense. For the purpose of Hiding, the creature is heavily obscured. The creature’s location can be detected by any noise it makes or any tracks it leaves.\n- Attack rolls against the creature have disadvantage, and the creature’s Attack rolls have advantage.";
+            IsParalyzed_Tooltip = "- A paralyzed creature is incapacitated (see the condition) and can’t move or speak.\n- The creature automatically fails Strength and Dexterity Saving Throws.\n- Attack rolls against the creature have advantage.\n- Any Attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.";
+            IsPetrified_Tooltip = "- A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging.\n- The creature is incapacitated(see the condition), can’t move or speak, and is unaware of its surroundings.\n- Attack rolls against the creature have advantage.\n- The creature automatically fails Strength and Dexterity Saving Throws.\n- The creature has Resistance to all damage.\n- The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized.";
+            IsPoisoned_Tooltip = "- A poisoned creature has disadvantage on Attack rolls and Ability Checks.";
+            IsProne_Tooltip = "- A prone creature’s only Movement option is to crawl, unless it stands up and thereby ends the condition.\n- The creature has disadvantage on Attack rolls.\n- An Attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the Attack roll has disadvantage.";
+            IsRestrained_Tooltip = "- A restrained creature’s speed becomes 0, and it can’t benefit from any bonus to its speed.\n- Attack rolls against the creature have advantage, and the creature’s Attack rolls have disadvantage.\n- The creature has disadvantage on Dexterity Saving Throws.";
+            IsStunned_Tooltip = "- A stunned creature is incapacitated (see the condition), can’t move, and can speak only falteringly.\n- The creature automatically fails Strength and Dexterity Saving Throws.\n- Attack rolls against the creature have advantage.";
+            IsUnconscious_Tooltip = "- An unconscious creature is incapacitated (see the condition), can’t move or speak, and is unaware of its surroundings.\n- The creature drops whatever it’s holding and falls prone.\n- The creature automatically fails Strength and Dexterity Saving Throws.\n- Attack rolls against the creature have advantage.\n- Any Attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.";
+            Exhaustion_Tooltip = "Some Special Abilities and environmental Hazards, such as starvation and the long-­term Effects of freezing or scorching temperatures, can lead to a Special condition called exhaustion. Exhaustion is measured in six levels. An Effect can give a creature one or more levels of exhaustion, as specified in the effect’s description." +
+                "\n" +
+                "\n1. Disadvantage on Ability Checks" +
+                "\n2. Speed halved" +
+                "\n3. Disadvantage on Attack rolls and Saving Throws" +
+                "\n4. Hit point maximum halved" +
+                "\n5. Speed reduced to zero" +
+                "\n6. Death" +
+                "\n" +
+                "\n- If an already exhausted creature suffers another Effect that causes exhaustion, its current level of exhaustion increases by the amount specified in the effect’s description." +
+                "\n- A creature suffers the Effect of its current level of exhaustion as well as all lower levels. For example, a creature suffering level 2 exhaustion has its speed halved and has disadvantage on Ability Checks." +
+                "\n- An Effect that removes exhaustion reduces its level as specified in the effect’s description, with all exhaustion Effects ending if a creature’s exhaustion level is reduced below 1." +
+                "\n- Finishing a Long Rest reduces a creature’s exhaustion level by 1, provided that the creature has also ingested some food and drink.";
+        }
+
+        // Databound Properties
+        #region IsBlinded_Tooltip
+        private string _IsBlinded_Tooltip;
+        public string IsBlinded_Tooltip
+        {
+            get
+            {
+                return _IsBlinded_Tooltip;
+            }
+            set
+            {
+                _IsBlinded_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsCharmed_Tooltip
+        private string _IsCharmed_Tooltip;
+        public string IsCharmed_Tooltip
+        {
+            get
+            {
+                return _IsCharmed_Tooltip;
+            }
+            set
+            {
+                _IsCharmed_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsDeafened_Tooltip
+        private string _IsDeafened_Tooltip;
+        public string IsDeafened_Tooltip
+        {
+            get
+            {
+                return _IsDeafened_Tooltip;
+            }
+            set
+            {
+                _IsDeafened_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsFrightened_Tooltip
+        private string _IsFrightened_Tooltip;
+        public string IsFrightened_Tooltip
+        {
+            get
+            {
+                return _IsFrightened_Tooltip;
+            }
+            set
+            {
+                _IsFrightened_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsGrappled_Tooltip
+        private string _IsGrappled_Tooltip;
+        public string IsGrappled_Tooltip
+        {
+            get
+            {
+                return _IsGrappled_Tooltip;
+            }
+            set
+            {
+                _IsGrappled_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsIncapacitated_Tooltip
+        private string _IsIncapacitated_Tooltip;
+        public string IsIncapacitated_Tooltip
+        {
+            get
+            {
+                return _IsIncapacitated_Tooltip;
+            }
+            set
+            {
+                _IsIncapacitated_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsInvisible_Tooltip
+        private string _IsInvisible_Tooltip;
+        public string IsInvisible_Tooltip
+        {
+            get
+            {
+                return _IsInvisible_Tooltip;
+            }
+            set
+            {
+                _IsInvisible_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsParalyzed_Tooltip
+        private string _IsParalyzed_Tooltip;
+        public string IsParalyzed_Tooltip
+        {
+            get
+            {
+                return _IsParalyzed_Tooltip;
+            }
+            set
+            {
+                _IsParalyzed_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsPetrified_Tooltip
+        private string _IsPetrified_Tooltip;
+        public string IsPetrified_Tooltip
+        {
+            get
+            {
+                return _IsPetrified_Tooltip;
+            }
+            set
+            {
+                _IsPetrified_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsPoisoned_Tooltip
+        private string _IsPoisoned_Tooltip;
+        public string IsPoisoned_Tooltip
+        {
+            get
+            {
+                return _IsPoisoned_Tooltip;
+            }
+            set
+            {
+                _IsPoisoned_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsProne_Tooltip
+        private string _IsProne_Tooltip;
+        public string IsProne_Tooltip
+        {
+            get
+            {
+                return _IsProne_Tooltip;
+            }
+            set
+            {
+                _IsProne_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsRestrained_Tooltip
+        private string _IsRestrained_Tooltip;
+        public string IsRestrained_Tooltip
+        {
+            get
+            {
+                return _IsRestrained_Tooltip;
+            }
+            set
+            {
+                _IsRestrained_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsStunned_Tooltip
+        private string _IsStunned_Tooltip;
+        public string IsStunned_Tooltip
+        {
+            get
+            {
+                return _IsStunned_Tooltip;
+            }
+            set
+            {
+                _IsStunned_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsUnconscious_Tooltip
+        private string _IsUnconscious_Tooltip;
+        public string IsUnconscious_Tooltip
+        {
+            get
+            {
+                return _IsUnconscious_Tooltip;
+            }
+            set
+            {
+                _IsUnconscious_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region Exhaustion_Tooltip
+        private string _Exhaustion_Tooltip;
+        public string Exhaustion_Tooltip
+        {
+            get
+            {
+                return _Exhaustion_Tooltip;
+            }
+            set
+            {
+                _Exhaustion_Tooltip = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+
+    }
+}

@@ -1,0 +1,275 @@
+﻿<Window x:Class="GAMMA.Windows.ShopWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:tool="clr-namespace:GAMMA.Toolbox"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="{StaticResource PrimaryBackground}"
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        mc:Ignorable="d" Height="640" Width="1024">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            </Style>
+            <Style TargetType="Rectangle">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Stroke" Value="{StaticResource ButtonBorder}" />
+                <Setter Property="StrokeThickness" Value="2" />
+            </Style>
+            <Style TargetType="ScrollViewer">
+                <Setter Property="Width" Value="250" />
+                <Setter Property="Height" Value="520" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Visible" />
+            </Style>
+            <Style TargetType="Border" x:Key="BlueBorder">
+                <Setter Property="BorderThickness" Value="0 0 2 2" />
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+                <Setter Property="CornerRadius" Value="2" />
+                <Setter Property="Margin" Value="2 1" />
+            </Style>
+            <Style TargetType="{x:Type ScrollBar}">
+                <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+            </Style>
+            <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            </Style>
+            <Style TargetType="ContextMenu" BasedOn="{StaticResource ThemedContextMenu}" />
+        </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" Margin="8 2 0 0" Background="Transparent" MouseDown="Window_MouseDown">
+            <Image Style="{StaticResource Icon_Coins}" />
+            <TextBlock Text="Player Currency: " FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Path=ProcessedCharacterCoinage, UpdateSourceTrigger=PropertyChanged}" Width="200" VerticalAlignment="Center" />
+            <Separator Width="108" Visibility="Hidden" />
+            <Image Style="{StaticResource Icon_Coins}" />
+            <TextBlock Text="{Binding Path=ToWho, UpdateSourceTrigger=PropertyChanged}" MinWidth="64" FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Path=ProcessedValue, UpdateSourceTrigger=PropertyChanged}" Width="240" VerticalAlignment="Center" />
+            <Separator Width="72" Visibility="Hidden" />
+            
+        </StackPanel>
+        <TextBlock Text="*player items are sold for 60% of their value" HorizontalAlignment="Center" Margin="0 0 0 2" />
+        <Rectangle />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Backpack" />
+                <Rectangle />
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Path=CharacterItems, UpdateSourceTrigger=PropertyChanged}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource BlueBorder}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Separator Width="4" Visibility="Hidden" />
+                                        <Image Style="{StaticResource Icon_Quantity}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Quantity}" Width="16" />
+                                        <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Name}" Width="123" />
+                                        <Image Style="{StaticResource Icon_Info}">
+                                            <Image.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding ProcessedValue}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource TooltipFontColor}" MaxWidth="480" TextWrapping="Wrap" />
+                                                </StackPanel>
+                                            </Image.ToolTip>
+                                        </Image>
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <cc:MiniButton ToolTip="Sell Item" ImageResource="{StaticResource Icon_Coins}" Command="{Binding OfferItemToSell}" CommandParameter="1" Margin="2">
+                                            <cc:MiniButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Sell 1" Command="{Binding OfferItemToSell}" CommandParameter="1" />
+                                                    <MenuItem Header="Sell 10" Command="{Binding OfferItemToSell}" CommandParameter="10" />
+                                                    <MenuItem Header="Sell 50" Command="{Binding OfferItemToSell}" CommandParameter="50" />
+                                                    <MenuItem Header="Sell 200" Command="{Binding OfferItemToSell}" CommandParameter="200" />
+                                                    <MenuItem Header="Sell All" Command="{Binding OfferItemToSell}" CommandParameter="1000000" />
+                                                </ContextMenu>
+                                            </cc:MiniButton.ContextMenu>
+                                        </cc:MiniButton>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+            <Rectangle />
+            <StackPanel>
+                <Label Content="Items to be Sold*" />
+                <Rectangle />
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Path=CharacterOfferedItems, UpdateSourceTrigger=PropertyChanged}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource BlueBorder}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Separator Width="4" Visibility="Hidden" />
+                                        <Image Style="{StaticResource Icon_Quantity}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Quantity}" Width="16" />
+                                        <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Name}" Width="123" />
+                                        <Image Style="{StaticResource Icon_Info}">
+                                            <Image.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding ProcessedValue}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource TooltipFontColor}" MaxWidth="480" TextWrapping="Wrap" />
+                                                </StackPanel>
+                                            </Image.ToolTip>
+                                        </Image>
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <cc:MiniButton ToolTip="Retract Item" ImageResource="{StaticResource Icon_X}" Command="{Binding RetractItemToSell}" CommandParameter="1" Margin="2">
+                                            <cc:MiniButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Retract 1" Command="{Binding RetractItemToSell}" CommandParameter="1" />
+                                                    <MenuItem Header="Retract 10" Command="{Binding RetractItemToSell}" CommandParameter="10" />
+                                                    <MenuItem Header="Retract 50" Command="{Binding RetractItemToSell}" CommandParameter="50" />
+                                                    <MenuItem Header="Retract 200" Command="{Binding RetractItemToSell}" CommandParameter="200" />
+                                                    <MenuItem Header="Retract All" Command="{Binding RetractItemToSell}" CommandParameter="1000000" />
+                                                </ContextMenu>
+                                            </cc:MiniButton.ContextMenu>
+                                        </cc:MiniButton>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+            <Rectangle />
+            <StackPanel>
+                <Label Content="Items to be Bought" />
+                <Rectangle />
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Path=ShopOfferedItems, UpdateSourceTrigger=PropertyChanged}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource BlueBorder}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Separator Width="4" Visibility="Hidden" />
+                                        <Image Style="{StaticResource Icon_Quantity}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Quantity}" Width="16" />
+                                        <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Name}" Width="123" />
+                                        <Image Style="{StaticResource Icon_Info}">
+                                            <Image.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding ProcessedValue}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource TooltipFontColor}" MaxWidth="480" TextWrapping="Wrap" />
+                                                </StackPanel>
+                                            </Image.ToolTip>
+                                        </Image>
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <cc:MiniButton ToolTip="Retract Item" ImageResource="{StaticResource Icon_X}" Command="{Binding RetractItemToBuy}" CommandParameter="1" Margin="2">
+                                            <cc:MiniButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Retract 1" Command="{Binding RetractItemToBuy}" CommandParameter="1" />
+                                                    <MenuItem Header="Retract 10" Command="{Binding RetractItemToBuy}" CommandParameter="10" />
+                                                    <MenuItem Header="Retract 50" Command="{Binding RetractItemToBuy}" CommandParameter="50" />
+                                                    <MenuItem Header="Retract 200" Command="{Binding RetractItemToBuy}" CommandParameter="200" />
+                                                    <MenuItem Header="Retract All" Command="{Binding RetractItemToBuy}" CommandParameter="1000000" />
+                                                </ContextMenu>
+                                            </cc:MiniButton.ContextMenu>
+                                        </cc:MiniButton>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+            <Rectangle />
+            <StackPanel>
+                <Label Content="Shop Items" />
+                <Rectangle />
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding Path=ShopItems, UpdateSourceTrigger=PropertyChanged}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource BlueBorder}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Separator Width="4" Visibility="Hidden" />
+                                        <Image Style="{StaticResource Icon_Coins}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding ProcessedValue}" Width="39" />
+                                        <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}}" />
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <TextBlock Text="{Binding Name}" Width="100" />
+                                        <Image Style="{StaticResource Icon_Info}">
+                                            <Image.ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding ProcessedValue}" Foreground="{StaticResource TooltipFontColor}" />
+                                                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource TooltipFontColor}" MaxWidth="480" TextWrapping="Wrap" />
+                                                </StackPanel>
+                                            </Image.ToolTip>
+                                        </Image>
+                                        <Separator Width="2" Visibility="Hidden" />
+                                        <cc:MiniButton ToolTip="Buy Item" ImageResource="{StaticResource Icon_Coins}" Command="{Binding OfferItemToBuy}" CommandParameter="1" Margin="2">
+                                            <cc:MiniButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Buy 1" Command="{Binding OfferItemToBuy}" CommandParameter="1" />
+                                                    <MenuItem Header="Buy 10" Command="{Binding OfferItemToBuy}" CommandParameter="10" />
+                                                    <MenuItem Header="Buy 50" Command="{Binding OfferItemToBuy}" CommandParameter="50" />
+                                                    <MenuItem Header="Buy 200" Command="{Binding OfferItemToBuy}" CommandParameter="200" />
+                                                    <MenuItem Header="Buy 500" Command="{Binding OfferItemToBuy}" CommandParameter="500" />
+                                                    <MenuItem Header="Take a Drink" Visibility="{Binding Type, Converter={tool:VisibleIfItemType}, ConverterParameter=Alcohol}" Command="{Binding Drink}" CommandParameter="ShopBypass" />
+                                                </ContextMenu>
+                                            </cc:MiniButton.ContextMenu>
+                                        </cc:MiniButton>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+            <Rectangle />
+        </StackPanel>
+        <Rectangle />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="2">
+            <cc:ImageButton Text="Confirm" ImageResource="{StaticResource Icon_Pass}" Width="84" Click="ConfirmButton_Click" />
+            <cc:ImageButton Text="Cancel" ImageResource="{StaticResource Icon_Fail}" Width="84" Click="CancelButton_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

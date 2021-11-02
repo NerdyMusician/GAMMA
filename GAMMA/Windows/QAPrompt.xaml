@@ -1,0 +1,41 @@
+﻿<Window x:Class="GAMMA.Windows.QAPrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        mc:Ignorable="d" WindowStyle="None" Height="400" Width="520"
+        Background="{StaticResource PrimaryBackground}" 
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+    </Window.Resources>
+    <StackPanel HorizontalAlignment="Center">
+        <TextBox x:Name="Question" 
+                 Height="120" Width="360"
+                 Margin="0 48 0 0"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Hidden"
+                 VerticalContentAlignment="Center"
+                 Background="Transparent"
+                 Foreground="{StaticResource PrimaryFontColor}"
+                 FontSize="14"
+                 BorderThickness="0"
+                 TextAlignment="Center" />
+        <Border Style="{StaticResource ListBorder}" Margin="0 16 0 0">
+            <ScrollViewer Width="420" Height="190">
+                <ItemsControl x:Name="AnswerList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <cc:ImageButton ImageResource="{StaticResource Icon_Initiative}" Text="{Binding Value}" Click="ImageButton_Click" Width="400" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+    </StackPanel>
+</Window>

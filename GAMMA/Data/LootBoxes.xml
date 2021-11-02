@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LootBoxModelSet Name="">
+  <LootBoxModel Name="Simple Wooden Chest" CoinageMinimum="10" CoinageMaximum="100">
+    <ItemLinkSet Name="ItemLinks">
+      <ItemLink Name="Longbow" DropChance="100" Quantity="1" />
+      <ItemLink Name="Arrow" DropChance="100" Quantity="10" />
+    </ItemLinkSet>
+  </LootBoxModel>
+</LootBoxModelSet>

@@ -1,0 +1,722 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="Image" x:Key="Icon_Base">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="100" />
+        <Setter Property="ToolTipService.ShowDuration" Value="30000" />
+    </Style>
+    
+    <!-- Title Bar Icons -->
+    <Style TargetType="Image" x:Key="Icon_GammaBlueWash" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gammabluewash.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Minimize" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/minimize.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Window" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/window.png" />
+    </Style>
+
+    <!-- Base Icons -->
+    <Style TargetType="Image" x:Key="Icon_X" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_x.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Import" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_import.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Export" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/upload.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Filter" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/filter.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Folder" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_folder.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Save" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_save.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Warning" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/warning.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Eraser" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_eraser.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Clock" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/clock.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Sort" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_sort.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Search" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/search_alt.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Info" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_info.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Plus_Green" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_add.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_PaintBrush" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/paintbrush.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_PaintRoller" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/paintroller.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_PaintBucket" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/paintbucket.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Page_Add" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/page_new.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Page_Delete" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/page_delete.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Page_Edit" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/page_paste.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Pass" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_pass.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Pause" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_pause.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Play" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_play.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Wrench" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/wrench.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Link" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/link.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Note" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/page_note.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Refresh" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_refresh.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Dropdown_Large" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_dropdown.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Dropup_Large" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_dropup.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Arrow_Up" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/arrow_up.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Arrow_Down" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/arrow_down.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Stop" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_stop.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Fail" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_fail.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Home" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/home.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Gear" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gear.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Users" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/users.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Paperclip" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/paperclip.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Calculator" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/calculator.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_User_Next" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/user_next.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_User_Previous" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/user_previous.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Transfer" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/transfer.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Checkmark" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/checkmark_green.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Linked" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/linked.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Unlinked" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/unlinked.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Workflow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/workflow.png" />
+    </Style>
+    
+    <!-- Weather Icons -->
+    <Style TargetType="Image" x:Key="Icon_Weather_Clear" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_clear.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weather_PartlyCloudy" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_partlycloudy.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weather_Cloudy" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_cloudy.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weather_Raining" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_raining.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weather_HeavyRain" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_heavyrain.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weather_Storm" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/weather_storm.png" />
+    </Style>
+    
+    <!-- Item Types -->
+    <Style TargetType="Image" x:Key="Icon_Bullet" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/bullet.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rune" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rune.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Treasure" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/treasure.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Book" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/book.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Bow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/bow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Hammer" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/hammer.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Potion" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/potion_b.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Leaf" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/leaf.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_MagicWeapon" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/magicweapon.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_MagicItem" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/magicitem.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Scroll" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/scroll.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Food" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/foodstuff.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Alcohol" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/booze.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Shirt" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/shirt.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Key_Gold" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/key_gold.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Key_Silver" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/key_silver.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Key_Copper" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/key_copper.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Gemstone" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gemstone.png" />
+    </Style>
+    
+    <!-- Spell Schools -->
+    <Style TargetType="Image" x:Key="Icon_Abjuration" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/abjuration.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Conjuration" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/conjuration.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Divination" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/divination.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Enchantment" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/enchantment.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Evocation" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/evocation.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Illusion" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/illusion.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Necromancy" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/necromancy.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Transmutation" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/transmutation.png" />
+    </Style>
+    
+    <!-- Vision -->
+    <Style TargetType="Image" x:Key="Icon_Perception" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_perception.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Truesight" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_truesight.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Blindsight" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_blindsight.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tremorsense" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_tremorsense.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Darkvision" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_darkvision.png" />
+    </Style>
+    
+    <!-- Vitality -->
+    <Style TargetType="Image" x:Key="Icon_Health_Minus_Five" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_minus_five.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Health_Minus_One" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_minus_one.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Health_Minus_Ten" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_minus_ten.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Health_Plus_Five" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_plus_five.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Health_Plus_One" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_plus_one.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Health_Plus_Ten" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/health_plus_ten.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Heart" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/heart.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Heart_Pink" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/heart_pink.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_HitDice" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/hitdice.png" />
+    </Style>
+    
+    <!-- Other -->
+    <Style TargetType="Image" x:Key="Icon_Tag_A" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_a.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_C" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_c.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_CI" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_ci.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_DI" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_di.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_DR" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_dr.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_DV" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_dv.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_I" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_i.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_N" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_n.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_R" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_r.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_S" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_s.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_V" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_v.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tag_X" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tag_x.png" />
+    </Style>
+    
+    <!-- Creature Types -->
+    <Style TargetType="Image" x:Key="Icon_Fey" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/fey.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Fiend" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/fiend.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Construct" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/construct.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Celestial" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/celestial.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Aberration" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/aberration.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Dragonclaw" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_dragon.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Monster" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/monster.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Scott" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/scott.png" />
+    </Style>
+    
+    
+    <!-- Unsorted -->
+    <Style TargetType="Image" x:Key="Icon_AddCreature" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/creature_add.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_User_Add" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/person_add.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Dice" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dice.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Skull" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_skull.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Bag" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/bag.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Spell" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/spell.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Sleep" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/sleep.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Shield" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_shield.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Step" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_step.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Sword" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/sword.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Cube" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/cube.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Hand" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_hand.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Theatre" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_mask.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tree" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tree.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_CopperCoin" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coin_copper.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Beast" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/beast.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Bank" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/civic.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Musicnote" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_music.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Campfire" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/campfire.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Mask" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/ninja.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Weight" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_weight.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Debuff" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/debuff.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Initiative" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_initiative.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Orb" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/orb.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Feather" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/feather.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Fish" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/fish.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Mountain" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/mountain.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Burrow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/burrow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Quantity" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/quantity.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Explosion" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/explosion.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_AddItem" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/additem.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_AddCoins" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coins_add.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Ampersand" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/ampersand.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_GoldCoin" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coin_gold.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_SilverCoin" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coin_silver.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Coins" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coins.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Buff" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/buff.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Minus" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/minus.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Anvil" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/anvil.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Pack" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/pack.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Ring" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/ring.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Wheel" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/wagonwheel.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_TransferCoins" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coins_transfer.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_SubtractCoins" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/coins_subtract.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Audio" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_audio.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Letter_S" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/letter_s.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Table" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dm_table.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Vendor" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/vendor.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Gamepad" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gamepad.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Hex" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/hex.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Hex_A" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/hex_a.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_D20" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/d20.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Map" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/map.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Trajectory" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/trajectory.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Dodge" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/dodge.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Disengage" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/disengage.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Action" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/action.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_CreaturePack" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/creaturepack.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Ale" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/ale.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Liquid" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/liquid.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Fishing" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/fishing.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Poison" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/poison_b.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Gun" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gun.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Spear" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/spear.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Crossbow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/crossbow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Holy" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/holy.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Location" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/location.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Miniature" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/miniature.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_MatchRound" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/matchround.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Art" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/art.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Crate" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/crate.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Smile" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/smile.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_GP" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/gp.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Tabletop" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/tabletop.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_ScreenOn" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/screen_on.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_ScreenOff" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/screen_off.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_RubberDuck" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rubberduck.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Patreon" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/patreon.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Reddit" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/reddit.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Fall" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/fall.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Puzzle" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/puzzle.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Trap" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/trap.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Orb_Gray" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/orb_gray.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Orb_Green" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/orb_green.png" />
+    </Style>
+
+    <!-- RPG Icon Redux -->
+    <Style TargetType="Image" x:Key="Icon_Rpg_Arrow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_arrow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Axe" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_axe.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Book" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_book.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Boot" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_boot.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Bow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_bow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Clothing" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_clothing.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Eye" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_eye.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Fancy_Bow" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_fancy_bow.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Feather" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_feather.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Fish" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_fish.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Food" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_food.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Gemstone" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_gemstone.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Heavy_Armor" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_heavy_armor.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Holy_Symbol" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_holy_symbol.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Key" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_key.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Light_Armor" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_light_armor.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Magic_Weapon" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_magic_weapon.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Medicine" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_medicine.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Medium_Armor" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_medium_armor.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Note" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_note.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Orb" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_orb.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Plant" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_plant.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Resource" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_resource.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Ring" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_ring.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Scroll" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_scroll.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Shield" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_shield.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Skull" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_skull.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Staff" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_staff.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Sword" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_sword.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Rpg_Wand" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/rpg_wand.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Crossed_Swords" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/crossed_swords.png" />
+    </Style>
+    
+
+
+
+</ResourceDictionary>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="GAMMA.Windows.CurrencyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        xmlns:tool="clr-namespace:GAMMA.Toolbox"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="{StaticResource PrimaryBackground}"
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        Title="CurrencyDialog" Height="196" Width="320">
+    <Window.Resources>
+        <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+        <Style TargetType="cc:GammaTextBox" BasedOn="{StaticResource PartialBorderTextBox}">
+            <Setter Property="Width" Value="48" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+        </Style>
+        <Style TargetType="Separator">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="16 24">
+        <TextBlock x:Name="WindowTitle" Text="Currency" FontSize="14" HorizontalAlignment="Center" />
+        <Separator Height="8" />
+        <cc:GammaComboBox x:Name="TransferTo" Style="{StaticResource CustomComboBox}" Width="236" Foreground="{StaticResource PrimaryFontColor}" />
+        <Separator />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <cc:GammaTextBox x:Name="GoldPieces" />
+            <TextBlock Text="GP" />
+            <Separator />
+            <cc:GammaTextBox x:Name="SilverPieces" />
+            <TextBlock Text="SP" />
+            <Separator />
+            <cc:GammaTextBox x:Name="CopperPieces" />
+            <TextBlock Text="CP" />
+            <Separator />
+        </StackPanel>
+        <StackPanel Margin="0 16" Orientation="Horizontal" HorizontalAlignment="Center">
+            <cc:ImageButton Text="Submit" ImageResource="{StaticResource Icon_Pass}" Click="SubmitButton_Click" Width="72" />
+            <cc:ImageButton Text="Cancel" ImageResource="{StaticResource Icon_Fail}" Click="CancelButton_Click" Width="72" />
+        </StackPanel>
+    </StackPanel>
+</Window>

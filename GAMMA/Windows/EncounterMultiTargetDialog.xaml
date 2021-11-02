@@ -1,0 +1,141 @@
+﻿<Window x:Class="GAMMA.Windows.EncounterMultiTargetDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="{StaticResource PrimaryBackground}"
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        Title="Encounter Multi-Target Options" Height="480" Width="748" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <Style TargetType="Label" BasedOn="{StaticResource SectionHeader}" />
+        <Style TargetType="Rectangle" BasedOn="{StaticResource HorizontalDivider}" />
+        <Style TargetType="cc:GammaTextBox" BasedOn="{StaticResource PartialBorderTextBox}" />
+        <Style TargetType="CheckBox" BasedOn="{StaticResource BaseCheckBox}" />
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="0 2" />
+        </Style>
+        <Style TargetType="Separator">
+            <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Height" Value="4" />
+            <Setter Property="Width" Value="4" />
+        </Style>
+        <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+        <Style TargetType="{x:Type ScrollBar}">
+            <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+        </Style>
+        <Style TargetType="{x:Type cc:GammaComboBox}" BasedOn="{StaticResource CustomComboBox}">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="IsTextSearchEnabled" Value="True" />
+            <Setter Property="IsTextSearchCaseSensitive" Value="False" />
+            <Setter Property="IsEditable" Value="True" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+        </Style>
+        <Style TargetType="{x:Type cc:FieldLabel}">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryFontColor}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="16 8">
+        <TextBlock Text="Encounter Multi-Target Tool" Width="auto" Foreground="{StaticResource PrimaryFontColor}" />
+        <Label Content="Multi-Target Effect" />
+        <Rectangle />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Label Content="Save Information" />
+                <Rectangle />
+                <StackPanel Orientation="Horizontal">
+                    <cc:FieldLabel Text="Save Ability" />
+                    <cc:GammaComboBox x:Name="ComboBox_SaveAbility" Width="140" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <cc:FieldLabel Text="Save DC" />
+                    <cc:GammaTextBox x:Name="TextBox_SaveDifficulty" Width="38" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <cc:FieldLabel Text="Effect Type" />
+                    <cc:GammaComboBox x:Name="ComboBox_EffectType" Width="140" />
+                </StackPanel>
+                <StackPanel x:Name="AttackForm">
+                    <Label Content="Attack Information" />
+                    <Rectangle />
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Primary Damage" />
+                        <cc:GammaTextBox x:Name="TBX_PrimaryDamageAmount" Width="38" />
+                        <Separator />
+                        <cc:GammaComboBox x:Name="CBX_PrimaryDamageType" Width="140" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Secondary Damage" />
+                        <cc:GammaTextBox x:Name="TBX_SecondaryDamageAmount" Width="38" />
+                        <Separator />
+                        <cc:GammaComboBox x:Name="CBX_SecondaryDamageType" Width="140" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Half on Save?" />
+                        <CheckBox x:Name="CheckBox_HalfOnSave" Margin="0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Magic Weapon?" />
+                        <CheckBox x:Name="CheckBox_MagicWeapon" Margin="0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Adamantine Weapon?" />
+                        <CheckBox x:Name="CheckBox_Adamantine" Margin="0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <cc:FieldLabel Text="Silvered Weapon?" />
+                        <CheckBox x:Name="CheckBox_Silvered" Margin="0" />
+                    </StackPanel>
+                </StackPanel>
+                <Label Content="Other Information" />
+                <Rectangle />
+                <StackPanel Orientation="Horizontal">
+                    <cc:FieldLabel Text="Condition on Fail" />
+                    <cc:GammaComboBox x:Name="ComboBox_Condition" Width="140" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Name="SpecialForm">
+                    <cc:FieldLabel Text="Special Condition" />
+                    <cc:GammaTextBox x:Name="TextBox_SpecialCondition" Width="138" />
+                </StackPanel>
+            </StackPanel>
+            <Separator Width="32" />
+            <StackPanel>
+                <DockPanel Margin="1">
+                    <Label Content="Target Information" />
+                    <cc:IconButton ImageResource="{StaticResource Icon_Refresh}" ToolTip="Reset Selections" Click="RefreshButton_Click" HorizontalAlignment="Right" />
+                </DockPanel>
+                <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" Margin="0" HorizontalAlignment="Left">
+                    <ScrollViewer Width="348" Height="340">
+                        <ItemsControl x:Name="ItemsControl_Creatures">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsTarget}" />
+                                        <TextBlock Text="{Binding DisplayName}" Foreground="{StaticResource PrimaryFontColor}" Width="200" />
+                                        <CheckBox IsChecked="{Binding HasGroupSaveAdvantage}" />
+                                        <TextBlock Text="Adv" Foreground="{StaticResource PrimaryFontColor}" />
+                                        <Separator Width="16" />
+                                        <CheckBox IsChecked="{Binding HasGroupSaveDisadvantage}" />
+                                        <TextBlock Text="Dis" Foreground="{StaticResource PrimaryFontColor}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="0 4" HorizontalAlignment="Right">
+                    <cc:ImageButton Text="Confirm" ImageResource="{StaticResource Icon_Pass}" Width="84" Click="ConfirmButton_Click" />
+                    <cc:ImageButton Text="Cancel" ImageResource="{StaticResource Icon_Fail}" Width="84" Click="CancelButton_Click" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>

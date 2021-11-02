@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="BaseBackground" Color="#2C2C2C" />
+    <SolidColorBrush x:Key="ButtonBackground" Color="#333333" />
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#3E3E3E" />
+    <SolidColorBrush x:Key="ListBorderBrush" Color="#555555" />
+    <SolidColorBrush x:Key="ControlBorder" Color="#555555" />
+    <SolidColorBrush x:Key="ForegroundText" Color="White" />
+    <SolidColorBrush x:Key="LabelColor" Color="#999999" />
+    
+    <SolidColorBrush x:Key="CreatureCard_ActiveBackground" Color="#6F5210" />
+    <SolidColorBrush x:Key="CreatureCard_DeadBackground" Color="#AE0808" />
+    <SolidColorBrush x:Key="CreatureCard_SearchMatch" Color="DarkViolet" />
+
+</ResourceDictionary>
