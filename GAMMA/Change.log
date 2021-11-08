@@ -1,0 +1,865 @@
+﻿GAMMA 1.26.04
+- Fixed issue where borrowed fishing tackle wasn't actually fishing
+- Fixed issue where character max hp would not calculate correctly on startup
+
+GAMMA 1.26.03
+- Fixed issue where cantrip ability spells were not scaling properly by character level
+- Fixed issue where character message clear-all was missing parameter to function
+
+GAMMA 1.26.02
+- Fixed issue where [Is Critical Hit] was being set to "True" on any attack result
+- Fixed issue where conditions were unable to be removed from Custom Ability pre and post output actions
+- Fixed issue where post-output actions were not resolving variables properly (referencing source collection instead of working collection)
+- Changed default value type for CAVariable to Number instead of Text since it will be the more common usage
+- Updated CustomAbility to populate the Target and Condition Variable dropdowns
+- Changed the Data Cleanup buttons to better represent their purpose
+- Added directory removal to data cleanup methods
+
+GAMMA 1.26.01
+- Fixed typo preventing wondrous items from being equippable to hand, added it to armor and accessory equippable lists as well
+- Added ability to right-click event and delete for campaigns and characters event history
+- Fixed issue where creature attacks (now abilities) were not displaying in info card (may require additional data entry, uses CustomAbility.Description property)
+- Fixed issue where player class and name were not aligning properly on large campaign card
+- Updated campaigns npc list sorting to adhere to OOC toggle
+- Updated group save utility for minions to output to Roll20 when linked
+- Added tool to reset all allied NPC hit points and spell slots in a campaign
+- Added Setting to dictate whether or not to enforce creature spell slot usage for DM
+- Adjustments to character inventory UI
+- New transfer dialog window to facilitate rapid / bulk transfer of items between character inventory tabs
+- Added handling for "None" option in Custom Ability > Pre-Output Action > Attack Ability
+
+GAMMA 1.26.00
+- Removed Legacy DM screens (Tracker and Notebooks)
+- Removed Packs and NPCs from Other Tools (functionality available under Campaigns)
+- Spellcasting rewrite to utilize new CustomAbility class
+- Character long rest now clears concentration
+- Improved icon and handling of Roll20 chat linking from character screen
+- Added character inventory screen
+- Added item weapon stats
+- Added item armor stats
+- Added ability to equip certain items as Main Hand, Off Hand, Armor, or Accessory
+- Character attack rewrite to utilize new CustomAbility class
+- Creature attack rewrite to utilize new CustomAbility class
+- New Sourcebook object to dictate which data items get cleared upon settings data wipe utility usage
+- Added short rest button for characters and marker to indicate if a Counter should reset on that rest
+- Fixed bug where renaming NPC and not updating pack that uses them causes application crash
+- Adjustment to minion cards for characters
+- Added button to sort character minions by name
+- Fixed bug where 12:00pm-12:59pm was showing with am
+- Fixed Roll20 output mishap with fishing miss
+
+GAMMA 1.25.10
+- Fixed bug where character import was setting characters' max hit points to zero
+- Fixed a bug where leveling up a character would register the prior leveled character as the Last Accessed Character, so when using the swap button it would load a character that technically no longer exists
+- Fixed a bug where resetting the web driver would not unlink characters from the chat, causing them to attempt to verify connection when viewed again
+- Fixed timing issue with setting Speaking As dropdown in Roll20 upon initial connection
+- Fixed bug where no secondary damage type for group save was causing primary to double
+- Fixed bug where creature info card wasn't showing save effect damage if once single dice
+- Fixed bug where extra blank line was being added to info card for save effect even if none was entered
+- Fixed bug where character inventory items weren't displaying after import (workaround was to click eraser to refresh)
+- Fixed character creator bug for attribute choice with certain races (half elf, warforged)
+- Increased with for creature/player name in campaigns gameplay active combatant card
+
+GAMMA 1.25.09
+- Changed fishing to prompt player if they are borrowing gear instead of outright denying action if no fishing tackle found in backpack
+- Added secondary damage type and update UI layout for Group Save feature to handle multi-damage-type spells (such as Ice Storm)
+- Added failure message when rolling 1 on fishing attempt
+- Updated Character minions section to auto-letter creatures' names like the Campagins section does
+- Fixed bug where creature autotexts were not generating for minions on initial add
+- Added context menu option for alcohol items in shops to have a drink taken (stand-in for 'taking a shot' at a bar)
+- Added context menu option for subrace sort to sort by what they are subrace of then by name
+- Added context menu option for subclass sort to sort by what they are subclass of then by name
+- Added Spell Report that shows: Spell count by school, spell count by level, spells marked validated but missing classes
+- Updated full system import to get all Images and Audio contents from prior release as well
+- Updated save methods to suppress notifications when doing full system import
+- Added context menu option for drink to be poured, decrementing a drink without rolling for character consumption
+- Added validation catch for group save tool for when no targets have been selected
+
+GAMMA 1.25.08
+- Added Encounter note type and icon
+- Fixed bug where application crashed from a null get when adding a new trait to a creature
+- Removed Show Validation setting, this checkbox will now always be visible on data pages
+- Removed validation images from list displays, font color for the item will now change in the list to indicate validation status
+- Fixed bug where Subclass list was not updating for existing characters after adding a new one to GAMMA until application restart
+- Fixed bug where language proficiencies from subrace weren't being added
+- Fixed bug where Additional Known Cantrips feature was not resolving in character creator
+
+GAMMA 1.25.07
+- Fixed bug where character creator would crash on setting skill proficiencies if subclass can no longer be found
+- Changes Note Content fields to no longer select all text on keyboard focus (prevent accidental full deletion)
+- Fixed bug where spell slots per level was inserting duplicate empty rows upon importing data and would subsequently save them, leading to bad class data
+- Added 2 second wait for WebDriver outputting successful connection message to Roll20 (web page loading wouldn't pick up the output in time)
+
+GAMMA 1.25.06
+- Fixed bug where expertise would load incorrectly causing a crash while editing a character (note: this may require re-marking skill expertise when next editing a character) 
+  > It was a naming issue with the Bard Expertise feature, with no level differentiator in the name it was crashing
+  > When it did resolve it copied the first choices to the second set
+- Fixed bug where WebDriver Status was not displaying in the Settings
+- Updated formatted texts for creature attacks on info cards to include additional information for saving throws or special effects
+- Updated ContextMenu styling to match dark theme
+- Added ContextMenu to Campaign message clear button to clear messages past a certain count (to help reduce message data stored if needed)
+- Added ContextMenu to Hit Dice roll button to allow a player to roll to a preset status threshold (reduce number of messages generated, especially when linked to Roll20)
+- Removed Note indicator from creature cards in Campaigns view since note text field is always visible
+- Updated ContextMenu text so that Remove 'Creature' is 'NPC' or 'Player' on the appropriate Campaign tracker cards
+- Added derived collections for traits to display in two columns for creature info cards to better utilize space
+- Added an indicator in player inventory items if the item requires attunement (preset items only)
+
+GAMMA 1.25.05
+- Changed full GAMMA data import to include Settings
+- Added Yes/No prompt for combat reset on Campaigns
+- Updated player death save rolls to output to Roll20 when available
+- Updated WebDriver error messages to provide additional guidance
+- Added output to player log when they connect or disconnect character to chat log via link button
+
+GAMMA 1.25.04
+- Completed full application data import feature
+- Added Secondary Filter list to multi object selection window
+- Added spell levels to secondary filter list for selection window
+- Fixed bug where Active Effects for creatures were not outputting to the campaign messages
+
+GAMMA 1.25.03
+- Added ability to duplicate entries for player building blocks (Class, Race, etc)
+- Added Puzzle and Trap note types with associated icons
+- Added logic to handle subclass enabling saving throw proficiency (Ranger > Gloom Stalker > Iron Mind)
+- Fixed bug where character hit point calculation could be off on level change
+- Fixed bug where downleveling a character in creation would cause an application crash if the character is losing a selected feat or spell
+- Fixed bug where changing the Feat/Attribute Choice selection for an existing character was not updating the screen until character level changed
+- Fixed bug where cantrips were not scaling to level correctly (was still using CharacterModel.Level from 1.23.00 and earlier)
+- Removal of legacy code no longer in use
+- Beta version of full application data import feature available
+
+GAMMA 1.25.02
+- Fixed bug where creature portraits were not loading (searching wrong folder)
+- Fixed bug where player portraits were not accepting .jpg and .gif
+- Fixed bug where adding NPCs to combat didn't update Name list until initiative rolled
+- Fixed issue where creature skill proficiencies were not being considered in skill checks
+- Implemented workaround for bug where Weather and Calendar dropdowns on Campaigns were not closing
+- Added [Other Tools] option for character builder features - tool proficiencies
+- Added Context Menu to Creature and Player trait descriptions to copy text to clipboard
+- Added button for sorting characters by name
+- Moved creature info card into a user control to unify where it's being used
+
+GAMMA 1.25.01
+- Fixed bug where remove DM data feature wasn't clearing campaigns
+- Fixed bug where adding creature back did not update Name and Player lists in gameplay for campaign
+- Fixed bug where Clear All Entities did not update Name and Player lists in gameplay for campaign
+- Fixed bug where missed creature attack did not log to campaign events
+- Fixed bug where number suffix was generating incorrectly for 11, 12, and 13
+- Fixed bug where character coin flips didn't copy to web
+- Fixed potential bug for null calendar match on startup
+- Fixed bug where Stat Bonus for HP per level from a feat was not updating total properly during character creation
+- Fixed bug where editing character sheet through creator cleared prepared spell checkmarks
+- Fixed bug where spell slots available were setting to zero on a new character
+- Fixed bug where spellcasting ability attribute was not populating on first character opened
+- Fixed bug where alignment wasn't saving
+- Fixed typo in intoxication level descriptions (even though this will be customizable in the future)
+- Fixed bug where the incorrect attribute was being used for some creature skill checks
+- Removed GameToken.cs (unreleased feature)
+- Removed ability to left-click mark creature as active combatant in Campaign -> Gameplay lists. Option moved to context menu
+- Changed tracker card images from button element to just image element since removing left-click functionality
+- Changed allowed image types for creatures and NPCs to include .jpg and .gif
+- Changed spells prepared count to ignore cantrip markings
+- Added Configuration.HasUsedCharacterBuilder to restrict exitsave prompt when character builder hasn't been interacted with
+- Added initiative message type for Campaign gameplay
+- Added buttons to adjust quantity for preset items in character inventory
+- Added validation to prevent saving multiple characters of the same name
+
+GAMMA 1.25.00
+- Added CampaignsViewModel.cs
+- Added GameCampaign.cs : Game Campaigns are a collection of an encounter tracker, notes, NPCs, players, and packs in order to provide better organization for DMs in charge of multiple campaigns
+- Added GameCalendar.cs : Provides a way for users to create their own Day and Month structures, similar to something like Elder Scrolls
+- Added GameMessage.cs : Provides additional data for a message that can allow for filtering and sorting
+- Added Weather.cs : Provides a way for users to create their own structures for weather intensity effects
+- Added Timestamp.cs : Provides the ability to timestamp events for DM usage in the campaigns view
+- Added Campaigns Tab and associated UI components for handling multi-campaign-DM organization better
+- Added Import feature to various lists in Other Tools
+- Modified CreatureModel methods to account for campaigns, as before it would read whether you are on Tracker or Player tabs only
+- Removed In DM Mode setting, replaced with more granular: DM Mode (Classic), DM Mode (Modern), and Show Data
+- Fixed bug where loot box data was not loading properly (ItemModel -> ItemLink changeover miss)
+- Fixed bugs where saving zero count lists in Other Tools crashed application and corrupted save file
+- Fixed bug where using the Note search feature crashed the application
+
+GAMMA 1.24.01
+- Fixed bug where base weapon armor and proficiencies were being applied for multiclasses
+- Updated artwork for some icons (7Soul on GameDevMarket)
+
+GAMMA 1.24.00
+Player Character Creation Window
+This release includes significant additions and reworks of the Player Character screens
+as well as 'Player Building Blocks' such as Player Class, Player Race, etc. Many player character
+fields have been transitioned to read-only TextBlock elements instead of TextBox because the
+values would be overwritten by the character creation process anyway, and enforces its use.
+Various stat bonus fields were added however to still accomodate for one-off rule exceptions or
+buffs to player stats and skills.
+
+Significant data rework was done for Player Classes / Races etc to the point where it was
+unfortunately not practical to be able to translate data to the new system like what had been
+done previously with InventoryModel and SpellLink, so any of that type of data entered into
+a 1.23 or earlier system will need to be manually rebuilt. Instead of the individual specific
+fields and data sets for those player building blocks, it now utilizes a system of 'Features'
+that can have different types and values, which are then processed as a list during character
+creation to display appropriate information and fields to the player, and also allowing for
+higher variety of customization for homebrew items going forward.
+
+GAMMA 1.23.02
+- Fixed miscalculation for Group Save damage based on Adamantine and Silvered weapons
+- Fixed font color and layout for processed value of custom items in character inventory
+- Added Other Rolls dropdown to Encounter Tracker
+- Added Fall Damage to Other Rolls
+- Added ability to Roll Loot directly in Creature Builder
+- Added ability to add character attack as Strength or Dexterity based to fill in attack and damage modifiers for an attack roll
+- Added ability to cast spells as ritual from player spellcasting
+- Added button to clear log file, added method call to clear DM and Release data functions
+- Added ability to generate hit points max from classes
+- Added Creature Type filtering to Creature Builder tab list
+
+GAMMA 1.23.01
+- Calculate and show expected average hit points in creature builder, helps with homebrew creation
+- Fixed calculation for average hit points to match source material
+- Added release data wipe functions
+- Moved exitsave prompt to Close button method instead of window closing event, interferred with data wipe function
+- Change so that empty encounters still save the other information (day, weather, notes)
+- Changed binding for tracker card icons to show based on creature type if art not found instead of defaulting to Beast icon
+- Updated binding converters to handle objects instead of strings for image sources
+- Fixed issue where not all encounter screen fields being reset with New Encounter
+- Fixed issue where inventory search was not working
+- Fixed issue where inventory value was updating based on filtered items instead of all items
+- Fixed font color for Group Save window title
+- Fixed format spacing for Combat Counters
+- Fixed issue where inventory list was not updating after adding new items
+- Fixed double-period issue for multi-attack spell miss
+- Fixed bug where loaded encounters were not maintaining spell links for creatures
+
+GAMMA 1.23.00
+- Addition: InventoryModel
+- Addition: ShopModel
+- Addition: CreaturePackModel.IsAlly to set friendly packs (such as mercenaries hired by party)
+- Addition: SpellLink
+- Addition: ItemLink
+- Addition: ItemModel.RequiresAttunement, IsMagic
+- Modification: On loading 1.22 or older inventory data, it is transferred to the new system automatically
+- Modification: shop list now pulled from Tools data and can be generated by users for more flexibility in shop types
+- Removed: restriction on casting Prepared spells only
+- Recode: Transition to InventoryModel system instead of hard-coded Backpack, Vehicle, and Bank
+- Recode: Transition to Spell Links to full data repository vs making hard copies when adding to characters and creatures, reduces save data redundancy
+- Recode: Transition to Item Links to full data repository vs making hard copies when adding loot to creatures and loot boxes, reduces save data redundancy
+- Fix: UI bug where if Active Creature was a player the card horizontal alignment was centered vs left oriented
+
+GAMMA 1.22.02
+- Addition: CreatureModel and AttackModel properties and methods to generate descriptions instead of conditional <Run> controls in UI
+- Modification: item type check upon importing of characters to correct older data
+- Modification: added drinking tooltip to DC for alcohol in item builder
+- Modification: changed text for item delete button to "Remove All" in character inventory to reduce confusion
+- Modification: increased tooltip duration for player spell info to 60 seconds
+- Modification: UI adjustment for item builder entry forms to tabbed layout
+- Modification: UI overhaul replacing TextBlock style with derived TextBlock control
+- Modification: Replaced numerous nested StackPanel layouts with Grids
+- Fix: Encounter notes auto-sizing vs word wrapping issue
+- Fix: Duplicated Spells, Items, and Creatures no longer keep IsValidated marked
+
+GAMMA 1.22.01
+- Addition: New Encounter button for tracker that resets campaign day counter and creature list
+- Addition: Web action model for future expansion of WebDriver functionality
+- Modification: changing Active Character to one who is linked to Roll20 output sets Speaking As
+- Modification: added ItemModel.AlcoholDc calculated from percentage to display on item for DM use
+- Modification: hidden setting for different notification window format to handle reports better
+- Modification: moved Minions section from Combat tab to new Minions tab
+- Modification: enlarged Combat Notes section to fill space from Minions section
+- Modification: new creature cards for character minions
+- Modification: changed from ObjectSelectionDialog to MultiObjectSelectionDialog for character minion selection
+- Modification: changed icon for Group Save in tracker to match other Saving Throw buttons
+- Modification: made Group Save available for character minions, moved helper methods to globally accessible area
+- Fix: text vertical alignment for XP value on creature creator
+- Fix: set encounter notes textbox to wrap
+- Fix: text vertical alignment for processed value on item creator
+- Fix: creature attribute check popup not closing after selection
+
+GAMMA 1.22.00
+- DATA STRUCTURE CHANGE WARNING: Class and Level information for characters will require re-entry
+- DATA CHANGE WARNING: Various items under Food & Drink category could change to Alcohol in the Item Builder, this will affect creature loot
+- Added a PlayerClassModel to Other Tools and Data
+- Added a PlayerSubclassModel to Other Tools and Data
+- Added ability to generate hit dice based on class selections
+- Added CharacterModel.IntoxicationLevel
+- Added ability to mark items as Fish and enter associated information
+- Added fishing activity to character inventory tabs
+- Added Fish Report in Item Builder to help determine if areas were lacking in fish variety
+- Added Traits to PlayerSubClassModel
+- Added filter Has Miniature Only to creature builder
+- Added Challenge Rating and Experience Value to info popup for creature cards
+- Added roll output to extra damage for attack options
+- Added About GAMMA section to settings with buttons to view documentation and change log
+- Added reports tool tab under Other Tools and Data
+- Added Traits to PlayerRaceModel
+- Added Active Creature to Tracker, shows below round counter to minimize mouse movement and promote use of round counter controls
+- Added Player Feats data section and controls
+- Added Languages data section and controls
+- Added NPC List to Creature Pack
+- Added Spell Classes and Spell Sourcebook properties
+- Added Item Sourcebook property
+- Added CreatureModel properties MiniatureQuantity, HasMiniature, MiniatureLocation, Sourcebook
+- Added CharacterModel properties Personality, Ideals, Bonds, Flaws
+- Added TrackerViewModel properties EncounterRound and Notes, command ChangeActiveCreature with parameters Next, Previous, Reset and associated UI controls
+- Added PlayerRace and PlayerSubrace to Other Tools and Data
+- Added PlayerBackground to Other Tools and Data
+- Added Subrace to Characters
+- Added Character ExperiencePoints field, along with XpToNext hint text, and a setting for whether or not to use xp
+- Added HelperClass.ConvertibleValue for simple values to save to xml under different types
+- Added CharacterModel.HasPowerfulBuild to double carry capacity for races with this feature
+- Added Item Types Light Armor, Medium Armor, Heavy Armor, Shields
+- Modified CharacterModel to utilize the PlayerClassLinkModel to set one or more classes for a character from data lists
+- Modified ItemModel to contain stats for consumption of alcohol along with methods to handle player character drinking and becoming intoxicated
+- Modified Long Rest to recover Minion hit points
+- Modified Item Builder UI
+- Modified Creature Builder UI
+- Modified Character Race and Background to dropdowns to be populated from new data segments
+- Modified UseExperience setting so that Loot the Dead on tracker screen also totals dead enemy creature xp values
+- Modified HelperMethods.WriteToLogFile to have boolean to notify user with popup message in addition to writing to log with datetime
+- Modified CreatureModel.ToggleOoc to no longer sort upon each creature change. Performance issues with attempting to resort combatants each time
+- Modified creature sorting for tracker to put dead creatures at the end but keep in tracker for loot rolling at combat's end
+- Modified ability check and saving throw button icons for minions
+- Fixed bug where physical damage resistances were not all populating auto-text for creature card tooltips
+- Fixed issue where minion attack miss showed creature base name, not display name
+- Fixed alt save damage dice quantity bug
+- Fixed Active Effect player output to not use apostrophe (Roll20 formatting issue)
+- Fixed bug where missed player attacks did not copy to Roll20
+- Fixed bug where attack that only had a special effect was not outputting properly
+- Fixed bug where group save damage that brought creature to zero hitpoints would not message of death in log
+- Fixed bug where out-of-combat (OOC) creatures appeared in Group Save dialog
+- Fixed various tooltip font colors
+- Removed fish report from creature builder
+- Removed ItemModel.Lore from UI, kept property on item for data retrieval if needed
+
+GAMMA 1.21.00
+- Added District, Map, and Landmark note types
+- Added d20 icon
+- Changed dice icon
+- Changed Skill Check to Skills
+- Changed Stat Check to Abilities
+- Changed Dice Rolls to Other Rolls
+- Changed icon for ability checks
+- Added tooltips for player notes icon buttons
+- Fixed issue with player character information text boxes not allowing word wrapping
+- Resized information text boxes for player characters
+- Added ability to attach file to a note (player notes and dm notebooks, directory is shared)
+- Fixed issue where ObjectSelectionDialog window was showing white bar along top (transparency setting with window)
+- Fixed issue where character note form was showing when no active note was selected
+- Added ability to open note attachments in their default program
+- Added ability to remove attachment from a note
+- Changed character import to check directory to see if NoteAttachments folder exists and to copy contents (for transferring from prior Gamma release to new)
+- Changed character preset dice rolls to copy to Roll20 when able
+- Fixed issue where Multiple Object Selection dialog window title was not updating correctly (was still pointing at preset Title style)
+- Added NpcModel with properties Name, BaseCreatureName, and IsFriendly
+- Added ability to add, modify, and remove NPC mappings in Other Tools
+- Added ability to add NPCs to the combat tracker more quickly
+- Added Darkvision stat for character to display in info bar
+- Added setting to use average health for creatures instead of rolling (NPCs always use average)
+- Improved tooltip information for creature spells in tracker (copied from characters)
+- Adjusted multi-attack spell formatting for Roll20 for readability
+- Modified RollTable, added properties HasModifier, ModifierInfo, and AvailableToPlayers
+- Changed player screen roll tables to only include ones marked as AvailableToPlayers
+- Added CreaturePackModel with properties Name, CreatureList
+- Added PackCreatureModel with properties CreatureName, Quantity
+- Added ability to creature preset creature packs
+- Added ability to add creature pack to encounter tracker
+- Added new dialog window for inputting number (used for roll table modifier)
+
+GAMMA 1.20.00
+- Added item types: Key, Book, Gemstone
+- Maintenance improvement for shop list generation
+- Enabled buying / selling in shop window of various quantities through right-click menu
+- Changed Roll20 Chat copy method to select chat tab first to prevent erroring out if another tab is selected in Roll20
+- Added additional save damage type for creature attacks (Bullete Deadly Leap [slash + bludge])
+- Fixed output format issue with spell save alt damage dice rolls
+- Fixed issue with alt damage dice for spell attacks
+- Added settings to enable / disable individual sound effects or sfx as a whole
+- Fixed issue where a cancelled shop transaction still deducted character offered items
+- Added sound effect for item buying / selling
+- Added sound effect for shop open / close
+- Added ability to delete notebooks
+- Fixed issue where Roll Tables could not be deleted
+- Changed Settings to read/write to XML instead of INI
+- Added Game/Character pairs settings to allow for multiple pairings to be made and have the user select which one to be using
+- Changed WebDriver creation method to attempt to start selected game and set selected player
+- Added setting to clear password upon application close instead of saving
+
+GAMMA 1.19.00
+- Changed icon for saving throws
+- Changed custom dice rolls for characters to allow multiple named entries that can be saved
+- Added roll tables, editor in tools, able to be used from tools or character screen
+- Added Vendor note type
+- Added Magic Item, Ammunition item type
+- Ability to toggle creatures as OOC (out of combat) to retain their stats but visually remove from initiative order
+- Added button to allow switching between 2 last used characters when playing multiple, also changes the Roll20 Speaking As dropdown
+- Linking to Roll20 chat attempts to set Speaking As dropdown to that character
+- Added ability to save credentials for auto-login to Roll20 (WARNING: email and pass stored as plain text)
+
+GAMMA 1.18.05
+- Fixed issue with default background color trigger for TreeViewItem not fitting dark theme
+- Fixed issue with selected background color for Audio folder ToggleButton
+- Fixed issue with custom item add not updating item count
+- Set window drag handle to only title bar for main window
+- Fixed issue with minion attack miss message not copying to Roll20 chat
+- Adjusted Roll20 minion output to better separate visually
+- Added ability to manually set weather via context menu
+- Added search functionality to notebooks and character notes
+
+GAMMA 1.18.04
+- Fixed issue where normal health pool was being deducted alongside temp hp pool
+- Added try-catch to XmlLoad
+
+GAMMA 1.18.03
+- Icon update and cleanup
+- Character attacks add advantage/disadvantage attack options when added
+- Added option for character attacks to roll with last selected options
+- Added ability to make a custom roll from character combat screen
+- Adjusted UI for Settings screen
+- Added settings to enable character list exitsave
+
+GAMMA 1.18.02
+- Added Special and None condition types for multi-save with text field for special to denote special effects
+- Changed splash screen to match title bar and taskbar icons
+- Added ability to export character XML
+- Added prompt for overwrite if duplicate character is found on import
+
+GAMMA 1.18.01
+- Fixed textblock and textbox width issues for active items in character inventories that pushed scrollbar off screen in default size
+- Placed tools ItemsControl into ScrollViewer, otherwise popup could display off screen if character carried enough tool type items
+- Improved message for insufficient crafting materials, now shows how many of each material needed is missing
+- Improved message for insufficient enchanting runes, now shows how many of each rune is missing
+- Improved output for crafting to player log
+- Improved output for enchanting to player log
+- Auto-moves completed items in Crafting Bench to character backpack, removed manual button and ItemModel ICommand
+- Auto-moves completed enchants in Enchanting Table to character backpack, removed manual button
+- Changed how crafting rolls worked, since it heavily favored crafting in 1 hour segments instead of using the larger time buttons
+- Proficiency for crafting is now determined by tool proficiencies in character info, removed checkbox in item crafting and removed associated bool in ItemModel
+- Changed BrewPotion to get Alchemist's Supplies proficiency from character info instead of dedicated checkbox, removed associated bool
+- Changed FindIngredients to get Herbalism Kit proficiency from character info instead of dedicated checkbox, removed associated bool
+- Fixed bug where saving throws and attribute checks for character minions did not copy to Roll20
+- Fixed ScrollViewer size issue for Crafting Bench and Enchanting Table
+
+GAMMA 1.18.00
+- Added ability to mark Active Effect for spell as needing to add caster's spellcasting ability modifier to each dice roll
+- Added ability to have alternate damage dice for spell attack, healing, and save
+- Fixed issue where crafting segments of new items were hidden by default
+- Fixed issue with counter tooltip font color
+- Added ability to mark Spell Attack as an auto-hit
+- Added Tool Proficiencies section to character info
+- Added ability to make tool checks based on tools in player inventory
+- Changed hit dice from a character property to an object, can have multiple hit dice sets on character (for multi-classing)
+- Added AllSkillBonus property for character (Bard's Jack of All Trades feature)
+
+GAMMA 1.17.05
+- Fixed issue where toggle buttons that shouldn't uncheck on window focus loss remain checked
+
+GAMMA 1.17.04
+- Modified ContentTemplate for ScrollBar to fit dark theme
+- Modified ContentTemplate for ComboBox to fit dark theme
+- Fixed title bar width adjustments to window size
+- Fixed issue with toggle buttons not closing on window focus loss
+
+GAMMA 1.17.03
+- Added minimize button to title bar
+- Fixed issue with crash on attempting to add Minion to character (missing ref to ThemePrimary)
+- Fixed black text on black background in several areas
+- Fixed black on black CaretBrush for GammaTextBox
+- Fixed white text on tooltips to dark gray
+- Fixed bug where minion attack miss would create no output in player log
+- Fixed spacing issues in spell effect information
+- Updated splash screen and application icon
+- Fixed image centering for MiniToggleButton
+- Added VerticalHider toggle buttons to enable character sheet to be used on half-screen
+- Added filter MiniToggleButton to Multi-Select Dialog
+- Fixed bug where Condition on Fail was being applied to creatures that passed
+
+GAMMA 1.17.02
+- Fixed issue with shutdown method checking IWebDriver status
+- Transition to dark mode color scheme
+- Improved performance on element checking error handling for Roll20 character output link
+- New icons to fit dark mode color scheme
+
+GAMMA 1.17.01
+- Fixed issue where item import was not updating count
+- Added Rune item type to Curator shop
+- Added item reference checking upon item delete and item builder save
+- Removed item type restriction for enchanting base item
+- Added restriction that Resource, Ingredient, and Rune types cannot be crafted, dismantled, or enchanted
+- Adjustment to weather normalization formula
+- Fixed bug where weather normalization was adjusting saved weather intensity value, causing mismatch on reload from expectation
+
+GAMMA 1.17.00
+- Added currency change dialog
+- Implemented currency change dialog for player character inventories to be able to add, subtract, and transfer
+- Added Import Notebooks feature
+- Condensed encounter save and load methods
+- Added weather cycler to tracker view
+- Added adventure day tracking
+- Fixed bug where attacks with saving throw effects but no damage did not output as expected
+- Added X of X indicator to character backpack
+- Fixed spacing issue with Special Effect for Attack
+- Fixed oversight where spell active effect rolls are not copied to web output
+- Added Attack type of Active Effect for spell and adjusted existing outputs
+- Added CasterName and AttackMod to spell Active Effect to replace using RelativeSource binding
+- Added logic to close popups on character combat screen when another is opened to prevent popup stacking
+- Added condition on fail for group save which automatically marks failing creatures as having the condition
+- Reformat of character base info form
+- Addition of Languages and Other Proficiencies text fields
+- Added ItemModel properties: CanDismantle, AcquiredComponents
+- Added ItemModel commands: DismantleItem, AddAcquiredComponent, RemoveAcquiredComponent
+- Items can now be dismantled to acquire components in a player's backpack inventory
+- Changes to ItemModel and CharacterModel to provide functionality for enchanting items
+- Added ability to add creatures to characters for taming, and tame them to be added to minions section
+
+GAMMA 1.16.04
+- Added filters for creature list
+- Added indicator for how many results in filtered creature, item, or spell list are shown
+- Fixed bug where encounter creatures were wrapping to unseen area of screen, width issue with containing TabControl
+- Improved xml document check method for character xml import
+- Added Effect Type to group save feature for non-combat saves
+- Improved error reporting for Group Save feature
+- Fixed bug where blank values in group save could cause crash after reporting improvement
+- Added button to clear search text for creature, item, and spell builders
+- Added dialog window and view model for adding multiple creature types to a combat at once
+- Changed adding players to use new multi-add dialog
+- Added context menu option to force reroll of current combatants (for NPCs traveling with party)
+- Updated creature loot and character inventory sections to use new multi-add dialog
+- Updated creature and character spells to use new multi-add dialog
+- Updated item component selection to use multi-add dialog
+- Updated loot box to use multi-add dialog for items
+- Updated group save reset button to also uncheck Adv/Dis checkboxes
+
+GAMMA 1.16.03
+- Refactoring of style templates
+- Additional damage proclivity types added
+- Fixed bug with Copy Note from not marking the class as Serializable
+- Fixed bug where character dice rolls were not respecting Show Dice Rolls setting
+- Added portrait to creature builder
+- Expanded creature lore text box
+- Replaced TextBox controls with GammaTextBox
+- Added reset web driver button
+
+GAMMA 1.16.02
+- Added catches in XML import methods to check for expected XElement name
+- Restructured item type filter to use functionality from character inventory sections
+- Fixed issue where item search text was bypassing item type filter selection
+- Allows autosave cycle with zero combatants
+- Changed Character minion HP editing from TextBox to button set
+- Fixed bug where backspace was not clearing object search dialog once object was selected
+- Replaced XmlMethods.GetCopy with HelperMethods.DeepClone using serialization
+
+GAMMA 1.16.01
+- Fixed bug where attempting to save zero characters would crash the application
+- Fixed bug where attempting to save zero spells would crash the application
+- Fixed bug where attempting to save zero items would crash the application
+- Fixed bug where attempting to save zero creatures would crash the application
+- Fixed bug where attempting to save zero notebooks would crash the application
+- Fixed bug where saving empty encounter could happen
+- Moved Tracker Clear History ImageButton to Event History header as IconButton
+- Fixed bug where Name+TrackerIndicator was being used in output instead of DisplayName for Creatures
+- Fixed issue where imported characters were not showing inventory items
+- Added try-catch for MainWindow startup to catch Xml read errors for data
+- Added output for Group Save to notify if a creature has died as a result
+- Updated Group Save to not include already dead creatures in list of targets
+- Fixed bug where Use Platinum was not triggering a displayed amount update in the character banner
+- Added ability to mark creatures as having saving throw advantage or disadvantage in Group Save
+
+GAMMA 1.16.00
+- Added Selenium web driver functionality
+- Added Chrome Driver v85
+- Added ability to link player action output to Roll20 chat
+- Fixed miscalculation bug with max damage critical attacks
+- Refactor UI for Audio tab
+
+GAMMA 1.15.00
+- UI reformat for inventory items to display as filterable list with a panel showing the actively viewed item
+- Removed various properties for total values / weights of inventory as they are not valuable
+- UI reformat for player character and creature traits
+- Added ability to cycle autosave manually
+- Added functionality for character temporary hit points
+- Removed collapsed UI components that no longer have back-code links
+- Fixed bug with combat notes font size
+- Encounter tracker ui adjustment
+- Encumbrance mode setting
+- Added more tabs under DM Mode setting, all but Characters and Settings tabs are considered GM Use Only
+- Added check for player inventory containing correct crafting toolkit for crafting item
+- Fixed bug where Attack Option with negative modifier showed with double minus symbol
+- Fixed bug where max critical damage was not being applied if a critical was rolled with the option enabled for an attack roll
+- Fixed bug where clicking on player character portrait caused null ref exception (copy paste issue)
+
+GAMMA 1.14.01
+- Fixed bug where attacks with saving throws with no Save Effect entered were causing a crash on a SaveEffect.Length check
+- Fixed oversight where attacks with only save effects did not have prefix of character using item
+- Fixed bug where AutoText description not being set properly for attack option of type Alternate Base Attack Damage
+
+GAMMA 1.14.00
+- Added bool Conditions to CreatureModel
+- Added collection ActiveEffects to CreatureModel
+- Added display bools to CreatureModel
+- Added string PlayerRaceAndClass to CreatureModel
+- Added bool IsAlly to CreatureModel
+- Added command ToggleEnemyAlly to CreatureModel
+- Updated tracker card UI, changed to landscape orientation with more minimalist design
+- Added ability for creatures to utilize ActiveEffects in the combat tracker
+- Changed Kill Creatures to Kill Enemies in tracker
+- Added Settings.ini file that is auto-saved when options are changed on settings screen
+- Added ShowDiceRolls setting and reworked many action outputs
+- Re-added checkbox for Critical Dice roll
+- Added LootBoxModel and associated UI and functionality for giving a way to loot treasure chests in game
+- Added AttackOptionModel and associated UI and functionality for giving players toggle-able options to modify their attacks instead of having to create every iteration in their attack list
+- Added Advantage / Disadvantage options for character initiative roll
+- Change to creature Attribute / Skill section headers
+- Changed creature attack list from ListView to ItemsControl
+- Fixed bug where collapsed tab in Other Tools was still displaying as the default on application startup
+- Added player character image directory and functionality for combat tracker
+- Added info tooltip to creature spells
+- Changed creature loot roll to have minimum rolled currency be half of the entered max
+- Added YesNoDialog window and replaced usage of built-in windows prompt
+- Added NotebookModel and Notebook section to UI
+- Added NPC image directory and functionality
+- New setting to allow for character list autosave at same increment as encounter autosave
+- New setting to allow for usage of platinum coin denomination
+- Added new dialog window for handling multiple creatures making the same save at once (fireball)
+- Changed character UI
+
+GAMMA 1.13.01
+- Fixed issue where adding a New Spell and then attempting to filter the spell list prior to adding a name caused an exception when attempting to filter the spell list.
+- Fixed same issue with defaulting name for CreatureModel and CharacterModel
+- Changed HasScaling checkbox label to "Manual Level Scaling?" and added a tooltip to explain it is for non-cantrip spell usage.
+- Fixed issue where Active Effects from the same spell were all changing to the new casting's level (XmlMethod GetCopy added for ActiveEffectModel)
+- Added Add Player button to tracker and modified method to filter list to only creatures that have been data validated
+
+GAMMA 1.13.00
+- Added CreatureModel.DisplayName, allows for modification of names in tracker and minion list while not affecting other data used by tracker methods
+- Fixed issue with player action output list snapping on larger outputs
+- Added spell range and AoE info to info card on player character spell list
+- Spell list can now sort, my level then name alphabetically
+- Changed ItemTemplate for spells on Player Characters to show Cantrip or Level n
+- Added ActiveEffectModel to allow spells to show their lingering effects (such as Moonbeam or Flame Wall)
+- Refactor of XmlMethods to utilize single method for filling object properties
+- Added Exhaustion levels to character
+- Added scale factor to spells to allow more flexibility in how spells scale when casting at higher levels
+
+GAMMA 1.12.01
+- Fixed bug where skill bonus was adding to modifier of associated attribute
+
+GAMMA 1.12.00
+- Added to ItemModel:
+  + string Lore
+- Added to SpellModel: 
+  + bool RequiresSomatic
+  + bool RequiresVerbal
+  + bool RequiresMaterial
+  + bool RitualCapable
+  + bool IsValidated
+  + bool HasAttackDamageScaling
+  + bool HasSaveDamageScaling
+  + bool HasHealingScaling
+  + bool HasTargetScaling
+  + bool HasScaling (no save)
+  + string Materials
+  + void CheckScaling() (sets SpellModel.HasScaling to true if any other scalings are marked true and spell level is above 0)
+- Changed in SpellModel:
+  + void CastSpell
+    * now accounts for damage scaling options when casting at different levels
+    * now accounts for multi-target spells such as Scorching Ray
+  + int Range -> string Range
+- Removed from SpellModel:
+  + int SpellDurationAmount
+  + int CastingTimeAmount
+  + string SpellDurationUnit
+  + string CastingTimeUnit
+  + List<string> SpellDurationUnits
+  + List<string> CastingTimeUnits
+- Added to CharacterModel:
+  + int Level
+  + int {attribute}Score
+  + int {skill}Bonus (to account for things like Bards' Jack of All Trades)
+  + int {attribute}Bonus (not implemented)
+  + bool Is{condition}
+  + bool IsProf_{skill}
+  + bool IsExpert_{skill}
+  + NoteModel ActiveNote
+  + ObservableCollection<NoteModel> Notes
+  + ObservableCollection<CreatureModel> Minions
+- Removed from CharacterModel:
+  + string QuestNotes
+  + string LocationNotes
+  + string CharacterNotes
+  + string MiscNotes
+- Changed in CharacterModel:
+  + ProficiencyBonus is now derived from the value set for Level and is not saved
+  + Modifiers and Saves are now derived from the scores and proficiency marks and are not saved
+- UI Changes to Spell Builder tab
+  + Added checkboxes to SpellBuilder for new booleans with image tooltip explaining the scaling
+  + Placed Spell Builder details into scrollviewer as addition of new checkboxes pushed height beyond default window size
+  + Changed to 3-column layout
+- Removed SpellCastingTimes and SpellDurations from Configuration and MainViewModel
+- Created NoteModel
+  + string Header
+  + string Category
+  + string Content
+  + ObservableCollection<NoteModel> SubNotes
+- Updated XmlMethods to account for Character notes
+- Updated Character Notes section to use new NoteModel objects
+  + TreeView with Notes and SubNotes
+  + ContextMenu for TreeViewItems
+    * Add Sub Note - Adds a new sub note
+    * Delete Sub Note - Deletes this note, user is warned if note contains subnotes or content
+    * Copy Note - Copies the note to a global variable
+    * Paste Note - Pastes a copied note into the note as a sub note
+- Removed skill and attribute check rolling from attributes screen and added popup menus similar to the Creature Tracker cards
+- Adjustments to AttackModel, SpellModel, and CreatureModel to account for creature rolls made from player minion section
+- Removed CreatureModel.Weapons
+- Rewrite of XmlMethods
+
+GAMMA 1.11.01
+- Added icon for initiative and replaced step icon on player tracker card and clock icon on character combat screen
+- Added CharacterModel.Status (non-saved)
+- Added CharacterModel.UpdateStatus() called when health values are updated
+- Added status to health header on character combat screen
+- Added returns to UpdateStatus() for characters and creatures to ignore MaxHealth == 0 to prevent divide-by-zero errors
+- Changed NotificationDialog to focus on OK button so that user can simply press Enter immediately to close
+- Added CharacterModel.OnXTab properties so that each character keeps separate memory of what tab it is on
+- Added Copy Text to context menu for Character output items
+- Updated UI for character attributes and skills, removed advantage and disadvantage buttons and turned into context menu options for single roll button
+- Updated UI for character counters. Added plus and minus buttons and made fields editable in separate form. Changed from ListView to ItemsControl within ScrollViewer to allow better scrolling.
+- Updated UI for player currency to have denomination display before textbox like on printed character sheets
+- Updated UI for player backpack items: moved Delete and Move buttons into edit popup, made description field larger, added info icon with tooltip
+- Updated UI for player bank and vehicle items to match backpack item changes
+- Fixed bug where Passive Perception for Creatures was not updating when making changes to associated values
+- Fixed bug where Passive Perception was not updating for Creatures marked as Player Character
+- Fixed bug where spell materials were being deducted before checking for available spell slots
+- Changed Character attacks from ListView to ItemsControl within a ScrollViewer
+- Moved Death Saving Throws to third column of Character Combat screen
+- Removed Adv/Dis buttons for Creature attacks in tracker and changed to ContextMenu
+- Updated SpellModel to use private methods to reduce line count for SpellModel.CastSpell
+
+GAMMA 1.11.00
+- Added ConditionImmunities to CreatureModel
+- Added HelperMethods.GetProfBonusFromCr
+- Creature proficiency bonus is no longer editable, is derived from the Challege Rating selected
+- Changed CreatureModel.ProficiencyBonus to derived value (no longer saved to XML)
+- Added CreatureModel.IsValidated to show if a creature has been manually checked
+- Added setting for whether or not to show validation components for creatures
+- Added properties to AttackModel: HasRange, ShortRange, LongRange, HasMultipleTargets, Targets, AffectsArea, AreaSize, AreaShape
+- Fixed bug where spellcasting ability modifier was not being added to healing spells upon casting
+- Updated icons for Skills and Saves on creature tracker cards
+- Added CreatureModel.TrackerIndiciator and updated associated output methods
+- Changed Creature Tracker card title from textbox to textblock, no longer editable
+- Correctly adds correct letter to end of creature name if more are added later
+- Added CharacterModel.Speed and associated textbox on Combat tab for character screen
+- Added /Images/Creatures directory, .png images added to this directory that match a creature name will display in the tracker for that creature. Default image is a cat.
+- Added dropdown to creature tracker cards for attribute check rolls
+- Changed creature tracker dropdown icon for skill checks to hand
+- Adjustments to creature tracker card top banner to include image, show name larger
+- Creature tracker card no longer contains X button to remove, must now right-click image and select delete for individual creatures, since typical use will be the buttons to wipe all creatures
+- Added button to clear all dead creatures
+- Modified ClearCreatures method to allow parameter of what to clear
+- Added Copy Text feature to Tracker history log to be used for loot copy/paste
+
+GAMMA 1.10.00
+- Removed DM Password and just used toggle checkbox
+- Added system sounds volume slider to Settings tab
+- Added new properties to CreatureModel: FlySpeed, SwimSpeed, ClimbSpeed, BurrowSpeed, ArmorType, ChallengeRating, ExperienceValue
+- Added new properties to CreatureModel: Blindsight, Truesight, Darkvision, Tremorsense
+- Added icons for new speed types
+- Added icons for new senses
+- Adjustments to tracker creature info cards to show different movement speeds, senses, AC, and hit point range
+- Added buttons to character inventory items to allow moving of items between Backpack, Bank, and Vehicle
+- Moved items that drop to zero quantity are removed from the origin storage tab
+- Changed UniformGrid to WrapPanel for Tracker View
+- Adjusted Tracker View resizing to fix tracker cards being offscreen
+- Set RenderOptions.BitmapScalingMode="NearestNeighbor" for icon style to eliminate image blur
+- Fixed spell save output to include AoE information when casting
+- Added buttons to character backpack screen to open various shop types
+- Added shopping screen so that players can buy and sell items from various shops:
+  + Apothecary: Potions, Ingredients
+  + Blacksmith: Armor, Melee Weapons, Ranged Weapons
+  + Curator: Arcane Focus, Magic Weapons, Scrolls
+  + General Goods: Adventuring Gear, Clothing, Food/Drink, Instrument, Other, Resource, Tool
+  + Jeweler: Jewelry, Treasure
+
+GAMMA 1.09.00
+- Renamed DndPlayerModel to CharacterModel
+- Renamed DndAttackModel to AttackModel
+- Renamed EntityModel to CreatureModel (includes changes across application code switching Entity -> Creature)
+- Renamed Entities.xml to Creatures.xml
+- Added ability to indicate that spell consumes materials
+- Added ability to add consumable materials to spells
+- Added logic to prevent player from casting a spell that the character does not have the materials for (such as Arcane Lock consuming 25gp of gold dust)
+- Added duplicate checking to Item Builder on save
+- Added duplicate checking to Spell Builder on save
+- Added duplicate checking to Creature Builder on save
+- Made change to character inventory so that name, weight, value, and description can only be edited for custom items, not presets
+- Added static lists to internal config for Items, Spells, and Creatures that the Object Select dialog pulls from, ensures that only saved items can be accessed versus in-progress ones
+- Re-added Settings tab
+- Restricted the Creature Builder, Item Builder, and Spell Builder tabs to only be available if a DM Password is entered in Settings tab
+- Added consumed materials to info tooltip for player spells
+- Doubled height for Trait cards on characters for easier reading of lengthy features
+- Changed when spellcasting audio plays so dice roll is not heard on a failed casting (due to lack of spell slots or materials)
+
+GAMMA 1.08.00
+- Changed info tooltip for character spells to display differently for level 0 spells. (Level 0 Conjuration vs Conjuration Cantrip)
+- Added IsPrepared to spell model, if a character attempts to cast a spell that does not have the prepared checkbox marked, it will not cast
+- Changed AudioModelView to AudioViewModel (whoops)
+- Added AudioCollectionModel, changed Audio tab/view to create category headings based on directories within the Music and SFX directories. Audio files in root directory are ignored.
+- Added extra dice roll buttons to Combat screen
+- Added info icon with tooltip of description to character counters
+- Added Icon property to Characters, players can choose their own icon to display in the list of characters
+- Added text search to spell builder
+- Added sort button to creature builder
+- Added sort button to spell builder
+
+GAMMA 1.07.00
+- Added system sound player and effect for dice rolling
+- Changed creature info popup in tracker from togglebutton->popup to imagehover->tooltip
+- Included User Guide PDF
+
+GAMMA 1.06.00
+- Changed audio initialization to read file path for all audio files vs including hard coded files, reduces code and file size
+- Added tracker feature to kill all Creatures with new grim icon
+- Added Special Effect stat for spells that are not for combat (such as Detect Magic)
+- Added functionality to handle spell concentration for creatures and players
+- Added School of Magic icons to additional locations where spells are listed or selected
+- Added tooltips to various locations
+
+GAMMA 1.05.00
+- Added audio tab with audio and sfx mediaelements with play/pause/stop controls
+- Added various msuci loops and sfx
+- Fixed bug where Creature Search had been disabled in tracker popup
+- Additional removal of Ruleset code
+- Added Creature search on tracker screen to help find combatants in large scale combats
+- Changed output for Loot All to not condense coinage found (ex. keeps 44sp vs 4gp 4sp)
+
+GAMMA 1.04.00
+- Added item type filtering
+- Added icons for the 8 different schools of magic
+- Removed Ruleset property from CreatureModel and SpellModel
+- Added attribute scores and modifiers to info popup for combat tracker
+- Removed remnant code for Map Maker, Settings, and Lore Creatures
+
+GAMMA 1.03.00
+- Changed various TextBoxes to GammeTextBoxes
+- Added HasAttackRoll bool to DndAttackModel to allow for Save-Only type attacks such as Lightning Breath and Frightening Presence
+- Save time for encounters
+- Added currency weight
+- Added CarryingCapacity, StrengthScore, and EncumbranceStatus to DndPlayerModel
+- Added UI elements for carrying capacity along with info tooltip that explains encumbrance levels
+- Added Vehicle inventory tab for characters
+- Added Food & Drink item type and a few preset items
+- Added search field for Item Builder tab
+
+GAMMA 1.02.00
+- Change: adding crafting components to item filtered between potions and all item types for allowing Ingredients vs Resources
+- Added leaf icon for ingredient item types
+- Changed Herbalism / Gathering to add new ingredient items to backpack inventory instead of being just a text output
+- Added Environment field for ingredients and Crafting Difficulty for potion items
+- Added Brew Potion tool to newly renamed Alchemy tab for character
+
+GAMMA 1.01.00
+- Moved Herbalism / Gathering from Homebrew Tools into the character inventory tab
+- Removed Homebrew Tools tab
+- Added Resource and Ingredient item types
+- Added crafting components enumerable to item model and selection for toolkit
+- Added crafting screen to player that allows you to select an item for crafting if you have the available components and once completed can be moved to backpack
+- Added bank tab
