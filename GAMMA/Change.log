@@ -1,4 +1,14 @@
-﻿GAMMA 1.26.04
+﻿GAMMA 1.26.05
+- Fixed issue with alterant description field height
+- Textblock for character name in list now has set width to allow context menu to be more accessible
+- Can now press the Enter key in the Roll20 password field to attempt the Roll20 login
+- Fixed bug where subrace traits were not being added to character creation trait list
+- Added try-catch to character creation opening to help address periodic / inconsistent crashes
+- Corrected field label for custom ability -> pre-action : add stat -> stat
+- Added the 6 primary attributes for options in the pre-output action : add stat and the necessary handling in CustomAbility.ProcessAbility
+- Added Reroll Initiative option to context menu for creature cards in campaign gameplay
+
+GAMMA 1.26.04
 - Fixed issue where borrowed fishing tackle wasn't actually fishing
 - Fixed issue where character max hp would not calculate correctly on startup
 

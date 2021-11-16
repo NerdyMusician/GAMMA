@@ -9790,6 +9790,11 @@ namespace GAMMA.Models
                 setTraits.AddRange(GetTraitSetProfsFromFeatureList(LinkedRace.Features.ToList()));
                 traitChoices.AddRange(GetTraitChoiceSetsFromFeatureList(LinkedRace.Features.ToList(), LinkedRace.Name));
             }
+            if (LinkedSubrace != null)
+            {
+                setTraits.AddRange(GetTraitSetProfsFromFeatureList(LinkedSubrace.Features.ToList()));
+                traitChoices.AddRange(GetTraitChoiceSetsFromFeatureList(LinkedSubrace.Features.ToList(), LinkedSubrace.Name));
+            }
             if (LinkedBackground != null)
             {
                 setTraits.AddRange(GetTraitSetProfsFromFeatureList(LinkedBackground.Features.ToList()));

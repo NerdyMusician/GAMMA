@@ -14,7 +14,7 @@ namespace GAMMA.Models.GameplayComponents
         {
             Answers = new();
             ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt" };
-            StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Proficiency Bonus" };
+            StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Proficiency Bonus", "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
             Conditions = new();
             CalculationOptions = new() { "multiplied by", "divided by", "plus", "minus" };
             AttackAttributes = new() { "None", "Strength", "Dexterity", "Spellcasting" };

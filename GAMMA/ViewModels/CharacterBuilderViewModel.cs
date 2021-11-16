@@ -2,6 +2,7 @@
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -268,47 +269,56 @@ namespace GAMMA.ViewModels
         private void DoOpenCharacterCreator(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("No parameter passed for CharacterBuilderViewModel.DoOpenCharacterCreator.", true); return; }
-            switch (param.ToString())
+            try
             {
-                case "New":
-                    DoAddCharacter();
-                    CharacterCreatorDialog characterCreator = new CharacterCreatorDialog(ActiveCharacter);
-                    if (characterCreator.ShowDialog() == true)
-                    {
-                        int activeChar = Characters.IndexOf(ActiveCharacter);
-                        ActiveCharacter = null;
-                        Characters.RemoveAt(activeChar);
-                        Characters.Add(characterCreator.DataContext as CharacterModel);
+                switch (param.ToString())
+                {
+                    case "New":
+                        DoAddCharacter();
+                        CharacterCreatorDialog characterCreator = new CharacterCreatorDialog(ActiveCharacter);
+                        if (characterCreator.ShowDialog() == true)
+                        {
+                            int activeChar = Characters.IndexOf(ActiveCharacter);
+                            ActiveCharacter = null;
+                            Characters.RemoveAt(activeChar);
+                            Characters.Add(characterCreator.DataContext as CharacterModel);
+                            ActiveCharacter = Characters.Last();
+                            ActiveCharacter.ReinitializeEventHandlers();
+                            ActiveCharacter.ResetSpellSlots();
+                        }
+                        else
+                        {
+                            Characters.Remove(ActiveCharacter);
+                        }
+                        break;
+                    case "Existing":
+                        int originalCharacter = Characters.IndexOf(ActiveCharacter);
+                        Characters.Add(HelperMethods.DeepClone(ActiveCharacter));
                         ActiveCharacter = Characters.Last();
-                        ActiveCharacter.ReinitializeEventHandlers();
-                        ActiveCharacter.ResetSpellSlots();
-                    }
-                    else
-                    {
-                        Characters.Remove(ActiveCharacter);
-                    }
-                    break;
-                case "Existing":
-                    int originalCharacter = Characters.IndexOf(ActiveCharacter);
-                    Characters.Add(HelperMethods.DeepClone(ActiveCharacter));
-                    ActiveCharacter = Characters.Last();
-                    ActiveCharacter.UpdateCharacterSheet();
-                    CharacterCreatorDialog characterEditor = new CharacterCreatorDialog(ActiveCharacter);
-                    if (characterEditor.ShowDialog() == true)
-                    {
-                        Characters.RemoveAt(originalCharacter);
-                        ActiveCharacter.ReinitializeEventHandlers();
-                    }
-                    else
-                    {
-                        Characters.Remove(ActiveCharacter);
-                        ActiveCharacter = Characters[originalCharacter];
-                    }
-                    break;
-                default:
-                    HelperMethods.WriteToLogFile("Unhandled parameter " + param.ToString() + " in CharacterBuilderViewModel.DoOpenCharacterCreator.", true);
-                    return;
+                        ActiveCharacter.UpdateCharacterSheet();
+                        CharacterCreatorDialog characterEditor = new CharacterCreatorDialog(ActiveCharacter);
+                        if (characterEditor.ShowDialog() == true)
+                        {
+                            Characters.RemoveAt(originalCharacter);
+                            ActiveCharacter.ReinitializeEventHandlers();
+                        }
+                        else
+                        {
+                            Characters.Remove(ActiveCharacter);
+                            ActiveCharacter = Characters[originalCharacter];
+                        }
+                        break;
+                    default:
+                        HelperMethods.WriteToLogFile("Unhandled parameter " + param.ToString() + " in CharacterBuilderViewModel.DoOpenCharacterCreator.", true);
+                        return;
+                }
             }
+            catch (Exception e)
+            {
+                HelperMethods.WriteToLogFile(e.Message, true);
+                return;
+            }
+            
         }
         #endregion
 

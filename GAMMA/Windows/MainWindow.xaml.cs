@@ -33,7 +33,6 @@ namespace GAMMA.Windows
                 Directory.CreateDirectory(Environment.CurrentDirectory + "/Images/Creatures");
                 Directory.CreateDirectory(Environment.CurrentDirectory + "/Images/Players");
                 Directory.CreateDirectory(Environment.CurrentDirectory + "/Images/Npcs");
-                //Directory.CreateDirectory(Environment.CurrentDirectory + "/Encounters");
                 Directory.CreateDirectory(Environment.CurrentDirectory + "/NoteAttachments");
                 this.DataContext = new MainViewModel();
                 this.SizeChanged += Window_SizeChanged;
@@ -103,10 +102,6 @@ namespace GAMMA.Windows
         #endregion
         private void AutosaveTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            //if (Configuration.MainModelRef.SettingsView.EnableEncounterAutosave)
-            //{
-            //    AutosaveEncounter();
-            //}
             if (Configuration.MainModelRef.SettingsView.EnableCharacterAutosave)
             {
                 AutosaveCharacters();
@@ -189,8 +184,6 @@ namespace GAMMA.Windows
         {
             try
             {
-                //TrackerViewer.Height = this.ActualHeight - 104;
-                //TrackerViewer.Width = this.ActualWidth - 460;
                 CombatantsInitiativeList.Height = this.ActualHeight - 360;
                 CombatantsNameList.Height = this.ActualHeight - 360;
                 CombatantsNpcList.Height = this.ActualHeight - 360;
@@ -254,22 +247,12 @@ namespace GAMMA.Windows
             if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter == null) { return; }
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ActiveNote = selectedItem as NoteModel;
         }
-        //private void NotebookTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        //{
-        //    object selectedItem = e.NewValue ?? e.OldValue;
-        //    Configuration.MainModelRef.NotebookView.ActiveNotebook.ActiveNote = selectedItem as NoteModel;
-        //}
         private void CampaignNotesTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             object selectedItem = e.NewValue ?? e.OldValue;
             if (Configuration.MainModelRef.CampaignView.ActiveCampaign == null) { return; }
             Configuration.MainModelRef.CampaignView.ActiveCampaign.ActiveNote = selectedItem as NoteModel;
         }
-        //private void Button_CycleAutosave_Click(object sender, RoutedEventArgs e)
-        //{
-        //    AutosaveEncounter();
-        //    new NotificationDialog("Autosave Cycled.").ShowDialog();
-        //}
         private void AutosaveCampaigns()
         {
             Configuration.MainModelRef.CampaignView.LastSave = DateTime.Now.ToString();
@@ -286,31 +269,6 @@ namespace GAMMA.Windows
             itemDocument.Save(Configuration.CampaignDataFilePath);
             return;
         }
-        //private void AutosaveEncounter()
-        //{
-        //    if (Configuration.MainModelRef.TrackerView.ActiveCreatures.Count() == 0)
-        //    {
-        //        // Prevents zero item save crash
-        //        XDocument blankDoc = new();
-        //        blankDoc.Add(new XElement("CreatureModelSet"));
-        //        blankDoc.Root.Add(new XAttribute("Time", Configuration.MainModelRef.TrackerView.EncounterTime.ToString()));
-        //        blankDoc.Root.Add(new XAttribute("LastRestDate", Configuration.MainModelRef.TrackerView.LastRestDate));
-        //        blankDoc.Root.Add(new XAttribute("LastWeatherChange", Configuration.MainModelRef.TrackerView.LastWeatherChange.ToString()));
-        //        blankDoc.Root.Add(new XAttribute("WeatherIntensity", Configuration.MainModelRef.TrackerView.WeatherIntensity.ToString()));
-        //        blankDoc.Root.Add(new XAttribute("Notes", Configuration.MainModelRef.TrackerView.Notes));
-        //        blankDoc.Root.Add(new XAttribute("EncounterRound", Configuration.MainModelRef.TrackerView.EncounterRound.ToString()));
-        //        blankDoc.Save("Data/EncounterAutosave.xml");
-        //    }
-        //    if (Configuration.MainModelRef.TrackerView.ActiveCreatures.Count() > 0)
-        //    {
-        //        this.Dispatcher.Invoke(() =>
-        //        {
-        //            (DataContext as MainViewModel).TrackerView.SaveTrackerEncounter(Configuration.EncounterAutosaveDataFilePath);
-        //        });
-        //        HelperMethods.WriteToLogFile("Encounter Autosaved");
-        //    }
-            
-        //}
         private void AutosaveCharacters()
         {
             if (Configuration.MainModelRef.CharacterBuilderView.Characters.Count() == 0)
@@ -383,5 +341,10 @@ namespace GAMMA.Windows
             this.WindowState = WindowState.Minimized;
         }
 
+        private void TBX_R20Pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter) { return; }
+            (DataContext as MainViewModel).OpenWebDriver.Execute(null);
+        }
     }
 }

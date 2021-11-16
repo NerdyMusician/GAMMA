@@ -157,7 +157,7 @@
     <Compile Include="ViewModels\CampaignBuilderViewModel.cs" />
     <Compile Include="ViewModels\CharacterBuilderViewModel.cs" />
     <Compile Include="ViewModels\MultiObjectSelectionViewModel.cs" />
-    <None Include="GAMMA 1.26.02 User Manual.pdf">
+    <None Include="GAMMA 1.26.04 User Manual.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Legacy\NotebookViewModel.cs" />

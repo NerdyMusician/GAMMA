@@ -669,6 +669,12 @@ namespace GAMMA.Models.GameplayComponents
                                 "Spellcasting Attack Modifier" => character.SpellAttackBonus,
                                 "Spellcasting Save DC" => character.SpellSaveDc,
                                 "Proficiency Bonus" => character.ProficiencyBonus,
+                                "Strength" => character.StrengthModifier,
+                                "Dexterity" => character.DexterityModifier,
+                                "Constitution" => character.ConstitutionModifier,
+                                "Intelligence" => character.IntelligenceModifier,
+                                "Wisdom" => character.WisdomModifier,
+                                "Charisma" => character.CharismaModifier,
                                 _ => 0
                             };
                         }
@@ -680,6 +686,12 @@ namespace GAMMA.Models.GameplayComponents
                                 "Spellcasting Attack Modifier" => creature.SpellAttackBonus,
                                 "Spellcasting Save DC" => creature.SpellSaveDc,
                                 "Proficiency Bonus" => creature.ProficiencyBonus,
+                                "Strength" => creature.StrengthModifier,
+                                "Dexterity" => creature.DexterityModifier,
+                                "Constitution" => creature.ConstitutionModifier,
+                                "Intelligence" => creature.IntelligenceModifier,
+                                "Wisdom" => creature.WisdomModifier,
+                                "Charisma" => creature.CharismaModifier,
                                 _ => 0
                             };
                         }

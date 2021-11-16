@@ -183,7 +183,7 @@
                         </StackPanel>
 
                         <cc:FieldLabel Text="Description" />
-                        <cc:GammaTextBox Text="{Binding Description}" Style="{StaticResource PartialBorderTextBox}" VerticalScrollBarVisibility="Hidden" TextWrapping="Wrap" AcceptsReturn="True" Height="auto" HorizontalAlignment="Left" Width="266" Margin="4 0 0 0" />
+                        <cc:GammaTextBox Text="{Binding Description}" Style="{StaticResource PartialBorderTextBox}" VerticalScrollBarVisibility="Hidden" TextWrapping="Wrap" AcceptsReturn="True" Height="auto" HorizontalAlignment="Left" Width="268" Margin="4 0 0 0" />
 
                         <Separator />
                         <DockPanel>
@@ -319,7 +319,7 @@
                                                         </ItemsControl>
                                                     </Border>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}">
-                                                        <cc:FieldLabel Text="Target" Width="76" />
+                                                        <cc:FieldLabel Text="Target" Width="80" />
                                                         <cc:GammaComboBox ItemsSource="{Binding Targets}" Text="{Binding Target, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
                                                     <StackPanel Visibility="{Binding ShowQuestion, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
@@ -360,7 +360,7 @@
                                                         <CheckBox IsChecked="{Binding DoesDoubleOnCritical}" />
                                                     </StackPanel>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}" Visibility="{Binding ShowStatValueForm, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                                        <cc:FieldLabel Text="Target" Width="80" />
+                                                        <cc:FieldLabel Text="Stat" Width="80" />
                                                         <cc:GammaComboBox ItemsSource="{Binding StatOptions}" Text="{Binding StatValue, FallbackValue=Stat Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}" Visibility="{Binding ShowAttackForm, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
@@ -612,6 +612,7 @@
                                                                 <MenuItem Header="Toggle Enemy/Ally" Command="{Binding ToggleEnemyAlly}" />
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Mark as NPC" Command="{Binding ToggleNpc}" />
+                                                                <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -622,6 +623,7 @@
                                                                 <MenuItem Header="Toggle Enemy/Ally" Command="{Binding ToggleEnemyAlly}" />
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Unmark as NPC" Command="{Binding ToggleNpc}" />
+                                                                <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -1293,6 +1295,7 @@
                                                                 <MenuItem Header="Make Active" Command="{Binding ToggleActiveCombatant}" />
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Mark as NPC" Command="{Binding ToggleNpc}" />
+                                                                <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -1304,6 +1307,7 @@
                                                                 <MenuItem Header="Make Active" Command="{Binding ToggleActiveCombatant}" />
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Unmark as NPC" Command="{Binding ToggleNpc}" />
+                                                                <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -4209,7 +4213,7 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Style="{StaticResource Icon_Ampersand}" />
-                                            <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Margin="4 0">
+                                            <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Margin="4 0" Width="120">
                                                 <TextBlock.ContextMenu>
                                                     <ContextMenu>
                                                         <MenuItem Header="Delete Character" Command="{Binding DeleteCharacter}" />
@@ -5721,7 +5725,7 @@
                                                                                                     </StackPanel>
                                                                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                                                                         <cc:FieldLabel Text="Description" Width="64" />
-                                                                                                        <cc:GammaTextBox Text="{Binding Description}" Width="196" MaxHeight="120" AcceptsReturn="true" />
+                                                                                                        <cc:GammaTextBox Text="{Binding Description}" Width="196" Height="auto" MaxHeight="120" VerticalScrollBarVisibility="auto" AcceptsReturn="true" TextWrapping="Wrap" />
                                                                                                     </StackPanel>
                                                                                                     <DockPanel>
                                                                                                         <cc:FieldLabel Text="Stat Changes" />
@@ -10866,7 +10870,7 @@
                                 </StackPanel>
                             </StackPanel>
                         </TabItem>
-                        <TabItem Header="Dev Zone" Visibility="Collapsed">
+                        <TabItem Header="Dev Zone" Visibility="Visible">
                             
                         </TabItem>
                     </TabControl>
@@ -11092,7 +11096,7 @@
                                 <Separator />
                                 <StackPanel Orientation="Horizontal">
                                     <cc:FieldLabel Text="Password" Width="76" />
-                                    <cc:GammaTextBox Text="{Binding SettingsView.Roll20Password, UpdateSourceTrigger=PropertyChanged}" />
+                                    <cc:GammaTextBox x:Name="TBX_R20Pass"  Text="{Binding SettingsView.Roll20Password, UpdateSourceTrigger=PropertyChanged}" KeyDown="TBX_R20Pass_KeyDown" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Separator Width="82" />

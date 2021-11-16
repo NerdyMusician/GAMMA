@@ -5114,6 +5114,23 @@ namespace GAMMA.Models
             Counters.Add(new CounterModel());
         }
         #endregion
+        #region RollInitiative
+        public ICommand RollInitiative => new RelayCommand(DoRollInitiative);
+        private void DoRollInitiative(object param)
+        {
+            Initiative = Configuration.RNG.Next(1, 21) + HelperMethods.GetAttributeModifier(Attr_Dexterity);
+            string message = Name + " rolled for initiative and got " + Initiative + ".";
+            if (Configuration.MainModelRef.TabSelected_Campaigns)
+            {
+                HelperMethods.AddToCampaignMessages(message, "Initiative");
+                Configuration.MainModelRef.CampaignView.ActiveCampaign.SortByInitiative.Execute(null);
+            }
+            if (Configuration.MainModelRef.TabSelected_Players)
+            {
+                HelperMethods.AddToPlayerLog(message, "Initiative", true);
+            }
+        }
+        #endregion
 
         // Public Methods
         public void RollHitPoints(bool useAverage)
