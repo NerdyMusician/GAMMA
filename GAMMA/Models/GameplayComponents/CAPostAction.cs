@@ -24,6 +24,8 @@ namespace GAMMA.Models.GameplayComponents
                 "Subtract from Current HP",
             };
             Conditions = new();
+            ValueSetA = new();
+            ValueSetB = new();
         }
 
         // Databound Properties
@@ -56,6 +58,36 @@ namespace GAMMA.Models.GameplayComponents
             set
             {
                 _Conditions = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region ValueSetA
+        private List<string> _ValueSetA;
+        public List<string> ValueSetA
+        {
+            get
+            {
+                return _ValueSetA;
+            }
+            set
+            {
+                _ValueSetA = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region ValueSetB
+        private List<string> _ValueSetB;
+        public List<string> ValueSetB
+        {
+            get
+            {
+                return _ValueSetB;
+            }
+            set
+            {
+                _ValueSetB = value;
                 NotifyPropertyChanged();
             }
         }
@@ -218,7 +250,26 @@ namespace GAMMA.Models.GameplayComponents
             if (Action == "Add to Temporary HP") { ShowValueA = true; LabelA = "Value"; }
             if (Action == "Add Minions") { ShowValueA = true; LabelA = "Creature Name"; ShowValueB = true; LabelB = "Quantity"; }
             if (Action == "Add Active Effect") { ShowValueA = true; LabelA = "Ability"; }
-            if (Action == "Expend Counter") { ShowValueA = true; LabelA = "Counter"; ShowValueB = true; LabelB = "Amount"; }
+            if (Action == "Expend Counter")
+            {
+                ShowValueA = true; LabelA = "Counter"; 
+                ShowValueB = true; LabelB = "Amount";
+                ValueSetA = new();
+                if (Configuration.MainModelRef.TabSelected_Players)
+                {
+                    foreach (CounterModel counter in Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Counters)
+                    {
+                        ValueSetA.Add(counter.Name);
+                    }
+                }
+                if (Configuration.MainModelRef.TabSelected_CreatureBuilder)
+                {
+                    foreach (CounterModel counter in Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Counters)
+                    {
+                        ValueSetA.Add(counter.Name);
+                    }
+                }
+            }
             if (Action == "Activate Concentration") { }
             if (Action == "Activate Alterant") { ShowValueA = true; LabelA = "Alterant"; }
 

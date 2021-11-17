@@ -7,6 +7,7 @@
 - Corrected field label for custom ability -> pre-action : add stat -> stat
 - Added the 6 primary attributes for options in the pre-output action : add stat and the necessary handling in CustomAbility.ProcessAbility
 - Added Reroll Initiative option to context menu for creature cards in campaign gameplay
+- Setting Post-Action type to Expend Counter now populates counter list with character or creature counters available
 
 GAMMA 1.26.04
 - Fixed issue where borrowed fishing tackle wasn't actually fishing

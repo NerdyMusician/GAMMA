@@ -476,11 +476,11 @@
                                                     </Border>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}" Visibility="{Binding ShowValueA, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
                                                         <cc:FieldLabel Text="{Binding LabelA}" Width="90" />
-                                                        <cc:GammaComboBox Text="{Binding ValueA, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
+                                                        <cc:GammaComboBox ItemsSource="{Binding ValueSetA}" Text="{Binding ValueA, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}" Visibility="{Binding ShowValueB, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
                                                         <cc:FieldLabel Text="{Binding LabelB}" Width="90" />
-                                                        <cc:GammaComboBox Text="{Binding ValueB, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
+                                                        <cc:GammaComboBox ItemsSource="{Binding ValueSetB}" Text="{Binding ValueB, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
                                                 </StackPanel>
                                             </StackPanel>
