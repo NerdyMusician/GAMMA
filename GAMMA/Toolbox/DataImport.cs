@@ -703,6 +703,7 @@ namespace GAMMA.Toolbox
             {
                 character.SetTotalLevel();
                 character.SetClassAutoText();
+                character.SetSubclassAutoText();
                 character.UpdateToNewInventorySystem();
                 character.UpdateToNewSpellSystem();
                 character.UpdateInventoryStats();

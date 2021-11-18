@@ -61,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.26.05";
+            ApplicationVersion = "GAMMA 1.26.06 beta";
 
             // Auto-Data Corrections
             CharacterBuilderView.RunADC_Inventory();
@@ -774,6 +774,15 @@ namespace GAMMA.ViewModels
             }
         }
         #endregion
+        #region LanguageTypes
+        public List<string> LanguageTypes
+        {
+            get
+            {
+                return new() { "Standard", "Exotic" };
+            }
+        }
+        #endregion
 
         // Commands
         #region ProcessKeyboardShortcut
@@ -865,7 +874,15 @@ namespace GAMMA.ViewModels
                                 Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter = defChar;
                                 Configuration.MainModelRef.CharacterBuilderView.ShowCharacterList = false;
                                 Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ShowActionHistory = false;
-                                Thread.Sleep(2000);
+                                try
+                                {
+                                    Thread.Sleep(3000);
+                                    IWebElement spkAs = WebDriver.FindElement(By.Id("speakingas"));
+                                    spkAs.Click();
+                                    spkAs.SendKeys(defChar.Name.Split()[0]);
+                                    spkAs.SendKeys("\n");
+                                }
+                                catch { }
                                 defChar.OutputLinkedToRoll20 = true;
                                 HelperMethods.AddToRoll20Chat("/me has connected with " + ApplicationVersion + ".");
                             }

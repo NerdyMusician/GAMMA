@@ -25,6 +25,56 @@ namespace GAMMA.Models.GameplayComponents
             PreActions = new();
             PostActions = new();
         }
+        public CustomAbility(int attackBonus, int damageDiceQuantity, int damageDiceSides, int damageBonus, string damageType)
+        {
+            Name = "Basic Attack";
+            Type = "Melee";
+            Output = "";
+            Description = "";
+            QuantityToPerform = 1;
+            PostActions = new();
+
+            Variables = new();
+            CAVariable attackVariable = new();
+            CAVariable damageVariable = new();
+
+            attackVariable.Name = "Attack";
+
+            damageVariable.Name = damageType + " Damage";
+
+            Variables.Add(attackVariable);
+            Variables.Add(damageVariable);
+
+            PreActions = new();
+            CAPreAction attackRoll = new();
+            CAPreAction attackBonusAction = new();
+            CAPreAction damageRoll = new();
+            CAPreAction damageBonusAction = new();
+
+            attackRoll.Target = attackVariable.Name;
+            attackRoll.Action = "Make Attack Roll";
+            attackRoll.AttackAttribute = "None";
+
+            attackBonusAction.Target = attackVariable.Name;
+            attackBonusAction.Action = "Add Set Value";
+            attackBonusAction.SetValue = attackBonus.ToString();
+
+            damageRoll.Target = damageVariable.Name;
+            damageRoll.Action = "Add Roll";
+            damageRoll.DiceQuantity = damageDiceQuantity;
+            damageRoll.DiceQuality = damageDiceSides;
+            damageRoll.DoesDoubleOnCritical = true;
+
+            damageBonusAction.Target = damageVariable.Name;
+            damageBonusAction.Action = "Add Set Value";
+            damageBonusAction.SetValue = damageBonus.ToString();
+
+            PreActions.Add(attackRoll);
+            PreActions.Add(attackBonusAction);
+            PreActions.Add(damageRoll);
+            PreActions.Add(damageBonusAction);
+
+        }
 
         // Databound Properties
         #region Name
@@ -1060,6 +1110,131 @@ namespace GAMMA.Models.GameplayComponents
             return true;
 
         }
+        public void SetGeneratedDescription(CreatureModel creature)
+        {
+            if (Description != null && Description != "") { return; } // Don't overwrite existing description
+            string description = Type += ": ";
+            bool hasAttackRoll = false;
+            int attackBonus = 0;
+            string attackTarget = "";
+            Dictionary<string, string> damageDiceRolls = new();
+            Dictionary<string, List<int>> damageDiceMods = new();
+            
+            // Check for attack pre-action
+            foreach (CAPreAction preAction in PreActions)
+            {
+                if (preAction.Action == "Make Attack Roll")
+                {
+                    hasAttackRoll = true;
+                    attackTarget = preAction.Target;
+                    break;
+                }
+            }
+
+            // Get damage variables
+            foreach (CAVariable variable in Variables)
+            {
+                if (variable.Name.ToUpper().Contains("DAMAGE"))
+                {
+                    try
+                    {
+                        damageDiceRolls.Add(variable.Name, "");
+                        damageDiceMods.Add(variable.Name, new());
+                    }
+                    catch (Exception e)
+                    {
+                        HelperMethods.WriteToLogFile(e.Message + "\nPlease verify there are no duplicate variables for creature '" + creature.Name + "', ability '" + Name + "'.", true);
+                        return;
+                    }
+                }
+            }
+
+            // Fill damage dictionaries
+            foreach (CAPreAction preAction in PreActions)
+            {
+                if (damageDiceRolls.ContainsKey(preAction.Target) == false) { continue; }
+                if (preAction.Conditions.Count > 0) { continue; } // Show only base damage
+                if (preAction.Action == "Add Roll")
+                {
+                    if (damageDiceRolls[preAction.Target] == "")
+                    {
+                        damageDiceRolls[preAction.Target] = preAction.DiceQuantity + "d" + preAction.DiceQuality;
+                    }
+                    else
+                    {
+                        damageDiceRolls[preAction.Target] += ", " + preAction.DiceQuantity + "d" + preAction.DiceQuality;
+                    }
+                }
+                if (preAction.Action == "Add Set Value")
+                {
+                    int.TryParse(preAction.SetValue, out int setVal);
+                    damageDiceMods[preAction.Target].Add(setVal);
+                }
+                if (preAction.Action == "Add Stat Value")
+                {
+                    damageDiceMods[preAction.Target].Add(GetIntValueFromCreatureStat(preAction.StatValue, creature));
+                }
+            }
+
+            // Set Attack Text
+            if (hasAttackRoll)
+            {
+                description += "Attack: ";
+                foreach (CAPreAction preAction in PreActions)
+                {
+                    if (preAction.Target != attackTarget) { continue; }
+                    if (preAction.Action == "Make Attack Roll")
+                    {
+                        attackBonus += GetIntValueFromCreatureStat(preAction.AttackAttribute, creature);
+                    }
+                    if (preAction.Action == "Add Set Value")
+                    {
+                        int.TryParse(preAction.SetValue, out int setVal);
+                        attackBonus += setVal;
+                    }
+                    if (preAction.Action == "Add Stat Value")
+                    {
+                        attackBonus += GetIntValueFromCreatureStat(preAction.StatValue, creature);
+                    }
+                }
+                description += HelperMethods.GetModifierSymbol(attackBonus) + attackBonus + " to hit. ";
+            }
+
+            // Set Damage Text
+            if (damageDiceRolls.Count > 0 || damageDiceMods.Count > 0)
+            {
+                description += "Hit: ";
+                foreach (KeyValuePair<string, string> damageRoll in damageDiceRolls)
+                {
+                    bool hasRoll = false;
+                    if (damageDiceRolls.First().Key != damageRoll.Key) { description += ", "; }
+                    description += "(";
+                    if (damageRoll.Value != "")
+                    {
+                        hasRoll = true;
+                        description += "[" + damageRoll.Value + "] ";
+                    }
+                    foreach (KeyValuePair<string, List<int>> damageMod in damageDiceMods)
+                    {
+                        if (damageMod.Key != damageRoll.Key) { continue; }
+                        if (damageMod.Value.Count == 0) { continue; }
+                        if (hasRoll) { description += HelperMethods.GetModifierSymbol(damageMod.Value.First()); }
+                        for (int i = 0; i < damageMod.Value.Count; i++)
+                        {
+                            if (i > 0) { description += " " + HelperMethods.GetModifierSymbol(damageMod.Value[i]); }
+                            description += damageMod.Value[i];
+                        }
+                    }
+                    description += ") " + damageRoll.Key.ToLower();
+                }
+            }
+
+            if (hasAttackRoll || damageDiceRolls.Count > 0 || damageDiceMods.Count > 0) { description += ". "; }
+            description += Output;
+
+            Description = description;
+
+        }
 
         // Private Methods
         private bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
@@ -1068,6 +1243,22 @@ namespace GAMMA.Models.GameplayComponents
             if (v == null) { HelperMethods.NotifyUser("Invalid target \"" + variableName + "\", variable not found."); return false; }
             if (v.Type != expectedType) { HelperMethods.NotifyUser("Expected variable type \"" + expectedType + "\", matched variable is of type \"" + v.Type + "\"."); return false; }
             return true;
+        }
+        private int GetIntValueFromCreatureStat(string stat, CreatureModel creature)
+        {
+            return stat switch
+            {
+                "Strength" => creature.StrengthModifier,
+                "Dexterity" => creature.DexterityModifier,
+                "Constitution" => creature.ConstitutionModifier,
+                "Intelligence" => creature.IntelligenceModifier,
+                "Wisdom" => creature.WisdomModifier,
+                "Charisma" => creature.CharismaModifier,
+                "Spellcasting Attack Modifier" => creature.SpellAttackBonus,
+                "Spellcasting Ability Modifier" => creature.SpellAbilityModifier,
+                "Proficiency Bonus" => creature.ProficiencyBonus,
+                _ => 0
+            };
         }
 
     }

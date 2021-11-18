@@ -34,6 +34,7 @@ namespace GAMMA.ViewModels
                 creature.ConnectItemLinks();
                 creature.UpdateToNewAttackSystem();
                 creature.UpdateAbilityDropdowns();
+                creature.UpdateAbilityDescriptions();
             }
         }
 

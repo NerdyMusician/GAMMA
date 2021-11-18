@@ -824,6 +824,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerClass()
         {
             PlayerClasses.Add(new PlayerClassModel());
+            ActivePlayerClass = PlayerClasses.Last();
         }
         #endregion
         #region SortPlayerClasses
@@ -923,6 +924,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerSubclass()
         {
             PlayerSubclasses.Add(new PlayerSubclassModel());
+            ActivePlayerSubclass = PlayerSubclasses.Last();
         }
         #endregion
         #region SortPlayerSubclasses
@@ -1017,6 +1019,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerRace()
         {
             PlayerRaces.Add(new PlayerRaceModel());
+            ActivePlayerRace = PlayerRaces.Last();
         }
         #endregion
         #region SortPlayerRaces
@@ -1118,6 +1121,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerSubrace()
         {
             PlayerSubraces.Add(new PlayerSubraceModel());
+            ActivePlayerSubrace = PlayerSubraces.Last();
         }
         #endregion
         #region SortPlayerSubraces
@@ -1213,6 +1217,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerBackground()
         {
             PlayerBackgrounds.Add(new PlayerBackgroundModel());
+            ActivePlayerBackground = PlayerBackgrounds.Last();
         }
         #endregion
         #region SortPlayerBackgrounds
@@ -1314,6 +1319,7 @@ namespace GAMMA.ViewModels
         private void DoAddPlayerFeat()
         {
             PlayerFeats.Add(new PlayerFeatModel());
+            ActivePlayerFeat = PlayerFeats.Last();
         }
         #endregion
         #region SortPlayerFeats
@@ -1414,6 +1420,7 @@ namespace GAMMA.ViewModels
         private void DoAddLanguage()
         {
             Languages.Add(new LanguageModel());
+            ActiveLanguage = Languages.Last();
         }
         #endregion
         #region SortLanguages

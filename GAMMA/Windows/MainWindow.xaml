@@ -1968,7 +1968,13 @@
                                         <Separator Height="0" />
                                         <TextBlock Text="Tools" />
                                         <Rectangle />
-                                        <cc:ImageButton Text="Add Creatures" ImageResource="{StaticResource Icon_AddCreature}" Command="{Binding CampaignView.ActiveCampaign.AddCreatures}" />
+                                        <cc:ImageButton Text="Add Creatures" ImageResource="{StaticResource Icon_AddCreature}" Command="{Binding CampaignView.ActiveCampaign.AddCreatures}">
+                                            <cc:ImageButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Add Improv Creature" Command="{Binding CampaignView.ActiveCampaign.AddImprovCreatures}" />
+                                                </ContextMenu>
+                                            </cc:ImageButton.ContextMenu>
+                                        </cc:ImageButton>
                                         <cc:ImageButton Text="Add Pack" ImageResource="{StaticResource Icon_CreaturePack}" Command="{Binding CampaignView.ActiveCampaign.AddPack}" />
                                         <cc:ImageButton Text="Add Players" ImageResource="{StaticResource Icon_User_Add}" Command="{Binding CampaignView.ActiveCampaign.AddPlayers}" />
                                         <cc:ImageButton Text="Add NPCs" ImageResource="{StaticResource Icon_Users}" Command="{Binding CampaignView.ActiveCampaign.AddNpcs}" />
@@ -3017,7 +3023,7 @@
 								   Margin="0 2 0 0"/>
                                     <StackPanel Orientation="Horizontal" Margin="0 0">
                                         <TextBlock Text="Attribute" Foreground="{StaticResource PrimaryFontColor}" Width="80" />
-                                        <TextBlock Text="Score" Foreground="{StaticResource PrimaryFontColor}" Width="52" />
+                                        <TextBlock Text="Score" Foreground="{StaticResource PrimaryFontColor}" Width="76" />
                                         <TextBlock Text="Mod" Foreground="{StaticResource PrimaryFontColor}" Width="38" />
                                         <TextBlock Text="Save?" Foreground="{StaticResource PrimaryFontColor}" Width="40" />
                                         <TextBlock Text="Save Mode"  Foreground="{StaticResource PrimaryFontColor}" Width="54" />
@@ -4456,7 +4462,10 @@
                                                         </StackPanel>
                                                     </StackPanel>
                                                     <StackPanel Margin="4 0">
-                                                        <TextBlock Margin="0" Text="{Binding CharacterBuilderView.ActiveCharacter.ClassAutoText, FallbackValue=Level 3 Ranger}" />
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Margin="0" Text="{Binding CharacterBuilderView.ActiveCharacter.ClassAutoText, FallbackValue=Level 3 Ranger}" />
+                                                            <TextBlock Margin="4 0" Text="{Binding CharacterBuilderView.ActiveCharacter.SubclassAutoText}" />
+                                                        </StackPanel>
                                                         <TextBlock Margin="0">
                                                                 <Run Text="{Binding CharacterBuilderView.ActiveCharacter.Alignment, FallbackValue=Chaotic Neutral}" />
                                                                 <Run Text="{Binding CharacterBuilderView.ActiveCharacter.DisplayRace, FallbackValue=Mountain Dwarf}" /><Run Text="," />
@@ -8380,7 +8389,8 @@
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Language Type" />
-                                            <cc:GammaTextBox Text="{Binding ToolsView.ActiveLanguage.Type, UpdateSourceTrigger=PropertyChanged}" />
+                                            <!--<cc:GammaTextBox Text="{Binding ToolsView.ActiveLanguage.Type, UpdateSourceTrigger=PropertyChanged}" />-->
+                                            <cc:GammaComboBox ItemsSource="{Binding LanguageTypes, UpdateSourceTrigger=PropertyChanged}" Text="{Binding ToolsView.ActiveLanguage.Type, UpdateSourceTrigger=PropertyChanged}" IsEditable="False" Width="240" />
                                         </StackPanel>
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
@@ -10923,10 +10933,10 @@
                                     <CheckBox IsChecked="{Binding SettingsView.EnableCampaignsAutosave, UpdateSourceTrigger=PropertyChanged}" />
                                     <cc:FieldLabel Text="Campaigns Autosave" />
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <!--<StackPanel Orientation="Horizontal">
                                     <CheckBox IsChecked="{Binding SettingsView.EnableEncounterAutosave, UpdateSourceTrigger=PropertyChanged}" />
                                     <cc:FieldLabel Text="Encounter Autosave" />
-                                </StackPanel>
+                                </StackPanel>-->
                                 <StackPanel Orientation="Horizontal">
                                     <CheckBox IsChecked="{Binding SettingsView.EnableCharacterAutosave, UpdateSourceTrigger=PropertyChanged}" />
                                     <cc:FieldLabel Text="Character Autosave" />

@@ -1,4 +1,5 @@
-﻿using GAMMA.Toolbox;
+﻿using GAMMA.Models.GameplayComponents;
+using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
 using System;
@@ -854,6 +855,51 @@ namespace GAMMA.Models
                     }
                 }
                 SortCombatants();
+            }
+        }
+        #endregion
+        #region AddImprovCreatures
+        public ICommand AddImprovCreatures => new RelayCommand(DoAddImprovCreatures);
+        private void DoAddImprovCreatures(object param)
+        {
+            ImprovCreatureDialog creatureDialog = new();
+            if (creatureDialog.ShowDialog() == true)
+            {
+                for (int i = 0; i < creatureDialog.Quantity; i++)
+                {
+                    CreatureModel newCreature = new();
+
+                    newCreature.Name = creatureDialog.CreatureName;
+                    int existingCreatureCount = Combatants.Where(creature => creature.Name == newCreature.Name).Count();
+                    newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount];
+                    newCreature.DisplayName = newCreature.Name + " " + newCreature.TrackerIndicator;
+                    newCreature.CreatureCategory = "Improvised";
+                    newCreature.GetPortraitFilepath();
+
+                    newCreature.Attr_Strength = creatureDialog.StrengthScore;
+                    newCreature.Attr_Dexterity = creatureDialog.DexterityScore;
+                    newCreature.Attr_Constitution = creatureDialog.ConstitutionScore;
+                    newCreature.Attr_Intelligence = creatureDialog.IntelligenceScore;
+                    newCreature.Attr_Wisdom = creatureDialog.WisdomScore;
+                    newCreature.Attr_Charisma = creatureDialog.CharismaScore;
+
+                    newCreature.MaxHitPoints = creatureDialog.HitPoints;
+                    newCreature.CurrentHitPoints = creatureDialog.HitPoints;
+                    newCreature.ArmorClass = creatureDialog.ArmorClass;
+                    newCreature.Speed = creatureDialog.Speed;
+
+                    CustomAbility basicAttack = HelperMethods.DeepClone(creatureDialog.Attack);
+                    basicAttack.SetGeneratedDescription(newCreature);
+                    newCreature.Abilities.Add(basicAttack);
+
+                    newCreature.SetFormattedTexts();
+
+                    Combatants.Add(newCreature);
+
+                }
+                
+                SortCombatants();
+
             }
         }
         #endregion

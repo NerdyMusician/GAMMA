@@ -82,7 +82,7 @@
                 <TextBlock Visibility="{Binding Immunities, Converter={tool:CollapsedIfNullOrEmpty}}"><Run Text="Damage Immunities" FontWeight="Bold" /><Run Text=" "/><Run Text="{Binding Immunities}" /></TextBlock>
                 <TextBlock Visibility="{Binding ConditionImmunities, Converter={tool:CollapsedIfNullOrEmpty}}"><Run Text="Condition Immunities" FontWeight="Bold" /><Run Text=" "/><Run Text="{Binding ConditionImmunities}" /></TextBlock>
                 <TextBlock><Run Text="Senses " FontWeight="Bold" /><Run Text="{Binding FT_Senses}" /></TextBlock>
-                <ItemsControl ItemsSource="{Binding Traits_P1}">
+                <ItemsControl ItemsSource="{Binding FT_TraitsAndAbilities_P1}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel HorizontalAlignment="Left" Margin="0 0 0 4">
@@ -94,7 +94,7 @@
                 </ItemsControl>
             </StackPanel>
             <StackPanel Margin="8 0 0 0">
-                <ItemsControl ItemsSource="{Binding Traits_P2}">
+                <ItemsControl ItemsSource="{Binding FT_TraitsAndAbilities_P2}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel HorizontalAlignment="Left" Margin="0 0 0 4">
@@ -104,7 +104,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <ItemsControl ItemsSource="{Binding Abilities}">
+                <!--<ItemsControl ItemsSource="{Binding Abilities}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Width="256" TextWrapping="Wrap" Margin="0 0 0 4">
@@ -113,7 +113,7 @@
                             </TextBlock>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                </ItemsControl>-->
             </StackPanel>
         </StackPanel>
     </StackPanel>

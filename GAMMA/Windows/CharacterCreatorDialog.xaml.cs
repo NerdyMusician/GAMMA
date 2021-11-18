@@ -19,6 +19,7 @@ namespace GAMMA.Windows
             {
                 link.UpdateSubclassList();
             }
+            (DataContext as CharacterModel).UpdateLanguageChoiceCounts(); // GC1
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

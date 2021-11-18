@@ -181,6 +181,9 @@
     <Compile Include="Windows\EncounterMultiTargetDialog.xaml.cs">
       <DependentUpon>EncounterMultiTargetDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ImprovCreatureDialog.xaml.cs">
+      <DependentUpon>ImprovCreatureDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ItemTransfer.xaml.cs">
       <DependentUpon>ItemTransfer.xaml</DependentUpon>
     </Compile>
@@ -296,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EncounterMultiTargetDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ImprovCreatureDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

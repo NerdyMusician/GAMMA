@@ -412,6 +412,21 @@ namespace GAMMA.Models
             }
         }
         #endregion
+        #region SubclassAutoText
+        private string _SubclassAutoText;
+        public string SubclassAutoText
+        {
+            get
+            {
+                return _SubclassAutoText;
+            }
+            set
+            {
+                _SubclassAutoText = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
         #region TotalLevel
         private int _TotalLevel;
         public int TotalLevel
@@ -7630,6 +7645,7 @@ namespace GAMMA.Models
             SetTotalLevel();
             UpdateCharacterSheet();
             SetClassAutoText();
+            SetSubclassAutoText();
         }
         public void SetTotalLevel()
         {
@@ -7656,6 +7672,20 @@ namespace GAMMA.Models
                 if (playerClass != PlayerClasses.Last()) { ClassAutoText += ", "; }
             }
             ClassAutoText += "]";
+        }
+        public void SetSubclassAutoText()
+        {
+            string text = "(";
+            foreach (PlayerClassLinkModel playerClass in PlayerClasses)
+            {
+                if (playerClass.SubClassName != null && playerClass.SubClassName != "")
+                {
+                    if (text.Length > 1) { text += ", "; }
+                    text += playerClass.SubClassName;
+                }
+            }
+            text += ")";
+            if (text.Length > 2) { SubclassAutoText = text; }
         }
         public void UpdatePreparedSpellCount()
         {
@@ -8707,6 +8737,19 @@ namespace GAMMA.Models
                         condition.UpdateVariableList(conditions);
                     }
                 }
+            }
+        }
+        public void UpdateLanguageChoiceCounts()
+        {
+            // GC1
+            foreach (ChoiceSet langChoiceSeg in LanguageChoiceSegments)
+            {
+                int selectedLangCount = 0;
+                foreach (BoolOption langChoice in langChoiceSeg.Choices)
+                {
+                    if (langChoice.Marked) { selectedLangCount++; }
+                }
+                langChoiceSeg.ChoicesRemaining = langChoiceSeg.MaxChoices - selectedLangCount;
             }
         }
 
@@ -10610,6 +10653,7 @@ namespace GAMMA.Models
         {
             CalculateFinalScores();
         }
+        
         
 
     }

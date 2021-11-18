@@ -23,7 +23,7 @@ namespace GAMMA.Models
             Spells = new();
             SpellLinks = new();
             Traits = new();
-            Traits.CollectionChanged += Traits_CollectionChanged;
+            // Traits.CollectionChanged += Traits_CollectionChanged;
             Loot = new();
             ItemLinks = new();
             ActiveEffects = new();
@@ -49,6 +49,7 @@ namespace GAMMA.Models
 
         private void Traits_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
+            // Depracated in favor of manually called method GenerateTraitAndAbilityLists
             int descCharCount = 0;
             foreach (TraitModel trait in Traits)
             {
@@ -57,7 +58,7 @@ namespace GAMMA.Models
             int tCount = Traits.Count();
 
             Traits_P1 = new();
-            int p1Count = 0;
+            int p1Count = FT_Senses.Length + Languages.Length + Vulnerabilities.Length + Resistances.Length + Immunities.Length + ConditionImmunities.Length;
             int p1Pos = 0;
             foreach (TraitModel trait in Traits)
             {
@@ -73,6 +74,42 @@ namespace GAMMA.Models
         {
             //ShowTag_HasActiveEffects = (ActiveEffects.Count() > 0);
             ShowTag_HasActiveEffects = (ActiveEffectAbilities.Count() > 0);
+        }
+
+        private void GenerateTraitAndAbilityLists()
+        {
+            List<BoolOption> traitsAndAbilities = new();
+            int totalCharacterCount = 0;
+            foreach (TraitModel trait in Traits)
+            {
+                traitsAndAbilities.Add(new() { Name = trait.Name, Description = trait.Description });
+                totalCharacterCount += trait.Name.Length + trait.Description.Length;
+            }
+            foreach (CustomAbility ability in Abilities)
+            {
+                traitsAndAbilities.Add(new() { Name = ability.Name, Description = ability.Description });
+                totalCharacterCount += ability.Name.Length + ability.Description.Length;
+            }
+
+            int currentLeftSideLength = FT_Senses.Length + Languages.Length + Vulnerabilities.Length + Resistances.Length + Immunities.Length + ConditionImmunities.Length;
+            bool flipToRightSide = false;
+
+            FT_TraitsAndAbilities_P1 = new();
+            FT_TraitsAndAbilities_P2 = new();
+            foreach (BoolOption traitOrAbility in traitsAndAbilities)
+            {
+                if (currentLeftSideLength > (totalCharacterCount / 2)) { flipToRightSide = true; }
+                if (flipToRightSide == false)
+                {
+                    FT_TraitsAndAbilities_P1.Add(traitOrAbility);
+                    currentLeftSideLength += traitOrAbility.Name.Length + traitOrAbility.Description.Length;
+                }
+                else
+                {
+                    FT_TraitsAndAbilities_P2.Add(traitOrAbility);
+                }
+            }
+
         }
 
         // Databound Properties - Core
@@ -4230,6 +4267,37 @@ namespace GAMMA.Models
         }
         #endregion
 
+        #region FT_TraitsAndAbilities_P1
+        private List<BoolOption> _FT_TraitsAndAbilities_P1;
+        public List<BoolOption> FT_TraitsAndAbilities_P1
+        {
+            get
+            {
+                return _FT_TraitsAndAbilities_P1;
+            }
+            set
+            {
+                _FT_TraitsAndAbilities_P1 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region FT_TraitsAndAbilities_P2
+        private List<BoolOption> _FT_TraitsAndAbilities_P2;
+        public List<BoolOption> FT_TraitsAndAbilities_P2
+        {
+            get
+            {
+                return _FT_TraitsAndAbilities_P2;
+            }
+            set
+            {
+                _FT_TraitsAndAbilities_P2 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+
         // Commands
         #region AddAttack
         private RelayCommand _AddAttack;
@@ -5195,10 +5263,13 @@ namespace GAMMA.Models
             if (Truesight > 0) { FT_Senses += ((FT_Senses == "") ? "" : ", ") + "Truesight " + Truesight + " ft."; }
             if (PassivePerception > 0) { FT_Senses += ((FT_Senses == "") ? "" : ", ") + "Passive Perception " + PassivePerception; }
 
-            foreach (AttackModel attack in Attacks)
-            {
-                attack.SetFormattedTexts();
-            } // TODO - update to new abilities
+            GenerateTraitAndAbilityLists();
+
+            // Deprecated for CustomAbility
+            //foreach (AttackModel attack in Attacks)
+            //{
+            //    attack.SetFormattedTexts();
+            //}
 
         }
         public void UpdateToNewSpellSystem()
@@ -5478,6 +5549,14 @@ namespace GAMMA.Models
                         condition.UpdateVariableList(conditions);
                     }
                 }
+            }
+        }
+        public void UpdateAbilityDescriptions()
+        {
+            if (IsValidated == false) { return; } // Don't backfill descriptions for unfinished creatures
+            foreach (CustomAbility ability in Abilities)
+            {
+                ability.SetGeneratedDescription(this);
             }
         }
 
@@ -5764,6 +5843,7 @@ namespace GAMMA.Models
 
 
         }
+        
         
 
     }

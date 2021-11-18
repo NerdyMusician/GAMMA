@@ -1,4 +1,16 @@
-﻿GAMMA 1.26.05
+﻿GAMMA 1.26.06
+- Fixed issue where choices available for languages was not showing correctly on edit character window creation
+- Added subclasses to Character Information tab
+- Fixed issue where character name was not being selected in the Speaking As dropdown when connecting to Roll20
+- Added ability to add improvised creature to combat in campaigns. Able to set name, base attributes and stats, and a single attack
+- Validated creatures with abilities missing a description will have it auto-fill on startup, saving the creature list will save these generated descriptions
+- Changed how trait and abilities are formatted to display on info cards for DM gameplay and player minions (performance and UI spacing improvements)
+- Fixed header formatting issue for creature attribute score table
+- Removed settings checkbox for encounter autosave (functionality had been removed in 1.26.00)
+- Changed Other Tools > Langugages > Language Type to selection-only dropdown
+- Fixed oversight in Other Tools where adding a new item to a list wasn't making that new item the actively viewed item
+
+GAMMA 1.26.05
 - Fixed issue with alterant description field height
 - Textblock for character name in list now has set width to allow context menu to be more accessible
 - Can now press the Enter key in the Roll20 password field to attempt the Roll20 login

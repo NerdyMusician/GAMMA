@@ -296,7 +296,7 @@ namespace GAMMA.ViewModels
                         Characters.Add(HelperMethods.DeepClone(ActiveCharacter));
                         ActiveCharacter = Characters.Last();
                         ActiveCharacter.UpdateCharacterSheet();
-                        CharacterCreatorDialog characterEditor = new CharacterCreatorDialog(ActiveCharacter);
+                        CharacterCreatorDialog characterEditor = new(ActiveCharacter);
                         if (characterEditor.ShowDialog() == true)
                         {
                             Characters.RemoveAt(originalCharacter);
