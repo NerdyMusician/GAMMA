@@ -19,7 +19,7 @@ namespace GAMMA.Toolbox
             List<Sourcebook> combinedSourcebookList = new();
             message = "Sourcebooks Imported:";
 
-            List<string> sourcebookNames = new List<string>();
+            List<string> sourcebookNames = new();
             foreach (Sourcebook sourcebook in currentSourcebooks)
             {
                 if (sourcebookNames.Contains(sourcebook.Name) == false) { sourcebookNames.Add(sourcebook.Name); }
@@ -51,10 +51,10 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<ItemModel> importedItems);
             XmlMethods.XmlToList(Configuration.ItemDataFilePath, out List<ItemModel> currentItems);
-            List<ItemModel> combinedItemList = new List<ItemModel>();
+            List<ItemModel> combinedItemList = new();
             message = "Items Imported:";
 
-            List<string> itemNames = new List<string>();
+            List<string> itemNames = new();
             foreach (ItemModel item in currentItems)
             {
                 if (itemNames.Contains(item.Name) == false) { itemNames.Add(item.Name); }
@@ -92,7 +92,7 @@ namespace GAMMA.Toolbox
             List<SpellModel> combinedSpellList = new List<SpellModel>();
             message = "Spells Imported:";
 
-            List<string> spellNames = new List<string>();
+            List<string> spellNames = new();
             foreach (SpellModel spell in currentSpells)
             {
                 if (spellNames.Contains(spell.Name) == false) { spellNames.Add(spell.Name); }
@@ -128,7 +128,7 @@ namespace GAMMA.Toolbox
             List<CreatureModel> combinedCreatureList = new List<CreatureModel>();
             message = "Creatures Imported:";
 
-            List<string> creatureNames = new List<string>();
+            List<string> creatureNames = new();
             foreach (CreatureModel creature in currentCreatures)
             {
                 if (creatureNames.Contains(creature.Name) == false) { creatureNames.Add(creature.Name); }
@@ -182,7 +182,7 @@ namespace GAMMA.Toolbox
             List<ShopModel> combinedShopList = new List<ShopModel>();
             message = "Shops Imported:";
 
-            List<string> shops = new List<string>();
+            List<string> shops = new();
             foreach (ShopModel shop in currentShops)
             {
                 if (shops.Contains(shop.Name) == false) { shops.Add(shop.Name); }
@@ -213,10 +213,10 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<LootBoxModel> importedLootBoxes);
             XmlMethods.XmlToList(Configuration.LootBoxDataFilePath, out List<LootBoxModel> currentLootBoxes);
-            List<LootBoxModel> combinedLootBoxList = new List<LootBoxModel>();
+            List<LootBoxModel> combinedLootBoxList = new();
             message = "LootBoxes Imported:";
 
-            List<string> boxNames = new List<string>();
+            List<string> boxNames = new();
             foreach (LootBoxModel box in currentLootBoxes)
             {
                 if (boxNames.Contains(box.Name) == false) { boxNames.Add(box.Name); }
@@ -248,10 +248,10 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<RollTableModel> importedRollTables);
             XmlMethods.XmlToList(Configuration.RollTableDataFilePath, out List<RollTableModel> currentRollTables);
-            List<RollTableModel> combinedRollTableList = new List<RollTableModel>();
+            List<RollTableModel> combinedRollTableList = new();
             message = "RollTables Imported:";
 
-            List<string> rollTableNames = new List<string>();
+            List<string> rollTableNames = new();
             foreach (RollTableModel table in currentRollTables)
             {
                 if (rollTableNames.Contains(table.Name) == false) { rollTableNames.Add(table.Name); }
@@ -286,7 +286,7 @@ namespace GAMMA.Toolbox
             List<LanguageModel> combinedLanguageList = new List<LanguageModel>();
             message = "Languages Imported:";
 
-            List<string> languages = new List<string>();
+            List<string> languages = new();
             foreach (LanguageModel language in currentLanguages)
             {
                 if (languages.Contains(language.Name) == false) { languages.Add(language.Name); }
@@ -321,7 +321,7 @@ namespace GAMMA.Toolbox
             List<Weather> combinedWeatherList = new List<Weather>();
             message = "Weathers Imported:";
 
-            List<string> weathers = new List<string>();
+            List<string> weathers = new();
             foreach (Weather weather in currentWeathers)
             {
                 if (weathers.Contains(weather.Name) == false) { weathers.Add(weather.Name); }
@@ -356,7 +356,7 @@ namespace GAMMA.Toolbox
             List<GameCalendar> combinedCalendarList = new List<GameCalendar>();
             message = "Calendars Imported:";
 
-            List<string> calendars = new List<string>();
+            List<string> calendars = new();
             foreach (GameCalendar calendar in currentCalendars)
             {
                 if (calendars.Contains(calendar.Name) == false) { calendars.Add(calendar.Name); }
@@ -393,7 +393,7 @@ namespace GAMMA.Toolbox
             List<PlayerClassModel> combinedPlayerClassList = new List<PlayerClassModel>();
             message = "Player Classes Imported:";
 
-            List<string> classNames = new List<string>();
+            List<string> classNames = new();
             foreach (PlayerClassModel pClass in currentPlayerClasses)
             {
                 if (classNames.Contains(pClass.Name) == false) { classNames.Add(pClass.Name); }
@@ -430,7 +430,7 @@ namespace GAMMA.Toolbox
             List<PlayerSubclassModel> combinedPlayerSubclassList = new List<PlayerSubclassModel>();
             message = "Player Subclasses Imported:";
 
-            List<string> classNames = new List<string>();
+            List<string> classNames = new();
             foreach (PlayerSubclassModel pClass in currentPlayerSubclasses)
             {
                 if (classNames.Contains(pClass.Name) == false) { classNames.Add(pClass.Name); }
@@ -465,7 +465,7 @@ namespace GAMMA.Toolbox
             List<PlayerRaceModel> combinedPlayerRaceList = new List<PlayerRaceModel>();
             message = "Player Races Imported:";
 
-            List<string> raceNames = new List<string>();
+            List<string> raceNames = new();
             foreach (PlayerRaceModel race in currentPlayerRaces)
             {
                 if (raceNames.Contains(race.Name) == false) { raceNames.Add(race.Name); }
@@ -500,7 +500,7 @@ namespace GAMMA.Toolbox
             List<PlayerSubraceModel> combinedPlayerSubraceList = new List<PlayerSubraceModel>();
             message = "Player Subraces Imported:";
 
-            List<string> subraceNames = new List<string>();
+            List<string> subraceNames = new();
             foreach (PlayerSubraceModel race in currentPlayerSubraces)
             {
                 if (subraceNames.Contains(race.Name) == false) { subraceNames.Add(race.Name); }
@@ -535,7 +535,7 @@ namespace GAMMA.Toolbox
             List<PlayerBackgroundModel> combinedPlayerBackgroundList = new List<PlayerBackgroundModel>();
             message = "Player Backgrounds Imported:";
 
-            List<string> subraceNames = new List<string>();
+            List<string> subraceNames = new();
             foreach (PlayerBackgroundModel race in currentPlayerBackgrounds)
             {
                 if (subraceNames.Contains(race.Name) == false) { subraceNames.Add(race.Name); }
@@ -570,7 +570,7 @@ namespace GAMMA.Toolbox
             List<PlayerFeatModel> combinedPlayerFeatList = new List<PlayerFeatModel>();
             message = "Player Feats Imported:";
 
-            List<string> subraceNames = new List<string>();
+            List<string> subraceNames = new();
             foreach (PlayerFeatModel race in currentPlayerFeats)
             {
                 if (subraceNames.Contains(race.Name) == false) { subraceNames.Add(race.Name); }
@@ -605,7 +605,7 @@ namespace GAMMA.Toolbox
             List<EldritchInvocation> combinedEldritchInvocationList = new List<EldritchInvocation>();
             message = "Eldritch Invocations Imported:";
 
-            List<string> eldritchInvocations = new List<string>();
+            List<string> eldritchInvocations = new();
             foreach (EldritchInvocation invocation in currentEldritchInvocations)
             {
                 if (eldritchInvocations.Contains(invocation.Name) == false) { eldritchInvocations.Add(invocation.Name); }
@@ -641,7 +641,7 @@ namespace GAMMA.Toolbox
             List<CharacterModel> combinedCharacterList = new List<CharacterModel>();
             message = "Characters Imported:";
 
-            List<string> characterNames = new List<string>();
+            List<string> characterNames = new();
             foreach (CharacterModel character in currentCharacters)
             {
                 if (characterNames.Contains(character.Name) == false) { characterNames.Add(character.Name); }
@@ -716,9 +716,10 @@ namespace GAMMA.Toolbox
                 {
                     inventory.UpdateFilteredList();
                 }
+                character.UpdateInventoryItemCategories();
             }
 
-            Configuration.MainModelRef.CharacterBuilderView.RunADC_Inventory();
+            // Configuration.MainModelRef.CharacterBuilderView.RunADC_Inventory();
 
             Configuration.MainModelRef.CharacterBuilderView.RunNullSpellLinkCheck();
 
@@ -734,7 +735,7 @@ namespace GAMMA.Toolbox
             List<GameCampaign> combinedCampaignList = new List<GameCampaign>();
             message = "Campaigns Imported:";
 
-            List<string> campaignNames = new List<string>();
+            List<string> campaignNames = new();
             foreach (GameCampaign campaign in currentCampaigns)
             {
                 if (campaignNames.Contains(campaign.Name) == false) { campaignNames.Add(campaign.Name); }

@@ -33,10 +33,7 @@ namespace GAMMA.ViewModels
                 {
                     minion.SetFormattedTexts();
                 }
-            }
-            RunADC_Inventory();
-            foreach (CharacterModel character in Characters)
-            {
+                character.UpdateInventoryItemCategories();
                 foreach (InventoryModel inventory in character.Inventories)
                 {
                     inventory.GetUpdatedItemData();
@@ -218,7 +215,7 @@ namespace GAMMA.ViewModels
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current character list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current character list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -227,7 +224,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerCharacters(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -323,24 +320,6 @@ namespace GAMMA.ViewModels
         #endregion
 
         // Public Methods
-        public void RunADC_Inventory()
-        {
-            foreach (CharacterModel character in Characters)
-            {
-                foreach (InventoryModel inventory in character.Inventories)
-                {
-                    foreach (ItemModel item in inventory.AllItems)
-                    {
-                        if (Configuration.ItemTypes.Contains(item.Type) == false)
-                        {
-                            ItemModel matchedSourceItem = Configuration.ItemRepository.FirstOrDefault(i => i.Name == item.Name);
-                            if (matchedSourceItem == null) { item.Type = "Other"; }
-                            else { item.Type = matchedSourceItem.Type; }
-                        }
-                    }
-                }
-            }
-        }
         public void RunNullSpellLinkCheck()
         {
             string message = "Missing spell links:";

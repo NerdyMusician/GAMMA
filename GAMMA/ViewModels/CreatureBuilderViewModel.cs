@@ -22,7 +22,7 @@ namespace GAMMA.ViewModels
             CreatureTypeFilters = new ObservableCollection<BoolOption>();
             SetFilterLists();
             Configuration.CreatureRepository = AllCreatures.ToList();
-            CreatureSubCategories = new List<string>();
+            CreatureSubCategories = new();
             UpdateSubCategories();
             UpdateArmorTypes();
             CreatureSearchText = "";
@@ -289,7 +289,7 @@ namespace GAMMA.ViewModels
                 blankDoc.Save("Data/Creatures.xml");
                 return true;
             }
-            List<string> duplicateCreatures = new List<string>();
+            List<string> duplicateCreatures = new();
             foreach (CreatureModel creature in AllCreatures)
             {
                 if (AllCreatures.Where(aItem => aItem.Name == creature.Name).Count() > 1)
@@ -412,7 +412,7 @@ namespace GAMMA.ViewModels
         // Private Methods
         private void UpdateSubCategories()
         {
-            List<string> newSubs = new List<string>();
+            List<string> newSubs = new();
             foreach (CreatureModel creature in AllCreatures)
             {
                 if (newSubs.Contains(creature.CreatureSubCategory) == true) { continue; }
@@ -423,7 +423,7 @@ namespace GAMMA.ViewModels
         }
         private void UpdateArmorTypes()
         {
-            List<string> newTypes = new List<string>();
+            List<string> newTypes = new();
             foreach (CreatureModel creature in AllCreatures)
             {
                 if (newTypes.Contains(creature.ArmorType) == true) { continue; }

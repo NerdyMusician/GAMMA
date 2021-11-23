@@ -17,10 +17,10 @@ namespace GAMMA.ViewModels
         public MainViewModel()
         {
             Configuration.MainModelRef = this;
-            PlayerClasses = new List<string>();
+            PlayerClasses = new();
             SpellcastingClasses = new();
-            PlayerRaces = new List<string>();
-            PlayerBackgrounds = new List<string>();
+            PlayerRaces = new();
+            PlayerBackgrounds = new();
             WeatherRepository = new();
             CalendarRepository = new();
             SourcebookRepository = new();
@@ -61,10 +61,10 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.26.06 beta";
+            ApplicationVersion = "GAMMA 1.26.07 beta";
 
             // Auto-Data Corrections
-            CharacterBuilderView.RunADC_Inventory();
+            // CharacterBuilderView.RunADC_Inventory();
 
             // Used to restrict certain performance heavy methods from triggering before needed (ie Character Creator UpdateCharacterSheet on Player data load)
             Configuration.LoadComplete = true;

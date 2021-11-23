@@ -722,8 +722,8 @@ namespace GAMMA.Models
         }
         private void DoMakeAttack(object parameters)
         {
-            CharacterModel attackingPlayer = new CharacterModel();
-            CreatureModel attackingCreature = new CreatureModel();
+            CharacterModel attackingPlayer = new();
+            CreatureModel attackingCreature = new();
             bool CreatureMode = false;
             bool useAdvantage;
             bool useDisadvantage;

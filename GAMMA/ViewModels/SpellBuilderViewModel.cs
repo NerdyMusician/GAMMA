@@ -468,7 +468,7 @@ namespace GAMMA.ViewModels
                 blankDoc.Save("Data/Spells.xml");
                 return true;
             }
-            List<string> duplicateSpells = new List<string>();
+            List<string> duplicateSpells = new();
             foreach (SpellModel spell in AllSpells)
             {
                 if (AllSpells.Where(aItem => aItem.Name == spell.Name).Count() > 1)

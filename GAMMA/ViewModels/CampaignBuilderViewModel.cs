@@ -112,18 +112,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortCampaigns
-        private RelayCommand _SortCampaigns;
-        public ICommand SortCampaigns
-        {
-            get
-            {
-                if (_SortCampaigns == null)
-                {
-                    _SortCampaigns = new RelayCommand(DoSortCampaigns);
-                }
-                return _SortCampaigns;
-            }
-        }
+        public ICommand SortCampaigns => new RelayCommand(DoSortCampaigns);
         private void DoSortCampaigns(object param)
         {
             Campaigns = new(Campaigns.OrderBy(c => c.Name));

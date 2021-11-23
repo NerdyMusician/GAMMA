@@ -213,7 +213,7 @@ namespace GAMMA.ViewModels
                 blankDoc.Save("Data/Items.xml");
                 return true;
             }
-            List<string> duplicateItems = new List<string>();
+            List<string> duplicateItems = new();
             foreach (ItemModel item in AllItems)
             {
                 if (AllItems.Where(aItem => aItem.Name == item.Name).Count() > 1)

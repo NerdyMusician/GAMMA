@@ -1,4 +1,7 @@
-﻿GAMMA 1.26.06
+﻿GAMMA 1.26.07
+- Code cleanup
+
+GAMMA 1.26.06
 - Fixed issue where choices available for languages was not showing correctly on edit character window creation
 - Added subclasses to Character Information tab
 - Fixed issue where character name was not being selected in the Speaking As dropdown when connecting to Roll20
@@ -9,6 +12,7 @@
 - Removed settings checkbox for encounter autosave (functionality had been removed in 1.26.00)
 - Changed Other Tools > Langugages > Language Type to selection-only dropdown
 - Fixed oversight in Other Tools where adding a new item to a list wasn't making that new item the actively viewed item
+- Fixed issue where shop window was not opening on same screen as GAMMA if on secondary monitor
 
 GAMMA 1.26.05
 - Fixed issue with alterant description field height

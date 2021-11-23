@@ -22,7 +22,7 @@ namespace GAMMA.Models
         public CharacterModel()
         {
             Name = "New Character";
-            Subraces = new List<string>();
+            Subraces = new();
             ActionHistory = new ObservableCollection<string>();
             Messages = new();
             PlayerClasses = new ObservableCollection<PlayerClassLinkModel>();
@@ -6738,7 +6738,7 @@ namespace GAMMA.Models
             };
             if (saveWindow.ShowDialog() == true)
             {
-                XDocument itemDocument = new XDocument();
+                XDocument itemDocument = new();
                 itemDocument.Add(XmlMethods.ListToXml(new List<CharacterModel> { this }));
                 itemDocument.Save(saveWindow.FileName);
                 YesNoDialog question = new("Character \"" + this.Name + "\" Exported\nOpen file explorer to file?");
@@ -7008,7 +7008,7 @@ namespace GAMMA.Models
         {
             if (MaxHealth > 0)
             {
-                YesNoDialog question = new YesNoDialog("This will overwrite your existing current and maximum hit points.\nContinue?");
+                YesNoDialog question = new("This will overwrite your existing current and maximum hit points.\nContinue?");
                 question.ShowDialog();
                 if (question.Answer == false) { return; }
             }
@@ -7616,7 +7616,7 @@ namespace GAMMA.Models
         }
         public void UpdateToolsCarried()
         {
-            List<ItemModel> tools = new List<ItemModel>();
+            List<ItemModel> tools = new();
             foreach (InventoryModel inventory in Inventories)
             {
                 if (inventory.IsCarried == false) { continue; }
@@ -8752,6 +8752,21 @@ namespace GAMMA.Models
                 langChoiceSeg.ChoicesRemaining = langChoiceSeg.MaxChoices - selectedLangCount;
             }
         }
+        public void UpdateInventoryItemCategories()
+        {
+            foreach (InventoryModel inventory in Inventories)
+            {
+                foreach (ItemModel item in inventory.AllItems)
+                {
+                    if (Configuration.ItemTypes.Contains(item.Type) == false)
+                    {
+                        ItemModel matchedSourceItem = Configuration.ItemRepository.FirstOrDefault(i => i.Name == item.Name);
+                        if (matchedSourceItem == null) { item.Type = "Other"; }
+                        else { item.Type = matchedSourceItem.Type; }
+                    }
+                }
+            }
+        }
 
         // Private Methods - Character Creation Implementation
         private void CCI_SavingThrows_Set(List<FeatureData> choices)
@@ -9148,7 +9163,7 @@ namespace GAMMA.Models
         }
         private void UpdateSubraceList()
         {
-            List<string> srs = new List<string>();
+            List<string> srs = new();
             foreach (PlayerSubraceModel subrace in Configuration.MainModelRef.ToolsView.PlayerSubraces)
             {
                 if (subrace.SubraceOf == Race && subrace.IsValidated)

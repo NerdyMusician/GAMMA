@@ -157,10 +157,9 @@
     <Compile Include="ViewModels\CampaignBuilderViewModel.cs" />
     <Compile Include="ViewModels\CharacterBuilderViewModel.cs" />
     <Compile Include="ViewModels\MultiObjectSelectionViewModel.cs" />
-    <None Include="GAMMA 1.26.05 User Manual.pdf">
+    <None Include="GAMMA 1.26.06 User Manual.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Legacy\NotebookViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShopViewModel.cs" />
     <Compile Include="ViewModels\SpellBuilderViewModel.cs" />
@@ -332,7 +331,6 @@
     <Compile Include="ViewModels\CreatureBuilderViewModel.cs" />
     <Compile Include="ViewModels\ItemBuilderViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <None Include="Legacy\TrackerViewModel.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -438,7 +436,6 @@
     <Resource Include="Images\Icons\warning.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Legacy\EncounterAutosave.xml" />
     <None Include="Data\Creatures.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -564,9 +561,6 @@
     <None Include="Data\LootBoxes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Legacy\Notebooks.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icons\arrow_left.png" />
@@ -780,7 +774,6 @@
     <Resource Include="Images\Icons\puzzle.png" />
     <Resource Include="Images\Icons\trap.png" />
     <Resource Include="Images\Icons\crossed_swords.png" />
-    <Resource Include="Legacy\LegacyDmTabs.txt" />
     <Resource Include="Data\EncounterAutosave.xml" />
     <Resource Include="Data\Notebooks.xml" />
     <Resource Include="OutputSwapperBases.txt" />

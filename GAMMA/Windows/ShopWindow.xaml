@@ -7,6 +7,7 @@
         xmlns:tool="clr-namespace:GAMMA.Toolbox"
         xmlns:cc="clr-namespace:GAMMA.CustomControls"
         WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         Background="{StaticResource PrimaryBackground}"
         BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
         mc:Ignorable="d" Height="640" Width="1024">

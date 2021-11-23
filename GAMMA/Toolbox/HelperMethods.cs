@@ -1,5 +1,4 @@
 ﻿using GAMMA.Models;
-using GAMMA.ViewModels;
 using GAMMA.Windows;
 using OpenQA.Selenium;
 using System;
@@ -19,26 +18,8 @@ namespace GAMMA.Toolbox
     public static class HelperMethods
     {
         // Public Methods
-        //public static void AddToEncounterLog(string message)
-        //{
-        //    if (Configuration.MainModelRef.TrackerView == null) { return; }
-        //    Configuration.MainModelRef.TrackerView.EventMessages.Insert(0, message);
-        //}
         public static void AddToPlayerLog(string message, string type = "", bool copyToWeb = false)
         {
-            //CharacterBuilderViewModel charView = Configuration.MainModelRef.CharacterBuilderView;
-            //charView.ActiveCharacter.ActionHistory.Insert(0, message.Replace("\n..........",""));
-            //if (charView.ActiveCharacter.OutputLinkedToRoll20 && copyToWeb) 
-            //{ 
-            //    if (message.Contains(charView.ActiveCharacter.Name))
-            //    {
-            //        AddToRoll20Chat(message.Replace(charView.ActiveCharacter.Name, "/me ").Replace("...........", "/me -"));
-            //    }
-            //    else
-            //    {
-            //        AddToRoll20Chat(message.Insert(0, "/me minion "));
-            //    }
-            //}
             CharacterModel activeChar = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
             activeChar.Messages.Insert(0, new() { MessageType = type, MessageContent = message.Replace("\n..........", "") });
             if (activeChar.OutputLinkedToRoll20 && copyToWeb)
@@ -125,7 +106,6 @@ namespace GAMMA.Toolbox
             }
             catch (Exception e)
             {
-                //characterRef.LinkOutputToRoll20 = false;
                 string message = e.Message;
                 if (message.Contains("Unable to locate element") && message.Contains("#speakingas")) { message = "Unable to interact with Roll20 chat, please ensure that you are fully logged into the Roll20 tabletop game you wish to join."; }
                 new NotificationDialog(message).ShowDialog();
@@ -560,7 +540,7 @@ namespace GAMMA.Toolbox
         }
         public static bool DoesStartWithVowel(string word)
         {
-            List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            List<char> vowels = new(){ 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
             return vowels.Contains(word[0]);
         }
         public static string GetSuffixFromNumber(int number)

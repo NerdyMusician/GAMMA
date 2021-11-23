@@ -351,18 +351,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollDice
-        private RelayCommand _RollDice;
-        public ICommand RollDice
-        {
-            get
-            {
-                if (_RollDice == null)
-                {
-                    _RollDice = new RelayCommand(DoRollDice);
-                }
-                return _RollDice;
-            }
-        }
+        public ICommand RollDice => new RelayCommand(DoRollDice);
         private void DoRollDice(object param)
         {
             int rollTotal = 0;

@@ -134,7 +134,7 @@ namespace GAMMA.Models
         private void DoOpenShop(object param)
         {
             InventoryModel sourceInventory = param as InventoryModel;
-            List<string> shopItemTypes = new List<string>();
+            List<string> shopItemTypes = new();
             foreach (BoolOption option in ItemTypes)
             {
                 if (option.Marked) { shopItemTypes.Add(option.Name); }

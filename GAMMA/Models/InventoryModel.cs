@@ -476,7 +476,7 @@ namespace GAMMA.Models
             }
             if (param.ToString() == "Transfer")
             {
-                List<string> inventoryNames = new List<string>();
+                List<string> inventoryNames = new();
                 foreach (InventoryModel inventory in Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories)
                 {
                     if (inventory.Name == Name) { continue; }

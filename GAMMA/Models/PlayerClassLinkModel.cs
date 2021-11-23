@@ -13,7 +13,7 @@ namespace GAMMA.Models
         public PlayerClassLinkModel()
         {
             ClassList = Configuration.MainModelRef.PlayerClasses.ToList();
-            SubclassList = new List<string>();
+            SubclassList = new();
             ClassLevels = new() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
             ClassLevel = 1;
         }
@@ -147,7 +147,7 @@ namespace GAMMA.Models
         // Public Methods
         public void UpdateSubclassList()
         {
-            List<string> newSubList = new List<string>();
+            List<string> newSubList = new();
             foreach (PlayerSubclassModel subclass in Configuration.MainModelRef.ToolsView.PlayerSubclasses)
             {
                 if (subclass.SubclassOf != ClassName || subclass.IsValidated == false) { continue; }

@@ -23,11 +23,9 @@ namespace GAMMA.Models
             Spells = new();
             SpellLinks = new();
             Traits = new();
-            // Traits.CollectionChanged += Traits_CollectionChanged;
             Loot = new();
             ItemLinks = new();
             ActiveEffects = new();
-            //ActiveEffects.CollectionChanged += ActiveEffects_CollectionChanged;
             ActiveEffectAbilities = new();
             ActiveEffects.CollectionChanged += ActiveEffects_CollectionChanged;
 
@@ -47,32 +45,8 @@ namespace GAMMA.Models
 
         }
 
-        private void Traits_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            // Depracated in favor of manually called method GenerateTraitAndAbilityLists
-            int descCharCount = 0;
-            foreach (TraitModel trait in Traits)
-            {
-                descCharCount += trait.Description.Length;
-            }
-            int tCount = Traits.Count();
-
-            Traits_P1 = new();
-            int p1Count = FT_Senses.Length + Languages.Length + Vulnerabilities.Length + Resistances.Length + Immunities.Length + ConditionImmunities.Length;
-            int p1Pos = 0;
-            foreach (TraitModel trait in Traits)
-            {
-                Traits_P1.Add(trait);
-                p1Count += trait.Description.Length;
-                p1Pos++;
-                if (p1Count >= descCharCount / 2) { break; }
-            }
-            Traits_P2 = new(Traits.Skip(p1Pos).Take(tCount - p1Pos));
-        }
-
         private void ActiveEffects_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            //ShowTag_HasActiveEffects = (ActiveEffects.Count() > 0);
             ShowTag_HasActiveEffects = (ActiveEffectAbilities.Count() > 0);
         }
 
@@ -4343,7 +4317,7 @@ namespace GAMMA.Models
         }
         private void DoAddLootToCreature()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
@@ -5265,12 +5239,6 @@ namespace GAMMA.Models
 
             GenerateTraitAndAbilityLists();
 
-            // Deprecated for CustomAbility
-            //foreach (AttackModel attack in Attacks)
-            //{
-            //    attack.SetFormattedTexts();
-            //}
-
         }
         public void UpdateToNewSpellSystem()
         {
@@ -5561,17 +5529,6 @@ namespace GAMMA.Models
         }
 
         // Private Methods
-
-        //private void UncheckOtherCreatures()
-        //{
-        //    foreach (CreatureModel Creature in Configuration.MainModelRef.TrackerView.ActiveCreatures)
-        //    {
-        //        if (Creature != this)
-        //        {
-        //            Creature.IsActive = false;
-        //        }
-        //    }
-        //}
         private void UpdateModifiers()
         {
             // Update Base Attribute Modifiers
