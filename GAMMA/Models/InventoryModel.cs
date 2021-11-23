@@ -98,21 +98,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        //#region ShowPlatinum
-        //private bool _ShowPlatinum;
-        //public bool ShowPlatinum
-        //{
-        //    get
-        //    {
-        //        return _ShowPlatinum;
-        //    }
-        //    set
-        //    {
-        //        _ShowPlatinum = value;
-        //        NotifyPropertyChanged();
-        //    }
-        //}
-        //#endregion
         #region PlatinumPieces
         private int _PlatinumPieces;
         [XmlSaveMode("Single")]
@@ -390,7 +375,6 @@ namespace GAMMA.Models
                 }
 
                 Owner.UpdateInventoryStats();
-                //Owner.UpdateTotals();
 
             }
             UpdateFilteredList();

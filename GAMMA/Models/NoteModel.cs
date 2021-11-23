@@ -187,10 +187,6 @@ namespace GAMMA.Models
             {
                 Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ActiveNote = SubNotes.Last();
             }
-            //else if (Configuration.MainModelRef.TabSelected_Notebooks)
-            //{
-            //    Configuration.MainModelRef.NotebookView.ActiveNotebook.ActiveNote = SubNotes.Last();
-            //}
             else if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
                 Configuration.MainModelRef.CampaignView.ActiveCampaign.ActiveNote = SubNotes.Last();
@@ -230,11 +226,6 @@ namespace GAMMA.Models
                 FindAndDeleteNote(Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Notes, this, out _);
                 Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ActiveNote = null;
             }
-            //else if (Configuration.MainModelRef.TabSelected_Notebooks)
-            //{
-            //    FindAndDeleteNote(Configuration.MainModelRef.NotebookView.ActiveNotebook.Notes, this, out _);
-            //    Configuration.MainModelRef.NotebookView.ActiveNotebook.ActiveNote = null;
-            //}
             else if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
                 FindAndDeleteNote(Configuration.MainModelRef.CampaignView.ActiveCampaign.Notes, this, out _);

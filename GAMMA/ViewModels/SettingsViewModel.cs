@@ -137,12 +137,7 @@ namespace GAMMA.ViewModels
                 if (Configuration.MainModelRef.CharacterBuilderView == null) { return; }
                 foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
                 {
-                    //character.UpdateTotals();
                     character.UpdateInventoryStats();
-                    //foreach (InventoryModel inventory in character.Inventories)
-                    //{
-                    //    inventory.ShowPlatinum = value;
-                    //}
                 }
             }
         }
@@ -567,7 +562,6 @@ namespace GAMMA.ViewModels
             InDmModeModern = false;
             InDmModeClassic = false;
             ShowData = false;
-            //ShowValidation = false;
             ShowMiniatureUtilization = false;
 
             // Gameplay Settings
@@ -583,7 +577,6 @@ namespace GAMMA.ViewModels
 
             // Autosave Settings
             EnableCampaignsAutosave = false;
-            //EnableEncounterAutosave = false;
             EnableCharacterAutosave = false;
 
             // Exitsave Settings
@@ -805,8 +798,6 @@ namespace GAMMA.ViewModels
                 Configuration.MainModelRef.ToolsView.DoSaveLootBoxes(false);
                 Configuration.MainModelRef.ToolsView.DoSaveRollTables(false);
                 Configuration.MainModelRef.ToolsView.DoSaveLanguages(false);
-                //Configuration.MainModelRef.ToolsView.DoSaveNpcs(false);
-                //Configuration.MainModelRef.ToolsView.DoSaveCreaturePacks(false);
                 Configuration.MainModelRef.ToolsView.DoSaveWeathers(false);
                 Configuration.MainModelRef.ToolsView.DoSaveCalendars(false);
 
@@ -827,13 +818,6 @@ namespace GAMMA.ViewModels
 
             }
             folderDialog.Dispose();
-        }
-        #endregion
-        #region ImportSettings
-        public ICommand ImportSettings => new RelayCommand(param => DoImportSettings());
-        private void DoImportSettings()
-        {
-            //DataImport.ImportData_Settings()
         }
         #endregion
         #region SRDReleaseCleanup

@@ -681,7 +681,6 @@ namespace GAMMA.Toolbox
         {
             string tooltip = "\n";
 
-            //tooltip += spell.Name + "\n";
             if (spell.SpellLevel == 0)
             {
                 tooltip += spell.SchoolOfMagic + " Cantrip\n";

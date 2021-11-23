@@ -430,7 +430,7 @@ namespace GAMMA.Models.GameplayComponents
             }
             if (attackMode == "LastOptions")
             {
-                useOptions = true; // TODO - Reckless Attack passing as null when using LastOptions sometimes
+                useOptions = true;
             }
             ProcessAbility(attackingCreature, attackingPlayer, attackMode, 0, out string attackMessage, out _, useOptions); // These abilities do not make spell effects
             string message = "";
@@ -1038,43 +1038,6 @@ namespace GAMMA.Models.GameplayComponents
                             }
 
                         }
-
-                        // TODO - temp HP for creatures
-                        //if (postAction.Action == "Add to Temporary HP") 
-                        //{
-                        //    if (CheckVariable(postAction.ValueA, "Number", out CAVariable v) == false) { return false; }
-
-                        //    int newTempHp = Convert.ToInt32(v.Value);
-                        //    if (newTempHp < creature.TempHealth)
-                        //    {
-                        //        message += "\nAlready have a stronger source of temporary hit points.";
-                        //        // Temporary hit points aren’t cumulative. If you have temporary hit points
-                        //        // and receive more of them, you don’t add them together, unless a game feature
-                        //        // says you can. Instead, you decide which temporary hit points to keep. (XGE)
-                        //    }
-                        //    else
-                        //    {
-                        //        creature.TempHealth = newTempHp;
-                        //        message += "\nAdded " + v.Value + " temporary hit points.";
-                        //    }
-                        //}
-
-                        // TODO - set up to add to Campaign Gameplay or Minions section
-                        //if (postAction.Action == "Add Minions")
-                        //{
-                        //    if (CheckVariable(postAction.ValueA, "Text", out CAVariable v) == false) { return false; }
-                        //    if (CheckVariable(postAction.ValueB, "Number", out CAVariable v2) == false) { return false; }
-
-                        //    CreatureModel minion = Configuration.MainModelRef.CreatureBuilderView.AllCreatures.FirstOrDefault(c => c.Name == v.Value);
-                        //    if (minion == null) { HelperMethods.NotifyUser("Creature \"" + postAction.ValueA + "\" not found."); return false; }
-
-                        //    for (int i = 0; i < Convert.ToInt32(v2.Value); i++)
-                        //    {
-                        //        creature.AddCharacterMinion(minion);
-                        //        message += "\nAdded minion " + creature.Minions.Last().DisplayName + ".";
-                        //    }
-
-                        //}
 
                         if (postAction.Action == "Add Active Effect")
                         {

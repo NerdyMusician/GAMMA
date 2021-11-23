@@ -17,17 +17,12 @@ namespace GAMMA.Models
         public CreatureModel()
         {
             Name = "New Creature";
-            Attacks = new();
             Abilities = new();
             Counters = new();
-            Spells = new();
             SpellLinks = new();
             Traits = new();
-            Loot = new();
             ItemLinks = new();
-            ActiveEffects = new();
             ActiveEffectAbilities = new();
-            ActiveEffects.CollectionChanged += ActiveEffects_CollectionChanged;
 
             DamageProclivity_Acid = "Normal";
             DamageProclivity_Cold = "Normal";
@@ -511,22 +506,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        #region Attacks
-        private ObservableCollection<AttackModel> _Attacks;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<AttackModel> Attacks
-        {
-            get
-            {
-                return _Attacks;
-            }
-            set
-            {
-                _Attacks = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
         #region Abilities
         private ObservableCollection<CustomAbility> _Abilities;
         [XmlSaveMode("Enumerable")]
@@ -555,22 +534,6 @@ namespace GAMMA.Models
             set
             {
                 _Counters = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region Spells
-        private ObservableCollection<SpellModel> _Spells;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<SpellModel> Spells
-        {
-            get
-            {
-                return _Spells;
-            }
-            set
-            {
-                _Spells = value;
                 NotifyPropertyChanged();
             }
         }
@@ -607,22 +570,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        #region ActiveEffects
-        private ObservableCollection<ActiveEffectModel> _ActiveEffects;
-        [XmlSaveMode("Enumerable")]
-        public ObservableCollection<ActiveEffectModel> ActiveEffects
-        {
-            get
-            {
-                return _ActiveEffects;
-            }
-            set
-            {
-                _ActiveEffects = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
         #region IsActive
         private bool _IsActive;
         [XmlSaveMode("Single")]
@@ -637,14 +584,6 @@ namespace GAMMA.Models
                 _IsActive = value;
                 NotifyPropertyChanged();
 
-                //if (Configuration.MainModelRef.TabSelected_Tracker)
-                //{
-                //    if (value)
-                //    {
-                //        UncheckOtherCreatures();
-                //    }
-                //    Configuration.MainModelRef.TrackerView.UpdateActiveCreature();
-                //}
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
                 {
                     GameCampaign campaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
@@ -695,22 +634,6 @@ namespace GAMMA.Models
             set
             {
                 _Initiative = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region Loot
-        private ObservableCollection<ItemModel> _Loot;
-        [XmlSaveMode("Enumerable")]
-        public ObservableCollection<ItemModel> Loot
-        {
-            get
-            {
-                return _Loot;
-            }
-            set
-            {
-                _Loot = value;
                 NotifyPropertyChanged();
             }
         }
@@ -1197,7 +1120,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        
         #region Languages
         private string _Languages;
         [XmlSaveMode("Single")]
@@ -3797,8 +3719,6 @@ namespace GAMMA.Models
         #endregion
 
         // Databound Properties - Tags
-        // ShowTag_Concentration -> IsConcentrating
-        // ShowTag_HasNotes -> Notes :convert: CollapsedIfNullOrEmpty
         #region ShowTag_HasCondition
         private bool _ShowTag_HasCondition;
         public bool ShowTag_HasCondition
@@ -4273,24 +4193,6 @@ namespace GAMMA.Models
         #endregion
 
         // Commands
-        #region AddAttack
-        private RelayCommand _AddAttack;
-        public ICommand AddAttack
-        {
-            get
-            {
-                if (_AddAttack == null)
-                {
-                    _AddAttack = new RelayCommand(param => DoAddAttack());
-                }
-                return _AddAttack;
-            }
-        }
-        private void DoAddAttack()
-        {
-            Attacks.Add(new AttackModel());
-        }
-        #endregion
         #region AddAbility
         public ICommand AddAbility => new RelayCommand(DoAddAbility);
         private void DoAddAbility(object param)
@@ -4300,45 +4202,6 @@ namespace GAMMA.Models
             {
                 Abilities.Add(new CustomAbility());
             }
-        }
-        #endregion
-        #region AddLootToCreature
-        private RelayCommand _AddLootToCreature;
-        public ICommand AddLootToCreature
-        {
-            get
-            {
-                if (_AddLootToCreature == null)
-                {
-                    _AddLootToCreature = new RelayCommand(param => DoAddLootToCreature());
-                }
-                return _AddLootToCreature;
-            }
-        }
-        private void DoAddLootToCreature()
-        {
-            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
-            if (selectionDialog.ShowDialog() == true)
-            {
-                foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
-                {
-                    bool existingFound = false;
-                    ItemModel itemToAdd = HelperMethods.DeepClone(item);
-                    foreach (ItemModel cItem in Loot)
-                    {
-                        if (cItem.Name == item.Name)
-                        {
-                            cItem.Quantity += item.Quantity;
-                            existingFound = true;
-                            break;
-                        }
-                    }
-                    if (existingFound) { continue; }
-                    Loot.Add(itemToAdd);
-                    Loot.Last().DropChance = 100;
-                }
-            }
-
         }
         #endregion
         #region AddItemLink
@@ -4356,13 +4219,12 @@ namespace GAMMA.Models
         }
         private void DoAddItemLink()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
                 {
                     bool existingFound = false;
-                    //ItemModel itemToAdd = HelperMethods.DeepClone(item);
                     foreach (ItemLink link in ItemLinks)
                     {
                         if (link.Name == item.Name)
@@ -4373,8 +4235,6 @@ namespace GAMMA.Models
                         }
                     }
                     if (existingFound) { continue; }
-                    //Loot.Add(itemToAdd);
-                    //Loot.Last().DropChance = 100;
                     ItemLinks.Add(new ItemLink { Name = item.Name, DropChance = 100, Quantity = item.Quantity, LinkedItem = item });
                 }
             }
@@ -4385,43 +4245,6 @@ namespace GAMMA.Models
         private void DoSortItemLinks(object param)
         {
             ItemLinks = new(ItemLinks.OrderBy(i => i.Name).ToList());
-        }
-        #endregion
-        #region AddSpell
-        private RelayCommand _AddSpell;
-        public ICommand AddSpell
-        {
-            get
-            {
-                if (_AddSpell == null)
-                {
-                    _AddSpell = new RelayCommand(param => DoAddSpell());
-                }
-                return _AddSpell;
-            }
-        }
-        private void DoAddSpell()
-        {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
-            if (selectionDialog.ShowDialog() == true)
-            {
-                foreach (SpellModel spell in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedSpells)
-                {
-                    bool existingFound = false;
-                    SpellModel spellToAdd = HelperMethods.DeepClone(spell);
-                    foreach (SpellModel cSpell in Spells)
-                    {
-                        if (cSpell.Name == spell.Name)
-                        {
-                            existingFound = true;
-                            break;
-                        }
-                    }
-                    if (existingFound) { continue; }
-                    Spells.Add(spellToAdd);
-                }
-            }
-
         }
         #endregion
         #region AddSpellLink
@@ -4439,7 +4262,7 @@ namespace GAMMA.Models
         }
         private void DoAddSpellLink()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (SpellModel spell in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedSpells)
@@ -4514,13 +4337,6 @@ namespace GAMMA.Models
             if (param == null) { HelperMethods.WriteToLogFile("Invalid parameter for DoRemoveCreature.", true); return; }
             switch (param.ToString())
             {
-                //case "Encounter Tracker":
-                //    if (this.IsActive)
-                //    {
-                //        Configuration.MainModelRef.TrackerView.ActiveCreature = null;
-                //    }
-                //    Configuration.MainModelRef.TrackerView.ActiveCreatures.Remove(this);
-                //    break;
                 case "Character Minions":
                     Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Minions.Remove(this);
                     break;
@@ -4529,7 +4345,7 @@ namespace GAMMA.Models
                     Configuration.MainModelRef.CreatureBuilderView.FilteredCreatures.Remove(this);
                     break;
                 case "Taming Pen":
-                    YesNoDialog question = new YesNoDialog("Remove " + Name + " from taming list?");
+                    YesNoDialog question = new("Remove " + Name + " from taming list?");
                     if (question.ShowDialog() == true)
                     {
                         if (question.Answer == false) { return; }
@@ -4762,13 +4578,11 @@ namespace GAMMA.Models
                 attribute.ToString(),
                 (useAdvantage) ? " with advantage" : "",
                 (useDisadvantage) ? " with disadvantage" : "");
+
             message += "\nResult: " + total;
+
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + attrMod; }
 
-            //if (Configuration.MainModelRef.TabSelected_Tracker)
-            //{
-            //    HelperMethods.AddToEncounterLog(message);
-            //}
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
                 HelperMethods.AddToCampaignMessages(message, "Ability Check");
@@ -4800,10 +4614,6 @@ namespace GAMMA.Models
 
             if (HasBeenLooted)
             {
-                //if (Configuration.MainModelRef.TabSelected_Tracker)
-                //{
-                //    HelperMethods.AddToEncounterLog(DisplayName + " has already been looted.");
-                //}
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
                 {
                     HelperMethods.AddToCampaignMessages(DisplayName + " has already been looted.", "Loot");
@@ -4887,31 +4697,6 @@ namespace GAMMA.Models
             Configuration.MainModelRef.CreatureBuilderView.AllCreatures.Insert(Configuration.MainModelRef.CreatureBuilderView.AllCreatures.IndexOf(this), duplicate);
             Configuration.MainModelRef.CreatureBuilderView.FilteredCreatures.Insert(Configuration.MainModelRef.CreatureBuilderView.FilteredCreatures.IndexOf(this), duplicate);
             Configuration.MainModelRef.CreatureBuilderView.ActiveCreature = duplicate;
-        }
-        #endregion
-        #region ClearConcentration
-        private RelayCommand _ClearConcentration;
-        public ICommand ClearConcentration
-        {
-            get
-            {
-                if (_ClearConcentration == null)
-                {
-                    _ClearConcentration = new RelayCommand(param => DoClearConcentration());
-                }
-                return _ClearConcentration;
-            }
-        }
-        private void DoClearConcentration()
-        {
-            IsConcentrating = false;
-            List<ActiveEffectModel> filteredEffects = new List<ActiveEffectModel>();
-            foreach (ActiveEffectModel effect in ActiveEffects)
-            {
-                if (effect.ConcentrationDependent) { continue; }
-                else { filteredEffects.Add(effect); }
-            }
-            ActiveEffects = new ObservableCollection<ActiveEffectModel>(filteredEffects);
         }
         #endregion
         #region ToggleEnemyAlly
@@ -5023,8 +4808,8 @@ namespace GAMMA.Models
         {
             if (adv == null) { adv = ""; }
             CharacterModel character = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
-            bool useAdv = (adv.ToString() == "A") ? true : false;
-            bool useDis = (adv.ToString() == "D") ? true : false;
+            bool useAdv = (adv.ToString() == "A");
+            bool useDis = (adv.ToString() == "D");
 
             int diceResult = HelperMethods.RollD20(useAdv, useDis);
             int finalResult = diceResult + character.AnimalHandlingModifier;
@@ -5052,18 +4837,6 @@ namespace GAMMA.Models
                 int n when (n < difficulty) => "\nRelation with " + Name + " has worsened.",
                 _ => "\nRelation with " + Name + " is unchanged."
             };
-            //if (finalResult > 0)
-            //{
-            //    HelperMethods.AddToPlayerLog("Relation with " + Name + " has improved.");
-            //}
-            //if (progressChange < 0)
-            //{
-            //    HelperMethods.AddToPlayerLog("Relation with " + Name + " has worsened.");
-            //}
-            //if (progressChange == 0)
-            //{
-            //    HelperMethods.AddToPlayerLog("Relation with " + Name + " is unchanged.");
-            //}
 
             HelperMethods.AddToPlayerLog(message);
 
@@ -5080,58 +4853,6 @@ namespace GAMMA.Models
                 new NotificationDialog(Name + " has become tamed and is now in the Combat - Minions section.").ShowDialog();
             }
 
-        }
-        #endregion
-        #region SetTokenName
-        private RelayCommand _SetTokenName;
-        public ICommand SetTokenName
-        {
-            get
-            {
-                if (_SetTokenName == null)
-                {
-                    _SetTokenName = new RelayCommand(param => DoSetTokenName());
-                }
-                return _SetTokenName;
-            }
-        }
-        private void DoSetTokenName()
-        {
-            // Nevermind, this can't be done for Roll20 because it leaves ghost instances of those popup windows in the code, making mismatches
-            List<WebActionModel> webActions = new List<WebActionModel>();
-            webActions.Add(new WebActionModel
-            {
-                TargetElementHandle = "ID",
-                TargetElementMatchText = "token-general-character-name",
-                InteractionType = "Text Input",
-                TextInputValue = DisplayName
-            });
-            webActions.Add(new WebActionModel
-            {
-                TargetElementHandle = "ID",
-                TargetElementMatchText = "token-general-nameplate",
-                InteractionType = "Click"
-            });
-            webActions.Add(new WebActionModel
-            {
-                TargetElementHandle = "Class",
-                TargetElementMatchText = "svg-inline--fa",
-                InteractionType = "Click",
-                ElementMatchIteration = 0
-            });
-            webActions.Add(new WebActionModel
-            {
-                TargetElementHandle = "Class",
-                TargetElementMatchText = "showplayers_name",
-                InteractionType = "Click"
-            });
-            webActions.Add(new WebActionModel
-            {
-                TargetElementHandle = "Link Text",
-                TargetElementMatchText = "Save Settings",
-                InteractionType = "Click"
-            });
-            HelperMethods.InteractWithWebElement(webActions);
         }
         #endregion
         #region ResetSpellSlots
@@ -5240,30 +4961,12 @@ namespace GAMMA.Models
             GenerateTraitAndAbilityLists();
 
         }
-        public void UpdateToNewSpellSystem()
-        {
-            if (SpellLinks.Count() > 0) { return; } // implies the conversion has already taken place
-            foreach (SpellModel spell in Spells)
-            {
-                SpellLinks.Add(new SpellLink { Name = spell.Name, IsPrepared = spell.IsPrepared, LinkedSpell = Configuration.SpellRepository.FirstOrDefault(s => s.Name == spell.Name) });
-            }
-            Spells.Clear();
-        }
         public void ConnectSpellLinks()
         {
             foreach (SpellLink link in SpellLinks)
             {
                 link.LinkedSpell = Configuration.SpellRepository.FirstOrDefault(s => s.Name == link.Name);
             }
-        }
-        public void UpdateToNewLootSystem()
-        {
-            if (ItemLinks.Count() > 0) { return; } // implies the conversion has already taken place
-            foreach (ItemModel lootItem in Loot)
-            {
-                ItemLinks.Add(new ItemLink { Name = lootItem.Name, DropChance = lootItem.DropChance, Quantity = lootItem.Quantity, LinkedItem = Configuration.ItemRepository.FirstOrDefault(i => i.Name == lootItem.Name) });
-            }
-            Loot.Clear();
         }
         public void ConnectItemLinks()
         {
@@ -5293,168 +4996,6 @@ namespace GAMMA.Models
             foreach (CounterModel counter in Counters)
             {
                 counter.CurrentValue = counter.MaxValue;
-            }
-        }
-        public void UpdateToNewAttackSystem()
-        {
-            if (Abilities.Count() > 0) { return; } // implies the conversion has already taken place
-            foreach (AttackModel attack in Attacks)
-            {
-                CustomAbility newAbility = new();
-                newAbility.Name = attack.Name;
-                newAbility.Type = attack.HasRange ? "Ranged" : "Melee";
-                newAbility.Output = "";
-
-                if (attack.HasAttackRoll)
-                {
-                    string dmgName = attack.DamageType + " Damage";
-                    string atkAtt = attack.Type switch
-                    {
-                        "Ranged" => "Dexterity",
-                        "Magic Ability" => "Spellcasting",
-                        _ => "Strength"
-                    };
-
-                    newAbility.Variables.Add(new() { Name = "Attack", Type = "Number" });
-                    newAbility.Variables.Add(new() { Name = dmgName, Type = "Number" });
-
-                    newAbility.PreActions.Add(new() { Action = "Make Attack Roll", Target = "Attack", AttackAttribute = atkAtt, UseProficiencyBonus = true });
-                    newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.DamageDiceQuantity, DiceQuality = attack.DamageDiceQuality });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.DamageDiceModifier.ToString() });
-
-                }
-                if (attack.HasExtraDamageOnHit)
-                {
-                    string dmgName = attack.ExtraDamageType + " Damage";
-
-                    newAbility.Variables.Add(new() { Name = dmgName, Type = "Number" });
-                    newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.ExtraDamageDiceQuantity, DiceQuality = attack.ExtraDamageDiceQuality });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.ExtraDamageDiceModifier.ToString() });
-
-                }
-                if (attack.HasSpecialEffect)
-                {
-                    newAbility.Output += attack.SpecialEffect;
-                }
-                if (attack.HasSaveEffect)
-                {
-                    newAbility.Output += "Target(s) must make a DC {Save DC} " + attack.SaveAbility + " save.";
-                    newAbility.Output += "\n" + attack.SaveEffect;
-
-                    newAbility.Variables.Add(new() { Name = "Save DC", Type = "Number", DoOutput = false });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = "Save DC", SetValue = attack.SaveDifficulty.ToString() });
-
-                    if (attack.SaveDamageDiceQuantity > 0)
-                    {
-                        string dmgName = attack.SaveDamageType + " Damage";
-                        newAbility.Variables.Add(new() { Name = dmgName, Type = "Number", IncludeHalfValue = attack.IsHalfDamageOnSave });
-                        newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.SaveDamageDiceQuantity, DiceQuality = attack.SaveDamageDiceQuality });
-                        newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.SaveDamageDiceModifier.ToString() });
-                    }
-                    if (attack.ExtraSaveDamageDiceQuantity > 0)
-                    {
-                        string dmgName = attack.ExtraSaveDamageType + " Damage";
-                        newAbility.Variables.Add(new() { Name = dmgName, Type = "Number", IncludeHalfValue = attack.IsHalfDamageOnSave });
-                        newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.ExtraSaveDamageDiceQuantity, DiceQuality = attack.ExtraSaveDamageDiceQuality });
-                        newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.ExtraSaveDamageDiceModifier.ToString() });
-                    }
-
-                }
-                foreach (AttackOptionModel option in attack.AttackOptions)
-                {
-                    CAPreAction ogDmgRoll = newAbility.PreActions.FirstOrDefault(a => a.Target.Contains("Damage") && a.Action == "Add Roll");
-                    switch (option.Type)
-                    {
-                        case "Attack Modifier":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = "Attack", SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "Attack", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Damage Modifier":
-                            string dmgName = "";
-                            foreach (CAVariable v in newAbility.Variables)
-                            {
-                                if (v.Name.Contains("Damage"))
-                                {
-                                    dmgName = v.Name;
-                                }
-                            }
-                            if (dmgName == "") { break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Use Advantage":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            CAPreAction newPreAction = new() { Action = "Add Set Value", Target = "[Attack with Advantage]", SetValue = "True" };
-                            newPreAction.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            if (newAbility.PreActions.Count > 0)
-                            {
-                                newAbility.PreActions.Insert(0, newPreAction);
-                            }
-                            else
-                            {
-                                newAbility.PreActions.Add(newPreAction);
-                            }
-                            break;
-                        case "Use Disadvantage":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            CAPreAction newPreAction2 = new() { Action = "Add Set Value", Target = "[Attack with Disadvantage]", SetValue = "True" };
-                            newPreAction2.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            if (newAbility.PreActions.Count > 0)
-                            {
-                                newAbility.PreActions.Insert(0, newPreAction2);
-                            }
-                            else
-                            {
-                                newAbility.PreActions.Add(newPreAction2);
-                            }
-                            break;
-                        case "Alternate Base Attack Damage":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            ogDmgRoll.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "False" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Hit - Roll":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Hit - Set":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = ogDmgRoll.Target, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Critical - Roll":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "[Is Critical Hit]", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Critical - Set":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = ogDmgRoll.Target, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "[Is Critical Hit]", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Reroll Attack Damage Die at or Below":
-                            HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\".");
-                            break;
-                        default:
-                            HelperMethods.NotifyUser("Unhandled attack option \"" + option.Type + "\".");
-                            break;
-                    }
-                    // newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                }
-
-                Abilities.Add(newAbility);
-
             }
         }
         public void GetPortraitFilepath()

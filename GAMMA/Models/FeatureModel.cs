@@ -251,7 +251,6 @@ namespace GAMMA.Models
             new() { Name = "Multiclass Tool Proficiencies - Set", ShowChoiceList = true },
             new() { Name = "Multiclass Weapon Proficiencies - Choice", ShowChoiceNumField = true, ShowChoiceList = true },
             new() { Name = "Multiclass Weapon Proficiencies - Set", ShowChoiceList = true },
-            //new() { Name = "Requisite Choice", ShowChoiceNumField = true, ShowChoiceList = true, FormNumber = 3 },
             new() { Name = "Saving Throws - Set", ShowDetailsField = false, ShowChoiceNumField = false, ShowChoiceList = true },
             new() { Name = "Skill Expertise - Choice", ShowDetailsField = false, ShowChoiceNumField = true, ShowChoiceList = false },
             new() { Name = "Skill Proficiencies - Choice", ShowDetailsField = false, ShowChoiceNumField = true, ShowChoiceList = true },
@@ -294,12 +293,6 @@ namespace GAMMA.Models
             List<ConvertibleValue> options = new();
             switch (FeatureType)
             {
-                //case "Ability Score Improvement Levels":
-                //    for (int i = 1; i < 21; i++)
-                //    {
-                //        options.Add(new(i.ToString()));
-                //    }
-                //    break;
                 case "Additional Known Cantrips":
                     foreach (string sc in Configuration.MainModelRef.SpellcastingClasses)
                     {
@@ -501,21 +494,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        //#region Names
-        //private List<string> _Names;
-        //public List<string> Names
-        //{
-        //    get
-        //    {
-        //        return _Names;
-        //    }
-        //    set
-        //    {
-        //        _Names = value;
-        //        NotifyPropertyChanged();
-        //    }
-        //}
-        //#endregion
         #region Description
         private string _Description;
         [XmlSaveMode("Single")]

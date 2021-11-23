@@ -135,19 +135,14 @@ namespace GAMMA.Models
             switch (param.ToString())
             {
                 case "Active Player Class":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerClass.Traits.Remove(this);
+                case "Active Player Subrace":
+                case "Active Player Background":
                     break;
                 case "Active Player Subclass":
                     Configuration.MainModelRef.ToolsView.ActivePlayerSubclass.Traits.Remove(this);
                     break;
                 case "Active Player Race":
                     Configuration.MainModelRef.ToolsView.ActivePlayerRace.Traits.Remove(this);
-                    break;
-                case "Active Player Subrace":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerSubrace.Traits.Remove(this);
-                    break;
-                case "Active Player Background":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerBackground.Traits.Remove(this);
                     break;
                 default:
                     HelperMethods.WriteToLogFile("Unhandled trait removal parameter: " + param.ToString(), true);

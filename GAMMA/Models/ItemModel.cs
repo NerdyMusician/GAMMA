@@ -1292,24 +1292,6 @@ namespace GAMMA.Models
             itemBuilder.FilteredItems.Remove(this);
         }
         #endregion
-        #region RemoveLootFromCreature
-        private RelayCommand _RemoveLootFromCreature;
-        public ICommand RemoveLootFromCreature
-        {
-            get
-            {
-                if (_RemoveLootFromCreature == null)
-                {
-                    _RemoveLootFromCreature = new RelayCommand(param => DoRemoveLootFromCreature());
-                }
-                return _RemoveLootFromCreature;
-            }
-        }
-        private void DoRemoveLootFromCreature()
-        {
-            Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Loot.Remove(this);
-        }
-        #endregion
         #region RemoveLootFromBox
         private RelayCommand _RemoveLootFromBox;
         public ICommand RemoveLootFromBox
@@ -1627,15 +1609,9 @@ namespace GAMMA.Models
 
             if (hasCraftingTool == false)
             {
-                new NotificationDialog("Missing crafting tool: " + CraftingToolkit).ShowDialog();
+                HelperMethods.NotifyUser("Missing crafting tool: " + CraftingToolkit);
                 return;
             }
-
-            //if (CraftingProgress >= RawValue)
-            //{
-            //    new NotificationDialog("This item has already been completed.").ShowDialog();
-            //    return;
-            //}
 
             int.TryParse(timePeriod.ToString(), out int intTime);
             int mod = (character.IntelligenceModifier > character.WisdomModifier) ? character.IntelligenceModifier : character.WisdomModifier;
@@ -1653,7 +1629,6 @@ namespace GAMMA.Models
             message += "\nProgress: " + CraftingProgress + "/" + RawValue;
             if (CraftingProgress > RawValue) 
             {
-                //character.AddItemAlt(HelperMethods.DeepClone(this), "Backpack", this.QuantityCrafted);
                 ItemModel itemToAdd = HelperMethods.DeepClone(this);
                 itemToAdd.Quantity = QuantityCrafted;
                 character.Inventories[0].AllItems.Add(this);
@@ -1713,7 +1688,6 @@ namespace GAMMA.Models
 
             if (CraftingProgress > RawValue)
             {
-                //character.AddItemAlt(HelperMethods.DeepClone(this), "Backpack", this.QuantityCrafted);
                 ItemModel itemToAdd = HelperMethods.DeepClone(this);
                 itemToAdd.Quantity = QuantityCrafted;
                 character.Inventories[0].AllItems.Add(itemToAdd);
@@ -1779,7 +1753,6 @@ namespace GAMMA.Models
                 sourceInventory.FilteredItems.Remove(this);
             }
             sourceInventory.UpdateFilteredList();
-            //character.UpdateTotals();
 
         }
         #endregion
@@ -2186,19 +2159,16 @@ namespace GAMMA.Models
             {
                 character.MainHandItem = Name;
                 HelperMethods.NotifyUser(Name + " equipped to main hand.");
-                //character.MainHandLinkedItem = this;
             }
             if (param.ToString() == "OffHand")
             {
                 character.OffHandItem = Name;
                 HelperMethods.NotifyUser(Name + " equipped to off hand.");
-                //character.OffHandLinkedItem = this;
             }
             if (param.ToString() == "Armor")
             {
                 character.ArmorItem = Name;
                 HelperMethods.NotifyUser(Name + " equipped as armor.");
-                //character.ArmorLinkedItem = this;
             }
             if (param.ToString() == "Accessory")
             {
@@ -2271,27 +2241,8 @@ namespace GAMMA.Models
                     if (Name == component.Name) { message += "\nEnchanting rune for " + item.Name + "."; foundDependency = true; }
                 }
             }
-            foreach (CreatureModel creature in creatureBuilder.AllCreatures)
-            {
-                foreach (ItemModel loot in creature.Loot)
-                {
-                    if (Name == loot.Name) { message += "\nLoot for " + creature.Name; foundDependency = true; }
-                }
-            }
             foreach (CharacterModel character in characterBuilder.Characters)
             {
-                //foreach (ItemModel item in character.BackpackItems)
-                //{
-                //    if (Name == item.Name) { message += "\nBackpack item for " + character.Name; foundDependency = true; }
-                //}
-                //foreach (ItemModel item in character.BankItems)
-                //{
-                //    if (Name == item.Name) { message += "\nBank item for " + character.Name; foundDependency = true; }
-                //}
-                //foreach (ItemModel item in character.VehicleItems)
-                //{
-                //    if (Name == item.Name) { message += "\nVehicle item for " + character.Name; foundDependency = true; }
-                //}
                 foreach (InventoryModel inventory in character.Inventories)
                 {
                     foreach (ItemModel item in inventory.AllItems)

@@ -23,9 +23,6 @@ namespace GAMMA.ViewModels
                 character.SetPropertyChanged();
                 character.UpdateClassTotals();
                 character.UpdateSubclassLists();
-                character.UpdateToNewInventorySystem();
-                character.UpdateToNewSpellSystem();
-                character.UpdateToNewAttackSystem();
                 character.UpdateInventoryStats();
                 character.ConnectSpellLinks();
                 character.UpdatePreparedSpellCount();

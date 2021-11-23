@@ -15,10 +15,8 @@ namespace GAMMA.Models
         public PlayerBackgroundModel()
         {
             Name = "New Player Background";
-            //Traits = new ObservableCollection<TraitModel>();
             MandatoryEquipment = new ObservableCollection<ItemModel>();
             EquipmentChoices = new ObservableCollection<ConvertibleValue>();
-            //SpecificLanguageProficiencies = new();
         }
 
         // Databound Properties

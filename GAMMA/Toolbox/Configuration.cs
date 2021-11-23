@@ -263,9 +263,6 @@ namespace GAMMA.Toolbox
         public static List<string> SpellsKnownPerLevelOptions = new List<string>
         {
             "Set",
-            //"Class Level + Spellcasting Modifier", // Removed from misunderstanding of Known limit vs Prepared limit
-            //"Class Level + Spellcasting Modifier / 2",
-            //"Special",
             "Any"
         };
         public static List<SpellTableRowModel> MulticlassSpellSlotTable = new()
@@ -338,12 +335,10 @@ namespace GAMMA.Toolbox
         public static readonly string CharacterDataFilePath = "Data/Characters.xml";
         public static readonly string LootBoxDataFilePath = "Data/LootBoxes.xml";
         public static readonly string RollTableDataFilePath = "Data/RollTables.xml";
-        //public static readonly string NotebookDataFilePath = "Data/Notebooks.xml";
         public static readonly string SettingsDataFilePath = "Data/Settings.xml";
         public static readonly string NpcDataFilePath = "Data/Npcs.xml";
         public static readonly string LanguageDataFilePath = "Data/Languages.xml";
         public static readonly string CreaturePackDataFilePath = "Data/CreaturePacks.xml";
-        //public static readonly string EncounterAutosaveDataFilePath = "Data/EncounterAutosave.xml";
         public static readonly string PlayerClassDataFilePath = "Data/PlayerClasses.xml";
         public static readonly string PlayerSubclassDataFilePath = "Data/PlayerSubclasses.xml";
         public static readonly string PlayerRaceDataFilePath = "Data/PlayerRaces.xml";

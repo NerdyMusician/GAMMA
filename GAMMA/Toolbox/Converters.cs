@@ -369,10 +369,6 @@ namespace GAMMA.Toolbox
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.GetType() == typeof(ObservableCollection<ActiveEffectModel>))
-            {
-                return (value as ObservableCollection<ActiveEffectModel>).Count() == 0 ? Visibility.Collapsed : Visibility.Visible;
-            }
             if (value.GetType() == typeof(ObservableCollection<ItemModel>))
             {
                 return (value as ObservableCollection<ItemModel>).Count() == 0 ? Visibility.Collapsed : Visibility.Visible;
@@ -743,7 +739,6 @@ namespace GAMMA.Toolbox
             CreatureModel creature = value as CreatureModel;
             CharacterModel character = value as CharacterModel;
             string name = (creature != null) ? creature.Name : character.Name;
-            //string image = Environment.CurrentDirectory + "/Images/Players/" + name + ".png";
             string directory = Environment.CurrentDirectory + "/Images/Players/";
             string imagePng = directory + name + ".png";
             string imageJpg = directory + name + ".jpg";
@@ -751,10 +746,6 @@ namespace GAMMA.Toolbox
             if (File.Exists(imagePng)) { return imagePng; }
             if (File.Exists(imageJpg)) { return imageJpg; }
             if (File.Exists(imageGif)) { return imageGif; }
-            //if (File.Exists(image))
-            //{
-            //    return image;
-            //}
             else
             {
                 return "/Images/Icons/smile.png";

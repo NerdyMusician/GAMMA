@@ -28,11 +28,8 @@ namespace GAMMA.ViewModels
             CreatureSearchText = "";
             foreach (CreatureModel creature in AllCreatures)
             {
-                creature.UpdateToNewSpellSystem();
                 creature.ConnectSpellLinks();
-                creature.UpdateToNewLootSystem();
                 creature.ConnectItemLinks();
-                creature.UpdateToNewAttackSystem();
                 creature.UpdateAbilityDropdowns();
                 creature.UpdateAbilityDescriptions();
             }

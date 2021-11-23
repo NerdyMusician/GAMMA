@@ -383,30 +383,8 @@ namespace GAMMA.ViewModels
                     if (allItemNames.Contains(rune.Name) == false) { message += "\n" + item.Name + " enchanting rune: " + rune.Name; missingReference = true; }
                 }
             }
-            foreach (CreatureModel creature in creatureBuilder.AllCreatures)
-            {
-                foreach (ItemModel lootItem in creature.Loot)
-                {
-                    if (allItemNames.Contains(lootItem.Name) == false) { message += "\n" + creature.Name + " loot: " + lootItem.Name; missingReference = true; }
-                }
-            }
             foreach (CharacterModel character in characterBuilder.Characters)
             {
-                //foreach (ItemModel item in character.BackpackItems)
-                //{
-                //    if (item.IsCustomItem) { continue; }
-                //    if (allItemNames.Contains(item.Name) == false) { message += "\n" + character.Name + " backpack item: " + item.Name; missingReference = true; }
-                //}
-                //foreach (ItemModel item in character.BankItems)
-                //{
-                //    if (item.IsCustomItem) { continue; }
-                //    if (allItemNames.Contains(item.Name) == false) { message += "\n" + character.Name + " bank item: " + item.Name; missingReference = true; }
-                //}
-                //foreach (ItemModel item in character.VehicleItems)
-                //{
-                //    if (item.IsCustomItem) { continue; }
-                //    if (allItemNames.Contains(item.Name) == false) { message += "\n" + character.Name + " vehicle item: " + item.Name; missingReference = true; }
-                //}
                 foreach (InventoryModel inventory in character.Inventories)
                 {
                     foreach (ItemModel item in inventory.AllItems)

@@ -96,13 +96,10 @@
     <Compile Include="CustomControls\TextBlocks.cs" />
     <Compile Include="CustomControls\GammaTextBox.cs" />
     <Compile Include="CustomControls\GammaComboBox.cs" />
-    <Compile Include="Models\ActiveEffectModel.cs" />
-    <Compile Include="Models\AttackOptionModel.cs" />
     <Compile Include="Models\AudioCollectionModel.cs" />
     <Compile Include="Models\CharacterAlterant.cs" />
     <Compile Include="Models\CharacterAttributeSet.cs" />
     <Compile Include="Models\CounterModel.cs" />
-    <Compile Include="Models\AttackModel.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Models\AudioFileModel.cs" />
     <Compile Include="Models\EldritchInvocation.cs" />
@@ -164,12 +161,8 @@
     <Compile Include="ViewModels\ShopViewModel.cs" />
     <Compile Include="ViewModels\SpellBuilderViewModel.cs" />
     <Compile Include="ViewModels\ToolsViewModel.cs" />
-    <Compile Include="ViewModels\VirtualTableTop.cs" />
     <Compile Include="Windows\AbilityOptionSelection.xaml.cs">
       <DependentUpon>AbilityOptionSelection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AttackOptionWindow.xaml.cs">
-      <DependentUpon>AttackOptionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\CharacterCreatorDialog.xaml.cs">
       <DependentUpon>CharacterCreatorDialog.xaml</DependentUpon>
@@ -282,10 +275,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AbilityOptionSelection.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AttackOptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

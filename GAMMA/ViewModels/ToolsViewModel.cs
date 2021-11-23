@@ -1835,25 +1835,6 @@ namespace GAMMA.ViewModels
         private void DoAddCalendar()
         {
             GameCalendar newCalendar = new();
-            //newCalendar.Days.Add(new("Sunday"));
-            //newCalendar.Days.Add(new("Monday"));
-            //newCalendar.Days.Add(new("Tuesday"));
-            //newCalendar.Days.Add(new("Wednesday"));
-            //newCalendar.Days.Add(new("Thursday"));
-            //newCalendar.Days.Add(new("Friday"));
-            //newCalendar.Days.Add(new("Saturday"));
-            //newCalendar.Months.Add(new("January"));
-            //newCalendar.Months.Add(new("February"));
-            //newCalendar.Months.Add(new("March"));
-            //newCalendar.Months.Add(new("April"));
-            //newCalendar.Months.Add(new("May"));
-            //newCalendar.Months.Add(new("June"));
-            //newCalendar.Months.Add(new("July"));
-            //newCalendar.Months.Add(new("August"));
-            //newCalendar.Months.Add(new("September"));
-            //newCalendar.Months.Add(new("October"));
-            //newCalendar.Months.Add(new("November"));
-            //newCalendar.Months.Add(new("December"));
             Calendars.Add(newCalendar);
             ActiveCalendar = Calendars.Last();
         }

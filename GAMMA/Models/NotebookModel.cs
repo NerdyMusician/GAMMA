@@ -170,24 +170,6 @@ namespace GAMMA.Models
             HelperMethods.ClearNoteSearch(Notes);
         }
         #endregion
-        //#region DeleteNotebook
-        //private RelayCommand _DeleteNotebook;
-        //public ICommand DeleteNotebook
-        //{
-        //    get
-        //    {
-        //        if (_DeleteNotebook == null)
-        //        {
-        //            _DeleteNotebook = new RelayCommand(param => DoDeleteNotebook());
-        //        }
-        //        return _DeleteNotebook;
-        //    }
-        //}
-        //private void DoDeleteNotebook()
-        //{
-        //    Configuration.MainModelRef.NotebookView.Notebooks.Remove(this);
-        //}
-        //#endregion
 
         // Private Methods
         private List<NoteModel> SortNoteList(List<NoteModel> notes)

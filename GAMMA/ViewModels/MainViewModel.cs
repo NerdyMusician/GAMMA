@@ -33,7 +33,6 @@ namespace GAMMA.ViewModels
             CharacterBuilderView = new CharacterBuilderViewModel();
             AudioView = new AudioViewModel();
             CampaignView = new();
-            TableTopView = new(); // Alpha
 
             // Configuration Data
             Sources = Configuration.Sources.ToList();
@@ -61,12 +60,8 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.26.07 beta";
+            ApplicationVersion = "GAMMA 1.27.00 beta";
 
-            // Auto-Data Corrections
-            // CharacterBuilderView.RunADC_Inventory();
-
-            // Used to restrict certain performance heavy methods from triggering before needed (ie Character Creator UpdateCharacterSheet on Player data load)
             Configuration.LoadComplete = true;
 
         }
@@ -177,21 +172,6 @@ namespace GAMMA.ViewModels
             set
             {
                 _SettingsView = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region TableTopView
-        private VirtualTableTop _TableTopView;
-        public VirtualTableTop TableTopView
-        {
-            get
-            {
-                return _TableTopView;
-            }
-            set
-            {
-                _TableTopView = value;
                 NotifyPropertyChanged();
             }
         }
@@ -803,12 +783,10 @@ namespace GAMMA.ViewModels
             switch (key.ToString())
             {
                 case "CtrlS":
-                    //if (TabSelected_Tracker) { TrackerView.DoSaveEncounter(); }
                     if (TabSelected_CreatureBuilder) { CreatureBuilderView.DoSaveCreatures(); }
                     if (TabSelected_SpellBuilder) { SpellBuilderView.DoSaveSpells(); }
                     if (TabSelected_Players) { CharacterBuilderView.DoSaveCharacters(); }
                     if (TabSelected_ItemBuilder) { ItemBuilderView.DoSaveItems(); }
-                    //if (TabSelected_Notebooks) { NotebookView.DoSaveNotebooks(); }
                     if (TabSelected_Campaigns) { CampaignView.DoSaveCampaigns(); }
                     break;
                 case "CtrlN":

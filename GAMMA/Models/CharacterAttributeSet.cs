@@ -198,8 +198,6 @@ namespace GAMMA.Models
                 HelperMethods.WriteToLogFile("Invalid change type " + changeType + " given for CharacterModelDoChangeAttribute.", true);
                 return;
             }
-            //if (PointsRemaining == 0 && changeType == "Decrement") { return; }
-            //if (PointsRemaining == MaxPoints && changeType == "Increment") { return; }
             switch (attribute)
             {
                 case "Strength":

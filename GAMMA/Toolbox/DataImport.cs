@@ -154,11 +154,8 @@ namespace GAMMA.Toolbox
 
             foreach (CreatureModel creature in Configuration.MainModelRef.CreatureBuilderView.AllCreatures)
             {
-                creature.UpdateToNewSpellSystem();
                 creature.ConnectSpellLinks();
-                creature.UpdateToNewLootSystem();
                 creature.ConnectItemLinks();
-                creature.UpdateToNewAttackSystem();
             }
 
             if (message == "Creatures Imported:") { message = "No creatures imported."; }
@@ -233,7 +230,6 @@ namespace GAMMA.Toolbox
 
                 if (currentLootBox == null) { combinedLootBoxList.Add(importedLootBox); message += "\n" + name; continue; }
                 if (importedLootBox == null) { combinedLootBoxList.Add(currentLootBox); continue; }
-                //if (currentLootBox.IsValidated == false && importedLootBox.IsValidated == true) { combinedLootBoxList.Add(importedLootBox); message += "\n" + name; continue; }
                 combinedLootBoxList.Add(currentLootBox);
             }
 
@@ -268,7 +264,6 @@ namespace GAMMA.Toolbox
 
                 if (currentRollTable == null) { combinedRollTableList.Add(importedRollTable); message += "\n" + name; continue; }
                 if (importedRollTable == null) { combinedRollTableList.Add(currentRollTable); continue; }
-                //if (currentLootBox.IsValidated == false && importedLootBox.IsValidated == true) { combinedLootBoxList.Add(importedLootBox); message += "\n" + name; continue; }
                 combinedRollTableList.Add(currentRollTable);
             }
 
@@ -704,12 +699,9 @@ namespace GAMMA.Toolbox
                 character.SetTotalLevel();
                 character.SetClassAutoText();
                 character.SetSubclassAutoText();
-                character.UpdateToNewInventorySystem();
-                character.UpdateToNewSpellSystem();
                 character.UpdateInventoryStats();
                 character.ConnectSpellLinks();
                 character.ReinitializeEventHandlers();
-                character.UpdateToNewAttackSystem();
                 character.UpdateModifiers();
                 character.MaxHealth = character.GetCalculatedMaxHitPoints(character.ConstitutionModifier);
                 foreach (InventoryModel inventory in character.Inventories)
@@ -718,8 +710,6 @@ namespace GAMMA.Toolbox
                 }
                 character.UpdateInventoryItemCategories();
             }
-
-            // Configuration.MainModelRef.CharacterBuilderView.RunADC_Inventory();
 
             Configuration.MainModelRef.CharacterBuilderView.RunNullSpellLinkCheck();
 
@@ -797,7 +787,6 @@ namespace GAMMA.Toolbox
             {
                 foreach (CreatureModel combatant in campaign.Combatants)
                 {
-                    combatant.UpdateToNewAttackSystem();
                     combatant.ConnectSpellLinks();
                     combatant.GetPortraitFilepath();
                 }

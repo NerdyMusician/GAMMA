@@ -193,7 +193,6 @@ namespace GAMMA.Models
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
                 {
                     bool existingFound = false;
-                    //ItemModel itemToAdd = HelperMethods.DeepClone(item);
                     foreach (ItemLink lbItem in ItemLinks)
                     {
                         if (item.Name == lbItem.Name)
@@ -204,8 +203,6 @@ namespace GAMMA.Models
                         }
                     }
                     if (existingFound) { continue; }
-                    //Items.Add(itemToAdd);
-                    //itemToAdd.DropChance = 100;
                     ItemLinks.Add(new ItemLink { Name = item.Name, DropChance = 100, Quantity = item.Quantity, LinkedItem = item });
                 }
             }
@@ -248,23 +245,6 @@ namespace GAMMA.Models
             string message = "Loot found in " + Name + ":";
             int coinRoll = Configuration.RNG.Next(CoinageMinimum, CoinageMaximum + 1);
             message += "\nMoney: " + HelperMethods.GetDerivedCoinage(coinRoll);
-            //Dictionary<string, int> lootedItems = new Dictionary<string, int>();
-            //foreach (ItemModel item in Items)
-            //{
-            //    for (int i = 0; i < item.Quantity; i++)
-            //    {
-            //        int dropRoll = Configuration.RNG.Next(1, 101);
-            //        if (dropRoll <= item.DropChance)
-            //        {
-            //            if (lootedItems.ContainsKey(item.Name)) { lootedItems[item.Name]++; }
-            //            else { lootedItems.Add(item.Name, 1); }
-            //        }
-            //    }
-            //}
-            //foreach (KeyValuePair<string, int> item in lootedItems)
-            //{
-            //    message += "\n" + item.Value + " x " + item.Key;
-            //}
             foreach (ItemLink link in ItemLinks)
             {
                 int dropQty = 0;

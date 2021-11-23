@@ -30,11 +30,8 @@ namespace GAMMA.ViewModels
                     }
                     creature.UpdateStatus();
                     creature.SetFormattedTexts();
-                    creature.UpdateToNewSpellSystem();
                     creature.ConnectSpellLinks();
-                    creature.UpdateToNewLootSystem();
                     creature.ConnectItemLinks();
-                    creature.UpdateToNewAttackSystem();
                     creature.GetPortraitFilepath();
                 }
                 campaign.UpdateCalendarAndWeather();

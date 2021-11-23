@@ -26,24 +26,18 @@ namespace GAMMA.Models
             ActionHistory = new ObservableCollection<string>();
             Messages = new();
             PlayerClasses = new ObservableCollection<PlayerClassLinkModel>();
-            Attacks = new ObservableCollection<AttackModel>();
             Abilities = new ObservableCollection<CustomAbility>();
             Alterants = new();
-            Spells = new ObservableCollection<SpellModel>();
             ActiveEffectAbilities = new();
             SpellLinks = new();
             Counters = new ObservableCollection<CounterModel>();
             Traits = new ObservableCollection<TraitModel>();
-            BackpackItems = new ObservableCollection<ItemModel>();
-            BankItems = new ObservableCollection<ItemModel>();
-            VehicleItems = new ObservableCollection<ItemModel>();
-            CraftingBench = new ObservableCollection<ItemModel>();
-            EnchantingTable = new ObservableCollection<ItemModel>();
-            CreaturePen = new ObservableCollection<CreatureModel>();
-            Notes = new ObservableCollection<NoteModel>();
-            Minions = new ObservableCollection<CreatureModel>();
-            ActiveEffects = new ObservableCollection<ActiveEffectModel>();
-            CustomDiceSets = new ObservableCollection<CustomDiceModel>();
+            CraftingBench = new();
+            EnchantingTable = new();
+            CreaturePen = new();
+            Notes = new();
+            Minions = new();
+            CustomDiceSets = new();
             _DeathSaves = 0;
             _DeathFails = 0;
 
@@ -1391,7 +1385,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-
         #region SpellChoiceSegments
         private ObservableCollection<ChoiceSet> _SpellChoiceSegments;
         [XmlSaveMode("Enumerable")]
@@ -1527,8 +1520,6 @@ namespace GAMMA.Models
             {
                 _StrengthBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
-                //UpdateEncumbrance();
             }
         }
         #endregion
@@ -1545,7 +1536,6 @@ namespace GAMMA.Models
             {
                 _DexterityBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -1562,7 +1552,6 @@ namespace GAMMA.Models
             {
                 _ConstitutionBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -1579,7 +1568,6 @@ namespace GAMMA.Models
             {
                 _IntelligenceBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -1596,7 +1584,6 @@ namespace GAMMA.Models
             {
                 _WisdomBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -1613,7 +1600,6 @@ namespace GAMMA.Models
             {
                 _CharismaBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2575,7 +2561,6 @@ namespace GAMMA.Models
             {
                 _AcrobaticsBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2592,7 +2577,6 @@ namespace GAMMA.Models
             {
                 _AnimalHandlingBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2609,7 +2593,6 @@ namespace GAMMA.Models
             {
                 _ArcanaBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2626,7 +2609,6 @@ namespace GAMMA.Models
             {
                 _AthleticsBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2643,7 +2625,6 @@ namespace GAMMA.Models
             {
                 _DeceptionBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2660,7 +2641,6 @@ namespace GAMMA.Models
             {
                 _HistoryBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2677,7 +2657,6 @@ namespace GAMMA.Models
             {
                 _InsightBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2694,7 +2673,6 @@ namespace GAMMA.Models
             {
                 _IntimidationBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2711,7 +2689,6 @@ namespace GAMMA.Models
             {
                 _InvestigationBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2728,7 +2705,6 @@ namespace GAMMA.Models
             {
                 _MedicineBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2745,7 +2721,6 @@ namespace GAMMA.Models
             {
                 _NatureBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2762,7 +2737,6 @@ namespace GAMMA.Models
             {
                 _PerceptionBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2779,7 +2753,6 @@ namespace GAMMA.Models
             {
                 _PerformanceBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2796,7 +2769,6 @@ namespace GAMMA.Models
             {
                 _PersuasionBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2813,7 +2785,6 @@ namespace GAMMA.Models
             {
                 _ReligionBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2830,7 +2801,6 @@ namespace GAMMA.Models
             {
                 _SleightOfHandBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2847,7 +2817,6 @@ namespace GAMMA.Models
             {
                 _StealthBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -2864,7 +2833,6 @@ namespace GAMMA.Models
             {
                 _SurvivalBonus = value;
                 NotifyPropertyChanged();
-                //UpdateModifiers();
             }
         }
         #endregion
@@ -3632,22 +3600,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        #region Attacks
-        private ObservableCollection<AttackModel> _Attacks;
-        [XmlSaveMode("Enumerable")]
-        public ObservableCollection<AttackModel> Attacks
-        {
-            get
-            {
-                return _Attacks;
-            }
-            set
-            {
-                _Attacks = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
         #region Abilities
         private ObservableCollection<CustomAbility> _Abilities;
         [XmlSaveMode("Enumerable")]
@@ -4083,23 +4035,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        #region ActiveEffects
-        private ObservableCollection<ActiveEffectModel> _ActiveEffects;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<ActiveEffectModel> ActiveEffects
-        {
-            get
-            {
-                return _ActiveEffects;
-            }
-            set
-            {
-                _ActiveEffects = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
         // Databound Properties - Traits
         #region TraitEditModeEnabled
         private bool _TraitEditModeEnabled;
@@ -4151,7 +4086,6 @@ namespace GAMMA.Models
                 if (brokeConcentration)
                 {
                     HelperMethods.AddToPlayerLog("Concentration has been broken.");
-                    RemoveConcentrationEffects();
                 }
             }
         }
@@ -4511,22 +4445,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        #region Spells
-        private ObservableCollection<SpellModel> _Spells;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<SpellModel> Spells
-        {
-            get
-            {
-                return _Spells;
-            }
-            set
-            {
-                _Spells = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
         #region SpellPreparedCount
         private int _SpellPreparedCount;
         public int SpellPreparedCount
@@ -4542,7 +4460,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-
         #region SpellLinks
         private ObservableCollection<SpellLink> _SpellLinks;
         [XmlSaveMode("Enumerable")]
@@ -4795,7 +4712,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        // TODO - handling of equipping items
 
         // Databound Properties - Inventory - Base
         #region CarryingCapacity
@@ -4907,268 +4823,7 @@ namespace GAMMA.Models
         }
         #endregion
 
-        // Databound Properties - Inventory - Backpack
-        #region BackpackItems
-        private ObservableCollection<ItemModel> _BackpackItems;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<ItemModel> BackpackItems
-        {
-            get
-            {
-                return _BackpackItems;
-            }
-            set
-            {
-                _BackpackItems = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region BackpackPlatinum
-        private int _BackpackPlatinum;
-        [XmlSaveMode("Deprecated")]
-        public int BackpackPlatinum
-        {
-            get
-            {
-                return _BackpackPlatinum;
-            }
-            set
-            {
-                _BackpackPlatinum = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BackpackGold
-        private int _BackpackGold;
-        [XmlSaveMode("Deprecated")]
-        public int BackpackGold
-        {
-            get
-            {
-                return _BackpackGold;
-            }
-            set
-            {
-                _BackpackGold = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BackpackSilver
-        private int _BackpackSilver;
-        [XmlSaveMode("Deprecated")]
-        public int BackpackSilver
-        {
-            get
-            {
-                return _BackpackSilver;
-            }
-            set
-            {
-                _BackpackSilver = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BackpackCopper
-        private int _BackpackCopper;
-        [XmlSaveMode("Deprecated")]
-        public int BackpackCopper
-        {
-            get
-            {
-                return _BackpackCopper;
-            }
-            set
-            {
-                _BackpackCopper = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region IsShopListOpen
-        private bool _IsShopListOpen;
-        public bool IsShopListOpen
-        {
-            get
-            {
-                return _IsShopListOpen;
-            }
-            set
-            {
-                _IsShopListOpen = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        // Databound Properties - Inventory - Bank
-        #region BankItems
-        private ObservableCollection<ItemModel> _BankItems;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<ItemModel> BankItems
-        {
-            get
-            {
-                return _BankItems;
-            }
-            set
-            {
-                _BankItems = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region BankPlatinum
-        private int _BankPlatinum;
-        [XmlSaveMode("Deprecated")]
-        public int BankPlatinum
-        {
-            get
-            {
-                return _BankPlatinum;
-            }
-            set
-            {
-                _BankPlatinum = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BankGold
-        private int _BankGold;
-        [XmlSaveMode("Deprecated")]
-        public int BankGold
-        {
-            get
-            {
-                return _BankGold;
-            }
-            set
-            {
-                _BankGold = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BankSilver
-        private int _BankSilver;
-        [XmlSaveMode("Deprecated")]
-        public int BankSilver
-        {
-            get
-            {
-                return _BankSilver;
-            }
-            set
-            {
-                _BankSilver = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region BankCopper
-        private int _BankCopper;
-        [XmlSaveMode("Deprecated")]
-        public int BankCopper
-        {
-            get
-            {
-                return _BankCopper;
-            }
-            set
-            {
-                _BankCopper = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region VehicleItems
-        private ObservableCollection<ItemModel> _VehicleItems;
-        [XmlSaveMode("Deprecated")]
-        public ObservableCollection<ItemModel> VehicleItems
-        {
-            get
-            {
-                return _VehicleItems;
-            }
-            set
-            {
-                _VehicleItems = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region VehiclePlatinum
-        private int _VehiclePlatinum;
-        [XmlSaveMode("Deprecated")]
-        public int VehiclePlatinum
-        {
-            get
-            {
-                return _VehiclePlatinum;
-            }
-            set
-            {
-                _VehiclePlatinum = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region VehicleGold
-        private int _VehicleGold;
-        [XmlSaveMode("Deprecated")]
-        public int VehicleGold
-        {
-            get
-            {
-                return _VehicleGold;
-            }
-            set
-            {
-                _VehicleGold = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region VehicleSilver
-        private int _VehicleSilver;
-        [XmlSaveMode("Deprecated")]
-        public int VehicleSilver
-        {
-            get
-            {
-                return _VehicleSilver;
-            }
-            set
-            {
-                _VehicleSilver = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region VehicleCopper
-        private int _VehicleCopper;
-        [XmlSaveMode("Deprecated")]
-        public int VehicleCopper
-        {
-            get
-            {
-                return _VehicleCopper;
-            }
-            set
-            {
-                _VehicleCopper = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
+        // Databound Properties - Inventory - Crafting
         #region CraftingBench
         private ObservableCollection<ItemModel> _CraftingBench;
         [XmlSaveMode("Enumerable")]
@@ -5887,14 +5542,6 @@ namespace GAMMA.Models
                     for (int i = 0; i < selectedCreature.QuantityToAdd; i++)
                     {
                         AddCharacterMinion(selectedCreature);
-                        //CreatureModel newCreature = HelperMethods.DeepClone(selectedCreature);
-                        //int existingCreatureCount = Minions.Where(creature => creature.Name == newCreature.Name).Count();
-                        //if (existingCreatureCount > 25) { break; }
-                        //newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount];
-                        //newCreature.RollHitPoints(Configuration.MainModelRef.SettingsView.UseAveragedHitPoints);
-                        //newCreature.DisplayName = newCreature.Name + " " + newCreature.TrackerIndicator;
-                        //newCreature.SetFormattedTexts();
-                        //Minions.Add(newCreature);
                     }
                 }
             }
@@ -5950,46 +5597,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        #region AddAttack
-        private RelayCommand _AddAttack;
-        public ICommand AddAttack
-        {
-            get
-            {
-                if (_AddAttack == null)
-                {
-                    _AddAttack = new RelayCommand(DoAddAttack);
-                }
-                return _AddAttack;
-            }
-        }
-        private void DoAddAttack(object param)
-        {
-            if (param == null) { HelperMethods.WriteToLogFile("No parameter passed for CharacterModel.AddAttack", true); return; }
-            List<string> acceptedParams = new() { "Blank","Strength","Dexterity" };
-            string mode = param.ToString();
-            if (acceptedParams.Contains(mode) == false) { HelperMethods.WriteToLogFile("Parameter " + mode + " invalid for CharacterModel.AddAttack", true); return; }
-            Attacks.Add(new AttackModel());
-            Attacks.Last().AttackOptions.Add(new AttackOptionModel());
-            Attacks.Last().AttackOptions.Last().Name = "Advantage";
-            Attacks.Last().AttackOptions.Last().Type = "Use Advantage";
-            Attacks.Last().AttackOptions.Add(new AttackOptionModel());
-            Attacks.Last().AttackOptions.Last().Name = "Disadvantage";
-            Attacks.Last().AttackOptions.Last().Type = "Use Disadvantage";
-            if (mode == "Strength")
-            {
-                Attacks.Last().HasAttackRoll = true;
-                Attacks.Last().AttackModifier = (StrengthModifier + ProficiencyBonus);
-                Attacks.Last().DamageDiceModifier = (StrengthModifier);
-            }
-            if (mode == "Dexterity")
-            {
-                Attacks.Last().HasAttackRoll = true;
-                Attacks.Last().AttackModifier = (DexterityModifier + ProficiencyBonus);
-                Attacks.Last().DamageDiceModifier = (DexterityModifier);
-            }
-        }
-        #endregion
         #region AddAbility
         public ICommand AddAbility => new RelayCommand(DoAddAbility);
         private void DoAddAbility(object param)
@@ -5998,42 +5605,6 @@ namespace GAMMA.Models
             if (param.ToString() == "Blank")
             {
                 Abilities.Add(new CustomAbility());
-            }
-        }
-        #endregion
-        #region AddSpell
-        private RelayCommand _AddSpell;
-        public ICommand AddSpell
-        {
-            get
-            {
-                if (_AddSpell == null)
-                {
-                    _AddSpell = new RelayCommand(param => DoAddSpell());
-                }
-                return _AddSpell;
-            }
-        }
-        private void DoAddSpell()
-        {
-            MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
-            if (selectionDialog.ShowDialog() == true)
-            {
-                foreach (SpellModel spell in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedSpells)
-                {
-                    bool existingFound = false;
-                    SpellModel spellToAdd = HelperMethods.DeepClone(spell);
-                    foreach (SpellModel cSpell in Spells)
-                    {
-                        if (cSpell.Name == spell.Name)
-                        {
-                            existingFound = true;
-                            break;
-                        }
-                    }
-                    if (existingFound) { continue; }
-                    Spells.Add(spellToAdd);
-                }
             }
         }
         #endregion
@@ -6531,24 +6102,6 @@ namespace GAMMA.Models
 
         }
         #endregion
-        #region SortSpells
-        private RelayCommand _SortSpells;
-        public ICommand SortSpells
-        {
-            get
-            {
-                if (_SortSpells == null)
-                {
-                    _SortSpells = new RelayCommand(param => DoSortSpells());
-                }
-                return _SortSpells;
-            }
-        }
-        public void DoSortSpells()
-        {
-            Spells = new ObservableCollection<SpellModel>(Spells.OrderBy(spell => spell.SpellLevel).ThenBy(spell => spell.Name));
-        }
-        #endregion
         #region SortSpellLinks
         private RelayCommand _SortSpellLinks;
         public ICommand SortSpellLinks
@@ -6634,31 +6187,6 @@ namespace GAMMA.Models
         private void DoSortTraits()
         {
             Traits = new ObservableCollection<TraitModel>(Traits.OrderBy(trait => trait.Name));
-        }
-        #endregion
-        #region ClearConcentration
-        private RelayCommand _ClearConcentration;
-        public ICommand ClearConcentration
-        {
-            get
-            {
-                if (_ClearConcentration == null)
-                {
-                    _ClearConcentration = new RelayCommand(param => DoClearConcentration());
-                }
-                return _ClearConcentration;
-            }
-        }
-        private void DoClearConcentration()
-        {
-            IsConcentrating = false;
-            List<ActiveEffectModel> filteredEffects = new();
-            foreach (ActiveEffectModel effect in ActiveEffects)
-            {
-                if (effect.ConcentrationDependent) { continue; }
-                else { filteredEffects.Add(effect); }
-            }
-            ActiveEffects = new ObservableCollection<ActiveEffectModel>(filteredEffects);
         }
         #endregion
         #region AddToolProficiencies
@@ -7053,8 +6581,6 @@ namespace GAMMA.Models
                 YesNoDialog question = new("No fishing tackle available in player backpack, fish anyway?\n(This implies you are borrowing someone else's gear)");
                 question.ShowDialog();
                 if (question.Answer == false) { return; }
-                //new NotificationDialog("No fishing tackle available in player backpack.").ShowDialog();
-                // return; 1.26.04 - really Jorden? you forgot to actually let them fish with the borrowed tackle and still returned them?
             }
             if (Configuration.FishingEnvironments.Contains(FishingEnvironment) == false)
             {
@@ -7075,7 +6601,7 @@ namespace GAMMA.Models
                 message += "\nRoll: [" + roll + "] + " + profBonus + " + " + FishingBonus;
             }
             if (roll == 1) { HelperMethods.AddToPlayerLog(Name + " found nothing while fishing, tough luck!", "Default", true); return; }
-            List<ItemModel> fish = new List<ItemModel>();
+            List<ItemModel> fish = new();
             fish.AddRange(Configuration.ItemRepository.Where(item => item.Type == "Adventuring Gear" && item.RawValue <= 10));
             if (result >= 5) { fish.AddRange(Configuration.ItemRepository.Where(item => item.Type == "Fish" && item.FishingEnvironment == FishingEnvironment)); }
             if (result >= 30) { fish.AddRange(Configuration.ItemRepository.Where(item => item.Type == "Wonderous Item" && item.RawValue >= 10000 && item.RawValue <= 50000)); }
@@ -7169,7 +6695,7 @@ namespace GAMMA.Models
         private void DoProcessGroupSave()
         {
             if (Minions.Count() <= 0) { new NotificationDialog("You have no minions.").ShowDialog(); return; }
-            EncounterMultiTargetDialog targetDialog = new EncounterMultiTargetDialog(Minions.ToList());
+            EncounterMultiTargetDialog targetDialog = new(Minions.ToList());
             if (targetDialog.ShowDialog() == true)
             {
                 if (targetDialog.SelectedCreatures.Count() <= 0) { return; }
@@ -7514,24 +7040,8 @@ namespace GAMMA.Models
             CharismaBaseScore = 8;
             BaseAttributePoints = 27;
 
-            //StrengthRaceBonus = 0;
-            //DexterityRaceBonus = 0;
-            //ConstitutionRaceBonus = 0;
-            //IntelligenceRaceBonus = 0;
-            //WisdomRaceBonus = 0;
-            //CharismaRaceBonus = 0;
-
             LinkedRace = LinkedRace;
             LinkedSubrace = LinkedSubrace;
-            //RaceAttributePoints = GetMaxRaceAttributePoints();
-            
-            //StrengthLevelBonus = 0;
-            //DexterityLevelBonus = 0;
-            //ConstitutionLevelBonus = 0;
-            //IntelligenceLevelBonus = 0;
-            //WisdomLevelBonus = 0;
-            //CharismaLevelBonus = 0;
-            //LevelAttributePoints = GetLevelAttributePoints();
 
         }
         #endregion
@@ -7574,7 +7084,7 @@ namespace GAMMA.Models
         {
             decimal carriedWeight = 0m;
             int carriedCurrency = 0;
-            ObservableCollection<ItemModel> tools = new ObservableCollection<ItemModel>();
+            ObservableCollection<ItemModel> tools = new();
 
             foreach (InventoryModel inventory in Inventories)
             {
@@ -7698,7 +7208,6 @@ namespace GAMMA.Models
                 }
             }
             SpellPreparedCount = spellPreparedCount;
-            //SpellPreparedCount = SpellLinks.Where(sl => sl.IsPrepared).Count();
         }
         public void UpdateSubclassLists()
         {
@@ -7710,217 +7219,6 @@ namespace GAMMA.Models
         public void ItemCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             UpdateInventoryStats();
-        }
-        public void UpdateToNewInventorySystem()
-        {
-            if (Inventories.Count() > 0) { return; } // implies that this task has already been performed for this character data
-            Inventories.Add(new InventoryModel(this));
-            Inventories.Last().Name = "Backpack";
-            Inventories.Last().IsCarried = true;
-            Inventories.Last().AllItems = new ObservableCollection<ItemModel>(BackpackItems);
-            Inventories.Last().FilteredItems = new ObservableCollection<ItemModel>(Inventories.Last().AllItems);
-            Inventories.Last().PlatinumPieces = BackpackPlatinum;
-            Inventories.Last().GoldPieces = BackpackGold;
-            Inventories.Last().SilverPieces = BackpackSilver;
-            Inventories.Last().CopperPieces = BackpackCopper;
-            BackpackPlatinum = 0;
-            BackpackGold = 0;
-            BackpackSilver = 0;
-            BackpackCopper = 0;
-            BackpackItems.Clear();
-
-            Inventories.Add(new InventoryModel(this));
-            Inventories.Last().Name = "Vehicle";
-            Inventories.Last().AllItems = new ObservableCollection<ItemModel>(VehicleItems);
-            Inventories.Last().FilteredItems = new ObservableCollection<ItemModel>(Inventories.Last().AllItems);
-            Inventories.Last().PlatinumPieces = VehiclePlatinum;
-            Inventories.Last().GoldPieces = VehicleGold;
-            Inventories.Last().SilverPieces = VehicleSilver;
-            Inventories.Last().CopperPieces = VehicleCopper;
-            VehiclePlatinum = 0;
-            VehicleGold = 0;
-            VehicleSilver = 0;
-            VehicleCopper = 0;
-            VehicleItems.Clear();
-
-            Inventories.Add(new InventoryModel(this));
-            Inventories.Last().Name = "Bank";
-            Inventories.Last().AllItems = new ObservableCollection<ItemModel>(BankItems);
-            Inventories.Last().FilteredItems = new ObservableCollection<ItemModel>(Inventories.Last().AllItems);
-            Inventories.Last().PlatinumPieces = BankPlatinum;
-            Inventories.Last().GoldPieces = BankGold;
-            Inventories.Last().SilverPieces = BankSilver;
-            Inventories.Last().CopperPieces = BankCopper;
-            BankPlatinum = 0;
-            BankGold = 0;
-            BankSilver = 0;
-            BankCopper = 0;
-            BankItems.Clear();
-
-        }
-        public void UpdateToNewSpellSystem()
-        {
-            if (SpellLinks.Count() > 0) { return; } // implies the conversion has already taken place
-            foreach (SpellModel spell in Spells)
-            {
-                SpellLinks.Add(new SpellLink { Name = spell.Name, IsPrepared = spell.IsPrepared, LinkedSpell = Configuration.SpellRepository.FirstOrDefault(s => s.Name == spell.Name) });
-            }
-            Spells.Clear();
-        }
-        public void UpdateToNewAttackSystem()
-        {
-            if (Abilities.Count() > 0) { return; } // implies the conversion has already taken place
-            foreach (AttackModel attack in Attacks)
-            {
-                CustomAbility newAbility = new();
-                newAbility.Name = attack.Name;
-                newAbility.Type = attack.HasRange ? "Ranged" : "Melee";
-                newAbility.Output = "";
-
-                if (attack.HasAttackRoll)
-                {
-                    string dmgName = attack.DamageType + " Damage";
-                    string atkAtt = attack.Type switch
-                    {
-                        "Ranged" => "Dexterity",
-                        "Magic Ability" => "Spellcasting",
-                        _ => "Strength"
-                    };
-
-                    newAbility.Variables.Add(new() { Name = "Attack", Type = "Number" });
-                    newAbility.Variables.Add(new() { Name = dmgName, Type = "Number" });
-
-                    newAbility.PreActions.Add(new() { Action = "Make Attack Roll", Target = "Attack", AttackAttribute = atkAtt, UseProficiencyBonus = true });
-                    newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.DamageDiceQuantity, DiceQuality = attack.DamageDiceQuality });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.DamageDiceModifier.ToString() });
-
-                }
-                if (attack.HasExtraDamageOnHit)
-                {
-                    string dmgName = attack.ExtraDamageType + " Damage";
-
-                    newAbility.Variables.Add(new() { Name = dmgName, Type = "Number" });
-                    newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.ExtraDamageDiceQuantity, DiceQuality = attack.ExtraDamageDiceQuality });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.ExtraDamageDiceModifier.ToString() });
-
-                }
-                if (attack.HasSpecialEffect)
-                {
-                    newAbility.Output += attack.SpecialEffect;
-                }
-                if (attack.HasSaveEffect)
-                {
-                    newAbility.Output += "Target(s) must make a DC {Save DC} " + attack.SaveAbility + " save.";
-                    newAbility.Output += "\n" + attack.SaveEffect;
-
-                    newAbility.Variables.Add(new() { Name = "Save DC", Type = "Number", DoOutput = false });
-                    newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = "Save DC", SetValue = attack.SaveDifficulty.ToString() });
-
-                    if (attack.SaveDamageDiceQuantity > 0)
-                    {
-                        string dmgName = attack.SaveDamageType + " Damage";
-                        newAbility.Variables.Add(new() { Name = dmgName, Type = "Number", IncludeHalfValue = attack.IsHalfDamageOnSave });
-                        newAbility.PreActions.Add(new() { Action = "Add Roll", Target = dmgName, DiceQuantity = attack.SaveDamageDiceQuantity, DiceQuality = attack.SaveDamageDiceQuality });
-                        newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = attack.SaveDamageDiceModifier.ToString() });
-                    }
-
-                }
-                foreach (AttackOptionModel option in attack.AttackOptions)
-                {
-                    CAPreAction ogDmgRoll = newAbility.PreActions.FirstOrDefault(a => a.Target.Contains("Damage") && a.Action == "Add Roll");
-                    switch (option.Type)
-                    {
-                        case "Attack Modifier":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = "Attack", SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "Attack", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Damage Modifier":
-                            string dmgName = "";
-                            foreach (CAVariable v in newAbility.Variables)
-                            {
-                                if (v.Name.Contains("Damage"))
-                                {
-                                    dmgName = v.Name;
-                                }
-                            }
-                            if (dmgName == "") { break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = dmgName, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Use Advantage":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            CAPreAction newPreAction = new() { Action = "Add Set Value", Target = "[Attack with Advantage]", SetValue = "True" };
-                            newPreAction.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            if (newAbility.PreActions.Count > 0)
-                            {
-                                newAbility.PreActions.Insert(0, newPreAction);
-                            }
-                            else
-                            {
-                                newAbility.PreActions.Add(newPreAction);
-                            }
-                            break;
-                        case "Use Disadvantage":
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            CAPreAction newPreAction2 = new() { Action = "Add Set Value", Target = "[Attack with Disadvantage]", SetValue = "True" };
-                            newPreAction2.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            if (newAbility.PreActions.Count > 0)
-                            {
-                                newAbility.PreActions.Insert(0, newPreAction2);
-                            }
-                            else
-                            {
-                                newAbility.PreActions.Add(newPreAction2);
-                            }
-                            break;
-                        case "Alternate Base Attack Damage":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            ogDmgRoll.Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "False" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Hit - Roll":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Hit - Set":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = ogDmgRoll.Target, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Critical - Roll":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Roll", Target = ogDmgRoll.Target, DiceQuantity = option.IntValue, DiceQuality = option.IntValue2 });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "[Is Critical Hit]", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Extra Damage on Critical - Set":
-                            if (ogDmgRoll == null) { HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\"."); break; }
-                            newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                            newAbility.PreActions.Add(new() { Action = "Add Set Value", Target = ogDmgRoll.Target, SetValue = option.IntValue.ToString() });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = option.Name, ConditionType = "Equal To", ConditionValue = "True" });
-                            newAbility.PreActions.Last().Conditions.Add(new() { ConditionVariable = "[Is Critical Hit]", ConditionType = "Equal To", ConditionValue = "True" });
-                            break;
-                        case "Reroll Attack Damage Die at or Below":
-                            HelperMethods.NotifyUser("Unable to translate attack option \"" + option.Name + "\".");
-                            break;
-                        default:
-                            HelperMethods.NotifyUser("Unhandled attack option \"" + option.Type + "\".");
-                            break;
-                    }
-                    // newAbility.Variables.Add(new() { Name = option.Name, Type = "Toggled Option" });
-                }
-
-                Abilities.Add(newAbility);
-
-            }
         }
         public void ConnectSpellLinks()
         {
@@ -7954,7 +7252,7 @@ namespace GAMMA.Models
                     }
                 }
             }
-            return (qtyFound >= qtyRequired) ? true : false;
+            return (qtyFound >= qtyRequired);
         }
         public void SetFeatChoices()
         {
@@ -8171,7 +7469,7 @@ namespace GAMMA.Models
             if (warnings.Count() > 0)
             {
                 new NotificationDialog(output, "Report").ShowDialog();
-                YesNoDialog question = new YesNoDialog("Potential issues found, complete character creation anyway?");
+                YesNoDialog question = new("Potential issues found, complete character creation anyway?");
                 question.ShowDialog();
                 if (question.Answer == true)
                 {
@@ -8741,7 +8039,6 @@ namespace GAMMA.Models
         }
         public void UpdateLanguageChoiceCounts()
         {
-            // GC1
             foreach (ChoiceSet langChoiceSeg in LanguageChoiceSegments)
             {
                 int selectedLangCount = 0;
@@ -8899,7 +8196,6 @@ namespace GAMMA.Models
             {
                 PlayerClassModel pc = Configuration.MainModelRef.ToolsView.PlayerClasses.FirstOrDefault(p => p.Name == pclm.ClassName);
                 languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", pc.Features.ToList(), languages);
-                //languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", pc.Features.ToList(), languages); duplicate?
             }
 
             languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedRace.Features.ToList(), languages);
@@ -9134,16 +8430,6 @@ namespace GAMMA.Models
                     break;
             }
         }
-        private void RemoveConcentrationEffects()
-        {
-            List<ActiveEffectModel> filteredEffects = new List<ActiveEffectModel>();
-            foreach (ActiveEffectModel effect in ActiveEffects)
-            {
-                if (effect.ConcentrationDependent) { continue; }
-                else { filteredEffects.Add(effect); }
-            }
-            ActiveEffects = new ObservableCollection<ActiveEffectModel>(filteredEffects);
-        }
         private void SetProcessedHeight()
         {
             int feet = RawHeight / 12;
@@ -9236,7 +8522,6 @@ namespace GAMMA.Models
             }
             if (LinkedRace != null)
             {
-                //feats += LinkedRace.FeatsGranted;
                 foreach (FeatureModel feature in LinkedRace.Features)
                 {
                     if (feature.FeatureType == "Additional Feat")
@@ -9266,7 +8551,6 @@ namespace GAMMA.Models
             UpdateArmorSets();
             UpdateWeaponSets();
             UpdateSkillSets();
-            //UpdateExpertiseSets();
             UpdateStartingEquipment();
             UpdateTraits();
             UpdateSpellSets();
@@ -10414,15 +9698,6 @@ namespace GAMMA.Models
         }
         private void ExpertiseChoice_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            //ObservableCollection<ChoiceSet> expertiseChoiceSegments = ExpertiseChoiceSegments;
-            ////if (UnmarkChoicesFromSets(ref expertiseChoiceSegments, SetSkillProfs)) { return; }
-
-            //Dictionary<string, int> dupCheck = GetChoiceMarkedCounts(ref expertiseChoiceSegments);
-            //foreach (KeyValuePair<string, int> entry in dupCheck)
-            //{
-            //    if (entry.Value > 1) { (sender as BoolOption).Marked = false; return; }
-            //}
-
             foreach (ChoiceSet expChoiceSeg in ExpertiseChoiceSegments)
             {
                 int selectedExpertiseCount = 0;
@@ -10618,7 +9893,6 @@ namespace GAMMA.Models
                 }
                 spellChoiceSeg.ChoicesRemaining = spellChoiceSeg.MaxChoices - selectedSpellCount;
             }
-            //UpdateSpellSets();
         }
         private void CharacterAttributeFeatChoiceSelection_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -10661,7 +9935,6 @@ namespace GAMMA.Models
             {
                 BoolOption featChoice = FeatChoices.FirstOrDefault(f => f.Marked);
                 if (featChoice != null) { featChoice.Marked = false; }
-                //FeatChoices.Last().Marked = false;
             }
         }
         private void CharacterAttributeSet_PropertyChanged(object sender, PropertyChangedEventArgs e)

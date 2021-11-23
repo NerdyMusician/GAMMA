@@ -18,7 +18,7 @@ namespace GAMMA.Toolbox
         public static XElement ListToXml(IEnumerable itemList, string enumName = "")
         {
             string elementName = "";
-            List<XElement> items = new List<XElement>();
+            List<XElement> items = new();
             foreach (object item in itemList)
             {
                 elementName = item.GetType().ToString().Split('.').Last();
@@ -95,14 +95,6 @@ namespace GAMMA.Toolbox
 
             foreach (XmlNode childNode in characterNode.ChildNodes)
             {
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Attacks")
-                {
-                    foreach (XmlNode attackNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(attackNode, out AttackModel attack);
-                        newCharacter.Attacks.Add(attack);
-                    }
-                }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Counters")
                 {
                     foreach (XmlNode counterNode in childNode.ChildNodes)
@@ -111,44 +103,12 @@ namespace GAMMA.Toolbox
                         newCharacter.Counters.Add(counter);
                     }
                 }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Spells")
-                {
-                    foreach (XmlNode spellNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(spellNode, out SpellModel spell);
-                        newCharacter.Spells.Add(spell);
-                    }
-                }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Traits")
                 {
                     foreach (XmlNode traitNode in childNode.ChildNodes)
                     {
                         NodeToObject(traitNode, out TraitModel trait);
                         newCharacter.Traits.Add(trait);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "BackpackItems")
-                {
-                    foreach (XmlNode itemNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(itemNode, out ItemModel item);
-                        newCharacter.BackpackItems.Add(item);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "BankItems")
-                {
-                    foreach (XmlNode itemNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(itemNode, out ItemModel item);
-                        newCharacter.BankItems.Add(item);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "VehicleItems")
-                {
-                    foreach (XmlNode itemNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(itemNode, out ItemModel item);
-                        newCharacter.VehicleItems.Add(item);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Notes")
@@ -181,14 +141,6 @@ namespace GAMMA.Toolbox
                     {
                         NodeToObject(creatureNode, out CreatureModel creature);
                         newCharacter.CreaturePen.Add(creature);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "ActiveEffects")
-                {
-                    foreach (XmlNode effectNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(effectNode, out ActiveEffectModel effect);
-                        newCharacter.ActiveEffects.Add(effect);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "ToolProficiencies")
@@ -386,44 +338,12 @@ namespace GAMMA.Toolbox
 
             foreach (XmlNode childNode in creatureNode.ChildNodes)
             {
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Attacks")
-                {
-                    foreach (XmlNode attackNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(attackNode, out AttackModel attack);
-                        newCreature.Attacks.Add(attack);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Spells") 
-                {
-                    foreach (XmlNode spellNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(spellNode, out SpellModel spell);
-                        newCreature.Spells.Add(spell);
-                    }
-                }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Traits")
                 {
                     foreach (XmlNode traitNode in childNode.ChildNodes)
                     {
                         NodeToObject(traitNode, out TraitModel trait);
                         newCreature.Traits.Add(trait);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Loot")
-                {
-                    foreach (XmlNode itemNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(itemNode, out ItemModel item);
-                        newCreature.Loot.Add(item);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "ActiveEffects")
-                {
-                    foreach (XmlNode effectNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(effectNode, out ActiveEffectModel effect);
-                        newCreature.ActiveEffects.Add(effect);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpellLinks")
@@ -463,25 +383,6 @@ namespace GAMMA.Toolbox
             creature = newCreature;
 
         }
-        public static void NodeToObject(XmlNode attackNode, out AttackModel attack)
-        {
-            AttackModel newAttack = SetObjectPropertiesFromNode(attackNode, new AttackModel()) as AttackModel;
-
-            foreach (XmlNode childNode in attackNode.ChildNodes)
-            {
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "AttackOptions")
-                {
-                    foreach (XmlNode optionNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(optionNode, out AttackOptionModel option);
-                        newAttack.AttackOptions.Add(option);
-                    }
-                }
-            }
-
-            attack = newAttack;
-
-        }
         public static void NodeToObject(XmlNode counterNode, out CounterModel counter)
         {
             counter = SetObjectPropertiesFromNode(counterNode, new CounterModel()) as CounterModel;
@@ -502,14 +403,6 @@ namespace GAMMA.Toolbox
                     {
                         NodeToObject(attackNode, out ItemModel item);
                         newSpell.ConsumedMaterials.Add(item);
-                    }
-                }
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "ActiveEffects")
-                {
-                    foreach (XmlNode effectNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(effectNode, out ActiveEffectModel effect);
-                        newSpell.ActiveEffects.Add(effect);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpellClasses")
@@ -596,10 +489,6 @@ namespace GAMMA.Toolbox
             item = newItem;
 
         }
-        public static void NodeToObject(XmlNode effectNode, out ActiveEffectModel effect)
-        {
-            effect = SetObjectPropertiesFromNode(effectNode, new ActiveEffectModel()) as ActiveEffectModel;
-        }
         public static void NodeToObject(XmlNode lootBoxNode, out LootBoxModel lootBox)
         {
             LootBoxModel newLootBox = SetObjectPropertiesFromNode(lootBoxNode, new LootBoxModel()) as LootBoxModel;
@@ -626,10 +515,6 @@ namespace GAMMA.Toolbox
 
             lootBox = newLootBox;
 
-        }
-        public static void NodeToObject(XmlNode attackOptionNode, out AttackOptionModel option)
-        {
-            option = SetObjectPropertiesFromNode(attackOptionNode, new AttackOptionModel()) as AttackOptionModel;
         }
         public static void NodeToObject(XmlNode hitDiceSetNode, out HitDiceSet hitDiceSet)
         {
@@ -724,7 +609,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out TraitModel obj);
-                        //newPlayerClass.Traits.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpecificWeaponProficiencies")
@@ -732,7 +616,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out ConvertibleValue obj);
-                        //newPlayerClass.SpecificWeaponProficiencies.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpecificToolProficiencies")
@@ -740,7 +623,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out ConvertibleValue obj);
-                        //newPlayerClass.SpecificToolProficiencies.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Features")
@@ -798,7 +680,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out TraitModel obj);
-                        //newPlayerRace.Traits.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpecificLanguageProficiencies")
@@ -806,7 +687,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out ConvertibleValue obj);
-                        //newPlayerRace.SpecificLanguageProficiencies.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Features")
@@ -834,7 +714,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out TraitModel obj);
-                        //newPlayerSubrace.Traits.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Features")
@@ -856,14 +735,6 @@ namespace GAMMA.Toolbox
 
             foreach (XmlNode childNode in playerBackgroundNode.ChildNodes)
             {
-                //if (childNode.Attributes.GetNamedItem("Name").InnerText == "Traits")
-                //{
-                //    foreach (XmlNode node in childNode.ChildNodes)
-                //    {
-                //        NodeToObject(node, out TraitModel obj);
-                //        newPlayerBackground.Traits.Add(obj);
-                //    }
-                //}
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "MandatoryEquipment")
                 {
                     foreach (XmlNode node in childNode.ChildNodes)
@@ -885,7 +756,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out ConvertibleValue obj);
-                        //newPlayerBackground.SpecificLanguageProficiencies.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "SpecificToolProficiencies")
@@ -893,7 +763,6 @@ namespace GAMMA.Toolbox
                     foreach (XmlNode node in childNode.ChildNodes)
                     {
                         NodeToObject(node, out ConvertibleValue obj);
-                        //newPlayerBackground.SpecificToolProficiencies.Add(obj);
                     }
                 }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Features")
@@ -1327,7 +1196,7 @@ namespace GAMMA.Toolbox
 
         public static void XmlToList(string filePath, out List<CreatureModel> creatures, out Dictionary<string,string> encounterData, XmlDocument xmlDoc = null)
         {
-            List<CreatureModel> newCreatures = new List<CreatureModel>();
+            List<CreatureModel> newCreatures = new();
             XmlNodeList creatureNodes;
             encounterData = new Dictionary<string, string>();
 
@@ -1366,7 +1235,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<ItemModel> items, XmlDocument xmlDoc = null)
         {
-            List<ItemModel> newItems = new List<ItemModel>();
+            List<ItemModel> newItems = new();
 
             foreach (XmlNode itemNode in GetXmlNodeListFromXmlDoc(filePath, "ItemModelSet", xmlDoc))
             {
@@ -1379,7 +1248,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<SpellModel> spells, XmlDocument xmlDoc = null)
         {
-            List<SpellModel> newSpells = new List<SpellModel>();
+            List<SpellModel> newSpells = new();
 
             foreach (XmlNode spellNode in GetXmlNodeListFromXmlDoc(filePath, "SpellModelSet", xmlDoc))
             {
@@ -1392,7 +1261,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<CharacterModel> characters, XmlDocument xmlDoc = null)
         {
-            List<CharacterModel> newCharacters = new List<CharacterModel>();
+            List<CharacterModel> newCharacters = new();
 
             foreach (XmlNode characterNode in GetXmlNodeListFromXmlDoc(filePath, "CharacterModelSet", xmlDoc))
             {
@@ -1405,7 +1274,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<NoteModel> notes, XmlDocument xmlDoc = null)
         {
-            List<NoteModel> newNotes = new List<NoteModel>();
+            List<NoteModel> newNotes = new();
 
             foreach (XmlNode noteNode in GetXmlNodeListFromXmlDoc(filePath, "NoteModelSet", xmlDoc))
             {
@@ -1416,22 +1285,9 @@ namespace GAMMA.Toolbox
             notes = newNotes;
 
         }
-        public static void XmlToList(string filePath, out List<ActiveEffectModel> effects, XmlDocument xmlDoc = null)
-        {
-            List<ActiveEffectModel> newEffects = new List<ActiveEffectModel>();
-
-            foreach (XmlNode effectNode in GetXmlNodeListFromXmlDoc(filePath, "ActiveEffectModelSet", xmlDoc))
-            {
-                NodeToObject(effectNode, out ActiveEffectModel effect);
-                newEffects.Add(effect);
-            }
-
-            effects = newEffects;
-
-        }
         public static void XmlToList(string filePath, out List<LootBoxModel> lootBoxes, XmlDocument xmlDoc = null)
         {
-            List<LootBoxModel> newLootBoxes = new List<LootBoxModel>();
+            List<LootBoxModel> newLootBoxes = new();
 
             foreach (XmlNode lootBoxNode in GetXmlNodeListFromXmlDoc(filePath, "LootBoxModelSet", xmlDoc))
             {
@@ -1444,7 +1300,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<NotebookModel> notebooks, XmlDocument xmlDoc = null)
         {
-            List<NotebookModel> newNotebooks = new List<NotebookModel>();
+            List<NotebookModel> newNotebooks = new();
 
             foreach (XmlNode notebookNode in GetXmlNodeListFromXmlDoc(filePath, "NotebookModelSet", xmlDoc))
             {
@@ -1457,7 +1313,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<RollTableModel> rollTables, XmlDocument xmlDoc = null)
         {
-            List<RollTableModel> newRollTables = new List<RollTableModel>();
+            List<RollTableModel> newRollTables = new();
 
             foreach (XmlNode tableNode in GetXmlNodeListFromXmlDoc(filePath, "RollTableModelSet", xmlDoc))
             {
@@ -1470,7 +1326,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<NpcModel> npcs, XmlDocument xmlDoc = null)
         {
-            List<NpcModel> newNpcs = new List<NpcModel>();
+            List<NpcModel> newNpcs = new();
 
             foreach (XmlNode npcNode in GetXmlNodeListFromXmlDoc(filePath, "NpcModelSet", xmlDoc))
             {
@@ -1483,7 +1339,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<CreaturePackModel> packs, XmlDocument xmlDoc = null)
         {
-            List<CreaturePackModel> newPacks = new List<CreaturePackModel>();
+            List<CreaturePackModel> newPacks = new();
 
             foreach (XmlNode npcNode in GetXmlNodeListFromXmlDoc(filePath, "CreaturePackModelSet", xmlDoc))
             {
@@ -1496,7 +1352,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerClassModel> playerClasses, XmlDocument xmlDoc = null)
         {
-            List<PlayerClassModel> newPlayerClasses = new List<PlayerClassModel>();
+            List<PlayerClassModel> newPlayerClasses = new();
 
             foreach (XmlNode classNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerClassModelSet", xmlDoc))
             {
@@ -1509,7 +1365,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerSubclassModel> playerClasses, XmlDocument xmlDoc = null)
         {
-            List<PlayerSubclassModel> newPlayerSubclasses = new List<PlayerSubclassModel>();
+            List<PlayerSubclassModel> newPlayerSubclasses = new();
 
             foreach (XmlNode classNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerSubclassModelSet", xmlDoc))
             {
@@ -1522,7 +1378,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerRaceModel> playerRaces, XmlDocument xmlDoc = null)
         {
-            List<PlayerRaceModel> newPlayerRaces = new List<PlayerRaceModel>();
+            List<PlayerRaceModel> newPlayerRaces = new();
 
             foreach (XmlNode raceNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerRaceModelSet", xmlDoc))
             {
@@ -1535,7 +1391,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerSubraceModel> playerSubraces, XmlDocument xmlDoc = null)
         {
-            List<PlayerSubraceModel> newPlayerSubraces = new List<PlayerSubraceModel>();
+            List<PlayerSubraceModel> newPlayerSubraces = new();
 
             foreach (XmlNode raceNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerSubraceModelSet", xmlDoc))
             {
@@ -1548,7 +1404,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerBackgroundModel> playerBackgrounds, XmlDocument xmlDoc = null)
         {
-            List<PlayerBackgroundModel> newPlayerBackgrounds = new List<PlayerBackgroundModel>();
+            List<PlayerBackgroundModel> newPlayerBackgrounds = new();
 
             foreach (XmlNode backgroundNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerBackgroundModelSet", xmlDoc))
             {
@@ -1561,7 +1417,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<PlayerFeatModel> playerFeats, XmlDocument xmlDoc = null)
         {
-            List<PlayerFeatModel> newPlayerFeats = new List<PlayerFeatModel>();
+            List<PlayerFeatModel> newPlayerFeats = new();
             
             foreach (XmlNode featNode in GetXmlNodeListFromXmlDoc(filePath, "PlayerFeatModelSet", xmlDoc))
             {
@@ -1574,7 +1430,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<LanguageModel> languages, XmlDocument xmlDoc = null)
         {
-            List<LanguageModel> newLanguages = new List<LanguageModel>();
+            List<LanguageModel> newLanguages = new();
 
             foreach (XmlNode languageNode in GetXmlNodeListFromXmlDoc(filePath, "LanguageModelSet", xmlDoc))
             {
@@ -1587,7 +1443,7 @@ namespace GAMMA.Toolbox
         }
         public static void XmlToList(string filePath, out List<ShopModel> shops, XmlDocument xmlDoc = null)
         {
-            List<ShopModel> newShops = new List<ShopModel>();
+            List<ShopModel> newShops = new();
 
             foreach (XmlNode shopNode in GetXmlNodeListFromXmlDoc(filePath, "ShopModelSet", xmlDoc))
             {

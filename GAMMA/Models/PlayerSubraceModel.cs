@@ -11,7 +11,6 @@ namespace GAMMA.Models
         public PlayerSubraceModel()
         {
             Name = "New Subrace";
-            //Traits = new ObservableCollection<TraitModel>();
         }
 
         // Databound Properties

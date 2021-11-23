@@ -265,13 +265,8 @@ namespace GAMMA.Toolbox
                     Configuration.MainModelRef.SpellBuilderView.ActiveSpell.SpellClasses.Remove(this);
                     break;
                 case "Class Weapon Proficiencies":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerClass.SpecificWeaponProficiencies.Remove(this);
-                    break;
                 case "Class Tool Proficiencies":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerClass.SpecificToolProficiencies.Remove(this);
-                    break;
                 case "Race Language Proficiencies":
-                    //Configuration.MainModelRef.ToolsView.ActivePlayerRace.SpecificLanguageProficiencies.Remove(this);
                     break;
                 case "ActivePlayerBackground.EquipmentChoices":
                     Configuration.MainModelRef.ToolsView.ActivePlayerBackground.EquipmentChoices.Remove(this);
