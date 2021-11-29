@@ -139,12 +139,12 @@ namespace GAMMA.Models
             {
                 if (option.Marked) { shopItemTypes.Add(option.Name); }
             }
-            List<ItemModel> characterItems = new List<ItemModel>(sourceInventory.AllItems.Where(item => shopItemTypes.Contains(item.Type)));
-            List<ItemModel> shopItems = new List<ItemModel>(Configuration.ItemRepository.Where(item => shopItemTypes.Contains(item.Type)));
+            List<ItemModel> characterItems = new(sourceInventory.AllItems.Where(item => shopItemTypes.Contains(item.Type)));
+            List<ItemModel> shopItems = new(Configuration.ItemRepository.Where(item => shopItemTypes.Contains(item.Type)));
             int characterValue = (sourceInventory.PlatinumPieces * 1000) + (sourceInventory.GoldPieces * 100) + (sourceInventory.SilverPieces * 10) + sourceInventory.CopperPieces;
 
             if (shopItems == null) { return; }
-            ShopWindow shopWindow = new ShopWindow(Name, shopItems, characterItems, characterValue);
+            ShopWindow shopWindow = new(Name, shopItems, characterItems, characterValue);
             shopWindow.ShowDialog();
             if (shopWindow.DialogResult == true)
             {

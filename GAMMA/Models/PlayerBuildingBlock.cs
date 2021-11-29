@@ -101,7 +101,7 @@ namespace GAMMA.Models
             {
                 if (value == false && SpellTableRows.Count() > 0)
                 {
-                    YesNoDialog question = new YesNoDialog("Unmarking this will delete the spell table.\nProceed?");
+                    YesNoDialog question = new("Unmarking this will delete the spell table.\nProceed?");
                     question.ShowDialog();
                     if (question.Answer == false) { return; }
                     SpellTableRows = new ObservableCollection<SpellTableRowModel>();

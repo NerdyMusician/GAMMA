@@ -7,7 +7,7 @@ namespace GAMMA.Models
         // Constructors
         public AudioCollectionModel()
         {
-            AudioFiles = new ObservableCollection<AudioFileModel>();
+            AudioFiles = new();
         }
 
         // Databound Properties

@@ -581,19 +581,8 @@ namespace GAMMA.ViewModels
 
         // Commands
         #region AddLootBox
-        private RelayCommand _AddLootBox;
-        public ICommand AddLootBox
-        {
-            get
-            {
-                if (_AddLootBox == null)
-                {
-                    _AddLootBox = new RelayCommand(param => DoAddLootBox());
-                }
-                return _AddLootBox;
-            }
-        }
-        private void DoAddLootBox()
+        public ICommand AddLootBox => new RelayCommand(DoAddLootBox);
+        private void DoAddLootBox(object param)
         {
             LootBoxes.Add(new LootBoxModel());
             ActiveLootBox = LootBoxes.Last();
@@ -614,7 +603,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveLootBoxes(bool notifyUser = true)
         {
-            XDocument lootboxDocument = new XDocument();
+            XDocument lootboxDocument = new();
             if (LootBoxes.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -660,12 +649,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportLootBoxes()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current loot box list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current loot box list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -674,7 +663,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_LootBoxes(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -713,7 +702,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveRollTables(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (RollTables.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -762,12 +751,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportRollTables()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current roll table list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current roll table list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -796,7 +785,7 @@ namespace GAMMA.ViewModels
         }
         private void DoSelectImageForScaling()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "Image Files (*.png)|*.png"
             };
@@ -860,7 +849,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerClasses(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerClasses.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -889,12 +878,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerClasses()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player class list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player class list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -956,7 +945,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerSubclasses(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerSubclasses.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -984,12 +973,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerSubclasses()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player subclass list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player subclass list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1055,7 +1044,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerRaces(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerRaces.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1086,12 +1075,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerRaces()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player race list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player race list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1153,7 +1142,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerSubraces(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerSubraces.Count() == 0)
             {
                 xmlDoc.Add(new XElement("PlayerSubraceModelSet"));
@@ -1182,12 +1171,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerSubraces()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player subrace list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player subrace list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1253,7 +1242,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerBackgrounds(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerBackgrounds.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1284,12 +1273,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerBackgrounds()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player background list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player background list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1355,7 +1344,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSavePlayerFeats(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (PlayerFeats.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1385,12 +1374,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportPlayerFeats()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current player feat list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current player feat list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1456,7 +1445,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveLanguages(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (Languages.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1486,12 +1475,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportLanguages()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current language list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current language list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1559,7 +1548,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveShops(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (Shops.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1589,12 +1578,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportShops()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current shop list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current shop list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1660,7 +1649,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveEldritchInvocations(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (EldritchInvocations.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1690,12 +1679,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportEldritchInvocations()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current eldritch invocation list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current eldritch invocation list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1769,7 +1758,7 @@ namespace GAMMA.ViewModels
         public void DoSaveWeathers(bool notifyUser = true)
         {
             if (ValidateData_Weathers() == false) { return; }
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (Weathers.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1799,12 +1788,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportWeathers()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current weather list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current weather list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1873,7 +1862,7 @@ namespace GAMMA.ViewModels
         public void DoSaveCalendars(bool notifyUser = true)
         {
             if (ValidateData_Calendars() == false) { return; }
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (Calendars.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -1903,12 +1892,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportCalendars()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current calendar list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current calendar list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1974,7 +1963,7 @@ namespace GAMMA.ViewModels
         }
         public void DoSaveSourcebooks(bool notifyUser = true)
         {
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             if (Sourcebooks.Count() == 0)
             {
                 // Prevents zero count collection save crash
@@ -2005,12 +1994,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportSourcebooks()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current sourcebook list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current sourcebook list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 

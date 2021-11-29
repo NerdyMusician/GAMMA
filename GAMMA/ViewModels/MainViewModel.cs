@@ -1019,7 +1019,7 @@ namespace GAMMA.ViewModels
             string message = "Creature Sourcebook Report:";
             message += "\nTotal Creatures: " + Configuration.CreatureRepository.Count();
             message += "\nCreatures Validated: " + Configuration.CreatureRepository.Where(crt => crt.IsValidated).Count();
-            Dictionary<string, int> sourceCounts = new Dictionary<string, int>();
+            Dictionary<string, int> sourceCounts = new();
             foreach (CreatureModel creature in Configuration.CreatureRepository.Where(crt => crt.IsValidated))
             {
                 if (sourceCounts.ContainsKey(creature.Sourcebook) == false) { sourceCounts.Add(creature.Sourcebook, 0); }
@@ -1035,7 +1035,7 @@ namespace GAMMA.ViewModels
         {
             string message = "Shop Coverage Report:";
             message += "\nMissing coverage for:";
-            Dictionary<string, bool> itemTypes = new Dictionary<string, bool>();
+            Dictionary<string, bool> itemTypes = new();
             foreach (string item in Configuration.ItemTypes)
             {
                 itemTypes.Add(item, false);

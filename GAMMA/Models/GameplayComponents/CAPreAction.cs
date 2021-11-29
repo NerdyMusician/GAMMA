@@ -120,6 +120,23 @@ namespace GAMMA.Models.GameplayComponents
             }
         }
         #endregion
+        #region CustomDisplayText
+        private string _CustomDisplayText;
+        [XmlSaveMode("Single")]
+        public string CustomDisplayText
+        {
+            get
+            {
+                return _CustomDisplayText;
+            }
+            set
+            {
+                _CustomDisplayText = value;
+                NotifyPropertyChanged();
+                UpdateDisplayText();
+            }
+        }
+        #endregion
 
         // QA Prompt
         #region Question
@@ -644,7 +661,7 @@ namespace GAMMA.Models.GameplayComponents
         }
         private void UpdateDisplayText()
         {
-            DisplayText = string.Format("{0} - {1}", Action, Target);
+            DisplayText = !string.IsNullOrEmpty(CustomDisplayText) ? CustomDisplayText : string.Format("{0} - {1}", Action, Target);
         }
 
     }

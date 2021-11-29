@@ -1,0 +1,38 @@
+﻿<Window x:Class="GAMMA.Windows.TextDumpDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GAMMA.Windows"
+        xmlns:cc="clr-namespace:GAMMA.CustomControls"
+        mc:Ignorable="d" WindowStyle="None" Height="320" Width="320"
+        Background="{StaticResource PrimaryBackground}" 
+        AllowsTransparency="True" 
+        BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+    </Window.Resources>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox x:Name="CustomMessage" 
+                 VerticalAlignment="Center" 
+                 Height="auto" MaxHeight="64" Width="240"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Hidden"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Background="Transparent"
+                 Foreground="{StaticResource PrimaryFontColor}"
+                 FontSize="14"
+                 BorderThickness="0" />
+        <StackPanel HorizontalAlignment="Center">
+            <cc:GammaTextBox x:Name="DumpText" Style="{StaticResource TallPartialBorderTextBox}" Width="240" Height="192" />
+            <cc:ImageButton x:Name="OkButton" Text="OK"
+                        ImageResource="{StaticResource Icon_Pass}"
+                        Width="50" HorizontalAlignment="Center"
+                        Click="ImageButton_Click" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

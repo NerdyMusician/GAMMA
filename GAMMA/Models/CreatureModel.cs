@@ -23,6 +23,7 @@ namespace GAMMA.Models
             Traits = new();
             ItemLinks = new();
             ActiveEffectAbilities = new();
+            Environments = new();
 
             DamageProclivity_Acid = "Normal";
             DamageProclivity_Cold = "Normal";
@@ -291,6 +292,7 @@ namespace GAMMA.Models
         }
         #endregion
 
+        // Campaign View Only //
         #region PlayerName
         private string _PlayerName;
         [XmlSaveMode("Single")]
@@ -323,7 +325,6 @@ namespace GAMMA.Models
             }
         }
         #endregion
-        // Campaign View Only //
         #region PlayerPassivePerception
         private int _PlayerPassivePerception;
         [XmlSaveMode("Single")]
@@ -502,6 +503,22 @@ namespace GAMMA.Models
             set
             {
                 _Alignment = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region Environments
+        private ObservableCollection<ConvertibleValue> _Environments;
+        [XmlSaveMode("Enumerable")]
+        public ObservableCollection<ConvertibleValue> Environments
+        {
+            get
+            {
+                return _Environments;
+            }
+            set
+            {
+                _Environments = value;
                 NotifyPropertyChanged();
             }
         }
@@ -1000,6 +1017,36 @@ namespace GAMMA.Models
             set
             {
                 _SwimSpeed = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region HighestSpeedType
+        private string _HighestSpeedType;
+        public string HighestSpeedType
+        {
+            get
+            {
+                return _HighestSpeedType;
+            }
+            set
+            {
+                _HighestSpeedType = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region HighestSpeedValue
+        private int _HighestSpeedValue;
+        public int HighestSpeedValue
+        {
+            get
+            {
+                return _HighestSpeedValue;
+            }
+            set
+            {
+                _HighestSpeedValue = value;
                 NotifyPropertyChanged();
             }
         }
@@ -4511,10 +4558,6 @@ namespace GAMMA.Models
             message += "\nResult: " + total;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + saveModifier; }
 
-            //if (Configuration.MainModelRef.TabSelected_Tracker)
-            //{
-            //    HelperMethods.AddToEncounterLog(message);
-            //}
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
                 HelperMethods.AddToCampaignMessages(message, "Saving Throw");
@@ -4894,6 +4937,36 @@ namespace GAMMA.Models
             }
         }
         #endregion
+        #region AddEnvironment
+        public ICommand AddEnvironment => new RelayCommand(DoAddEnvironment);
+        private void DoAddEnvironment(object param)
+        {
+            List<ConvertibleValue> options = new();
+            foreach (string sc in Configuration.CreatureEnvironments)
+            {
+                options.Add(new(sc));
+            }
+            MultiObjectSelectionDialog selectionDialog = new(options, "Creature Environments");
+            if (selectionDialog.ShowDialog() == true)
+            {
+                foreach (ConvertibleValue cv in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedCVs)
+                {
+                    bool existingFound = false;
+                    foreach (ConvertibleValue opt in Environments)
+                    {
+                        if (opt.Value == cv.Value)
+                        {
+                            existingFound = true;
+                            break;
+                        }
+                    }
+                    if (existingFound) { continue; }
+                    Environments.Add(new() { Value = cv.Value });
+                }
+                Environments = new(Environments.OrderBy(item => item.Value));
+            }
+        }
+        #endregion
 
         // Public Methods
         public void RollHitPoints(bool useAverage)
@@ -5067,6 +5140,21 @@ namespace GAMMA.Models
             {
                 ability.SetGeneratedDescription(this);
             }
+        }
+        public void SetHighestSpeedValues()
+        {
+            string type = "";
+            int val = 0;
+
+            if (Speed > val) { type = "Walk"; val = Speed; }
+            if (FlySpeed > val) { type = "Fly"; val = FlySpeed; }
+            if (ClimbSpeed > val) { type = "Climb"; val = ClimbSpeed; }
+            if (BurrowSpeed > val) { type = "Burrow"; val = BurrowSpeed; }
+            if (SwimSpeed > val) { type = "Swim"; val = SwimSpeed; }
+
+            HighestSpeedType = type;
+            HighestSpeedValue = val;
+
         }
 
         // Private Methods

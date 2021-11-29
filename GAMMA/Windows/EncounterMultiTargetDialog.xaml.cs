@@ -41,7 +41,7 @@ namespace GAMMA.Windows
         {
             get
             {
-                List<CreatureModel> selectedCreatures = new List<CreatureModel>();
+                List<CreatureModel> selectedCreatures = new();
                 foreach (object item in ItemsControl_Creatures.Items)
                 {
                     CreatureModel creature = item as CreatureModel;

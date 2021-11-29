@@ -281,7 +281,7 @@ namespace GAMMA.ViewModels
             if (AllCreatures.Count() == 0)
             {
                 // Prevents zero creature save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("CreatureModelSet"));
                 blankDoc.Save("Data/Creatures.xml");
                 return true;
@@ -304,7 +304,7 @@ namespace GAMMA.ViewModels
                 new NotificationDialog(message).ShowDialog();
                 return false;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(AllCreatures.ToList()));
             itemDocument.Save("Data/Creatures.xml");
             Configuration.CreatureRepository = AllCreatures.ToList();
@@ -348,12 +348,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportCreatures()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current creature list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current creature list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -431,7 +431,7 @@ namespace GAMMA.ViewModels
         }
         private void UpdateFilteredCreatureList()
         {
-            ObservableCollection<CreatureModel> filteredCreatures = new ObservableCollection<CreatureModel>();
+            ObservableCollection<CreatureModel> filteredCreatures = new();
             foreach (CreatureModel creature in AllCreatures)
             {
                 if (creature.Name.ToUpper().Contains(CreatureSearchText.ToUpper()) == false) { continue; }

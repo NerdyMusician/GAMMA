@@ -163,7 +163,7 @@ namespace GAMMA.ViewModels
             if (AllSpells.Count() == 0)
             {
                 // Prevents zero spell save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("SpellModelSet"));
                 blankDoc.Save("Data/Spells.xml");
                 return true;
@@ -186,7 +186,7 @@ namespace GAMMA.ViewModels
                 new NotificationDialog(message).ShowDialog();
                 return false;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(AllSpells.ToList()));
             itemDocument.Save("Data/Spells.xml");
             Configuration.SpellRepository = AllSpells.ToList();
@@ -229,12 +229,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportSpells()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current spell list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current spell list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -269,7 +269,7 @@ namespace GAMMA.ViewModels
         // Private Methods
         private void UpdateSpellFilter()
         {
-            ObservableCollection<SpellModel> filteredSpells = new ObservableCollection<SpellModel>();
+            ObservableCollection<SpellModel> filteredSpells = new();
             foreach (SpellModel spell in AllSpells)
             {
                 if (spell.Name.ToUpper().Contains(SpellSearchText.ToUpper()) == false) { continue; }

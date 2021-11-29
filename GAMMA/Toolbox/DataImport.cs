@@ -89,7 +89,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<SpellModel> importedSpells);
             XmlMethods.XmlToList(Configuration.SpellDataFilePath, out List<SpellModel> currentSpells);
-            List<SpellModel> combinedSpellList = new List<SpellModel>();
+            List<SpellModel> combinedSpellList = new();
             message = "Spells Imported:";
 
             List<string> spellNames = new();
@@ -125,7 +125,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<CreatureModel> importedCreatures, out _);
             XmlMethods.XmlToList(Configuration.CreatureDataFilePath, out List<CreatureModel> currentCreatures, out _);
-            List<CreatureModel> combinedCreatureList = new List<CreatureModel>();
+            List<CreatureModel> combinedCreatureList = new();
             message = "Creatures Imported:";
 
             List<string> creatureNames = new();
@@ -176,7 +176,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<ShopModel> importedShops);
             XmlMethods.XmlToList(Configuration.ShopDataFilePath, out List<ShopModel> currentShops);
-            List<ShopModel> combinedShopList = new List<ShopModel>();
+            List<ShopModel> combinedShopList = new();
             message = "Shops Imported:";
 
             List<string> shops = new();
@@ -278,7 +278,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<LanguageModel> importedLanguages);
             XmlMethods.XmlToList(Configuration.LanguageDataFilePath, out List<LanguageModel> currentLanguages);
-            List<LanguageModel> combinedLanguageList = new List<LanguageModel>();
+            List<LanguageModel> combinedLanguageList = new();
             message = "Languages Imported:";
 
             List<string> languages = new();
@@ -313,7 +313,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<Weather> importedWeathers);
             XmlMethods.XmlToList(Configuration.WeatherDataFilePath, out List<Weather> currentWeathers);
-            List<Weather> combinedWeatherList = new List<Weather>();
+            List<Weather> combinedWeatherList = new();
             message = "Weathers Imported:";
 
             List<string> weathers = new();
@@ -348,7 +348,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<GameCalendar> importedCalendars);
             XmlMethods.XmlToList(Configuration.CalendarDataFilePath, out List<GameCalendar> currentCalendars);
-            List<GameCalendar> combinedCalendarList = new List<GameCalendar>();
+            List<GameCalendar> combinedCalendarList = new();
             message = "Calendars Imported:";
 
             List<string> calendars = new();
@@ -385,7 +385,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerClassModel> importedPlayerClasses);
             XmlMethods.XmlToList(Configuration.PlayerClassDataFilePath, out List<PlayerClassModel> currentPlayerClasses);
-            List<PlayerClassModel> combinedPlayerClassList = new List<PlayerClassModel>();
+            List<PlayerClassModel> combinedPlayerClassList = new();
             message = "Player Classes Imported:";
 
             List<string> classNames = new();
@@ -422,7 +422,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerSubclassModel> importedPlayerSubclasses);
             XmlMethods.XmlToList(Configuration.PlayerSubclassDataFilePath, out List<PlayerSubclassModel> currentPlayerSubclasses);
-            List<PlayerSubclassModel> combinedPlayerSubclassList = new List<PlayerSubclassModel>();
+            List<PlayerSubclassModel> combinedPlayerSubclassList = new();
             message = "Player Subclasses Imported:";
 
             List<string> classNames = new();
@@ -457,7 +457,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerRaceModel> importedPlayerRaces);
             XmlMethods.XmlToList(Configuration.PlayerRaceDataFilePath, out List<PlayerRaceModel> currentPlayerRaces);
-            List<PlayerRaceModel> combinedPlayerRaceList = new List<PlayerRaceModel>();
+            List<PlayerRaceModel> combinedPlayerRaceList = new();
             message = "Player Races Imported:";
 
             List<string> raceNames = new();
@@ -492,7 +492,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerSubraceModel> importedPlayerSubraces);
             XmlMethods.XmlToList(Configuration.PlayerSubraceDataFilePath, out List<PlayerSubraceModel> currentPlayerSubraces);
-            List<PlayerSubraceModel> combinedPlayerSubraceList = new List<PlayerSubraceModel>();
+            List<PlayerSubraceModel> combinedPlayerSubraceList = new();
             message = "Player Subraces Imported:";
 
             List<string> subraceNames = new();
@@ -527,7 +527,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerBackgroundModel> importedPlayerBackgrounds);
             XmlMethods.XmlToList(Configuration.PlayerBackgroundDataFilePath, out List<PlayerBackgroundModel> currentPlayerBackgrounds);
-            List<PlayerBackgroundModel> combinedPlayerBackgroundList = new List<PlayerBackgroundModel>();
+            List<PlayerBackgroundModel> combinedPlayerBackgroundList = new();
             message = "Player Backgrounds Imported:";
 
             List<string> subraceNames = new();
@@ -562,7 +562,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<PlayerFeatModel> importedPlayerFeats);
             XmlMethods.XmlToList(Configuration.PlayerFeatDataFilePath, out List<PlayerFeatModel> currentPlayerFeats);
-            List<PlayerFeatModel> combinedPlayerFeatList = new List<PlayerFeatModel>();
+            List<PlayerFeatModel> combinedPlayerFeatList = new();
             message = "Player Feats Imported:";
 
             List<string> subraceNames = new();
@@ -597,7 +597,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<EldritchInvocation> importedEldritchInvocations);
             XmlMethods.XmlToList(Configuration.EldritchInvocationsDataFilePath, out List<EldritchInvocation> currentEldritchInvocations);
-            List<EldritchInvocation> combinedEldritchInvocationList = new List<EldritchInvocation>();
+            List<EldritchInvocation> combinedEldritchInvocationList = new();
             message = "Eldritch Invocations Imported:";
 
             List<string> eldritchInvocations = new();
@@ -633,7 +633,7 @@ namespace GAMMA.Toolbox
             Configuration.HasUsedCharacterBuilder = true;
             XmlMethods.XmlToList(filepath, out List<CharacterModel> importedCharacters);
             XmlMethods.XmlToList(Configuration.CharacterDataFilePath, out List<CharacterModel> currentCharacters);
-            List<CharacterModel> combinedCharacterList = new List<CharacterModel>();
+            List<CharacterModel> combinedCharacterList = new();
             message = "Characters Imported:";
 
             List<string> characterNames = new();
@@ -653,7 +653,7 @@ namespace GAMMA.Toolbox
 
                 if (currentCharacter != null && importedCharacter != null)
                 {
-                    YesNoDialog dupQuestion = new YesNoDialog("Duplicate found for \"" + name + "\"\nOverwrite existing?");
+                    YesNoDialog dupQuestion = new("Duplicate found for \"" + name + "\"\nOverwrite existing?");
                     dupQuestion.ShowDialog();
                     if (dupQuestion.Answer == true)
                     {
@@ -722,7 +722,7 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToList(filepath, out List<GameCampaign> importedCampaigns);
             XmlMethods.XmlToList(Configuration.CampaignDataFilePath, out List<GameCampaign> currentCampaigns);
-            List<GameCampaign> combinedCampaignList = new List<GameCampaign>();
+            List<GameCampaign> combinedCampaignList = new();
             message = "Campaigns Imported:";
 
             List<string> campaignNames = new();
@@ -742,7 +742,7 @@ namespace GAMMA.Toolbox
 
                 if (currentCampaign != null && importedCampaign != null)
                 {
-                    YesNoDialog dupQuestion = new YesNoDialog("Duplicate found for \"" + name + "\"\nOverwrite existing?");
+                    YesNoDialog dupQuestion = new("Duplicate found for \"" + name + "\"\nOverwrite existing?");
                     dupQuestion.ShowDialog();
                     if (dupQuestion.Answer == true)
                     {

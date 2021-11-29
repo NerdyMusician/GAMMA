@@ -11,13 +11,13 @@ namespace GAMMA.Toolbox
         public static bool LoadComplete = false;
         public static bool HasUsedCharacterBuilder = false;
 
-        public static List<string> CreatureTypes = new List<string>
+        public static List<string> CreatureTypes = new()
         {
             "",
             "D&D Creature",
             "D&D Player"
         };
-        public static List<string> CreatureCategories = new List<string>
+        public static List<string> CreatureCategories = new()
         {
             "",
             "Aberration",
@@ -35,20 +35,20 @@ namespace GAMMA.Toolbox
             "Plant",
             "Undead"
         };
-        public static List<string> CreatureSubCategories = new List<string>
+        public static List<string> CreatureSubCategories = new()
         {
             "",
             "Aarakocra",
             "Elf",
             "Goblinoid"
         };
-        public static List<string> Sources = new List<string>
+        public static List<string> Sources = new()
         {
             "",
             "Homebrew",
             "Wizards of the Coast"
         };
-        public static List<string> Sizes = new List<string>
+        public static List<string> Sizes = new()
         {
             "Tiny",
             "Small",
@@ -57,7 +57,7 @@ namespace GAMMA.Toolbox
             "Huge",
             "Gargantuan"
         };
-        public static List<string> VolumeSizes = new List<string>
+        public static List<string> VolumeSizes = new()
         {
             "Barrel (40 gal)",
             "Keg (5 gal)",
@@ -66,7 +66,7 @@ namespace GAMMA.Toolbox
             "Glass or Flask (1 pint)",
             "Gill (1/4 pint)",
         };
-        public static List<string> DrinkVolumes = new List<string>
+        public static List<string> DrinkVolumes = new()
         {
             "Glass or Flask (1 pint)",
             "Gill (1/4 pint)",
@@ -84,17 +84,16 @@ namespace GAMMA.Toolbox
             "Chaotic Neutral",
             "Chaotic Evil"
         };
-        public static List<string> DiceSides = new List<string>
+        public static List<string> DiceSides = new()
         {
             "20","12","10","8","6","4","1"
         };
-        public static List<string> ItemTypes = new List<string>
+        public static List<string> ItemTypes = new()
         {
             "Adventuring Gear",
             "Alcohol",
             "Ammunition",
             "Arcane Focus",
-            //"Armor",
             "Art",
             "Artisan Tool",
             "Book",
@@ -110,14 +109,11 @@ namespace GAMMA.Toolbox
             "Instrument",
             "Jewelry",
             "Key",
-            //"Magic Item",
             "Light Armor",
             "Magic Weapon",
             "Martial Melee Weapon",
             "Martial Ranged Weapon",
             "Medium Armor",
-            //"Melee Weapon",
-            //"Ranged Weapon",
             "Other",
             "Poison",
             "Potion",
@@ -131,7 +127,7 @@ namespace GAMMA.Toolbox
             "Treasure",
             "Wondrous Item",
         };
-        public static List<string> WeaponItemTypes = new List<string>
+        public static List<string> WeaponItemTypes = new()
         {
             "Firearms Ranged Weapon",
             "Magic Weapon",
@@ -140,7 +136,7 @@ namespace GAMMA.Toolbox
             "Simple Melee Weapon",
             "Simple Ranged Weapon",
         };
-        public static List<string> ArmorItemTypes = new List<string>
+        public static List<string> ArmorItemTypes = new()
         {
             "Clothing",
             "Heavy Armor",
@@ -148,7 +144,7 @@ namespace GAMMA.Toolbox
             "Medium Armor",
             "Shield"
         };
-        public static List<string> DamageTypes = new List<string>
+        public static List<string> DamageTypes = new()
         {
             "Acid",
             "Cold",
@@ -164,7 +160,7 @@ namespace GAMMA.Toolbox
             "Slashing",
             "Piercing",
         };
-        public static List<string> DamageProclivities = new List<string>
+        public static List<string> DamageProclivities = new()
         {
             "Normal",
             "Vulnerable",
@@ -177,7 +173,7 @@ namespace GAMMA.Toolbox
             "Immune if Non-Adamantine",
             "Immune if Non-Silvered"
         };
-        public static List<string> AbilityTypes = new List<string>
+        public static List<string> AbilityTypes = new()
         {
             "Strength",
             "Dexterity",
@@ -186,7 +182,7 @@ namespace GAMMA.Toolbox
             "Wisdom",
             "Charisma"
         };
-        public static List<string> SchoolsOfMagic = new List<string>
+        public static List<string> SchoolsOfMagic = new()
         {
             "Abjuration",
             "Conjuration",
@@ -197,7 +193,7 @@ namespace GAMMA.Toolbox
             "Necromancy",
             "Transmutation"
         };
-        public static List<string> AoeShapes = new List<string>
+        public static List<string> AoeShapes = new()
         {
             "Line",
             "Circle",
@@ -207,7 +203,7 @@ namespace GAMMA.Toolbox
             "Square",
             "Cylinder"
         };
-        public static List<string> Environments = new List<string>
+        public static List<string> Environments = new()
         {
             "Grassland / Hillside",
             "Forest / Woodland",
@@ -216,29 +212,35 @@ namespace GAMMA.Toolbox
             "Mountain / Cave",
             "Ocean / Coast"
         };
-        public static List<string> FishingEnvironments = new List<string>
+        public static List<string> CreatureEnvironments = new()
+        {
+            "Arctic","Coastal","Desert","Forest",
+            "Grassland","Hill","Mountain","Swamp",
+            "Underdark","Underwater","Urban"
+        };
+        public static List<string> FishingEnvironments = new()
         {
             "Saltwater",
             "Freshwater",
         };
-        public static List<string> IconList = new List<string>
+        public static List<string> IconList = new()
         {
             "Icon_Construct",
             "Icon_Beast",
             "Icon_Fiend"
         };
-        public static List<string> ChallengeRatings = new List<string>
+        public static List<string> ChallengeRatings = new()
         {
             "0", "1/8", "1/4", "1/2", 
             "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
         };
-        public static List<string> AttackTypes = new List<string>
+        public static List<string> AttackTypes = new()
         {
             "Melee","Ranged","Magic Weapon","Magic Ability","Other"
         };
-        public static List<string> AttackOptionTypes = new List<string>
+        public static List<string> AttackOptionTypes = new()
         {
             "Attack Modifier",
             "Damage Modifier", 
@@ -250,9 +252,8 @@ namespace GAMMA.Toolbox
             "Extra Damage on Critical - Roll",
             "Extra Damage on Critical - Set",
             "Reroll Attack Damage Die at or Below",
-            //"Reroll Attack Damage Roll Total at or Below",
         };
-        public static List<string> RarityLevels = new List<string>
+        public static List<string> RarityLevels = new()
         {
             "Common",
             "Uncommon",
@@ -260,7 +261,7 @@ namespace GAMMA.Toolbox
             "Very Rare",
             "Legendary"
         };
-        public static List<string> SpellsKnownPerLevelOptions = new List<string>
+        public static List<string> SpellsKnownPerLevelOptions = new()
         {
             "Set",
             "Any"
@@ -325,9 +326,9 @@ namespace GAMMA.Toolbox
             "Survival"
         };
 
-        public static List<CreatureModel> CreatureRepository = new List<CreatureModel>();
-        public static List<ItemModel> ItemRepository = new List<ItemModel>();
-        public static List<SpellModel> SpellRepository = new List<SpellModel>();
+        public static List<CreatureModel> CreatureRepository = new();
+        public static List<ItemModel> ItemRepository = new();
+        public static List<SpellModel> SpellRepository = new();
 
         public static readonly string CreatureDataFilePath = "Data/Creatures.xml";
         public static readonly string ItemDataFilePath = "Data/Items.xml";
@@ -370,8 +371,8 @@ namespace GAMMA.Toolbox
 
         public static MainViewModel MainModelRef;
         public static ShopViewModel ShopRef;
-        public static FrameworkElement framework = new FrameworkElement();
-        public static Random RNG = new Random();
+        public static FrameworkElement framework = new();
+        public static Random RNG = new();
         public static NoteModel CopiedNote = null;
 
     }

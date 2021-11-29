@@ -198,11 +198,6 @@ namespace GAMMA.Toolbox
             Value = value;
             ValueType = "String";
         }
-        public ConvertibleValue(int value)
-        {
-            Value = value.ToString();
-            ValueType = "Int32";
-        }
 
         // Databound Properties
         #region Value
@@ -271,6 +266,9 @@ namespace GAMMA.Toolbox
                 case "ActivePlayerBackground.EquipmentChoices":
                     Configuration.MainModelRef.ToolsView.ActivePlayerBackground.EquipmentChoices.Remove(this);
                     break;
+                case "Active Creature Environments":
+                    Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Environments.Remove(this);
+                    break;
                 default:
                     new NotificationDialog("Unhandled parameter \"" + location + "\" in DoRemoveConvertibleValue").ShowDialog();
                     break;
@@ -302,7 +300,7 @@ namespace GAMMA.Toolbox
         }
         private void DoAddItemsToActiveCharacterStartingEquipment()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList(), Value);
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList(), Value);
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
@@ -323,22 +321,6 @@ namespace GAMMA.Toolbox
             }
         }
         #endregion
-
-        // Public Methods
-        private void GetValue(out string value)
-        {
-            value = Value.ToString();
-        }
-        private void GetValue(out int value)
-        {
-            if (ValueType != "Int32") { HelperMethods.WriteToLogFile("ConvertibleValue is not set to type Int32", true); value = 0; return; }
-            value = Convert.ToInt32(Value);
-        }
-        private void GetValue(out bool value)
-        {
-            if (ValueType != "Boolean") { HelperMethods.WriteToLogFile("ConvertibleValue is not set to type Boolean", true); value = false; return; }
-            value = Convert.ToBoolean(Value);
-        }
 
     }
 

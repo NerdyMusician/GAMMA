@@ -583,7 +583,7 @@ namespace GAMMA.ViewModels
             EnableCharacterExitsave = true;
             PromptCharacterExitsave = true;
 
-            // SFX Settings
+            // Audio Settings
             EnableSoundEffects = true;
             EnableSfx_DiceRoll = true;
             EnableSfx_ShopGreeting = false;
@@ -948,7 +948,7 @@ namespace GAMMA.ViewModels
         public void SaveSettings()
         {
             if (ClearPasswordOnClose) { Roll20Password = ""; }
-            XDocument xmlDoc = new XDocument();
+            XDocument xmlDoc = new();
             xmlDoc.Add(XmlMethods.ListToXml(new List<SettingsViewModel> { this }));
             xmlDoc.Save(Configuration.SettingsDataFilePath);
         }
@@ -959,7 +959,7 @@ namespace GAMMA.ViewModels
             // https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-copy-directories
 
             // Get the subdirectories for the specified directory.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo dir = new(sourceDirName);
 
             if (!dir.Exists)
             {

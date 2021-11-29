@@ -18,7 +18,7 @@ namespace GAMMA.Models.GameplayComponents
                 "Activate Alterant",
                 "Add Minions",
                 "Add to Current HP",
-                "Add to Temporary HP", 
+                "Add to Temporary HP",
                 "Add Active Effect",
                 "Expend Counter",
                 "Subtract from Current HP",

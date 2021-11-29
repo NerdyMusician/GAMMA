@@ -56,7 +56,7 @@ namespace GAMMA.CustomControls
             }
             if (type == typeof(ItemModel))
             {
-                List<ItemModel> itemModels = new List<ItemModel>();
+                List<ItemModel> itemModels = new();
                 foreach (ItemModel item in OriginalSource)
                 {
                     if (item.Name.ToUpper().Contains(Text.ToUpper()) || Text == "")
@@ -68,7 +68,7 @@ namespace GAMMA.CustomControls
             }
             if (type == typeof(CreatureModel))
             {
-                List<CreatureModel> CreatureModels = new List<CreatureModel>();
+                List<CreatureModel> CreatureModels = new();
                 foreach (CreatureModel Creature in OriginalSource)
                 {
                     if (Creature.Name.ToUpper().Contains(Text.ToUpper()) || Text == "")
@@ -80,7 +80,7 @@ namespace GAMMA.CustomControls
             }
             if (type == typeof(SpellModel))
             {
-                List<SpellModel> spellModels = new List<SpellModel>();
+                List<SpellModel> spellModels = new();
                 foreach (SpellModel spell in OriginalSource)
                 {
                     if (spell.Name.ToUpper().Contains(Text.ToUpper()) || Text == "")
@@ -92,7 +92,7 @@ namespace GAMMA.CustomControls
             }
             if (type == typeof(CreaturePackModel))
             {
-                List<CreaturePackModel> packs = new List<CreaturePackModel>();
+                List<CreaturePackModel> packs = new();
                 foreach (CreaturePackModel pack in OriginalSource)
                 {
                     if (pack.Name.ToUpper().Contains(Text.ToUpper()) || Text == "")
@@ -104,7 +104,7 @@ namespace GAMMA.CustomControls
             }
             if (type == typeof(InventoryModel))
             {
-                List<InventoryModel> inventories = new List<InventoryModel>();
+                List<InventoryModel> inventories = new();
                 foreach (InventoryModel inventory in OriginalSource)
                 {
                     if (inventory.Name.ToUpper().Contains(Text.ToUpper()) || Text == "")

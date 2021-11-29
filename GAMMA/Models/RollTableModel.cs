@@ -161,7 +161,7 @@ namespace GAMMA.Models
             int roll = Configuration.RNG.Next(minVal, maxVal + 1);
             if (HasModifier)
             {
-                NumberInputDialog numberInput = new NumberInputDialog(Name + " Table Modifier", ModifierInfo);
+                NumberInputDialog numberInput = new(Name + " Table Modifier", ModifierInfo);
                 if (numberInput.ShowDialog() == true)
                 {
                     roll += numberInput.Number;

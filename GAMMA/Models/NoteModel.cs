@@ -217,7 +217,7 @@ namespace GAMMA.Models
             }
             else if (this.Content.Length > 0)
             {
-                YesNoDialog question = new YesNoDialog("Are you sure you want to delete this note?");
+                YesNoDialog question = new("Are you sure you want to delete this note?");
                 question.ShowDialog();
                 if (question.Answer == false) { return; }
             }
@@ -287,7 +287,7 @@ namespace GAMMA.Models
         }
         private void DoSelectAttachment()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = Configuration.ImageFileFilter + "|" + Configuration.DocFileFilter + "|" + Configuration.AllFileFilter
             };
@@ -296,12 +296,12 @@ namespace GAMMA.Models
                 string noteDirectory = Environment.CurrentDirectory + "/NoteAttachments/";
                 if (File.Exists(noteDirectory + openWindow.SafeFileName))
                 {
-                    YesNoDialog question = new YesNoDialog(openWindow.SafeFileName + " already exists in the note attachments directory, overwrite?");
+                    YesNoDialog question = new(openWindow.SafeFileName + " already exists in the note attachments directory, overwrite?");
                     if (question.ShowDialog() == true) 
                     {
                         if (question.Answer == false) 
                         {
-                            YesNoDialog linkQuestion = new YesNoDialog("Link existing file to this note?");
+                            YesNoDialog linkQuestion = new("Link existing file to this note?");
                             if (linkQuestion.ShowDialog() == true)
                             {
                                 if (linkQuestion.Answer == true)
@@ -340,7 +340,7 @@ namespace GAMMA.Models
             }
             catch (Exception e)
             {
-                YesNoDialog question = new YesNoDialog(e.Message + "\nUnlink?");
+                YesNoDialog question = new(e.Message + "\nUnlink?");
                 question.ShowDialog();
                 if (question.Answer == true)
                 {
@@ -368,7 +368,7 @@ namespace GAMMA.Models
             {
                 string fileName = AttachmentFileName;
                 AttachmentFileName = "";
-                YesNoDialog question = new YesNoDialog("Attachment unlinked, delete file?");
+                YesNoDialog question = new("Attachment unlinked, delete file?");
                 if (question.ShowDialog() == true)
                 {
                     if (question.Answer == true)

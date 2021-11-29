@@ -1,5 +1,12 @@
-﻿GAMMA 1.26.07
-- Code cleanup
+﻿GAMMA 1.27.00
+- Code cleanup and removal of pre-1.26 data structures regarding Attacks, Spells, Inventory, and Active Effects
+- Added Other Information field to player data in Campaigns to add items such as languages known
+- Added Sync Player Data button to Campaign's Player list to push updates to AC or other info to the Gameplay tab
+- Removed UI components for adding players into Creature Builder, should be done via Campaigns
+- Added dialog to add multiple items to player inventory from text input (expected qty x name copy/paste format from DM)
+- Added custom header field to Custom Ability - Pre-Actions to be used if not blank vs pre-generated text
+- Added context menu option to Loot the Dead to Loot and Remove dead creatures
+- Added section to add environments to creatures for future filtering and information
 
 GAMMA 1.26.06
 - Fixed issue where choices available for languages was not showing correctly on edit character window creation

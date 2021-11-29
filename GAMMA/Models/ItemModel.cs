@@ -1401,7 +1401,7 @@ namespace GAMMA.Models
         }
         private void DoAddAcquiredComponent()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Resource").ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Resource").ToList());
 
             if (selectionDialog.ShowDialog() == true)
             {
@@ -1440,7 +1440,7 @@ namespace GAMMA.Models
         }
         private void DoAddEnchantingRune()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Rune").ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Rune").ToList());
 
             if (selectionDialog.ShowDialog() == true)
             {
@@ -1503,7 +1503,7 @@ namespace GAMMA.Models
         }
         private void DoSetEnchantingBaseItem()
         {
-            ObjectSelectionDialog itemSelect = new ObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            ObjectSelectionDialog itemSelect = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (itemSelect.ShowDialog() == true)
             {
                 if (itemSelect.SelectedObject == null) { return; }

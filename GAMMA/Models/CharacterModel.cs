@@ -23,15 +23,15 @@ namespace GAMMA.Models
         {
             Name = "New Character";
             Subraces = new();
-            ActionHistory = new ObservableCollection<string>();
+            ActionHistory = new();
             Messages = new();
-            PlayerClasses = new ObservableCollection<PlayerClassLinkModel>();
-            Abilities = new ObservableCollection<CustomAbility>();
+            PlayerClasses = new();
+            Abilities = new();
             Alterants = new();
             ActiveEffectAbilities = new();
             SpellLinks = new();
-            Counters = new ObservableCollection<CounterModel>();
-            Traits = new ObservableCollection<TraitModel>();
+            Counters = new();
+            Traits = new();
             CraftingBench = new();
             EnchantingTable = new();
             CreaturePen = new();
@@ -41,11 +41,11 @@ namespace GAMMA.Models
             _DeathSaves = 0;
             _DeathFails = 0;
 
-            Inventories = new ObservableCollection<InventoryModel>();
+            Inventories = new();
 
-            ToolProficiencies = new ObservableCollection<ItemModel>();
-            ToolsInInventory = new ObservableCollection<ItemModel>();
-            HitDiceSets = new ObservableCollection<HitDiceSet>();
+            ToolProficiencies = new();
+            ToolsInInventory = new();
+            HitDiceSets = new();
             EquippedAccessories = new();
 
             ShowActionHistory = true;
@@ -5119,18 +5119,7 @@ namespace GAMMA.Models
 
         // Commands
         #region PlayerRoll
-        private RelayCommand _PlayerRoll;
-        public ICommand PlayerRoll
-        {
-            get
-            {
-                if (_PlayerRoll == null)
-                {
-                    _PlayerRoll = new RelayCommand(DoPlayerRoll);
-                }
-                return _PlayerRoll;
-            }
-        }
+        public ICommand PlayerRoll => new RelayCommand(DoPlayerRoll);
         private void DoPlayerRoll(object parameter)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -5319,18 +5308,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollInitiative
-        private RelayCommand _RollInitiative;
-        public ICommand RollInitiative
-        {
-            get
-            {
-                if (_RollInitiative == null)
-                {
-                    _RollInitiative = new RelayCommand(DoRollInitiative);
-                }
-                return _RollInitiative;
-            }
-        }
+        public ICommand RollInitiative => new RelayCommand(DoRollInitiative);
         private void DoRollInitiative(object param)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -5367,18 +5345,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollDice
-        private RelayCommand _RollDice;
-        public ICommand RollDice
-        {
-            get
-            {
-                if (_RollDice == null)
-                {
-                    _RollDice = new RelayCommand(DoRollDice);
-                }
-                return _RollDice;
-            }
-        }
+        public ICommand RollDice => new RelayCommand(DoRollDice);
         private void DoRollDice(object diceSides)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -5387,18 +5354,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region FlipCoin
-        private RelayCommand _FlipCoin;
-        public ICommand FlipCoin
-        {
-            get
-            {
-                if (_FlipCoin == null)
-                {
-                    _FlipCoin = new RelayCommand(param => DoFlipCoin());
-                }
-                return _FlipCoin;
-            }
-        }
+        public ICommand FlipCoin => new RelayCommand(param => DoFlipCoin());
         private void DoFlipCoin()
         {
             int result = Configuration.RNG.Next(1, 3);
@@ -5459,18 +5415,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollDeathSave
-        private RelayCommand _RollDeathSave;
-        public ICommand RollDeathSave
-        {
-            get
-            {
-                if (_RollDeathSave == null)
-                {
-                    _RollDeathSave = new RelayCommand(param => DoRollDeathSave());
-                }
-                return _RollDeathSave;
-            }
-        }
+        public ICommand RollDeathSave => new RelayCommand(param => DoRollDeathSave());
         private void DoRollDeathSave()
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -5495,18 +5440,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RefreshDeathSaves
-        private RelayCommand _RefreshDeathSaves;
-        public ICommand RefreshDeathSaves
-        {
-            get
-            {
-                if (_RefreshDeathSaves == null)
-                {
-                    _RefreshDeathSaves = new RelayCommand(param => DoRefreshDeathSaves());
-                }
-                return _RefreshDeathSaves;
-            }
-        }
+        public ICommand RefreshDeathSaves => new RelayCommand(param => DoRefreshDeathSaves());
         private void DoRefreshDeathSaves()
         {
             _DeathSaves = 0;
@@ -5520,18 +5454,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddMinion
-        private RelayCommand _AddMinion;
-        public ICommand AddMinion
-        {
-            get
-            {
-                if (_AddMinion == null)
-                {
-                    _AddMinion = new RelayCommand(DoAddMinion);
-                }
-                return _AddMinion;
-            }
-        }
+        public ICommand AddMinion => new RelayCommand(DoAddMinion);
         private void DoAddMinion(object creatureType)
         {
             MultiObjectSelectionDialog minionSelect = new(Configuration.CreatureRepository.Where(creature => creature.IsPlayer == false && creature.IsValidated).ToList(), "Creatures");
@@ -5558,18 +5481,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddCreatureForTaming
-        private RelayCommand _AddCreatureForTaming;
-        public ICommand AddCreatureForTaming
-        {
-            get
-            {
-                if (_AddCreatureForTaming == null)
-                {
-                    _AddCreatureForTaming = new RelayCommand(param => DoAddCreatureForTaming());
-                }
-                return _AddCreatureForTaming;
-            }
-        }
+        public ICommand AddCreatureForTaming => new RelayCommand(param => DoAddCreatureForTaming());
         private void DoAddCreatureForTaming()
         {
             ObjectSelectionDialog itemSelect;
@@ -5609,18 +5521,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddSpellLink
-        private RelayCommand _AddSpellLink;
-        public ICommand AddSpellLink
-        {
-            get
-            {
-                if (_AddSpellLink == null)
-                {
-                    _AddSpellLink = new RelayCommand(param => DoAddSpellLink());
-                }
-                return _AddSpellLink;
-            }
-        }
+        public ICommand AddSpellLink => new RelayCommand(param => DoAddSpellLink());
         private void DoAddSpellLink()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
@@ -5644,36 +5545,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddCounterToPlayer
-        private RelayCommand _AddCounterToPlayer;
-        public ICommand AddCounterToPlayer
-        {
-            get
-            {
-                if (_AddCounterToPlayer == null)
-                {
-                    _AddCounterToPlayer = new RelayCommand(param => DoAddCounterToPlayer());
-                }
-                return _AddCounterToPlayer;
-            }
-        }
+        public ICommand AddCounterToPlayer => new RelayCommand(param => DoAddCounterToPlayer());
         private void DoAddCounterToPlayer()
         {
             Counters.Add(new CounterModel());
         }
         #endregion
         #region AddTraitToPlayer
-        private RelayCommand _AddTraitToPlayer;
-        public ICommand AddTraitToPlayer
-        {
-            get
-            {
-                if (_AddTraitToPlayer == null)
-                {
-                    _AddTraitToPlayer = new RelayCommand(param => DoAddTraitToPlayer());
-                }
-                return _AddTraitToPlayer;
-            }
-        }
+        public ICommand AddTraitToPlayer => new RelayCommand(param => DoAddTraitToPlayer());
         private void DoAddTraitToPlayer()
         {
             Traits.Add(new TraitModel());
@@ -5681,18 +5560,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region CraftNewItem
-        private RelayCommand _CraftNewItem;
-        public ICommand CraftNewItem
-        {
-            get
-            {
-                if (_CraftNewItem == null)
-                {
-                    _CraftNewItem = new RelayCommand(param => DoCraftNewItem());
-                }
-                return _CraftNewItem;
-            }
-        }
+        public ICommand CraftNewItem => new RelayCommand(param => DoCraftNewItem());
         private void DoCraftNewItem()
         {
             ObjectSelectionDialog itemSelect;
@@ -5711,7 +5579,7 @@ namespace GAMMA.Models
 
                 if (hasCraftingTool == false) 
                 {
-                    new NotificationDialog("Missing crafting tool: " + itemToAdd.CraftingToolkit).ShowDialog();
+                    HelperMethods.NotifyUser("Missing crafting tool: " + itemToAdd.CraftingToolkit);
                     return;
                 }
 
@@ -5743,7 +5611,7 @@ namespace GAMMA.Models
 
                 if (missingItems != "")
                 {
-                    new NotificationDialog(missingItems.Insert(0, "Insufficient crafting materials:")).ShowDialog();
+                    HelperMethods.NotifyUser(missingItems.Insert(0, "Insufficient crafting materials:"));
                     return;
                 }
 
@@ -5764,18 +5632,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region EnchantItem
-        private RelayCommand _EnchantItem;
-        public ICommand EnchantItem
-        {
-            get
-            {
-                if (_EnchantItem == null)
-                {
-                    _EnchantItem = new RelayCommand(param => DoEnchantItem());
-                }
-                return _EnchantItem;
-            }
-        }
+        public ICommand EnchantItem => new RelayCommand(param => DoEnchantItem());
         private void DoEnchantItem()
         {
             ObjectSelectionDialog itemSelect;
@@ -5853,18 +5710,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ClearHistory
-        private RelayCommand _ClearHistory;
-        public ICommand ClearHistory
-        {
-            get
-            {
-                if (_ClearHistory == null)
-                {
-                    _ClearHistory = new RelayCommand(param => DoClearHistory());
-                }
-                return _ClearHistory;
-            }
-        }
+        public ICommand ClearHistory => new RelayCommand(param => DoClearHistory());
         private void DoClearHistory()
         {
             ActionHistory = new ObservableCollection<string>();
@@ -5884,18 +5730,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region FindIngredients
-        private RelayCommand _FindIngredients;
-        public ICommand FindIngredients
-        {
-            get
-            {
-                if (_FindIngredients == null)
-                {
-                    _FindIngredients = new RelayCommand(param => DoFindIngredients());
-                }
-                return _FindIngredients;
-            }
-        }
+        public ICommand FindIngredients => new RelayCommand(param => DoFindIngredients());
         private void DoFindIngredients()
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -5961,18 +5796,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region BrewPotion
-        private RelayCommand _BrewPotion;
-        public ICommand BrewPotion
-        {
-            get
-            {
-                if (_BrewPotion == null)
-                {
-                    _BrewPotion = new RelayCommand(param => DoBrewPotion());
-                }
-                return _BrewPotion;
-            }
-        }
+        public ICommand BrewPotion => new RelayCommand(param => DoBrewPotion());
         private void DoBrewPotion()
         {
             ObjectSelectionDialog itemSelect;
@@ -5996,7 +5820,7 @@ namespace GAMMA.Models
                     }
                     if (haveIngredients == false)
                     {
-                        new NotificationDialog("Insufficient ingredients to craft this potion.").ShowDialog();
+                        HelperMethods.NotifyUser("Insufficient ingredients to craft this potion.");
                         return;
                     }
                 }
@@ -6052,18 +5876,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddNote
-        private RelayCommand _AddNote;
-        public ICommand AddNote
-        {
-            get
-            {
-                if (_AddNote == null)
-                {
-                    _AddNote = new RelayCommand(param => DoAddNote());
-                }
-                return _AddNote;
-            }
-        }
+        public ICommand AddNote => new RelayCommand(param => DoAddNote());
         private void DoAddNote()
         {
             Notes.Add(new NoteModel());
@@ -6071,18 +5884,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortNotes
-        private RelayCommand _SortNotes;
-        public ICommand SortNotes
-        {
-            get
-            {
-                if (_SortNotes == null)
-                {
-                    _SortNotes = new RelayCommand(param => DoSortNotes());
-                }
-                return _SortNotes;
-            }
-        }
+        public ICommand SortNotes => new RelayCommand(param => DoSortNotes());
         private void DoSortNotes()
         {
             string message = "Are you sure you want to auto-sort your notes?" +
@@ -6103,36 +5905,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortSpellLinks
-        private RelayCommand _SortSpellLinks;
-        public ICommand SortSpellLinks
-        {
-            get
-            {
-                if (_SortSpellLinks == null)
-                {
-                    _SortSpellLinks = new RelayCommand(param => DoSortSpellLinks());
-                }
-                return _SortSpellLinks;
-            }
-        }
+        public ICommand SortSpellLinks => new RelayCommand(param => DoSortSpellLinks());
         private void DoSortSpellLinks()
         {
             SpellLinks = new(SpellLinks.OrderBy(sl => sl.LinkedSpell.SpellLevel).ThenBy(sl => sl.Name));
         }
         #endregion
         #region AdjustHitPoints
-        private RelayCommand _AdjustHitPoints;
-        public ICommand AdjustHitPoints
-        {
-            get
-            {
-                if (_AdjustHitPoints == null)
-                {
-                    _AdjustHitPoints = new RelayCommand(DoAdjustHitPoints);
-                }
-                return _AdjustHitPoints;
-            }
-        }
+        public ICommand AdjustHitPoints => new RelayCommand(DoAdjustHitPoints);
         private void DoAdjustHitPoints(object amount)
         {
             int hpAmt = Convert.ToInt32(amount);
@@ -6153,18 +5933,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region PasteNote
-        private RelayCommand _PasteNote;
-        public ICommand PasteNote
-        {
-            get
-            {
-                if (_PasteNote == null)
-                {
-                    _PasteNote = new RelayCommand(param => DoPasteNote());
-                }
-                return _PasteNote;
-            }
-        }
+        public ICommand PasteNote => new RelayCommand(param => DoPasteNote());
         private void DoPasteNote()
         {
             if (Configuration.CopiedNote == null) { return; }
@@ -6172,36 +5941,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortTraits
-        private RelayCommand _SortTraits;
-        public ICommand SortTraits
-        {
-            get
-            {
-                if (_SortTraits == null)
-                {
-                    _SortTraits = new RelayCommand(param => DoSortTraits());
-                }
-                return _SortTraits;
-            }
-        }
+        public ICommand SortTraits => new RelayCommand(param => DoSortTraits());
         private void DoSortTraits()
         {
             Traits = new ObservableCollection<TraitModel>(Traits.OrderBy(trait => trait.Name));
         }
         #endregion
         #region AddToolProficiencies
-        private RelayCommand _AddToolProficiencies;
-        public ICommand AddToolProficiencies
-        {
-            get
-            {
-                if (_AddToolProficiencies == null)
-                {
-                    _AddToolProficiencies = new RelayCommand(DoAddToolProficiencies);
-                }
-                return _AddToolProficiencies;
-            }
-        }
+        public ICommand AddToolProficiencies => new RelayCommand(DoAddToolProficiencies);
         private void DoAddToolProficiencies(object param)
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Tool").ToList());
@@ -6226,36 +5973,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddHitDiceSet
-        private RelayCommand _AddHitDiceSet;
-        public ICommand AddHitDiceSet
-        {
-            get
-            {
-                if (_AddHitDiceSet == null)
-                {
-                    _AddHitDiceSet = new RelayCommand(param => DoAddHitDiceSet());
-                }
-                return _AddHitDiceSet;
-            }
-        }
+        public ICommand AddHitDiceSet => new RelayCommand(param => DoAddHitDiceSet());
         private void DoAddHitDiceSet()
         {
             HitDiceSets.Add(new HitDiceSet());
         }
         #endregion
         #region ExportCharacter
-        private RelayCommand _ExportCharacter;
-        public ICommand ExportCharacter
-        {
-            get
-            {
-                if (_ExportCharacter == null)
-                {
-                    _ExportCharacter = new RelayCommand(param => DoExportCharacter());
-                }
-                return _ExportCharacter;
-            }
-        }
+        public ICommand ExportCharacter => new RelayCommand(param => DoExportCharacter());
         private void DoExportCharacter()
         {
             SaveFileDialog saveWindow = new()
@@ -6280,18 +6005,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SearchNotes
-        private RelayCommand _SearchNotes;
-        public ICommand SearchNotes
-        {
-            get
-            {
-                if (_SearchNotes == null)
-                {
-                    _SearchNotes = new RelayCommand(param => DoSearchNotes());
-                }
-                return _SearchNotes;
-            }
-        }
+        public ICommand SearchNotes => new RelayCommand(param => DoSearchNotes());
         private void DoSearchNotes()
         {
             NoteSearchDialog searchDialog = new();
@@ -6302,54 +6016,21 @@ namespace GAMMA.Models
         }
         #endregion
         #region ClearSearchMatches
-        private RelayCommand _ClearSearchMatches;
-        public ICommand ClearSearchMatches
-        {
-            get
-            {
-                if (_ClearSearchMatches == null)
-                {
-                    _ClearSearchMatches = new RelayCommand(param => DoClearSearchMatches());
-                }
-                return _ClearSearchMatches;
-            }
-        }
+        public ICommand ClearSearchMatches => new RelayCommand(param => DoClearSearchMatches());
         private void DoClearSearchMatches()
         {
             HelperMethods.ClearNoteSearch(Notes);
         }
         #endregion
         #region AddCustomDice
-        private RelayCommand _AddCustomDice;
-        public ICommand AddCustomDice
-        {
-            get
-            {
-                if (_AddCustomDice == null)
-                {
-                    _AddCustomDice = new RelayCommand(param => DoAddCustomDice());
-                }
-                return _AddCustomDice;
-            }
-        }
+        public ICommand AddCustomDice => new RelayCommand(param => DoAddCustomDice());
         private void DoAddCustomDice()
         {
             CustomDiceSets.Add(new CustomDiceModel());
         }
         #endregion
         #region PerformStandardAction
-        private RelayCommand _PerformStandardAction;
-        public ICommand PerformStandardAction
-        {
-            get
-            {
-                if (_PerformStandardAction == null)
-                {
-                    _PerformStandardAction = new RelayCommand(DoPerformStandardAction);
-                }
-                return _PerformStandardAction;
-            }
-        }
+        public ICommand PerformStandardAction => new RelayCommand(DoPerformStandardAction);
         private void DoPerformStandardAction(object param)
         {
             string action = param.ToString();
@@ -6470,36 +6151,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddClassLink
-        private RelayCommand _AddClassLink;
-        public ICommand AddClassLink
-        {
-            get
-            {
-                if (_AddClassLink == null)
-                {
-                    _AddClassLink = new RelayCommand(param => DoAddClassLink());
-                }
-                return _AddClassLink;
-            }
-        }
+        public ICommand AddClassLink => new RelayCommand(param => DoAddClassLink());
         private void DoAddClassLink()
         {
             PlayerClasses.Add(new PlayerClassLinkModel());
         }
         #endregion
         #region GenerateHitDiceFromClasses
-        private RelayCommand _GenerateHitDiceFromClasses;
-        public ICommand GenerateHitDiceFromClasses
-        {
-            get
-            {
-                if (_GenerateHitDiceFromClasses == null)
-                {
-                    _GenerateHitDiceFromClasses = new RelayCommand(param => DoGenerateHitDiceFromClasses());
-                }
-                return _GenerateHitDiceFromClasses;
-            }
-        }
+        public ICommand GenerateHitDiceFromClasses => new RelayCommand(param => DoGenerateHitDiceFromClasses());
         private void DoGenerateHitDiceFromClasses()
         {
             if (HitDiceSets.Count() > 0)
@@ -6520,18 +6179,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region GenerateHitPoints
-        private RelayCommand _GenerateHitPoints;
-        public ICommand GenerateHitPoints
-        {
-            get
-            {
-                if (_GenerateHitPoints == null)
-                {
-                    _GenerateHitPoints = new RelayCommand(param => DoGenerateHitPoints());
-                }
-                return _GenerateHitPoints;
-            }
-        }
+        public ICommand GenerateHitPoints => new RelayCommand(param => DoGenerateHitPoints());
         private void DoGenerateHitPoints()
         {
             if (MaxHealth > 0)
@@ -6562,18 +6210,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region GoFishing
-        private RelayCommand _GoFishing;
-        public ICommand GoFishing
-        {
-            get
-            {
-                if (_GoFishing == null)
-                {
-                    _GoFishing = new RelayCommand(DoGoFishing);
-                }
-                return _GoFishing;
-            }
-        }
+        public ICommand GoFishing => new RelayCommand(DoGoFishing);
         private void DoGoFishing(object param)
         {
             if (Inventories[0].AllItems.FirstOrDefault(item => item.Name == "Fishing Tackle") == null)
@@ -6680,18 +6317,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ProcessGroupSave
-        private RelayCommand _ProcessGroupSave;
-        public ICommand ProcessGroupSave
-        {
-            get
-            {
-                if (_ProcessGroupSave == null)
-                {
-                    _ProcessGroupSave = new RelayCommand(param => DoProcessGroupSave());
-                }
-                return _ProcessGroupSave;
-            }
-        }
+        public ICommand ProcessGroupSave => new RelayCommand(param => DoProcessGroupSave());
         private void DoProcessGroupSave()
         {
             if (Minions.Count() <= 0) { new NotificationDialog("You have no minions.").ShowDialog(); return; }
@@ -6821,18 +6447,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddInventory
-        private RelayCommand _AddInventory;
-        public ICommand AddInventory
-        {
-            get
-            {
-                if (_AddInventory == null)
-                {
-                    _AddInventory = new RelayCommand(param => DoAddInventory());
-                }
-                return _AddInventory;
-            }
-        }
+        public ICommand AddInventory => new RelayCommand(param => DoAddInventory());
         private void DoAddInventory()
         {
             if (Inventories.Count() >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
@@ -6929,18 +6544,7 @@ namespace GAMMA.Models
 
         // Commands - Character Creator
         #region ChangeBaseAttribute
-        private RelayCommand _ChangeBaseAttribute;
-        public ICommand ChangeBaseAttribute
-        {
-            get
-            {
-                if (_ChangeBaseAttribute == null)
-                {
-                    _ChangeBaseAttribute = new RelayCommand(DoChangeBaseAttribute);
-                }
-                return _ChangeBaseAttribute;
-            }
-        }
+        public ICommand ChangeBaseAttribute => new RelayCommand(DoChangeBaseAttribute);
         private void DoChangeBaseAttribute(object param)
         {
             if (param == null)
@@ -7014,18 +6618,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ResetAttributes
-        private RelayCommand _ResetAttributes;
-        public ICommand ResetAttributes
-        {
-            get
-            {
-                if (_ResetAttributes == null)
-                {
-                    _ResetAttributes = new RelayCommand(param => DoResetAttributes());
-                }
-                return _ResetAttributes;
-            }
-        }
+        public ICommand ResetAttributes => new RelayCommand(param => DoResetAttributes());
         private void DoResetAttributes()
         {
             YesNoDialog question = new("Reset base attributes to their starting values?");

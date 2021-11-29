@@ -103,7 +103,7 @@ namespace GAMMA.Models
         }
         private void DoAddMandatoryEquipment()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)

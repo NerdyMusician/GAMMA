@@ -646,8 +646,7 @@ namespace GAMMA.Toolbox
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null) { return ""; }
-            CreatureModel creature = value as CreatureModel;
-            if (creature == null) { return ""; }
+            if (value is not CreatureModel creature) { return ""; }
             string directory = Environment.CurrentDirectory + "/Images/Creatures/";
             string imagePng = directory + creature.Name + ".png";
             string imageJpg = directory + creature.Name + ".jpg";
@@ -1009,6 +1008,22 @@ namespace GAMMA.Toolbox
                 "Vendor" => "Icon_Vendor",
                 "Trap" => "Icon_Trap",
                 _ => "Icon_Rpg_Note"
+            };
+            return Configuration.framework.FindResource(iconName) as Style;
+        }
+    }
+    public class ImageBasedOnSpeedType : ConverterMarkupExtension<ImageBasedOnSpeedType>
+    {
+        public ImageBasedOnSpeedType() { }
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string iconName = value switch
+            {
+                "Fly" => "Icon_Feather",
+                "Climb" => "Icon_Mountain",
+                "Burrow" => "Icon_Burrow",
+                "Swim" => "Icon_Fish",
+                _ => "Icon_Rpg_Boot"
             };
             return Configuration.framework.FindResource(iconName) as Style;
         }

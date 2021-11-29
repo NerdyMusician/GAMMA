@@ -1,7 +1,6 @@
 ﻿using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -148,7 +147,7 @@ namespace GAMMA.Models
         }
         private void DoAddItem()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
@@ -187,7 +186,7 @@ namespace GAMMA.Models
         }
         private void DoAddItemLink()
         {
-            MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)

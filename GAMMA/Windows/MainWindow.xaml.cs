@@ -259,12 +259,12 @@ namespace GAMMA.Windows
             if (Configuration.MainModelRef.CampaignView.Campaigns.Count() == 0)
             {
                 // Prevents zero character save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("GameCampaignSet"));
                 blankDoc.Save(Configuration.CampaignDataFilePath);
                 return;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(Configuration.MainModelRef.CampaignView.Campaigns.ToList()));
             itemDocument.Save(Configuration.CampaignDataFilePath);
             return;
@@ -273,13 +273,13 @@ namespace GAMMA.Windows
         {
             if (Configuration.MainModelRef.CharacterBuilderView.Characters.Count() == 0)
             {
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("CharacterModelSet"));
                 blankDoc.Save("Data/Characters.xml");
                 return;
             }
 
-            XDocument playerDocument = new XDocument();
+            XDocument playerDocument = new();
             playerDocument.Add(XmlMethods.ListToXml(Configuration.MainModelRef.CharacterBuilderView.Characters.ToList()));
             playerDocument.Save(Directory.GetCurrentDirectory() + "/Data/Characters.xml");
             HelperMethods.WriteToLogFile("Characters Autosaved");
@@ -312,7 +312,7 @@ namespace GAMMA.Windows
             {
                 if (Configuration.MainModelRef.SettingsView.PromptCharacterExitsave && Configuration.HasUsedCharacterBuilder)
                 {
-                    YesNoDialog question = new YesNoDialog("Save characters before closing?");
+                    YesNoDialog question = new("Save characters before closing?");
                     if (question.ShowDialog() == true)
                     {
                         saveCharacters = question.Answer;

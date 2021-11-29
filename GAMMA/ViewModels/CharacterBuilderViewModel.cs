@@ -162,12 +162,12 @@ namespace GAMMA.ViewModels
             if (Characters.Count() == 0)
             {
                 // Prevents zero character save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("CharacterModelSet"));
                 blankDoc.Save("Data/Characters.xml");
                 return true;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(Characters.ToList()));
             itemDocument.Save("Data/Characters.xml");
             HelperMethods.WriteToLogFile("Characters Saved.", notifyUser);
@@ -207,7 +207,7 @@ namespace GAMMA.ViewModels
         }
         private void DoImportCharacters()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
@@ -269,7 +269,7 @@ namespace GAMMA.ViewModels
                 {
                     case "New":
                         DoAddCharacter();
-                        CharacterCreatorDialog characterCreator = new CharacterCreatorDialog(ActiveCharacter);
+                        CharacterCreatorDialog characterCreator = new(ActiveCharacter);
                         if (characterCreator.ShowDialog() == true)
                         {
                             int activeChar = Characters.IndexOf(ActiveCharacter);

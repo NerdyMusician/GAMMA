@@ -272,10 +272,15 @@
                                                 </Border>
                                                 <StackPanel Visibility="{Binding InEditMode, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                        <cc:FieldLabel Text="Header" Width="76" />
+                                                        <cc:GammaTextBox Text="{Binding CustomDisplayText, UpdateSourceTrigger=PropertyChanged}" Width="160" />
+                                                        <Separator />
+                                                        <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveAction}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
+                                                    </StackPanel>
+                                                    <StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                         <cc:FieldLabel Text="Action" Width="76" />
                                                         <cc:GammaComboBox ItemsSource="{Binding ActionOptions}" Text="{Binding Action, FallbackValue=Add Roll, UpdateSourceTrigger=PropertyChanged}" Width="160" />
                                                         <Separator />
-                                                        <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveAction}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                     </StackPanel>
                                                     <Separator />
                                                     <DockPanel>
@@ -323,7 +328,7 @@
                                                         <cc:GammaComboBox ItemsSource="{Binding Targets}" Text="{Binding Target, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
                                                     <StackPanel Visibility="{Binding ShowQuestion, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                                        <cc:FieldLabel Text="Question" Width="80" />
+                                                        <cc:FieldLabel Text="Question" Width="80" HorizontalAlignment="Left" />
                                                         <cc:GammaTextBox Style="{StaticResource PartialBorderTextBox}" VerticalScrollBarVisibility="Hidden" TextWrapping="Wrap" AcceptsReturn="True" Height="auto" Text="{Binding Question}" Width="270" Margin="4 0 0 0" />
                                                         <Separator />
                                                         <DockPanel>
@@ -654,8 +659,8 @@
                                                             <StackPanel Orientation="Horizontal">
                                                                 <Image Style="{StaticResource Icon_Rpg_Shield}" ToolTip="Armor Class" />
                                                                 <TextBlock Text="{Binding ArmorClass, FallbackValue=14}" Width="20" Margin="4 0" />
-                                                                <Image Style="{StaticResource Icon_Rpg_Boot}" ToolTip="Speed" />
-                                                                <TextBlock Text="{Binding Speed, FallbackValue=30}" Width="22" Margin="2 0" />
+                                                                <Image Style="{Binding HighestSpeedType, Converter={tool:ImageBasedOnSpeedType}}" ToolTip="Movement Speed" />
+                                                                <TextBlock Text="{Binding HighestSpeedValue, FallbackValue=30}" Width="22" Margin="2 0" />
                                                                 <Image Style="{StaticResource Icon_Rpg_Eye}" ToolTip="Passive Perception" />
                                                                 <TextBlock Text="{Binding PassivePerception, FallbackValue=12}" Width="20" Margin="4 0"/>
                                                                 <Separator />
@@ -1337,8 +1342,8 @@
                                                             <StackPanel Orientation="Horizontal">
                                                                 <Image Style="{StaticResource Icon_Rpg_Shield}" ToolTip="Armor Class" />
                                                                 <TextBlock Text="{Binding ArmorClass}" Width="20" Margin="4 0" />
-                                                                <Image Style="{StaticResource Icon_Rpg_Boot}" ToolTip="Speed" />
-                                                                <TextBlock Text="{Binding Speed}" Width="22" Margin="2 0" />
+                                                                <Image Style="{Binding HighestSpeedType, Converter={tool:ImageBasedOnSpeedType}}" ToolTip="Movement Speed" />
+                                                                <TextBlock Text="{Binding HighestSpeedValue, FallbackValue=30}" Width="22" Margin="2 0" />
                                                                 <Image Style="{StaticResource Icon_Rpg_Eye}" ToolTip="Passive Perception" />
                                                                 <TextBlock Text="{Binding PassivePerception}" Width="20" Margin="4 0"/>
                                                                 <Separator />
@@ -1949,7 +1954,13 @@
                                                             <cc:GammaTextBox Text="{Binding Initiative}" Width="24" Height="16" Padding="0 -2" Margin="2 2 0 0" Background="Transparent" Foreground="{StaticResource PrimaryFontColor}" />
                                                         </StackPanel>
                                                     </StackPanel>
-                                                    <Image Style="{StaticResource Icon_Rpg_Note}" VerticalAlignment="Top" Margin="4" />
+                                                    <Image Style="{StaticResource Icon_Rpg_Note}" VerticalAlignment="Top" Margin="4">
+                                                        <Image.ToolTip>
+                                                            <ToolTip>
+                                                                <TextBlock Margin="2" Text="{Binding Description}" Style="{StaticResource Tooltip}" Width="240" TextWrapping="Wrap" />
+                                                            </ToolTip>
+                                                        </Image.ToolTip>
+                                                    </Image>
                                                     <cc:GammaTextBox Text="{Binding Notes}" Style="{StaticResource TallPartialBorderTextBox}" VerticalScrollBarVisibility="Auto" BorderThickness="2 0 0 2" AcceptsReturn="True" Height="60" Width="344" Margin="4" />
                                                 </StackPanel>
                                             </StackPanel>
@@ -1991,7 +2002,13 @@
                                         <cc:ImageButton Text="Clear All Entities" ImageResource="{StaticResource Icon_Eraser}" Command="{Binding CampaignView.ActiveCampaign.ClearCreatures}" CommandParameter="All" />
                                         <cc:ImageButton Text="Clear Dead Entities" ImageResource="{StaticResource Icon_Eraser}" Command="{Binding CampaignView.ActiveCampaign.ClearCreatures}" CommandParameter="Dead Creatures" />
                                         <cc:ImageButton Text="Kill Enemies" ImageResource="{StaticResource Icon_Skull}" Command="{Binding CampaignView.ActiveCampaign.KillCreatures}" />
-                                        <cc:ImageButton Text="Loot the Dead" ImageResource="{StaticResource Icon_Bag}" Command="{Binding CampaignView.ActiveCampaign.LootAll}" />
+                                        <cc:ImageButton Text="Loot the Dead" ImageResource="{StaticResource Icon_Bag}" Command="{Binding CampaignView.ActiveCampaign.LootAll}">
+                                            <cc:ImageButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Loot and Remove" Command="{Binding CampaignView.ActiveCampaign.LootAll}" CommandParameter="True" />
+                                                </ContextMenu>
+                                            </cc:ImageButton.ContextMenu>
+                                        </cc:ImageButton>
                                         <cc:ImageButton Text="Group Save" ImageResource="{StaticResource Icon_Letter_S}" Command="{Binding CampaignView.ActiveCampaign.ProcessGroupSave}" />
                                         <Separator Height="8" />
                                         <StackPanel>
@@ -2316,8 +2333,9 @@
                                             <DockPanel>
                                                 <Label Content="Players" />
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddPlayer}" />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortPlayers}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddPlayer}" ToolTip="Add New Player" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortPlayers}" ToolTip="Sort Player List" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sync}" Command="{Binding CampaignView.ActiveCampaign.SyncPlayerData}" ToolTip="Sync Player Data" />
                                                 </StackPanel>
                                             </DockPanel>
                                             <ListView Style="{StaticResource BorderedListView}"
@@ -2373,7 +2391,11 @@
                                                     </StackPanel>
                                                 </Border>
                                             </DockPanel>
-
+                                            <Separator />
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Other Information" />
+                                                <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActivePlayer.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="128" VerticalScrollBarVisibility="Visible" />
+                                            </StackPanel>
                                             <Separator />
                                             <cc:ImageButton ImageResource="{StaticResource Icon_X}" Text="Delete Player" Command="{Binding CampaignView.ActiveCampaign.ActivePlayer.RemoveCreature}" CommandParameter="Active Campaign Player" HorizontalAlignment="Right" />
                                         </StackPanel>
@@ -2544,10 +2566,6 @@
                                                 <Label Content="Filter Options" />
                                                 <Rectangle />
                                                 <StackPanel Orientation="Horizontal">
-                                                    <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_PlayersOnly}" />
-                                                    <TextBlock Text="Players Only" />
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal">
                                                     <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_ValidatedOnly}" />
                                                     <TextBlock Text="Validated Only" />
                                                 </StackPanel>
@@ -2640,31 +2658,18 @@
                                             <cc:FieldLabel Text="Source" />
                                             <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
                                         </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0">
-                                            <StackPanel Margin="0">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <cc:FieldLabel Text="Data Validated?" />
-                                                    <CheckBox IsChecked="{Binding CreatureBuilderView.ActiveCreature.IsValidated, UpdateSourceTrigger=PropertyChanged}" />
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <cc:FieldLabel Text="Is Player Character?" />
-                                                    <CheckBox IsChecked="{Binding CreatureBuilderView.ActiveCreature.IsPlayer, UpdateSourceTrigger=PropertyChanged}" />
-                                                </StackPanel>
-                                            </StackPanel>
-                                            <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="2" CornerRadius="2" Margin="112 0 0 0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <cc:FieldLabel Text="Data Validated?" Width="118" />
+                                            <CheckBox IsChecked="{Binding CreatureBuilderView.ActiveCreature.IsValidated, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <cc:FieldLabel Text="" />
+                                            <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="2" CornerRadius="2" HorizontalAlignment="Left">
                                                 <StackPanel Margin="0">
                                                     <Image Source="{Binding CreatureBuilderView.ActiveCreature, Converter={tool:CreaturePortrait}}" Height="64" Width="64" RenderOptions.BitmapScalingMode="NearestNeighbor" Visibility="{Binding CreatureBuilderView.ActiveCreature.IsPlayer, Converter={tool:CollapsedIfTrueOtherwiseVisible}}" />
                                                     <Image Source="{Binding CreatureBuilderView.ActiveCreature, Converter={tool:PlayerPortrait}}" Height="64" Width="64" RenderOptions.BitmapScalingMode="NearestNeighbor" Visibility="{Binding CreatureBuilderView.ActiveCreature.IsPlayer, Converter={tool:CollapsedIfFalseOtherwiseVisible}, FallbackValue=Collapsed}" />
                                                 </StackPanel>
                                             </Border>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Visibility="{Binding CreatureBuilderView.ActiveCreature.IsPlayer, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                            <cc:FieldLabel Text="Player Name" />
-                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.PlayerName, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Visibility="{Binding CreatureBuilderView.ActiveCreature.IsPlayer, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                            <cc:FieldLabel Text="Player Race and Class" />
-                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.PlayerRaceAndClass, UpdateSourceTrigger=PropertyChanged}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Visibility="{Binding SettingsView.ShowMiniatureUtilization, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
                                             <cc:FieldLabel Text="Has Miniature?" />
@@ -2704,10 +2709,39 @@
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Languages" />
-                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Languages, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TallPartialBorderTextBox}" Width="200" />
+                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Languages, UpdateSourceTrigger=PropertyChanged}" Width="200" />
                                         </StackPanel>
-                                        <Label Content="Description" HorizontalAlignment="Left" />
-                                        <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Lore, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TallPartialBorderTextBox}" BorderThickness="0 2" ScrollViewer.VerticalScrollBarVisibility="Visible" AcceptsReturn="True" Height="208" Width="330" HorizontalAlignment="Left" />
+                                        <cc:FieldLabel Text="Description / Lore" Margin="4 2 0 0" />
+                                        <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Lore, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TallPartialBorderTextBox}" BorderThickness="0 2" ScrollViewer.VerticalScrollBarVisibility="Visible" AcceptsReturn="True" Height="108" Width="326" HorizontalAlignment="Left" Margin="4 0" />
+
+                                        <StackPanel Margin="2 4 0 0">
+                                            <DockPanel>
+                                                <TextBlock Text="Environments" VerticalAlignment="Bottom" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddEnvironment}" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <Rectangle />
+                                            <ItemsControl ItemsSource="{Binding CreatureBuilderView.ActiveCreature.Environments, UpdateSourceTrigger=PropertyChanged}" Width="328" Height="58" HorizontalAlignment="Left">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Style="{StaticResource StandardBorder}" CornerRadius="2">
+                                                            <StackPanel Orientation="Horizontal" Margin="2">
+                                                                <TextBlock Text="{Binding Value}" Margin="4 0" VerticalAlignment="Center" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveConvertibleValue}" CommandParameter="Active Creature Environments" />
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            <Rectangle />
+                                        </StackPanel>
+
+                                        
+                                        
                                     </StackPanel>
                                     <StackPanel Margin="16 0 0 0">
                                         <Label Content="Vitality and Defense" />
@@ -2747,7 +2781,7 @@
                                                             </Style>
                                                         </StackPanel.Resources>
                                                         <cc:FieldLabel Text="Movement" Width="104" />
-                                                        <Image Style="{StaticResource Icon_Step}" ToolTip="Normal Speed" />
+                                                        <Image Style="{StaticResource Icon_Rpg_Boot}" ToolTip="Normal Speed" />
                                                         <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Speed, UpdateSourceTrigger=PropertyChanged}" />
                                                         <Separator />
                                                         <Image Style="{StaticResource Icon_Fish}" ToolTip="Swimming Speed" />
@@ -7368,6 +7402,7 @@
                                                                                 <cc:MiniButton.ContextMenu>
                                                                                     <ContextMenu>
                                                                                         <MenuItem Header="Add Custom Item" Command="{Binding AddItem}" CommandParameter="Custom" />
+                                                                                        <MenuItem Header="Add From Text" Command="{Binding AddItem}" CommandParameter="TextInput" />
                                                                                     </ContextMenu>
                                                                                 </cc:MiniButton.ContextMenu>
                                                                             </cc:MiniButton>
@@ -7938,7 +7973,13 @@
                                                                                     <StackPanel Orientation="Horizontal" Margin="4 2">
                                                                                         <Image Style="{StaticResource Icon_Musicnote}" />
                                                                                         <Separator />
-                                                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Width="240" />
+                                                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Width="240">
+                                                                                            <TextBlock.ContextMenu>
+                                                                                                <ContextMenu>
+                                                                                                    <MenuItem Header="Get Bot Path" Command="{Binding GetBotPath}" />
+                                                                                                </ContextMenu>
+                                                                                            </TextBlock.ContextMenu>
+                                                                                        </TextBlock>
                                                                                     </StackPanel>
                                                                                 </StackPanel>
                                                                             </ControlTemplate>
@@ -8029,6 +8070,7 @@
                                 </ScrollViewer>
                             </Border>
                         </StackPanel>
+                        
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -10881,7 +10923,7 @@
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Dev Zone" Visibility="Visible">
-                            
+                                
                         </TabItem>
                     </TabControl>
                 </StackPanel>
@@ -11036,6 +11078,7 @@
                                         <cc:FieldLabel Text="Shop Greeting / Farewell" />
                                     </StackPanel>
                                 </StackPanel>
+                                
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Data">

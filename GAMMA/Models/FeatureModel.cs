@@ -82,7 +82,7 @@ namespace GAMMA.Models
                 {
                     if (value != FeatureType && Choices.Count() > 0)
                     {
-                        YesNoDialog question = new YesNoDialog("Changing the feature type will remove the current choices, continue?");
+                        YesNoDialog question = new("Changing the feature type will remove the current choices, continue?");
                         question.ShowDialog();
                         if (question.Answer == false) { return; }
                         Choices.Clear();

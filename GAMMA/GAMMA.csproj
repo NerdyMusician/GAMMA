@@ -200,6 +200,9 @@
     <Compile Include="Windows\ShopWindow.xaml.cs">
       <DependentUpon>ShopWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TextDumpDialog.xaml.cs">
+      <DependentUpon>TextDumpDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ValuePrompt.xaml.cs">
       <DependentUpon>ValuePrompt.xaml</DependentUpon>
     </Compile>
@@ -349,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ShopWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TextDumpDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -631,7 +638,6 @@
     <Resource Include="Images\Icons\key_copper.png" />
     <Resource Include="Images\Icons\key_gold.png" />
     <Resource Include="Images\Icons\key_silver.png" />
-    <None Include="FeatureRequests.txt" />
     <None Include="Audio\System\ShopItemMove.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -778,6 +784,7 @@
     <None Include="Audio\System\MenuSelect.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Images\Icons\sync.png" />
     <Content Include="WebDriver\chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

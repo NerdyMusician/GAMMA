@@ -19,9 +19,9 @@ namespace GAMMA.Models
         {
             Owner = character;
             Name = "New Inventory";
-            AllItems = new ObservableCollection<ItemModel>();
-            FilteredItems = new ObservableCollection<ItemModel>();
-            Filters = new ObservableCollection<BoolOption>();
+            AllItems = new();
+            FilteredItems = new();
+            Filters = new();
             SearchText = "";
 
             AllItems.CollectionChanged += AllItems_CollectionChanged;
@@ -324,18 +324,7 @@ namespace GAMMA.Models
 
         // Commands
         #region AddItem
-        private RelayCommand _AddItem;
-        public ICommand AddItem
-        {
-            get
-            {
-                if (_AddItem == null)
-                {
-                    _AddItem = new RelayCommand(DoAddItem);
-                }
-                return _AddItem;
-            }
-        }
+        public ICommand AddItem => new RelayCommand(DoAddItem);
         private void DoAddItem(object type)
         {
             if (type.ToString() == "Custom")
@@ -347,7 +336,7 @@ namespace GAMMA.Models
             }
             if (type.ToString() == "Preset")
             {
-                MultiObjectSelectionDialog selectionDialog = new MultiObjectSelectionDialog(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
+                MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
                 if (selectionDialog.ShowDialog() == true)
                 {
                     foreach (ItemModel item in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems)
@@ -376,6 +365,10 @@ namespace GAMMA.Models
 
                 Owner.UpdateInventoryStats();
 
+            }
+            if (type.ToString() == "TextInput")
+            {
+                AddItemsFromTextInput();
             }
             UpdateFilteredList();
         }
@@ -437,7 +430,7 @@ namespace GAMMA.Models
         {
             if (param.ToString() == "Add")
             {
-                CurrencyDialog currencyDialog = new CurrencyDialog("Add to " + Name);
+                CurrencyDialog currencyDialog = new("Add to " + Name);
                 if (currencyDialog.ShowDialog() == true)
                 {
                     GoldPieces += currencyDialog.GP;
@@ -447,7 +440,7 @@ namespace GAMMA.Models
             }
             if (param.ToString() == "Subtract")
             {
-                CurrencyDialog currencyDialog = new CurrencyDialog("Subtract from " + Name);
+                CurrencyDialog currencyDialog = new("Subtract from " + Name);
                 if (currencyDialog.ShowDialog() == true)
                 {
                     if ((GoldPieces - currencyDialog.GP) < 0) { new NotificationDialog("Insufficient gold pieces.").ShowDialog(); return; }
@@ -466,7 +459,7 @@ namespace GAMMA.Models
                     if (inventory.Name == Name) { continue; }
                     inventoryNames.Add(inventory.Name);
                 }
-                CurrencyDialog currencyDialog = new CurrencyDialog("Transfer from " + Name, inventoryNames);
+                CurrencyDialog currencyDialog = new("Transfer from " + Name, inventoryNames);
                 if (currencyDialog.ShowDialog() == true)
                 {
                     if ((GoldPieces - currencyDialog.GP) < 0) { new NotificationDialog("Insufficient gold pieces.").ShowDialog(); return; }
@@ -503,7 +496,7 @@ namespace GAMMA.Models
         private void DoRemoveInventory()
         {
             if (Owner.Inventories[0] == this) { new NotificationDialog("Cannot remove base inventory.").ShowDialog(); return; }
-            YesNoDialog question = new YesNoDialog("This will remove all currency and items under this inventory.\nContinue?");
+            YesNoDialog question = new("This will remove all currency and items under this inventory.\nContinue?");
             if (question.ShowDialog() == true)
             {
                 if (question.Answer == true)
@@ -554,8 +547,8 @@ namespace GAMMA.Models
         // Public Methods
         public void UpdateFilteredList()
         {
-            ObservableCollection<ItemModel> filteredItems = new ObservableCollection<ItemModel>();
-            ObservableCollection<ItemModel> tools = new ObservableCollection<ItemModel>();
+            ObservableCollection<ItemModel> filteredItems = new();
+            ObservableCollection<ItemModel> tools = new();
             int cp = 0;
             foreach (ItemModel item in AllItems)
             {
@@ -606,6 +599,75 @@ namespace GAMMA.Models
         private void Filter_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             UpdateFilteredList();
+        }
+        private void AddItemsFromTextInput()
+        {
+            TextDumpDialog textInput = new("Item Add Expected Format:\n{Quantity} x {Item Name}\nNote: 1 line per entry");
+            if (textInput.ShowDialog() == true)
+            {
+                string message = "Added Items:\n";
+                string invalidItems = "";
+                string[] lines = textInput.DumpTextValue.Replace("\r","").Split('\n');
+                Dictionary<string, int> itemsAndQuantities = new();
+                foreach (string line in lines)
+                {
+                    //int index = line.IndexOf(" x ");
+                    int index = line.IndexOf("x");
+                    if (index == -1) { continue; }
+                    if (int.TryParse(line.Substring(0, index).Trim(), out int qty))
+                    {
+                        string itemName = line.Substring(index + 1).Trim();
+                        if (itemsAndQuantities.ContainsKey(itemName))
+                        {
+                            itemsAndQuantities[itemName] += qty;
+                        }
+                        else
+                        {
+                            itemsAndQuantities.Add(itemName, qty);
+                        }
+                    }
+                }
+                foreach (KeyValuePair<string, int> itemAndQuantity in itemsAndQuantities)
+                {
+                    bool existingFound = false;
+                    ItemModel matchedItem = Configuration.ItemRepository.FirstOrDefault(i => i.Name == itemAndQuantity.Key);
+                    if (matchedItem == null || itemAndQuantity.Value < 1) 
+                    {
+                        invalidItems += itemAndQuantity.Value + " x " + itemAndQuantity.Key + "\n";
+                        continue;
+                    }
+                    ItemModel itemToAdd = HelperMethods.DeepClone(matchedItem);
+                    itemToAdd.Quantity = itemAndQuantity.Value;
+                    foreach (ItemModel subItem in AllItems)
+                    {
+                        if (itemToAdd.Name == subItem.Name)
+                        {
+                            subItem.Quantity += itemToAdd.Quantity;
+                            existingFound = true;
+                            message += itemAndQuantity.Value + " x " + itemAndQuantity.Key + " (+)\n";
+                            break;
+                        }
+                    }
+                    if (existingFound) { continue; }
+                    if (itemToAdd.Type == "Alcohol")
+                    {
+                        itemToAdd.CurrentVolume = itemToAdd.MaxVolume;
+                    }
+                    AllItems.Add(itemToAdd);
+                    AllItems.Last().PropertyChanged += InventoryModel_PropertyChanged;
+                    FilteredItems.Add(AllItems.Last());
+                    message += itemAndQuantity.Value + " x " + itemAndQuantity.Key + "\n";
+                }
+
+                if (!string.IsNullOrEmpty(invalidItems))
+                {
+                    message += "\nSkipped Items:\n";
+                    message += invalidItems;
+                }
+                HelperMethods.NotifyUser(message);
+                Owner.UpdateInventoryStats();
+
+            }
         }
         
         

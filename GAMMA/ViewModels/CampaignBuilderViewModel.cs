@@ -33,6 +33,7 @@ namespace GAMMA.ViewModels
                     creature.ConnectSpellLinks();
                     creature.ConnectItemLinks();
                     creature.GetPortraitFilepath();
+                    creature.SetHighestSpeedValues();
                 }
                 campaign.UpdateCalendarAndWeather();
             }
@@ -134,12 +135,12 @@ namespace GAMMA.ViewModels
             if (Campaigns.Count() == 0)
             {
                 // Prevents zero character save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("GameCampaignSet"));
                 blankDoc.Save(Configuration.CampaignDataFilePath);
                 return;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(Campaigns.ToList()));
             itemDocument.Save(Configuration.CampaignDataFilePath);
             HelperMethods.WriteToLogFile("Campaigns Saved", notifyUser);
@@ -161,12 +162,12 @@ namespace GAMMA.ViewModels
         }
         private void DoImportCampaigns()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current campaign list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current campaign list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 

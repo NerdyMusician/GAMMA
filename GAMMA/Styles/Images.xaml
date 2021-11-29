@@ -153,6 +153,9 @@
     <Style TargetType="Image" x:Key="Icon_Workflow" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/workflow.png" />
     </Style>
+    <Style TargetType="Image" x:Key="Icon_Sync" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/sync.png" />
+    </Style>
     
     <!-- Weather Icons -->
     <Style TargetType="Image" x:Key="Icon_Weather_Clear" BasedOn="{StaticResource Icon_Base}">

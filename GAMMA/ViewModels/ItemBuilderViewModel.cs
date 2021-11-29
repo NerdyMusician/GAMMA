@@ -208,7 +208,7 @@ namespace GAMMA.ViewModels
             if (AllItems.Count() == 0)
             {
                 // Prevents zero item save crash
-                XDocument blankDoc = new XDocument();
+                XDocument blankDoc = new();
                 blankDoc.Add(new XElement("ItemModelSet"));
                 blankDoc.Save("Data/Items.xml");
                 return true;
@@ -231,7 +231,7 @@ namespace GAMMA.ViewModels
                 new NotificationDialog(message).ShowDialog();
                 return false;
             }
-            XDocument itemDocument = new XDocument();
+            XDocument itemDocument = new();
             itemDocument.Add(XmlMethods.ListToXml(AllItems.ToList()));
             itemDocument.Save("Data/Items.xml");
             Configuration.ItemRepository = AllItems.ToList();
@@ -284,12 +284,12 @@ namespace GAMMA.ViewModels
         public ICommand ImportItems => new RelayCommand(param => DoImportItems());
         private void DoImportItems()
         {
-            OpenFileDialog openWindow = new OpenFileDialog
+            OpenFileDialog openWindow = new()
             {
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new YesNoDialog("Prior to import, the current item list must be saved.\nContinue?");
+            YesNoDialog question = new("Prior to import, the current item list must be saved.\nContinue?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -324,7 +324,7 @@ namespace GAMMA.ViewModels
         // Public Methods
         public void UpdateItemFilter()
         {
-            ObservableCollection<ItemModel> filteredItems = new ObservableCollection<ItemModel>();
+            ObservableCollection<ItemModel> filteredItems = new();
             foreach (ItemModel item in AllItems)
             {
                 if (item.Name.ToUpper().Contains(ItemSearchText.ToUpper()) == false) { continue; }
@@ -357,7 +357,7 @@ namespace GAMMA.ViewModels
         }
         private bool CheckItemReferences()
         {
-            List<string> allItemNames = new List<string> { null, "" };
+            List<string> allItemNames = new() { null, "" };
             string message = "Missing References:";
             bool missingReference = false;
             CreatureBuilderViewModel creatureBuilder = Configuration.MainModelRef.CreatureBuilderView;
@@ -415,7 +415,7 @@ namespace GAMMA.ViewModels
         {
             string message = "Item validation errors:";
             bool issueFound = false;
-            List<string> uncraftables = new List<string> { "Rune", "Resource", "Ingredient" };
+            List<string> uncraftables = new() { "Rune", "Resource", "Ingredient" };
             foreach (ItemModel item in AllItems)
             {
                 if (uncraftables.Contains(item.Type) && (item.IsCraftable || item.CanDismantle || item.CreatableThroughEnchanting) && (item.CraftingComponents.Count() > 0 || item.AcquiredComponents.Count() > 0 || item.EnchantingRunes.Count() > 0)) 

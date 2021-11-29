@@ -851,6 +851,7 @@ namespace GAMMA.Models
                         newCreature.RefreshSpellSlots();
                         newCreature.RefreshCounters();
                         newCreature.GetPortraitFilepath();
+                        newCreature.SetHighestSpeedValues();
                         Combatants.Add(newCreature);
                     }
                 }
@@ -948,6 +949,7 @@ namespace GAMMA.Models
                         newCreature.RefreshSpellSlots();
                         newCreature.RefreshCounters();
                         newCreature.GetPortraitFilepath();
+                        newCreature.SetHighestSpeedValues();
                         Combatants.Add(newCreature);
                     }
                 }
@@ -973,6 +975,7 @@ namespace GAMMA.Models
                     newCreature.RefreshSpellSlots();
                     newCreature.RefreshCounters();
                     newCreature.GetPortraitFilepath();
+                    newCreature.SetHighestSpeedValues();
                     Combatants.Add(newCreature);
                 }
 
@@ -1171,7 +1174,7 @@ namespace GAMMA.Models
         {
             if (param.ToString() == "All")
             {
-                YesNoDialog question = new YesNoDialog("Clear all creatures, NPCs, and players?");
+                YesNoDialog question = new("Clear all creatures, NPCs, and players?");
                 question.ShowDialog();
                 if (question.Answer == false) { return; }
 
@@ -1204,7 +1207,7 @@ namespace GAMMA.Models
         }
         private void DoKillCreatures()
         {
-            YesNoDialog question = new YesNoDialog("Kill all enemies?");
+            YesNoDialog question = new("Kill all enemies?");
             question.ShowDialog();
             if (question.Answer == false) { return; }
 
@@ -1219,26 +1222,15 @@ namespace GAMMA.Models
         }
         #endregion
         #region LootAll
-        private RelayCommand _LootAll;
-        public ICommand LootAll
-        {
-            get
-            {
-                if (_LootAll == null)
-                {
-                    _LootAll = new RelayCommand(param => DoLootAll());
-                }
-                return _LootAll;
-            }
-        }
-        private void DoLootAll()
+        public ICommand LootAll => new RelayCommand(DoLootAll);
+        private void DoLootAll(object param)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int totalGoldDrop = 0;
             int totalSilverDrop = 0;
             int totalCopperDrop = 0;
             int totalXp = 0;
-            Dictionary<string, int> lootedItems = new Dictionary<string, int>();
+            Dictionary<string, int> lootedItems = new();
             string message = "Encounter loot found: ";
 
             foreach (CreatureModel creature in Combatants)
@@ -1287,6 +1279,13 @@ namespace GAMMA.Models
             if (Configuration.MainModelRef.SettingsView.UseExperiencePoints) { message += "\n" + totalXp + " experience points gained."; }
 
             HelperMethods.AddToCampaignMessages(message, "Loot");
+
+            bool.TryParse(param.ToString(), out bool remove);
+            if (remove == true)
+            {
+                Combatants = new(Combatants.Where(creature => creature.CurrentHitPoints > 0 || creature.IsPlayer == true));
+                SortCombatants();
+            }
 
         }
         #endregion
@@ -1729,7 +1728,7 @@ namespace GAMMA.Models
         }
         private void DoSearchNotes()
         {
-            NoteSearchDialog searchDialog = new NoteSearchDialog();
+            NoteSearchDialog searchDialog = new();
             if (searchDialog.ShowDialog() == true)
             {
                 HelperMethods.CheckNoteSearch(Notes, searchDialog.TBX_SearchText.Text, searchDialog.CBX_UseCaseMatch.IsChecked, searchDialog.CBX_LookInHeader.IsChecked, searchDialog.CBX_LookInContent.IsChecked, out _);
@@ -1848,6 +1847,26 @@ namespace GAMMA.Models
         private void DoSortPlayers()
         {
             Players = new ObservableCollection<CreatureModel>(Players.OrderBy(crt => crt.Name));
+        }
+        #endregion
+        #region SyncPlayerData
+        public ICommand SyncPlayerData => new RelayCommand(DoSyncPlayerData);
+        private void DoSyncPlayerData(object param)
+        {
+            foreach (CreatureModel player in Combatants.Where(c => c.IsPlayer))
+            {
+                CreatureModel matchedPlayer = Players.FirstOrDefault(p => p.Name == player.Name);
+                if (matchedPlayer == null) { continue; }
+                else
+                {
+                    player.PlayerRaceAndClass = matchedPlayer.PlayerRaceAndClass;
+                    player.ArmorClass = matchedPlayer.ArmorClass;
+                    player.PassivePerception = matchedPlayer.PassivePerception;
+                    player.SpellSaveDc = matchedPlayer.SpellSaveDc;
+                    player.Description = matchedPlayer.Description;
+                }
+            }
+            HelperMethods.NotifyUser("Player Data Synced to Gameplay");
         }
         #endregion
 

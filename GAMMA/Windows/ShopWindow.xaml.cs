@@ -21,7 +21,7 @@ namespace GAMMA.Windows
         {
             get
             {
-                List<ItemModel> items = new List<ItemModel>((DataContext as ShopViewModel).CharacterItems);
+                List<ItemModel> items = new((DataContext as ShopViewModel).CharacterItems);
                 foreach (ItemModel item in (DataContext as ShopViewModel).ShopOfferedItems)
                 {
                     bool foundItem = false;

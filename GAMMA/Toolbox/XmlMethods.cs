@@ -378,6 +378,14 @@ namespace GAMMA.Toolbox
                         newCreature.Counters.Add(obj);
                     }
                 }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Environments")
+                {
+                    foreach (XmlNode node in childNode.ChildNodes)
+                    {
+                        NodeToObject(node, out ConvertibleValue obj);
+                        newCreature.Environments.Add(obj);
+                    }
+                }
             }
 
             creature = newCreature;
