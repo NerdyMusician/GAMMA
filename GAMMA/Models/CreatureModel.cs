@@ -4249,6 +4249,24 @@ namespace GAMMA.Models
             {
                 Abilities.Add(new CustomAbility());
             }
+            if (param.ToString() == "Strength" || param.ToString() == "Dexterity")
+            {
+                CustomAbility newAbility = new();
+                newAbility.Variables.Add(new("Attack", "Number"));
+                newAbility.Variables.Add(new("Damage", "Number"));
+                newAbility.PreActions.Add(new("Make Attack Roll", "Attack", param.ToString(), true));
+                newAbility.PreActions.Add(new("Add Roll", "Damage", 1, 6, true));
+                newAbility.PreActions.Add(new("Add Stat Value", "Damage", param.ToString()));
+                Abilities.Add(newAbility);
+            }
+        }
+        #endregion
+        #region PasteAbility
+        public ICommand PasteAbility => new RelayCommand(DoPasteAbility);
+        private void DoPasteAbility(object param)
+        {
+            if (Configuration.CopiedAbility == null) { return; }
+            Abilities.Add(HelperMethods.DeepClone(Configuration.CopiedAbility));
         }
         #endregion
         #region AddItemLink
@@ -4967,6 +4985,13 @@ namespace GAMMA.Models
             }
         }
         #endregion
+        #region SortAbilities
+        public ICommand SortAbilities => new RelayCommand(DoSortAbilities);
+        private void DoSortAbilities(object param)
+        {
+            Abilities = new(Abilities.OrderBy(a => a.Name));
+        }
+        #endregion
 
         // Public Methods
         public void RollHitPoints(bool useAverage)
@@ -4986,6 +5011,7 @@ namespace GAMMA.Models
                 totalHealth += HitDiceModifier;
             }
 
+            if (totalHealth == 0) { totalHealth = 1; }
             MaxHitPoints = totalHealth;
             CurrentHitPoints = totalHealth;
 

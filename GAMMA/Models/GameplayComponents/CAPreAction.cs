@@ -12,14 +12,46 @@ namespace GAMMA.Models.GameplayComponents
         // Constructors
         public CAPreAction()
         {
-            Answers = new();
-            ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt" };
-            StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Proficiency Bonus", "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
-            Conditions = new();
-            CalculationOptions = new() { "multiplied by", "divided by", "plus", "minus" };
-            AttackAttributes = new() { "None", "Strength", "Dexterity", "Spellcasting" };
-            Targets = new();
-            Targets.AddRange(Configuration.InternalAbilityVariables);
+            InitializeCollections();
+        }
+        public CAPreAction(string action, string target, string attackStat, bool useProf)
+        {
+            InitializeCollections();
+            Action = action;
+            Target = target;
+            AttackAttribute = attackStat;
+            UseProficiencyBonus = useProf;
+        }
+        public CAPreAction(string action, string target, int diceQty, int diceSides, bool doubleOnCrit)
+        {
+            InitializeCollections();
+            Action = action;
+            Target = target;
+            DiceQuantity = diceQty;
+            DiceQuality = diceSides;
+            DoesDoubleOnCritical = doubleOnCrit;
+        }
+        public CAPreAction(string action, string target, int setValue)
+        {
+            InitializeCollections();
+            Action = action;
+            Target = target;
+            SetValue = setValue.ToString();
+        }
+        public CAPreAction(string action, string target, string statForValue)
+        {
+            InitializeCollections();
+            Action = action;
+            Target = target;
+            StatValue = statForValue;
+        }
+        public CAPreAction(string header, string action, string target, string setValue)
+        {
+            InitializeCollections();
+            CustomDisplayText = header;
+            Action = action;
+            Target = target;
+            SetValue = setValue;
         }
 
         // Databound Properties
@@ -662,6 +694,17 @@ namespace GAMMA.Models.GameplayComponents
         private void UpdateDisplayText()
         {
             DisplayText = !string.IsNullOrEmpty(CustomDisplayText) ? CustomDisplayText : string.Format("{0} - {1}", Action, Target);
+        }
+        private void InitializeCollections()
+        {
+            Answers = new();
+            ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt" };
+            StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Spellcasting Save DC", "Proficiency Bonus", "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
+            Conditions = new();
+            CalculationOptions = new() { "multiplied by", "divided by", "plus", "minus" };
+            AttackAttributes = new() { "None", "Strength", "Dexterity", "Spellcasting" };
+            Targets = new();
+            Targets.AddRange(Configuration.InternalAbilityVariables);
         }
 
     }

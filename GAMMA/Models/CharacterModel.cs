@@ -9,7 +9,6 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
 
@@ -81,6 +80,21 @@ namespace GAMMA.Models
         }
 
         // Databound Properties - Base Info
+        #region DisplayCharacterCreationWarning
+        private bool _DisplayCharacterCreationWarning;
+        public bool DisplayCharacterCreationWarning
+        {
+            get
+            {
+                return _DisplayCharacterCreationWarning;
+            }
+            set
+            {
+                _DisplayCharacterCreationWarning = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
         #region Name
         private string _Name;
         [XmlSaveMode("Single")]
@@ -162,23 +176,6 @@ namespace GAMMA.Models
             {
                 _ClassInfo = value;
                 NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region Level
-        private int _Level;
-        [XmlSaveMode("Single")]
-        public int Level
-        {
-            get
-            {
-                return _Level;
-            }
-            set
-            {
-                _Level = value;
-                NotifyPropertyChanged();
-                ProficiencyBonus = HelperMethods.GetProfBonusFromCr(Level.ToString());
             }
         }
         #endregion
@@ -5411,7 +5408,7 @@ namespace GAMMA.Models
                 minion.CurrentHitPoints = minion.MaxHitPoints;
             }
             IsConcentrating = false;
-            HelperMethods.AddToPlayerLog(Name + " took a long rest and recovered health and spell slots.");
+            HelperMethods.AddToPlayerLog(Name + " took a long rest and recovered health and spell slots.", "Rest", true);
         }
         #endregion
         #region RollDeathSave
@@ -5518,6 +5515,28 @@ namespace GAMMA.Models
             {
                 Abilities.Add(new CustomAbility());
             }
+            if (param.ToString() == "Strength" || param.ToString() == "Dexterity")
+            {
+                CustomAbility newAbility = new();
+                newAbility.Variables.Add(new("Attack", "Number"));
+                newAbility.Variables.Add(new("Damage", "Number"));
+                newAbility.Variables.Add(new("Advantage", "Toggled Option"));
+                newAbility.Variables.Add(new("Disadvantage", "Toggled Option"));
+                newAbility.PreActions.Add(new("Check Advantage", "Add Set Value", "[Attack with Advantage]", "Advantage"));
+                newAbility.PreActions.Add(new("Check Disadvantage", "Add Set Value", "[Attack with Disadvantage]", "Disadvantage"));
+                newAbility.PreActions.Add(new("Make Attack Roll", "Attack", param.ToString(), true));
+                newAbility.PreActions.Add(new("Add Roll", "Damage", 1, 6, true));
+                newAbility.PreActions.Add(new("Add Stat Value", "Damage", param.ToString()));
+                Abilities.Add(newAbility);
+            }
+        }
+        #endregion
+        #region PasteAbility
+        public ICommand PasteAbility => new RelayCommand(DoPasteAbility);
+        private void DoPasteAbility(object param)
+        {
+            if (Configuration.CopiedAbility == null) { return; }
+            Abilities.Add(HelperMethods.DeepClone(Configuration.CopiedAbility));
         }
         #endregion
         #region AddSpellLink
@@ -5897,8 +5916,8 @@ namespace GAMMA.Models
                 "\n6. Category: Miscellaneous" +
                 "\n7. Header" +
                 "\nQuest sub notes are not sorted.";
-            MessageBoxResult result = MessageBox.Show(message, "Auto-Sort", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result != MessageBoxResult.Yes) { return; }
+            YesNoDialog question = new(message);
+            if (question.ShowDialog() == false) { return; }
 
             Notes = new ObservableCollection<NoteModel>(SortNoteList(Notes.ToList()));
 
@@ -6872,14 +6891,16 @@ namespace GAMMA.Models
             }
             FeatChoices = new(feats);
         }
-        public bool ValidateCharacterCreation()
+        public bool ValidateCharacterCreation(bool displayNotification = false)
         {
-            List<string> warnings = new();
             List<string> errors = new();
 
             if (Name == "") { errors.Add("Name is blank."); }
             if (TotalLevel == 0) { errors.Add("No character levels selected."); }
             if (TotalLevel >= 20) { errors.Add("Total level exceeds 20."); }
+            if (LinkedRace == null) { errors.Add("No Race selected."); }
+            if (LinkedSubrace == null) { errors.Add("No Subrace selected."); }
+            if (LinkedBackground == null) { errors.Add("No Background selected."); }
 
             foreach (PlayerClassLinkModel pclm in PlayerClasses)
             {
@@ -6974,29 +6995,13 @@ namespace GAMMA.Models
             if (Subraces.Count() > 0 && LinkedSubrace == null) { errors.Add("No subrace selected."); }
             if (LinkedBackground == null) { errors.Add("No background selected."); }
 
-            foreach (ChoiceSet choiceSet in SkillChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
-
-            foreach (ChoiceSet choiceSet in ExpertiseChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
-
-            foreach (ChoiceSet choiceSet in TraitChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
+            errors.AddRange(Validate_ChoiceSetCollection(SkillChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(ExpertiseChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(TraitChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(SpellChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(ToolChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(ArmorChoiceSegments));
+            errors.AddRange(Validate_ChoiceSetCollection(WeaponChoiceSegments));
 
             foreach (ChoiceSet choiceSet in AttributeFeatChoices)
             {
@@ -7011,71 +7016,35 @@ namespace GAMMA.Models
                 }
             }
 
-            foreach (ChoiceSet choiceSet in SpellChoiceSegments)
+            if (errors.Count() > 0 && displayNotification)
             {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
+                string output = "ERRORS:";
+                foreach (string error in errors)
                 {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
+                    output += "\n" + error;
                 }
-            }
-
-            foreach (ChoiceSet choiceSet in ToolChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
-
-            foreach (ChoiceSet choiceSet in ArmorChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
-
-            foreach (ChoiceSet choiceSet in WeaponChoiceSegments)
-            {
-                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
-                {
-                    errors.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
-                }
-            }
-
-            string output = "ERRORS:";
-            foreach (string error in errors)
-            {
-                output += "\n" + error;
-            }
-            output += "\n\nWARNINGS:";
-            foreach (string warning in warnings)
-            {
-                output += "\n" + warning;
-            }
-
-            if (errors.Count() > 0)
-            {
+                DisplayCharacterCreationWarning = true;
                 new NotificationDialog(output, "Report").ShowDialog();
-                return false;
-            }
-            if (warnings.Count() > 0)
-            {
-                new NotificationDialog(output, "Report").ShowDialog();
-                YesNoDialog question = new("Potential issues found, complete character creation anyway?");
+                YesNoDialog question = new("Potential issues found, complete character creation anyway?\n(a warning icon will be displayed in character screen)");
                 question.ShowDialog();
-                if (question.Answer == true)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return question.Answer;
             }
 
+            DisplayCharacterCreationWarning = false;
             return true;
 
+        }
+        private List<string> Validate_ChoiceSetCollection(ObservableCollection<ChoiceSet> choiceSetCollection)
+        {
+            List<string> messages = new();
+            foreach (ChoiceSet choiceSet in choiceSetCollection)
+            {
+                if (choiceSet.ChoiceRestricted && choiceSet.ChoicesRemaining > 0)
+                {
+                    messages.Add(choiceSet.Source + " has " + choiceSet.ChoicesRemaining + " choices remaining.");
+                }
+            }
+            return messages;
         }
         public void ResetSpellSlots()
         {
@@ -7387,7 +7356,7 @@ namespace GAMMA.Models
             CCI_Languages();
 
             // EQUIPMENT
-            if (HasCompletedCharacterCreation == false)
+            if (HasCompletedCharacterCreation == false && DisplayCharacterCreationWarning == false)
             {
                 Inventories[0].GoldPieces = LinkedBackground.GoldPieces;
                 List<ItemModel> items = new();

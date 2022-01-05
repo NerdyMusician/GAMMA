@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.GameplayComponents;
 using GAMMA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -367,13 +368,14 @@ namespace GAMMA.Toolbox
         public static readonly string SystemAudio_ShopFarewell = Environment.CurrentDirectory + "/Audio/System/ShopFarewell.mp3";
         public static readonly string SystemAudio_MenuSelect = Environment.CurrentDirectory + "/Audio/System/MenuSelect.wav";
 
-        public static string[] AlphaArray = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" };
+        public static string[] AlphaArray = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
         public static MainViewModel MainModelRef;
         public static ShopViewModel ShopRef;
         public static FrameworkElement framework = new();
         public static Random RNG = new();
         public static NoteModel CopiedNote = null;
+        public static CustomAbility CopiedAbility = null;
 
     }
 

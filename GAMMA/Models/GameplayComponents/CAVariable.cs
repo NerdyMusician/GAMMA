@@ -18,6 +18,15 @@ namespace GAMMA.Models.GameplayComponents
             Modifiers = new();
             DoOutput = true;
         }
+        public CAVariable(string name, string type, bool output = true)
+        {
+            Name = name;
+            Type = type;
+            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+            Rolls = new();
+            Modifiers = new();
+            DoOutput = output;
+        }
 
         // Databound Properties
         #region Name

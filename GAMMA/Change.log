@@ -1,4 +1,40 @@
-﻿GAMMA 1.27.00
+﻿GAMMA 1.27.05
+- Changed character creation validation to allow for in-progress characters to be continued later (a warning displays for invalid characters)
+- Now re-validates character creation data on application startup and character import
+- Added rest message type icon
+- Long rest now outputs to Roll20
+- Added button to sort creature abilties list by name
+
+GAMMA 1.27.04
+- Fixed issue where importing character using counters on abilities would cause a crash
+- Fixed issue where cantrip not scaling to creature CR or character level correctly
+- Fixed issue where trying to execute an ability with a QA Prompt pre-action with a blank question caused a crash
+
+GAMMA 1.27.03
+- Fixed issue where cantrips were not scaling correctly to character level (same issue as 1.25.03, removed legacy code this time)
+- Rebuilt in Visual Studio Community 2022
+
+GAMMA 1.27.02
+- Fixed issue where context menu options for adding player strength and dex attack abilities wasn't working
+- Added strength and dex ability pre-gen context menu options for creature abilities
+- Fixed issue where ability test button in creature builder wasn't outputting to notification
+- Fixed issue where ability test button in spell builder wasn't outputting to notification
+- Fixed issue where certain creatures (kobolds) could spawn with 0 hit points based on roll, min 1 hp
+- Fixed issue where attack roll without proficiency was re-adding ability modifier instead
+- Adjusted Add Set Value preaction to allow passing of Toggled Option value to Internal Bool (for adv/dis)
+- Added ability to duplicate ability (context menu in name tile)
+- Added ability to copy/paste abilities between CreatureBuilder/SpellBuilder/CharacterBuilder sections
+- Fixed issue where leveled spells upcasted were not scaling dice rolls properly
+- Fixed issue where 'Spellcasting Save DC' option was not displaying in stat list for pre-actions
+- Added report for checking custom ability issues
+
+GAMMA 1.27.01
+- Fixed issue where Loot the Dead caused an application crash
+- Enabled return key for Other Information field on Campaign Players
+- Updated Note sorting notification to use GAMMA styled dialogs
+- Added Sync feature for Campaign NPC list to update descriptions under Gameplay
+
+GAMMA 1.27.00
 - Code cleanup and removal of pre-1.26 data structures regarding Attacks, Spells, Inventory, and Active Effects
 - Added Other Information field to player data in Campaigns to add items such as languages known
 - Added Sync Player Data button to Campaign's Player list to push updates to AC or other info to the Gameplay tab

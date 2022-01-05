@@ -444,7 +444,50 @@ namespace GAMMA.Models.GameplayComponents
             {
                 HelperMethods.AddToCampaignMessages(message + attackMessage, "Attack");
             }
+            if (Configuration.MainModelRef.TabSelected_CreatureBuilder) // Test button on creatures
+            {
+                HelperMethods.NotifyUser(message + attackMessage);
+            }
+            if (Configuration.MainModelRef.TabSelected_SpellBuilder) // Test button on spells
+            {
+                HelperMethods.NotifyUser(message + attackMessage);
+            }
 
+        }
+        #endregion
+        #region DuplicateAbility
+        public ICommand DuplicateAbility => new RelayCommand(DoDuplicateAbility);
+        private void DoDuplicateAbility(object param)
+        {
+            CustomAbility clone = HelperMethods.DeepClone(this);
+            clone.Name = "Copy of " + clone.Name;
+
+            if (Configuration.MainModelRef.TabSelected_Players)
+            {
+                Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Abilities.Add(clone);
+            }
+            if (Configuration.MainModelRef.TabSelected_SpellBuilder)
+            {
+                if (Configuration.MainModelRef.SpellBuilderView.ActiveSpell.IsTabSelected_PrimaryAbilities)
+                {
+                    Configuration.MainModelRef.SpellBuilderView.ActiveSpell.PrimaryAbilities.Add(clone);
+                }
+                else
+                {
+                    Configuration.MainModelRef.SpellBuilderView.ActiveSpell.SecondaryAbilities.Add(clone);
+                }
+            }
+            if (Configuration.MainModelRef.TabSelected_CreatureBuilder)
+            {
+                Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Abilities.Add(clone);
+            }
+        }
+        #endregion
+        #region CopyAbility
+        public ICommand CopyAbility => new RelayCommand(DoCopyAbility);
+        private void DoCopyAbility(object param)
+        {
+            Configuration.CopiedAbility = HelperMethods.DeepClone(this);
         }
         #endregion
 
@@ -456,13 +499,9 @@ namespace GAMMA.Models.GameplayComponents
             {
                 variables.Add(HelperMethods.DeepClone(v));
             }
-            string mode = "";
+            string mode = GetAbilityProcessingMode(creature, character);
             message = "";
             activeEffects = new();
-
-            if (creature == null && character == null) { mode = "Test"; }
-            if (character != null) { mode = "Character"; }
-            if (creature != null) { mode = "Creature"; }
 
             int rounds = QuantityToPerform;
             if (DoesQuantityScale)
@@ -646,9 +685,9 @@ namespace GAMMA.Models.GameplayComponents
                         {
                             if (mode == "Character") { mod = character.ProficiencyBonus; }
                             if (mode == "Creature") { mod = creature.ProficiencyBonus; }
+                            target.Modifiers.Add(mod.ToString());
+                            attackRoll += mod;
                         }
-                        target.Modifiers.Add(mod.ToString());
-                        attackRoll += mod;
                         target.Value = attackRoll.ToString();
                     }
 
@@ -673,10 +712,20 @@ namespace GAMMA.Models.GameplayComponents
                         { 
                             if (bool.TryParse(preAction.SetValue, out _) == false)
                             {
-                                HelperMethods.NotifyUser("Invalid value \"" + preAction.SetValue + "\" for variable type " + target.Type + ".");
-                                return false;
+                                if (CheckVariable(preAction.SetValue, Variables.ToList(), "Toggled Option", out CAVariable v) == false)
+                                {
+                                    HelperMethods.NotifyUser("Invalid value \"" + preAction.SetValue + "\" for variable type " + target.Type + ".");
+                                    return false;
+                                }
+                                else
+                                {
+                                    target.Value = v.Value;
+                                }
                             }
-                            target.Value = preAction.SetValue; 
+                            else
+                            {
+                                target.Value = preAction.SetValue;
+                            }
                         }
                     }
 
@@ -709,7 +758,7 @@ namespace GAMMA.Models.GameplayComponents
                     {
                         int value = 0;
 
-                        if (mode == "Spell Test") { continue; }
+                        if (mode == "Test") { continue; }
 
                         if (mode == "Character")
                         {
@@ -753,6 +802,7 @@ namespace GAMMA.Models.GameplayComponents
 
                     if (preAction.Action == "QA Prompt")
                     {
+                        if (string.IsNullOrEmpty(preAction.Question)) { HelperMethods.NotifyUser("Question is blank."); return false; }
                         if (preAction.Answers.Count() == 0) { HelperMethods.NotifyUser("No answers available for question \"" + preAction.Question + "\"."); return false; }
                         Dictionary<string, string> swappers2 = new();
                         string newQuestion = preAction.Question;
@@ -1222,6 +1272,12 @@ namespace GAMMA.Models.GameplayComponents
                 "Proficiency Bonus" => creature.ProficiencyBonus,
                 _ => 0
             };
+        }
+        private string GetAbilityProcessingMode(CreatureModel creature, CharacterModel character)
+        {
+            if (character != null) { return "Character"; }
+            if (creature != null) { return "Creature"; }
+            return "Test";
         }
 
     }

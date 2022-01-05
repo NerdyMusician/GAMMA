@@ -32,7 +32,7 @@ namespace GAMMA.Windows
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((DataContext as CharacterModel).ValidateCharacterCreation() == true)
+            if ((DataContext as CharacterModel).ValidateCharacterCreation(true) == true)
             {
                 (DataContext as CharacterModel).ImplementCharacterCreationStats();
                 DialogResult = true;

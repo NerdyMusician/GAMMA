@@ -975,6 +975,7 @@ namespace GAMMA.Toolbox
                 "Fall Damage" => "Icon_Fall",
                 "Initiative" => "Icon_Initiative",
                 "Loot" => "Icon_Pack",
+                "Rest" => "Icon_Sleep",
                 "Saving Throw" => "Icon_Letter_S",
                 "Skill Check" => "Icon_Hand",
                 "Spell" => "Icon_Rpg_Staff",

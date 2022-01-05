@@ -255,6 +255,8 @@ namespace GAMMA.Models.GameplayComponents
                 ShowValueA = true; LabelA = "Counter"; 
                 ShowValueB = true; LabelB = "Amount";
                 ValueSetA = new();
+                if (Configuration.MainModelRef.CharacterBuilderView == null) { return; }
+                if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter == null) { return; }
                 if (Configuration.MainModelRef.TabSelected_Players)
                 {
                     foreach (CounterModel counter in Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Counters)

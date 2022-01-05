@@ -1280,6 +1280,7 @@ namespace GAMMA.Models
 
             HelperMethods.AddToCampaignMessages(message, "Loot");
 
+            if (param == null) { return; }
             bool.TryParse(param.ToString(), out bool remove);
             if (remove == true)
             {
@@ -1687,8 +1688,8 @@ namespace GAMMA.Models
                 "\n6. Category: Miscellaneous" +
                 "\n7. Header" +
                 "\nQuest sub notes are not sorted.";
-            MessageBoxResult result = MessageBox.Show(message, "Auto-Sort", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result != MessageBoxResult.Yes) { return; }
+            YesNoDialog question = new(message);
+            if (question.ShowDialog() == false) { return; }
 
             Notes = new ObservableCollection<NoteModel>(SortNoteList(Notes.ToList()));
 
@@ -1771,6 +1772,22 @@ namespace GAMMA.Models
         private void DoSortNpcs()
         {
             Npcs = new ObservableCollection<NpcModel>(Npcs.OrderBy(npc => npc.Name));
+        }
+        #endregion
+        #region SyncNpcData
+        public ICommand SyncNpcData => new RelayCommand(DoSyncNpcData);
+        private void DoSyncNpcData(object param)
+        {
+            foreach (CreatureModel npc in Combatants.Where(c => c.IsNpc))
+            {
+                NpcModel matchedNpc = Npcs.FirstOrDefault(n => n.Name == npc.DisplayName);
+                if (matchedNpc == null) { continue; }
+                else
+                {
+                    npc.Lore = matchedNpc.Description;
+                }
+            }
+            HelperMethods.NotifyUser("NPC Data Synced to Gameplay");
         }
         #endregion
 

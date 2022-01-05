@@ -40,6 +40,7 @@ namespace GAMMA.ViewModels
                 character.UpdateModifiers();
                 character.UpdateAbilityDropdowns();
                 character.MaxHealth = character.GetCalculatedMaxHitPoints(character.ConstitutionModifier);
+                character.ValidateCharacterCreation();
             }
             ShowCharacterList = true;
             RunNullSpellLinkCheck();
@@ -310,6 +311,7 @@ namespace GAMMA.ViewModels
             catch (Exception e)
             {
                 HelperMethods.WriteToLogFile(e.Message, true);
+                ActiveCharacter.DisplayCharacterCreationWarning = true;
                 return;
             }
             

@@ -21,6 +21,7 @@ namespace GAMMA.Models
             SpellClasses = new ObservableCollection<ConvertibleValue>();
             PrimaryAbilities = new();
             SecondaryAbilities = new();
+            IsTabSelected_PrimaryAbilities = true;
         }
 
         // Databound Properties
@@ -100,6 +101,37 @@ namespace GAMMA.Models
             set
             {
                 _IsValidated = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+
+        #region IsTabSelected_PrimaryAbilities
+        private bool _IsTabSelected_PrimaryAbilities;
+        public bool IsTabSelected_PrimaryAbilities
+        {
+            get
+            {
+                return _IsTabSelected_PrimaryAbilities;
+            }
+            set
+            {
+                _IsTabSelected_PrimaryAbilities = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region IsTabSelected_SecondaryAbilities
+        private bool _IsTabSelected_SecondaryAbilities;
+        public bool IsTabSelected_SecondaryAbilities
+        {
+            get
+            {
+                return _IsTabSelected_SecondaryAbilities;
+            }
+            set
+            {
+                _IsTabSelected_SecondaryAbilities = value;
                 NotifyPropertyChanged();
             }
         }
@@ -740,7 +772,7 @@ namespace GAMMA.Models
             int castingScale = 0;
             if (SpellLevel == 0)
             {
-                if (mode == "Creature")
+                if (creature != null)
                 {
                     if (int.TryParse(creature.ChallengeRating, out castingLevel) == false)
                     {
@@ -748,7 +780,11 @@ namespace GAMMA.Models
                     }
                     castingScale += CantripScaleAdd(castingLevel); 
                 }
-                if (mode == "Character") { castingScale += CantripScaleAdd(character.Level); }
+                else if (character != null) { castingScale += CantripScaleAdd(character.TotalLevel); }
+            }
+            else
+            {
+                castingScale = castingLevel - SpellLevel;
             }
 
             bool abilityResult = abilityToUse.ProcessAbility(creature, character, mode, castingScale, out string abilityMessage, out List<string> activeEffects);
@@ -917,6 +953,22 @@ namespace GAMMA.Models
             if (param == null) { return; }
             if (param.ToString() == "Primary") { PrimaryAbilities.Add(new()); }
             if (param.ToString() == "Secondary") { SecondaryAbilities.Add(new()); }
+        }
+        #endregion
+        #region PasteAbility
+        public ICommand PasteAbility => new RelayCommand(DoPasteAbility);
+        private void DoPasteAbility(object param)
+        {
+            if (Configuration.CopiedAbility == null) { return; }
+            if (param == null) { return; }
+            if (param.ToString() == "Primary")
+            {
+                PrimaryAbilities.Add(HelperMethods.DeepClone(Configuration.CopiedAbility));
+            }
+            if (param.ToString() == "Secondary")
+            {
+                SecondaryAbilities.Add(HelperMethods.DeepClone(Configuration.CopiedAbility));
+            }
         }
         #endregion
 

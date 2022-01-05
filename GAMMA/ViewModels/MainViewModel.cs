@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using OpenQA.Selenium;
@@ -60,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.27.00 beta";
+            ApplicationVersion = "GAMMA 1.27.05";
 
             Configuration.LoadComplete = true;
 
@@ -790,6 +791,11 @@ namespace GAMMA.ViewModels
                     if (TabSelected_Campaigns) { CampaignView.DoSaveCampaigns(); }
                     break;
                 case "CtrlN":
+                    if (TabSelected_Campaigns) { CampaignView.AddCampaign.Execute(null); }
+                    if (TabSelected_CreatureBuilder) { CreatureBuilderView.AddCreature.Execute(null); }
+                    if (TabSelected_ItemBuilder) { ItemBuilderView.AddItem.Execute(null); }
+                    if (TabSelected_SpellBuilder) { SpellBuilderView.AddSpell.Execute(null); }
+                    if (TabSelected_Players) { CharacterBuilderView.AddCharacter.Execute(null); }
                     break;
                 default:
                     break;
@@ -951,6 +957,7 @@ namespace GAMMA.ViewModels
                 "Creature Sources" => GenerateReport_CreaturesMissingSource(),
                 "Shop Coverage" => GenerateReport_ShopCoverage(),
                 "Spells" => GenerateReport_Spells(),
+                "Abilities" => GenerateReport_CustomAbilities(),
                 _ => ""
             };
             if (message != "")
@@ -1091,6 +1098,72 @@ namespace GAMMA.ViewModels
                 message += HelperMethods.GetStringFromList(validatedButNoClasses, "\n");
             }
 
+            return message;
+        }
+        private string GenerateReport_CustomAbilities()
+        {
+            string message = "GAMMA Custom Ability Report:";
+
+            List<string> creatureAbilityIssues = new();
+            foreach (CreatureModel creature in CreatureBuilderView.AllCreatures)
+            {
+                creatureAbilityIssues.AddRange(CheckCustomAbility(creature.Name, creature.Abilities.ToList()));
+            }
+
+            List<string> spellAbilityIssues = new();
+            foreach (SpellModel spell in SpellBuilderView.AllSpells)
+            {
+                spellAbilityIssues.AddRange(CheckCustomAbility(spell.Name, spell.PrimaryAbilities.ToList()));
+                spellAbilityIssues.AddRange(CheckCustomAbility(spell.Name, spell.SecondaryAbilities.ToList()));
+            }
+
+            List<string> characterAbilityIssues = new();
+            foreach (CharacterModel character in CharacterBuilderView.Characters)
+            {
+                characterAbilityIssues.AddRange(CheckCustomAbility(character.Name, character.Abilities.ToList()));
+            }
+
+            message += GetStringFromList(creatureAbilityIssues, "\n\nCreatures", "\n");
+            message += GetStringFromList(creatureAbilityIssues, "\n\nSpells", "\n");
+            message += GetStringFromList(creatureAbilityIssues, "\n\nCharacters", "\n");
+
+            if (message == "GAMMA Custom Ability Report:") { message += "\n\nNo issues found."; }
+
+            return message;
+
+        }
+        private List<string> CheckCustomAbility(string ownerName, List<CustomAbility> abilities)
+        {
+            List<string> issues = new();
+            foreach (CustomAbility ability in abilities)
+            {
+                if (ability.QuantityToPerform == 0)
+                {
+                    issues.Add("Quantity Zero: " + ownerName + " - " + ability.Name);
+                }
+                foreach (CAPreAction preAction in ability.PreActions)
+                {
+                    // Check if PreAction Target is not a valid Variable name
+                    CAVariable variable = ability.Variables.FirstOrDefault(v => v.Name == preAction.Target);
+                    if (variable == null)
+                    {
+                        issues.Add("Invalid PreAction Target: " + ownerName + " - " + ability.Name + " - PreAction " + ability.PreActions.IndexOf(preAction) + " - " + preAction.Target);
+                    }
+                }
+            }
+            return issues;
+        }
+        private string GetStringFromList(List<string> lines, string stringPrefix = "", string linePrefix = "")
+        {
+            string message = "";
+            if (lines.Count() > 0)
+            {
+                message += stringPrefix;
+                foreach (string msg in lines)
+                {
+                    message += "\n" + msg;
+                }
+            }
             return message;
         }
 

@@ -149,6 +149,12 @@
                                             </StackPanel>
                                         </ToolTip>
                                     </TextBlock.ToolTip>
+                                                    <TextBlock.ContextMenu>
+                                                        <ContextMenu>
+                                                            <MenuItem Header="Duplicate Ability" Command="{Binding DuplicateAbility}" />
+                                                            <MenuItem Header="Copy Ability" Command="{Binding CopyAbility}" />
+                                                        </ContextMenu>
+                                                    </TextBlock.ContextMenu>
                                 </TextBlock>
                             </StackPanel>
                         </Border>
@@ -508,8 +514,11 @@
         <KeyBinding Modifiers="Alt" Key="F" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltF" />
         <KeyBinding Modifiers="Alt" Key="N" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltN" />
         <KeyBinding Modifiers="Alt" Key="R" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltR" />
+        <KeyBinding Modifiers="Alt" Key="A" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltA" />
         <KeyBinding Modifiers="Alt" Key="S" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltS" />
         <KeyBinding Modifiers="Alt" Key="Q" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltQ" />
+        <KeyBinding Modifiers="Alt" Key="Left" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltLeft" />
+        <KeyBinding Modifiers="Alt" Key="Right" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="AltRight" />
         <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="CtrlN" />
         <KeyBinding Modifiers="Ctrl" Key="O" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="CtrlO" />
         <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="CtrlS" />
@@ -2394,7 +2403,7 @@
                                             <Separator />
                                             <StackPanel Orientation="Horizontal">
                                                 <cc:FieldLabel Text="Other Information" />
-                                                <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActivePlayer.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="128" VerticalScrollBarVisibility="Visible" />
+                                                <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActivePlayer.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="128" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
                                             </StackPanel>
                                             <Separator />
                                             <cc:ImageButton ImageResource="{StaticResource Icon_X}" Text="Delete Player" Command="{Binding CampaignView.ActiveCampaign.ActivePlayer.RemoveCreature}" CommandParameter="Active Campaign Player" HorizontalAlignment="Right" />
@@ -2411,6 +2420,7 @@
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddNpc}" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortNpcs}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sync}" Command="{Binding CampaignView.ActiveCampaign.SyncNpcData}" ToolTip="Sync NPC Data" />
                                                 </StackPanel>
                                             </DockPanel>
                                             <ListView Style="{StaticResource BorderedListView}"
@@ -2993,7 +3003,18 @@
                                     <TabControl BorderThickness="0 2 0 0" Margin="16 0">
                                         <TabItem Header="Attacks / Abilities">
                                             <StackPanel>
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right" />
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Blank">
+                                                        <cc:IconButton.ContextMenu>
+                                                            <ContextMenu>
+                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Strength" />
+                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Dexterity" />
+                                                                <MenuItem Header="Paste Copied Ability" Command="{Binding CreatureBuilderView.ActiveCreature.PasteAbility}" />
+                                                            </ContextMenu>
+                                                        </cc:IconButton.ContextMenu>
+                                                    </cc:IconButton>
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.ActiveCreature.SortAbilities}" />
+                                                </StackPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                                     <ScrollViewer VerticalScrollBarVisibility="Visible" Width="348" Height="560">
                                                         <ItemsControl ItemsSource="{Binding CreatureBuilderView.ActiveCreature.Abilities, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource CustomAbilityForm}" />
@@ -4187,11 +4208,17 @@
                         <Label Content="Spell Abilities" />
                         <Rectangle />
                         <TabControl BorderThickness="0 2 0 0">
-                            <TabItem Header="Primary">
+                            <TabItem Header="Primary" IsSelected="{Binding SpellBuilderView.ActiveSpell.IsTabSelected_PrimaryAbilities}">
                                 <StackPanel>
                                     <DockPanel>
                                         <cc:FieldLabel Text="Primary Abilities" />
-                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary" />
+                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary">
+                                            <cc:IconButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Primary" />
+                                                </ContextMenu>
+                                            </cc:IconButton.ContextMenu>
+                                        </cc:IconButton>
                                     </DockPanel>
                                     <Border Style="{StaticResource ListBorder}">
                                         <ScrollViewer Width="390" Height="600">
@@ -4200,11 +4227,17 @@
                                     </Border>
                                 </StackPanel>
                             </TabItem>
-                            <TabItem Header="Secondary">
+                            <TabItem Header="Secondary" IsSelected="{Binding SpellBuilderView.ActiveSpell.IsTabSelected_SecondaryAbilities}">
                                 <StackPanel>
                                     <DockPanel>
                                         <cc:FieldLabel Text="Secondary Abilities" />
-                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary" />
+                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary">
+                                            <cc:IconButton.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Secondary" />
+                                                </ContextMenu>
+                                            </cc:IconButton.ContextMenu>
+                                        </cc:IconButton>
                                     </DockPanel>
                                     <Border Style="{StaticResource ListBorder}">
                                         <ScrollViewer Width="390" Height="600">
@@ -4322,6 +4355,7 @@
                                         <Image Source="{Binding CharacterBuilderView.ActiveCharacter, Converter={tool:PlayerPortrait}}" Width="64" Height="64" Margin="0 0 0 2" RenderOptions.BitmapScalingMode="NearestNeighbor" />
                                         <StackPanel Margin="8 0">
                                             <StackPanel Orientation="Horizontal">
+                                                <Image Style="{StaticResource Icon_Warning}" Margin="0 0 4 0" ToolTip="Character creation has not passed validation." Visibility="{Binding CharacterBuilderView.ActiveCharacter.DisplayCharacterCreationWarning, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                 <Label Content="{Binding CharacterBuilderView.ActiveCharacter.Name, FallbackValue=Alexander Stonedriver}" Margin="0" Width="208" />
                                                 <Separator Width="8" />
                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Users}" Margin="-2" Command="{Binding CharacterBuilderView.ToggleLastCharacter}" Visibility="{Binding CharacterBuilderView.LastActiveCharacter, Converter={tool:CollapsedIfNull}}" ToolTip="Switch to previous character" />
@@ -5669,8 +5703,9 @@
                                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right">
                                                                         <cc:IconButton.ContextMenu>
                                                                             <ContextMenu>
-                                                                                <MenuItem Header="Add Strength-Based Attack" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Strength" />
-                                                                                <MenuItem Header="Add Dexterity-Based Attack" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Dexterity" />
+                                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Strength" />
+                                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Dexterity" />
+                                                                                <MenuItem Header="Paste Copied Ability" Command="{Binding CharacterBuilderView.ActiveCharacter.PasteAbility}" />
                                                                             </ContextMenu>
                                                                         </cc:IconButton.ContextMenu>
                                                                     </cc:IconButton>
@@ -8091,6 +8126,7 @@
                                     <cc:ImageButton ImageResource="{StaticResource Icon_Fish}" Text="Fish Counts" Command="{Binding GenerateReport}" CommandParameter="Fish" />
                                     <cc:ImageButton ImageResource="{StaticResource Icon_Vendor}" Text="Shop Coverage" Command="{Binding GenerateReport}" CommandParameter="Shop Coverage" />
                                     <cc:ImageButton ImageResource="{StaticResource Icon_Spell}" Text="Spell Data" Command="{Binding GenerateReport}" CommandParameter="Spells" />
+                                    <cc:ImageButton ImageResource="{StaticResource Icon_Action}" Text="Ability Data Check" Command="{Binding GenerateReport}" CommandParameter="Abilities" />
                                 </StackPanel>
                             </StackPanel>
                         </TabItem>
@@ -10923,7 +10959,7 @@
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Dev Zone" Visibility="Visible">
-                                
+                            
                         </TabItem>
                     </TabControl>
                 </StackPanel>
