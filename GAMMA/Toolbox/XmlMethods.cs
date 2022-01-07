@@ -1201,6 +1201,10 @@ namespace GAMMA.Toolbox
             sourcebook = newSourcebook;
 
         }
+        public static void NodeToObject(XmlNode noteTypeNode, out NoteType noteType)
+        {
+            noteType = SetObjectPropertiesFromNode(noteTypeNode, new NoteType()) as NoteType;
+        }
 
         public static void XmlToList(string filePath, out List<CreatureModel> creatures, out Dictionary<string,string> encounterData, XmlDocument xmlDoc = null)
         {
@@ -1525,6 +1529,19 @@ namespace GAMMA.Toolbox
             }
 
             sourcebooks = newSourcebooks;
+
+        }
+        public static void XmlToList(string filePath, out List<NoteType> noteTypes, XmlDocument xmlDoc = null)
+        {
+            List<NoteType> newNoteTypes = new();
+
+            foreach (XmlNode noteTypeNode in GetXmlNodeListFromXmlDoc(filePath, "NoteTypeSet", xmlDoc))
+            {
+                NodeToObject(noteTypeNode, out NoteType noteType);
+                newNoteTypes.Add(noteType);
+            }
+
+            noteTypes = newNoteTypes;
 
         }
 

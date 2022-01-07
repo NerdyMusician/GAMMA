@@ -47,6 +47,40 @@ namespace GAMMA.Toolbox
             return;
 
         }
+        public static void ImportData_NoteTypes(string filepath, out string message)
+        {
+            XmlMethods.XmlToList(filepath, out List<NoteType> importedNoteTypes);
+            XmlMethods.XmlToList(Configuration.NoteTypeDataFilePath, out List<NoteType> currentNoteTypes);
+            List<NoteType> combinedNoteTypeList = new();
+            message = "Note Types Imported:";
+
+            List<string> noteTypeNames = new();
+            foreach (NoteType noteType in currentNoteTypes)
+            {
+                if (noteTypeNames.Contains(noteType.Name) == false) { noteTypeNames.Add(noteType.Name); }
+            }
+            foreach (NoteType noteType in importedNoteTypes)
+            {
+                if (noteTypeNames.Contains(noteType.Name) == false) { noteTypeNames.Add(noteType.Name); }
+            }
+
+            foreach (string name in noteTypeNames)
+            {
+                NoteType currentNoteType = currentNoteTypes.FirstOrDefault(sb => sb.Name == name);
+                NoteType importedNoteType = importedNoteTypes.FirstOrDefault(sb => sb.Name == name);
+
+                if (currentNoteType == null) { combinedNoteTypeList.Add(importedNoteType); message += "\n" + name; continue; }
+                if (importedNoteType == null) { combinedNoteTypeList.Add(currentNoteType); continue; }
+                combinedNoteTypeList.Add(currentNoteType);
+            }
+
+            Configuration.MainModelRef.ToolsView.NoteTypes = new(combinedNoteTypeList.OrderBy(sb => sb.Name));
+
+            if (message == "Note Types Imported:") { message = "No note types imported."; }
+
+            return;
+
+        }
         public static void ImportData_Items(string filepath, out string message)
         {
             XmlMethods.XmlToList(filepath, out List<ItemModel> importedItems);

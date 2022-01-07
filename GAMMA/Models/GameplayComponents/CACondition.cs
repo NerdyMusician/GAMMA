@@ -12,7 +12,7 @@ namespace GAMMA.Models.GameplayComponents
         public CACondition()
         {
             ConditionVariables = new() { "[Is Critical Hit]" };
-            ConditionTypes = new() { "Equal To", "Greater Than", "Less Than" };
+            ConditionTypes = new() { "Equal To", "Greater Than", "Less Than", "Contains" };
         }
 
         // Databound Properties

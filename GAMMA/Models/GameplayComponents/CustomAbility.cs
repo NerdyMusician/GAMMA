@@ -407,6 +407,10 @@ namespace GAMMA.Models.GameplayComponents
             {
                 if (param.GetType() == typeof(CreatureModel)) { attackingCreature = param as CreatureModel; attackingCreature.DisplayPopup_Weapons = false; attackingCreature.DisplayPopupAlt_Weapons = false; }
                 else { attackingPlayer = (param as MainViewModel).CharacterBuilderView.ActiveCharacter; }
+                if (param.GetType() == typeof(MainViewModel))
+                {
+                    if (Configuration.MainModelRef.TabSelected_CreatureBuilder) { attackingCreature = Configuration.MainModelRef.CreatureBuilderView.ActiveCreature; }
+                }
             }
             else
             {
@@ -621,6 +625,10 @@ namespace GAMMA.Models.GameplayComponents
                             {
                                 if (a <= b) { conditionFailure = true; continue; }
                             }
+                        }
+                        if (condition.ConditionType == "Contains")
+                        {
+                            if (!valueA.ToUpper().Contains(valueB.ToUpper())) { conditionFailure = true; }
                         }
 
                     }
@@ -944,6 +952,10 @@ namespace GAMMA.Models.GameplayComponents
                             {
                                 if (a <= b) { continue; }
                             }
+                        }
+                        if (condition.ConditionType == "Contains")
+                        {
+                            if (!valueA.ToUpper().Contains(valueB.ToUpper())) { continue; }
                         }
 
                     }

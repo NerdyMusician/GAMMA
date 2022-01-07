@@ -2281,7 +2281,7 @@
                                                                     <MenuItem Header="Paste Note" Command="{Binding PasteNote}" />
                                                                 </ContextMenu>
                                                             </StackPanel.ContextMenu>
-                                                            <Image Style="{Binding Category, Converter={tool:ImageBasedOnNoteCategory}}" />
+                                                            <Image Style="{Binding Icon, Converter={tool:ImageBasedOnIconName}}" />
                                                             <Separator />
                                                             <Image Style="{StaticResource Icon_Search}" Visibility="{Binding IsSearchMatch, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                             <Separator />
@@ -2302,7 +2302,7 @@
                                             <Label Content="Note" Margin="4 8 0 4" />
                                             <StackPanel Orientation="Horizontal">
                                                 <cc:FieldLabel Text="Category" />
-                                                <cc:GammaComboBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding CampaignView.ActiveCampaign.ActiveNote.Categories, UpdateSourceTrigger=PropertyChanged}" />
+                                                <cc:GammaComboBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding NoteTypeRepository, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <cc:FieldLabel Text="Header" />
@@ -7908,7 +7908,7 @@
                                                         <Label Content="Note" Margin="4 8 0 4" />
                                                         <StackPanel Orientation="Horizontal">
                                                             <cc:FieldLabel Text="Category" />
-                                                            <cc:GammaComboBox Text="{Binding CharacterBuilderView.ActiveCharacter.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding CharacterBuilderView.ActiveCharacter.ActiveNote.Categories, UpdateSourceTrigger=PropertyChanged}" />
+                                                            <cc:GammaComboBox Text="{Binding CharacterBuilderView.ActiveCharacter.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding NoteTypeRepository, UpdateSourceTrigger=PropertyChanged}" />
                                                         </StackPanel>
                                                         <StackPanel Orientation="Horizontal">
                                                             <cc:FieldLabel Text="Header" />
@@ -8426,6 +8426,61 @@
                                         </StackPanel>
                                         <Separator />
                                         <cc:ImageButton ImageResource="{StaticResource Icon_X}" Text="Delete Sourcebook" Command="{Binding ToolsView.ActiveSourcebook.RemoveSourcebook}" Margin="128 4" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Note Types">
+                            <StackPanel Margin="8 0">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <DockPanel>
+                                            <Label Content="Note Types" />
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddNoteType}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortNoteTypes}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveNoteTypes}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportNoteTypes}" />
+                                            </StackPanel>
+                                        </DockPanel>
+                                        <ListView ItemsSource="{Binding ToolsView.NoteTypes, UpdateSourceTrigger=PropertyChanged}"
+                                                  SelectedItem="{Binding ToolsView.ActiveNoteType, UpdateSourceTrigger=PropertyChanged}"
+                                                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                                  BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2"
+                                                  Height="620" Width="240" Background="Transparent">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Style="{Binding Icon, Converter={tool:ImageBasedOnIconName}}" />
+                                                        <Separator />
+                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackPanel>
+                                    <StackPanel Margin="16 20 0 0" Visibility="{Binding ToolsView.ActiveNoteType, Converter={tool:CollapsedIfNull}}">
+                                        <Label Content="Note Type Information" />
+                                        <Rectangle Style="{StaticResource HorizontalDivider}" />
+                                        <Separator />
+                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                            <cc:FieldLabel Text="Name"/>
+                                            <cc:GammaTextBox Text="{Binding ToolsView.ActiveNoteType.Name, UpdateSourceTrigger=PropertyChanged}" Width="180" />
+                                        </StackPanel>
+                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                            <cc:FieldLabel Text="Icon"/>
+                                            <cc:GammaComboBox Text="{Binding ToolsView.ActiveNoteType.Icon, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ToolsView.ActiveNoteType.NoteIcons}" Width="128" />
+                                            <Separator />
+                                            <Image Style="{Binding ToolsView.ActiveNoteType.Icon, Converter={tool:ImageBasedOnIconName}}" />
+                                        </StackPanel>
+                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                            <cc:FieldLabel Text="Sort Sub Notes?"/>
+                                            <CheckBox IsChecked="{Binding ToolsView.ActiveNoteType.SortSubNotes, UpdateSourceTrigger=PropertyChanged}" Width="180" />
+                                        </StackPanel>
+                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                            <cc:FieldLabel Text=""/>
+                                            <cc:ImageButton Text="Remove Note Type" ImageResource="{StaticResource Icon_X}" Command="{Binding ToolsView.ActiveNoteType.RemoveNoteType}" HorizontalAlignment="Right" />
+                                        </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -10958,7 +11013,7 @@
                                 </StackPanel>
                             </StackPanel>
                         </TabItem>
-                        <TabItem Header="Dev Zone" Visibility="Visible">
+                        <TabItem Header="Dev Zone" Visibility="Collapsed">
                             
                         </TabItem>
                     </TabControl>

@@ -16,26 +16,10 @@ namespace GAMMA.Models
         // Constructors
         public NoteModel()
         {
-            Category = "Miscellaneous";
+            Category = "Other";
             Header = "New Note";
             Content = "";
             SubNotes = new ObservableCollection<NoteModel>();
-            Categories = new List<string>
-            {
-                "Character",
-                "Faction",
-                "Location",
-                "District",
-                "Encounter",
-                "Item",
-                "Landmark",
-                "Map",
-                "Miscellaneous",
-                "Puzzle",
-                "Quest",
-                "Vendor",
-                "Trap",
-            };
         }
 
         // Databound Properties
@@ -52,7 +36,16 @@ namespace GAMMA.Models
             {
                 _Category = value;
                 NotifyPropertyChanged();
+                SetIcon();
             }
+        }
+        #endregion
+        #region Icon
+        private string _Icon;
+        public string Icon
+        {
+            get { return _Icon; }
+            set { _Icon = value; NotifyPropertyChanged(); }
         }
         #endregion
         #region Header
@@ -386,9 +379,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        // Readonly Properties
-        public List<string> Categories { get; set; }
-
         // Private Methods
         private void FindAndDeleteNote(ObservableCollection<NoteModel> notes, NoteModel noteToDelete, out bool complete)
         {
@@ -399,6 +389,12 @@ namespace GAMMA.Models
                 if (complete) { return; }
             }
             complete = false;
+        }
+        private void SetIcon()
+        {
+            NoteType matchedNote = Configuration.MainModelRef.ToolsView.NoteTypes.FirstOrDefault(n => n.Name == Category);
+            if (matchedNote != null) { Icon = matchedNote.Icon; }
+            else { Icon = "Icon_Rpg_Note"; }
         }
 
     }

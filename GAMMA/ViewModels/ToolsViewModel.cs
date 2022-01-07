@@ -59,6 +59,9 @@ namespace GAMMA.ViewModels
             XmlMethods.XmlToList(Configuration.LanguageDataFilePath, out List<LanguageModel> languages);
             Languages = new ObservableCollection<LanguageModel>(languages);
 
+            XmlMethods.XmlToList(Configuration.NoteTypeDataFilePath, out List<NoteType> noteTypes);
+            NoteTypes = new(noteTypes);
+
             XmlMethods.XmlToList(Configuration.ShopDataFilePath, out List<ShopModel> shops);
             Shops = new ObservableCollection<ShopModel>(shops);
             foreach (ShopModel shop in Shops)
@@ -576,6 +579,23 @@ namespace GAMMA.ViewModels
                 _ActiveSourcebook = value;
                 NotifyPropertyChanged();
             }
+        }
+        #endregion
+
+        #region NoteTypes
+        private ObservableCollection<NoteType> _NoteTypes;
+        public ObservableCollection<NoteType> NoteTypes
+        {
+            get { return _NoteTypes; }
+            set { _NoteTypes = value; NotifyPropertyChanged(); }
+        }
+        #endregion
+        #region ActiveNoteType
+        private NoteType _ActiveNoteType;
+        public NoteType ActiveNoteType
+        {
+            get { return _ActiveNoteType; }
+            set { _ActiveNoteType = value; NotifyPropertyChanged(); }
         }
         #endregion
 
@@ -2013,6 +2033,64 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        #region AddNoteType
+        public ICommand AddNoteType => new RelayCommand(DoAddNoteType);
+        private void DoAddNoteType(object param)
+        {
+            NoteTypes.Add(new());
+            ActiveNoteType = NoteTypes.Last();
+        }
+        #endregion
+        #region SortNoteTypes
+        public ICommand SortNoteTypes => new RelayCommand(DoSortNoteTypes);
+        private void DoSortNoteTypes(object param)
+        {
+            NoteTypes = new(NoteTypes.OrderBy(nt => nt.Name));
+        }
+        #endregion
+        #region SaveNoteTypes
+        public ICommand SaveNoteTypes => new RelayCommand(param => DoSaveNoteTypes());
+        public void DoSaveNoteTypes(bool notifyUser = true)
+        {
+            XDocument xmlDoc = new();
+            if (NoteTypes.Count() == 0)
+            {
+                // Prevents zero count collection save crash
+                xmlDoc.Add(new XElement("NoteTypeSet"));
+                xmlDoc.Save(Configuration.NoteTypeDataFilePath);
+            }
+            else
+            {
+                xmlDoc.Add(XmlMethods.ListToXml(NoteTypes.ToList()));
+                xmlDoc.Save(Configuration.NoteTypeDataFilePath);
+            }
+            HelperMethods.WriteToLogFile("Note Types Saved.", notifyUser);
+            SetConfigList_NoteTypes();
+        }
+        #endregion
+        #region ImportNoteTypes
+        public ICommand ImportNoteTypes => new RelayCommand(DoImportNoteTypes);
+        private void DoImportNoteTypes(object param)
+        {
+            OpenFileDialog openWindow = new()
+            {
+                Filter = "XML Files (*.xml)|*.xml"
+            };
+
+            YesNoDialog question = new("Prior to import, the current note type list must be saved.\nContinue?");
+            question.ShowDialog();
+            if (question.Answer == false) { return; }
+
+            DoSaveNoteTypes();
+
+            if (openWindow.ShowDialog() == true)
+            {
+                DataImport.ImportData_NoteTypes(openWindow.FileName, out string message);
+                _ = new NotificationDialog(message).ShowDialog();
+            }
+        }
+        #endregion
+
         // Public Methods
         public void DataCleanup_SpellsKnownPerLevel()
         {
@@ -2124,6 +2202,21 @@ namespace GAMMA.ViewModels
             {
                 if (sourcebook.IsValidated == false) { continue; }
                 Configuration.MainModelRef.SourcebookRepository.Add(sourcebook.Name);
+            }
+        }
+        private void SetConfigList_NoteTypes()
+        {
+            if (Configuration.MainModelRef.NoteTypeRepository == null)
+            {
+                Configuration.MainModelRef.NoteTypeRepository = new();
+            }
+            else
+            {
+                Configuration.MainModelRef.NoteTypeRepository.Clear();
+            }
+            foreach (NoteType noteType in NoteTypes)
+            {
+                Configuration.MainModelRef.NoteTypeRepository.Add(noteType.Name);
             }
         }
         private bool ValidateData_Weathers()

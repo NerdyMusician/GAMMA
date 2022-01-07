@@ -135,6 +135,7 @@
     <Compile Include="Models\LootBoxModel.cs" />
     <Compile Include="Models\NotebookModel.cs" />
     <Compile Include="Models\NoteModel.cs" />
+    <Compile Include="Models\NoteType.cs" />
     <Compile Include="Models\NpcModel.cs" />
     <Compile Include="Models\PackCreatureModel.cs" />
     <Compile Include="Models\PlayerBackgroundModel.cs" />
@@ -797,6 +798,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\sync.png" />
+    <None Include="Data\NoteTypes.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="WebDriver\chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

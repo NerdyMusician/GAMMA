@@ -7935,18 +7935,18 @@ namespace GAMMA.Models
         }
         private List<NoteModel> SortNoteList(List<NoteModel> notes)
         {
-            List<NoteModel> sortedNotes = notes.OrderBy(note =>
-            note.Category == "Location" ? 1 :
-            note.Category == "District" ? 2 :
-            note.Category == "Faction" ? 3 :
-            note.Category == "Character" ? 4 :
-            note.Category == "Quest" ? 5 :
-            note.Category == "Map" ? 6 :
-            note.Category == "Vendor" ? 7 : 8).ThenBy(note => note.Header).ToList();
+            List<NoteModel> sortedNotes = notes.OrderBy(n => n.Category).ThenBy(n => n.Header).ToList();
             foreach (NoteModel note in sortedNotes)
             {
-                if (note.Category == "Quest") { continue; }
-                note.SubNotes = new ObservableCollection<NoteModel>(SortNoteList(note.SubNotes.ToList()));
+                NoteType nt = Configuration.MainModelRef.ToolsView.NoteTypes.FirstOrDefault(n => n.Name == note.Category);
+                if (nt == null)
+                {
+                    note.SubNotes = new(SortNoteList(note.SubNotes.ToList()));
+                }
+                else if (nt.SortSubNotes)
+                {
+                    note.SubNotes = new(SortNoteList(note.SubNotes.ToList()));
+                }
             }
             return sortedNotes;
         }

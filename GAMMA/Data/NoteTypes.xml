@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NoteTypeSet Name="">
+	<NoteType Icon="Icon_Hex" Name="District" SortSubNotes="True" />
+	<NoteType Icon="Icon_Crossed_Swords" Name="Encounter" SortSubNotes="True" />
+	<NoteType Icon="Icon_Action" Name="Event" SortSubNotes="True" />
+	<NoteType Icon="Icon_Hand" Name="Faction" SortSubNotes="True" />
+	<NoteType Icon="Icon_Pack" Name="Item" SortSubNotes="True" />
+	<NoteType Icon="Icon_Mountain" Name="Landmark" SortSubNotes="True" />
+	<NoteType Icon="Icon_Home" Name="Location" SortSubNotes="True" />
+	<NoteType Icon="Icon_Map" Name="Map" SortSubNotes="True" />
+	<NoteType Icon="Icon_Rpg_Note" Name="Other" SortSubNotes="True" />
+	<NoteType Icon="Icon_Puzzle" Name="Puzzle" SortSubNotes="True" />
+	<NoteType Icon="Icon_Book" Name="Quest" SortSubNotes="False" />
+	<NoteType Icon="Icon_Trap" Name="Trap" SortSubNotes="True" />
+	<NoteType Icon="Icon_Vendor" Name="Vendor" SortSubNotes="True" />
+</NoteTypeSet>

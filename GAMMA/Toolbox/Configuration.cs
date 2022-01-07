@@ -353,6 +353,7 @@ namespace GAMMA.Toolbox
         public static readonly string WeatherDataFilePath = "Data/Weathers.xml";
         public static readonly string CalendarDataFilePath = "Data/Calendars.xml";
         public static readonly string SourcebookDataFilePath = "Data/Sourcebooks.xml";
+        public static readonly string NoteTypeDataFilePath = "Data/NoteTypes.xml";
         public static readonly DateTime StartDateTime = Convert.ToDateTime("1/1/2000 00:00:00 AM");
 
         public static readonly string XmlFileFilter = "XML files (*.xml)|*.xml";

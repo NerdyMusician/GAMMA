@@ -17,6 +17,7 @@ namespace GAMMA.Models
         public CreatureModel()
         {
             Name = "New Creature";
+            Languages = "";
             Abilities = new();
             Counters = new();
             SpellLinks = new();

@@ -666,6 +666,12 @@ namespace GAMMA.ViewModels
                 }
                 else { messages.Add("Item Data File not found."); }
 
+                if (File.Exists(filepath + Configuration.NoteTypeDataFilePath))
+                {
+                    DataImport.ImportData_NoteTypes(filepath + Configuration.NoteTypeDataFilePath, out string msg); messages.Add(msg);
+                }
+                else { messages.Add("Note Type Data File not found."); }
+
                 if (File.Exists(filepath + Configuration.SpellDataFilePath))
                 {
                     DataImport.ImportData_Spells(filepath + Configuration.SpellDataFilePath, out string msg); messages.Add(msg);

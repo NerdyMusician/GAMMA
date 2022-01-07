@@ -1,4 +1,11 @@
-﻿GAMMA 1.27.05
+﻿GAMMA 1.28.00
+- Added 'Contains' condition type for custom abilities
+- Fixed issue where test ability rolls on creatures were not using stat modifiers
+- Fixed issue where null Language property for a new creature could cause crash when adding to Campaign Gameplay
+- Added NoteType class to make note categories customizable along with icon and whether or not immediate sub notes are sorted
+- TODO: bug, -1 to Dex shouldn't affect Heavy Armor AC, revisit Armor data structure and AC calculation on CharacterModel.cs, line 7814 (Dex add based on armor type, Light, Medium, Heavy)
+
+GAMMA 1.27.05
 - Changed character creation validation to allow for in-progress characters to be continued later (a warning displays for invalid characters)
 - Now re-validates character creation data on application startup and character import
 - Added rest message type icon

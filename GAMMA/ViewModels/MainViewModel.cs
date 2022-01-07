@@ -61,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.27.05";
+            ApplicationVersion = "GAMMA 1.28.00 beta r1";
 
             Configuration.LoadComplete = true;
 
@@ -753,6 +753,14 @@ namespace GAMMA.ViewModels
                 _SourcebookRepository = value;
                 NotifyPropertyChanged();
             }
+        }
+        #endregion
+        #region NoteTypeRepository
+        private List<string> _NoteTypeRepository;
+        public List<string> NoteTypeRepository
+        {
+            get { return _NoteTypeRepository; }
+            set { _NoteTypeRepository = value; NotifyPropertyChanged(); }
         }
         #endregion
         #region LanguageTypes
