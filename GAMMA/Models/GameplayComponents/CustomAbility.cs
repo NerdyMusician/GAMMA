@@ -879,6 +879,23 @@ namespace GAMMA.Models.GameplayComponents
 
                     }
 
+                    if (preAction.Action == "Translate Value")
+                    {
+                        CAVariable source = variables.FirstOrDefault(v => v.Name == preAction.SourceVariable);
+                        if (source == null) { HelperMethods.NotifyUser("Invalid source \"" + preAction.SourceVariable + "\", variable not found."); return false; }
+
+                        target.Value = source.Value;
+                        foreach (StringPair pair in preAction.Pairs)
+                        {
+                            if (source.Value == pair.ValueA) 
+                            { 
+                                target.Value = pair.ValueB;
+                                break;
+                            }
+                        }
+
+                    }
+
                 }
 
                 // Process Output

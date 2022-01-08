@@ -30,6 +30,7 @@ namespace GAMMA.Toolbox
         public DataTemplate PackTemplate { get; set; }
         public DataTemplate InventoryTemplate { get; set; }
         public DataTemplate ConvertibleValueTemplate { get; set; }
+        public DataTemplate LabeledNumberTemplate { get; set; }
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             if (item.GetType() == typeof(ItemModel)) { return ItemTemplate; }
@@ -39,6 +40,7 @@ namespace GAMMA.Toolbox
             if (item.GetType() == typeof(NpcModel)) { return NpcTemplate; }
             if (item.GetType() == typeof(CreaturePackModel)) { return PackTemplate; }
             if (item.GetType() == typeof(ConvertibleValue)) { return ConvertibleValueTemplate; }
+            if (item.GetType() == typeof(LabeledNumber)) { return LabeledNumberTemplate; }
             return DefaultDataTemplate;
 
         }

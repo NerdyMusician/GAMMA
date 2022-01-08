@@ -104,6 +104,7 @@ namespace GAMMA.Models
             {
                 _Quantity = value;
                 NotifyPropertyChanged();
+                CheckAndCall_UpdateCharacterInventoryStats();
             }
         }
         #endregion
@@ -849,22 +850,6 @@ namespace GAMMA.Models
             set
             {
                 _BaseArmorClass = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region DexterityAcLimit
-        private int _DexterityAcLimit;
-        [XmlSaveMode("Single")]
-        public int DexterityAcLimit
-        {
-            get
-            {
-                return _DexterityAcLimit;
-            }
-            set
-            {
-                _DexterityAcLimit = value;
                 NotifyPropertyChanged();
             }
         }
@@ -2344,6 +2329,16 @@ namespace GAMMA.Models
             ShowEquipButton_Armor = armorEquipTypes.Contains(Type);
             ShowEquipButton_Accessory = accessoryEquipTypes.Contains(Type);
 
+        }
+        private void CheckAndCall_UpdateCharacterInventoryStats()
+        {
+            if (Configuration.LoadComplete)
+            {
+                if (Configuration.MainModelRef.TabSelected_Players)
+                {
+                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.UpdateInventoryStats();
+                }
+            }
         }
 
     }

@@ -107,11 +107,23 @@ namespace GAMMA.Toolbox
     public class LabeledNumber : BaseModel
     {
         // Constructors
+        public LabeledNumber()
+        {
+            Name = "";
+            Value = 0;
+            NameSuggestions = new();
+        }
         public LabeledNumber(List<string> nameSuggestions)
         {
             Name = "";
             Value = 0;
             NameSuggestions = nameSuggestions;
+        }
+        public LabeledNumber(string name)
+        {
+            Name = name;
+            Value = 0;
+            NameSuggestions = new();
         }
 
         // Databound Properties
@@ -179,6 +191,64 @@ namespace GAMMA.Toolbox
                 {
                     Configuration.MainModelRef.ItemBuilderView.ActiveItem.StatChanges.Remove(this);
                 }
+            }
+        }
+        #endregion
+
+    }
+
+    [Serializable]
+    public class StringPair : BaseModel
+    {
+        // constructors
+        public StringPair()
+        {
+            ValueA = "";
+            ValueB = "";
+        }
+
+        // Databound Properties
+        #region ValueA
+        private string _ValueA;
+        [XmlSaveMode("Single")]
+        public string ValueA
+        {
+            get
+            {
+                return _ValueA;
+            }
+            set
+            {
+                _ValueA = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region ValueB
+        private string _ValueB;
+        [XmlSaveMode("Single")]
+        public string ValueB
+        {
+            get
+            {
+                return _ValueB;
+            }
+            set
+            {
+                _ValueB = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+
+        // Commands
+        #region RemoveFromCollection
+        public ICommand RemoveFromCollection => new RelayCommand(DoRemoveFromCollection);
+        private void DoRemoveFromCollection(object param)
+        {
+            if (param.GetType() == typeof(CAPreAction))
+            {
+                (param as CAPreAction).Pairs.Remove(this);
             }
         }
         #endregion

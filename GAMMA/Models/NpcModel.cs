@@ -11,6 +11,7 @@ namespace GAMMA.Models
         public NpcModel()
         {
             Name = "New Character";
+            IsActive = true;
         }
 
         // Databound Properties
@@ -76,6 +77,15 @@ namespace GAMMA.Models
                 _IsFriendly = value;
                 NotifyPropertyChanged();
             }
+        }
+        #endregion
+        #region IsActive
+        private bool _IsActive;
+        [XmlSaveMode("Single")]
+        public bool IsActive
+        {
+            get { return _IsActive; }
+            set { _IsActive = value; NotifyPropertyChanged(); }
         }
         #endregion
 

@@ -333,6 +333,31 @@
                                                         <cc:FieldLabel Text="Target" Width="80" />
                                                         <cc:GammaComboBox ItemsSource="{Binding Targets}" Text="{Binding Target, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
                                                     </StackPanel>
+                                                    <StackPanel Visibility="{Binding ShowPairForm, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
+                                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                            <cc:FieldLabel Text="Source" Width="80" />
+                                                            <cc:GammaComboBox ItemsSource="{Binding Targets}" Text="{Binding SourceVariable, FallbackValue=Variable Name, UpdateSourceTrigger=PropertyChanged}" Width="168" />
+                                                        </StackPanel>
+                                                        <DockPanel Width="274">
+                                                            <cc:FieldLabel Text="Translations" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddPair}" />
+                                                        </DockPanel>
+                                                        <Border Style="{StaticResource ListBorder}" Visibility="{Binding Pairs.Count, Converter={tool:CollapsedIfZero}}">
+                                                            <ItemsControl ItemsSource="{Binding Pairs}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                                            <cc:GammaTextBox Text="{Binding ValueA, FallbackValue=Variable Name}" Width="104" />
+                                                                            <Image Style="{StaticResource Icon_Initiative}" Margin="2 0 4 0" />
+                                                                            <cc:GammaTextBox Text="{Binding ValueB, FallbackValue=Variable Name}" Width="104" />
+                                                                            <Separator />
+                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveFromCollection}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </Border>
+                                                    </StackPanel>
                                                     <StackPanel Visibility="{Binding ShowQuestion, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
                                                         <cc:FieldLabel Text="Question" Width="80" HorizontalAlignment="Left" />
                                                         <cc:GammaTextBox Style="{StaticResource PartialBorderTextBox}" VerticalScrollBarVisibility="Hidden" TextWrapping="Wrap" AcceptsReturn="True" Height="auto" Text="{Binding Question}" Width="270" Margin="4 0 0 0" />
@@ -2429,7 +2454,7 @@
                                                   SelectedItem="{Binding CampaignView.ActiveCampaign.ActiveNpc}">
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" />
+                                                        <TextBlock Text="{Binding Name}" Foreground="{Binding IsActive, Converter={tool:ValidationFontColor}}" />
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                             </ListView>
@@ -2457,6 +2482,10 @@
                                                 <cc:FieldLabel Text="Is Friendly?" />
                                                 <CheckBox IsChecked="{Binding CampaignView.ActiveCampaign.ActiveNpc.IsFriendly}" />
                                             </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Is Active?" />
+                                                <CheckBox IsChecked="{Binding CampaignView.ActiveCampaign.ActiveNpc.IsActive}" />
+                                            </StackPanel>
                                             <Image Source="{Binding CampaignView.ActiveCampaign.ActiveNpc, Converter={tool:NpcPortrait}}" Height="64" Width="64" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="128 4 0 2" HorizontalAlignment="Left" />
                                             <cc:ImageButton ImageResource="{StaticResource Icon_X}" Text="Delete NPC" Margin="128 2 0 2" Command="{Binding CampaignView.ActiveCampaign.ActiveNpc.RemoveNpcFromCampaign}" />
                                         </StackPanel>
@@ -2471,7 +2500,7 @@
                                                 <Label Content="Creature Packs" />
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddCreaturePack}" />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortCreaturePacks}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortPacks}" />
                                                 </StackPanel>
                                             </DockPanel>
                                             <ListView Style="{StaticResource BorderedListView}"
@@ -2480,7 +2509,7 @@
                                                   SelectedItem="{Binding CampaignView.ActiveCampaign.ActivePack}">
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" />
+                                                        <TextBlock Text="{Binding Name}" Foreground="{Binding IsActive, Converter={tool:ValidationFontColor}}" />
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                             </ListView>
@@ -2495,6 +2524,10 @@
                                             <StackPanel Orientation="Horizontal">
                                                 <cc:FieldLabel Text="Is Ally?" />
                                                 <CheckBox IsChecked="{Binding CampaignView.ActiveCampaign.ActivePack.IsAlly}" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Is Active?" />
+                                                <CheckBox IsChecked="{Binding CampaignView.ActiveCampaign.ActivePack.IsActive}" />
                                             </StackPanel>
                                             <Separator />
                                             <StackPanel Orientation="Horizontal">
@@ -3784,10 +3817,10 @@
                                                     <cc:FieldLabel Text="Base Armor Class" />
                                                     <cc:GammaTextBox Text="{Binding ItemBuilderView.ActiveItem.BaseArmorClass}" Width="64" />
                                                 </StackPanel>
-                                                <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                <!--<StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                     <cc:FieldLabel Text="Dexterity AC Limit" />
                                                     <cc:GammaTextBox Text="{Binding ItemBuilderView.ActiveItem.DexterityAcLimit}" Width="64" />
-                                                </StackPanel>
+                                                </StackPanel>-->
                                                 <StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                     <cc:FieldLabel Text="Strength Requirement" />
                                                     <cc:GammaTextBox Text="{Binding ItemBuilderView.ActiveItem.StrengthRequirement}" Width="64" />
@@ -11014,7 +11047,6 @@
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Dev Zone" Visibility="Collapsed">
-                            
                         </TabItem>
                     </TabControl>
                 </StackPanel>
@@ -11332,3 +11364,12 @@
         </TabControl>
     </StackPanel>
 </Window>
+    <!-- Vertical Text Strip for Gameplay creature tiles -->
+<!--<Border VerticalAlignment="Center" Background="SkyBlue">
+    <Border.LayoutTransform>
+        <RotateTransform>
+            <RotateTransform.Angle>270</RotateTransform.Angle>
+        </RotateTransform>
+    </Border.LayoutTransform>
+    <TextBlock Text="PLAYER" Width="64" TextAlignment="Center" Foreground="Black" FontFamily="Lucida Console" FontWeight="Bold" />
+</Border>-->

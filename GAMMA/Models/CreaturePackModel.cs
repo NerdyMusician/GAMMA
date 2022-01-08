@@ -16,6 +16,7 @@ namespace GAMMA.Models
             Name = "New Creature Pack";
             CreatureList = new ObservableCollection<PackCreatureModel>();
             NpcList = new ObservableCollection<PackCreatureModel>();
+            IsActive = true;
         }
 
         // Databound Properties
@@ -81,6 +82,15 @@ namespace GAMMA.Models
                 _IsAlly = value;
                 NotifyPropertyChanged();
             }
+        }
+        #endregion
+        #region IsActive
+        private bool _IsActive;
+        [XmlSaveMode("Single")]
+        public bool IsActive
+        {
+            get { return _IsActive; }
+            set { _IsActive = value; NotifyPropertyChanged(); }
         }
         #endregion
 

@@ -61,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.28.00 beta r1";
+            ApplicationVersion = "GAMMA 1.28.00 beta r2";
 
             Configuration.LoadComplete = true;
 

@@ -1,4 +1,5 @@
-﻿using GAMMA.Models.GameplayComponents;
+﻿using ExtensionMethods;
+using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
@@ -5517,16 +5518,25 @@ namespace GAMMA.Models
             }
             if (param.ToString() == "Strength" || param.ToString() == "Dexterity")
             {
+                ObjectSelectionDialog dialog = new (Configuration.DamageTypes.ToLabeledNumberList(), "Primary Damage Type");
+                string dmgVar = "Damage";
+                if (dialog.ShowDialog() == true)
+                {
+                    if (dialog.SelectedObject != null)
+                    {
+                        dmgVar = (dialog.SelectedObject as LabeledNumber).Name + " Damage";
+                    }
+                }
                 CustomAbility newAbility = new();
                 newAbility.Variables.Add(new("Attack", "Number"));
-                newAbility.Variables.Add(new("Damage", "Number"));
+                newAbility.Variables.Add(new(dmgVar, "Number"));
                 newAbility.Variables.Add(new("Advantage", "Toggled Option"));
                 newAbility.Variables.Add(new("Disadvantage", "Toggled Option"));
                 newAbility.PreActions.Add(new("Check Advantage", "Add Set Value", "[Attack with Advantage]", "Advantage"));
                 newAbility.PreActions.Add(new("Check Disadvantage", "Add Set Value", "[Attack with Disadvantage]", "Disadvantage"));
                 newAbility.PreActions.Add(new("Make Attack Roll", "Attack", param.ToString(), true));
-                newAbility.PreActions.Add(new("Add Roll", "Damage", 1, 6, true));
-                newAbility.PreActions.Add(new("Add Stat Value", "Damage", param.ToString()));
+                newAbility.PreActions.Add(new("Add Roll", dmgVar, 1, 6, true));
+                newAbility.PreActions.Add(new("Add Stat Value", dmgVar, param.ToString()));
                 Abilities.Add(newAbility);
             }
         }
@@ -7811,7 +7821,17 @@ namespace GAMMA.Models
                 if (ArmorLinkedItem.BaseArmorClass > 0)
                 {
                     ac = ArmorLinkedItem.BaseArmorClass;
-                    ac += (ArmorLinkedItem.DexterityAcLimit <= DexterityModifier) ? ArmorLinkedItem.DexterityAcLimit : DexterityModifier;
+                    switch (ArmorLinkedItem.Type)
+                    {
+                        case "Light Armor":
+                            ac += DexterityModifier;
+                            break;
+                        case "Medium Armor":
+                            ac += (DexterityModifier > 2) ? 2 : DexterityModifier;
+                            break;
+                        default: break;
+                    }
+                    //ac += (ArmorLinkedItem.DexterityAcLimit <= DexterityModifier) ? ArmorLinkedItem.DexterityAcLimit : DexterityModifier;
                 }
                 foreach (LabeledNumber labeledNumber in ArmorLinkedItem.StatChanges)
                 {

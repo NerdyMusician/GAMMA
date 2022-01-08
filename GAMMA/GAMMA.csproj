@@ -161,6 +161,7 @@
     <Compile Include="Models\WeatherRow.cs" />
     <Compile Include="Models\WebActionModel.cs" />
     <Compile Include="Toolbox\DataImport.cs" />
+    <Compile Include="Toolbox\ExtensionMethods.cs" />
     <Compile Include="Toolbox\HelperClasses.cs" />
     <Compile Include="Toolbox\HelperMethods.cs" />
     <Compile Include="ViewModels\AudioViewModel.cs" />

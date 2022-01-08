@@ -355,6 +355,33 @@ namespace GAMMA.Models.GameplayComponents
         }
         #endregion
 
+        // Translate Values
+        #region SourceVariable
+        private string _SourceVariable;
+        [XmlSaveMode("Single")]
+        public string SourceVariable
+        {
+            get
+            {
+                return _SourceVariable;
+            }
+            set
+            {
+                _SourceVariable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        #endregion
+        #region Pairs
+        private ObservableCollection<StringPair> _Pairs;
+        [XmlSaveMode("Enumerable")]
+        public ObservableCollection<StringPair> Pairs
+        {
+            get { return _Pairs; }
+            set { _Pairs = value; NotifyPropertyChanged(); }
+        }
+        #endregion
+
         // Make Attack Roll
         #region AttackAttribute
         private string _AttackAttribute;
@@ -599,6 +626,15 @@ namespace GAMMA.Models.GameplayComponents
             }
         }
         #endregion
+        #region ShowPairForm
+        private bool _ShowPairForm;
+        [XmlSaveMode("Single")]
+        public bool ShowPairForm
+        {
+            get { return _ShowPairForm; }
+            set { _ShowPairForm = value; NotifyPropertyChanged();}
+        }
+        #endregion
 
         // Commands
         #region RemoveAction
@@ -662,6 +698,13 @@ namespace GAMMA.Models.GameplayComponents
 
         }
         #endregion
+        #region AddPair
+        public ICommand AddPair => new RelayCommand(DoAddPair);
+        private void DoAddPair(object param)
+        {
+            Pairs.Add(new());
+        }
+        #endregion
 
         // Public Methods
         public void UpdateTargetList(List<string> variables)
@@ -680,6 +723,7 @@ namespace GAMMA.Models.GameplayComponents
             ShowCalculatedValueForm = false;
             ShowQuestion = false;
             ShowScaling = false;
+            ShowPairForm = false;
 
             List<string> scalableActions = new() { "Add Set Value", "Add Roll" };
             ShowScaling = scalableActions.Contains(Action);
@@ -689,6 +733,7 @@ namespace GAMMA.Models.GameplayComponents
             ShowCalculatedValueForm = (Action == "Add Calculated Value");
             ShowQuestion = (Action == "QA Prompt");
             ShowAttackForm = Action == "Make Attack Roll";
+            ShowPairForm = Action == "Translate Value";
 
         }
         private void UpdateDisplayText()
@@ -698,13 +743,14 @@ namespace GAMMA.Models.GameplayComponents
         private void InitializeCollections()
         {
             Answers = new();
-            ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt" };
+            ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt", "Translate Value" };
             StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Spellcasting Save DC", "Proficiency Bonus", "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
             Conditions = new();
             CalculationOptions = new() { "multiplied by", "divided by", "plus", "minus" };
             AttackAttributes = new() { "None", "Strength", "Dexterity", "Spellcasting" };
             Targets = new();
             Targets.AddRange(Configuration.InternalAbilityVariables);
+            Pairs = new();
         }
 
     }

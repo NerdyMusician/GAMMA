@@ -1126,9 +1126,14 @@ namespace GAMMA.Toolbox
                         newAction.Answers.Add(obj);
                     }
                 }
-            }
-            foreach (XmlNode childNode in actionNode.ChildNodes)
-            {
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Pairs")
+                {
+                    foreach (XmlNode node in childNode.ChildNodes)
+                    {
+                        NodeToObject(node, out StringPair obj);
+                        newAction.Pairs.Add(obj);
+                    }
+                }
                 if (childNode.Attributes.GetNamedItem("Name").InnerText == "Conditions")
                 {
                     foreach (XmlNode node in childNode.ChildNodes)
@@ -1189,7 +1194,7 @@ namespace GAMMA.Toolbox
         }
         public static void NodeToObject(XmlNode numberNode, out LabeledNumber number)
         {
-            LabeledNumber newNumber = SetObjectPropertiesFromNode(numberNode, new LabeledNumber(new())) as LabeledNumber;
+            LabeledNumber newNumber = SetObjectPropertiesFromNode(numberNode, new LabeledNumber()) as LabeledNumber;
 
             number = newNumber;
 
@@ -1204,6 +1209,10 @@ namespace GAMMA.Toolbox
         public static void NodeToObject(XmlNode noteTypeNode, out NoteType noteType)
         {
             noteType = SetObjectPropertiesFromNode(noteTypeNode, new NoteType()) as NoteType;
+        }
+        public static void NodeToObject(XmlNode pairNode, out StringPair pair)
+        {
+            pair = SetObjectPropertiesFromNode(pairNode, new StringPair()) as StringPair;
         }
 
         public static void XmlToList(string filePath, out List<CreatureModel> creatures, out Dictionary<string,string> encounterData, XmlDocument xmlDoc = null)

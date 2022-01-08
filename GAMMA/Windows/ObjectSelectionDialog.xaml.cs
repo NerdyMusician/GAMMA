@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Toolbox;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -57,6 +58,20 @@ namespace GAMMA.Windows
             ObjectSelectDropdown.ItemsSource = inventories;
             QuantitySection.Visibility = Visibility.Visible;
             TextBox_Quantity.Text = quantity.ToString();
+        }
+        public ObjectSelectionDialog(List<ConvertibleValue> options, string header)
+        {
+            InitializeComponent();
+            DialogHeader.Text = header;
+            ObjectSelectDropdown.OriginalSource = options;
+            ObjectSelectDropdown.ItemsSource = options;
+        }
+        public ObjectSelectionDialog(List<LabeledNumber> options, string header)
+        {
+            InitializeComponent();
+            DialogHeader.Text = header;
+            ObjectSelectDropdown.OriginalSource = options;
+            ObjectSelectDropdown.ItemsSource = options;
         }
 
         // Properties

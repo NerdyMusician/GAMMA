@@ -30,7 +30,21 @@
     <StackPanel>
         <StackPanel.Resources>
             <DataTemplate x:Key="DefaultTemplate">
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding Name, Mode=OneWay}" 
+                               FontWeight="Bold"
+                               Width="180" />
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="ConvertibleValueTemplate">
                 <StackPanel>
+                    <TextBlock Text="{Binding Value, Mode=OneWay}" 
+                               FontWeight="Bold"
+                               Width="180" />
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="LabeledNumberTemplate">
+                <StackPanel HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Name, Mode=OneWay}" 
                                FontWeight="Bold"
                                Width="180" />
@@ -100,6 +114,8 @@
             </DataTemplate>
             <tool:ObjectTypeTemplateSelector x:Key="TemplateSelector"
                                                  DefaultDataTemplate="{StaticResource DefaultTemplate}"
+                                             ConvertibleValueTemplate="{StaticResource ConvertibleValueTemplate}"
+                                             LabeledNumberTemplate="{StaticResource LabeledNumberTemplate}"
                                                  ItemTemplate="{StaticResource ItemTemplate}"
                                                  CreatureTemplate="{StaticResource CreatureTemplate}"
                                                  SpellTemplate="{StaticResource SpellTemplate}"

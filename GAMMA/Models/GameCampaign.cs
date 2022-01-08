@@ -919,9 +919,7 @@ namespace GAMMA.Models
         }
         private void DoAddPack(object param)
         {
-            ObjectSelectionDialog packSelect;
-
-            packSelect = new ObjectSelectionDialog(Packs.ToList());
+            ObjectSelectionDialog packSelect = new(Packs.Where(p => p.IsActive).ToList());
             if (packSelect.ShowDialog() == true)
             {
                 if (packSelect.SelectedObject == null) { return; }
@@ -1004,7 +1002,7 @@ namespace GAMMA.Models
         }
         private void DoAddNpcs(object param)
         {
-            MultiObjectSelectionDialog selectionDialog = new (Npcs.Where(npc => npc.BaseCreatureName != "").ToList());
+            MultiObjectSelectionDialog selectionDialog = new (Npcs.Where(npc => npc.BaseCreatureName != "" && npc.IsActive).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
                 string msg = "";
@@ -1771,7 +1769,7 @@ namespace GAMMA.Models
         }
         private void DoSortNpcs()
         {
-            Npcs = new ObservableCollection<NpcModel>(Npcs.OrderBy(npc => npc.Name));
+            Npcs = new(Npcs.OrderBy(npc => !npc.IsActive).ThenBy(npc => npc.Name));
         }
         #endregion
         #region SyncNpcData
@@ -1811,21 +1809,10 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortCreaturePacks
-        private RelayCommand _SortCreaturePacks;
-        public ICommand SortCreaturePacks
-        {
-            get
-            {
-                if (_SortCreaturePacks == null)
-                {
-                    _SortCreaturePacks = new RelayCommand(param => DoSortCreaturePacks());
-                }
-                return _SortCreaturePacks;
-            }
-        }
+        public ICommand SortCreaturePacks => new RelayCommand(param => DoSortCreaturePacks());
         private void DoSortCreaturePacks()
         {
-            Packs = new ObservableCollection<CreaturePackModel>(Packs.OrderBy(crt => crt.Name));
+            Packs = new(Packs.OrderBy(p => !p.IsActive).ThenBy(p => p.Name));
         }
         #endregion
 
