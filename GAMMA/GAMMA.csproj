@@ -802,6 +802,7 @@
     <None Include="Data\NoteTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="ChangeRequests.txt" />
     <Content Include="WebDriver\chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
