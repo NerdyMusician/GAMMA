@@ -21,7 +21,7 @@
       <ConvertibleValue Value="Jordag" ValueType="String" />
     </ConvertibleValueSet>
   </GameCalendar>
-  <GameCalendar Name="Standard" IsValidated="True" WeeksPerMonth="4" UseEras="False" YearsPerEra="0">
+  <GameCalendar IsValidated="True" Name="Standard" WeeksPerMonth="4" UseEras="False" YearsPerEra="0">
     <ConvertibleValueSet Name="Months">
       <ConvertibleValue Value="January" ValueType="String" />
       <ConvertibleValue Value="February" ValueType="String" />

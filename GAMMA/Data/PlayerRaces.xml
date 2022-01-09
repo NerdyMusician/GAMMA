@@ -1,71 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PlayerRaceModelSet Name="">
-  <PlayerRaceModel IsValidated="True" Name="Aarakocra" AgeInfo="Aarakocra reach maturity by age 3. Compared to humans, aarakocra don’t usually live longer than 30 years." AlignmentInfo="Most aarakocra are good and rarely choose sides when it comes to law and chaos. Tribal leaders and warriors might be lawful, while explorers and adventurers might tend toward chaotic." SizeInfo="Aarakocra are about 5 feet tall. They have thin, lightweight bodies that weigh between 80 and 100 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="25" Languages="" Darkvision="0" Sourcebook="Elemental Evil Player's Compendium" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Dexterity" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Aarakocra " Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Auran" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Talons" FeatureType="Trait" LevelAvailable="1" Details="You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit." ChoicesAllowed="0" />
-      <FeatureModel Name="Flight" FeatureType="Trait" LevelAvailable="1" Details="You have a flying speed of 50 feet. To use this speed, you can’t be wearing medium or heavy armor." ChoicesAllowed="0" />
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Aasimar" AgeInfo="Aasimar mature at the same rate as humans, but they can live up to 160 years." AlignmentInfo="Imbued with celestial power, most aasimar are good. Outcast aasimar are most often neutral or even evil." SizeInfo="Aasimar have the same range of height and weight as humans." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="http://dnd5e.wikidot.com/aasimar" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Celestial" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Celestial Resistance" FeatureType="Trait" LevelAvailable="1" Details="You have resistance to necrotic damage and radiant damage." ChoicesAllowed="0" />
-      <FeatureModel Name="Healing Hands" FeatureType="Trait" LevelAvailable="1" Details="As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can't use it again until you finish a long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Light Bearer" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="You know the Light cantrip. Charisma is your spellcasting ability for it." ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Light" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Charisma" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Bugbear" AgeInfo="Bugbears reach adulthood at age 16 and live up to 80 years." AlignmentInfo="Bugbears endure a harsh existence that demands each of them to remain self-sufficient, even at the expense of their fellows. They tend to be chaotic evil." SizeInfo="Bugbears are between 6 and 8 feet tall and weigh between 250 and 350 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Dexterity" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Long-Limbed" FeatureType="Trait" LevelAvailable="1" Details="When you make a melee attack on your turn, your reach for it is 5 feet greater than normal." ChoicesAllowed="0" />
-      <FeatureModel Name="Powerful Build" FeatureType="Trait" LevelAvailable="1" Details="You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ChoicesAllowed="0" />
-      <FeatureModel Name="Sneaky" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Stealth" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Surprise Attack" FeatureType="Trait" LevelAvailable="1" Details="If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Goblin" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Dragonborn" AgeInfo="Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80." AlignmentInfo="Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil (represented by Bahamut and Tiamat, respectively). Most dragonborn are good, but those who side with Tiamat can be terrible villains." SizeInfo="Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants." Darkvision="0" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80." AlignmentInfo="Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil (represented by Bahamut and Tiamat, respectively). Most dragonborn are good, but those who side with Tiamat can be terrible villains." SizeInfo="Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants." Darkvision="0" Name="Dragonborn" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -97,7 +32,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Dwarf" AgeInfo="Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years." AlignmentInfo="Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order." SizeInfo="Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years." AlignmentInfo="Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order." SizeInfo="Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak." Darkvision="60" Name="Dwarf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Base Stats" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -129,7 +64,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Elf" AgeInfo="Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old." AlignmentInfo="Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not. The drow are an exception; their exile into the Underdark has made them vicious and dangerous. Drow are more often evil than not." SizeInfo="Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old." AlignmentInfo="Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not. The drow are an exception; their exile into the Underdark has made them vicious and dangerous. Drow are more often evil than not." SizeInfo="Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires." Darkvision="60" Name="Elf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -151,52 +86,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Firbolg" AgeInfo="As humanoids related to the fey, firbolg have long lifespans. A firbolg reaches adulthood around 30, and the oldest of them can live for 500 years." AlignmentInfo="As people who follow the rhythm of nature and see themselves as its caretakers, firbolg are typically neutral good. Evil firbolg are rare and are usually the sworn enemies of the rest of their kind." SizeInfo="Firbolg are between 7 and 8 feet tall and weigh between 240 and 300 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Firbolg Magic" FeatureType="Trait" LevelAvailable="1" Details="You can cast detect magic and disguise self with this trait, using Wisdom as your spellcasting ability for them. Once you cast either spell, you can’t cast it again with this trait until you finish a short or long rest. When you use this version of disguise self, you can seem up to 3 feet shorter than normal, allowing you to more easily blend in with humans and elves." ChoicesAllowed="0" />
-      <FeatureModel Name="Hidden Step" FeatureType="Trait" LevelAvailable="1" Details="As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can’t use it again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Powerful Build" FeatureType="Trait" LevelAvailable="1" Details="You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ChoicesAllowed="0" />
-      <FeatureModel Name="Speech of Beast and Leaf" FeatureType="Trait" LevelAvailable="1" Details="You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Elvish" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Giant" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Genasi" AgeInfo="Genasi mature at about the same rate as humans and reach adulthood in their late teens. They live somewhat longer than humans do, up to 120 years." AlignmentInfo="Independent and self-reliant, genasi tend toward a neutral alignment." SizeInfo="Genasi are as varied as their mortal parents but are generally built like humans, standing anywhere from 5 feet to over 6 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="PHB" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Primordial" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Gith" AgeInfo="Gith reach adulthood in their late teens and live for about a century." AlignmentInfo="" SizeInfo="Gith are taller and leaner than humans, with most a slender 6 feet in height. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Mordenkainen's Tome of Foes" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Intelligence" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Gith" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Gnome" AgeInfo="Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years." AlignmentInfo="Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious." SizeInfo="Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years." AlignmentInfo="Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious." SizeInfo="Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world." Darkvision="60" Name="Gnome" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -212,49 +102,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Goblin" AgeInfo="Goblins reach adulthood at age 8 and live up to 60 years." AlignmentInfo="Goblins are typically neutral evil, as they care only for their own needs. A few goblins might tend toward good or neutrality, but only rarely." SizeInfo="Goblins are between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Dexterity" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Fury of the Small" FeatureType="Trait" LevelAvailable="1" Details="When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Nimble Escape" FeatureType="Trait" LevelAvailable="1" Details="You can take the Disengage or Hide action as a bonus action on each of your turns." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Goblin" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Goliath" AgeInfo="Goliaths have lifespans comparable to humans. They enter adulthood in their late teens and usually live less than a century." AlignmentInfo="Goliath society, with its clear roles and tasks, has a strong lawful bent. The goliath sense of fairness, balanced with an emphasis on self-sufficiency and personal accountability, pushes them toward neutrality." SizeInfo="Goliaths are between 7 and 8 feet tall and weigh between 280 and 340 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Elemental Evil Player's Compendium" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Natural Athlete" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Athletics" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Stone's Endurance" FeatureType="Trait" LevelAvailable="1" Details="You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can’t use it again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Powerful Build" FeatureType="Trait" LevelAvailable="1" Details="You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ChoicesAllowed="0" />
-      <FeatureModel Name="Mountain Born" FeatureType="Trait" LevelAvailable="1" Details="You have resistance to cold damage. You’re also acclimated to high altitude, including elevations above 20,000 feet." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Giant" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Half-Elf" AgeInfo="Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years." AlignmentInfo="Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others’ demands, and sometimes prove unreliable, or at least unpredictable." SizeInfo="Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common, Elvish, and one extra language of your choice." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years." AlignmentInfo="Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others’ demands, and sometimes prove unreliable, or at least unpredictable." SizeInfo="Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common, Elvish, and one extra language of your choice." Darkvision="60" Name="Half-Elf" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -308,7 +156,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Halfling" AgeInfo="A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century." AlignmentInfo="Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways." SizeInfo="Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling." Darkvision="0" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century." AlignmentInfo="Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways." SizeInfo="Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="25" Languages="You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling." Darkvision="0" Name="Halfling" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -326,7 +174,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Half-Orc" AgeInfo="Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years." AlignmentInfo="Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil." SizeInfo="Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years." AlignmentInfo="Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil." SizeInfo="Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script." Darkvision="60" Name="Half-Orc" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Menacing" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -343,33 +191,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Hobgoblin" AgeInfo="Hobgoblins mature at the same rate as humans and have lifespans similar in length to theirs." AlignmentInfo="Hobgoblin society is built on fidelity to a rigid, unforgiving code of conduct. As such, they tend toward lawful evil." SizeInfo="Hobgoblins are between 5 and 6 feet tall and weigh between 150 and 200 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Intelligence" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Base Weapon Proficiencies" FeatureType="Weapon Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="2">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Martial Weapons]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Base Armor Proficiencies" FeatureType="Armor Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Light Armor" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Goblin" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Human" AgeInfo="Humans reach adulthood in their late teens and live less than a century." AlignmentInfo=" Humans tend toward no particular alignment. The best and the worst are found among them." SizeInfo="Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." Darkvision="0" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Humans reach adulthood in their late teens and live less than a century." AlignmentInfo=" Humans tend toward no particular alignment. The best and the worst are found among them." SizeInfo="Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." Darkvision="0" Name="Human" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -394,184 +216,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Kalashtar" AgeInfo="Kalashtar develop physically at the same rate as humans do and have similar lifespans." AlignmentInfo="The noble spirit tied to a kalashtar drives it toward lawful and good behavior. Most kalashtar combine strong self-discipline with compassion for all sentient beings, but some kalashtar resist the virtuous influence of their spirit." SizeInfo="Kalashtar are similar in build to humans, though they are typically a few inches taller. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Eberron - Rising from the Last War" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Dual Mind" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on all Wisdom saving throws." ChoicesAllowed="0" />
-      <FeatureModel Name="Mental Discipline" FeatureType="Trait" LevelAvailable="1" Details="You have resistance to psychic damage." ChoicesAllowed="0" />
-      <FeatureModel Name="Mind Link" FeatureType="Trait" LevelAvailable="1" Details="You can speak telepathically to any creature you can see, provided the creature is within a number of feet of you equal to 10 times your level. You don't need to share a language with the creature for it to understand your telepathic utterances, but the creature must be able to understand at least one language.&#xD;&#xA;When you're using this trait to speak telepathically to a creature, you can use your action to give that creature the ability to speak telepathically with you for 1 hour or until you end this effect as an action. To use this ability, the creature must be able to see you and must be within this trait's range. You can give this ability to only one creature at a time; giving it to a creature takes it away from another creature who has it." ChoicesAllowed="0" />
-      <FeatureModel Name="Severed from Dreams" FeatureType="Trait" LevelAvailable="1" Details="Kalashtar sleep, but they don’t connect to the plane of dreams as other creatures do. Instead, their minds draw from the memories of their otherworldly spirit while they sleep. As such, you are immune to magical spells and effects that require you to dream, like the Dream spell, but not to spells and effects that put you to sleep, like the Sleep spell." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Quori " Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Language Choice" FeatureType="Language Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Exotic Languages]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Standard Languages]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Kenku" AgeInfo="Kenku have shorter lifespans than humans. They reach maturity at about 12 years old and can live to 60." AlignmentInfo="Kenku are chaotic creatures, rarely making enduring commitments, and they care mostly for preserving their own hides. They are generally chaotic neutral in outlook." SizeInfo="Kenku are around 5 feet tall and weigh between 90 and 120 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Dexterity" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Expert Forgery" FeatureType="Trait" LevelAvailable="1" Details="You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects." ChoicesAllowed="0" />
-      <FeatureModel Name="Kenku Training" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="2">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Acrobatics" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Deception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Sleight of Hand" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Stealth" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Mimicry" FeatureType="Trait" LevelAvailable="1" Details="You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check. You can speak only by using your Mimicry trait." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Auran" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Kobold" AgeInfo="Kobolds reach adulthood at age 6 and can live up to 120 years but rarely do so." AlignmentInfo="Kobolds are fundamentally selfish, making them evil, but their reliance on the strength of their group makes them trend toward law." SizeInfo="Kobolds are between 2 and 3 feet tall and weigh between 25 and 35 pounds. Your size is Small." Size="Small" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Dexterity" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Grovel, Cower, and Beg" FeatureType="Trait" LevelAvailable="1" Details="As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that can see you. Once you use this trait, you can't use it again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Pack Tactics" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn't incapacitated." ChoicesAllowed="0" />
-      <FeatureModel Name="Sunlight Sensitivity" FeatureType="Trait" LevelAvailable="1" Details="You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Draconic" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Lizardfolk" AgeInfo="Lizardfolk reach maturity around age 14 and rarely live longer than 60 years." AlignmentInfo="Most lizardfolk are neutral. They see the world as a place of predators and prey, where life and death are natural processes. They wish only to survive, and prefer to leave other creatures to their own devices." SizeInfo="Lizardfolk are a little bulkier and taller than humans, and their colorful frills make them appear even larger. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Bite" FeatureType="Trait" LevelAvailable="1" Details="Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike" ChoicesAllowed="0" />
-      <FeatureModel Name="Cunning Artisan" FeatureType="Trait" LevelAvailable="1" Details="As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size Small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan's tools, such as leatherworker's tools." ChoicesAllowed="0" />
-      <FeatureModel Name="Hold Breath" FeatureType="Trait" LevelAvailable="1" Details="You can hold your breath for up to 15 minutes at a time." ChoicesAllowed="0" />
-      <FeatureModel Name="Hunter's Lore" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="2">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Animal Handling" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Nature" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Perception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Stealth" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Survival" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Natural Armor" FeatureType="Trait" LevelAvailable="1" Details=" You have tough, scaly skin. When you aren't wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor." ChoicesAllowed="0" />
-      <FeatureModel Name="Hungry Jaws" FeatureType="Trait" LevelAvailable="1" Details="In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points (minimum of 1) equal to your Constitution modifier, and you can't use this trait again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Draconic" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Minotaur" AgeInfo="" AlignmentInfo="Most minotaurs who join the Boros Legion lean toward lawful alignments, while those associated with the Cult of Rakdos or the Gruul Clans tend toward chaotic alignments." SizeInfo="Minotaurs average over 6 feet in height, and they have stocky builds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="0" Languages="" Darkvision="0" Sourcebook="Guildmaster's Guide to Ravnica" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Horns" FeatureType="Trait" LevelAvailable="1" Details="Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to ld6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ChoicesAllowed="0" />
-      <FeatureModel Name="Goring Rush" FeatureType="Trait" LevelAvailable="1" Details="Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action." ChoicesAllowed="0" />
-      <FeatureModel Name="Hammering Horns" FeatureType="Trait" LevelAvailable="1" Details="Immediately after you hit a creature with a melee attack as a part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be within 5 feet of you and no more than one size larger than you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you." ChoicesAllowed="0" />
-      <FeatureModel Name="Imposing Presence" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Intimidation" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Persuasion" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Minotaur" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Orc" AgeInfo="Orcs reach adulthood at age 12 and live up to 50 years." AlignmentInfo="Orcs are vicious raiders, who believe that the world should be theirs. They also respect strength above all else and believe the strong must bully the weak to ensure that weakness does not spread like a disease. They are usually chaotic evil." SizeInfo="Orcs are usually over 6 feet tall and weigh between 230 and 280 pounds. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Agressive" FeatureType="Trait" LevelAvailable="1" Details="As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started." ChoicesAllowed="0" />
-      <FeatureModel Name="Primal Intuition" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="2">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Animal Handling" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Insight" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Intimidation" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Medicine" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Nature" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Perception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Survival" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Powerful Build" FeatureType="Trait" LevelAvailable="1" Details="You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Orc" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Shifter" AgeInfo="Shifters are quick to mature both physically and emotionally, reaching young adulthood at age 10. They rarely live to be more than 70 years old." AlignmentInfo="Shifters tend toward neutrality, being more focused on survival than concepts of good and evil. A love of personal freedom can drive shifters toward chaotic alignments." SizeInfo="Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Eberron: Rising From the Last War" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Shifting" FeatureType="Trait" LevelAvailable="1" Details="As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to your level + your Constitution modifier (minimum of 1 temporary hit point). You also gain additional benefits that depend on your shifter subrace, described below.&#xD;&#xA;Once you shift, you can't do so again until you finish a short or long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Tabaxi" AgeInfo="Tabaxi have lifespans equivalent to humans." AlignmentInfo="Tabaxi tend toward chaotic alignments, as they let impulse and fancy guide their decisions. They are rarely evil, with most of them driven by curiosity rather than greed or other dark impulses." SizeInfo="Tabaxi are taller on average than humans and relatively slender. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Darkvision" FeatureType="Trait" LevelAvailable="1" Details="You have a cat's keen senses, especially in the dark. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray." ChoicesAllowed="0" />
-      <FeatureModel Name="Feline Agility" FeatureType="Trait" LevelAvailable="1" Details="Your reflexes and agility allow you to move with a burst of speed. When you move on your tum in combat, you can double your speed until the end of the tum. Once you use this trait, you can't use it again until you move 0 feet on one of your turns." ChoicesAllowed="0" />
-      <FeatureModel Name="Cat's Claws" FeatureType="Trait" LevelAvailable="1" Details="Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ChoicesAllowed="0" />
-      <FeatureModel Name="Cat's Talent" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Perception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Stealth" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Exotic Languages]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Standard Languages]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages - Common" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Tiefling" AgeInfo="Tieflings mature at the same rate as humans but live a few years longer." AlignmentInfo="Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment." SizeInfo="Tieflings are about the same size and build as humans. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Infernal." Darkvision="60" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Tieflings mature at the same rate as humans but live a few years longer." AlignmentInfo="Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment." SizeInfo="Tieflings are about the same size and build as humans. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="You can speak, read, and write Common and Infernal." Darkvision="60" Name="Tiefling" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
         <FeatureDataSet Name="Choices">
@@ -589,68 +234,7 @@
       </FeatureModel>
     </FeatureModelSet>
   </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Tortle " AgeInfo="Young tortles crawl for a few weeks after birth before learning to walk on two legs. They reach adulthood by the age of 15 and live an average of 50 years." AlignmentInfo="Tortles tend to lead orderly, ritualistic lives. They develop customs and routines, becoming more set in their ways as they age. Most are lawful good. A few can be selfish and greedy, tending more toward evil, but it's unusual for a tortle to shuck off order in favor of chaos." SizeInfo="Tortle adults stand 5 to 6 feet tall and average 450 pounds. Their shells account for roughly one-third of their weight. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="The Tortle Package" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Strength" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Claws" FeatureType="Trait" LevelAvailable="1" Details="Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike." ChoicesAllowed="0" />
-      <FeatureModel Name="Hold Breath" FeatureType="Trait" LevelAvailable="1" Details="You can hold your breath for up to 1 hour at a time. Tortles aren't natural swimmers, but they can remain underwater for some time before needing to come up for air." ChoicesAllowed="0" />
-      <FeatureModel Name="Natural Armor" FeatureType="Trait" LevelAvailable="1" Details="Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample protection, however; it gives you a base AC of 17 (your Dexterity modifier doesn't affect this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield's bonus as normal." ChoicesAllowed="0" />
-      <FeatureModel Name="Shell Defense" FeatureType="Trait" LevelAvailable="1" Details="You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell." ChoicesAllowed="0" />
-      <FeatureModel Name="Survival Instinct" FeatureType="Skill Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Survival" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Aquan" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Triton" AgeInfo="Tritons reach maturity around age 15 and can live up to 200 years." AlignmentInfo="Tritons tend toward lawful good. As guardians of the darkest reaches of the sea, their culture pushes them toward order and benevolence." SizeInfo="Tritons are slightly shorter than humans, averaging about 5 feet tall. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volos" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Amphibious" FeatureType="Trait" LevelAvailable="1" Details="You can breathe air and water" ChoicesAllowed="0" />
-      <FeatureModel Name="Control Air and Water" FeatureType="Trait" LevelAvailable="1" Details=" A child of the sea, you can call on the magic of elemental air and water. You can cast Fog Cloud with this trait. Starting at 3rd level, you can cast Gust of Wind with it, and starting at 5th level, you can also cast Wall of Water with it. Once you cast a spell with this trait, you can’t cast that spell with it again until you finish a long rest. Charisma is your spellcasting ability for these spells" ChoicesAllowed="0" />
-      <FeatureModel Name="Emissary of the Sea" FeatureType="Trait" LevelAvailable="1" Details="Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return." ChoicesAllowed="0" />
-      <FeatureModel Name="Fog Cloud" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Fog Cloud" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Guardians of the Depths" FeatureType="Trait" LevelAvailable="1" Details="Adapted to even the most extreme ocean depths, you have resistance to cold damage." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Primordial" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Gust of Wind" FeatureType="Extra Known Spells - Set" LevelAvailable="3" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Gust of Wind" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Wall of Water" FeatureType="Extra Known Spells - Set" LevelAvailable="5" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Wall of Water" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Variant Human" AgeInfo="Humans reach adulthood in their late teens and live less than a century." AlignmentInfo=" Humans tend toward no particular alignment. The best and the worst are found among them." SizeInfo="Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." Size="" FeatsGranted="1" BaseSpeed="30" Languages="You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." Darkvision="0" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
+  <PlayerRaceModel AgeInfo="Humans reach adulthood in their late teens and live less than a century." AlignmentInfo=" Humans tend toward no particular alignment. The best and the worst are found among them." SizeInfo="Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium." Size="" FeatsGranted="1" BaseSpeed="30" Languages="You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on." Darkvision="0" Name="Variant Human" IsValidated="True" Sourcebook="Basic Rules" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
     <FeatureModelSet Name="Features">
       <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Choice" LevelAvailable="1" Details="" ChoicesAllowed="2">
         <FeatureDataSet Name="Choices">
@@ -685,138 +269,6 @@
         </FeatureDataSet>
       </FeatureModel>
       <FeatureModel Name="Feat" FeatureType="Additional Feat" LevelAvailable="1" Details="" ChoicesAllowed="1" />
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Vedalken" AgeInfo="Vedalken mature slower than humans do. reaching maturity around age 40. Their life span is typically 350 years, with some living to the age of 500." AlignmentInfo="Vedalken are usually lawful and non-evil." SizeInfo="Tall and slender, Vedalken stand around 6 to 6½ feet tall. They usually weigh around 200Ibs(90kg).They are medium creatures." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Guildmasters' Guide to Ravnica" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Increase" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Intelligence" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Vedalken Dispassion" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on all Intelligence, Wisdom, and Charisma Saving Throws." ChoicesAllowed="0" />
-      <FeatureModel Name="Tireless Precision" FeatureType="Trait" LevelAvailable="1" Details="You are proficient in one of the following skills of your choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. You are also proficient with one tool of your choice. Whenever you make an ability check with the chosen skill or tool, roll a d4 and add the number rolled to the check's total." ChoicesAllowed="0" />
-      <FeatureModel Name="Tireless Precision (Skill)" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Arcana" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="History" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Investigation" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Medicine" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Performance" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Sleight of Hand" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Tireless Precision (Tool)" FeatureType="Tool Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Artisan Tools]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Other Tools]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Partially Amphibious" FeatureType="Trait" LevelAvailable="1" Details="By absorbing oxygen through your skin, you can breathe underwater for up to 1 hour. Once you've reached that limit, you can't use this trait again until you finish a long rest." ChoicesAllowed="0" />
-      <FeatureModel Name="Set Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Vedalken" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Choice Languages" FeatureType="Language Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Exotic Languages]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Standard Languages]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Warforged" AgeInfo="A typical warforged is between two and thirty years old. The maximum lifespan of the warforged remains a mystery; so far, warforged have shown no signs of deterioration due to age. You are immune to magical aging effects." AlignmentInfo="Most warforged take comfort in order and discipline, tending toward law and neutrality. But some have absorbed the morality – or lack thereof – of the beings with which they served." SizeInfo="Your size is Medium. To set your height and weight randomly, start with rolling a size modifier.&#xD;&#xA;Size modifier = 2d6&#xD;&#xA;Height = 5 feet + 10 inches + your size modifier in inches&#xD;&#xA;Weight in pounds = 270 + (4 x your size modifier)" Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="0" Sourcebook="Eberron - Rising from the Last War" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Constitution" Description="" Quantity="2" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Charisma" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Constitution" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Dexterity" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Intelligence" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Strength" Description="" Quantity="1" Form="2" />
-          <FeatureData Name="Wisdom" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Constructed Resilience" FeatureType="Trait" LevelAvailable="1" Details="You were created to have remarkable fortitude, represented by the following benefits:&#xD;&#xA;You have advantage on saving throws against being poisoned, and you have resistance to poison damage.&#xD;&#xA;You don’t need to eat, drink, or breathe.&#xD;&#xA;You are immune to disease.&#xD;&#xA;You don't need to sleep, and magic can't put you to sleep." ChoicesAllowed="0" />
-      <FeatureModel Name="Sentry's Rest" FeatureType="Trait" LevelAvailable="1" Details="When you take a long rest, you must spend at least six hours in an inactive, motionless state, rather than sleeping. In this state, you appear inert, but it doesn’t render you unconscious, and you can see and hear as normal." ChoicesAllowed="0" />
-      <FeatureModel Name="Integrated Protection" FeatureType="Trait" LevelAvailable="1" Details="Your body has built-in defensive layers, which can be enhanced with armor.&#xD;&#xA;You gain a +1 bonus to Armor Class.&#xD;&#xA;You can don only armor with which you have proficiency. To don armor, you must incorporate it into your body over the course of 1 hour, during which you must remain in contact with the armor. To doff armor, you must spend 1 hour removing it. You can rest while donning or doffing armor in this way.&#xD;&#xA;While you live, your armor can't be removed from your body against your will." ChoicesAllowed="0" />
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages  Choice" FeatureType="Language Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Exotic Languages]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Standard Languages]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Specialized Design" FeatureType="Skill Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Acrobatics" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Animal Handling" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Arcana" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Athletics" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Deception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="History" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Insight" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Intimidation" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Investigation" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Medicine" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Nature" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Perception" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Performance" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Persuasion" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Religion" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Sleight of Hand" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Stealth" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Survival" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Specialized Design Tool" FeatureType="Tool Proficiencies - Choice" LevelAvailable="1" Details="" ChoicesAllowed="1">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="[Artisan Tools]" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="[Other Tools]" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-    </FeatureModelSet>
-  </PlayerRaceModel>
-  <PlayerRaceModel IsValidated="True" Name="Yuan-Ti Pureblood" AgeInfo="Purebloods mature at the same rate as humans and have lifespans similar in length to theirs." AlignmentInfo="Purebloods are devoid of emotion and see others as tools to manipulate. They care little for law or chaos and are typically neutral evil." SizeInfo="Purebloods match humans in average size and weight. Your size is Medium." Size="Medium" FeatsGranted="0" BaseSpeed="30" Languages="" Darkvision="60" Sourcebook="Volo's Guide to Monsters" HasSpellcasting="False" SpellcastingAbility="" SpellsKnownPerLevelType="" MulticlassingSlots="1/1" CanCastRituals="False">
-    <FeatureModelSet Name="Features">
-      <FeatureModel Name="Ability Score Improvement" FeatureType="Stat Bonuses - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Charisma" Description="" Quantity="2" Form="2" />
-          <FeatureData Name="Intelligence" Description="" Quantity="1" Form="2" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Innate Spellcasting" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Animal Friendship" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Poison Spray" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Innate Spellcasting" FeatureType="Extra Known Spells - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Suggestion" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Languages" FeatureType="Language Proficiencies - Set" LevelAvailable="1" Details="" ChoicesAllowed="0">
-        <FeatureDataSet Name="Choices">
-          <FeatureData Name="Abyssal" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Common" Description="" Quantity="0" Form="0" />
-          <FeatureData Name="Draconic" Description="" Quantity="0" Form="0" />
-        </FeatureDataSet>
-      </FeatureModel>
-      <FeatureModel Name="Magic Resistance" FeatureType="Trait" LevelAvailable="1" Details="You have advantage on saving throws against spells and other magical effects." ChoicesAllowed="0" />
-      <FeatureModel Name="Poison Immunity" FeatureType="Trait" LevelAvailable="1" Details="You are immune to poison damage and the poisoned condition." ChoicesAllowed="0" />
     </FeatureModelSet>
   </PlayerRaceModel>
 </PlayerRaceModelSet>

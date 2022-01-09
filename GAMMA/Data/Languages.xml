@@ -1,26 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageModelSet Name="">
-  <LanguageModel IsValidated="True" Name="Aarakocra " Type="Exotic" Sourcebook="Elemental Evil Player's Compendium" TypicalSpeakers="Aarakocra " Script="Aarakocra " Dialects="" />
-  <LanguageModel IsValidated="True" Name="Abyssal" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Demons" Script="Infernal" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Aquan" Type="" Sourcebook="" TypicalSpeakers="Aquatic elves, hadozee, merfolk, tritons, water genasi" Script="" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Auran" Type="Exotic" Sourcebook="" TypicalSpeakers="air elementals" Script="" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Celestial" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Celestials" Script="Celestial" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Common" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Humans" Script="Common" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Deep Speech" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Aboleths, cloakers" Script="" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Draconic" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Dragons, dragonborn" Script="Draconic" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Dwarvish" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Dwarves" Script="Dwarvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Elvish" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Elves" Script="Elvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Giant" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Ogres, giants" Script="Dwarvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Gith" Type="Exotic" Sourcebook="Mordenkainen's Tome of Foes" TypicalSpeakers="Gith" Script="Gith" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Gnomish" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Gnomes" Script="Dwarvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Goblin" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Goblinoids" Script="Dwarvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Halfling" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Halflings" Script="Common" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Infernal" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Devils" Script="Infernal" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Minotaur" Type="" Sourcebook="" TypicalSpeakers="" Script="" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Orc" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Orcs" Script="Dwarvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Primordial" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Elementals" Script="Dwarvish" Dialects="Aquan, Auran, Terran, Ingnan" />
-  <LanguageModel IsValidated="True" Name="Quori " Type="" Sourcebook="Eberron - Rising from the Last War" TypicalSpeakers="Inspired Kalashtar, Quori" Script="" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Sylvan" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Fey creatures" Script="Elvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Undercommon" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Underworld traders" Script="Elvish" Dialects="" />
-  <LanguageModel IsValidated="True" Name="Vedalken" Type="Exotic" Sourcebook="Guildmasters' Guide to Ravnica" TypicalSpeakers="Vedalken" Script="" Dialects="" />
+  <LanguageModel Name="Abyssal" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Demons" Script="Infernal" Dialects="" />
+  <LanguageModel Name="Celestial" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Celestials" Script="Celestial" Dialects="" />
+  <LanguageModel Name="Common" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Humans" Script="Common" Dialects="" />
+  <LanguageModel Name="Deep Speech" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Aboleths, cloakers" Script="" Dialects="" />
+  <LanguageModel Name="Draconic" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Dragons, dragonborn" Script="Draconic" Dialects="" />
+  <LanguageModel Name="Dwarvish" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Dwarves" Script="Dwarvish" Dialects="" />
+  <LanguageModel Name="Elvish" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Elves" Script="Elvish" Dialects="" />
+  <LanguageModel Name="Giant" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Ogres, giants" Script="Dwarvish" Dialects="" />
+  <LanguageModel Name="Gnomish" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Gnomes" Script="Dwarvish" Dialects="" />
+  <LanguageModel Name="Goblin" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Goblinoids" Script="Dwarvish" Dialects="" />
+  <LanguageModel Name="Halfling" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Halflings" Script="Common" Dialects="" />
+  <LanguageModel Name="Infernal" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Devils" Script="Infernal" Dialects="" />
+  <LanguageModel Name="Orc" IsValidated="True" Type="Standard" Sourcebook="Basic Rules" TypicalSpeakers="Orcs" Script="Dwarvish" Dialects="" />
+  <LanguageModel Name="Primordial" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Elementals" Script="Dwarvish" Dialects="Aquan, Auran, Terran, Ingnan" />
+  <LanguageModel Name="Sylvan" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Fey creatures" Script="Elvish" Dialects="" />
+  <LanguageModel Name="Undercommon" IsValidated="True" Type="Exotic" Sourcebook="Basic Rules" TypicalSpeakers="Underworld traders" Script="Elvish" Dialects="" />
 </LanguageModelSet>

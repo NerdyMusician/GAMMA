@@ -3,361 +3,361 @@
   <ShopModel Name="Apothecary" Icon="Icon_Potion">
     <BoolOptionSet Name="ItemTypes">
       <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
-      <BoolOption Marked="True" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Armorsmith" Icon="Icon_Anvil">
+  <ShopModel Icon="Icon_Anvil" Name="Armorsmith">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Curator" Icon="Icon_Spell">
+  <ShopModel Icon="Icon_Spell" Name="Curator">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="True" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Fletcher" Icon="Icon_Crossbow">
+  <ShopModel Icon="Icon_Crossbow" Name="Fletcher">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="General Goods" Icon="Icon_Pack">
+  <ShopModel Icon="Icon_Pack" Name="General Goods">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="True" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Grocer" Icon="Icon_Food">
+  <ShopModel Icon="Icon_Food" Name="Grocer">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Jeweler" Icon="Icon_Ring">
+  <ShopModel Icon="Icon_Ring" Name="Jeweler">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Tavern" Icon="Icon_Potion">
+  <ShopModel Icon="Icon_Potion" Name="Tavern">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
-  <ShopModel Name="Weaponsmith" Icon="Icon_Sword">
+  <ShopModel Icon="Icon_Sword" Name="Weaponsmith">
     <BoolOptionSet Name="ItemTypes">
-      <BoolOption Marked="False" Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Alcohol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ammunition" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Art" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Book" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Clothing" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Fish" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Gemstone" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Ingredient" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Instrument" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Jewelry" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Key" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Light Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Other" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Poison" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Potion" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Resource" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Rune" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Scroll" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Shield" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="True" Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Tool" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Treasure" Description="" Quantity="0" ChoiceSet="" />
-      <BoolOption Marked="False" Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" />
+      <BoolOption Name="Adventuring Gear" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Alcohol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ammunition" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Arcane Focus" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Art" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Artisan Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Book" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Clothing" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Fish" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Firearms Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Food &amp; Drink" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gaming Set" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Gemstone" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Heavy Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Holy Symbol" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Ingredient" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Instrument" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Jewelry" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Key" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Light Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Magic Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Martial Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Martial Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Medium Armor" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Other" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Poison" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Potion" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Resource" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Rune" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Scroll" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Shield" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Simple Melee Weapon" Description="" Quantity="0" ChoiceSet="" Marked="True" />
+      <BoolOption Name="Simple Ranged Weapon" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Tool" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Treasure" Description="" Quantity="0" ChoiceSet="" Marked="False" />
+      <BoolOption Name="Wondrous Item" Description="" Quantity="0" ChoiceSet="" Marked="False" />
     </BoolOptionSet>
   </ShopModel>
 </ShopModelSet>
