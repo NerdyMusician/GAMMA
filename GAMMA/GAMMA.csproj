@@ -1,19 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F7CD173-01BB-4EE5-A676-3EF7B62300C0}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GAMMA</RootNamespace>
-    <AssemblyName>GAMMA</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\Panda\Desktop\Test\</PublishUrl>
     <Install>true</Install>
@@ -31,32 +19,13 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>gammabluewash.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -76,343 +45,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero2" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="CustomControls\CreatureInfoCard.xaml.cs">
-      <DependentUpon>CreatureInfoCard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\TextBlocks.cs" />
-    <Compile Include="CustomControls\GammaTextBox.cs" />
-    <Compile Include="CustomControls\GammaComboBox.cs" />
-    <Compile Include="Models\AudioCollectionModel.cs" />
-    <Compile Include="Models\CharacterAlterant.cs" />
-    <Compile Include="Models\CharacterAttributeSet.cs" />
-    <Compile Include="Models\CounterModel.cs" />
-    <Compile Include="Models\CharacterModel.cs" />
-    <Compile Include="Models\AudioFileModel.cs" />
-    <Compile Include="Models\EldritchInvocation.cs" />
-    <Compile Include="Models\FeatureModel.cs" />
-    <Compile Include="Models\GameAudio.cs" />
-    <Compile Include="Models\GameCalendar.cs" />
-    <Compile Include="Models\GameCampaign.cs" />
-    <Compile Include="Models\GameMessage.cs" />
-    <Compile Include="Models\GameplayComponents\CACondition.cs" />
-    <Compile Include="Models\GameplayComponents\CAPostAction.cs" />
-    <Compile Include="Models\GameplayComponents\CAPreAction.cs" />
-    <Compile Include="Models\GameplayComponents\CAVariable.cs" />
-    <Compile Include="Models\GameplayComponents\CustomAbility.cs" />
-    <Compile Include="Models\ItemLink.cs" />
-    <Compile Include="Models\CreaturePackModel.cs" />
-    <Compile Include="Models\CustomDiceModel.cs" />
-    <Compile Include="Models\EntityModel.cs" />
-    <Compile Include="Models\HitDiceSet.cs" />
-    <Compile Include="Models\InventoryModel.cs" />
-    <Compile Include="Models\LanguageModel.cs" />
-    <Compile Include="Models\LootBoxModel.cs" />
-    <Compile Include="Models\NotebookModel.cs" />
-    <Compile Include="Models\NoteModel.cs" />
-    <Compile Include="Models\NoteType.cs" />
-    <Compile Include="Models\NpcModel.cs" />
-    <Compile Include="Models\PackCreatureModel.cs" />
-    <Compile Include="Models\PlayerBackgroundModel.cs" />
-    <Compile Include="Models\PlayerBuildingBlock.cs" />
-    <Compile Include="Models\PlayerClassLinkModel.cs" />
-    <Compile Include="Models\PlayerClassModel.cs" />
-    <Compile Include="Models\PlayerFeatModel.cs" />
-    <Compile Include="Models\PlayerRaceModel.cs" />
-    <Compile Include="Models\PlayerSubclassModel.cs" />
-    <Compile Include="Models\PlayerSubraceModel.cs" />
-    <Compile Include="Models\RollTableModel.cs" />
-    <Compile Include="Models\RollTableRowModel.cs" />
-    <Compile Include="Models\ShopModel.cs" />
-    <Compile Include="Models\ChoiceSet.cs" />
-    <Compile Include="Models\Sourcebook.cs" />
-    <Compile Include="Models\SpellLink.cs" />
-    <Compile Include="Models\SpellModel.cs" />
-    <Compile Include="Models\GameCharacterSelection.cs" />
-    <Compile Include="Models\SpellTableRowModel.cs" />
-    <Compile Include="Models\Timestamp.cs" />
-    <Compile Include="Models\TraitModel.cs" />
-    <Compile Include="Models\Weather.cs" />
-    <Compile Include="Models\WeatherRow.cs" />
-    <Compile Include="Models\WebActionModel.cs" />
-    <Compile Include="Toolbox\DataImport.cs" />
-    <Compile Include="Toolbox\ExtensionMethods.cs" />
-    <Compile Include="Toolbox\HelperClasses.cs" />
-    <Compile Include="Toolbox\HelperMethods.cs" />
-    <Compile Include="ViewModels\AudioViewModel.cs" />
-    <Compile Include="ViewModels\CampaignBuilderViewModel.cs" />
-    <Compile Include="ViewModels\CharacterBuilderViewModel.cs" />
-    <Compile Include="ViewModels\MultiObjectSelectionViewModel.cs" />
-    <Compile Include="ViewModels\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\ShopViewModel.cs" />
-    <Compile Include="ViewModels\SpellBuilderViewModel.cs" />
-    <Compile Include="ViewModels\ToolsViewModel.cs" />
-    <Compile Include="Windows\AbilityOptionSelection.xaml.cs">
-      <DependentUpon>AbilityOptionSelection.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CharacterCreatorDialog.xaml.cs">
-      <DependentUpon>CharacterCreatorDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CurrencyDialog.xaml.cs">
-      <DependentUpon>CurrencyDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\EncounterMultiTargetDialog.xaml.cs">
-      <DependentUpon>EncounterMultiTargetDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ImprovCreatureDialog.xaml.cs">
-      <DependentUpon>ImprovCreatureDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ItemTransfer.xaml.cs">
-      <DependentUpon>ItemTransfer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\MultiObjectSelectionDialog.xaml.cs">
-      <DependentUpon>MultiObjectSelectionDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\NoteSearchDialog.xaml.cs">
-      <DependentUpon>NoteSearchDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\NotificationDialog.xaml.cs">
-      <DependentUpon>NotificationDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\NumberInputDialog.xaml.cs">
-      <DependentUpon>NumberInputDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ObjectSelectionDialog.xaml.cs">
-      <DependentUpon>ObjectSelectionDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\QAPrompt.xaml.cs">
-      <DependentUpon>QAPrompt.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ShopWindow.xaml.cs">
-      <DependentUpon>ShopWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\TextDumpDialog.xaml.cs">
-      <DependentUpon>TextDumpDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ValuePrompt.xaml.cs">
-      <DependentUpon>ValuePrompt.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\YesNoDialog.xaml.cs">
-      <DependentUpon>YesNoDialog.xaml</DependentUpon>
-    </Compile>
-    <Page Include="CustomControls\CreatureInfoCard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Base.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Borders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Buttons.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Checkboxes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ContextMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Images.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ListViews.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\MenuItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Rectangles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ScrollBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\SearchableDropdowns.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TabItems.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TextBlocks.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TextBoxes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TreeViewItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AbilityOptionSelection.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CharacterCreatorDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CurrencyDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\EncounterMultiTargetDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ImprovCreatureDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ItemTransfer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CustomControls\ImageButton.cs" />
-    <Compile Include="CustomControls\SearchableDropdown.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\CreatureModel.cs" />
-    <Compile Include="Models\ItemModel.cs" />
-    <Compile Include="Toolbox\Configuration.cs" />
-    <Compile Include="Toolbox\Converters.cs" />
-    <Compile Include="Toolbox\CustomAttributes.cs" />
-    <Compile Include="Toolbox\DataTemplateSelector.cs" />
-    <Compile Include="Toolbox\RelayCommand.cs" />
-    <Compile Include="Toolbox\XmlMethods.cs" />
-    <Compile Include="ViewModels\CreatureBuilderViewModel.cs" />
-    <Compile Include="ViewModels\ItemBuilderViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Windows\MultiObjectSelectionDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\NoteSearchDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\NotificationDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\NumberInputDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ObjectSelectionDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\QAPrompt.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ShopWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\TextDumpDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ValuePrompt.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\YesNoDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <None Include="Change.log">
+    <None Update="Change.log">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Directory.Build.props" />
     <None Include="GAMMA 1.27.00 User Manual.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -446,13 +87,13 @@
     <Resource Include="Images\Icons\warning.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\Creatures.xml">
+    <None Update="Data\Creatures.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Items.xml">
+    <None Update="Data\Items.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Spells.xml">
+    <None Update="Data\Spells.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\tree.png" />
@@ -460,7 +101,7 @@
     <Resource Include="Images\Icons\clock.png" />
     <Resource Include="Images\Icons\heart.png" />
     <Resource Include="Images\Icons\heart_pink.png" />
-    <None Include="Data\Characters.xml">
+    <None Update="Data\Characters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\hitdice.png" />
@@ -515,7 +156,7 @@
     <Resource Include="Images\Icons\silvercoin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Audio\System\DiceRoll.mp3">
+    <None Update="Audio\System\DiceRoll.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -568,7 +209,7 @@
     <Resource Include="Images\Icons\tag_dv.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\LootBoxes.xml">
+    <None Update="Data\LootBoxes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -640,7 +281,7 @@
     <Resource Include="Images\Icons\minus.png" />
     <Resource Include="Images\Icons\gear.png" />
     <Resource Include="Images\Icons\letter_s.png" />
-    <None Include="Data\RollTables.xml">
+    <None Update="Data\RollTables.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\dm_table.png" />
@@ -652,17 +293,17 @@
     <Resource Include="Images\Icons\key_copper.png" />
     <Resource Include="Images\Icons\key_gold.png" />
     <Resource Include="Images\Icons\key_silver.png" />
-    <None Include="Audio\System\ShopItemMove.wav">
+    <None Update="Audio\System\ShopItemMove.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Audio\System\ShopFarewell.mp3">
+    <None Update="Audio\System\ShopFarewell.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Audio\System\ShopGreeting.mp3">
+    <None Update="Audio\System\ShopGreeting.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\gamepad.png" />
-    <None Include="Data\Settings.xml">
+    <None Update="Data\Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\hex.png" />
@@ -678,23 +319,23 @@
     <Resource Include="Images\Icons\creaturepack.png" />
     <Resource Include="Images\Icons\booze.png" />
     <Resource Include="Images\Icons\foodstuff.png" />
-    <None Include="Data\PlayerClasses.xml">
+    <None Update="Data\PlayerClasses.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\PlayerSubclasses.xml">
+    <None Update="Data\PlayerSubclasses.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\calculator.png" />
     <Resource Include="Images\Icons\ale.png" />
     <Resource Include="Images\Icons\liquid.png" />
     <Resource Include="Images\Icons\fishing.png" />
-    <None Include="Data\PlayerRaces.xml">
+    <None Update="Data\PlayerRaces.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\PlayerSubraces.xml">
+    <None Update="Data\PlayerSubraces.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\PlayerBackgrounds.xml">
+    <None Update="Data\PlayerBackgrounds.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\crossbow.png" />
@@ -707,10 +348,10 @@
     <Resource Include="Images\Icons\matchround.png" />
     <Resource Include="Images\Icons\user_next.png" />
     <Resource Include="Images\Icons\user_previous.png" />
-    <None Include="Data\PlayerFeats.xml">
+    <None Update="Data\PlayerFeats.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Languages.xml">
+    <None Update="Data\Languages.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\coins_add.png" />
@@ -718,7 +359,7 @@
     <Resource Include="Images\Icons\transfer.png" />
     <Resource Include="Images\Icons\poison_b.png" />
     <Resource Include="Images\Icons\potion_b.png" />
-    <None Include="Data\Shops.xml">
+    <None Update="Data\Shops.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\art.png" />
@@ -732,7 +373,7 @@
     <Resource Include="Images\Icons\patreon.png" />
     <Resource Include="Images\Icons\fall.png" />
     <Resource Include="Images\Icons\paintbrush.png" />
-    <None Include="Data\EldritchInvocations.xml">
+    <None Update="Data\EldritchInvocations.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\checkmark_green.png" />
@@ -771,13 +412,13 @@
     <Resource Include="Images\Icons\rpg_magic_weapon.png" />
     <Resource Include="Images\Icons\rpg_note.png" />
     <Resource Include="Images\Icons\rpg_plant.png" />
-    <None Include="Data\Campaigns.xml">
+    <None Update="Data\Campaigns.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Weathers.xml">
+    <None Update="Data\Weathers.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Calendars.xml">
+    <None Update="Data\Calendars.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\puzzle.png" />
@@ -792,28 +433,33 @@
     <Resource Include="Images\Icons\orb_green.png" />
     <Resource Include="Images\Icons\unlinked.png" />
     <Resource Include="Images\Icons\workflow.png" />
-    <None Include="Data\Sourcebooks.xml">
+    <None Update="Data\Sourcebooks.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Audio\System\MenuSelect.wav">
+    <None Update="Audio\System\MenuSelect.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Images\Icons\sync.png" />
-    <None Include="Data\NoteTypes.xml">
+    <None Update="Data\NoteTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="ChangeRequests.txt" />
-    <Content Include="WebDriver\chromedriver.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WebDriver\Google Chrome.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.261602">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.5" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Styles\BaseStyle.xaml" />
+  </ItemGroup>
+  <PropertyGroup />
 </Project>
