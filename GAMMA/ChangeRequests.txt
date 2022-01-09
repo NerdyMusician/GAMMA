@@ -1,8 +1,0 @@
-﻿- Haggling / custom buy/sell percentages
-  > persuasion / intimation roll?
-- Post action execution quantity override (flurry of blows, 1 ki point for two unarmed strikes)
-  > Execute another ability as part of one ability?
-- Ready Action prompt and setting
-  > I mean, does anyone really *use* ready action currently?
-- NPC/Player/Enemy/Ally color tabs for Gameplay combatant tiles
-  > how much does it really help versus just the name sorted list?
