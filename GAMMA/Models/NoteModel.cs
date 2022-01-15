@@ -329,7 +329,7 @@ namespace GAMMA.Models
         {
             try
             {
-                System.Diagnostics.Process.Start("explorer", Environment.CurrentDirectory + "/NoteAttachments/" + AttachmentFileName);
+                System.Diagnostics.Process.Start("explorer", Environment.CurrentDirectory + "\\NoteAttachments\\" + AttachmentFileName);
             }
             catch (Exception e)
             {
