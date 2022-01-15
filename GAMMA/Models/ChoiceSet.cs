@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Source
         {
-            get
-            {
-                return _Source;
-            }
-            set
-            {
-                _Source = value;
-                NotifyPropertyChanged();
-            }
+            get => _Source;
+            set => SetAndNotify(ref _Source, value);
         }
         #endregion
         #region ChoiceRestricted
@@ -36,15 +29,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool ChoiceRestricted
         {
-            get
-            {
-                return _ChoiceRestricted;
-            }
-            set
-            {
-                _ChoiceRestricted = value;
-                NotifyPropertyChanged();
-            }
+            get => _ChoiceRestricted;
+            set => SetAndNotify(ref _ChoiceRestricted, value);
         }
         #endregion
         #region ChoicesRemaining
@@ -52,15 +38,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ChoicesRemaining
         {
-            get
-            {
-                return _ChoicesRemaining;
-            }
-            set
-            {
-                _ChoicesRemaining = value;
-                NotifyPropertyChanged();
-            }
+            get => _ChoicesRemaining;
+            set => SetAndNotify(ref _ChoicesRemaining, value);
         }
         #endregion
         #region MaxChoices
@@ -68,15 +47,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int MaxChoices
         {
-            get
-            {
-                return _MaxChoices;
-            }
-            set
-            {
-                _MaxChoices = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxChoices;
+            set => SetAndNotify(ref _MaxChoices, value);
         }
         #endregion
         #region Choices
@@ -84,15 +56,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<BoolOption> Choices
         {
-            get
-            {
-                return _Choices;
-            }
-            set
-            {
-                _Choices = value;
-                NotifyPropertyChanged();
-            }
+            get => _Choices;
+            set => SetAndNotify(ref _Choices, value);
         }
         #endregion
 

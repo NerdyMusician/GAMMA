@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GAMMA.Toolbox;
+using System;
 
 namespace GAMMA.Models
 {
@@ -261,6 +262,170 @@ namespace GAMMA.Models
                 _Exhaustion_Tooltip = value;
                 NotifyPropertyChanged();
             }
+        }
+        #endregion
+
+        // Spellcasting
+        #region L1SpellsAvailable
+        private int _L1SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L1SpellsAvailable
+        {
+            get => _L1SpellsAvailable;
+            set => SetAndNotify(ref _L1SpellsAvailable, value);
+        }
+        #endregion
+        #region L1SpellsMax
+        private int _L1SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L1SpellsMax
+        {
+            get => _L1SpellsMax;
+            set => SetAndNotify(ref _L1SpellsMax, value);
+        }
+        #endregion
+        #region L2SpellsAvailable
+        private int _L2SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L2SpellsAvailable
+        {
+            get => _L2SpellsAvailable;
+            set => SetAndNotify(ref _L2SpellsAvailable, value);
+        }
+        #endregion
+        #region L2SpellsMax
+        private int _L2SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L2SpellsMax
+        {
+            get => _L2SpellsMax;
+            set => SetAndNotify(ref _L2SpellsMax, value);
+        }
+        #endregion
+        #region L3SpellsAvailable
+        private int _L3SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L3SpellsAvailable
+        {
+            get => _L3SpellsAvailable;
+            set => SetAndNotify(ref _L3SpellsAvailable, value);
+        }
+        #endregion
+        #region L3SpellsMax
+        private int _L3SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L3SpellsMax
+        {
+            get => _L3SpellsMax;
+            set => SetAndNotify(ref _L3SpellsMax, value);
+        }
+        #endregion
+        #region L4SpellsAvailable
+        private int _L4SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L4SpellsAvailable
+        {
+            get => _L4SpellsAvailable;
+            set => SetAndNotify(ref _L4SpellsAvailable, value);
+        }
+        #endregion
+        #region L4SpellsMax
+        private int _L4SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L4SpellsMax
+        {
+            get => _L4SpellsMax;
+            set => SetAndNotify(ref _L4SpellsMax, value);
+        }
+        #endregion
+        #region L5SpellsAvailable
+        private int _L5SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L5SpellsAvailable
+        {
+            get => _L5SpellsAvailable;
+            set => SetAndNotify(ref _L5SpellsAvailable, value);
+        }
+        #endregion
+        #region L5SpellsMax
+        private int _L5SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L5SpellsMax
+        {
+            get => _L5SpellsMax;
+            set => SetAndNotify(ref _L5SpellsMax, value);
+        }
+        #endregion
+        #region L6SpellsAvailable
+        private int _L6SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L6SpellsAvailable
+        {
+            get => _L6SpellsAvailable;
+            set => SetAndNotify(ref _L6SpellsAvailable, value);
+        }
+        #endregion
+        #region L6SpellsMax
+        private int _L6SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L6SpellsMax
+        {
+            get => _L6SpellsMax;
+            set => SetAndNotify(ref _L6SpellsMax, value);
+        }
+        #endregion
+        #region L7SpellsAvailable
+        private int _L7SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L7SpellsAvailable
+        {
+            get => _L7SpellsAvailable;
+            set => SetAndNotify(ref _L7SpellsAvailable, value);
+        }
+        #endregion
+        #region L7SpellsMax
+        private int _L7SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L7SpellsMax
+        {
+            get => _L7SpellsMax;
+            set => SetAndNotify(ref _L7SpellsMax, value);
+        }
+        #endregion
+        #region L8SpellsAvailable
+        private int _L8SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L8SpellsAvailable
+        {
+            get => _L8SpellsAvailable;
+            set => SetAndNotify(ref _L8SpellsAvailable, value);
+        }
+        #endregion
+        #region L8SpellsMax
+        private int _L8SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L8SpellsMax
+        {
+            get => _L8SpellsMax;
+            set => SetAndNotify(ref _L8SpellsMax, value);
+        }
+        #endregion
+        #region L9SpellsAvailable
+        private int _L9SpellsAvailable;
+        [XmlSaveMode(XSME.Single)]
+        public int L9SpellsAvailable
+        {
+            get => _L9SpellsAvailable;
+            set => SetAndNotify(ref _L9SpellsAvailable, value);
+        }
+        #endregion
+        #region L9SpellsMax
+        private int _L9SpellsMax;
+        [XmlSaveMode(XSME.Single)]
+        public int L9SpellsMax
+        {
+            get => _L9SpellsMax;
+            set => SetAndNotify(ref _L9SpellsMax, value);
         }
         #endregion
 

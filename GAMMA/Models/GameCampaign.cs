@@ -1272,7 +1272,7 @@ namespace GAMMA.Models
                 message += "\n" + item.Value + " x " + item.Key;
             }
 
-            if (totalGoldDrop == 0 && totalSilverDrop == 0 && totalCopperDrop == 0 && lootedItems.Count() == 0) { message = "No loot found."; }
+            if (totalGoldDrop == 0 && totalSilverDrop == 0 && totalCopperDrop == 0 && lootedItems.Count == 0) { message = "No loot found."; }
 
             if (Configuration.MainModelRef.SettingsView.UseExperiencePoints) { message += "\n" + totalXp + " experience points gained."; }
 
@@ -1306,7 +1306,7 @@ namespace GAMMA.Models
             EncounterMultiTargetDialog targetDialog = new(Combatants.Where(creature => creature.IsPlayer == false && creature.IsOoc == false && creature.CurrentHitPoints > 0).ToList());
             if (targetDialog.ShowDialog() == true)
             {
-                if (targetDialog.SelectedCreatures.Count() <= 0) { return; }
+                if (targetDialog.SelectedCreatures.Count <= 0) { return; }
                 string message = "Multiple creatures made a saving throw.";
                 message += "\nSave Ability: " + targetDialog.SaveAbility;
                 message += "\nSave Difficulty: " + targetDialog.SaveDifficulty;
@@ -1503,7 +1503,7 @@ namespace GAMMA.Models
                         {
                             indexOfNext = (activeCreature == lastCreature) ? 0 : Combatants.IndexOf(activeCreature) + 1;
                         }
-                        if (indexOfNext >= Combatants.Count()) { indexOfNext = 0; }
+                        if (indexOfNext >= Combatants.Count) { indexOfNext = 0; }
                         if (indexOfNext == 0) { EncounterRound++; }
                         if (Combatants[indexOfNext] == activeCreature) { return; } // if it makes a full round and finds nothing
                         if ((Combatants[indexOfNext].IsOoc || Combatants[indexOfNext].CurrentHitPoints <= 0) && Combatants[indexOfNext].IsPlayer == false) { indexOfNext++; }
@@ -1881,7 +1881,7 @@ namespace GAMMA.Models
         }
         public void SortCombatants()
         {
-            if (Combatants.Count() == 0) 
+            if (Combatants.Count == 0) 
             {
                 CombatantsByName = new();
                 CombatantsByIsNpc = new();
@@ -1906,8 +1906,8 @@ namespace GAMMA.Models
             GameCalendar linkedCalendar = Configuration.MainModelRef.ToolsView.Calendars.FirstOrDefault(c => c.Name == CalendarType);
             if (linkedCalendar == null) { return; }
 
-            long minutesPerYear = 60 * 24 * linkedCalendar.Days.Count() * linkedCalendar.WeeksPerMonth * linkedCalendar.Months.Count();
-            long minutesPerMonth = 60 * 24 * linkedCalendar.Days.Count() * linkedCalendar.WeeksPerMonth;
+            long minutesPerYear = 60 * 24 * linkedCalendar.Days.Count * linkedCalendar.WeeksPerMonth * linkedCalendar.Months.Count;
+            long minutesPerMonth = 60 * 24 * linkedCalendar.Days.Count * linkedCalendar.WeeksPerMonth;
             long minutesPerDay = 60 * 24; // 1440
             List<string> fullDayList = new();
             for (int i = 0; i < linkedCalendar.WeeksPerMonth; i++)

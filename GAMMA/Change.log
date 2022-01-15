@@ -6,6 +6,7 @@
 - CODE: VS recommendation CA1829, changed various instances of Enumberable.Count() to use Count property instead
 - CODE: Changed XmlSaveMode attribute parameter to enum vs string (and fixed two typo'd properties' attributes as a result)
 - CODE: Removed CharacterModel.ClassInfo, pre-1.26 property no longer used
+- CODE: Moved spell slot properties to EntityModel that CreatureModel and CharacterModel inherit from
 
 GAMMA 1.28.00
 - Added 'Contains' condition type for custom abilities
