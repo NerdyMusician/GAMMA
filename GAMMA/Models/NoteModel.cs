@@ -202,7 +202,7 @@ namespace GAMMA.Models
         }
         private void DoDeleteNote()
         {
-            if (this.SubNotes.Count() > 0)
+            if (this.SubNotes.Count > 0)
             {
                 YesNoDialog question = new("Are you sure you want to delete this note? All sub notes will also be deleted.");
                 question.ShowDialog();

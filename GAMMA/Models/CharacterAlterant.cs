@@ -21,15 +21,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Description
@@ -37,15 +30,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region IsActive
@@ -53,10 +39,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
-            get
-            {
-                return _IsActive;
-            }
+            get => _IsActive;
             set
             {
                 _IsActive = value;
@@ -69,10 +52,7 @@ namespace GAMMA.Models
         private bool _InEditMode;
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
+            get => _InEditMode;
             set
             {
                 _InEditMode = value;
@@ -86,15 +66,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<LabeledNumber> StatChanges
         {
-            get
-            {
-                return _StatChanges;
-            }
-            set
-            {
-                _StatChanges = value;
-                NotifyPropertyChanged();
-            }
+            get => _StatChanges;
+            set => SetAndNotify(ref _StatChanges, value);
         }
         #endregion
 
@@ -122,7 +95,7 @@ namespace GAMMA.Models
         #endregion
 
         // Private Methods
-        private void UpdateCharacterStats()
+        private static void UpdateCharacterStats()
         {
             if (Configuration.LoadComplete == false) { return; }
             if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter == null) { return; }

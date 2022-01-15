@@ -15,45 +15,24 @@ namespace GAMMA.Models
         private string _CollectionName;
         public string CollectionName
         {
-            get
-            {
-                return _CollectionName;
-            }
-            set
-            {
-                _CollectionName = value;
-                NotifyPropertyChanged();
-            }
+            get => _CollectionName;
+            set => SetAndNotify(ref _CollectionName, value);
         }
         #endregion
         #region AudioFiles
         private ObservableCollection<AudioFileModel> _AudioFiles;
         public ObservableCollection<AudioFileModel> AudioFiles
         {
-            get
-            {
-                return _AudioFiles;
-            }
-            set
-            {
-                _AudioFiles = value;
-                NotifyPropertyChanged();
-            }
+            get => _AudioFiles;
+            set => SetAndNotify(ref _AudioFiles, value);
         }
         #endregion
         #region IsExpanded
         private bool _IsExpanded;
         public bool IsExpanded
         {
-            get
-            {
-                return _IsExpanded;
-            }
-            set
-            {
-                _IsExpanded = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsExpanded;
+            set => SetAndNotify(ref _IsExpanded, value);
         }
         #endregion
 

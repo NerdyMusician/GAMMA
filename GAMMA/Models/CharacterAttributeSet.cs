@@ -19,15 +19,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region MaxPoints
@@ -35,30 +28,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int MaxPoints
         {
-            get
-            {
-                return _MaxPoints;
-            }
-            set
-            {
-                _MaxPoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxPoints;
+            set => SetAndNotify(ref _MaxPoints, value);
         }
         #endregion
         #region PointsRemaining
         private int _PointsRemaining;
         public int PointsRemaining
         {
-            get
-            {
-                return _PointsRemaining;
-            }
-            set
-            {
-                _PointsRemaining = value;
-                NotifyPropertyChanged();
-            }
+            get => _PointsRemaining;
+            set => SetAndNotify(ref _PointsRemaining, value);
         }
         #endregion
         #region Strength
@@ -66,15 +45,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Strength
         {
-            get
-            {
-                return _Strength;
-            }
-            set
-            {
-                _Strength = value;
-                NotifyPropertyChanged();
-            }
+            get => _Strength;
+            set => SetAndNotify(ref _Strength, value);
         }
         #endregion
         #region Dexterity
@@ -82,15 +54,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Dexterity
         {
-            get
-            {
-                return _Dexterity;
-            }
-            set
-            {
-                _Dexterity = value;
-                NotifyPropertyChanged();
-            }
+            get => _Dexterity;
+            set => SetAndNotify(ref _Dexterity, value);
         }
         #endregion
         #region Constitution
@@ -98,15 +63,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Constitution
         {
-            get
-            {
-                return _Constitution;
-            }
-            set
-            {
-                _Constitution = value;
-                NotifyPropertyChanged();
-            }
+            get => _Constitution;
+            set => SetAndNotify(ref _Constitution, value);
         }
         #endregion
         #region Intelligence
@@ -114,15 +72,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Intelligence
         {
-            get
-            {
-                return _Intelligence;
-            }
-            set
-            {
-                _Intelligence = value;
-                NotifyPropertyChanged();
-            }
+            get => _Intelligence;
+            set => SetAndNotify(ref _Intelligence, value);
         }
         #endregion
         #region Wisdom
@@ -130,15 +81,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Wisdom
         {
-            get
-            {
-                return _Wisdom;
-            }
-            set
-            {
-                _Wisdom = value;
-                NotifyPropertyChanged();
-            }
+            get => _Wisdom;
+            set => SetAndNotify(ref _Wisdom, value);
         }
         #endregion
         #region Charisma
@@ -146,32 +90,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Charisma
         {
-            get
-            {
-                return _Charisma;
-            }
-            set
-            {
-                _Charisma = value;
-                NotifyPropertyChanged();
-            }
+            get => _Charisma;
+            set => SetAndNotify(ref _Charisma, value);
         }
         #endregion
 
         // Commands
         #region ChangeAttribute
-        private RelayCommand _ChangeAttribute;
-        public ICommand ChangeAttribute
-        {
-            get
-            {
-                if (_ChangeAttribute == null)
-                {
-                    _ChangeAttribute = new RelayCommand(DoChangeAttribute);
-                }
-                return _ChangeAttribute;
-            }
-        }
+        public ICommand ChangeAttribute => new RelayCommand(DoChangeAttribute);
         private void DoChangeAttribute(object param)
         {
             if (param == null)
