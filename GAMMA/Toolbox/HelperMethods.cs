@@ -12,6 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace GAMMA.Toolbox
 {
@@ -131,7 +132,7 @@ namespace GAMMA.Toolbox
                         _ => null
                     };
                     if (webElements == null) { new NotificationDialog("Invalid or missing Target Element Handle for Web Action.").ShowDialog(); return; }
-                    if (webElements.Count() == 0) { new NotificationDialog("Invalid or missing Target Element Handle for Web Action.").ShowDialog(); return; }
+                    if (webElements.Count == 0) { new NotificationDialog("Invalid or missing Target Element Handle for Web Action.").ShowDialog(); return; }
                     IWebElement webElement = webElements[webAction.ElementMatchIteration];
                     switch (webAction.InteractionType)
                     {
@@ -344,7 +345,7 @@ namespace GAMMA.Toolbox
         public static string GetFormattedDiceRolls(List<string> rolls)
         {
             string output = "[";
-            for (int i = 0; i < rolls.Count(); i++)
+            for (int i = 0; i < rolls.Count; i++)
             {
                 if (i > 0) { output += " + "; }
                 output += rolls[i];
@@ -355,7 +356,7 @@ namespace GAMMA.Toolbox
         public static string GetFormattedModifiers(List<string> mods)
         {
             string output = "";
-            for (int i = 0; i < mods.Count(); i++)
+            for (int i = 0; i < mods.Count; i++)
             {
                 if (i > 0) { output += " + "; }
                 output += mods[i];
@@ -578,9 +579,9 @@ namespace GAMMA.Toolbox
         public static string GetStringFromList(List<string> list, string separator = "\n\n")
         {
             string fullText = "";
-            for (int i = 0; i < list.Count(); i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                if (i + 1 < list.Count())
+                if (i + 1 < list.Count)
                 {
                     fullText += list[i] + separator;
                 }
@@ -594,9 +595,9 @@ namespace GAMMA.Toolbox
         public static string GetStringFromList(List<int> list, string separator = "\n\n")
         {
             string fullText = "";
-            for (int i = 0; i < list.Count(); i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                if (i + 1 < list.Count())
+                if (i + 1 < list.Count)
                 {
                     fullText += list[i].ToString() + separator;
                 }
@@ -610,7 +611,7 @@ namespace GAMMA.Toolbox
         public static string GetStringFromDictionary(SortedDictionary<string, int> dictionary, string spacer = " : ", string separator = "\n")
         {
             string fullText = "";
-            if (dictionary.Count() <= 0) { return fullText; }
+            if (dictionary.Count <= 0) { return fullText; }
             string firstKey = dictionary.First().Key;
             foreach (KeyValuePair<string, int> pair in dictionary)
             {
@@ -625,7 +626,7 @@ namespace GAMMA.Toolbox
         public static string GetStringFromDictionary(SortedDictionary<int, int> dictionary, string header, string spacer = " : ", string separator = "\n")
         {
             string fullText = "";
-            if (dictionary.Count() <= 0) { return fullText; }
+            if (dictionary.Count <= 0) { return fullText; }
             int firstKey = dictionary.First().Key;
             foreach (KeyValuePair<int, int> pair in dictionary)
             {
@@ -816,7 +817,7 @@ namespace GAMMA.Toolbox
 
                 if (note.IsSearchMatch == true) { matchFound = true; }
 
-                if (note.SubNotes.Count() > 0)
+                if (note.SubNotes.Count > 0)
                 {
                     CheckNoteSearch(note.SubNotes, text, useCaseMatch, searchHeader, searchContent, out bool subMatchFound);
                     if (subMatchFound == true) { note.IsExpanded = true; matchFound = true; }
@@ -831,7 +832,7 @@ namespace GAMMA.Toolbox
             {
                 note.IsExpanded = false;
                 note.IsSearchMatch = false;
-                if (note.SubNotes.Count() > 0)
+                if (note.SubNotes.Count > 0)
                 {
                     ClearNoteSearch(note.SubNotes);
                 }
@@ -848,12 +849,11 @@ namespace GAMMA.Toolbox
         }
         public static T DeepClone<T>(this T obj)
         {
-            using var ms = new MemoryStream();
-            var formatter = new BinaryFormatter();
-            formatter.Serialize(ms, obj);
-            ms.Position = 0;
-
-            return (T)formatter.Deserialize(ms);
+            using MemoryStream ms = new();
+            XmlSerializer xmlSerializer = new(typeof(T));
+            xmlSerializer.Serialize(ms, obj);
+            ms.Position = 0; // Fixes "Root element is missing" issue https://stackoverflow.com/questions/30698349/xml-serializing-and-deserializing-with-memory-stream 
+            return (T)xmlSerializer.Deserialize(ms);
         }
 
     }

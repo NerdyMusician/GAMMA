@@ -19,7 +19,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region IsSelected
         private bool _IsSelected;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsSelected
         {
             get
@@ -36,7 +36,7 @@ namespace GAMMA.Models
         #endregion
         #region Game
         private string _Game;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Game
         {
             get
@@ -52,7 +52,7 @@ namespace GAMMA.Models
         #endregion
         #region Character
         private string _Character;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Character
         {
             get

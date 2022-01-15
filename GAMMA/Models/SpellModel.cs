@@ -27,7 +27,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -43,7 +43,7 @@ namespace GAMMA.Models
         #endregion
         #region Sourcebook
         private string _Sourcebook;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
             get
@@ -59,7 +59,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -75,7 +75,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellClasses
         private ObservableCollection<ConvertibleValue> _SpellClasses;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> SpellClasses
         {
             get
@@ -91,7 +91,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -139,7 +139,7 @@ namespace GAMMA.Models
 
         #region SchoolOfMagic
         private string _SchoolOfMagic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SchoolOfMagic
         {
             get
@@ -155,7 +155,7 @@ namespace GAMMA.Models
         #endregion
         #region CastingTime
         private string _CastingTime;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CastingTime
         {
             get
@@ -171,7 +171,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellDuration
         private string _SpellDuration;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellDuration
         {
             get
@@ -187,7 +187,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellLevel
         private int _SpellLevel;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellLevel
         {
             get
@@ -204,7 +204,7 @@ namespace GAMMA.Models
 
         #region Range
         private string _Range;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Range
         {
             get
@@ -220,7 +220,7 @@ namespace GAMMA.Models
         #endregion
         #region HasAreaOfEffect
         private bool _HasAreaOfEffect;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasAreaOfEffect
         {
             get
@@ -236,7 +236,7 @@ namespace GAMMA.Models
         #endregion
         #region AoeRange
         private int _AoeRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int AoeRange
         {
             get
@@ -252,7 +252,7 @@ namespace GAMMA.Models
         #endregion
         #region AoeRange2
         private int _AoeRange2;
-        [XmlSaveMode("Proto")]
+        
         public int AoeRange2
         {
             get
@@ -268,7 +268,7 @@ namespace GAMMA.Models
         #endregion
         #region AoeShape
         private string _AoeShape;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string AoeShape
         {
             get
@@ -285,7 +285,7 @@ namespace GAMMA.Models
 
         #region IsPrepared
         private bool _IsPrepared;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsPrepared
         {
             get
@@ -303,7 +303,7 @@ namespace GAMMA.Models
         #region HasScaling
         // Indicates if the spell should show a list of higher level casting options
         private bool _HasScaling;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasScaling
         {
             get
@@ -319,7 +319,7 @@ namespace GAMMA.Models
         #endregion
         #region RitualCapable
         private bool _RitualCapable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RitualCapable
         {
             get
@@ -335,7 +335,7 @@ namespace GAMMA.Models
         #endregion
         #region RequiresConcentration
         private bool _RequiresConcentration;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresConcentration
         {
             get
@@ -351,7 +351,7 @@ namespace GAMMA.Models
         #endregion
         #region RequiresSomatic
         private bool _RequiresSomatic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresSomatic
         {
             get
@@ -367,7 +367,7 @@ namespace GAMMA.Models
         #endregion
         #region RequiresVerbal
         private bool _RequiresVerbal;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresVerbal
         {
             get
@@ -384,7 +384,7 @@ namespace GAMMA.Models
 
         #region RequiresMaterial
         private bool _RequiresMaterial;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresMaterial
         {
             get
@@ -400,7 +400,7 @@ namespace GAMMA.Models
         #endregion
         #region DoesConsumeMaterials
         private bool _DoesConsumeMaterials;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool DoesConsumeMaterials
         {
             get
@@ -416,7 +416,7 @@ namespace GAMMA.Models
         #endregion
         #region ConsumedMaterials
         private ObservableCollection<ItemModel> _ConsumedMaterials;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> ConsumedMaterials
         {
             get
@@ -432,7 +432,7 @@ namespace GAMMA.Models
         #endregion
         #region Materials
         private string _Materials;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Materials
         {
             get
@@ -449,7 +449,7 @@ namespace GAMMA.Models
 
         #region PrimaryAbilities
         private ObservableCollection<CustomAbility> _PrimaryAbilities;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> PrimaryAbilities
         {
             get
@@ -465,7 +465,7 @@ namespace GAMMA.Models
         #endregion
         #region SecondaryAbilities
         private ObservableCollection<CustomAbility> _SecondaryAbilities;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> SecondaryAbilities
         {
             get
@@ -483,7 +483,7 @@ namespace GAMMA.Models
         // Databound Properties - Dropdown Sources
         #region SchoolsOfMagic
         private List<string> _SchoolsOfMagic;
-        [XmlSaveMode("")]
+        
         public List<string> SchoolsOfMagic
         {
             get
@@ -499,7 +499,7 @@ namespace GAMMA.Models
         #endregion
         #region AoeShapes
         private List<string> _AoeShapes;
-        [XmlSaveMode("")]
+        
         public List<string> AoeShapes
         {
             get
@@ -515,7 +515,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageDiceSides
         private List<string> _DamageDiceSides;
-        [XmlSaveMode("")]
+        
         public List<string> DamageDiceSides
         {
             get
@@ -531,7 +531,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageTypes
         private List<string> _DamageTypes;
-        [XmlSaveMode("")]
+        
         public List<string> DamageTypes
         {
             get
@@ -547,7 +547,7 @@ namespace GAMMA.Models
         #endregion
         #region SaveDamageTypes
         private List<string> _SaveDamageTypes;
-        [XmlSaveMode("")]
+        
         public List<string> SaveDamageTypes
         {
             get
@@ -563,7 +563,7 @@ namespace GAMMA.Models
         #endregion
         #region HealingDiceSides
         private List<string> _HealingDiceSides;
-        [XmlSaveMode("")]
+        
         public List<string> HealingDiceSides
         {
             get
@@ -579,7 +579,7 @@ namespace GAMMA.Models
         #endregion
         #region SaveAttributes
         private List<string> _SaveAttributes;
-        [XmlSaveMode("")]
+        
         public List<string> SaveAttributes
         {
             get
@@ -595,7 +595,7 @@ namespace GAMMA.Models
         #endregion
         #region SaveDamageDiceSides
         private List<string> _SaveDamageDiceSides;
-        [XmlSaveMode("")]
+        
         public List<string> SaveDamageDiceSides
         {
             get

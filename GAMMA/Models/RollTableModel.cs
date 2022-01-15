@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region TableRows
         private ObservableCollection<RollTableRowModel> _TableRows;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<RollTableRowModel> TableRows
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region HasModifier
         private bool _HasModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasModifier
         {
             get
@@ -65,7 +65,7 @@ namespace GAMMA.Models
         #endregion
         #region ModifierInfo
         private string _ModifierInfo;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ModifierInfo
         {
             get
@@ -81,7 +81,7 @@ namespace GAMMA.Models
         #endregion
         #region AvailableToPlayers
         private bool _AvailableToPlayers;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool AvailableToPlayers
         {
             get

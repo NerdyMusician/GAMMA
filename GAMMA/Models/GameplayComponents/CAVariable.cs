@@ -31,7 +31,7 @@ namespace GAMMA.Models.GameplayComponents
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -47,7 +47,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Type
         private string _Type;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Type
         {
             get
@@ -78,7 +78,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region IncludeHalfValue
         private bool _IncludeHalfValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IncludeHalfValue
         {
             get
@@ -94,7 +94,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region DoOutput
         private bool _DoOutput;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool DoOutput
         {
             get
@@ -110,7 +110,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region InEditMode
         private bool _InEditMode;
-        [XmlSaveMode("None")]
+        
         public bool InEditMode
         {
             get
@@ -127,7 +127,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region TypeOptions
         private List<string> _TypeOptions;
-        [XmlSaveMode("None")]
+        
         public List<string> TypeOptions
         {
             get

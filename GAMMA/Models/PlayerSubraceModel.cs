@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region SubraceOf
         private string _SubraceOf;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SubraceOf
         {
             get

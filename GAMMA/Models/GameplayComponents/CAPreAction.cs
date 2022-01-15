@@ -57,7 +57,7 @@ namespace GAMMA.Models.GameplayComponents
         // Databound Properties
         #region Action
         private string _Action;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Action
         {
             get
@@ -75,7 +75,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Conditions
         private ObservableCollection<CACondition> _Conditions;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CACondition> Conditions
         {
             get
@@ -91,7 +91,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Target
         private string _Target;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Target
         {
             get
@@ -123,7 +123,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region InEditMode
         private bool _InEditMode;
-        [XmlSaveMode("None")]
+        
         public bool InEditMode
         {
             get
@@ -154,7 +154,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region CustomDisplayText
         private string _CustomDisplayText;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CustomDisplayText
         {
             get
@@ -173,7 +173,7 @@ namespace GAMMA.Models.GameplayComponents
         // QA Prompt
         #region Question
         private string _Question;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Question
         {
             get
@@ -189,7 +189,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Answers
         private ObservableCollection<ConvertibleValue> _Answers;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Answers
         {
             get
@@ -207,7 +207,7 @@ namespace GAMMA.Models.GameplayComponents
         // Add Set Value
         #region SetValue
         private string _SetValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SetValue
         {
             get
@@ -225,7 +225,7 @@ namespace GAMMA.Models.GameplayComponents
         // Add Roll
         #region DiceQuantity
         private int _DiceQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DiceQuantity
         {
             get
@@ -241,7 +241,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region DiceQuality
         private int _DiceQuality;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DiceQuality
         {
             get
@@ -257,7 +257,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region DoesDoubleOnCritical
         private bool _DoesDoubleOnCritical;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool DoesDoubleOnCritical
         {
             get
@@ -275,7 +275,7 @@ namespace GAMMA.Models.GameplayComponents
         // Add Stat Value
         #region StatValue
         private string _StatValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string StatValue
         {
             get
@@ -293,7 +293,7 @@ namespace GAMMA.Models.GameplayComponents
         // Add Calculated Value
         #region CalculatedValueA
         private string _CalculatedValueA;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CalculatedValueA
         {
             get
@@ -309,7 +309,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region CalculatedValueB
         private string _CalculatedValueB;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CalculatedValueB
         {
             get
@@ -325,7 +325,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Calculation
         private string _Calculation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Calculation
         {
             get
@@ -358,7 +358,7 @@ namespace GAMMA.Models.GameplayComponents
         // Translate Values
         #region SourceVariable
         private string _SourceVariable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SourceVariable
         {
             get
@@ -374,7 +374,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Pairs
         private ObservableCollection<StringPair> _Pairs;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<StringPair> Pairs
         {
             get { return _Pairs; }
@@ -385,7 +385,7 @@ namespace GAMMA.Models.GameplayComponents
         // Make Attack Roll
         #region AttackAttribute
         private string _AttackAttribute;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string AttackAttribute
         {
             get
@@ -416,7 +416,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region UseProficiencyBonus
         private bool _UseProficiencyBonus;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseProficiencyBonus
         {
             get
@@ -433,7 +433,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region HasValueScaling
         private bool _HasValueScaling;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasValueScaling
         {
             get
@@ -449,7 +449,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ValueScaleRate
         private int _ValueScaleRate;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ValueScaleRate
         {
             get
@@ -466,7 +466,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region ActionOptions
         private List<string> _ActionOptions;
-        [XmlSaveMode("None")]
+        
         public List<string> ActionOptions
         {
             get
@@ -482,7 +482,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region StatOptions
         private List<string> _StatOptions;
-        [XmlSaveMode("None")]
+        
         public List<string> StatOptions
         {
             get
@@ -499,7 +499,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region ShowConditionValue
         private bool _ShowConditionValue;
-        [XmlSaveMode("None")]
+        
         public bool ShowConditionValue
         {
             get
@@ -515,7 +515,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowQuestion
         private bool _ShowQuestion;
-        [XmlSaveMode("None")]
+        
         public bool ShowQuestion
         {
             get
@@ -531,7 +531,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowScaling
         private bool _ShowScaling;
-        [XmlSaveMode("None")]
+        
         public bool ShowScaling
         {
             get
@@ -548,7 +548,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region ShowSetValueForm
         private bool _ShowSetValueForm;
-        [XmlSaveMode("None")]
+        
         public bool ShowSetValueForm
         {
             get
@@ -564,7 +564,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowRollValueForm
         private bool _ShowRollValueForm;
-        [XmlSaveMode("None")]
+        
         public bool ShowRollValueForm
         {
             get
@@ -580,7 +580,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowStatValueForm
         private bool _ShowStatValueForm;
-        [XmlSaveMode("None")]
+        
         public bool ShowStatValueForm
         {
             get
@@ -596,7 +596,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowCalculatedValueForm
         private bool _ShowCalculatedValueForm;
-        [XmlSaveMode("None")]
+        
         public bool ShowCalculatedValueForm
         {
             get
@@ -612,7 +612,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowAttackForm
         private bool _ShowAttackForm;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowAttackForm
         {
             get
@@ -628,7 +628,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ShowPairForm
         private bool _ShowPairForm;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowPairForm
         {
             get { return _ShowPairForm; }

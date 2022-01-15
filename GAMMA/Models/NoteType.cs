@@ -32,7 +32,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get { return _Name; }
@@ -41,7 +41,7 @@ namespace GAMMA.Models
         #endregion
         #region Icon
         private string _Icon;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Icon
         {
             get { return _Icon; }
@@ -50,7 +50,7 @@ namespace GAMMA.Models
         #endregion
         #region SortSubNotes
         private bool _SortSubNotes;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool SortSubNotes
         {
             get { return _SortSubNotes; }

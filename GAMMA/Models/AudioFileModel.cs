@@ -19,7 +19,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -35,7 +35,7 @@ namespace GAMMA.Models
         #endregion
         #region FullPath
         private string _FullPath;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string FullPath
         {
             get
@@ -51,7 +51,7 @@ namespace GAMMA.Models
         #endregion
         #region IsAvailable
         private bool _IsAvailable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsAvailable
         {
             get
@@ -67,7 +67,7 @@ namespace GAMMA.Models
         #endregion
         #region Tags
         private ObservableCollection<ConvertibleValue> _Tags;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Tags
         {
             get

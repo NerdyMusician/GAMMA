@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Source
         private string _Source;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Source
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region ChoiceRestricted
         private bool _ChoiceRestricted;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ChoiceRestricted
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region ChoicesRemaining
         private int _ChoicesRemaining;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ChoicesRemaining
         {
             get
@@ -65,7 +65,7 @@ namespace GAMMA.Models
         #endregion
         #region MaxChoices
         private int _MaxChoices;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxChoices
         {
             get
@@ -81,7 +81,7 @@ namespace GAMMA.Models
         #endregion
         #region Choices
         private ObservableCollection<BoolOption> _Choices;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<BoolOption> Choices
         {
             get

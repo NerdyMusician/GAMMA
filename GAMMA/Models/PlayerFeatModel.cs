@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get

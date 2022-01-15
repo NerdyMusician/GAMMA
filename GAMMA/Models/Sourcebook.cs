@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region PreserveFromDataWipe
         private bool _PreserveFromDataWipe;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool PreserveFromDataWipe
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get

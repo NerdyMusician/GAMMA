@@ -36,7 +36,7 @@ namespace GAMMA.Models
         #endregion
         #region FilePath
         public string _FilePath;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string FilePath
         {
             get
@@ -52,7 +52,7 @@ namespace GAMMA.Models
         #endregion
         #region SearchTags
         private ObservableCollection<ConvertibleValue> _SearchTags;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> SearchTags
         {
             get

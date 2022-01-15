@@ -33,7 +33,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region CalendarType
         private string _CalendarType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CalendarType
         {
             get
@@ -66,7 +66,7 @@ namespace GAMMA.Models
         #endregion
         #region CalendarStart
         private long _CalendarStart;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public long CalendarStart
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
         #endregion
         #region CalendarProgress
         private long _CalendarProgress;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public long CalendarProgress
         {
             get
@@ -160,7 +160,7 @@ namespace GAMMA.Models
         #endregion
         #region AdventureDayCount
         private int _AdventureDayCount;
-        [XmlSaveMode("None")]
+        
         public int AdventureDayCount
         {
             get
@@ -176,7 +176,7 @@ namespace GAMMA.Models
         #endregion
         #region TimeDigits
         private string _TimeDigits;
-        [XmlSaveMode("None")]
+        
         public string TimeDigits
         {
             get
@@ -192,7 +192,7 @@ namespace GAMMA.Models
         #endregion
         #region TimeIndicator
         private string _TimeIndicator;
-        [XmlSaveMode("None")]
+        
         public string TimeIndicator
         {
             get
@@ -208,7 +208,7 @@ namespace GAMMA.Models
         #endregion
         #region Display_ChangeTime
         private bool _Display_ChangeTime;
-        [XmlSaveMode("None")]
+        
         public bool Display_ChangeTime
         {
             get
@@ -224,7 +224,7 @@ namespace GAMMA.Models
         #endregion
         #region LastWeatherChange
         private long _LastWeatherChange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public long LastWeatherChange
         {
             get
@@ -240,7 +240,7 @@ namespace GAMMA.Models
         #endregion
         #region WeatherType
         private string _WeatherType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string WeatherType
         {
             get
@@ -259,7 +259,7 @@ namespace GAMMA.Models
         #endregion
         #region WeatherIntensity
         private int _WeatherIntensity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int WeatherIntensity
         {
             get
@@ -335,7 +335,7 @@ namespace GAMMA.Models
         #endregion
         #region Notes
         private ObservableCollection<NoteModel> _Notes;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NoteModel> Notes
         {
             get
@@ -366,7 +366,7 @@ namespace GAMMA.Models
         #endregion
         #region EncounterRound
         private int _EncounterRound;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int EncounterRound
         {
             get
@@ -382,7 +382,7 @@ namespace GAMMA.Models
         #endregion
         #region Display_OtherRolls
         private bool _Display_OtherRolls;
-        [XmlSaveMode("None")]
+        
         public bool Display_OtherRolls
         {
             get
@@ -398,7 +398,7 @@ namespace GAMMA.Models
         #endregion
         #region Timestamps
         private ObservableCollection<Timestamp> _Timestamps;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<Timestamp> Timestamps
         {
             get
@@ -414,7 +414,7 @@ namespace GAMMA.Models
         #endregion
         #region RetainMessageHistory
         private bool _RetainMessageHistory;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RetainMessageHistory
         {
             get
@@ -430,7 +430,7 @@ namespace GAMMA.Models
         #endregion
         #region Messages
         private ObservableCollection<GameMessage> _Messages;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameMessage> Messages
         {
             get
@@ -446,7 +446,7 @@ namespace GAMMA.Models
         #endregion
         #region LinkOutputToWeb
         private bool _LinkOutputToWeb;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool LinkOutputToWeb
         {
             get
@@ -462,7 +462,7 @@ namespace GAMMA.Models
         #endregion
         #region Combatants
         private ObservableCollection<CreatureModel> _Combatants;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreatureModel> Combatants
         {
             get
@@ -478,7 +478,7 @@ namespace GAMMA.Models
         #endregion
         #region CombatantsByName
         private ObservableCollection<CreatureModel> _CombatantsByName;
-        [XmlSaveMode("None")]
+        
         public ObservableCollection<CreatureModel> CombatantsByName
         {
             get
@@ -494,7 +494,7 @@ namespace GAMMA.Models
         #endregion
         #region CombatantsByIsNpc
         private ObservableCollection<CreatureModel> _CombatantsByIsNpc;
-        [XmlSaveMode("None")]
+        
         public ObservableCollection<CreatureModel> CombatantsByIsNpc
         {
             get
@@ -510,7 +510,7 @@ namespace GAMMA.Models
         #endregion
         #region CombatantsByIsPlayer
         private ObservableCollection<CreatureModel> _CombatantsByIsPlayer;
-        [XmlSaveMode("None")]
+        
         public ObservableCollection<CreatureModel> CombatantsByIsPlayer
         {
             get
@@ -526,7 +526,7 @@ namespace GAMMA.Models
         #endregion
         #region ActiveCombatant
         private CreatureModel _ActiveCombatant;
-        [XmlSaveMode("None")]
+        
         public CreatureModel ActiveCombatant
         {
             get
@@ -542,7 +542,7 @@ namespace GAMMA.Models
         #endregion
         #region Players
         private ObservableCollection<CreatureModel> _Players;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreatureModel> Players
         {
             get
@@ -558,7 +558,7 @@ namespace GAMMA.Models
         #endregion
         #region ActivePlayer
         private CreatureModel _ActivePlayer;
-        [XmlSaveMode("None")]
+        
         public CreatureModel ActivePlayer
         {
             get
@@ -574,7 +574,7 @@ namespace GAMMA.Models
         #endregion
         #region Npcs
         private ObservableCollection<NpcModel> _Npcs;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NpcModel> Npcs
         {
             get
@@ -590,7 +590,7 @@ namespace GAMMA.Models
         #endregion
         #region ActiveNpc
         private NpcModel _ActiveNpc;
-        [XmlSaveMode("None")]
+        
         public NpcModel ActiveNpc
         {
             get
@@ -606,7 +606,7 @@ namespace GAMMA.Models
         #endregion
         #region Packs
         private ObservableCollection<CreaturePackModel> _Packs;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreaturePackModel> Packs
         {
             get
@@ -639,7 +639,7 @@ namespace GAMMA.Models
         // Etc Rolls
         #region FallDistance
         private int _FallDistance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int FallDistance
         {
             get
@@ -655,7 +655,7 @@ namespace GAMMA.Models
         #endregion
         #region CustomRollNumber
         private int _CustomRollNumber;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CustomRollNumber
         {
             get
@@ -671,7 +671,7 @@ namespace GAMMA.Models
         #endregion
         #region CustomRollSides
         private int _CustomRollSides;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CustomRollSides
         {
             get
@@ -687,7 +687,7 @@ namespace GAMMA.Models
         #endregion
         #region CustomRollModifier
         private int _CustomRollModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CustomRollModifier
         {
             get

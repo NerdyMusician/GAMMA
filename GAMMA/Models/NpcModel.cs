@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace GAMMA.Models
 {
-    public class NpcModel : BaseModel
+    public partial class NpcModel : BaseModel
     {
         // Constructors
         public NpcModel()
@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region BaseCreatureName
         private string _BaseCreatureName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string BaseCreatureName
         {
             get
@@ -65,7 +65,7 @@ namespace GAMMA.Models
         #endregion
         #region IsFriendly
         private bool _IsFriendly;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsFriendly
         {
             get
@@ -81,7 +81,7 @@ namespace GAMMA.Models
         #endregion
         #region IsActive
         private bool _IsActive;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
             get { return _IsActive; }
@@ -136,6 +136,7 @@ namespace GAMMA.Models
             Configuration.MainModelRef.CampaignView.ActiveCampaign.Npcs.Remove(this);
         }
         #endregion
+
 
     }
 }

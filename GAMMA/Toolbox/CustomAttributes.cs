@@ -4,12 +4,19 @@ namespace GAMMA.Toolbox
 {
     public class XmlSaveMode : Attribute
     {
-        public XmlSaveMode(string mode)
+        public XmlSaveMode(XSME mode)
         {
             Mode = mode;
         }
 
-        public string Mode { get; set; }
+        public XSME Mode { get; set; }
 
     }
+
+    public enum XSME
+    {
+        Single,
+        Enumerable
+    }
+
 }

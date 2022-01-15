@@ -61,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.28.00";
+            ApplicationVersion = "GAMMA 1.28.01 beta r1";
 
             Configuration.LoadComplete = true;
 
@@ -163,7 +163,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region SettingsView
         private SettingsViewModel _SettingsView;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public SettingsViewModel SettingsView
         {
             get
@@ -455,7 +455,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region SchoolsOfMagic
         private List<string> _SchoolsOfMagic;
-        [XmlSaveMode("")]
+        
         public List<string> SchoolsOfMagic
         {
             get
@@ -471,7 +471,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region AoeShapes
         private List<string> _AoeShapes;
-        [XmlSaveMode("")]
+        
         public List<string> AoeShapes
         {
             get

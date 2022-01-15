@@ -21,7 +21,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region SubclassOf
         private string _SubclassOf;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SubclassOf
         {
             get
@@ -52,7 +52,7 @@ namespace GAMMA.Models
         #endregion
         #region Traits
         private ObservableCollection<TraitModel> _Traits;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<TraitModel> Traits
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellcastingClass
         private string _SpellcastingClass;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellcastingClass
         {
             get

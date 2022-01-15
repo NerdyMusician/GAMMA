@@ -24,7 +24,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -40,7 +40,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -56,7 +56,7 @@ namespace GAMMA.Models
         #endregion
         #region Sourcebook
         private string _Sourcebook;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
             get
@@ -73,7 +73,7 @@ namespace GAMMA.Models
 
         #region EquipmentChoices
         private ObservableCollection<ConvertibleValue> _EquipmentChoices;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> EquipmentChoices
         {
             get
@@ -90,7 +90,7 @@ namespace GAMMA.Models
 
         #region HasSpellcasting
         private bool _HasSpellcasting;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSpellcasting
         {
             get
@@ -113,7 +113,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellcastingAbility
         private string _SpellcastingAbility;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellcastingAbility
         {
             get
@@ -129,7 +129,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellsKnownPerLevelType
         private string _SpellsKnownPerLevelType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellsKnownPerLevelType
         {
             get
@@ -146,7 +146,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellTableRows
         private ObservableCollection<SpellTableRowModel> _SpellTableRows;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<SpellTableRowModel> SpellTableRows
         {
             get
@@ -177,7 +177,7 @@ namespace GAMMA.Models
         #endregion
         #region MulticlassingSlots
         private string _MulticlassingSlots;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string MulticlassingSlots
         {
             get
@@ -193,7 +193,7 @@ namespace GAMMA.Models
         #endregion
         #region CanCastRituals
         private bool _CanCastRituals;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool CanCastRituals
         {
             get
@@ -210,7 +210,7 @@ namespace GAMMA.Models
 
         #region Features
         private ObservableCollection<FeatureModel> _Features;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<FeatureModel> Features
         {
             get

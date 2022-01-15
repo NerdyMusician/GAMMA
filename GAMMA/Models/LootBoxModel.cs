@@ -20,7 +20,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -36,7 +36,7 @@ namespace GAMMA.Models
         #endregion
         #region Items
         private ObservableCollection<ItemModel> _Items;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> Items
         {
             get
@@ -52,7 +52,7 @@ namespace GAMMA.Models
         #endregion
         #region ItemLinks
         private ObservableCollection<ItemLink> _ItemLinks;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemLink> ItemLinks
         {
             get
@@ -68,7 +68,7 @@ namespace GAMMA.Models
         #endregion
         #region CoinageMinimum
         private int _CoinageMinimum;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CoinageMinimum
         {
             get
@@ -85,7 +85,7 @@ namespace GAMMA.Models
         #endregion
         #region CoinageMaximum
         private int _CoinageMaximum;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CoinageMaximum
         {
             get

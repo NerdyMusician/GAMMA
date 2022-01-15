@@ -18,7 +18,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -34,7 +34,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -50,7 +50,7 @@ namespace GAMMA.Models
         #endregion
         #region IsActive
         private bool _IsActive;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
         #endregion
         #region StatChanges
         private ObservableCollection<LabeledNumber> _StatChanges;
-        [XmlSaveMode("Enumberable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<LabeledNumber> StatChanges
         {
             get

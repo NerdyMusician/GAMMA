@@ -28,7 +28,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region SpellsKnownMode
         private string _SpellsKnownMode;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellsKnownMode
         {
             get
@@ -60,7 +60,7 @@ namespace GAMMA.Models
         #endregion
         #region ShowSpellsCalcIcon
         private bool _ShowSpellsCalcIcon;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowSpellsCalcIcon
         {
             get
@@ -77,7 +77,7 @@ namespace GAMMA.Models
 
         #region ClassLevel
         private int _ClassLevel;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ClassLevel
         {
             get
@@ -93,7 +93,7 @@ namespace GAMMA.Models
         #endregion
         #region CantripsKnown
         private int _CantripsKnown;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CantripsKnown
         {
             get
@@ -109,7 +109,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellsKnown
         private int _SpellsKnown;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellsKnown
         {
             get
@@ -126,7 +126,7 @@ namespace GAMMA.Models
 
         #region SpellSlots_1st
         private int _SpellSlots_1st;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_1st
         {
             get
@@ -142,7 +142,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_2nd
         private int _SpellSlots_2nd;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_2nd
         {
             get
@@ -158,7 +158,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_3rd
         private int _SpellSlots_3rd;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_3rd
         {
             get
@@ -174,7 +174,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_4th
         private int _SpellSlots_4th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_4th
         {
             get
@@ -190,7 +190,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_5th
         private int _SpellSlots_5th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_5th
         {
             get
@@ -206,7 +206,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_6th
         private int _SpellSlots_6th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_6th
         {
             get
@@ -222,7 +222,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_7th
         private int _SpellSlots_7th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_7th
         {
             get
@@ -238,7 +238,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_8th
         private int _SpellSlots_8th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_8th
         {
             get
@@ -254,7 +254,7 @@ namespace GAMMA.Models
         #endregion
         #region SpellSlots_9th
         private int _SpellSlots_9th;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SpellSlots_9th
         {
             get

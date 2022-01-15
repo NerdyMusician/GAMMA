@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -32,7 +32,7 @@ namespace GAMMA.Models
         #endregion
         #region MaxPoints
         private int _MaxPoints;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxPoints
         {
             get
@@ -63,7 +63,7 @@ namespace GAMMA.Models
         #endregion
         #region Strength
         private int _Strength;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Strength
         {
             get
@@ -79,7 +79,7 @@ namespace GAMMA.Models
         #endregion
         #region Dexterity
         private int _Dexterity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Dexterity
         {
             get
@@ -95,7 +95,7 @@ namespace GAMMA.Models
         #endregion
         #region Constitution
         private int _Constitution;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Constitution
         {
             get
@@ -111,7 +111,7 @@ namespace GAMMA.Models
         #endregion
         #region Intelligence
         private int _Intelligence;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Intelligence
         {
             get
@@ -127,7 +127,7 @@ namespace GAMMA.Models
         #endregion
         #region Wisdom
         private int _Wisdom;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Wisdom
         {
             get
@@ -143,7 +143,7 @@ namespace GAMMA.Models
         #endregion
         #region Charisma
         private int _Charisma;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Charisma
         {
             get

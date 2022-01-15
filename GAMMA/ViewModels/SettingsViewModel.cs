@@ -24,7 +24,7 @@ namespace GAMMA.ViewModels
         // Settings - Application
         #region InDmModeModern
         private bool _InDmModeModern;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool InDmModeModern
         {
             get
@@ -40,7 +40,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region InDmModeClassic
         private bool _InDmModeClassic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool InDmModeClassic
         {
             get
@@ -56,7 +56,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region ShowData
         private bool _ShowData;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowData
         {
             get
@@ -72,7 +72,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region ShowMiniatureUtilization
         private bool _ShowMiniatureUtilization;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowMiniatureUtilization
         {
             get
@@ -90,7 +90,7 @@ namespace GAMMA.ViewModels
         // Settings - Gameplay
         #region ShowDiceRolls
         private bool _ShowDiceRolls;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ShowDiceRolls
         {
             get
@@ -106,7 +106,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UseCriticalHitMaxDamage
         private bool _UseCriticalHitMaxDamage;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseCriticalHitMaxDamage
         {
             get
@@ -122,7 +122,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UsePlatinum
         private bool _UsePlatinum;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UsePlatinum
         {
             get
@@ -144,7 +144,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UseVariantEncumbrance
         private bool _UseVariantEncumbrance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseVariantEncumbrance
         {
             get
@@ -167,7 +167,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UseCoinWeight
         private bool _UseCoinWeight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseCoinWeight
         {
             get
@@ -190,7 +190,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UseAveragedHitPoints
         private bool _UseAveragedHitPoints;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseAveragedHitPoints
         {
             get
@@ -206,7 +206,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region UseExperiencePoints
         private bool _UseExperiencePoints;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseExperiencePoints
         {
             get
@@ -222,7 +222,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnforceSpellComponentConsumption
         private bool _EnforceSpellComponentConsumption;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnforceSpellComponentConsumption
         {
             get
@@ -238,7 +238,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnforceCreatureSpellSlots
         private bool _EnforceCreatureSpellSlots;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnforceCreatureSpellSlots
         {
             get
@@ -256,7 +256,7 @@ namespace GAMMA.ViewModels
         // Settings - Autosave
         #region EnableCharacterAutosave
         private bool _EnableCharacterAutosave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableCharacterAutosave
         {
             get
@@ -272,7 +272,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnableCampaignsAutosave
         private bool _EnableCampaignsAutosave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableCampaignsAutosave
         {
             get
@@ -290,7 +290,7 @@ namespace GAMMA.ViewModels
         // Settings - Exitsave
         #region EnableCharacterExitsave
         private bool _EnableCharacterExitsave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableCharacterExitsave
         {
             get
@@ -306,7 +306,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region PromptCharacterExitsave
         private bool _PromptCharacterExitsave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool PromptCharacterExitsave
         {
             get
@@ -339,7 +339,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region Roll20Email
         private string _Roll20Email;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Roll20Email
         {
             get
@@ -355,7 +355,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region Roll20Password
         private string _Roll20Password;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Roll20Password
         {
             get
@@ -371,7 +371,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region Roll20GameCharacterList
         private ObservableCollection<GameCharacterSelection> _Roll20GameCharacterList;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameCharacterSelection> Roll20GameCharacterList
         {
             get
@@ -387,7 +387,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region ClearPasswordOnClose
         private bool _ClearPasswordOnClose;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ClearPasswordOnClose
         {
             get
@@ -405,7 +405,7 @@ namespace GAMMA.ViewModels
         // Settings - Audio
         #region EnableSoundEffects
         private bool _EnableSoundEffects;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableSoundEffects
         {
             get
@@ -421,7 +421,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnableSfx_DiceRoll
         private bool _EnableSfx_DiceRoll;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_DiceRoll
         {
             get
@@ -437,7 +437,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnableSfx_ShopItemMove
         private bool _EnableSfx_ShopItemMove;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_ShopItemMove
         {
             get
@@ -453,7 +453,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region EnableSfx_ShopGreeting
         private bool _EnableSfx_ShopGreeting;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_ShopGreeting
         {
             get
@@ -535,7 +535,7 @@ namespace GAMMA.ViewModels
             if (fileName == "") { return; }
             try
             {
-                System.Diagnostics.Process.Start(fileName);
+                System.Diagnostics.Process.Start("explorer",fileName);
             }
             catch (Exception e)
             {

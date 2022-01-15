@@ -18,7 +18,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region AgeInfo
         private string _AgeInfo;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string AgeInfo
         {
             get
@@ -34,7 +34,7 @@ namespace GAMMA.Models
         #endregion
         #region AlignmentInfo
         private string _AlignmentInfo;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string AlignmentInfo
         {
             get
@@ -50,7 +50,7 @@ namespace GAMMA.Models
         #endregion
         #region SizeInfo
         private string _SizeInfo;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SizeInfo
         {
             get
@@ -66,7 +66,7 @@ namespace GAMMA.Models
         #endregion
         #region Size
         private string _Size;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Size
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
 
         #region FeatsGranted
         private int _FeatsGranted;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int FeatsGranted
         {
             get
@@ -99,7 +99,7 @@ namespace GAMMA.Models
         #endregion
         #region BaseSpeed
         private int _BaseSpeed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int BaseSpeed
         {
             get
@@ -115,7 +115,7 @@ namespace GAMMA.Models
         #endregion
         #region Languages
         private string _Languages;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Languages
         {
             get
@@ -131,7 +131,7 @@ namespace GAMMA.Models
         #endregion
         #region Darkvision
         private int _Darkvision;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Darkvision
         {
             get
@@ -148,7 +148,7 @@ namespace GAMMA.Models
 
         #region Traits
         private ObservableCollection<TraitModel> _Traits;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<TraitModel> Traits
         {
             get

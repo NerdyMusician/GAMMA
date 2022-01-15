@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -32,7 +32,7 @@ namespace GAMMA.Models
         #endregion
         #region DropChance
         private int _DropChance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DropChance
         {
             get
@@ -48,7 +48,7 @@ namespace GAMMA.Models
         #endregion
         #region Quantity
         private int _Quantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
             get

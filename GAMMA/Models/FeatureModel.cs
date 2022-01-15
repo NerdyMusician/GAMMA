@@ -38,7 +38,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -69,7 +69,7 @@ namespace GAMMA.Models
         #endregion
         #region FeatureType
         private string _FeatureType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string FeatureType
         {
             get
@@ -116,7 +116,7 @@ namespace GAMMA.Models
         #endregion
         #region LevelAvailable
         private int _LevelAvailable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int LevelAvailable
         {
             get
@@ -177,7 +177,7 @@ namespace GAMMA.Models
         #endregion
         #region Details
         private string _Details;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Details
         {
             get
@@ -193,7 +193,7 @@ namespace GAMMA.Models
         #endregion
         #region ChoicesAllowed
         private int _ChoicesAllowed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ChoicesAllowed
         {
             get
@@ -209,7 +209,7 @@ namespace GAMMA.Models
         #endregion
         #region Choices
         private ObservableCollection<FeatureData> _Choices;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<FeatureData> Choices
         {
             get
@@ -480,7 +480,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -496,7 +496,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -512,7 +512,7 @@ namespace GAMMA.Models
         #endregion
         #region Quantity
         private int _Quantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
             get
@@ -528,7 +528,7 @@ namespace GAMMA.Models
         #endregion
         #region Form
         private int _Form;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Form
         {
             get
@@ -612,7 +612,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Type
         private string _Type;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Type
         {
             get

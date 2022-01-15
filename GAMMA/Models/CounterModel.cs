@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -32,7 +32,7 @@ namespace GAMMA.Models
         #endregion
         #region CurrentValue
         private int _CurrentValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CurrentValue
         {
             get
@@ -48,7 +48,7 @@ namespace GAMMA.Models
         #endregion
         #region MaxValue
         private int _MaxValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxValue
         {
             get
@@ -64,7 +64,7 @@ namespace GAMMA.Models
         #endregion
         #region ResetOnRest
         private bool _ResetOnRest;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ResetOnRest
         {
             get
@@ -80,7 +80,7 @@ namespace GAMMA.Models
         #endregion
         #region ResetOnShortRest
         private bool _ResetOnShortRest;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ResetOnShortRest
         {
             get
@@ -96,7 +96,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get

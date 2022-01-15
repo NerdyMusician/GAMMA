@@ -36,7 +36,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -52,7 +52,7 @@ namespace GAMMA.Models
         #endregion
         #region IsCarried
         private bool _IsCarried;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsCarried
         {
             get
@@ -100,7 +100,7 @@ namespace GAMMA.Models
 
         #region PlatinumPieces
         private int _PlatinumPieces;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PlatinumPieces
         {
             get
@@ -117,7 +117,7 @@ namespace GAMMA.Models
         #endregion
         #region GoldPieces
         private int _GoldPieces;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int GoldPieces
         {
             get
@@ -134,7 +134,7 @@ namespace GAMMA.Models
         #endregion
         #region SilverPieces
         private int _SilverPieces;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SilverPieces
         {
             get
@@ -151,7 +151,7 @@ namespace GAMMA.Models
         #endregion
         #region CopperPieces
         private int _CopperPieces;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CopperPieces
         {
             get
@@ -169,7 +169,7 @@ namespace GAMMA.Models
 
         #region AllItems
         private ObservableCollection<ItemModel> _AllItems;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> AllItems
         {
             get

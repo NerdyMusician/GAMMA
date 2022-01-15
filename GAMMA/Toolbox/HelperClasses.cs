@@ -22,7 +22,7 @@ namespace GAMMA.Toolbox
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -38,7 +38,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -54,7 +54,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region Quantity
         private int _Quantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
             get
@@ -70,7 +70,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region ChoiceSet
         private string _ChoiceSet;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ChoiceSet
         {
             get
@@ -86,7 +86,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region Marked
         private bool _Marked;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool Marked
         {
             get
@@ -129,7 +129,7 @@ namespace GAMMA.Toolbox
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -160,7 +160,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region Value
         private int _Value;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Value
         {
             get
@@ -210,7 +210,7 @@ namespace GAMMA.Toolbox
         // Databound Properties
         #region ValueA
         private string _ValueA;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ValueA
         {
             get
@@ -226,7 +226,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region ValueB
         private string _ValueB;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ValueB
         {
             get
@@ -272,7 +272,7 @@ namespace GAMMA.Toolbox
         // Databound Properties
         #region Value
         private string _Value;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Value
         {
             get
@@ -288,7 +288,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region ValueType
         private string _ValueType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ValueType
         {
             get
@@ -406,7 +406,7 @@ namespace GAMMA.Toolbox
         // Databound Properties
         #region Label
         private string _Label;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Label
         {
             get
@@ -422,7 +422,7 @@ namespace GAMMA.Toolbox
         #endregion
         #region Values
         private ObservableCollection<ConvertibleValue> _Values;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Values
         {
             get
