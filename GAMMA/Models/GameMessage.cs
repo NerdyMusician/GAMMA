@@ -20,7 +20,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region MessageType
         private string _MessageType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string MessageType
         {
             get
@@ -36,7 +36,7 @@ namespace GAMMA.Models
         #endregion
         #region MessageContent
         private string _MessageContent;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string MessageContent
         {
             get

@@ -42,7 +42,7 @@ namespace GAMMA.ViewModels
         // Databound Properties
         #region Campaigns
         private ObservableCollection<GameCampaign> _Campaigns;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameCampaign> Campaigns
         {
             get
@@ -58,7 +58,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region ActiveCampaign
         private GameCampaign _ActiveCampaign;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public GameCampaign ActiveCampaign
         {
             get
@@ -74,7 +74,7 @@ namespace GAMMA.ViewModels
         #endregion
         #region LastSave
         private string _LastSave;
-        [XmlSaveMode("None")]
+        
         public string LastSave
         {
             get

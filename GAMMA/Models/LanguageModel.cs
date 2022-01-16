@@ -19,7 +19,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -35,7 +35,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -51,7 +51,7 @@ namespace GAMMA.Models
         #endregion
         #region Type
         private string _Type;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Type
         {
             get
@@ -67,7 +67,7 @@ namespace GAMMA.Models
         #endregion
         #region Sourcebook
         private string _Sourcebook;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
         #endregion
         #region TypicalSpeakers
         private string _TypicalSpeakers;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string TypicalSpeakers
         {
             get
@@ -99,7 +99,7 @@ namespace GAMMA.Models
         #endregion
         #region Script
         private string _Script;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Script
         {
             get
@@ -115,7 +115,7 @@ namespace GAMMA.Models
         #endregion
         #region Dialects
         private string _Dialects;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Dialects
         {
             get

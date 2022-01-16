@@ -31,7 +31,7 @@ namespace GAMMA.Models.GameplayComponents
         // Databound Properties
         #region Action
         private string _Action;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Action
         {
             get
@@ -48,7 +48,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Conditions
         private ObservableCollection<CACondition> _Conditions;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CACondition> Conditions
         {
             get
@@ -94,7 +94,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ValueA
         private string _ValueA;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ValueA
         {
             get
@@ -110,7 +110,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ValueB
         private string _ValueB;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ValueB
         {
             get
@@ -157,7 +157,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region ActionOptions
         private List<string> _ActionOptions;
-        [XmlSaveMode("None")]
+        
         public List<string> ActionOptions
         {
             get
@@ -205,7 +205,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region InEditMode
         private bool _InEditMode;
-        [XmlSaveMode("None")]
+        
         public bool InEditMode
         {
             get

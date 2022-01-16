@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region HitDice
         private int _HitDice;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDice
         {
             get

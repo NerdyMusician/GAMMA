@@ -1,4 +1,15 @@
-﻿GAMMA 1.28.00
+﻿GAMMA 1.28.01
+- NEW: Added button in About section to open url to GitHub page
+- BUG: Fixed issue with opening file / url in default application after .NET version change
+- CODE: Updated from .NET Framework 4.7.2 to .NET 6
+- CODE: Changed over from System.Windows.Interactivity.WPF to Microsoft.Xaml.Behaviors.Wpf
+- CODE: Changed DeepClone method to utilize XmlSerializer instead of BinaryFormatter
+- CODE: VS recommendation CA1829, changed various instances of Enumberable.Count() to use Count property instead
+- CODE: Changed XmlSaveMode attribute parameter to enum vs string (and fixed two typo'd properties' attributes as a result)
+- CODE: Removed CharacterModel.ClassInfo, pre-1.26 property no longer used
+- CODE: Moved spell slot properties to EntityModel that CreatureModel and CharacterModel inherit from
+
+GAMMA 1.28.00
 - Added 'Contains' condition type for custom abilities
 - Fixed issue where test ability rolls on creatures were not using stat modifiers
 - Fixed issue where null Language property for a new creature could cause crash when adding to Campaign Gameplay

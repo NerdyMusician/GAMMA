@@ -19,103 +19,53 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region FullPath
         private string _FullPath;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string FullPath
         {
-            get
-            {
-                return _FullPath;
-            }
-            set
-            {
-                _FullPath = value;
-                NotifyPropertyChanged();
-            }
+            get => _FullPath;
+            set => SetAndNotify(ref _FullPath, value);
         }
         #endregion
         #region IsAvailable
         private bool _IsAvailable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsAvailable
         {
-            get
-            {
-                return _IsAvailable;
-            }
-            set
-            {
-                _IsAvailable = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsAvailable;
+            set => SetAndNotify(ref _IsAvailable, value);
         }
         #endregion
         #region Tags
         private ObservableCollection<ConvertibleValue> _Tags;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Tags
         {
-            get
-            {
-                return _Tags;
-            }
-            set
-            {
-                _Tags = value;
-                NotifyPropertyChanged();
-            }
+            get => _Tags;
+            set => SetAndNotify(ref _Tags, value);
         }
         #endregion
 
         // Commands
         #region PlayMusic
-        private RelayCommand _PlayMusic;
-        public ICommand PlayMusic
-        {
-            get
-            {
-                if (_PlayMusic == null)
-                {
-                    _PlayMusic = new RelayCommand(param => DoPlayMusic());
-                }
-                return _PlayMusic;
-            }
-        }
-        private void DoPlayMusic()
+        public ICommand PlayMusic => new RelayCommand(DoPlayMusic);
+        private void DoPlayMusic(object param)
         {
             Configuration.MainModelRef.AudioView.DoChangeMusic(FullPath);
             Configuration.MainModelRef.AudioView.NowPlaying_Music = Name;
         }
         #endregion
         #region PlaySfx
-        private RelayCommand _PlaySfx;
-        public ICommand PlaySfx
-        {
-            get
-            {
-                if (_PlaySfx == null)
-                {
-                    _PlaySfx = new RelayCommand(param => DoPlaySfx());
-                }
-                return _PlaySfx;
-            }
-        }
-        private void DoPlaySfx()
+        public ICommand PlaySfx => new RelayCommand(DoPlaySfx);
+        private void DoPlaySfx(object param)
         {
             Configuration.MainModelRef.AudioView.DoChangeSfx(FullPath);
             Configuration.MainModelRef.AudioView.NowPlaying_Sfx = Name;

@@ -21,7 +21,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region ClassName
         private string _ClassName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ClassName
         {
             get
@@ -41,7 +41,7 @@ namespace GAMMA.Models
         #endregion
         #region SubClassName
         private string _SubClassName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SubClassName
         {
             get
@@ -60,7 +60,7 @@ namespace GAMMA.Models
         #endregion
         #region ClassLevel
         private int _ClassLevel;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ClassLevel
         {
             get

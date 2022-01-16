@@ -16,131 +16,71 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region CurrentValue
         private int _CurrentValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CurrentValue
         {
-            get
-            {
-                return _CurrentValue;
-            }
-            set
-            {
-                _CurrentValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _CurrentValue;
+            set => SetAndNotify(ref _CurrentValue, value);
         }
         #endregion
         #region MaxValue
         private int _MaxValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxValue
         {
-            get
-            {
-                return _MaxValue;
-            }
-            set
-            {
-                _MaxValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxValue;
+            set => SetAndNotify(ref _MaxValue, value);
         }
         #endregion
         #region ResetOnRest
         private bool _ResetOnRest;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ResetOnRest
         {
-            get
-            {
-                return _ResetOnRest;
-            }
-            set
-            {
-                _ResetOnRest = value;
-                NotifyPropertyChanged();
-            }
+            get => _ResetOnRest;
+            set => SetAndNotify(ref _ResetOnRest, value);
         }
         #endregion
         #region ResetOnShortRest
         private bool _ResetOnShortRest;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool ResetOnShortRest
         {
-            get
-            {
-                return _ResetOnShortRest;
-            }
-            set
-            {
-                _ResetOnShortRest = value;
-                NotifyPropertyChanged();
-            }
+            get => _ResetOnShortRest;
+            set => SetAndNotify(ref _ResetOnShortRest, value);
         }
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region ShowOptions
         private bool _ShowOptions;
         public bool ShowOptions
         {
-            get
-            {
-                return _ShowOptions;
-            }
-            set
-            {
-                _ShowOptions = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowOptions;
+            set => SetAndNotify(ref _ShowOptions, value);
         }
         #endregion
 
         // Commands
         #region RemoveCounterFromPlayer
-        private RelayCommand _RemoveCounterFromPlayer;
-        public ICommand RemoveCounterFromPlayer
-        {
-            get
-            {
-                if (_RemoveCounterFromPlayer == null)
-                {
-                    _RemoveCounterFromPlayer = new RelayCommand(param => DoRemoveCounterFromPlayer());
-                }
-                return _RemoveCounterFromPlayer;
-            }
-        }
-        private void DoRemoveCounterFromPlayer()
+        public ICommand RemoveCounterFromPlayer => new RelayCommand(DoRemoveCounterFromPlayer);
+        private void DoRemoveCounterFromPlayer(object param)
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Counters.Remove(this);
         }

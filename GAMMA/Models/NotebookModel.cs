@@ -19,7 +19,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -35,7 +35,7 @@ namespace GAMMA.Models
         #endregion
         #region Notes
         private ObservableCollection<NoteModel> _Notes;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NoteModel> Notes
         {
             get

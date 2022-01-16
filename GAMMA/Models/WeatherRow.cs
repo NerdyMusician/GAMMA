@@ -15,7 +15,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Icon
         private string _Icon;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Icon
         {
             get
@@ -31,7 +31,7 @@ namespace GAMMA.Models
         #endregion
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -47,7 +47,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -63,7 +63,7 @@ namespace GAMMA.Models
         #endregion
         #region LowValue
         private int _LowValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int LowValue
         {
             get
@@ -79,7 +79,7 @@ namespace GAMMA.Models
         #endregion
         #region HighValue
         private int _HighValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HighValue
         {
             get

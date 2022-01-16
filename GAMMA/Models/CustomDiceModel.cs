@@ -16,7 +16,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -32,7 +32,7 @@ namespace GAMMA.Models
         #endregion
         #region DiceQuantity
         private int _DiceQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DiceQuantity
         {
             get
@@ -48,7 +48,7 @@ namespace GAMMA.Models
         #endregion
         #region DiceSides
         private int _DiceSides;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DiceSides
         {
             get
@@ -64,7 +64,7 @@ namespace GAMMA.Models
         #endregion
         #region DiceModifier
         private int _DiceModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DiceModifier
         {
             get

@@ -79,7 +79,7 @@ namespace GAMMA.Models.GameplayComponents
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -95,7 +95,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Type
         private string _Type;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Type
         {
             get
@@ -126,7 +126,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -142,7 +142,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region Output
         private string _Output;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Output
         {
             get
@@ -159,7 +159,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region QuantityToPerform
         private int _QuantityToPerform;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int QuantityToPerform
         {
             get
@@ -175,7 +175,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region DoesQuantityScale
         private bool _DoesQuantityScale;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool DoesQuantityScale
         {
             get
@@ -191,7 +191,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region ScaleRate
         private int _ScaleRate;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ScaleRate
         {
             get
@@ -208,7 +208,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region PresetScale
         private int _PresetScale;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PresetScale
         {
             get
@@ -225,7 +225,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region Variables
         private ObservableCollection<CAVariable> _Variables;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAVariable> Variables
         {
             get
@@ -241,7 +241,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region PreActions
         private ObservableCollection<CAPreAction> _PreActions;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAPreAction> PreActions
         {
             get
@@ -257,7 +257,7 @@ namespace GAMMA.Models.GameplayComponents
         #endregion
         #region PostActions
         private ObservableCollection<CAPostAction> _PostActions;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAPostAction> PostActions
         {
             get
@@ -274,7 +274,7 @@ namespace GAMMA.Models.GameplayComponents
 
         #region InEditMode
         private bool _InEditMode;
-        [XmlSaveMode("None")]
+        
         public bool InEditMode
         {
             get
@@ -527,10 +527,10 @@ namespace GAMMA.Models.GameplayComponents
                     v.Value = usingOpt.ToString(); // force-fix LastOptions null issue
                     if (usingOpt) { optsUsed.Add(v.Name); }
                 }
-                if (optsUsed.Count() > 0)
+                if (optsUsed.Count > 0)
                 {
                     message += "\nOptions used: ";
-                    for (int i = 0; i < optsUsed.Count(); i++)
+                    for (int i = 0; i < optsUsed.Count; i++)
                     {
                         if (i > 0) { message += ", "; }
                         message += optsUsed[i];
@@ -811,7 +811,7 @@ namespace GAMMA.Models.GameplayComponents
                     if (preAction.Action == "QA Prompt")
                     {
                         if (string.IsNullOrEmpty(preAction.Question)) { HelperMethods.NotifyUser("Question is blank."); return false; }
-                        if (preAction.Answers.Count() == 0) { HelperMethods.NotifyUser("No answers available for question \"" + preAction.Question + "\"."); return false; }
+                        if (preAction.Answers.Count == 0) { HelperMethods.NotifyUser("No answers available for question \"" + preAction.Question + "\"."); return false; }
                         Dictionary<string, string> swappers2 = new();
                         string newQuestion = preAction.Question;
                         foreach (CAVariable v in Variables)
@@ -831,16 +831,14 @@ namespace GAMMA.Models.GameplayComponents
                     if (preAction.Action == "Add Calculated Value")
                     {
                         if (target.Type != "Number") { HelperMethods.NotifyUser("Variable \"" + target.Name + "\" is not a Number type, unable to perform calculation."); return false; }
-                        int calcA = 0;
-                        int calcB = 0;
-                        if (int.TryParse(preAction.CalculatedValueA, out calcA) == false)
+                        if (int.TryParse(preAction.CalculatedValueA, out int calcA) == false)
                         {
                             CAVariable cVarA = Variables.FirstOrDefault(v => v.Name == preAction.CalculatedValueA);
                             if (cVarA == null) { HelperMethods.NotifyUser("Invalid value \"" + preAction.CalculatedValueA + "\" for calculation value A."); return false; }
                             if (cVarA.Type != "Number") { HelperMethods.NotifyUser("Variable \"" + cVarA.Name + "\" is not a Number type, unable to perform calculation."); return false; }
                             calcA = Convert.ToInt32(cVarA.Value);
                         }
-                        if (int.TryParse(preAction.CalculatedValueB, out calcB) == false)
+                        if (int.TryParse(preAction.CalculatedValueB, out int calcB) == false)
                         {
                             CAVariable cVarB = Variables.FirstOrDefault(v => v.Name == preAction.CalculatedValueB);
                             if (cVarB == null) { HelperMethods.NotifyUser("Invalid value \"" + preAction.CalculatedValueB + "\" for calculation value B."); return false; }
@@ -920,7 +918,7 @@ namespace GAMMA.Models.GameplayComponents
                     if (v.IncludeHalfValue) { message += " (" + (Convert.ToInt32(v.Value) / 2) + ")"; }
                     if (Configuration.MainModelRef.SettingsView.ShowDiceRolls)
                     {
-                        if (v.Rolls.Count() > 0)
+                        if (v.Rolls.Count > 0)
                         {
                             message += "\n" + v.Name + " (Roll): " + HelperMethods.GetFormattedDiceRolls(v.Rolls);
                         }
@@ -928,7 +926,7 @@ namespace GAMMA.Models.GameplayComponents
                         {
                             continue;
                         }
-                        if (v.Modifiers.Count() > 0)
+                        if (v.Modifiers.Count > 0)
                         {
                             message += " + " + HelperMethods.GetFormattedModifiers(v.Modifiers);
                         }
@@ -1080,7 +1078,7 @@ namespace GAMMA.Models.GameplayComponents
                             }
                             if (alterant.IsActive == false) { newlyActivatedAlterants.Add(alterant.Name); }
                             alterant.IsActive = true;
-                            if (newlyActivatedAlterants.Count() > 0)
+                            if (newlyActivatedAlterants.Count > 0)
                             {
                                 message += "\nActivated alterants: " + HelperMethods.GetStringFromList(newlyActivatedAlterants, ",") + ".";
                             }
@@ -1279,14 +1277,14 @@ namespace GAMMA.Models.GameplayComponents
         }
 
         // Private Methods
-        private bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
+        private static bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
         {
             v = variables.FirstOrDefault(v => v.Name == variableName);
             if (v == null) { HelperMethods.NotifyUser("Invalid target \"" + variableName + "\", variable not found."); return false; }
             if (v.Type != expectedType) { HelperMethods.NotifyUser("Expected variable type \"" + expectedType + "\", matched variable is of type \"" + v.Type + "\"."); return false; }
             return true;
         }
-        private int GetIntValueFromCreatureStat(string stat, CreatureModel creature)
+        private static int GetIntValueFromCreatureStat(string stat, CreatureModel creature)
         {
             return stat switch
             {
@@ -1302,7 +1300,7 @@ namespace GAMMA.Models.GameplayComponents
                 _ => 0
             };
         }
-        private string GetAbilityProcessingMode(CreatureModel creature, CharacterModel character)
+        private static string GetAbilityProcessingMode(CreatureModel creature, CharacterModel character)
         {
             if (character != null) { return "Character"; }
             if (creature != null) { return "Creature"; }

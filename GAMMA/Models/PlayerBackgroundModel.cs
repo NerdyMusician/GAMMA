@@ -22,7 +22,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -38,7 +38,7 @@ namespace GAMMA.Models
         #endregion
         #region GoldPieces
         private int _GoldPieces;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int GoldPieces
         {
             get
@@ -54,7 +54,7 @@ namespace GAMMA.Models
         #endregion
         #region MandatoryEquipment
         private ObservableCollection<ItemModel> _MandatoryEquipment;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> MandatoryEquipment
         {
             get

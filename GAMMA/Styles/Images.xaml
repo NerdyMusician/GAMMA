@@ -63,12 +63,6 @@
     <Style TargetType="Image" x:Key="Icon_PaintBrush" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/paintbrush.png" />
     </Style>
-    <Style TargetType="Image" x:Key="Icon_PaintRoller" BasedOn="{StaticResource Icon_Base}">
-        <Setter Property="Source" Value="../Images/Icons/paintroller.png" />
-    </Style>
-    <Style TargetType="Image" x:Key="Icon_PaintBucket" BasedOn="{StaticResource Icon_Base}">
-        <Setter Property="Source" Value="../Images/Icons/paintbucket.png" />
-    </Style>
     <Style TargetType="Image" x:Key="Icon_Page_Add" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/page_new.png" />
     </Style>
@@ -607,6 +601,9 @@
     </Style>
     <Style TargetType="Image" x:Key="Icon_Reddit" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/reddit.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_GitHub" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/githubFaviconDark.png" />
     </Style>
     <Style TargetType="Image" x:Key="Icon_Fall" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/fall.png" />

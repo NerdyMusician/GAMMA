@@ -19,7 +19,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -35,7 +35,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -51,7 +51,7 @@ namespace GAMMA.Models
         #endregion
         #region WeeksPerMonth
         private int _WeeksPerMonth;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int WeeksPerMonth
         {
             get
@@ -67,7 +67,7 @@ namespace GAMMA.Models
         #endregion
         #region UseEras
         private bool _UseEras;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool UseEras
         {
             get
@@ -83,7 +83,7 @@ namespace GAMMA.Models
         #endregion
         #region YearsPerEra
         private int _YearsPerEra;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int YearsPerEra
         {
             get
@@ -99,7 +99,7 @@ namespace GAMMA.Models
         #endregion
         #region Months
         private ObservableCollection<ConvertibleValue> _Months;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Months
         {
             get
@@ -115,7 +115,7 @@ namespace GAMMA.Models
         #endregion
         #region Days
         private ObservableCollection<ConvertibleValue> _Days;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Days
         {
             get

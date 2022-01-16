@@ -22,7 +22,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -38,7 +38,7 @@ namespace GAMMA.Models
         #endregion
         #region CreatureList
         private ObservableCollection<PackCreatureModel> _CreatureList;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<PackCreatureModel> CreatureList
         {
             get
@@ -54,7 +54,7 @@ namespace GAMMA.Models
         #endregion
         #region NpcList
         private ObservableCollection<PackCreatureModel> _NpcList;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<PackCreatureModel> NpcList
         {
             get
@@ -70,7 +70,7 @@ namespace GAMMA.Models
         #endregion
         #region IsAlly
         private bool _IsAlly;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsAlly
         {
             get
@@ -86,7 +86,7 @@ namespace GAMMA.Models
         #endregion
         #region IsActive
         private bool _IsActive;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
             get { return _IsActive; }

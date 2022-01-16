@@ -45,7 +45,7 @@ namespace GAMMA.Models
 
         private void ActiveEffects_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            ShowTag_HasActiveEffects = (ActiveEffectAbilities.Count() > 0);
+            ShowTag_HasActiveEffects = (ActiveEffectAbilities.Count > 0);
         }
 
         private void GenerateTraitAndAbilityLists()
@@ -87,7 +87,7 @@ namespace GAMMA.Models
         // Databound Properties - Core
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -104,337 +104,192 @@ namespace GAMMA.Models
 
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region PortraitImagePath
         private string _PortraitImagePath;
         public string PortraitImagePath
         {
-            get
-            {
-                return _PortraitImagePath;
-            }
-            set
-            {
-                _PortraitImagePath = value;
-                NotifyPropertyChanged();
-            }
+            get => _PortraitImagePath;
+            set => SetAndNotify(ref _PortraitImagePath, value);
         }
         #endregion
         #region Sourcebook
         private string _Sourcebook;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
         #region TrackerIndicator
         private string _TrackerIndicator;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string TrackerIndicator
         {
-            get
-            {
-                return _TrackerIndicator;
-            }
-            set
-            {
-                _TrackerIndicator = value;
-                NotifyPropertyChanged();
-            }
+            get => _TrackerIndicator;
+            set => SetAndNotify(ref _TrackerIndicator, value);
         }
         #endregion
         #region DisplayName
         private string _DisplayName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DisplayName
         {
-            get
-            {
-                return _DisplayName;
-            }
-            set
-            {
-                _DisplayName = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayName;
+            set => SetAndNotify(ref _DisplayName, value);
         }
         #endregion
         #region IsPlayer
         private bool _IsPlayer;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsPlayer
         {
-            get
-            {
-                return _IsPlayer;
-            }
-            set
-            {
-                _IsPlayer = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsPlayer;
+            set => SetAndNotify(ref _IsPlayer, value);
         }
         #endregion
         #region IsAlly
         private bool _IsAlly;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsAlly
         {
-            get
-            {
-                return _IsAlly;
-            }
-            set
-            {
-                _IsAlly = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsAlly;
+            set => SetAndNotify(ref _IsAlly, value);
         }
         #endregion
         #region IsNpc
         private bool _IsNpc;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsNpc
         {
-            get
-            {
-                return _IsNpc;
-            }
-            set
-            {
-                _IsNpc = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsNpc;
+            set => SetAndNotify(ref _IsNpc, value);
         }
         #endregion
         #region IsOoc
         private bool _IsOoc;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsOoc
         {
-            get
-            {
-                return _IsOoc;
-            }
-            set
-            {
-                _IsOoc = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsOoc;
+            set => SetAndNotify(ref _IsOoc, value);
         }
         #endregion
         #region HasMiniature
         private bool _HasMiniature;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasMiniature
         {
-            get
-            {
-                return _HasMiniature;
-            }
-            set
-            {
-                _HasMiniature = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasMiniature;
+            set => SetAndNotify(ref _HasMiniature, value);
         }
         #endregion
         #region MiniatureQuantity
         private int _MiniatureQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MiniatureQuantity
         {
-            get
-            {
-                return _MiniatureQuantity;
-            }
-            set
-            {
-                _MiniatureQuantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _MiniatureQuantity;
+            set => SetAndNotify(ref _MiniatureQuantity, value);
         }
         #endregion
         #region MiniatureLocation
         private string _MiniatureLocation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string MiniatureLocation
         {
-            get
-            {
-                return _MiniatureLocation;
-            }
-            set
-            {
-                _MiniatureLocation = value;
-                NotifyPropertyChanged();
-            }
+            get => _MiniatureLocation;
+            set => SetAndNotify(ref _MiniatureLocation, value);
         }
         #endregion
 
         // Campaign View Only //
         #region PlayerName
         private string _PlayerName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string PlayerName
         {
-            get
-            {
-                return _PlayerName;
-            }
-            set
-            {
-                _PlayerName = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerName;
+            set => SetAndNotify(ref _PlayerName, value);
         }
         #endregion
         #region PlayerRaceAndClass
         private string _PlayerRaceAndClass;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string PlayerRaceAndClass
         {
-            get
-            {
-                return _PlayerRaceAndClass;
-            }
-            set
-            {
-                _PlayerRaceAndClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerRaceAndClass;
+            set => SetAndNotify(ref _PlayerRaceAndClass, value);
         }
         #endregion
         #region PlayerPassivePerception
         private int _PlayerPassivePerception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PlayerPassivePerception
         {
-            get
-            {
-                return _PlayerPassivePerception;
-            }
-            set
-            {
-                _PlayerPassivePerception = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerPassivePerception;
+            set => SetAndNotify(ref _PlayerPassivePerception, value);
         }
         #endregion
         #region PlayerSpellSaveDc
         private int _PlayerSpellSaveDc;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PlayerSpellSaveDc
         {
-            get
-            {
-                return _PlayerSpellSaveDc;
-            }
-            set
-            {
-                _PlayerSpellSaveDc = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerSpellSaveDc;
+            set => SetAndNotify(ref _PlayerSpellSaveDc, value);
         }
         #endregion
 
         #region CreatureCategory
         private string _CreatureCategory;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CreatureCategory
         {
-            get
-            {
-                return _CreatureCategory;
-            }
-            set
-            {
-                _CreatureCategory = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureCategory;
+            set => SetAndNotify(ref _CreatureCategory, value);
         }
         #endregion
         #region CreatureSubCategory
         private string _CreatureSubCategory;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CreatureSubCategory
         {
-            get
-            {
-                return _CreatureSubCategory;
-            }
-            set
-            {
-                _CreatureSubCategory = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureSubCategory;
+            set => SetAndNotify(ref _CreatureSubCategory, value);
         }
         #endregion
         #region Description
-        // Description or lore for the Creature.
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region Notes
-        // Current GM notes for the specific Creature
         private string _Notes;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Notes
         {
-            get
-            {
-                return _Notes;
-            }
-            set
-            {
-                _Notes = value;
-                NotifyPropertyChanged();
-            }
+            get => _Notes;
+            set => SetAndNotify(ref _Notes, value);
         }
         #endregion
         #region CurrentHitPoints
         private int _CurrentHitPoints;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CurrentHitPoints
         {
-            get
-            {
-                return _CurrentHitPoints;
-            }
+            get => _CurrentHitPoints;
             set
             {
                 _CurrentHitPoints = value;
@@ -445,18 +300,11 @@ namespace GAMMA.Models
         #endregion
         #region MaxHitPoints
         private int _MaxHitPoints;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxHitPoints
         {
-            get
-            {
-                return _MaxHitPoints;
-            }
-            set
-            {
-                _MaxHitPoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxHitPoints;
+            set => SetAndNotify(ref _MaxHitPoints, value);
         }
         #endregion
         #region Status
@@ -464,140 +312,81 @@ namespace GAMMA.Models
         private string _Status;
         public string Status
         {
-            get
-            {
-                return _Status;
-            }
-            set
-            {
-                _Status = value;
-                NotifyPropertyChanged();
-            }
+            get => _Status;
+            set => SetAndNotify(ref _Status, value);
         }
         #endregion
         #region Size
         // Size category of the Creature. (e.g. Medium, Large)
         private string _Size;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Size
         {
-            get
-            {
-                return _Size;
-            }
-            set
-            {
-                _Size = value;
-                NotifyPropertyChanged();
-            }
+            get => _Size;
+            set => SetAndNotify(ref _Size, value);
         }
         #endregion
         #region Alignment
         // Moral alignment of the Creature. (e.g. Chaotic Neutral, Lawful Good)
         private string _Alignment;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Alignment
         {
-            get
-            {
-                return _Alignment;
-            }
-            set
-            {
-                _Alignment = value;
-                NotifyPropertyChanged();
-            }
+            get => _Alignment;
+            set => SetAndNotify(ref _Alignment, value);
         }
         #endregion
         #region Environments
         private ObservableCollection<ConvertibleValue> _Environments;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Environments
         {
-            get
-            {
-                return _Environments;
-            }
-            set
-            {
-                _Environments = value;
-                NotifyPropertyChanged();
-            }
+            get => _Environments;
+            set => SetAndNotify(ref _Environments, value);
         }
         #endregion
         #region Abilities
         private ObservableCollection<CustomAbility> _Abilities;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> Abilities
         {
-            get
-            {
-                return _Abilities;
-            }
-            set
-            {
-                _Abilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _Abilities;
+            set => SetAndNotify(ref _Abilities, value);
         }
         #endregion
         #region Counters
         private ObservableCollection<CounterModel> _Counters;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CounterModel> Counters
         {
-            get
-            {
-                return _Counters;
-            }
-            set
-            {
-                _Counters = value;
-                NotifyPropertyChanged();
-            }
+            get => _Counters;
+            set => SetAndNotify(ref _Counters, value);
         }
         #endregion
         #region SpellLinks
         private ObservableCollection<SpellLink> _SpellLinks;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<SpellLink> SpellLinks
         {
-            get
-            {
-                return _SpellLinks;
-            }
-            set
-            {
-                _SpellLinks = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellLinks;
+            set => SetAndNotify(ref _SpellLinks, value);
         }
         #endregion
         #region ItemLinks
         private ObservableCollection<ItemLink> _ItemLinks;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemLink> ItemLinks
         {
-            get
-            {
-                return _ItemLinks;
-            }
-            set
-            {
-                _ItemLinks = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemLinks;
+            set => SetAndNotify(ref _ItemLinks, value);
         }
         #endregion
         #region IsActive
         private bool _IsActive;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
-            get
-            {
-                return _IsActive;
-            }
+            get => _IsActive;
             set
             {
                 _IsActive = value;
@@ -630,42 +419,25 @@ namespace GAMMA.Models
         private bool _TrackerSearchMatch;
         public bool TrackerSearchMatch
         {
-            get
-            {
-                return _TrackerSearchMatch;
-            }
-            set
-            {
-                _TrackerSearchMatch = value;
-                NotifyPropertyChanged();
-            }
+            get => _TrackerSearchMatch;
+            set => SetAndNotify(ref _TrackerSearchMatch, value);
         }
         #endregion
         #region Initiative
         private int _Initiative;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Initiative
         {
-            get
-            {
-                return _Initiative;
-            }
-            set
-            {
-                _Initiative = value;
-                NotifyPropertyChanged();
-            }
+            get => _Initiative;
+            set => SetAndNotify(ref _Initiative, value);
         }
         #endregion
         #region CoinDrop
         private int _CoinDrop;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CoinDrop
         {
-            get
-            {
-                return _CoinDrop;
-            }
+            get => _CoinDrop;
             set
             {
                 _CoinDrop = value;
@@ -678,72 +450,41 @@ namespace GAMMA.Models
         private string _ProcessedValue;
         public string ProcessedValue
         {
-            get
-            {
-                return _ProcessedValue;
-            }
-            set
-            {
-                _ProcessedValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedValue;
+            set => SetAndNotify(ref _ProcessedValue, value);
         }
         #endregion
         #region HasBeenLooted
         private bool _HasBeenLooted;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasBeenLooted
         {
-            get
-            {
-                return _HasBeenLooted;
-            }
-            set
-            {
-                _HasBeenLooted = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasBeenLooted;
+            set => SetAndNotify(ref _HasBeenLooted, value);
         }
         #endregion
         #region IsConcentrating
         private bool _IsConcentrating;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsConcentrating
         {
-            get
-            {
-                return _IsConcentrating;
-            }
-            set
-            {
-                _IsConcentrating = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsConcentrating;
+            set => SetAndNotify(ref _IsConcentrating, value);
         }
         #endregion
         #region IsTarget
         private bool _IsTarget;
         public bool IsTarget
         {
-            get
-            {
-                return _IsTarget;
-            }
-            set
-            {
-                _IsTarget = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsTarget;
+            set => SetAndNotify(ref _IsTarget, value);
         }
         #endregion
         #region HasGroupSaveAdvantage
         private bool _HasGroupSaveAdvantage;
         public bool HasGroupSaveAdvantage
         {
-            get
-            {
-                return _HasGroupSaveAdvantage;
-            }
+            get => _HasGroupSaveAdvantage;
             set
             {
                 _HasGroupSaveAdvantage = value;
@@ -760,10 +501,7 @@ namespace GAMMA.Models
         private bool _HasGroupSaveDisadvantage;
         public bool HasGroupSaveDisadvantage
         {
-            get
-            {
-                return _HasGroupSaveDisadvantage;
-            }
+            get => _HasGroupSaveDisadvantage;
             set
             {
                 _HasGroupSaveDisadvantage = value;
@@ -780,44 +518,27 @@ namespace GAMMA.Models
         private int _QuantityToAdd;
         public int QuantityToAdd
         {
-            get
-            {
-                return _QuantityToAdd;
-            }
-            set
-            {
-                _QuantityToAdd = value;
-                NotifyPropertyChanged();
-            }
+            get => _QuantityToAdd;
+            set => SetAndNotify(ref _QuantityToAdd, value);
         }
         #endregion
         #region TamingProgress
         private int _TamingProgress;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int TamingProgress
         {
-            get
-            {
-                return _TamingProgress;
-            }
-            set
-            {
-                _TamingProgress = value;
-                NotifyPropertyChanged();
-            }
+            get => _TamingProgress;
+            set => SetAndNotify(ref _TamingProgress, value);
         }
         #endregion
 
         // Databound Properties - Other
         #region HitDiceQuantity
         private int _HitDiceQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDiceQuantity
         {
-            get
-            {
-                return _HitDiceQuantity;
-            }
+            get => _HitDiceQuantity;
             set
             {
                 _HitDiceQuantity = value;
@@ -828,13 +549,10 @@ namespace GAMMA.Models
         #endregion
         #region HitDiceQuality
         private int _HitDiceQuality;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDiceQuality
         {
-            get
-            {
-                return _HitDiceQuality;
-            }
+            get => _HitDiceQuality;
             set
             {
                 _HitDiceQuality = value;
@@ -845,13 +563,10 @@ namespace GAMMA.Models
         #endregion
         #region HitDiceModifier
         private int _HitDiceModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDiceModifier
         {
-            get
-            {
-                return _HitDiceModifier;
-            }
+            get => _HitDiceModifier;
             set
             {
                 _HitDiceModifier = value;
@@ -864,27 +579,17 @@ namespace GAMMA.Models
         private int _AverageHitPoints;
         public int AverageHitPoints
         {
-            get
-            {
-                return _AverageHitPoints;
-            }
-            set
-            {
-                _AverageHitPoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _AverageHitPoints;
+            set => SetAndNotify(ref _AverageHitPoints, value);
         }
         #endregion
 
         #region ChallengeRating
         private string _ChallengeRating;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ChallengeRating
         {
-            get
-            {
-                return _ChallengeRating;
-            }
+            get => _ChallengeRating;
             set
             {
                 _ChallengeRating = value;
@@ -898,159 +603,89 @@ namespace GAMMA.Models
         private int _ExperienceValue;
         public int ExperienceValue
         {
-            get
-            {
-                return _ExperienceValue;
-            }
-            set
-            {
-                _ExperienceValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _ExperienceValue;
+            set => SetAndNotify(ref _ExperienceValue, value);
         }
         #endregion
 
         #region ArmorClass
         private int _ArmorClass;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ArmorClass
         {
-            get
-            {
-                return _ArmorClass;
-            }
-            set
-            {
-                _ArmorClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _ArmorClass;
+            set => SetAndNotify(ref _ArmorClass, value);
         }
         #endregion
         #region ArmorType
         private string _ArmorType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string ArmorType
         {
-            get
-            {
-                return _ArmorType;
-            }
-            set
-            {
-                _ArmorType = value;
-                NotifyPropertyChanged();
-            }
+            get => _ArmorType;
+            set => SetAndNotify(ref _ArmorType, value);
         }
         #endregion
 
         #region Speed
         private int _Speed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Speed
         {
-            get
-            {
-                return _Speed;
-            }
-            set
-            {
-                _Speed = value;
-                NotifyPropertyChanged();
-            }
+            get => _Speed;
+            set => SetAndNotify(ref _Speed, value);
         }
         #endregion
         #region FlySpeed
         private int _FlySpeed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int FlySpeed
         {
-            get
-            {
-                return _FlySpeed;
-            }
-            set
-            {
-                _FlySpeed = value;
-                NotifyPropertyChanged();
-            }
+            get => _FlySpeed;
+            set => SetAndNotify(ref _FlySpeed, value);
         }
         #endregion
         #region ClimbSpeed
         private int _ClimbSpeed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ClimbSpeed
         {
-            get
-            {
-                return _ClimbSpeed;
-            }
-            set
-            {
-                _ClimbSpeed = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClimbSpeed;
+            set => SetAndNotify(ref _ClimbSpeed, value);
         }
         #endregion
         #region BurrowSpeed
         private int _BurrowSpeed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int BurrowSpeed
         {
-            get
-            {
-                return _BurrowSpeed;
-            }
-            set
-            {
-                _BurrowSpeed = value;
-                NotifyPropertyChanged();
-            }
+            get => _BurrowSpeed;
+            set => SetAndNotify(ref _BurrowSpeed, value);
         }
         #endregion
         #region SwimSpeed
         private int _SwimSpeed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SwimSpeed
         {
-            get
-            {
-                return _SwimSpeed;
-            }
-            set
-            {
-                _SwimSpeed = value;
-                NotifyPropertyChanged();
-            }
+            get => _SwimSpeed;
+            set => SetAndNotify(ref _SwimSpeed, value);
         }
         #endregion
         #region HighestSpeedType
         private string _HighestSpeedType;
         public string HighestSpeedType
         {
-            get
-            {
-                return _HighestSpeedType;
-            }
-            set
-            {
-                _HighestSpeedType = value;
-                NotifyPropertyChanged();
-            }
+            get => _HighestSpeedType;
+            set => SetAndNotify(ref _HighestSpeedType, value);
         }
         #endregion
         #region HighestSpeedValue
         private int _HighestSpeedValue;
         public int HighestSpeedValue
         {
-            get
-            {
-                return _HighestSpeedValue;
-            }
-            set
-            {
-                _HighestSpeedValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _HighestSpeedValue;
+            set => SetAndNotify(ref _HighestSpeedValue, value);
         }
         #endregion
 
@@ -1058,173 +693,103 @@ namespace GAMMA.Models
         private int _ProficiencyBonus;
         public int ProficiencyBonus
         {
-            get
-            {
-                return _ProficiencyBonus;
-            }
+            get => _ProficiencyBonus;
             set
             {
                 _ProficiencyBonus = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
         #endregion
         #region PassiveInsight
         private int _PassiveInsight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PassiveInsight
         {
-            get
-            {
-                return _PassiveInsight;
-            }
-            set
-            {
-                _PassiveInsight = value;
-                NotifyPropertyChanged();
-            }
+            get => _PassiveInsight;
+            set => SetAndNotify(ref _PassiveInsight, value);
         }
         #endregion
 
         #region PassivePerception
         private int _PassivePerception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PassivePerception
         {
-            get
-            {
-                return _PassivePerception;
-            }
-            set
-            {
-                _PassivePerception = value;
-                NotifyPropertyChanged();
-            }
+            get => _PassivePerception;
+            set => SetAndNotify(ref _PassivePerception, value);
         }
         #endregion
         #region Darkvision
         private int _Darkvision;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Darkvision
         {
-            get
-            {
-                return _Darkvision;
-            }
-            set
-            {
-                _Darkvision = value;
-                NotifyPropertyChanged();
-            }
+            get => _Darkvision;
+            set => SetAndNotify(ref _Darkvision, value);
         }
         #endregion
         #region Blindsight
         private int _Blindsight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Blindsight
         {
-            get
-            {
-                return _Blindsight;
-            }
-            set
-            {
-                _Blindsight = value;
-                NotifyPropertyChanged();
-            }
+            get => _Blindsight;
+            set => SetAndNotify(ref _Blindsight, value);
         }
         #endregion
         #region Truesight
         private int _Truesight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Truesight
         {
-            get
-            {
-                return _Truesight;
-            }
-            set
-            {
-                _Truesight = value;
-                NotifyPropertyChanged();
-            }
+            get => _Truesight;
+            set => SetAndNotify(ref _Truesight, value);
         }
         #endregion
         #region Tremorsense
         private int _Tremorsense;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Tremorsense
         {
-            get
-            {
-                return _Tremorsense;
-            }
-            set
-            {
-                _Tremorsense = value;
-                NotifyPropertyChanged();
-            }
+            get => _Tremorsense;
+            set => SetAndNotify(ref _Tremorsense, value);
         }
         #endregion
 
         #region Languages
         private string _Languages;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Languages
         {
-            get
-            {
-                return _Languages;
-            }
-            set
-            {
-                _Languages = value;
-                NotifyPropertyChanged();
-            }
+            get => _Languages;
+            set => SetAndNotify(ref _Languages, value);
         }
         #endregion
         #region Lore
         private string _Lore;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Lore
         {
-            get
-            {
-                return _Lore;
-            }
-            set
-            {
-                _Lore = value;
-                NotifyPropertyChanged();
-            }
+            get => _Lore;
+            set => SetAndNotify(ref _Lore, value);
         }
         #endregion
         #region SpellcastingAbilities
         private List<string> _SpellcastingAbilities;
         public List<string> SpellcastingAbilities
         {
-            get
-            {
-                return _SpellcastingAbilities;
-            }
-            set
-            {
-                _SpellcastingAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellcastingAbilities;
+            set => SetAndNotify(ref _SpellcastingAbilities, value);
         }
         #endregion
         #region SpellcastingAbility
         private string _SpellcastingAbility;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string SpellcastingAbility
         {
-            get
-            {
-                return _SpellcastingAbility;
-            }
+            get => _SpellcastingAbility;
             set
             {
                 _SpellcastingAbility = value;
@@ -1237,426 +802,76 @@ namespace GAMMA.Models
         private int _SpellSaveDc;
         public int SpellSaveDc
         {
-            get
-            {
-                return _SpellSaveDc;
-            }
-            set
-            {
-                _SpellSaveDc = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSaveDc;
+            set => SetAndNotify(ref _SpellSaveDc, value);
         }
         #endregion
         #region SpellAttackBonus
         private int _SpellAttackBonus;
         public int SpellAttackBonus
         {
-            get
-            {
-                return _SpellAttackBonus;
-            }
-            set
-            {
-                _SpellAttackBonus = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellAttackBonus;
+            set => SetAndNotify(ref _SpellAttackBonus, value);
         }
         #endregion
         #region SpellAbilityModifier
         private int _SpellAbilityModifier;
         public int SpellAbilityModifier
         {
-            get
-            {
-                return _SpellAbilityModifier;
-            }
-            set
-            {
-                _SpellAbilityModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellAbilityModifier;
+            set => SetAndNotify(ref _SpellAbilityModifier, value);
         }
         #endregion
         #region IsInnateSpellcaster
         private bool _IsInnateSpellcaster;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsInnateSpellcaster
         {
-            get
-            {
-                return _IsInnateSpellcaster;
-            }
-            set
-            {
-                _IsInnateSpellcaster = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsInnateSpellcaster;
+            set => SetAndNotify(ref _IsInnateSpellcaster, value);
         }
         #endregion
-        #region L1SpellsAvailable
-        private int _L1SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L1SpellsAvailable
-        {
-            get
-            {
-                return _L1SpellsAvailable;
-            }
-            set
-            {
-                _L1SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L1SpellsMax
-        private int _L1SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L1SpellsMax
-        {
-            get
-            {
-                return _L1SpellsMax;
-            }
-            set
-            {
-                _L1SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L2SpellsAvailable
-        private int _L2SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L2SpellsAvailable
-        {
-            get
-            {
-                return _L2SpellsAvailable;
-            }
-            set
-            {
-                _L2SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L2SpellsMax
-        private int _L2SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L2SpellsMax
-        {
-            get
-            {
-                return _L2SpellsMax;
-            }
-            set
-            {
-                _L2SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L3SpellsAvailable
-        private int _L3SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L3SpellsAvailable
-        {
-            get
-            {
-                return _L3SpellsAvailable;
-            }
-            set
-            {
-                _L3SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L3SpellsMax
-        private int _L3SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L3SpellsMax
-        {
-            get
-            {
-                return _L3SpellsMax;
-            }
-            set
-            {
-                _L3SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L4SpellsAvailable
-        private int _L4SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L4SpellsAvailable
-        {
-            get
-            {
-                return _L4SpellsAvailable;
-            }
-            set
-            {
-                _L4SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L4SpellsMax
-        private int _L4SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L4SpellsMax
-        {
-            get
-            {
-                return _L4SpellsMax;
-            }
-            set
-            {
-                _L4SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L5SpellsAvailable
-        private int _L5SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L5SpellsAvailable
-        {
-            get
-            {
-                return _L5SpellsAvailable;
-            }
-            set
-            {
-                _L5SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L5SpellsMax
-        private int _L5SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L5SpellsMax
-        {
-            get
-            {
-                return _L5SpellsMax;
-            }
-            set
-            {
-                _L5SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L6SpellsAvailable
-        private int _L6SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L6SpellsAvailable
-        {
-            get
-            {
-                return _L6SpellsAvailable;
-            }
-            set
-            {
-                _L6SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L6SpellsMax
-        private int _L6SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L6SpellsMax
-        {
-            get
-            {
-                return _L6SpellsMax;
-            }
-            set
-            {
-                _L6SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L7SpellsAvailable
-        private int _L7SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L7SpellsAvailable
-        {
-            get
-            {
-                return _L7SpellsAvailable;
-            }
-            set
-            {
-                _L7SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L7SpellsMax
-        private int _L7SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L7SpellsMax
-        {
-            get
-            {
-                return _L7SpellsMax;
-            }
-            set
-            {
-                _L7SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L8SpellsAvailable
-        private int _L8SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L8SpellsAvailable
-        {
-            get
-            {
-                return _L8SpellsAvailable;
-            }
-            set
-            {
-                _L8SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L8SpellsMax
-        private int _L8SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L8SpellsMax
-        {
-            get
-            {
-                return _L8SpellsMax;
-            }
-            set
-            {
-                _L8SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L9SpellsAvailable
-        private int _L9SpellsAvailable;
-        [XmlSaveMode("Single")]
-        public int L9SpellsAvailable
-        {
-            get
-            {
-                return _L9SpellsAvailable;
-            }
-            set
-            {
-                _L9SpellsAvailable = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-        #region L9SpellsMax
-        private int _L9SpellsMax;
-        [XmlSaveMode("Single")]
-        public int L9SpellsMax
-        {
-            get
-            {
-                return _L9SpellsMax;
-            }
-            set
-            {
-                _L9SpellsMax = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
+        
         #region ActiveEffectAbilities
         private ObservableCollection<CustomAbility> _ActiveEffectAbilities;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> ActiveEffectAbilities
         {
-            get
-            {
-                return _ActiveEffectAbilities;
-            }
-            set
-            {
-                _ActiveEffectAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveEffectAbilities;
+            set => SetAndNotify(ref _ActiveEffectAbilities, value);
         }
         #endregion
         #region Traits
         private ObservableCollection<TraitModel> _Traits;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<TraitModel> Traits
         {
-            get
-            {
-                return _Traits;
-            }
-            set
-            {
-                _Traits = value;
-                NotifyPropertyChanged();
-            }
+            get => _Traits;
+            set => SetAndNotify(ref _Traits, value);
         }
         #endregion
         #region Traits_P1
         private ObservableCollection<TraitModel> _Traits_P1;
         public ObservableCollection<TraitModel> Traits_P1
         {
-            get
-            {
-                return _Traits_P1;
-            }
-            set
-            {
-                _Traits_P1 = value;
-                NotifyPropertyChanged();
-            }
+            get => _Traits_P1;
+            set => SetAndNotify(ref _Traits_P1, value);
         }
         #endregion
         #region Traits_P2
         private ObservableCollection<TraitModel> _Traits_P2;
         public ObservableCollection<TraitModel> Traits_P2
         {
-            get
-            {
-                return _Traits_P2;
-            }
-            set
-            {
-                _Traits_P2 = value;
-                NotifyPropertyChanged();
-            }
+            get => _Traits_P2;
+            set => SetAndNotify(ref _Traits_P2, value);
         }
         #endregion
         #region TraitEditModeEnabled
         private bool _TraitEditModeEnabled;
         public bool TraitEditModeEnabled
         {
-            get
-            {
-                return _TraitEditModeEnabled;
-            }
-            set
-            {
-                _TraitEditModeEnabled = value;
-                NotifyPropertyChanged();
-            }
+            get => _TraitEditModeEnabled;
+            set => SetAndNotify(ref _TraitEditModeEnabled, value);
         }
         #endregion
 
@@ -1665,66 +880,38 @@ namespace GAMMA.Models
         private string _Vulnerabilities;
         public string Vulnerabilities
         {
-            get
-            {
-                return _Vulnerabilities;
-            }
-            set
-            {
-                _Vulnerabilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _Vulnerabilities;
+            set => SetAndNotify(ref _Vulnerabilities, value);
         }
         #endregion
         #region Resistances
         private string _Resistances;
         public string Resistances
         {
-            get
-            {
-                return _Resistances;
-            }
-            set
-            {
-                _Resistances = value;
-                NotifyPropertyChanged();
-            }
+            get => _Resistances;
+            set => SetAndNotify(ref _Resistances, value);
         }
         #endregion
         #region Immunities
         private string _Immunities;
         public string Immunities
         {
-            get
-            {
-                return _Immunities;
-            }
-            set
-            {
-                _Immunities = value;
-                NotifyPropertyChanged();
-            }
+            get => _Immunities;
+            set => SetAndNotify(ref _Immunities, value);
         }
         #endregion
         #region ConditionImmunities
         private string _ConditionImmunities;
         public string ConditionImmunities
         {
-            get
-            {
-                return _ConditionImmunities;
-            }
-            set
-            {
-                _ConditionImmunities = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConditionImmunities;
+            set => SetAndNotify(ref _ConditionImmunities, value);
         }
         #endregion
 
         #region DamageProclivity_Acid
         private string _DamageProclivity_Acid;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Acid
         {
             get
@@ -1741,7 +928,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Cold
         private string _DamageProclivity_Cold;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Cold
         {
             get
@@ -1758,7 +945,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Fire
         private string _DamageProclivity_Fire;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Fire
         {
             get
@@ -1775,7 +962,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Force
         private string _DamageProclivity_Force;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Force
         {
             get
@@ -1792,7 +979,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Lightning
         private string _DamageProclivity_Lightning;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Lightning
         {
             get
@@ -1809,7 +996,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Necrotic
         private string _DamageProclivity_Necrotic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Necrotic
         {
             get
@@ -1826,7 +1013,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Poison
         private string _DamageProclivity_Poison;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Poison
         {
             get
@@ -1843,7 +1030,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Psychic
         private string _DamageProclivity_Psychic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Psychic
         {
             get
@@ -1860,7 +1047,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Radiant
         private string _DamageProclivity_Radiant;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Radiant
         {
             get
@@ -1877,7 +1064,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Thunder
         private string _DamageProclivity_Thunder;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Thunder
         {
             get
@@ -1894,7 +1081,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Slashing
         private string _DamageProclivity_Slashing;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Slashing
         {
             get
@@ -1911,7 +1098,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Piercing
         private string _DamageProclivity_Piercing;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Piercing
         {
             get
@@ -1928,7 +1115,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageProclivity_Bludgeoning
         private string _DamageProclivity_Bludgeoning;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Bludgeoning
         {
             get
@@ -1946,7 +1133,7 @@ namespace GAMMA.Models
 
         #region IsImmune_Blinded
         private bool _IsImmune_Blinded;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Blinded
         {
             get
@@ -1963,7 +1150,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Charmed
         private bool _IsImmune_Charmed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Charmed
         {
             get
@@ -1980,7 +1167,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Deafened
         private bool _IsImmune_Deafened;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Deafened
         {
             get
@@ -1997,7 +1184,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Exhaustion
         private bool _IsImmune_Exhaustion;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Exhaustion
         {
             get
@@ -2014,7 +1201,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Frightened
         private bool _IsImmune_Frightened;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Frightened
         {
             get
@@ -2031,7 +1218,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Grappled
         private bool _IsImmune_Grappled;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Grappled
         {
             get
@@ -2048,7 +1235,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Paralyzed
         private bool _IsImmune_Paralyzed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Paralyzed
         {
             get
@@ -2065,7 +1252,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Petrified
         private bool _IsImmune_Petrified;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Petrified
         {
             get
@@ -2082,7 +1269,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Poisoned
         private bool _IsImmune_Poisoned;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Poisoned
         {
             get
@@ -2099,7 +1286,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Prone
         private bool _IsImmune_Prone;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Prone
         {
             get
@@ -2116,7 +1303,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Restrained
         private bool _IsImmune_Restrained;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Restrained
         {
             get
@@ -2133,7 +1320,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Stunned
         private bool _IsImmune_Stunned;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Stunned
         {
             get
@@ -2150,7 +1337,7 @@ namespace GAMMA.Models
         #endregion
         #region IsImmune_Unconscious
         private bool _IsImmune_Unconscious;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Unconscious
         {
             get
@@ -2169,7 +1356,7 @@ namespace GAMMA.Models
         // Databound Properties - Attributes
         #region Attr_Strength
         private int _Attr_Strength;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Strength
         {
             get
@@ -2187,7 +1374,7 @@ namespace GAMMA.Models
         #endregion
         #region Attr_Dexterity
         private int _Attr_Dexterity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Dexterity
         {
             get
@@ -2205,7 +1392,7 @@ namespace GAMMA.Models
         #endregion
         #region Attr_Constitution
         private int _Attr_Constitution;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Constitution
         {
             get
@@ -2223,7 +1410,7 @@ namespace GAMMA.Models
         #endregion
         #region Attr_Intelligence
         private int _Attr_Intelligence;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Intelligence
         {
             get
@@ -2241,7 +1428,7 @@ namespace GAMMA.Models
         #endregion
         #region Attr_Wisdom
         private int _Attr_Wisdom;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Wisdom
         {
             get
@@ -2261,7 +1448,7 @@ namespace GAMMA.Models
         #endregion
         #region Attr_Charisma
         private int _Attr_Charisma;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Attr_Charisma
         {
             get
@@ -2280,7 +1467,7 @@ namespace GAMMA.Models
 
         #region StrengthModifier
         private int _StrengthModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int StrengthModifier
         {
             get
@@ -2296,7 +1483,7 @@ namespace GAMMA.Models
         #endregion
         #region DexterityModifier
         private int _DexterityModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DexterityModifier
         {
             get
@@ -2312,7 +1499,7 @@ namespace GAMMA.Models
         #endregion
         #region ConstitutionModifier
         private int _ConstitutionModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ConstitutionModifier
         {
             get
@@ -2328,7 +1515,7 @@ namespace GAMMA.Models
         #endregion
         #region IntelligenceModifier
         private int _IntelligenceModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int IntelligenceModifier
         {
             get
@@ -2344,7 +1531,7 @@ namespace GAMMA.Models
         #endregion
         #region WisdomModifier
         private int _WisdomModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int WisdomModifier
         {
             get
@@ -2360,7 +1547,7 @@ namespace GAMMA.Models
         #endregion
         #region CharismaModifier
         private int _CharismaModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CharismaModifier
         {
             get
@@ -2378,7 +1565,7 @@ namespace GAMMA.Models
         // Databound Properties - D&D Saves
         #region HasSave_Strength
         private bool _HasSave_Strength;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Strength
         {
             get
@@ -2395,7 +1582,7 @@ namespace GAMMA.Models
         #endregion
         #region HasSave_Dexterity
         private bool _HasSave_Dexterity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Dexterity
         {
             get
@@ -2413,7 +1600,7 @@ namespace GAMMA.Models
         #endregion
         #region HasSave_Constitution
         private bool _HasSave_Constitution;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Constitution
         {
             get
@@ -2431,7 +1618,7 @@ namespace GAMMA.Models
         #endregion
         #region HasSave_Intelligence
         private bool _HasSave_Intelligence;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Intelligence
         {
             get
@@ -2449,7 +1636,7 @@ namespace GAMMA.Models
         #endregion
         #region HasSave_Wisdom
         private bool _HasSave_Wisdom;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Wisdom
         {
             get
@@ -2467,7 +1654,7 @@ namespace GAMMA.Models
         #endregion
         #region HasSave_Charisma
         private bool _HasSave_Charisma;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasSave_Charisma
         {
             get
@@ -2486,7 +1673,7 @@ namespace GAMMA.Models
 
         #region StrengthSave
         private int _StrengthSave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int StrengthSave
         {
             get
@@ -2502,7 +1689,7 @@ namespace GAMMA.Models
         #endregion
         #region DexteritySave
         private int _DexteritySave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DexteritySave
         {
             get
@@ -2518,7 +1705,7 @@ namespace GAMMA.Models
         #endregion
         #region ConstitutionSave
         private int _ConstitutionSave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ConstitutionSave
         {
             get
@@ -2534,7 +1721,7 @@ namespace GAMMA.Models
         #endregion
         #region IntelligenceSave
         private int _IntelligenceSave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int IntelligenceSave
         {
             get
@@ -2550,7 +1737,7 @@ namespace GAMMA.Models
         #endregion
         #region WisdomSave
         private int _WisdomSave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int WisdomSave
         {
             get
@@ -2566,7 +1753,7 @@ namespace GAMMA.Models
         #endregion
         #region CharismaSave
         private int _CharismaSave;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CharismaSave
         {
             get
@@ -2584,7 +1771,7 @@ namespace GAMMA.Models
         // Databound Properties - D&D Proficiencies
         #region IsProf_Acrobatics
         private bool _IsProf_Acrobatics;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Acrobatics
         {
             get
@@ -2602,7 +1789,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_AnimalHandling
         private bool _IsProf_AnimalHandling;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_AnimalHandling
         {
             get
@@ -2620,7 +1807,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Arcana
         private bool _IsProf_Arcana;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Arcana
         {
             get
@@ -2638,7 +1825,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Athletics
         private bool _IsProf_Athletics;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Athletics
         {
             get
@@ -2656,7 +1843,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Deception
         private bool _IsProf_Deception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Deception
         {
             get
@@ -2674,7 +1861,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_History
         private bool _IsProf_History;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_History
         {
             get
@@ -2692,7 +1879,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Insight
         private bool _IsProf_Insight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Insight
         {
             get
@@ -2710,7 +1897,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Intimidation
         private bool _IsProf_Intimidation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Intimidation
         {
             get
@@ -2728,7 +1915,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Investigation
         private bool _IsProf_Investigation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Investigation
         {
             get
@@ -2746,7 +1933,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Medicine
         private bool _IsProf_Medicine;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Medicine
         {
             get
@@ -2764,7 +1951,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Nature
         private bool _IsProf_Nature;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Nature
         {
             get
@@ -2782,7 +1969,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Perception
         private bool _IsProf_Perception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Perception
         {
             get
@@ -2802,7 +1989,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Performance
         private bool _IsProf_Performance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Performance
         {
             get
@@ -2820,7 +2007,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Persuasion
         private bool _IsProf_Persuasion;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Persuasion
         {
             get
@@ -2838,7 +2025,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Religion
         private bool _IsProf_Religion;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Religion
         {
             get
@@ -2856,7 +2043,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_SleightOfHand
         private bool _IsProf_SleightOfHand;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_SleightOfHand
         {
             get
@@ -2874,7 +2061,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Stealth
         private bool _IsProf_Stealth;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Stealth
         {
             get
@@ -2892,7 +2079,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProf_Survival
         private bool _IsProf_Survival;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProf_Survival
         {
             get
@@ -2911,7 +2098,7 @@ namespace GAMMA.Models
 
         #region IsExpert_Acrobatics
         private bool _IsExpert_Acrobatics;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Acrobatics
         {
             get
@@ -2929,7 +2116,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_AnimalHandling
         private bool _IsExpert_AnimalHandling;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_AnimalHandling
         {
             get
@@ -2947,7 +2134,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Arcana
         private bool _IsExpert_Arcana;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Arcana
         {
             get
@@ -2965,7 +2152,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Athletics
         private bool _IsExpert_Athletics;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Athletics
         {
             get
@@ -2983,7 +2170,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Deception
         private bool _IsExpert_Deception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Deception
         {
             get
@@ -3001,7 +2188,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_History
         private bool _IsExpert_History;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_History
         {
             get
@@ -3019,7 +2206,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Insight
         private bool _IsExpert_Insight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Insight
         {
             get
@@ -3037,7 +2224,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Intimidation
         private bool _IsExpert_Intimidation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Intimidation
         {
             get
@@ -3055,7 +2242,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Investigation
         private bool _IsExpert_Investigation;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Investigation
         {
             get
@@ -3073,7 +2260,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Medicine
         private bool _IsExpert_Medicine;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Medicine
         {
             get
@@ -3091,7 +2278,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Nature
         private bool _IsExpert_Nature;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Nature
         {
             get
@@ -3109,7 +2296,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Perception
         private bool _IsExpert_Perception;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Perception
         {
             get
@@ -3129,7 +2316,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Performance
         private bool _IsExpert_Performance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Performance
         {
             get
@@ -3147,7 +2334,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Persuasion
         private bool _IsExpert_Persuasion;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Persuasion
         {
             get
@@ -3165,7 +2352,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Religion
         private bool _IsExpert_Religion;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Religion
         {
             get
@@ -3183,7 +2370,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_SleightOfHand
         private bool _IsExpert_SleightOfHand;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_SleightOfHand
         {
             get
@@ -3201,7 +2388,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Stealth
         private bool _IsExpert_Stealth;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Stealth
         {
             get
@@ -3219,7 +2406,7 @@ namespace GAMMA.Models
         #endregion
         #region IsExpert_Survival
         private bool _IsExpert_Survival;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Survival
         {
             get
@@ -3238,7 +2425,7 @@ namespace GAMMA.Models
 
         #region AcrobaticsModifier
         private int _AcrobaticsModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int AcrobaticsModifier
         {
             get
@@ -3254,7 +2441,7 @@ namespace GAMMA.Models
         #endregion
         #region AnimalHandlingModifier
         private int _AnimalHandlingModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int AnimalHandlingModifier
         {
             get
@@ -3270,7 +2457,7 @@ namespace GAMMA.Models
         #endregion
         #region ArcanaModifier
         private int _ArcanaModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ArcanaModifier
         {
             get
@@ -3286,7 +2473,7 @@ namespace GAMMA.Models
         #endregion
         #region AthleticsModifier
         private int _AthleticsModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int AthleticsModifier
         {
             get
@@ -3302,7 +2489,7 @@ namespace GAMMA.Models
         #endregion
         #region DeceptionModifier
         private int _DeceptionModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DeceptionModifier
         {
             get
@@ -3318,7 +2505,7 @@ namespace GAMMA.Models
         #endregion
         #region HistoryModifier
         private int _HistoryModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HistoryModifier
         {
             get
@@ -3334,7 +2521,7 @@ namespace GAMMA.Models
         #endregion
         #region InsightModifier
         private int _InsightModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int InsightModifier
         {
             get
@@ -3350,7 +2537,7 @@ namespace GAMMA.Models
         #endregion
         #region IntimidationModifier
         private int _IntimidationModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int IntimidationModifier
         {
             get
@@ -3366,7 +2553,7 @@ namespace GAMMA.Models
         #endregion
         #region InvestigationModifier
         private int _InvestigationModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int InvestigationModifier
         {
             get
@@ -3382,7 +2569,7 @@ namespace GAMMA.Models
         #endregion
         #region MedicineModifier
         private int _MedicineModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MedicineModifier
         {
             get
@@ -3398,7 +2585,7 @@ namespace GAMMA.Models
         #endregion
         #region NatureModifier
         private int _NatureModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int NatureModifier
         {
             get
@@ -3414,7 +2601,7 @@ namespace GAMMA.Models
         #endregion
         #region PerceptionModifier
         private int _PerceptionModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PerceptionModifier
         {
             get
@@ -3430,7 +2617,7 @@ namespace GAMMA.Models
         #endregion
         #region PerformanceModifier
         private int _PerformanceModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PerformanceModifier
         {
             get
@@ -3446,7 +2633,7 @@ namespace GAMMA.Models
         #endregion
         #region PersuasionModifier
         private int _PersuasionModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int PersuasionModifier
         {
             get
@@ -3462,7 +2649,7 @@ namespace GAMMA.Models
         #endregion
         #region ReligionModifier
         private int _ReligionModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int ReligionModifier
         {
             get
@@ -3478,7 +2665,7 @@ namespace GAMMA.Models
         #endregion
         #region SleightOfHandModifier
         private int _SleightOfHandModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SleightOfHandModifier
         {
             get
@@ -3494,7 +2681,7 @@ namespace GAMMA.Models
         #endregion
         #region StealthModifier
         private int _StealthModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int StealthModifier
         {
             get
@@ -3510,7 +2697,7 @@ namespace GAMMA.Models
         #endregion
         #region SurvivalModifier
         private int _SurvivalModifier;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int SurvivalModifier
         {
             get
@@ -3802,7 +2989,7 @@ namespace GAMMA.Models
         // Databound Properties - Conditions
         #region IsBlinded
         private bool _IsBlinded;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsBlinded
         {
             get
@@ -3819,7 +3006,7 @@ namespace GAMMA.Models
         #endregion
         #region IsCharmed
         private bool _IsCharmed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsCharmed
         {
             get
@@ -3836,7 +3023,7 @@ namespace GAMMA.Models
         #endregion
         #region IsDeafened
         private bool _IsDeafened;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsDeafened
         {
             get
@@ -3853,7 +3040,7 @@ namespace GAMMA.Models
         #endregion
         #region IsFrightened
         private bool _IsFrightened;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsFrightened
         {
             get
@@ -3870,7 +3057,7 @@ namespace GAMMA.Models
         #endregion
         #region IsGrappled
         private bool _IsGrappled;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsGrappled
         {
             get
@@ -3887,7 +3074,7 @@ namespace GAMMA.Models
         #endregion
         #region IsIncapacitated
         private bool _IsIncapacitated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsIncapacitated
         {
             get
@@ -3904,7 +3091,7 @@ namespace GAMMA.Models
         #endregion
         #region IsInvisible
         private bool _IsInvisible;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsInvisible
         {
             get
@@ -3921,7 +3108,7 @@ namespace GAMMA.Models
         #endregion
         #region IsParalyzed
         private bool _IsParalyzed;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsParalyzed
         {
             get
@@ -3939,7 +3126,7 @@ namespace GAMMA.Models
         #endregion
         #region IsPetrified
         private bool _IsPetrified;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsPetrified
         {
             get
@@ -3957,7 +3144,7 @@ namespace GAMMA.Models
         #endregion
         #region IsPoisoned
         private bool _IsPoisoned;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsPoisoned
         {
             get
@@ -3974,7 +3161,7 @@ namespace GAMMA.Models
         #endregion
         #region IsProne
         private bool _IsProne;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsProne
         {
             get
@@ -3991,7 +3178,7 @@ namespace GAMMA.Models
         #endregion
         #region IsRestrained
         private bool _IsRestrained;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsRestrained
         {
             get
@@ -4008,7 +3195,7 @@ namespace GAMMA.Models
         #endregion
         #region IsStunned
         private bool _IsStunned;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsStunned
         {
             get
@@ -4026,7 +3213,7 @@ namespace GAMMA.Models
         #endregion
         #region IsUnconscious
         private bool _IsUnconscious;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsUnconscious
         {
             get
@@ -4482,7 +3669,7 @@ namespace GAMMA.Models
             string skill = parts[0];
             bool useDisadvantage = false;
             bool useAdvantage = false;
-            if (parts.Count() > 1)
+            if (parts.Length > 1)
             {
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
@@ -4552,7 +3739,7 @@ namespace GAMMA.Models
             string save = parts[0];
             bool useDisadvantage = false;
             bool useAdvantage = false;
-            if (parts.Count() > 1)
+            if (parts.Length > 1)
             {
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
@@ -4618,7 +3805,7 @@ namespace GAMMA.Models
             string attribute = parts[0];
             bool useDisadvantage = false;
             bool useAdvantage = false;
-            if (parts.Count() > 1)
+            if (parts.Length > 1)
             {
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");

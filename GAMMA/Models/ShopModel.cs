@@ -37,7 +37,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -53,7 +53,7 @@ namespace GAMMA.Models
         #endregion
         #region Icon
         private string _Icon;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Icon
         {
             get
@@ -84,7 +84,7 @@ namespace GAMMA.Models
         #endregion
         #region ItemTypes
         private ObservableCollection<BoolOption> _ItemTypes;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<BoolOption> ItemTypes
         {
             get

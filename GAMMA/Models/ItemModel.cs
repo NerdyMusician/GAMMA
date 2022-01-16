@@ -27,7 +27,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Type
         private string _Type;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Type
         {
             get
@@ -61,7 +61,7 @@ namespace GAMMA.Models
         #endregion
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -77,7 +77,7 @@ namespace GAMMA.Models
         #endregion
         #region Sourcebook
         private string _Sourcebook;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
             get
@@ -93,7 +93,7 @@ namespace GAMMA.Models
         #endregion
         #region Quantity
         private int _Quantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
             get
@@ -110,7 +110,7 @@ namespace GAMMA.Models
         #endregion
         #region Weight
         private decimal _Weight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public decimal Weight
         {
             get
@@ -127,7 +127,7 @@ namespace GAMMA.Models
         #endregion
         #region RawValue
         private int _RawValue;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int RawValue
         {
             get
@@ -159,7 +159,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
@@ -175,7 +175,7 @@ namespace GAMMA.Models
         #endregion
         #region Lore
         private string _Lore;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Lore
         {
             get
@@ -206,7 +206,7 @@ namespace GAMMA.Models
         #endregion
         #region DropChance
         private int _DropChance;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DropChance
         {
             get
@@ -222,7 +222,7 @@ namespace GAMMA.Models
         #endregion
         #region IsCraftable
         private bool _IsCraftable;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsCraftable
         {
             get
@@ -238,7 +238,7 @@ namespace GAMMA.Models
         #endregion
         #region CanDismantle
         private bool _CanDismantle;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool CanDismantle
         {
             get
@@ -254,7 +254,7 @@ namespace GAMMA.Models
         #endregion
         #region CreatableThroughEnchanting
         private bool _CreatableThroughEnchanting;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool CreatableThroughEnchanting
         {
             get
@@ -270,7 +270,7 @@ namespace GAMMA.Models
         #endregion
         #region CraftingToolkit
         private string _CraftingToolkit;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string CraftingToolkit
         {
             get
@@ -286,7 +286,7 @@ namespace GAMMA.Models
         #endregion
         #region EnchantingBaseItem
         private string _EnchantingBaseItem;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string EnchantingBaseItem
         {
             get
@@ -302,7 +302,7 @@ namespace GAMMA.Models
         #endregion
         #region CraftingComponents
         private ObservableCollection<ItemModel> _CraftingComponents;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> CraftingComponents
         {
             get
@@ -318,7 +318,7 @@ namespace GAMMA.Models
         #endregion
         #region AcquiredComponents
         private ObservableCollection<ItemModel> _AcquiredComponents;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> AcquiredComponents
         {
             get
@@ -334,7 +334,7 @@ namespace GAMMA.Models
         #endregion
         #region EnchantingRunes
         private ObservableCollection<ItemModel> _EnchantingRunes;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> EnchantingRunes
         {
             get
@@ -350,7 +350,7 @@ namespace GAMMA.Models
         #endregion
         #region CraftingProgress
         private int _CraftingProgress;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CraftingProgress
         {
             get
@@ -396,7 +396,7 @@ namespace GAMMA.Models
         #endregion
         #region Environment
         private string _Environment;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Environment
         {
             get
@@ -412,7 +412,7 @@ namespace GAMMA.Models
         #endregion
         #region CraftingDifficulty
         private int _CraftingDifficulty;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CraftingDifficulty
         {
             get
@@ -428,7 +428,7 @@ namespace GAMMA.Models
         #endregion
         #region QuantityCrafted
         private int _QuantityCrafted;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int QuantityCrafted
         {
             get
@@ -444,7 +444,7 @@ namespace GAMMA.Models
         #endregion
         #region IsCustomItem
         private bool _IsCustomItem;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsCustomItem
         {
             get
@@ -460,7 +460,7 @@ namespace GAMMA.Models
         #endregion
         #region IsValidated
         private bool _IsValidated;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
             get
@@ -536,7 +536,7 @@ namespace GAMMA.Models
         #endregion
         #region AlcoholPercentage
         private int _AlcoholPercentage;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int AlcoholPercentage
         {
             get
@@ -568,7 +568,7 @@ namespace GAMMA.Models
         #endregion
         #region VolumeSize
         private string _VolumeSize;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string VolumeSize
         {
             get
@@ -605,7 +605,7 @@ namespace GAMMA.Models
         #endregion
         #region CurrentVolume
         private int _CurrentVolume;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CurrentVolume
         {
             get
@@ -621,7 +621,7 @@ namespace GAMMA.Models
         #endregion
         #region MaxVolume
         private int _MaxVolume;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxVolume
         {
             get
@@ -637,7 +637,7 @@ namespace GAMMA.Models
         #endregion
         #region DrinkVolStr
         private string _DrinkVolStr;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DrinkVolStr
         {
             get
@@ -689,7 +689,7 @@ namespace GAMMA.Models
         #endregion
         #region FishingEnvironment
         private string _FishingEnvironment;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string FishingEnvironment
         {
             get
@@ -705,7 +705,7 @@ namespace GAMMA.Models
         #endregion
         #region Rarity
         private string _Rarity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Rarity
         {
             get
@@ -724,7 +724,7 @@ namespace GAMMA.Models
 
         #region ShowEquipButton_Hand
         private bool _ShowEquipButton_Hand;
-        [XmlSaveMode("None")]
+        
         public bool ShowEquipButton_Hand
         {
             get
@@ -740,7 +740,7 @@ namespace GAMMA.Models
         #endregion
         #region ShowEquipButton_Armor
         private bool _ShowEquipButton_Armor;
-        [XmlSaveMode("None")]
+        
         public bool ShowEquipButton_Armor
         {
             get
@@ -756,7 +756,7 @@ namespace GAMMA.Models
         #endregion
         #region ShowEquipButton_Accessory
         private bool _ShowEquipButton_Accessory;
-        [XmlSaveMode("None")]
+        
         public bool ShowEquipButton_Accessory
         {
             get
@@ -774,7 +774,7 @@ namespace GAMMA.Models
         // Databound Properties - Magic Information
         #region IsMagic
         private bool _IsMagic;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsMagic
         {
             get
@@ -790,7 +790,7 @@ namespace GAMMA.Models
         #endregion
         #region RequiresAttunement
         private bool _RequiresAttunement;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresAttunement
         {
             get
@@ -806,7 +806,7 @@ namespace GAMMA.Models
         #endregion
         #region StatChanges
         private ObservableCollection<LabeledNumber> _StatChanges;
-        [XmlSaveMode("Enumberable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<LabeledNumber> StatChanges
         {
             get
@@ -824,7 +824,7 @@ namespace GAMMA.Models
         // Databound Properties - Armor Information
         #region ShowArmorInformation
         private bool _ShowArmorInformation;
-        [XmlSaveMode("None")]
+        
         public bool ShowArmorInformation
         {
             get
@@ -840,7 +840,7 @@ namespace GAMMA.Models
         #endregion
         #region BaseArmorClass
         private int _BaseArmorClass;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int BaseArmorClass
         {
             get
@@ -856,7 +856,7 @@ namespace GAMMA.Models
         #endregion
         #region StrengthRequirement
         private int _StrengthRequirement;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int StrengthRequirement
         {
             get
@@ -872,7 +872,7 @@ namespace GAMMA.Models
         #endregion
         #region GivesStealthDisadvantage
         private bool _GivesStealthDisadvantage;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool GivesStealthDisadvantage
         {
             get
@@ -890,7 +890,7 @@ namespace GAMMA.Models
         // Databound Properties - Weapon Information
         #region ShowWeaponInformation
         private bool _ShowWeaponInformation;
-        [XmlSaveMode("None")]
+        
         public bool ShowWeaponInformation
         {
             get
@@ -906,7 +906,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageDiceQuantity
         private int _DamageDiceQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DamageDiceQuantity
         {
             get
@@ -922,7 +922,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageDiceQuality
         private int _DamageDiceQuality;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int DamageDiceQuality
         {
             get
@@ -938,7 +938,7 @@ namespace GAMMA.Models
         #endregion
         #region DamageType
         private string _DamageType;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string DamageType
         {
             get
@@ -954,7 +954,7 @@ namespace GAMMA.Models
         #endregion
         #region RequiresAmmunition
         private bool _RequiresAmmunition;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool RequiresAmmunition
         {
             get
@@ -970,7 +970,7 @@ namespace GAMMA.Models
         #endregion
         #region IsFinesse
         private bool _IsFinesse;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsFinesse
         {
             get
@@ -986,7 +986,7 @@ namespace GAMMA.Models
         #endregion
         #region IsHeavy
         private bool _IsHeavy;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsHeavy
         {
             get
@@ -1002,7 +1002,7 @@ namespace GAMMA.Models
         #endregion
         #region IsLight
         private bool _IsLight;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsLight
         {
             get
@@ -1018,7 +1018,7 @@ namespace GAMMA.Models
         #endregion
         #region IsLoading
         private bool _IsLoading;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsLoading
         {
             get
@@ -1034,7 +1034,7 @@ namespace GAMMA.Models
         #endregion
         #region HasRange
         private bool _HasRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasRange
         {
             get
@@ -1050,7 +1050,7 @@ namespace GAMMA.Models
         #endregion
         #region NormalRange
         private int _NormalRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int NormalRange
         {
             get
@@ -1066,7 +1066,7 @@ namespace GAMMA.Models
         #endregion
         #region LongRange
         private int _LongRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int LongRange
         {
             get
@@ -1082,7 +1082,7 @@ namespace GAMMA.Models
         #endregion
         #region HasReach
         private bool _HasReach;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool HasReach
         {
             get
@@ -1098,7 +1098,7 @@ namespace GAMMA.Models
         #endregion
         #region CanBeThrown
         private bool _CanBeThrown;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool CanBeThrown
         {
             get
@@ -1114,7 +1114,7 @@ namespace GAMMA.Models
         #endregion
         #region NormalThrowRange
         private int _NormalThrowRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int NormalThrowRange
         {
             get
@@ -1130,7 +1130,7 @@ namespace GAMMA.Models
         #endregion
         #region LongThrowRange
         private int _LongThrowRange;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int LongThrowRange
         {
             get
@@ -1146,7 +1146,7 @@ namespace GAMMA.Models
         #endregion
         #region IsTwoHanded
         private bool _IsTwoHanded;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsTwoHanded
         {
             get
@@ -1162,7 +1162,7 @@ namespace GAMMA.Models
         #endregion
         #region IsVersatile
         private bool _IsVersatile;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public bool IsVersatile
         {
             get
@@ -1178,7 +1178,7 @@ namespace GAMMA.Models
         #endregion
         #region VersatileDiceQuantity
         private int _VersatileDiceQuantity;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int VersatileDiceQuantity
         {
             get
@@ -1194,7 +1194,7 @@ namespace GAMMA.Models
         #endregion
         #region VersatileDiceQuality
         private int _VersatileDiceQuality;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int VersatileDiceQuality
         {
             get
@@ -1210,7 +1210,7 @@ namespace GAMMA.Models
         #endregion
         #region HitDamageBonus
         private int _HitDamageBonus;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDamageBonus
         {
             get

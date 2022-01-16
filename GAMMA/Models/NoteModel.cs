@@ -25,7 +25,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region Category
         private string _Category;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Category
         {
             get
@@ -50,7 +50,7 @@ namespace GAMMA.Models
         #endregion
         #region Header
         private string _Header;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Header
         {
             get
@@ -66,7 +66,7 @@ namespace GAMMA.Models
         #endregion
         #region Content
         private string _Content;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Content
         {
             get
@@ -82,7 +82,7 @@ namespace GAMMA.Models
         #endregion
         #region SubNotes
         private ObservableCollection<NoteModel> _SubNotes;
-        [XmlSaveMode("Enumerable")]
+        [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NoteModel> SubNotes
         {
             get
@@ -143,7 +143,7 @@ namespace GAMMA.Models
         #endregion
         #region AttachmentFileName
         private string _AttachmentFileName;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string AttachmentFileName
         {
             get
@@ -202,7 +202,7 @@ namespace GAMMA.Models
         }
         private void DoDeleteNote()
         {
-            if (this.SubNotes.Count() > 0)
+            if (this.SubNotes.Count > 0)
             {
                 YesNoDialog question = new("Are you sure you want to delete this note? All sub notes will also be deleted.");
                 question.ShowDialog();
@@ -329,7 +329,7 @@ namespace GAMMA.Models
         {
             try
             {
-                System.Diagnostics.Process.Start(Environment.CurrentDirectory + "/NoteAttachments/" + AttachmentFileName);
+                System.Diagnostics.Process.Start("explorer", Environment.CurrentDirectory + "\\NoteAttachments\\" + AttachmentFileName);
             }
             catch (Exception e)
             {

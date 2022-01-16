@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region CurrentHitDice
         private int _CurrentHitDice;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int CurrentHitDice
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region MaxHitDice
         private int _MaxHitDice;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int MaxHitDice
         {
             get
@@ -64,7 +64,7 @@ namespace GAMMA.Models
         #endregion
         #region HitDiceQuality
         private int _HitDiceQuality;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int HitDiceQuality
         {
             get

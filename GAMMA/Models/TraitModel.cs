@@ -17,7 +17,7 @@ namespace GAMMA.Models
         // Databound Properties
         #region LevelObtained
         private int _LevelObtained;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public int LevelObtained
         {
             get
@@ -33,7 +33,7 @@ namespace GAMMA.Models
         #endregion
         #region Name
         private string _Name;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Name
         {
             get
@@ -49,7 +49,7 @@ namespace GAMMA.Models
         #endregion
         #region Description
         private string _Description;
-        [XmlSaveMode("Single")]
+        [XmlSaveMode(XSME.Single)]
         public string Description
         {
             get
