@@ -427,7 +427,6 @@
     <Resource Include="Images\Icons\puzzle.png" />
     <Resource Include="Images\Icons\trap.png" />
     <Resource Include="Images\Icons\crossed_swords.png" />
-    <Resource Include="OutputSwapperBases.txt" />
     <Resource Include="Images\EquipmentBadge.png" />
     <Resource Include="Images\Icons\linked.png" />
     <Resource Include="Images\Icons\orb_gray.png" />
@@ -448,7 +447,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="ChangeRequests.txt" />
     <Resource Include="Data\CreaturePacks.xml" />
     <Resource Include="Data\Npcs.xml" />
   </ItemGroup>
