@@ -11326,7 +11326,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Image Style="{StaticResource Icon_ScreenOff}" />
                                     <Separator />
-                                    <TextBlock Text="Developed by JJF © 2021" Width="auto" Margin="0" />
+                                    <TextBlock Text="Developed by Jorden Finne © 2022" Width="auto" Margin="0" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Style="{StaticResource Icon_RubberDuck}" />
@@ -11355,6 +11355,7 @@
                                 <Rectangle />
                                 <cc:ImageButton ImageResource="{StaticResource Icon_Patreon}" Text="Visit on Patreon" Width="148" Command="{Binding SettingsView.ViewFile}" CommandParameter="Patreon" />
                                 <cc:ImageButton ImageResource="{StaticResource Icon_Reddit}" Text="Visit on Reddit" Width="148" Command="{Binding SettingsView.ViewFile}" CommandParameter="Reddit" />
+                                <cc:ImageButton ImageResource="{StaticResource Icon_GitHub}" Text="Visit on GitHub" Width="148" Command="{Binding SettingsView.ViewFile}" CommandParameter="GitHub" />
 
                             </StackPanel>
                         </TabItem>

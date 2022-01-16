@@ -529,6 +529,9 @@ namespace GAMMA.ViewModels
                 case "Reddit":
                     fileName = "https://www.reddit.com/r/GammaToolkit/";
                     break;
+                case "GitHub":
+                    fileName = "https://github.com/NerdyMusician/GAMMA";
+                    break;
                 default:
                     return;
             }
