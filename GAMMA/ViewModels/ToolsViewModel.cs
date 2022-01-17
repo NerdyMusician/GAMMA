@@ -61,6 +61,7 @@ namespace GAMMA.ViewModels
 
             XmlMethods.XmlToList(Configuration.NoteTypeDataFilePath, out List<NoteType> noteTypes);
             NoteTypes = new(noteTypes);
+            SetConfigList_NoteTypes();
 
             XmlMethods.XmlToList(Configuration.ShopDataFilePath, out List<ShopModel> shops);
             Shops = new ObservableCollection<ShopModel>(shops);
@@ -624,7 +625,7 @@ namespace GAMMA.ViewModels
         public void DoSaveLootBoxes(bool notifyUser = true)
         {
             XDocument lootboxDocument = new();
-            if (LootBoxes.Count() == 0)
+            if (LootBoxes.Count == 0)
             {
                 // Prevents zero count collection save crash
                 lootboxDocument.Add(new XElement("LootBoxModelSet"));
@@ -723,7 +724,7 @@ namespace GAMMA.ViewModels
         public void DoSaveRollTables(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (RollTables.Count() == 0)
+            if (RollTables.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("RollTableModelSet"));
@@ -870,7 +871,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerClasses(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerClasses.Count() == 0)
+            if (PlayerClasses.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("PlayerClassModelSet"));
@@ -966,7 +967,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerSubclasses(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerSubclasses.Count() == 0)
+            if (PlayerSubclasses.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("PlayerSublassModelSet"));
@@ -1065,7 +1066,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerRaces(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerRaces.Count() == 0)
+            if (PlayerRaces.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("PlayerRaceModelSet"));
@@ -1163,7 +1164,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerSubraces(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerSubraces.Count() == 0)
+            if (PlayerSubraces.Count == 0)
             {
                 xmlDoc.Add(new XElement("PlayerSubraceModelSet"));
                 xmlDoc.Save(Configuration.PlayerSubraceDataFilePath);
@@ -1263,7 +1264,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerBackgrounds(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerBackgrounds.Count() == 0)
+            if (PlayerBackgrounds.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("PlayerBackgroundModelSet"));
@@ -1365,7 +1366,7 @@ namespace GAMMA.ViewModels
         public void DoSavePlayerFeats(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (PlayerFeats.Count() == 0)
+            if (PlayerFeats.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("PlayerFeatModelSet"));
@@ -1466,7 +1467,7 @@ namespace GAMMA.ViewModels
         public void DoSaveLanguages(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (Languages.Count() == 0)
+            if (Languages.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("LanguageModelSet"));
@@ -1569,7 +1570,7 @@ namespace GAMMA.ViewModels
         public void DoSaveShops(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (Shops.Count() == 0)
+            if (Shops.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("ShopModelSet"));
@@ -1670,7 +1671,7 @@ namespace GAMMA.ViewModels
         public void DoSaveEldritchInvocations(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (EldritchInvocations.Count() == 0)
+            if (EldritchInvocations.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("EldritchInvocationModelSet"));
@@ -1779,7 +1780,7 @@ namespace GAMMA.ViewModels
         {
             if (ValidateData_Weathers() == false) { return; }
             XDocument xmlDoc = new();
-            if (Weathers.Count() == 0)
+            if (Weathers.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("WeatherSet"));
@@ -1883,7 +1884,7 @@ namespace GAMMA.ViewModels
         {
             if (ValidateData_Calendars() == false) { return; }
             XDocument xmlDoc = new();
-            if (Calendars.Count() == 0)
+            if (Calendars.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("GameCalendarSet"));
@@ -1984,7 +1985,7 @@ namespace GAMMA.ViewModels
         public void DoSaveSourcebooks(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (Sourcebooks.Count() == 0)
+            if (Sourcebooks.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("SourcebookSet"));
@@ -2053,7 +2054,7 @@ namespace GAMMA.ViewModels
         public void DoSaveNoteTypes(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
-            if (NoteTypes.Count() == 0)
+            if (NoteTypes.Count == 0)
             {
                 // Prevents zero count collection save crash
                 xmlDoc.Add(new XElement("NoteTypeSet"));
@@ -2103,7 +2104,7 @@ namespace GAMMA.ViewModels
                     if (dirtyRow.SpellSlots_1st == 0 && dirtyRow.CantripsKnown == 0) { continue; }
                     cleanRows.Add(dirtyRow);
                 }
-                if (cleanRows.Count() < 20 && cleanRows.Count() > 0)
+                if (cleanRows.Count < 20 && cleanRows.Count > 0)
                 {
                     for (int i = 0; i <= 20; i++)
                     {
@@ -2241,7 +2242,7 @@ namespace GAMMA.ViewModels
                     messages.Add(w.Name + " has overlapping value coverage.");
                 }
             }
-            if (messages.Count() > 0)
+            if (messages.Count > 0)
             {
                 string message = "Weather errors found:";
                 foreach (string msg in messages)
@@ -2259,12 +2260,12 @@ namespace GAMMA.ViewModels
             foreach (GameCalendar calendar in Calendars)
             {
                 if (calendar.Name == "") { messages.Add("Calendar missing name."); }
-                if (calendar.Days.Count() == 0) { messages.Add(calendar.Name + " has no days."); }
-                if (calendar.Months.Count() == 0) { messages.Add(calendar.Name + " has no months."); }
+                if (calendar.Days.Count == 0) { messages.Add(calendar.Name + " has no days."); }
+                if (calendar.Months.Count == 0) { messages.Add(calendar.Name + " has no months."); }
                 if (calendar.WeeksPerMonth <= 0) { messages.Add(calendar.Name + " has invalid value for Weeks Per Month."); }
                 if (calendar.UseEras == true && calendar.YearsPerEra < 1) { messages.Add(calendar.Name + " has invalid value for Years Per Era."); }
             }
-            if (messages.Count() > 0)
+            if (messages.Count > 0)
             {
                 string message = "Calendar errors found:";
                 foreach (string msg in messages)

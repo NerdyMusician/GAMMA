@@ -61,7 +61,7 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            ApplicationVersion = "GAMMA 1.28.01";
+            ApplicationVersion = "GAMMA 1.28.02";
 
             Configuration.LoadComplete = true;
 
@@ -764,7 +764,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region LanguageTypes
-        public List<string> LanguageTypes
+        public static List<string> LanguageTypes
         {
             get
             {
@@ -931,7 +931,7 @@ namespace GAMMA.ViewModels
                 return _GetDriver;
             }
         }
-        private void DoGetDriver()
+        private static void DoGetDriver()
         {
             try
             {
@@ -1016,7 +1016,7 @@ namespace GAMMA.ViewModels
         }
 
         // Private Methods - Reports
-        private string GenerateReport_Fish()
+        private static string GenerateReport_Fish()
         {
             string message = "Item Repository Fish Report:";
             foreach (string environment in Configuration.MainModelRef.FishingEnvironments)
@@ -1029,10 +1029,10 @@ namespace GAMMA.ViewModels
             }
             return message;
         }
-        private string GenerateReport_CreaturesMissingSource()
+        private static string GenerateReport_CreaturesMissingSource()
         {
             string message = "Creature Sourcebook Report:";
-            message += "\nTotal Creatures: " + Configuration.CreatureRepository.Count();
+            message += "\nTotal Creatures: " + Configuration.CreatureRepository.Count;
             message += "\nCreatures Validated: " + Configuration.CreatureRepository.Where(crt => crt.IsValidated).Count();
             Dictionary<string, int> sourceCounts = new();
             foreach (CreatureModel creature in Configuration.CreatureRepository.Where(crt => crt.IsValidated))
@@ -1084,23 +1084,23 @@ namespace GAMMA.ViewModels
                 if (levelCount.ContainsKey(spell.SpellLevel)) { levelCount[spell.SpellLevel]++; }
                 else { levelCount.Add(spell.SpellLevel, 1); }
 
-                if (spell.IsValidated && spell.SpellClasses.Count() == 0) { validatedButNoClasses.Add(spell.Name); }
+                if (spell.IsValidated && spell.SpellClasses.Count == 0) { validatedButNoClasses.Add(spell.Name); }
             }
 
-            if (schoolCount.Count() > 0)
+            if (schoolCount.Count > 0)
             {
                 
                 message += "\n\nSpell count by school:\n";
                 message += HelperMethods.GetStringFromDictionary(schoolCount);
             }
 
-            if (levelCount.Count() > 0)
+            if (levelCount.Count > 0)
             {
                 message += "\n\nSpell count by level:\n";
                 message += HelperMethods.GetStringFromDictionary(levelCount, "Level ");
             }
 
-            if (validatedButNoClasses.Count() > 0)
+            if (validatedButNoClasses.Count > 0)
             {
                 message += "\n\nValidated but no classes selected:\n";
                 message += HelperMethods.GetStringFromList(validatedButNoClasses, "\n");
@@ -1140,7 +1140,7 @@ namespace GAMMA.ViewModels
             return message;
 
         }
-        private List<string> CheckCustomAbility(string ownerName, List<CustomAbility> abilities)
+        private static List<string> CheckCustomAbility(string ownerName, List<CustomAbility> abilities)
         {
             List<string> issues = new();
             foreach (CustomAbility ability in abilities)
@@ -1161,10 +1161,10 @@ namespace GAMMA.ViewModels
             }
             return issues;
         }
-        private string GetStringFromList(List<string> lines, string stringPrefix = "", string linePrefix = "")
+        private static string GetStringFromList(List<string> lines, string stringPrefix = "", string linePrefix = "")
         {
             string message = "";
-            if (lines.Count() > 0)
+            if (lines.Count > 0)
             {
                 message += stringPrefix;
                 foreach (string msg in lines)

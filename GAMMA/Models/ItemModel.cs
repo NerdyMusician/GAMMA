@@ -104,7 +104,7 @@ namespace GAMMA.Models
             {
                 _Quantity = value;
                 NotifyPropertyChanged();
-                CheckAndCall_UpdateCharacterInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -2197,6 +2197,9 @@ namespace GAMMA.Models
         }
         #endregion
 
+        // Public Methods
+        
+
         // Private Methods
         private void UpdateProcessedValue()
         {
@@ -2330,16 +2333,7 @@ namespace GAMMA.Models
             ShowEquipButton_Accessory = accessoryEquipTypes.Contains(Type);
 
         }
-        private void CheckAndCall_UpdateCharacterInventoryStats()
-        {
-            if (Configuration.LoadComplete)
-            {
-                if (Configuration.MainModelRef.TabSelected_Players)
-                {
-                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.UpdateInventoryStats();
-                }
-            }
-        }
+        
 
     }
 }

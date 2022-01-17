@@ -819,7 +819,8 @@ namespace GAMMA.Toolbox
         }
         public static void NodeToObject(XmlNode inventoryNode, CharacterModel character, out InventoryModel inventory)
         {
-            InventoryModel newInventory = SetObjectPropertiesFromNode(inventoryNode, new InventoryModel(character)) as InventoryModel;
+            InventoryModel newInventory = SetObjectPropertiesFromNode(inventoryNode, new InventoryModel()) as InventoryModel;
+            //InventoryModel newInventory = SetObjectPropertiesFromNode(inventoryNode, new InventoryModel(character)) as InventoryModel;
 
             foreach (XmlNode childNode in inventoryNode.ChildNodes)
             {

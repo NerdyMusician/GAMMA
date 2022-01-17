@@ -1,4 +1,12 @@
-﻿GAMMA 1.28.01
+﻿GAMMA 1.28.02
+- CHANGE: no longer prompted to save existing character list prior to import if character list is empty
+- BUG: Fixed issue where note type repository wasn't populating on application load
+- BUG: Fixed issue where character import could cause crash trying to update inventory for null ActiveCharacter
+- BUG: Fixed issue where characters could not be edited due to circular reference detected by XmlSerializer
+- CODE: Changed when creature card damage proclivity texts update to improve performance
+- CODE: Removal of InventoryModel.Owner property
+
+GAMMA 1.28.01
 - NEW: Added button in About section to open url to GitHub page
 - BUG: Fixed issue with opening file / url in default application after .NET version change
 - CODE: Updated from .NET Framework 4.7.2 to .NET 6
