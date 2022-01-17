@@ -1,5 +1,6 @@
 ﻿GAMMA 1.28.02
 - BUG: Fixed issue where note type repository wasn't populating on application load
+- CODE: Changed when creature card damage proclivity texts update to improve performance
 
 GAMMA 1.28.01
 - NEW: Added button in About section to open url to GitHub page
