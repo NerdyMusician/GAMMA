@@ -99,7 +99,7 @@ namespace GAMMA.ViewModels
 
         // Commands
         #region AddCharacter
-        public ICommand AddCharacter => new RelayCommand(param => DoAddCharacter();
+        public ICommand AddCharacter => new RelayCommand(param => DoAddCharacter());
         private void DoAddCharacter()
         {
             Characters.Add(new CharacterModel());
@@ -110,7 +110,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveCharacters
-        public ICommand SaveCharacters => new RelayCommand(DoSaveCharacters);
+        public ICommand SaveCharacters => new RelayCommand(param => DoSaveCharacters());
         public bool DoSaveCharacters(bool notifyUser = true)
         {
             if (RunSaveValidation() == false) { return false; }
@@ -130,7 +130,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortCharacters
-        public ICommand SortCharacters => new RelayCommand(param => DoSortCharacters();
+        public ICommand SortCharacters => new RelayCommand(param => DoSortCharacters());
         private void DoSortCharacters()
         {
             Characters = new(Characters.OrderBy(c => c.Name));
@@ -184,7 +184,6 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region OpenCharacterCreator
-        private RelayCommand _OpenCharacterCreator;
         public ICommand OpenCharacterCreator => new RelayCommand(DoOpenCharacterCreator);
         private void DoOpenCharacterCreator(object param)
         {
