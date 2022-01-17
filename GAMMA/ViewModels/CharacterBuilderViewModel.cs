@@ -139,7 +139,8 @@ namespace GAMMA.ViewModels
         {
             Characters.Add(new CharacterModel());
             ActiveCharacter = Characters.Last();
-            ActiveCharacter.Inventories.Add(new InventoryModel(ActiveCharacter));
+            ActiveCharacter.Inventories.Add(new());
+            //ActiveCharacter.Inventories.Add(new InventoryModel(ActiveCharacter));
             ActiveCharacter.Inventories[0].Name = "Backpack";
             ActiveCharacter.Inventories[0].IsCarried = true;
         }

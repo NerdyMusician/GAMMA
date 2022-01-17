@@ -847,6 +847,19 @@ namespace GAMMA.Toolbox
             if (filepath == Configuration.SystemAudio_ShopFarewell && Configuration.MainModelRef.SettingsView.EnableSfx_ShopGreeting == false) { return; }
             Configuration.MainModelRef.AudioView.DoChangeSystemAudio(filepath);
         }
+        public static void CheckAndCall_UpdateActiveCharacterInventoryStats()
+        {
+            if (Configuration.LoadComplete)
+            {
+                if (Configuration.MainModelRef.TabSelected_Players)
+                {
+                    if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter != null)
+                    {
+                        Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.UpdateInventoryStats();
+                    }
+                }
+            }
+        }
         public static T DeepClone<T>(this T obj)
         {
             using MemoryStream ms = new();

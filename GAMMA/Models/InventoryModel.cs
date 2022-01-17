@@ -15,9 +15,8 @@ namespace GAMMA.Models
     public class InventoryModel : BaseModel
     {
         // Constructors
-        public InventoryModel(CharacterModel character)
+        public InventoryModel()
         {
-            Owner = character;
             Name = "New Inventory";
             AllItems = new();
             FilteredItems = new();
@@ -27,10 +26,26 @@ namespace GAMMA.Models
             AllItems.CollectionChanged += AllItems_CollectionChanged;
             SetFilterList();
         }
+        //public InventoryModel(CharacterModel character)
+        //{
+        //    Owner = character;
+        //    Name = "New Inventory";
+        //    AllItems = new();
+        //    FilteredItems = new();
+        //    Filters = new();
+        //    SearchText = "";
+
+        //    AllItems.CollectionChanged += AllItems_CollectionChanged;
+        //    SetFilterList();
+        //}
 
         public void AllItems_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            Owner.UpdateInventoryStats();
+            if ((sender as ObservableCollection<ItemModel>).Count > 1)
+            {
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
+            }
+            // Owner.UpdateInventoryStats();
         }
 
         // Databound Properties
@@ -63,7 +78,8 @@ namespace GAMMA.Models
             {
                 _IsCarried = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                //Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -111,7 +127,8 @@ namespace GAMMA.Models
             {
                 _PlatinumPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                //Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -128,7 +145,8 @@ namespace GAMMA.Models
             {
                 _GoldPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                //Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -145,7 +163,8 @@ namespace GAMMA.Models
             {
                 _SilverPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                //Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -162,7 +181,8 @@ namespace GAMMA.Models
             {
                 _CopperPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                //Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -522,7 +542,8 @@ namespace GAMMA.Models
         private void DoAddInventory()
         {
             if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count() >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
-            Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new InventoryModel(Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter));
+            Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new());
+            //Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new InventoryModel(Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter));
         }
         #endregion
         #region TransferItems

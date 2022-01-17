@@ -1,5 +1,7 @@
 ﻿GAMMA 1.28.02
 - BUG: Fixed issue where note type repository wasn't populating on application load
+- BUG: Fixed issue where character import could cause crash trying to update inventory for null ActiveCharacter
+- BUG: Fixed issue where characters could not be edited due to circular reference detected by XmlSerializer
 - CODE: Changed when creature card damage proclivity texts update to improve performance
 
 GAMMA 1.28.01
