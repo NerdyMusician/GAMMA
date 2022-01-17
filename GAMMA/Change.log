@@ -1,4 +1,7 @@
-﻿GAMMA 1.28.01
+﻿GAMMA 1.28.02
+- BUG: Fixed issue where note type repository wasn't populating on application load
+
+GAMMA 1.28.01
 - NEW: Added button in About section to open url to GitHub page
 - BUG: Fixed issue with opening file / url in default application after .NET version change
 - CODE: Updated from .NET Framework 4.7.2 to .NET 6
