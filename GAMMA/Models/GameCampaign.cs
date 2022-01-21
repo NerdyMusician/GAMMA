@@ -1755,18 +1755,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortNpcs
-        private RelayCommand _SortNpcs;
-        public ICommand SortNpcs
-        {
-            get
-            {
-                if (_SortNpcs == null)
-                {
-                    _SortNpcs = new RelayCommand(param => DoSortNpcs());
-                }
-                return _SortNpcs;
-            }
-        }
+        public ICommand SortNpcs => new RelayCommand(param => DoSortNpcs());
         private void DoSortNpcs()
         {
             Npcs = new(Npcs.OrderBy(npc => !npc.IsActive).ThenBy(npc => npc.Name));
@@ -1813,6 +1802,13 @@ namespace GAMMA.Models
         private void DoSortCreaturePacks()
         {
             Packs = new(Packs.OrderBy(p => !p.IsActive).ThenBy(p => p.Name));
+        }
+        #endregion
+        #region SortPacks
+        public ICommand SortPacks => new RelayCommand(DoSortPacks);
+        private void DoSortPacks(object param)
+        {
+            Packs = new(Packs.OrderBy(pack => !pack.IsActive).ThenBy(pack => pack.Name));
         }
         #endregion
 

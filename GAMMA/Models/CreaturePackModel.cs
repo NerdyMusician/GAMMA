@@ -194,6 +194,14 @@ namespace GAMMA.Models
             Configuration.MainModelRef.CampaignView.ActiveCampaign.Packs.Remove(this);
         }
         #endregion
+        #region SortPackLists
+        public ICommand SortPackLists => new RelayCommand(DoSortPackLists);
+        private void DoSortPackLists(object param)
+        {
+            CreatureList = new(CreatureList.OrderBy(c => c.CreatureName));
+            NpcList = new(NpcList.OrderBy(n => n.CreatureName));
+        }
+        #endregion
 
     }
 }

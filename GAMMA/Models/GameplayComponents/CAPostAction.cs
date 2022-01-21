@@ -249,7 +249,19 @@ namespace GAMMA.Models.GameplayComponents
             if (Action == "Subtract from Current HP") { ShowValueA = true; LabelA = "Value"; }
             if (Action == "Add to Temporary HP") { ShowValueA = true; LabelA = "Value"; }
             if (Action == "Add Minions") { ShowValueA = true; LabelA = "Creature Name"; ShowValueB = true; LabelB = "Quantity"; }
-            if (Action == "Add Active Effect") { ShowValueA = true; LabelA = "Ability"; }
+            if (Action == "Add Active Effect") 
+            { 
+                ShowValueA = true; 
+                LabelA = "Ability"; 
+                if (Configuration.MainModelRef.TabSelected_SpellBuilder)
+                {
+                    ValueSetA = new();
+                    foreach (CustomAbility activeEffect in Configuration.MainModelRef.SpellBuilderView.ActiveSpell.SecondaryAbilities)
+                    {
+                        ValueSetA.Add(activeEffect.Name);
+                    }
+                }
+            }
             if (Action == "Expend Counter")
             {
                 ShowValueA = true; LabelA = "Counter"; 

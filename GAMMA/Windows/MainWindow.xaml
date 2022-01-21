@@ -885,7 +885,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Spell}" Command="{Binding UseAbility}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                                 <Separator />
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="Character" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}"  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                             </StackPanel>
                                                                                         </DataTemplate>
                                                                                     </ItemsControl.ItemTemplate>
@@ -1572,7 +1572,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Spell}" Command="{Binding UseAbility}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                                 <Separator />
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="Character" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                             </StackPanel>
                                                                                         </DataTemplate>
                                                                                     </ItemsControl.ItemTemplate>
@@ -2540,7 +2540,10 @@
                                                     </TabControl.Resources>
                                                     <TabItem Header="Creatures">
                                                         <StackPanel>
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
+                                                            <DockPanel HorizontalAlignment="Right">
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
+                                                            </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
                                                                 <ScrollViewer Height="360" Width="240">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.CreatureList}">
@@ -2562,7 +2565,10 @@
                                                     </TabItem>
                                                     <TabItem Header="NPCs">
                                                         <StackPanel>
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
+                                                            <DockPanel HorizontalAlignment="Right">
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
+                                                            </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
                                                                 <ScrollViewer Height="360" Width="240">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.NpcList}">

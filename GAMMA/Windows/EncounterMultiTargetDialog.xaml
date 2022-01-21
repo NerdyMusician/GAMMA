@@ -108,7 +108,8 @@
             <Separator Width="32" />
             <StackPanel>
                 <DockPanel Margin="1">
-                    <Label Content="Target Information" />
+                    <Label Content="Target Information" Width="160" />
+                    <cc:FieldLabel x:Name="SelectedTargetCount" Width="auto" />
                     <cc:IconButton ImageResource="{StaticResource Icon_Refresh}" ToolTip="Reset Selections" Click="RefreshButton_Click" HorizontalAlignment="Right" />
                 </DockPanel>
                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" Margin="0" HorizontalAlignment="Left">
@@ -117,7 +118,7 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <CheckBox IsChecked="{Binding IsTarget}" />
+                                        <CheckBox IsChecked="{Binding IsTarget}" Checked="IsTarget_Toggled" Unchecked="IsTarget_Toggled" />
                                         <TextBlock Text="{Binding DisplayName}" Foreground="{StaticResource PrimaryFontColor}" Width="200" />
                                         <CheckBox IsChecked="{Binding HasGroupSaveAdvantage}" />
                                         <TextBlock Text="Adv" Foreground="{StaticResource PrimaryFontColor}" />

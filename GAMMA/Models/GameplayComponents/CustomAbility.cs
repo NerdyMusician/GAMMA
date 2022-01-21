@@ -328,6 +328,11 @@ namespace GAMMA.Models.GameplayComponents
         public ICommand RemoveEffect => new RelayCommand(DoRemoveEffect);
         private void DoRemoveEffect(object param)
         {
+            if (param.GetType() == typeof(CreatureModel))
+            {
+                (param as CreatureModel).ActiveEffectAbilities.Remove(this);
+                return;
+            }
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ActiveEffectAbilities.Remove(this);
         }
         #endregion
