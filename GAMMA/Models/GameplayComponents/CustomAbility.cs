@@ -1304,6 +1304,82 @@ namespace GAMMA.Models.GameplayComponents
                 }
             }
         }
+        public void PopulateFromQuickForm(bool includeSaveDc = false)
+        {
+            QuickAddAbilityDialog abilityDialog = new(includeSaveDc);
+            if (abilityDialog.ShowDialog() == true)
+            {
+                Name = abilityDialog.AbilityName;
+                if (includeSaveDc)
+                {
+                    Variables.Add(new("Save DC", "Number", false));
+                    if (abilityDialog.SaveDc > 0)
+                    {
+                        PreActions.Add(new("Add Set Value", "Save DC", abilityDialog.SaveDc));
+                    }
+                    else
+                    {
+                        PreActions.Add(new("Add Stat Value", "Save DC", "Spellcasting Save DC"));
+                    }
+                }
+                else
+                {
+                    Variables.Add(new("Attack", "Number"));
+                    PreActions.Add(new("Make Attack Roll", "Attack", abilityDialog.UtilizedStat, true));
+                }
+                if (abilityDialog.DamageDiceQuantityA > 0)
+                {
+                    string varName = abilityDialog.DamageTypeA + " Damage";
+                    Variables.Add(new(varName, "Number"));
+                    Variables.Last().IncludeHalfValue = abilityDialog.IncludeHalfDamage;
+                    PreActions.Add(new("Add Roll", varName, abilityDialog.DamageDiceQuantityA, abilityDialog.DamageDiceSidesA, !includeSaveDc));
+                    if (abilityDialog.AddModToDamageA) { PreActions.Add(new("Add Stat Value", varName, abilityDialog.UtilizedStat)); }
+                }
+                if (abilityDialog.DamageDiceQuantityB > 0)
+                {
+                    string varName = abilityDialog.DamageTypeB + " Damage";
+                    Variables.Add(new(varName, "Number"));
+                    Variables.Last().IncludeHalfValue = abilityDialog.IncludeHalfDamage;
+                    PreActions.Add(new("Add Roll", varName, abilityDialog.DamageDiceQuantityB, abilityDialog.DamageDiceSidesB, !includeSaveDc));
+                    if (abilityDialog.AddModToDamageB) { PreActions.Add(new("Add Stat Value", varName, abilityDialog.UtilizedStat)); }
+                }
+                if (includeSaveDc)
+                {
+                    Output += "Target(s) must make a DC {Save DC} " + abilityDialog.UtilizedStat + " saving throw";
+                    if (abilityDialog.DamageDiceQuantityA > 0)
+                    {
+                        string dmgNameA = abilityDialog.DamageTypeA + " Damage";
+                        Output += ", or take {" + dmgNameA + "} " + abilityDialog.DamageTypeA.ToLower() + " damage";
+                        if (abilityDialog.DamageDiceQuantityB > 0)
+                        {
+                            string dmgNameB = abilityDialog.DamageTypeB + " Damage";
+                            Output += ", and {" + dmgNameB + "} " + abilityDialog.DamageTypeB.ToLower() + " damage on a failed save";
+                            if (abilityDialog.IncludeHalfDamage)
+                            {
+                                Output += ", or half as much on a successful one.";
+                            }
+                            else
+                            {
+                                Output += ".";
+                            }
+                        }
+                        else if (abilityDialog.IncludeHalfDamage)
+                        {
+                            Output += ", or half as much on a successful one.";
+                        }
+                        else
+                        {
+                            Output += " on a failed save.";
+                        }
+                    }
+                    else
+                    {
+                        Output += ".";
+                    }
+                }
+
+            }
+        }
 
         // Private Methods
         private static bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)

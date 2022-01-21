@@ -953,6 +953,10 @@ namespace GAMMA.Models
             if (param == null) { return; }
             if (param.ToString() == "Primary") { PrimaryAbilities.Add(new()); }
             if (param.ToString() == "Secondary") { SecondaryAbilities.Add(new()); }
+            if (param.ToString() == "AttackBased")
+            {
+
+            }
         }
         #endregion
         #region PasteAbility

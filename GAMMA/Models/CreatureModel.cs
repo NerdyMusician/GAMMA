@@ -3457,6 +3457,16 @@ namespace GAMMA.Models
                 newAbility.PreActions.Add(new("Add Stat Value", dmgVar, param.ToString()));
                 Abilities.Add(newAbility);
             }
+            if (param.ToString() == "Quick Attack")
+            {
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm();
+            }
+            if (param.ToString() == "Quick Save")
+            {
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm(true);
+            }
         }
         #endregion
         #region PasteAbility
