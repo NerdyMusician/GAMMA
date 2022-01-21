@@ -2,8 +2,10 @@
 - NEW: Added button to allow name sorting for pack creature and NPC lists
 - NEW: Added count to group save dialog for the number of targets selected
 - CHANGE: Setting Post Action type to Add Active Effect while viewing spell data populates dropdown with suggested names from secondary ability list
+- CHANGE: Source/Sourcebook fields are now dropdowns instead of text fields
 - BUG: Fixed issue where Sort button for campaign Packs wasn't working
 - BUG: Fixed issue where removing active effect from creature in gameplay causes crash
+- BUG: Fixed issue where duplicating ability added duplicate suggested values to its dropdowns
 
 GAMMA 1.28.02
 - CHANGE: no longer prompted to save existing character list prior to import if character list is empty

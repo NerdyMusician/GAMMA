@@ -2705,7 +2705,7 @@
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Source" />
-                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                            <cc:GammaComboBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Data Validated?" Width="118" />
@@ -3727,7 +3727,7 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <cc:FieldLabel Text="Source" />
-                                        <cc:GammaTextBox Text="{Binding ItemBuilderView.ActiveItem.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                        <cc:GammaComboBox Text="{Binding ItemBuilderView.ActiveItem.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <cc:FieldLabel Text="Type" />
@@ -4111,7 +4111,7 @@
                         </StackPanel>
                         <StackPanel Style="{StaticResource SPNL_FieldRow}">
                             <cc:FieldLabel Text="Source" Width="64" />
-                            <cc:GammaTextBox Text="{Binding SpellBuilderView.ActiveSpell.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="280" />
+                            <cc:GammaComboBox Text="{Binding SpellBuilderView.ActiveSpell.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                         </StackPanel>
                         <StackPanel Style="{StaticResource SPNL_FieldRow}">
                             <cc:FieldLabel Text="Description" Width="64" />
@@ -8567,7 +8567,7 @@
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Source" />
-                                            <cc:GammaTextBox Text="{Binding ToolsView.ActiveLanguage.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                            <cc:GammaComboBox Text="{Binding ToolsView.ActiveLanguage.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="240" />
                                         </StackPanel>
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
@@ -8639,7 +8639,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerClass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="180" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerClass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="180" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9300,7 +9300,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerSubclass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerSubclass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="200" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9606,7 +9606,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerRace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerRace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9966,7 +9966,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerSubrace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerSubrace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -10253,7 +10253,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerBackground.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerBackground.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -10665,7 +10665,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerFeat.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerFeat.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal" Visibility="Visible">
@@ -10849,7 +10849,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActiveEldritchInvocation.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActiveEldritchInvocation.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">

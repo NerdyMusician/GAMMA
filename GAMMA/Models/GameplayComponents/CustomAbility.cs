@@ -15,26 +15,23 @@ namespace GAMMA.Models.GameplayComponents
         // Constructors
         public CustomAbility()
         {
+            InitializeCollections();
             Name = "New Ability";
             Type = "None";
-            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
             Output = "";
             Description = "";
             QuantityToPerform = 1;
-            Variables = new();
-            PreActions = new();
-            PostActions = new();
+            
         }
         public CustomAbility(int attackBonus, int damageDiceQuantity, int damageDiceSides, int damageBonus, string damageType)
         {
+            InitializeCollections();
             Name = "Basic Attack";
             Type = "Melee";
             Output = "";
             Description = "";
             QuantityToPerform = 1;
-            PostActions = new();
 
-            Variables = new();
             CAVariable attackVariable = new();
             CAVariable damageVariable = new();
 
@@ -45,7 +42,6 @@ namespace GAMMA.Models.GameplayComponents
             Variables.Add(attackVariable);
             Variables.Add(damageVariable);
 
-            PreActions = new();
             CAPreAction attackRoll = new();
             CAPreAction attackBonusAction = new();
             CAPreAction damageRoll = new();
@@ -470,6 +466,7 @@ namespace GAMMA.Models.GameplayComponents
         {
             CustomAbility clone = HelperMethods.DeepClone(this);
             clone.Name = "Copy of " + clone.Name;
+            clone.UpdateDropdownSuggestedValues();
 
             if (Configuration.MainModelRef.TabSelected_Players)
             {
@@ -1280,6 +1277,33 @@ namespace GAMMA.Models.GameplayComponents
             Description = description;
 
         }
+        public void UpdateDropdownSuggestedValues()
+        {
+            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
+            List<string> variables = new();
+            List<string> conditions = new();
+            foreach (CAVariable variable in Variables)
+            {
+                variable.ResetTypeOptions();
+                variables.Add(variable.Name);
+                conditions.Add(variable.Name);
+            }
+            foreach (CAPreAction preAction in PreActions)
+            {
+                preAction.UpdateTargetList(variables);
+                foreach (CACondition condition in preAction.Conditions)
+                {
+                    condition.UpdateVariableList(conditions);
+                }
+            }
+            foreach (CAPostAction postAction in PostActions)
+            {
+                foreach (CACondition condition in postAction.Conditions)
+                {
+                    condition.UpdateVariableList(conditions);
+                }
+            }
+        }
 
         // Private Methods
         private static bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
@@ -1310,6 +1334,13 @@ namespace GAMMA.Models.GameplayComponents
             if (character != null) { return "Character"; }
             if (creature != null) { return "Creature"; }
             return "Test";
+        }
+        private void InitializeCollections()
+        {
+            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
+            Variables = new();
+            PreActions = new();
+            PostActions = new();
         }
 
     }

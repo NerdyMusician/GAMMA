@@ -4333,28 +4333,7 @@ namespace GAMMA.Models
         {
             foreach (CustomAbility ability in Abilities)
             {
-                List<string> variables = new();
-                List<string> conditions = new();
-                foreach (CAVariable variable in ability.Variables)
-                {
-                    variables.Add(variable.Name);
-                    conditions.Add(variable.Name);
-                }
-                foreach (CAPreAction preAction in ability.PreActions)
-                {
-                    preAction.UpdateTargetList(variables);
-                    foreach (CACondition condition in preAction.Conditions)
-                    {
-                        condition.UpdateVariableList(conditions);
-                    }
-                }
-                foreach (CAPostAction postAction in ability.PostActions)
-                {
-                    foreach (CACondition condition in postAction.Conditions)
-                    {
-                        condition.UpdateVariableList(conditions);
-                    }
-                }
+                ability.UpdateDropdownSuggestedValues();
             }
         }
         public void UpdateAbilityDescriptions()

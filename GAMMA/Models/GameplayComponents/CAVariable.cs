@@ -20,11 +20,9 @@ namespace GAMMA.Models.GameplayComponents
         }
         public CAVariable(string name, string type, bool output = true)
         {
+            InitializeCollections();
             Name = name;
             Type = type;
-            TypeOptions = new() { "Text", "Number", "Toggled Option" };
-            Rolls = new();
-            Modifiers = new();
             DoOutput = output;
         }
 
@@ -183,6 +181,20 @@ namespace GAMMA.Models.GameplayComponents
             }
         }
         #endregion
+
+        // Public Methods
+        public void ResetTypeOptions()
+        {
+            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+        }
+
+        // Private Methods
+        private void InitializeCollections()
+        {
+            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+            Rolls = new();
+            Modifiers = new();
+        }
 
     }
 }
