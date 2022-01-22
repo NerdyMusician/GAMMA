@@ -2211,22 +2211,21 @@ namespace GAMMA.Models
             CreatureBuilderViewModel creatureBuilder = Configuration.MainModelRef.CreatureBuilderView;
             CharacterBuilderViewModel characterBuilder = Configuration.MainModelRef.CharacterBuilderView;
             SpellBuilderViewModel spellBuilder = Configuration.MainModelRef.SpellBuilderView;
-            bool foundDependency = false;
-            string message = "Unable to delete " + Name + ".";
+            List<string> foundDependencies = new();
             foreach (ItemModel item in itemBuilder.AllItems)
             {
                 foreach (ItemModel component in item.CraftingComponents)
                 {
-                    if (Name == component.Name) { message += "\nCrafting component for " + item.Name; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Crafting component for " + item.Name); }
                 }
                 foreach (ItemModel component in item.AcquiredComponents)
                 {
-                    if (Name == component.Name) { message += "\nAcquired component from " + item.Name; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Acquired component from " + item.Name); }
                 }
-                if (item.EnchantingBaseItem == Name) { message += "\nEnchanting base item for " + item.Name; foundDependency = true; }
+                if (item.EnchantingBaseItem == Name) { foundDependencies.Add("Enchanting base item for " + item.Name); }
                 foreach (ItemModel component in item.EnchantingRunes)
                 {
-                    if (Name == component.Name) { message += "\nEnchanting rune for " + item.Name + "."; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Enchanting rune for " + item.Name); }
                 }
             }
             foreach (CharacterModel character in characterBuilder.Characters)
@@ -2235,7 +2234,7 @@ namespace GAMMA.Models
                 {
                     foreach (ItemModel item in inventory.AllItems)
                     {
-                        if (Name == item.Name) { message += "\n" + inventory.Name + " item for " + character.Name; foundDependency = true; }
+                        if (Name == item.Name) { foundDependencies.Add(inventory.Name + " inventory of " + character.Name); }
                     }
                 }
             }
@@ -2243,17 +2242,29 @@ namespace GAMMA.Models
             {
                 foreach (ItemModel item in spell.ConsumedMaterials)
                 {
-                    if (Name == item.Name) { message += "\nConsumed material for " + spell.Name; foundDependency = true; }
+                    if (Name == item.Name) { foundDependencies.Add("Consumed material for " + spell.Name); }
                 }
             }
             foreach (LootBoxModel lootBox in Configuration.MainModelRef.ToolsView.LootBoxes)
             {
                 foreach (ItemModel item in lootBox.Items)
                 {
-                    if (Name == item.Name) { message += "\nLoot item for " + lootBox.Name; foundDependency = true; }
+                    if (Name == item.Name) { foundDependencies.Add("Loot item for " + lootBox.Name); }
                 }
             }
-            if (foundDependency) { new NotificationDialog(message).ShowDialog(); return false; }
+            foreach (CreatureModel creature in creatureBuilder.AllCreatures)
+            {
+                foreach (ItemLink item in creature.ItemLinks)
+                {
+                    if (Name == item.Name) { foundDependencies.Add("Loot item for " + creature.Name); }
+                }
+            }
+            if (foundDependencies.Count > 0) 
+            {
+                string message = "Unable to delete " + Name + ":\n" + HelperMethods.GetStringFromList(foundDependencies, "\n");
+                HelperMethods.NotifyUser(message); 
+                return false; 
+            }
             return true;
         }
         private void AdjustVolume(int vol)
@@ -2294,7 +2305,7 @@ namespace GAMMA.Models
                 _ => 8
             };
         }
-        private string GetIntoxicationStatusFromLevel(int toxLevel)
+        private static string GetIntoxicationStatusFromLevel(int toxLevel)
         {
             return toxLevel switch
             {

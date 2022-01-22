@@ -357,7 +357,7 @@ namespace GAMMA.Models
         public ICommand AddInventory => new RelayCommand(DoAddInventory);
         private void DoAddInventory(object param)
         {
-            if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count() >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
+            if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new());
         }
         #endregion
@@ -400,8 +400,8 @@ namespace GAMMA.Models
 
             ItemValue = HelperMethods.GetDerivedCoinage(cp) + " (" + HelperMethods.GetDerivedCoinage(Convert.ToInt32(cp * 0.6)) + ")";
 
-            Count_AllItems = AllItems.Count();
-            Count_FilteredItems = FilteredItems.Count();
+            Count_AllItems = AllItems.Count;
+            Count_FilteredItems = FilteredItems.Count;
         }
         public void GetUpdatedItemData()
         {

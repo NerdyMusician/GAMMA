@@ -642,7 +642,7 @@ namespace GAMMA.Models
             bool castAsRitual = false;
 
             // Pre-Cast Check
-            if (PrimaryAbilities.Count() == 0) { HelperMethods.NotifyUser("No abilities available for this spell, please verify data."); return; }
+            if (PrimaryAbilities.Count == 0) { HelperMethods.NotifyUser("No abilities available for this spell, please verify data."); return; }
 
             // Creature / Character Retrieval
             if ((param as object[]) == null)
@@ -738,7 +738,7 @@ namespace GAMMA.Models
                 }
             }
 
-            if (PrimaryAbilities.Count() > 1)
+            if (PrimaryAbilities.Count > 1)
             {
                 List<ConvertibleValue> abilityNames = new();
                 foreach (CustomAbility ability in PrimaryAbilities)
@@ -1076,7 +1076,7 @@ namespace GAMMA.Models
             return true;
 
         }
-        private int CantripScaleAdd(int casterLevel)
+        private static int CantripScaleAdd(int casterLevel)
         {
             return casterLevel switch
             {
