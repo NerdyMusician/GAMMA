@@ -885,7 +885,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Spell}" Command="{Binding UseAbility}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                                 <Separator />
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="Character" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}"  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                             </StackPanel>
                                                                                         </DataTemplate>
                                                                                     </ItemsControl.ItemTemplate>
@@ -1572,7 +1572,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Spell}" Command="{Binding UseAbility}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                                 <Separator />
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="Character" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveEffect}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
                                                                                             </StackPanel>
                                                                                         </DataTemplate>
                                                                                     </ItemsControl.ItemTemplate>
@@ -2540,7 +2540,10 @@
                                                     </TabControl.Resources>
                                                     <TabItem Header="Creatures">
                                                         <StackPanel>
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
+                                                            <DockPanel HorizontalAlignment="Right">
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
+                                                            </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
                                                                 <ScrollViewer Height="360" Width="240">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.CreatureList}">
@@ -2562,7 +2565,10 @@
                                                     </TabItem>
                                                     <TabItem Header="NPCs">
                                                         <StackPanel>
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
+                                                            <DockPanel HorizontalAlignment="Right">
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
+                                                            </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
                                                                 <ScrollViewer Height="360" Width="240">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.NpcList}">
@@ -2699,7 +2705,7 @@
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Source" />
-                                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                            <cc:GammaComboBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Data Validated?" Width="118" />
@@ -3040,8 +3046,8 @@
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Blank">
                                                         <cc:IconButton.ContextMenu>
                                                             <ContextMenu>
-                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Strength" />
-                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Dexterity" />
+                                                                <MenuItem Header="Add from Quick Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Quick Attack" />
+                                                                <MenuItem Header="Add from Quick Save Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Quick Save" />
                                                                 <MenuItem Header="Paste Copied Ability" Command="{Binding CreatureBuilderView.ActiveCreature.PasteAbility}" />
                                                             </ContextMenu>
                                                         </cc:IconButton.ContextMenu>
@@ -3721,7 +3727,7 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <cc:FieldLabel Text="Source" />
-                                        <cc:GammaTextBox Text="{Binding ItemBuilderView.ActiveItem.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                        <cc:GammaComboBox Text="{Binding ItemBuilderView.ActiveItem.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <cc:FieldLabel Text="Type" />
@@ -4105,7 +4111,7 @@
                         </StackPanel>
                         <StackPanel Style="{StaticResource SPNL_FieldRow}">
                             <cc:FieldLabel Text="Source" Width="64" />
-                            <cc:GammaTextBox Text="{Binding SpellBuilderView.ActiveSpell.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="280" />
+                            <cc:GammaComboBox Text="{Binding SpellBuilderView.ActiveSpell.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                         </StackPanel>
                         <StackPanel Style="{StaticResource SPNL_FieldRow}">
                             <cc:FieldLabel Text="Description" Width="64" />
@@ -4248,6 +4254,10 @@
                                         <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary">
                                             <cc:IconButton.ContextMenu>
                                                 <ContextMenu>
+                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Attack" />
+                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Save" />
+                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Attack" />
+                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Save" />
                                                     <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Primary" />
                                                 </ContextMenu>
                                             </cc:IconButton.ContextMenu>
@@ -5736,8 +5746,8 @@
                                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right">
                                                                         <cc:IconButton.ContextMenu>
                                                                             <ContextMenu>
-                                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Strength" />
-                                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Dexterity" />
+                                                                                <MenuItem Header="Add from Quick Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Quick Attack" />
+                                                                                <MenuItem Header="Add from Quick Save Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Quick Save" />
                                                                                 <MenuItem Header="Paste Copied Ability" Command="{Binding CharacterBuilderView.ActiveCharacter.PasteAbility}" />
                                                                             </ContextMenu>
                                                                         </cc:IconButton.ContextMenu>
@@ -8561,7 +8571,7 @@
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Source" />
-                                            <cc:GammaTextBox Text="{Binding ToolsView.ActiveLanguage.Sourcebook, UpdateSourceTrigger=PropertyChanged}" />
+                                            <cc:GammaComboBox Text="{Binding ToolsView.ActiveLanguage.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="240" />
                                         </StackPanel>
                                         <Separator />
                                         <StackPanel Orientation="Horizontal">
@@ -8633,7 +8643,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerClass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="180" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerClass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="180" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9294,7 +9304,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerSubclass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerSubclass.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" Width="200" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9600,7 +9610,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerRace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerRace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -9960,7 +9970,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerSubrace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerSubrace.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -10247,7 +10257,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerBackground.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerBackground.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
@@ -10659,7 +10669,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActivePlayerFeat.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActivePlayerFeat.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal" Visibility="Visible">
@@ -10843,7 +10853,7 @@
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">
                                                     <cc:FieldLabel Text="Source" />
-                                                    <cc:GammaTextBox Text="{Binding ToolsView.ActiveEldritchInvocation.Sourcebook, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                                                    <cc:GammaComboBox Text="{Binding ToolsView.ActiveEldritchInvocation.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
                                                 </StackPanel>
                                                 <Separator />
                                                 <StackPanel Orientation="Horizontal">

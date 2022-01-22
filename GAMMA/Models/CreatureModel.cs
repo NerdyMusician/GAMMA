@@ -3234,24 +3234,15 @@ namespace GAMMA.Models
             {
                 Abilities.Add(new CustomAbility());
             }
-            if (param.ToString() == "Strength" || param.ToString() == "Dexterity")
+            if (param.ToString() == "Quick Attack")
             {
-                ObjectSelectionDialog dialog = new(Configuration.DamageTypes.ToLabeledNumberList(), "Primary Damage Type");
-                string dmgVar = "Damage";
-                if (dialog.ShowDialog() == true)
-                {
-                    if (dialog.SelectedObject != null)
-                    {
-                        dmgVar = (dialog.SelectedObject as LabeledNumber).Name + " Damage";
-                    }
-                }
-                CustomAbility newAbility = new();
-                newAbility.Variables.Add(new("Attack", "Number"));
-                newAbility.Variables.Add(new(dmgVar, "Number"));
-                newAbility.PreActions.Add(new("Make Attack Roll", "Attack", param.ToString(), true));
-                newAbility.PreActions.Add(new("Add Roll", dmgVar, 1, 6, true));
-                newAbility.PreActions.Add(new("Add Stat Value", dmgVar, param.ToString()));
-                Abilities.Add(newAbility);
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm();
+            }
+            if (param.ToString() == "Quick Save")
+            {
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm(true);
             }
         }
         #endregion
@@ -4131,28 +4122,7 @@ namespace GAMMA.Models
         {
             foreach (CustomAbility ability in Abilities)
             {
-                List<string> variables = new();
-                List<string> conditions = new();
-                foreach (CAVariable variable in ability.Variables)
-                {
-                    variables.Add(variable.Name);
-                    conditions.Add(variable.Name);
-                }
-                foreach (CAPreAction preAction in ability.PreActions)
-                {
-                    preAction.UpdateTargetList(variables);
-                    foreach (CACondition condition in preAction.Conditions)
-                    {
-                        condition.UpdateVariableList(conditions);
-                    }
-                }
-                foreach (CAPostAction postAction in ability.PostActions)
-                {
-                    foreach (CACondition condition in postAction.Conditions)
-                    {
-                        condition.UpdateVariableList(conditions);
-                    }
-                }
+                ability.UpdateDropdownSuggestedValues();
             }
         }
         public void UpdateAbilityDescriptions()

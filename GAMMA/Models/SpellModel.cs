@@ -953,6 +953,26 @@ namespace GAMMA.Models
             if (param == null) { return; }
             if (param.ToString() == "Primary") { PrimaryAbilities.Add(new()); }
             if (param.ToString() == "Secondary") { SecondaryAbilities.Add(new()); }
+            if (param.ToString() == "Primary Quick Attack")
+            {
+                PrimaryAbilities.Add(new());
+                PrimaryAbilities.Last().PopulateFromQuickForm();
+            }
+            if (param.ToString() == "Primary Quick Save")
+            {
+                PrimaryAbilities.Add(new());
+                PrimaryAbilities.Last().PopulateFromQuickForm(true);
+            }
+            if (param.ToString() == "Secondary Quick Attack")
+            {
+                SecondaryAbilities.Add(new());
+                SecondaryAbilities.Last().PopulateFromQuickForm();
+            }
+            if (param.ToString() == "Secondary Quick Save")
+            {
+                SecondaryAbilities.Add(new());
+                SecondaryAbilities.Last().PopulateFromQuickForm(true);
+            }
         }
         #endregion
         #region PasteAbility

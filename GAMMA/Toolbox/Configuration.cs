@@ -12,13 +12,13 @@ namespace GAMMA.Toolbox
         public static bool LoadComplete = false;
         public static bool HasUsedCharacterBuilder = false;
 
-        public static List<string> CreatureTypes = new()
+        public static readonly List<string> CreatureTypes = new()
         {
             "",
             "D&D Creature",
             "D&D Player"
         };
-        public static List<string> CreatureCategories = new()
+        public static readonly List<string> CreatureCategories = new()
         {
             "",
             "Aberration",
@@ -36,20 +36,20 @@ namespace GAMMA.Toolbox
             "Plant",
             "Undead"
         };
-        public static List<string> CreatureSubCategories = new()
+        public static readonly List<string> CreatureSubCategories = new()
         {
             "",
             "Aarakocra",
             "Elf",
             "Goblinoid"
         };
-        public static List<string> Sources = new()
+        public static readonly List<string> Sources = new()
         {
             "",
             "Homebrew",
             "Wizards of the Coast"
         };
-        public static List<string> Sizes = new()
+        public static readonly List<string> Sizes = new()
         {
             "Tiny",
             "Small",
@@ -58,7 +58,7 @@ namespace GAMMA.Toolbox
             "Huge",
             "Gargantuan"
         };
-        public static List<string> VolumeSizes = new()
+        public static readonly List<string> VolumeSizes = new()
         {
             "Barrel (40 gal)",
             "Keg (5 gal)",
@@ -67,12 +67,12 @@ namespace GAMMA.Toolbox
             "Glass or Flask (1 pint)",
             "Gill (1/4 pint)",
         };
-        public static List<string> DrinkVolumes = new()
+        public static readonly List<string> DrinkVolumes = new()
         {
             "Glass or Flask (1 pint)",
             "Gill (1/4 pint)",
         };
-        public static List<string> Alignments = new()
+        public static readonly List<string> Alignments = new()
         {
             "Lawful Good",
             "Lawful Neutral",
@@ -85,11 +85,11 @@ namespace GAMMA.Toolbox
             "Chaotic Neutral",
             "Chaotic Evil"
         };
-        public static List<string> DiceSides = new()
+        public static readonly List<string> DiceSides = new()
         {
             "20","12","10","8","6","4","1"
         };
-        public static List<string> ItemTypes = new()
+        public static readonly List<string> ItemTypes = new()
         {
             "Adventuring Gear",
             "Alcohol",
@@ -128,7 +128,7 @@ namespace GAMMA.Toolbox
             "Treasure",
             "Wondrous Item",
         };
-        public static List<string> WeaponItemTypes = new()
+        public static readonly List<string> WeaponItemTypes = new()
         {
             "Firearms Ranged Weapon",
             "Magic Weapon",
@@ -137,7 +137,7 @@ namespace GAMMA.Toolbox
             "Simple Melee Weapon",
             "Simple Ranged Weapon",
         };
-        public static List<string> ArmorItemTypes = new()
+        public static readonly List<string> ArmorItemTypes = new()
         {
             "Clothing",
             "Heavy Armor",
@@ -145,7 +145,7 @@ namespace GAMMA.Toolbox
             "Medium Armor",
             "Shield"
         };
-        public static List<string> DamageTypes = new()
+        public static readonly List<string> DamageTypes = new()
         {
             "Acid",
             "Cold",
@@ -161,7 +161,7 @@ namespace GAMMA.Toolbox
             "Slashing",
             "Piercing",
         };
-        public static List<string> DamageProclivities = new()
+        public static readonly List<string> DamageProclivities = new()
         {
             "Normal",
             "Vulnerable",
@@ -174,7 +174,7 @@ namespace GAMMA.Toolbox
             "Immune if Non-Adamantine",
             "Immune if Non-Silvered"
         };
-        public static List<string> AbilityTypes = new()
+        public static readonly List<string> AbilityTypes = new()
         {
             "Strength",
             "Dexterity",
@@ -183,7 +183,7 @@ namespace GAMMA.Toolbox
             "Wisdom",
             "Charisma"
         };
-        public static List<string> SchoolsOfMagic = new()
+        public static readonly List<string> SchoolsOfMagic = new()
         {
             "Abjuration",
             "Conjuration",
@@ -194,7 +194,7 @@ namespace GAMMA.Toolbox
             "Necromancy",
             "Transmutation"
         };
-        public static List<string> AoeShapes = new()
+        public static readonly List<string> AoeShapes = new()
         {
             "Line",
             "Circle",
@@ -204,7 +204,7 @@ namespace GAMMA.Toolbox
             "Square",
             "Cylinder"
         };
-        public static List<string> Environments = new()
+        public static readonly List<string> Environments = new()
         {
             "Grassland / Hillside",
             "Forest / Woodland",
@@ -213,35 +213,35 @@ namespace GAMMA.Toolbox
             "Mountain / Cave",
             "Ocean / Coast"
         };
-        public static List<string> CreatureEnvironments = new()
+        public static readonly List<string> CreatureEnvironments = new()
         {
             "Arctic","Coastal","Desert","Forest",
             "Grassland","Hill","Mountain","Swamp",
             "Underdark","Underwater","Urban"
         };
-        public static List<string> FishingEnvironments = new()
+        public static readonly List<string> FishingEnvironments = new()
         {
             "Saltwater",
             "Freshwater",
         };
-        public static List<string> IconList = new()
+        public static readonly List<string> IconList = new()
         {
             "Icon_Construct",
             "Icon_Beast",
             "Icon_Fiend"
         };
-        public static List<string> ChallengeRatings = new()
+        public static readonly List<string> ChallengeRatings = new()
         {
             "0", "1/8", "1/4", "1/2", 
             "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
             "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
         };
-        public static List<string> AttackTypes = new()
+        public static readonly List<string> AttackTypes = new()
         {
             "Melee","Ranged","Magic Weapon","Magic Ability","Other"
         };
-        public static List<string> AttackOptionTypes = new()
+        public static readonly List<string> AttackOptionTypes = new()
         {
             "Attack Modifier",
             "Damage Modifier", 
@@ -254,7 +254,7 @@ namespace GAMMA.Toolbox
             "Extra Damage on Critical - Set",
             "Reroll Attack Damage Die at or Below",
         };
-        public static List<string> RarityLevels = new()
+        public static readonly List<string> RarityLevels = new()
         {
             "Common",
             "Uncommon",
@@ -262,12 +262,12 @@ namespace GAMMA.Toolbox
             "Very Rare",
             "Legendary"
         };
-        public static List<string> SpellsKnownPerLevelOptions = new()
+        public static readonly List<string> SpellsKnownPerLevelOptions = new()
         {
             "Set",
             "Any"
         };
-        public static List<SpellTableRowModel> MulticlassSpellSlotTable = new()
+        public static readonly List<SpellTableRowModel> MulticlassSpellSlotTable = new()
         {
             new(1,2),
             new(2,3),
@@ -290,13 +290,13 @@ namespace GAMMA.Toolbox
             new(19,4,3,3,3,3,2,1,1,1),
             new(20,4,3,3,3,3,2,2,1,1)
         };
-        public static List<string> InternalAbilityVariables = new()
+        public static readonly List<string> InternalAbilityVariables = new()
         {
             "[Is Critical Hit]",
             "[Attack with Advantage]",
             "[Attack with Disadvantage]"
         };
-        public static List<string> AlterantStats = new()
+        public static readonly List<string> AlterantStats = new()
         {
             "Armor Class",
             "Speed",

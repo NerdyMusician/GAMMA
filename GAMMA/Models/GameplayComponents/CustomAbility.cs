@@ -15,26 +15,23 @@ namespace GAMMA.Models.GameplayComponents
         // Constructors
         public CustomAbility()
         {
+            InitializeCollections();
             Name = "New Ability";
             Type = "None";
-            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
             Output = "";
             Description = "";
             QuantityToPerform = 1;
-            Variables = new();
-            PreActions = new();
-            PostActions = new();
+            
         }
         public CustomAbility(int attackBonus, int damageDiceQuantity, int damageDiceSides, int damageBonus, string damageType)
         {
+            InitializeCollections();
             Name = "Basic Attack";
             Type = "Melee";
             Output = "";
             Description = "";
             QuantityToPerform = 1;
-            PostActions = new();
 
-            Variables = new();
             CAVariable attackVariable = new();
             CAVariable damageVariable = new();
 
@@ -45,7 +42,6 @@ namespace GAMMA.Models.GameplayComponents
             Variables.Add(attackVariable);
             Variables.Add(damageVariable);
 
-            PreActions = new();
             CAPreAction attackRoll = new();
             CAPreAction attackBonusAction = new();
             CAPreAction damageRoll = new();
@@ -328,6 +324,11 @@ namespace GAMMA.Models.GameplayComponents
         public ICommand RemoveEffect => new RelayCommand(DoRemoveEffect);
         private void DoRemoveEffect(object param)
         {
+            if (param.GetType() == typeof(CreatureModel))
+            {
+                (param as CreatureModel).ActiveEffectAbilities.Remove(this);
+                return;
+            }
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ActiveEffectAbilities.Remove(this);
         }
         #endregion
@@ -465,6 +466,7 @@ namespace GAMMA.Models.GameplayComponents
         {
             CustomAbility clone = HelperMethods.DeepClone(this);
             clone.Name = "Copy of " + clone.Name;
+            clone.UpdateDropdownSuggestedValues();
 
             if (Configuration.MainModelRef.TabSelected_Players)
             {
@@ -1275,6 +1277,111 @@ namespace GAMMA.Models.GameplayComponents
             Description = description;
 
         }
+        public void UpdateDropdownSuggestedValues()
+        {
+            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
+            List<string> variables = new();
+            List<string> conditions = new();
+            foreach (CAVariable variable in Variables)
+            {
+                variable.ResetTypeOptions();
+                variables.Add(variable.Name);
+                conditions.Add(variable.Name);
+            }
+            foreach (CAPreAction preAction in PreActions)
+            {
+                preAction.UpdateTargetList(variables);
+                foreach (CACondition condition in preAction.Conditions)
+                {
+                    condition.UpdateVariableList(conditions);
+                }
+            }
+            foreach (CAPostAction postAction in PostActions)
+            {
+                foreach (CACondition condition in postAction.Conditions)
+                {
+                    condition.UpdateVariableList(conditions);
+                }
+            }
+        }
+        public void PopulateFromQuickForm(bool includeSaveDc = false)
+        {
+            QuickAddAbilityDialog abilityDialog = new(includeSaveDc);
+            if (abilityDialog.ShowDialog() == true)
+            {
+                Name = abilityDialog.AbilityName;
+                if (includeSaveDc)
+                {
+                    Variables.Add(new("Save DC", "Number", false));
+                    if (abilityDialog.SaveDc > 0)
+                    {
+                        PreActions.Add(new("Add Set Value", "Save DC", abilityDialog.SaveDc));
+                    }
+                    else
+                    {
+                        PreActions.Add(new("Add Stat Value", "Save DC", "Spellcasting Save DC"));
+                    }
+                }
+                else
+                {
+                    Variables.Add(new("Attack", "Number"));
+                    PreActions.Add(new("Make Attack Roll", "Attack", abilityDialog.UtilizedStat, true));
+                }
+                if (abilityDialog.DamageDiceQuantityA > 0)
+                {
+                    string varName = abilityDialog.DamageTypeA + " Damage";
+                    Variables.Add(new(varName, "Number"));
+                    Variables.Last().IncludeHalfValue = abilityDialog.IncludeHalfDamage;
+                    PreActions.Add(new("Add Roll", varName, abilityDialog.DamageDiceQuantityA, abilityDialog.DamageDiceSidesA, !includeSaveDc));
+                    if (abilityDialog.AddModToDamageA) { PreActions.Add(new("Add Stat Value", varName, abilityDialog.UtilizedStat)); }
+                }
+                if (abilityDialog.DamageDiceQuantityB > 0)
+                {
+                    string varName = abilityDialog.DamageTypeB + " Damage";
+                    Variables.Add(new(varName, "Number"));
+                    Variables.Last().IncludeHalfValue = abilityDialog.IncludeHalfDamage;
+                    PreActions.Add(new("Add Roll", varName, abilityDialog.DamageDiceQuantityB, abilityDialog.DamageDiceSidesB, !includeSaveDc));
+                    if (abilityDialog.AddModToDamageB) { PreActions.Add(new("Add Stat Value", varName, abilityDialog.UtilizedStat)); }
+                }
+
+                // Create Output for saving throw
+                if (includeSaveDc)
+                {
+                    Output += "Target(s) must make a DC {Save DC} " + abilityDialog.UtilizedStat + " saving throw";
+                    if (abilityDialog.DamageDiceQuantityA > 0)
+                    {
+                        string dmgNameA = abilityDialog.DamageTypeA + " Damage";
+                        Output += ", or take {" + dmgNameA + "} " + abilityDialog.DamageTypeA.ToLower() + " damage";
+                        if (abilityDialog.DamageDiceQuantityB > 0)
+                        {
+                            string dmgNameB = abilityDialog.DamageTypeB + " Damage";
+                            Output += ", and {" + dmgNameB + "} " + abilityDialog.DamageTypeB.ToLower() + " damage on a failed save";
+                            if (abilityDialog.IncludeHalfDamage)
+                            {
+                                Output += ", or half as much on a successful one.";
+                            }
+                            else
+                            {
+                                Output += ".";
+                            }
+                        }
+                        else if (abilityDialog.IncludeHalfDamage)
+                        {
+                            Output += ", or half as much on a successful one.";
+                        }
+                        else
+                        {
+                            Output += " on a failed save.";
+                        }
+                    }
+                    else
+                    {
+                        Output += ".";
+                    }
+                }
+
+            }
+        }
 
         // Private Methods
         private static bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
@@ -1305,6 +1412,13 @@ namespace GAMMA.Models.GameplayComponents
             if (character != null) { return "Character"; }
             if (creature != null) { return "Creature"; }
             return "Test";
+        }
+        private void InitializeCollections()
+        {
+            Types = new() { "Melee", "Ranged", "Magic Weapon", "Spell", "Other Ability" };
+            Variables = new();
+            PreActions = new();
+            PostActions = new();
         }
 
     }

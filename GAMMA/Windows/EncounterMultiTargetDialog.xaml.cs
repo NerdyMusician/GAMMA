@@ -25,6 +25,7 @@ namespace GAMMA.Windows
             ComboBox_Condition.SelectedItem = "None";
             TBX_PrimaryDamageAmount.Text = "0";
             TBX_SecondaryDamageAmount.Text = "0";
+            IsTarget_Toggled(null, null);
         }
 
         private void ComboBox_Condition_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -198,6 +199,21 @@ namespace GAMMA.Windows
             {
                 this.DragMove();
             }
+        }
+
+        private void IsTarget_Toggled(object sender, RoutedEventArgs e)
+        {
+            int count = 0;
+            foreach (object item in ItemsControl_Creatures.Items)
+            {
+                CreatureModel creature = item as CreatureModel;
+                if (creature.IsTarget)
+                {
+                    count++;
+                }
+            }
+            string output = count + " target" + ((count != 1) ? "s" : "") + " selected";
+            SelectedTargetCount.Text = output;
         }
     }
 }
