@@ -132,7 +132,7 @@ namespace GAMMA.ViewModels
         public void DoSaveCampaigns(bool notifyUser = true)
         {
             LastSave = DateTime.Now.ToString();
-            if (Campaigns.Count() == 0)
+            if (Campaigns.Count == 0)
             {
                 // Prevents zero character save crash
                 XDocument blankDoc = new();

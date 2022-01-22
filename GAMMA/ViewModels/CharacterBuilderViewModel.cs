@@ -51,25 +51,15 @@ namespace GAMMA.ViewModels
         private ObservableCollection<CharacterModel> _Characters;
         public ObservableCollection<CharacterModel> Characters
         {
-            get
-            {
-                return _Characters;
-            }
-            set
-            {
-                _Characters = value;
-                NotifyPropertyChanged();
-            }
+            get => _Characters;
+            set => SetAndNotify(ref _Characters, value);
         }
         #endregion
         #region ActiveCharacter
         private CharacterModel _ActiveCharacter;
         public CharacterModel ActiveCharacter
         {
-            get
-            {
-                return _ActiveCharacter;
-            }
+            get => _ActiveCharacter;
             set
             {
                 if (_ActiveCharacter != null && value != null)
@@ -94,73 +84,37 @@ namespace GAMMA.ViewModels
         private CharacterModel _LastActiveCharacter;
         public CharacterModel LastActiveCharacter
         {
-            get
-            {
-                return _LastActiveCharacter;
-            }
-            set
-            {
-                _LastActiveCharacter = value;
-                NotifyPropertyChanged();
-            }
+            get => _LastActiveCharacter;
+            set => SetAndNotify(ref _LastActiveCharacter, value);
         }
         #endregion
         #region ShowCharacterList
         private bool _ShowCharacterList;
         public bool ShowCharacterList
         {
-            get
-            {
-                return _ShowCharacterList;
-            }
-            set
-            {
-                _ShowCharacterList = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowCharacterList;
+            set => SetAndNotify(ref _ShowCharacterList, value);
         }
         #endregion
 
         // Commands
         #region AddCharacter
-        private RelayCommand _AddCharacter;
-        public ICommand AddCharacter
-        {
-            get
-            {
-                if (_AddCharacter == null)
-                {
-                    _AddCharacter = new RelayCommand(param => DoAddCharacter());
-                }
-                return _AddCharacter;
-            }
-        }
+        public ICommand AddCharacter => new RelayCommand(param => DoAddCharacter());
         private void DoAddCharacter()
         {
             Characters.Add(new CharacterModel());
             ActiveCharacter = Characters.Last();
-            ActiveCharacter.Inventories.Add(new InventoryModel(ActiveCharacter));
+            ActiveCharacter.Inventories.Add(new());
             ActiveCharacter.Inventories[0].Name = "Backpack";
             ActiveCharacter.Inventories[0].IsCarried = true;
         }
         #endregion
         #region SaveCharacters
-        private RelayCommand _SaveCharacters;
-        public ICommand SaveCharacters
-        {
-            get
-            {
-                if (_SaveCharacters == null)
-                {
-                    _SaveCharacters = new RelayCommand(param => DoSaveCharacters());
-                }
-                return _SaveCharacters;
-            }
-        }
+        public ICommand SaveCharacters => new RelayCommand(param => DoSaveCharacters());
         public bool DoSaveCharacters(bool notifyUser = true)
         {
             if (RunSaveValidation() == false) { return false; }
-            if (Characters.Count() == 0)
+            if (Characters.Count == 0)
             {
                 // Prevents zero character save crash
                 XDocument blankDoc = new();
@@ -176,36 +130,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortCharacters
-        private RelayCommand _SortCharacters;
-        public ICommand SortCharacters
-        {
-            get
-            {
-                if (_SortCharacters == null)
-                {
-                    _SortCharacters = new RelayCommand(param => DoSortCharacters());
-                }
-                return _SortCharacters;
-            }
-        }
+        public ICommand SortCharacters => new RelayCommand(param => DoSortCharacters());
         private void DoSortCharacters()
         {
             Characters = new(Characters.OrderBy(c => c.Name));
         }
         #endregion
         #region ImportCharacters
-        private RelayCommand _ImportCharacters;
-        public ICommand ImportCharacters
-        {
-            get
-            {
-                if (_ImportCharacters == null)
-                {
-                    _ImportCharacters = new RelayCommand(param => DoImportCharacters());
-                }
-                return _ImportCharacters;
-            }
-        }
+        public ICommand ImportCharacters => new RelayCommand(param => DoImportCharacters());
         private void DoImportCharacters()
         {
             OpenFileDialog openWindow = new()
@@ -213,9 +145,12 @@ namespace GAMMA.ViewModels
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new("Prior to import, the current character list must be saved.\nContinue?");
-            question.ShowDialog();
-            if (question.Answer == false) { return; }
+            if (Characters.Count > 0)
+            {
+                YesNoDialog question = new("Prior to import, the current character list must be saved.\nContinue?");
+                question.ShowDialog();
+                if (question.Answer == false) { return; }
+            }
 
             if (DoSaveCharacters() == false) { return; }
 
@@ -249,18 +184,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region OpenCharacterCreator
-        private RelayCommand _OpenCharacterCreator;
-        public ICommand OpenCharacterCreator
-        {
-            get
-            {
-                if (_OpenCharacterCreator == null)
-                {
-                    _OpenCharacterCreator = new RelayCommand(DoOpenCharacterCreator);
-                }
-                return _OpenCharacterCreator;
-            }
-        }
+        public ICommand OpenCharacterCreator => new RelayCommand(DoOpenCharacterCreator);
         private void DoOpenCharacterCreator(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("No parameter passed for CharacterBuilderViewModel.DoOpenCharacterCreator.", true); return; }

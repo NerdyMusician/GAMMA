@@ -26,6 +26,10 @@ namespace GAMMA.Models
             ItemLinks = new();
             ActiveEffectAbilities = new();
             Environments = new();
+            Vulnerabilities = "";
+            Immunities = "";
+            Resistances = "";
+            ConditionImmunities = "";
 
             DamageProclivity_Acid = "Normal";
             DamageProclivity_Cold = "Normal";
@@ -914,16 +918,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Acid
         {
-            get
-            {
-                return _DamageProclivity_Acid;
-            }
-            set
-            {
-                _DamageProclivity_Acid = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Acid;
+            set => SetAndNotify(ref _DamageProclivity_Acid, value);
         }
         #endregion
         #region DamageProclivity_Cold
@@ -931,16 +927,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Cold
         {
-            get
-            {
-                return _DamageProclivity_Cold;
-            }
-            set
-            {
-                _DamageProclivity_Cold = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Cold;
+            set => SetAndNotify(ref _DamageProclivity_Cold, value);
         }
         #endregion
         #region DamageProclivity_Fire
@@ -948,16 +936,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Fire
         {
-            get
-            {
-                return _DamageProclivity_Fire;
-            }
-            set
-            {
-                _DamageProclivity_Fire = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Fire;
+            set => SetAndNotify(ref _DamageProclivity_Fire, value);
         }
         #endregion
         #region DamageProclivity_Force
@@ -965,16 +945,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Force
         {
-            get
-            {
-                return _DamageProclivity_Force;
-            }
-            set
-            {
-                _DamageProclivity_Force = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Force;
+            set => SetAndNotify(ref _DamageProclivity_Force, value);
         }
         #endregion
         #region DamageProclivity_Lightning
@@ -982,16 +954,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Lightning
         {
-            get
-            {
-                return _DamageProclivity_Lightning;
-            }
-            set
-            {
-                _DamageProclivity_Lightning = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Lightning;
+            set => SetAndNotify(ref _DamageProclivity_Lightning, value);
         }
         #endregion
         #region DamageProclivity_Necrotic
@@ -999,16 +963,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Necrotic
         {
-            get
-            {
-                return _DamageProclivity_Necrotic;
-            }
-            set
-            {
-                _DamageProclivity_Necrotic = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Necrotic;
+            set => SetAndNotify(ref _DamageProclivity_Necrotic, value);
         }
         #endregion
         #region DamageProclivity_Poison
@@ -1016,16 +972,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Poison
         {
-            get
-            {
-                return _DamageProclivity_Poison;
-            }
-            set
-            {
-                _DamageProclivity_Poison = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Poison;
+            set => SetAndNotify(ref _DamageProclivity_Poison, value);
         }
         #endregion
         #region DamageProclivity_Psychic
@@ -1033,16 +981,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Psychic
         {
-            get
-            {
-                return _DamageProclivity_Psychic;
-            }
-            set
-            {
-                _DamageProclivity_Psychic = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Psychic;
+            set => SetAndNotify(ref _DamageProclivity_Psychic, value);
         }
         #endregion
         #region DamageProclivity_Radiant
@@ -1050,16 +990,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Radiant
         {
-            get
-            {
-                return _DamageProclivity_Radiant;
-            }
-            set
-            {
-                _DamageProclivity_Radiant = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Radiant;
+            set => SetAndNotify(ref _DamageProclivity_Radiant, value);
         }
         #endregion
         #region DamageProclivity_Thunder
@@ -1067,16 +999,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Thunder
         {
-            get
-            {
-                return _DamageProclivity_Thunder;
-            }
-            set
-            {
-                _DamageProclivity_Thunder = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Thunder;
+            set => SetAndNotify(ref _DamageProclivity_Thunder, value);
         }
         #endregion
         #region DamageProclivity_Slashing
@@ -1084,16 +1008,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Slashing
         {
-            get
-            {
-                return _DamageProclivity_Slashing;
-            }
-            set
-            {
-                _DamageProclivity_Slashing = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Slashing;
+            set => SetAndNotify(ref _DamageProclivity_Slashing, value);
         }
         #endregion
         #region DamageProclivity_Piercing
@@ -1101,16 +1017,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Piercing
         {
-            get
-            {
-                return _DamageProclivity_Piercing;
-            }
-            set
-            {
-                _DamageProclivity_Piercing = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Piercing;
+            set => SetAndNotify(ref _DamageProclivity_Piercing, value);
         }
         #endregion
         #region DamageProclivity_Bludgeoning
@@ -1118,16 +1026,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageProclivity_Bludgeoning
         {
-            get
-            {
-                return _DamageProclivity_Bludgeoning;
-            }
-            set
-            {
-                _DamageProclivity_Bludgeoning = value;
-                NotifyPropertyChanged();
-                UpdateDamageProclivityTexts();
-            }
+            get => _DamageProclivity_Bludgeoning;
+            set => SetAndNotify(ref _DamageProclivity_Bludgeoning, value);
         }
         #endregion
 
@@ -1136,16 +1036,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Blinded
         {
-            get
-            {
-                return _IsImmune_Blinded;
-            }
-            set
-            {
-                _IsImmune_Blinded = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Blinded;
+            set => SetAndNotify(ref _IsImmune_Blinded, value);
         }
         #endregion
         #region IsImmune_Charmed
@@ -1153,16 +1045,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Charmed
         {
-            get
-            {
-                return _IsImmune_Charmed;
-            }
-            set
-            {
-                _IsImmune_Charmed = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Charmed;
+            set => SetAndNotify(ref _IsImmune_Charmed, value);
         }
         #endregion
         #region IsImmune_Deafened
@@ -1170,16 +1054,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Deafened
         {
-            get
-            {
-                return _IsImmune_Deafened;
-            }
-            set
-            {
-                _IsImmune_Deafened = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Deafened;
+            set => SetAndNotify(ref _IsImmune_Deafened, value);
         }
         #endregion
         #region IsImmune_Exhaustion
@@ -1187,16 +1063,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Exhaustion
         {
-            get
-            {
-                return _IsImmune_Exhaustion;
-            }
-            set
-            {
-                _IsImmune_Exhaustion = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Exhaustion;
+            set => SetAndNotify(ref _IsImmune_Exhaustion, value);
         }
         #endregion
         #region IsImmune_Frightened
@@ -1204,16 +1072,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Frightened
         {
-            get
-            {
-                return _IsImmune_Frightened;
-            }
-            set
-            {
-                _IsImmune_Frightened = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Frightened;
+            set => SetAndNotify(ref _IsImmune_Frightened, value);
         }
         #endregion
         #region IsImmune_Grappled
@@ -1221,16 +1081,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Grappled
         {
-            get
-            {
-                return _IsImmune_Grappled;
-            }
-            set
-            {
-                _IsImmune_Grappled = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Grappled;
+            set => SetAndNotify(ref _IsImmune_Grappled, value);
         }
         #endregion
         #region IsImmune_Paralyzed
@@ -1238,16 +1090,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Paralyzed
         {
-            get
-            {
-                return _IsImmune_Paralyzed;
-            }
-            set
-            {
-                _IsImmune_Paralyzed = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Paralyzed;
+            set => SetAndNotify(ref _IsImmune_Paralyzed, value);
         }
         #endregion
         #region IsImmune_Petrified
@@ -1255,16 +1099,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Petrified
         {
-            get
-            {
-                return _IsImmune_Petrified;
-            }
-            set
-            {
-                _IsImmune_Petrified = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Petrified;
+            set => SetAndNotify(ref _IsImmune_Petrified, value);
         }
         #endregion
         #region IsImmune_Poisoned
@@ -1272,16 +1108,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Poisoned
         {
-            get
-            {
-                return _IsImmune_Poisoned;
-            }
-            set
-            {
-                _IsImmune_Poisoned = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Poisoned;
+            set => SetAndNotify(ref _IsImmune_Poisoned, value);
         }
         #endregion
         #region IsImmune_Prone
@@ -1289,16 +1117,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Prone
         {
-            get
-            {
-                return _IsImmune_Prone;
-            }
-            set
-            {
-                _IsImmune_Prone = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Prone;
+            set => SetAndNotify(ref _IsImmune_Prone, value);
         }
         #endregion
         #region IsImmune_Restrained
@@ -1306,16 +1126,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Restrained
         {
-            get
-            {
-                return _IsImmune_Restrained;
-            }
-            set
-            {
-                _IsImmune_Restrained = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Restrained;
+            set => SetAndNotify(ref _IsImmune_Restrained, value);
         }
         #endregion
         #region IsImmune_Stunned
@@ -1323,16 +1135,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Stunned
         {
-            get
-            {
-                return _IsImmune_Stunned;
-            }
-            set
-            {
-                _IsImmune_Stunned = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Stunned;
+            set => SetAndNotify(ref _IsImmune_Stunned, value);
         }
         #endregion
         #region IsImmune_Unconscious
@@ -1340,16 +1144,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsImmune_Unconscious
         {
-            get
-            {
-                return _IsImmune_Unconscious;
-            }
-            set
-            {
-                _IsImmune_Unconscious = value;
-                NotifyPropertyChanged();
-                UpdateImmuneConditionText();
-            }
+            get => _IsImmune_Unconscious;
+            set => SetAndNotify(ref _IsImmune_Unconscious, value);
         }
         #endregion
 
@@ -4247,6 +4043,8 @@ namespace GAMMA.Models
             if (PassivePerception > 0) { FT_Senses += ((FT_Senses == "") ? "" : ", ") + "Passive Perception " + PassivePerception; }
 
             GenerateTraitAndAbilityLists();
+            UpdateDamageProclivityTexts();
+            UpdateImmuneConditionText();
 
         }
         public void ConnectSpellLinks()

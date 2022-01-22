@@ -15,9 +15,8 @@ namespace GAMMA.Models
     public class InventoryModel : BaseModel
     {
         // Constructors
-        public InventoryModel(CharacterModel character)
+        public InventoryModel()
         {
-            Owner = character;
             Name = "New Inventory";
             AllItems = new();
             FilteredItems = new();
@@ -30,7 +29,7 @@ namespace GAMMA.Models
 
         public void AllItems_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            Owner.UpdateInventoryStats();
+            HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
         }
 
         // Databound Properties
@@ -39,15 +38,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsCarried
@@ -55,30 +47,12 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsCarried
         {
-            get
-            {
-                return _IsCarried;
-            }
+            get => _IsCarried;
             set
             {
                 _IsCarried = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
-            }
-        }
-        #endregion
-        #region Owner
-        private CharacterModel _Owner;
-        public CharacterModel Owner
-        {
-            get
-            {
-                return _Owner;
-            }
-            set
-            {
-                _Owner = value;
-                NotifyPropertyChanged();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -86,15 +60,8 @@ namespace GAMMA.Models
         private bool _IsSelected;
         public bool IsSelected
         {
-            get
-            {
-                return _IsSelected;
-            }
-            set
-            {
-                _IsSelected = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsSelected;
+            set => SetAndNotify(ref _IsSelected, value);
         }
         #endregion
 
@@ -103,15 +70,12 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int PlatinumPieces
         {
-            get
-            {
-                return _PlatinumPieces;
-            }
+            get => _PlatinumPieces;
             set
             {
                 _PlatinumPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -120,15 +84,12 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int GoldPieces
         {
-            get
-            {
-                return _GoldPieces;
-            }
+            get => _GoldPieces;
             set
             {
                 _GoldPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -137,15 +98,12 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SilverPieces
         {
-            get
-            {
-                return _SilverPieces;
-            }
+            get => _SilverPieces;
             set
             {
                 _SilverPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -154,15 +112,12 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CopperPieces
         {
-            get
-            {
-                return _CopperPieces;
-            }
+            get => _CopperPieces;
             set
             {
                 _CopperPieces = value;
                 NotifyPropertyChanged();
-                Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
             }
         }
         #endregion
@@ -172,45 +127,24 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> AllItems
         {
-            get
-            {
-                return _AllItems;
-            }
-            set
-            {
-                _AllItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _AllItems;
+            set => SetAndNotify(ref _AllItems, value);
         }
         #endregion
         #region FilteredItems
         private ObservableCollection<ItemModel> _FilteredItems;
         public ObservableCollection<ItemModel> FilteredItems
         {
-            get
-            {
-                return _FilteredItems;
-            }
-            set
-            {
-                _FilteredItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredItems;
+            set => SetAndNotify(ref _FilteredItems, value);
         }
         #endregion
         #region ActiveItem
         private ItemModel _ActiveItem;
         public ItemModel ActiveItem
         {
-            get
-            {
-                return _ActiveItem;
-            }
-            set
-            {
-                _ActiveItem = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveItem;
+            set => SetAndNotify(ref _ActiveItem, value);
         }
         #endregion
 
@@ -218,10 +152,7 @@ namespace GAMMA.Models
         private string _SearchText;
         public string SearchText
         {
-            get
-            {
-                return _SearchText;
-            }
+            get => _SearchText;
             set
             {
                 _SearchText = value;
@@ -234,60 +165,32 @@ namespace GAMMA.Models
         private ObservableCollection<BoolOption> _Filters;
         public ObservableCollection<BoolOption> Filters
         {
-            get
-            {
-                return _Filters;
-            }
-            set
-            {
-                _Filters = value;
-                NotifyPropertyChanged();
-            }
+            get => _Filters;
+            set => SetAndNotify(ref _Filters, value);
         }
         #endregion
         #region Count_AllItems
         private int _Count_AllItems;
         public int Count_AllItems
         {
-            get
-            {
-                return _Count_AllItems;
-            }
-            set
-            {
-                _Count_AllItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_AllItems;
+            set => SetAndNotify(ref _Count_AllItems, value);
         }
         #endregion
         #region Count_FilteredItems
         private int _Count_FilteredItems;
         public int Count_FilteredItems
         {
-            get
-            {
-                return _Count_FilteredItems;
-            }
-            set
-            {
-                _Count_FilteredItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_FilteredItems;
+            set => SetAndNotify(ref _Count_FilteredItems, value);
         }
         #endregion
         #region ShowFilters
         private bool _ShowFilters;
         public bool ShowFilters
         {
-            get
-            {
-                return _ShowFilters;
-            }
-            set
-            {
-                _ShowFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowFilters;
+            set => SetAndNotify(ref _ShowFilters, value);
         }
         #endregion
 
@@ -295,30 +198,16 @@ namespace GAMMA.Models
         private bool _ShowShopList;
         public bool ShowShopList
         {
-            get
-            {
-                return _ShowShopList;
-            }
-            set
-            {
-                _ShowShopList = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowShopList;
+            set => SetAndNotify(ref _ShowShopList, value);
         }
         #endregion
         #region ItemValue
         private string _ItemValue;
         public string ItemValue
         {
-            get
-            {
-                return _ItemValue;
-            }
-            set
-            {
-                _ItemValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemValue;
+            set => SetAndNotify(ref _ItemValue, value);
         }
         #endregion
 
@@ -363,7 +252,7 @@ namespace GAMMA.Models
                     }
                 }
 
-                Owner.UpdateInventoryStats();
+                HelperMethods.CheckAndCall_UpdateActiveCharacterInventoryStats();
 
             }
             if (type.ToString() == "TextInput")
@@ -374,18 +263,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SelectFilters
-        private RelayCommand _SelectFilters;
-        public ICommand SelectFilters
-        {
-            get
-            {
-                if (_SelectFilters == null)
-                {
-                    _SelectFilters = new RelayCommand(DoSelectFilters);
-                }
-                return _SelectFilters;
-            }
-        }
+        public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
         private void DoSelectFilters(object filter)
         {
             foreach (BoolOption option in Filters)
@@ -395,37 +273,15 @@ namespace GAMMA.Models
         }
         #endregion
         #region ClearSearch
-        private RelayCommand _ClearSearch;
-        public ICommand ClearSearch
-        {
-            get
-            {
-                if (_ClearSearch == null)
-                {
-                    _ClearSearch = new RelayCommand(param => DoClearSearch());
-                }
-                return _ClearSearch;
-            }
-        }
-        private void DoClearSearch()
+        public ICommand ClearSearch => new RelayCommand(DoClearSearch);
+        private void DoClearSearch(object param)
         {
             SearchText = "";
             UpdateFilteredList();
         }
         #endregion
         #region ModifyCoinage
-        private RelayCommand _ModifyCoinage;
-        public ICommand ModifyCoinage
-        {
-            get
-            {
-                if (_ModifyCoinage == null)
-                {
-                    _ModifyCoinage = new RelayCommand(DoModifyCoinage);
-                }
-                return _ModifyCoinage;
-            }
-        }
+        public ICommand ModifyCoinage => new RelayCommand(DoModifyCoinage);
         private void DoModifyCoinage(object param)
         {
             if (param.ToString() == "Add")
@@ -481,48 +337,28 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveInventory
-        private RelayCommand _RemoveInventory;
-        public ICommand RemoveInventory
+        public ICommand RemoveInventory => new RelayCommand(DoRemoveInventory);
+        private void DoRemoveInventory(object param)
         {
-            get
-            {
-                if (_RemoveInventory == null)
-                {
-                    _RemoveInventory = new RelayCommand(param => DoRemoveInventory());
-                }
-                return _RemoveInventory;
-            }
-        }
-        private void DoRemoveInventory()
-        {
-            if (Owner.Inventories[0] == this) { new NotificationDialog("Cannot remove base inventory.").ShowDialog(); return; }
+            CharacterModel owner = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+            if (owner == null) { HelperMethods.NotifyUser("Invalid ActiveCharacter"); return; }
+            if (owner.Inventories[0] == this) { HelperMethods.NotifyUser("Cannot remove base inventory."); return; }
             YesNoDialog question = new("This will remove all currency and items under this inventory.\nContinue?");
             if (question.ShowDialog() == true)
             {
                 if (question.Answer == true)
                 {
-                    Owner.Inventories.Remove(this);
+                    owner.Inventories.Remove(this);
                 }
             }
         }
         #endregion
         #region AddInventory
-        private RelayCommand _AddInventory;
-        public ICommand AddInventory
-        {
-            get
-            {
-                if (_AddInventory == null)
-                {
-                    _AddInventory = new RelayCommand(param => DoAddInventory());
-                }
-                return _AddInventory;
-            }
-        }
-        private void DoAddInventory()
+        public ICommand AddInventory => new RelayCommand(DoAddInventory);
+        private void DoAddInventory(object param)
         {
             if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count() >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
-            Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new InventoryModel(Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter));
+            Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new());
         }
         #endregion
         #region TransferItems
@@ -584,7 +420,9 @@ namespace GAMMA.Models
         }
         public void InventoryModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            Owner.ItemCollectionChanged(null, null);
+            CharacterModel owner = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+            if (owner == null) { HelperMethods.NotifyUser("Invalid ActiveCharacter"); return; }
+            owner.ItemCollectionChanged(null, null);
         }
 
         // Private Methods
@@ -602,6 +440,8 @@ namespace GAMMA.Models
         }
         private void AddItemsFromTextInput()
         {
+            CharacterModel owner = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+            if (owner == null) { HelperMethods.NotifyUser("Invalid ActiveCharacter"); return; }
             TextDumpDialog textInput = new("Item Add Expected Format:\n{Quantity} x {Item Name}\nNote: 1 line per entry");
             if (textInput.ShowDialog() == true)
             {
@@ -611,7 +451,6 @@ namespace GAMMA.Models
                 Dictionary<string, int> itemsAndQuantities = new();
                 foreach (string line in lines)
                 {
-                    //int index = line.IndexOf(" x ");
                     int index = line.IndexOf("x");
                     if (index == -1) { continue; }
                     if (int.TryParse(line.Substring(0, index).Trim(), out int qty))
@@ -665,7 +504,7 @@ namespace GAMMA.Models
                     message += invalidItems;
                 }
                 HelperMethods.NotifyUser(message);
-                Owner.UpdateInventoryStats();
+                owner.UpdateInventoryStats();
 
             }
         }

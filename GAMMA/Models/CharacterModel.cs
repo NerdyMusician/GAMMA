@@ -4471,7 +4471,8 @@ namespace GAMMA.Models
         private void DoAddInventory()
         {
             if (Inventories.Count >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
-            Inventories.Add(new InventoryModel(this));
+            Inventories.Add(new());
+            //Inventories.Add(new InventoryModel(this));
         }
         #endregion
         #region ToggleRoll20Link

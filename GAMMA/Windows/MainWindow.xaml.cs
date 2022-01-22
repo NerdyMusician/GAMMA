@@ -287,14 +287,21 @@ namespace GAMMA.Windows
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if ((DataContext as MainViewModel) == null) { return; } // Startup crash
-            (DataContext as MainViewModel).SettingsView.SaveSettings();
-            ChromeDriver driver = ((DataContext as MainViewModel).WebDriver) as ChromeDriver;
-            if (driver != null)
+            try
             {
-                if (driver.SessionId != null) { driver.Quit(); }
+                if ((DataContext as MainViewModel) == null) { return; } // Startup crash
+                (DataContext as MainViewModel).SettingsView.SaveSettings();
+                ChromeDriver driver = ((DataContext as MainViewModel).WebDriver) as ChromeDriver;
+                if (driver != null)
+                {
+                    if (driver.SessionId != null) { driver.Quit(); }
+                }
+                Application.Current.Shutdown();
             }
-            Application.Current.Shutdown();
+            catch (Exception ex)
+            {
+                HelperMethods.WriteToLogFile(ex.Message, true);
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
