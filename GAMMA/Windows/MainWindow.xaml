@@ -3048,8 +3048,6 @@
                                                             <ContextMenu>
                                                                 <MenuItem Header="Add from Quick Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Quick Attack" />
                                                                 <MenuItem Header="Add from Quick Save Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Quick Save" />
-                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Strength" />
-                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Dexterity" />
                                                                 <MenuItem Header="Paste Copied Ability" Command="{Binding CreatureBuilderView.ActiveCreature.PasteAbility}" />
                                                             </ContextMenu>
                                                         </cc:IconButton.ContextMenu>
@@ -4256,8 +4254,10 @@
                                         <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary">
                                             <cc:IconButton.ContextMenu>
                                                 <ContextMenu>
-                                                    <MenuItem Header="Add Save-Based Ability" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="AttackBased" />
-                                                    <MenuItem Header="Add Save-Based Ability" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="SaveBased" />
+                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Attack" />
+                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Save" />
+                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Attack" />
+                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Save" />
                                                     <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Primary" />
                                                 </ContextMenu>
                                             </cc:IconButton.ContextMenu>
@@ -5746,8 +5746,8 @@
                                                                     <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right">
                                                                         <cc:IconButton.ContextMenu>
                                                                             <ContextMenu>
-                                                                                <MenuItem Header="Add Strength-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Strength" />
-                                                                                <MenuItem Header="Add Dexterity-Based Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Dexterity" />
+                                                                                <MenuItem Header="Add from Quick Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Quick Attack" />
+                                                                                <MenuItem Header="Add from Quick Save Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Quick Save" />
                                                                                 <MenuItem Header="Paste Copied Ability" Command="{Binding CharacterBuilderView.ActiveCharacter.PasteAbility}" />
                                                                             </ContextMenu>
                                                                         </cc:IconButton.ContextMenu>

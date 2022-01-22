@@ -1343,6 +1343,8 @@ namespace GAMMA.Models.GameplayComponents
                     PreActions.Add(new("Add Roll", varName, abilityDialog.DamageDiceQuantityB, abilityDialog.DamageDiceSidesB, !includeSaveDc));
                     if (abilityDialog.AddModToDamageB) { PreActions.Add(new("Add Stat Value", varName, abilityDialog.UtilizedStat)); }
                 }
+
+                // Create Output for saving throw
                 if (includeSaveDc)
                 {
                     Output += "Target(s) must make a DC {Save DC} " + abilityDialog.UtilizedStat + " saving throw";

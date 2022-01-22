@@ -3520,28 +3520,15 @@ namespace GAMMA.Models
             {
                 Abilities.Add(new CustomAbility());
             }
-            if (param.ToString() == "Strength" || param.ToString() == "Dexterity")
+            if (param.ToString() == "Quick Attack")
             {
-                ObjectSelectionDialog dialog = new (Configuration.DamageTypes.ToLabeledNumberList(), "Primary Damage Type");
-                string dmgVar = "Damage";
-                if (dialog.ShowDialog() == true)
-                {
-                    if (dialog.SelectedObject != null)
-                    {
-                        dmgVar = (dialog.SelectedObject as LabeledNumber).Name + " Damage";
-                    }
-                }
-                CustomAbility newAbility = new();
-                newAbility.Variables.Add(new("Attack", "Number"));
-                newAbility.Variables.Add(new(dmgVar, "Number"));
-                newAbility.Variables.Add(new("Advantage", "Toggled Option"));
-                newAbility.Variables.Add(new("Disadvantage", "Toggled Option"));
-                newAbility.PreActions.Add(new("Check Advantage", "Add Set Value", "[Attack with Advantage]", "Advantage"));
-                newAbility.PreActions.Add(new("Check Disadvantage", "Add Set Value", "[Attack with Disadvantage]", "Disadvantage"));
-                newAbility.PreActions.Add(new("Make Attack Roll", "Attack", param.ToString(), true));
-                newAbility.PreActions.Add(new("Add Roll", dmgVar, 1, 6, true));
-                newAbility.PreActions.Add(new("Add Stat Value", dmgVar, param.ToString()));
-                Abilities.Add(newAbility);
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm();
+            }
+            if (param.ToString() == "Quick Save")
+            {
+                Abilities.Add(new());
+                Abilities.Last().PopulateFromQuickForm(true);
             }
         }
         #endregion
