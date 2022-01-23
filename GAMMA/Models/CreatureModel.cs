@@ -3724,7 +3724,7 @@ namespace GAMMA.Models
                 }
                 if (dropQty > 0) { message += string.Format("\n{0} x {1}", dropQty, link.Name); }
             }
-            new NotificationDialog(message).ShowDialog();
+            HelperMethods.NotifyUser(message);
         }
         #endregion
         #region DuplicateCreature
@@ -3889,14 +3889,14 @@ namespace GAMMA.Models
             if (TamingProgress <= 0)
             {
                 character.CreaturePen.Remove(this);
-                new NotificationDialog(Name + " has become hostile, please inform the DM.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has become hostile, please inform the DM.");
             }
 
             if (TamingProgress >= ExperienceValue)
             {
                 character.Minions.Add(HelperMethods.DeepClone(this));
                 character.CreaturePen.Remove(this);
-                new NotificationDialog(Name + " has become tamed and is now in the Combat - Minions section.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has become tamed and is now in the Combat - Minions section.");
             }
 
         }

@@ -1339,7 +1339,7 @@ namespace GAMMA.Models
         {
             if (Configuration.ItemTypes.Contains(Type) == false)
             {
-                new NotificationDialog("Please select a valid item type.").ShowDialog();
+                HelperMethods.NotifyUser("Please select a valid item type.");
                 return;
             }
 
@@ -1619,7 +1619,7 @@ namespace GAMMA.Models
                 character.Inventories[0].AllItems.Add(this);
                 character.Inventories[0].FilteredItems.Add(this);
                 character.CraftingBench.Remove(this);
-                new NotificationDialog(Name + " has been completed and moved to backpack.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
             HelperMethods.AddToPlayerLog(message);
@@ -1653,14 +1653,14 @@ namespace GAMMA.Models
 
             if (hasEnchantingTool == false)
             {
-                new NotificationDialog("Missing Imbuing Lens").ShowDialog();
+                HelperMethods.NotifyUser("Missing Imbuing Lens");
                 return;
             }
 
             int spellLevel = Convert.ToInt32(param);
             if (HelperMethods.CheckForSpellSlots(ref character, spellLevel) == false)
             {
-                new NotificationDialog("Insufficient spell slot.").ShowDialog();
+                HelperMethods.NotifyUser("Insufficient spell slot.");
                 return;
             }
 
@@ -1678,7 +1678,7 @@ namespace GAMMA.Models
                 character.Inventories[0].AllItems.Add(itemToAdd);
                 character.Inventories[0].FilteredItems.Add(itemToAdd);
                 character.EnchantingTable.Remove(this);
-                new NotificationDialog(Name + " has been completed and moved to backpack.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
 
@@ -1706,7 +1706,7 @@ namespace GAMMA.Models
 
             if (character.IsInCarriedItems(CraftingToolkit, 1) == false)
             {
-                new NotificationDialog("Missing tool: " + CraftingToolkit).ShowDialog();
+                HelperMethods.NotifyUser("Missing tool: " + CraftingToolkit);
                 return;
             }
 

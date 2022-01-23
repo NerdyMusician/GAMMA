@@ -92,7 +92,7 @@ namespace GAMMA.Models
                 NotifyPropertyChanged();
                 if (value == null) { return; }
                 FeatureForm ff = FeatureForms.FirstOrDefault(f => f.Name == value);
-                if (ff == null) { new NotificationDialog("Missing Feature Form \"" + value + "\"."); return; }
+                if (ff == null) { HelperMethods.NotifyUser("Missing Feature Form \"" + value + "\"."); return; }
                 ShowDetailsField = ff.ShowDetailsField;
                 ShowChoiceNumField = ff.ShowChoiceNumField;
                 ShowChoiceList = ff.ShowChoiceList;
@@ -289,7 +289,7 @@ namespace GAMMA.Models
         }
         private void DoAddChoice()
         {
-            if (FeatureTypes.Contains(FeatureType) == false) { new NotificationDialog("Invalid feature type.").ShowDialog(); return; }
+            if (FeatureTypes.Contains(FeatureType) == false) { HelperMethods.NotifyUser("Invalid feature type."); return; }
             List<ConvertibleValue> options = new();
             switch (FeatureType)
             {
@@ -396,7 +396,7 @@ namespace GAMMA.Models
                     }
                     break;
                 default:
-                    new NotificationDialog("Unhandled feature type \"" + FeatureType + "\"").ShowDialog();
+                    HelperMethods.NotifyUser("Unhandled feature type \"" + FeatureType + "\"");
                     return;
             }
             MultiObjectSelectionDialog selectionDialog = new(options, FeatureType.Split('-')[0]);
@@ -435,7 +435,7 @@ namespace GAMMA.Models
         }
         private void DoRemoveFeature(object param)
         {
-            if (param == null) { new NotificationDialog("No parameter passed for DoRemoveFeature.").ShowDialog(); return; }
+            if (param == null) { HelperMethods.NotifyUser("No parameter passed for DoRemoveFeature."); return; }
             switch (param.ToString())
             {
                 case "Active Player Class":
@@ -457,7 +457,7 @@ namespace GAMMA.Models
                     Configuration.MainModelRef.ToolsView.ActivePlayerFeat.Features.Remove(this);
                     break;
                 default:
-                    new NotificationDialog("Unhandled parameter \"" + param.ToString() + "\" in DoRemoveFeature.").ShowDialog();
+                    HelperMethods.NotifyUser("Unhandled parameter \"" + param.ToString() + "\" in DoRemoveFeature.");
                     return;
             }
 
@@ -559,7 +559,7 @@ namespace GAMMA.Models
         }
         private void DoRemoveData(object param)
         {
-            if (param == null) { new NotificationDialog("No parameter passed for DoRemoveData.").ShowDialog(); return; }
+            if (param == null) { HelperMethods.NotifyUser("No parameter passed for DoRemoveData."); return; }
             if (param.GetType() == typeof(FeatureModel))
             {
                 (param as FeatureModel).Choices.Remove(this);

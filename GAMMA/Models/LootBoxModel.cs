@@ -254,7 +254,7 @@ namespace GAMMA.Models
                 if (dropQty > 0) { message += string.Format("\n{0} x {1}", dropQty, link.Name); }
             }
 
-            new NotificationDialog(message).ShowDialog();
+            HelperMethods.NotifyUser(message);
 
         }
         #endregion

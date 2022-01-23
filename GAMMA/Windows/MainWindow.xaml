@@ -2607,53 +2607,55 @@
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding CreatureBuilderView.SaveCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.SortCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding CreatureBuilderView.ImportCreatures}" />
-                                <StackPanel>
-                                    <cc:IconToggleButton ImageResource="{StaticResource Icon_Filter}" IsChecked="{Binding CreatureBuilderView.IsFilterMenuOpen}" />
-                                    <Popup IsOpen="{Binding CreatureBuilderView.IsFilterMenuOpen}">
-                                        <Border Style="{StaticResource StandardBorder}">
-                                            <StackPanel Margin="4 0 4 4">
-                                                <Label Content="Filter Options" />
-                                                <Rectangle />
-                                                <StackPanel Orientation="Horizontal">
-                                                    <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_ValidatedOnly}" />
-                                                    <TextBlock Text="Validated Only" />
-                                                </StackPanel>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_MiniatureOnly}" />
-                                                    <TextBlock Text="Has Miniature Only" />
-                                                </StackPanel>
-                                                <Rectangle Style="{StaticResource HorizontalDivider}" Margin="2" />
-                                                <StackPanel Orientation="Horizontal">
-                                                    <cc:ImageButton Text="Select All" ImageResource="{StaticResource Icon_Pass}" Command="{Binding CreatureBuilderView.SelectFilters}" CommandParameter="All" Width="96" />
-                                                    <cc:ImageButton Text="Unselect All" ImageResource="{StaticResource Icon_Refresh}" Command="{Binding CreatureBuilderView.SelectFilters}" CommandParameter="None" Width="96" />
-                                                </StackPanel>
-                                                <Rectangle Style="{StaticResource HorizontalDivider}" Margin="2" />
-                                                <ScrollViewer Height="360">
-                                                    <ItemsControl ItemsSource="{Binding CreatureBuilderView.CreatureTypeFilters, UpdateSourceTrigger=PropertyChanged}">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <StackPanel Orientation="Horizontal">
-                                                                    <CheckBox Margin="2" IsChecked="{Binding Marked}" />
-                                                                    <Image Style="{Binding Name, Converter={tool:ImageBasedOnCreatureType}}" />
-                                                                    <Separator Visibility="Hidden" Width="4" />
-                                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Margin="4 0" VerticalAlignment="Center" />
-                                                                </StackPanel>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-                                                </ScrollViewer>
-                                            </StackPanel>
-                                        </Border>
-                                    </Popup>
-                                </StackPanel>
+                                
                             </StackPanel>
                         </DockPanel>
                         <Separator />
                         <StackPanel Orientation="Horizontal">
                             <Image Style="{StaticResource Icon_Search}" />
                             <Separator />
-                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.CreatureSearchText, UpdateSourceTrigger=PropertyChanged}" Width="166" />
-                            <cc:MiniButton ImageResource="{StaticResource Icon_Refresh}" Command="{Binding CreatureBuilderView.ClearCreatureSearch}" />
+                            <cc:GammaTextBox Text="{Binding CreatureBuilderView.CreatureSearchText, UpdateSourceTrigger=PropertyChanged}" Width="140" />
+                            <cc:MiniButton ImageResource="{StaticResource Icon_Eraser}" Command="{Binding CreatureBuilderView.ClearCreatureSearch}" />
+                            <Separator />
+                            <StackPanel>
+                                <cc:IconToggleButton ImageResource="{StaticResource Icon_Filter}" IsChecked="{Binding CreatureBuilderView.IsFilterMenuOpen}" />
+                                <Popup IsOpen="{Binding CreatureBuilderView.IsFilterMenuOpen}">
+                                    <Border Style="{StaticResource StandardBorder}">
+                                        <StackPanel Margin="4 0 4 4">
+                                            <Label Content="Filter Options" />
+                                            <Rectangle />
+                                            <StackPanel Orientation="Horizontal">
+                                                <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_ValidatedOnly}" />
+                                                <TextBlock Text="Validated Only" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <CheckBox IsChecked="{Binding CreatureBuilderView.Filter_MiniatureOnly}" />
+                                                <TextBlock Text="Has Miniature Only" />
+                                            </StackPanel>
+                                            <Rectangle Style="{StaticResource HorizontalDivider}" Margin="2" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:ImageButton Text="Select All" ImageResource="{StaticResource Icon_Pass}" Command="{Binding CreatureBuilderView.SelectFilters}" CommandParameter="All" Width="96" />
+                                                <cc:ImageButton Text="Unselect All" ImageResource="{StaticResource Icon_Refresh}" Command="{Binding CreatureBuilderView.SelectFilters}" CommandParameter="None" Width="96" />
+                                            </StackPanel>
+                                            <Rectangle Style="{StaticResource HorizontalDivider}" Margin="2" />
+                                            <ScrollViewer Height="360">
+                                                <ItemsControl ItemsSource="{Binding CreatureBuilderView.CreatureTypeFilters, UpdateSourceTrigger=PropertyChanged}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <CheckBox Margin="2" IsChecked="{Binding Marked}" />
+                                                                <Image Style="{Binding Name, Converter={tool:ImageBasedOnCreatureType}}" />
+                                                                <Separator Visibility="Hidden" Width="4" />
+                                                                <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" Margin="4 0" VerticalAlignment="Center" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </StackPanel>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right">
                             <TextBlock Foreground="{StaticResource PrimaryFontColor}" TextAlignment="Right" Width="200"><Run Text="Showing" /><Run Text=" "/><Run Text="{Binding CreatureBuilderView.Count_FilteredCreatures, FallbackValue=0}" /><Run Text=" "/><Run Text="of" /><Run Text=" "/><Run Text="{Binding CreatureBuilderView.Count_AllCreatures, FallbackValue=0}" /></TextBlock>

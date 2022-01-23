@@ -1031,7 +1031,7 @@ namespace GAMMA.Models
                 }
                 if (msg != "")
                 {
-                    new NotificationDialog(msg).ShowDialog();
+                    HelperMethods.NotifyUser(msg).;
                 }
                 SortCombatants();
             }
@@ -1583,7 +1583,7 @@ namespace GAMMA.Models
                 int n when (n >= 190 && n <= 199) => 19,
                 _ => 20
             };
-            if (rolls == 0) { new NotificationDialog("Insufficient height for fall damage.").ShowDialog(); return; }
+            if (rolls == 0) { HelperMethods.NotifyUser("Insufficient height for fall damage."); return; }
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int result = 0;
             string diceRolls = "\nRoll: [";

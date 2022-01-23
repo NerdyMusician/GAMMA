@@ -367,14 +367,14 @@ namespace GAMMA.Models
                     if (question.Answer == true)
                     {
                         File.Delete(Environment.CurrentDirectory + "/NoteAttachments/" + fileName);
-                        new NotificationDialog(fileName + " deleted.").ShowDialog();
+                        HelperMethods.NotifyUser(fileName + " deleted.");
                     }
                 }
                 
             }
             catch (Exception e)
             {
-                new NotificationDialog(e.Message).ShowDialog();
+                HelperMethods.NotifyUser(e.Message);
             }
         }
         #endregion

@@ -189,7 +189,7 @@ namespace GAMMA.Models
             }
             else
             {
-                new NotificationDialog("Result: " + roll + "\n" + msg).ShowDialog();
+                HelperMethods.NotifyUser("Result: " + roll + "\n" + msg);
             }
 
         }

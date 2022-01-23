@@ -299,9 +299,9 @@ namespace GAMMA.Models
                 CurrencyDialog currencyDialog = new("Subtract from " + Name);
                 if (currencyDialog.ShowDialog() == true)
                 {
-                    if ((GoldPieces - currencyDialog.GP) < 0) { new NotificationDialog("Insufficient gold pieces.").ShowDialog(); return; }
-                    if ((SilverPieces - currencyDialog.SP) < 0) { new NotificationDialog("Insufficient silver pieces.").ShowDialog(); return; }
-                    if ((CopperPieces - currencyDialog.CP) < 0) { new NotificationDialog("Insufficient copper pieces.").ShowDialog(); return; }
+                    if ((GoldPieces - currencyDialog.GP) < 0) { HelperMethods.NotifyUser("Insufficient gold pieces."); return; }
+                    if ((SilverPieces - currencyDialog.SP) < 0) { HelperMethods.NotifyUser("Insufficient silver pieces."); return; }
+                    if ((CopperPieces - currencyDialog.CP) < 0) { HelperMethods.NotifyUser("Insufficient copper pieces."); return; }
                     GoldPieces -= currencyDialog.GP;
                     SilverPieces -= currencyDialog.SP;
                     CopperPieces -= currencyDialog.CP;
@@ -318,12 +318,12 @@ namespace GAMMA.Models
                 CurrencyDialog currencyDialog = new("Transfer from " + Name, inventoryNames);
                 if (currencyDialog.ShowDialog() == true)
                 {
-                    if ((GoldPieces - currencyDialog.GP) < 0) { new NotificationDialog("Insufficient gold pieces.").ShowDialog(); return; }
-                    if ((SilverPieces - currencyDialog.SP) < 0) { new NotificationDialog("Insufficient silver pieces.").ShowDialog(); return; }
-                    if ((CopperPieces - currencyDialog.CP) < 0) { new NotificationDialog("Insufficient copper pieces.").ShowDialog(); return; }
+                    if ((GoldPieces - currencyDialog.GP) < 0) { HelperMethods.NotifyUser("Insufficient gold pieces."); return; }
+                    if ((SilverPieces - currencyDialog.SP) < 0) { HelperMethods.NotifyUser("Insufficient silver pieces."); return; }
+                    if ((CopperPieces - currencyDialog.CP) < 0) { HelperMethods.NotifyUser("Insufficient copper pieces."); return; }
 
                     InventoryModel targetInventory = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.FirstOrDefault(inv => inv.Name == currencyDialog.TransferTarget);
-                    if (targetInventory == null) { new NotificationDialog("Invalid transfer target.").ShowDialog(); return; }
+                    if (targetInventory == null) { HelperMethods.NotifyUser("Invalid transfer target."); return; }
 
                     GoldPieces -= currencyDialog.GP;
                     SilverPieces -= currencyDialog.SP;
@@ -357,7 +357,7 @@ namespace GAMMA.Models
         public ICommand AddInventory => new RelayCommand(DoAddInventory);
         private void DoAddInventory(object param)
         {
-            if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
+            if (Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Count >= 6) { HelperMethods.NotifyUser("Inventory tab limit is 6."); return; }
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Inventories.Add(new());
         }
         #endregion
@@ -396,7 +396,7 @@ namespace GAMMA.Models
                 if (Filters.First(filter => filter.Name == item.Type).Marked) { filteredItems.Add(item); }
 
             }
-            FilteredItems = new ObservableCollection<ItemModel>(filteredItems.OrderBy(item => item.Name));
+            FilteredItems = new(filteredItems.OrderBy(item => item.Name));
 
             ItemValue = HelperMethods.GetDerivedCoinage(cp) + " (" + HelperMethods.GetDerivedCoinage(Convert.ToInt32(cp * 0.6)) + ")";
 

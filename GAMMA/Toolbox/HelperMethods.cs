@@ -61,7 +61,7 @@ namespace GAMMA.Toolbox
 
                 if (errMessage != "")
                 {
-                    new NotificationDialog(errMessage).ShowDialog();
+                    NotifyUser(errMessage);
                     return;
                 }
 
@@ -74,7 +74,7 @@ namespace GAMMA.Toolbox
             {
                 characterRef.OutputLinkedToRoll20 = false;
                 AddToPlayerLog(characterRef.Name + " has disconnected from Roll20.");
-                new NotificationDialog(e.Message).ShowDialog();
+                NotifyUser(e.Message);
             }
         }
         public static bool SwitchRoll20ChatAsCurrent()
@@ -93,7 +93,7 @@ namespace GAMMA.Toolbox
 
                 if (errMessage != "")
                 {
-                    new NotificationDialog(errMessage).ShowDialog();
+                    .NotifyUser(errMessage);
                     return false;
                 }
 
@@ -108,7 +108,7 @@ namespace GAMMA.Toolbox
             {
                 string message = e.Message;
                 if (message.Contains("Unable to locate element") && message.Contains("#speakingas")) { message = "Unable to interact with Roll20 chat, please ensure that you are fully logged into the Roll20 tabletop game you wish to join."; }
-                new NotificationDialog(message).ShowDialog();
+                NotifyUser(message);
                 return false;
             }
 
@@ -118,8 +118,8 @@ namespace GAMMA.Toolbox
             IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
             try
             {
-                if (driverRef == null) { new NotificationDialog("No Web Driver detected.").ShowDialog(); return; }
-                if (driverRef.CurrentWindowHandle == null) { new NotificationDialog("No window handle available.").ShowDialog(); return; }
+                if (driverRef == null) { NotifyUser("No Web Driver detected."); return; }
+                if (driverRef.CurrentWindowHandle == null) { NotifyUser("No window handle available."); return; }
 
                 foreach (WebActionModel webAction in webActions)
                 {
@@ -130,8 +130,8 @@ namespace GAMMA.Toolbox
                         "Link Text" => driverRef.FindElements(By.PartialLinkText(webAction.TargetElementMatchText)),
                         _ => null
                     };
-                    if (webElements == null) { new NotificationDialog("Invalid or missing Target Element Handle for Web Action.").ShowDialog(); return; }
-                    if (webElements.Count == 0) { new NotificationDialog("Invalid or missing Target Element Handle for Web Action.").ShowDialog(); return; }
+                    if (webElements == null) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
+                    if (webElements.Count == 0) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
                     IWebElement webElement = webElements[webAction.ElementMatchIteration];
                     switch (webAction.InteractionType)
                     {
@@ -148,7 +148,7 @@ namespace GAMMA.Toolbox
             }
             catch (Exception e)
             {
-                new NotificationDialog(e.Message).ShowDialog();
+                NotifyUser(e.Message);
             }
         }
         public static void NotifyUser(string message)

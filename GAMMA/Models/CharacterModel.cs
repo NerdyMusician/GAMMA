@@ -3673,12 +3673,12 @@ namespace GAMMA.Models
 
                 if (hasCraftingTool == false)
                 {
-                    new NotificationDialog("Missing Imbuing Lens.").ShowDialog();
+                    HelperMethods.NotifyUser("Missing Imbuing Lens.");
                     return;
                 }
                 if (hasBaseItem == false)
                 {
-                    new NotificationDialog("Missing base item: " + itemToAdd.EnchantingBaseItem).ShowDialog();
+                    HelperMethods.NotifyUser("Missing base item: " + itemToAdd.EnchantingBaseItem);
                     return;
                 }
 
@@ -3709,7 +3709,7 @@ namespace GAMMA.Models
 
                 if (missingRunes != "")
                 {
-                    new NotificationDialog(missingRunes.Insert(0, "Insufficient enchanting runes:")).ShowDialog();
+                    HelperMethods.NotifyUser(missingRunes.Insert(0, "Insufficient enchanting runes:"));
                     return;
                 }
 
@@ -3890,7 +3890,7 @@ namespace GAMMA.Models
                     }
                 }
 
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
@@ -4241,7 +4241,7 @@ namespace GAMMA.Models
             }
             if (Configuration.FishingEnvironments.Contains(FishingEnvironment) == false)
             {
-                new NotificationDialog("Please select a valid fishing environment.").ShowDialog();
+                HelperMethods.NotifyUser("Please select a valid fishing environment.");
                 return;
             }
             if (param == null) { param = ""; }
@@ -4272,7 +4272,7 @@ namespace GAMMA.Models
                 _ => 1
             };
             if (fish.Count == 0) { fish = Configuration.ItemRepository.Where(item => item.Type == "Fish").ToList(); }
-            if (fish.Count == 0) { new NotificationDialog("Tell your DM to put fish into the data repository.").ShowDialog(); return; }
+            if (fish.Count == 0) { HelperMethods.NotifyUser("Tell your DM to put fish into the data repository."); return; }
             int fishRoll = 0;
             for (int i = 0; i < attempts; i++) 
             {
@@ -4340,7 +4340,7 @@ namespace GAMMA.Models
         public ICommand ProcessGroupSave => new RelayCommand(param => DoProcessGroupSave());
         private void DoProcessGroupSave()
         {
-            if (Minions.Count <= 0) { new NotificationDialog("You have no minions.").ShowDialog(); return; }
+            if (Minions.Count <= 0) { HelperMethods.NotifyUser("You have no minions."); return; }
             EncounterMultiTargetDialog targetDialog = new(Minions.ToList());
             if (targetDialog.ShowDialog() == true)
             {
@@ -4470,9 +4470,8 @@ namespace GAMMA.Models
         public ICommand AddInventory => new RelayCommand(param => DoAddInventory());
         private void DoAddInventory()
         {
-            if (Inventories.Count >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
+            if (Inventories.Count >= 6) { HelperMethods.NotifyUser("Inventory tab limit is 6."); return; }
             Inventories.Add(new());
-            //Inventories.Add(new InventoryModel(this));
         }
         #endregion
         #region ToggleRoll20Link
