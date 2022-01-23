@@ -791,7 +791,7 @@ namespace GAMMA.ViewModels
                 DirectoryCopy(filepath + "Images", Directory.GetCurrentDirectory() + "\\Images\\", true);
                 messages.Add("Audio and Image files imported.");
 
-                _ = new NotificationDialog(HelperMethods.GetStringFromList(messages), "Report").ShowDialog();
+                HelperMethods.NotifyUser(HelperMethods.GetStringFromList(messages), HelperMethods.UserNotificationType.Report);
 
                 YesNoDialog question = new("Would you like to save all data now?");
                 question.ShowDialog();
@@ -823,7 +823,7 @@ namespace GAMMA.ViewModels
                 // DM
                 Configuration.MainModelRef.CampaignView.DoSaveCampaigns(false);
 
-                _ = new NotificationDialog("All Saves Complete").ShowDialog();
+                HelperMethods.NotifyUser("All Saves Complete");
 
             }
             folderDialog.Dispose();

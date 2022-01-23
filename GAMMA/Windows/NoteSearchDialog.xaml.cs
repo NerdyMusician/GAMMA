@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using GAMMA.Toolbox;
+using System.Windows;
 
 namespace GAMMA.Windows
 {
@@ -21,7 +22,7 @@ namespace GAMMA.Windows
         {
             if (TBX_SearchText.Text == null || TBX_SearchText.Text == "")
             {
-                new NotificationDialog("Please enter search text.").ShowDialog();
+                HelperMethods.NotifyUser("Please enter search text.");
                 return;
             }
             this.DialogResult = true;

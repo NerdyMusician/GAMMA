@@ -1031,7 +1031,7 @@ namespace GAMMA.Models
                 }
                 if (msg != "")
                 {
-                    HelperMethods.NotifyUser(msg).;
+                    HelperMethods.NotifyUser(msg);
                 }
                 SortCombatants();
             }

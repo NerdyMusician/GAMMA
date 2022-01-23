@@ -2,13 +2,16 @@
 - NEW: Added button to allow name sorting for pack creature and NPC lists
 - NEW: Added count to group save dialog for the number of targets selected
 - NEW: Added shorthand form to add abilities to creatures, spells, and characters
+- NEW: Added selective export feature for Creatures, Items, and Spells
 - CHANGE: Setting Post Action type to Add Active Effect while viewing spell data populates dropdown with suggested names from secondary ability list
 - CHANGE: Source/Sourcebook fields are now dropdowns instead of text fields
 - CHANGE: Removal of previous templated ability add options in favor of new shorthand form
+- CHANGE: Creature data deletion now performs a dependency check
 - BUG: Fixed issue where Sort button for campaign Packs wasn't working
 - BUG: Fixed issue where removing active effect from creature in gameplay causes crash
 - BUG: Fixed issue where duplicating ability added duplicate suggested values to its dropdowns
 - BUG: Fixed issue where item deletion dependency check wasn't checking creature loot tables
+- CODE: Changed 'new NotificationDialog()' calls to HelperMethods.NotifyUser(), better centralization for future updates if needed
 
 GAMMA 1.28.02
 - CHANGE: no longer prompted to save existing character list prior to import if character list is empty

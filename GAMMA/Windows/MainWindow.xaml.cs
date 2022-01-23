@@ -46,7 +46,7 @@ namespace GAMMA.Windows
             }
             catch (Exception e)
             {
-                new NotificationDialog("Startup Failure\n" + e.Message).ShowDialog();
+                HelperMethods.NotifyUser("Startup Failure\n" + e.Message);
                 HelperMethods.WriteToLogFile("Startup Failure: " + e.Message);
                 this.Close();
             }

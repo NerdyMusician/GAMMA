@@ -885,7 +885,7 @@ namespace GAMMA.ViewModels
             }
             catch (Exception e)
             {
-                new NotificationDialog(e.Message).ShowDialog();
+                HelperMethods.NotifyUser(e.Message);
             }
         }
         #endregion
@@ -971,11 +971,11 @@ namespace GAMMA.ViewModels
             };
             if (message != "")
             {
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
             }
             else
             {
-                new NotificationDialog("Invalid report type: " + param.ToString()).ShowDialog();
+                HelperMethods.NotifyUser("Invalid report type: " + param.ToString());
             }
         }
         #endregion
@@ -1010,7 +1010,7 @@ namespace GAMMA.ViewModels
                 string message = e.Message;
                 if (message.Contains("Unable to locate element") && message.Contains("#speakingas")) { message = "Unable to interact with 'Speaking As' dropdown, please select manually in Roll20."; }
                 if (message.Contains("This version of ChromeDriver only supports Chrome version")) { message += "\n\nUpdate Chrome or use the Get WebDriver button to download the most recent ChromeDriver."; }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return null;
             }
 

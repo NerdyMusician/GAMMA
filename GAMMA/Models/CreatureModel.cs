@@ -3391,6 +3391,7 @@ namespace GAMMA.Models
                     Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Minions.Remove(this);
                     break;
                 case "Creature Builder":
+                    if (DoesCreatureHaveDependencies()) { return; }
                     Configuration.MainModelRef.CreatureBuilderView.AllCreatures.Remove(this);
                     Configuration.MainModelRef.CreatureBuilderView.FilteredCreatures.Remove(this);
                     break;
@@ -4421,8 +4422,45 @@ namespace GAMMA.Models
 
 
         }
-        
-        
+        private bool DoesCreatureHaveDependencies()
+        {
+            List<string> foundDependencies = new();
+            foreach (GameCampaign campaign in Configuration.MainModelRef.CampaignView.Campaigns)
+            {
+                foreach (CreatureModel creature in campaign.Combatants)
+                {
+                    if (creature.Name == this.Name) { foundDependencies.Add("Combatant in campaign " + campaign.Name); }
+                }
+                foreach (NpcModel npc in campaign.Npcs)
+                {
+                    if (npc.BaseCreatureName == this.Name) { foundDependencies.Add("Base creature for NPC " + npc.Name + " in campaign " + campaign.Name); }
+                }
+                foreach (CreaturePackModel creaturePack in campaign.Packs)
+                {
+                    foreach (PackCreatureModel packCreature in creaturePack.CreatureList)
+                    {
+                        if (packCreature.CreatureName == this.Name) { foundDependencies.Add("Pack creature for " + creaturePack.Name + " in campaign " + campaign.Name); }
+                    }
+                }
+            }
+            foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
+            {
+                foreach (CreatureModel minion in character.Minions)
+                {
+                    if (minion.Name == this.Name) { foundDependencies.Add("Minion for " + character.Name); }
+                }
+            }
+            if (foundDependencies.Count > 0)
+            {
+                string message = "Unable to delete " + this.Name + ", dependencies found:\n";
+                message += HelperMethods.GetStringFromList(foundDependencies, "\n");
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
+                return true;
+            }
+            return false;
+        }
+
+
 
     }
 }

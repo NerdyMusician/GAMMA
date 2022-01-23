@@ -786,7 +786,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_RollTables(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -913,7 +913,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerClasses(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1008,7 +1008,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerSubclasses(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1110,7 +1110,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerRaces(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1206,7 +1206,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerSubraces(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1308,7 +1308,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerBackgrounds(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1409,7 +1409,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerFeats(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1510,7 +1510,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Languages(openWindow.FileName, out string message);
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
@@ -1613,7 +1613,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Shops(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1714,7 +1714,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Invocations(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -1823,7 +1823,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Weather(openWindow.FileName, out string message);
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
@@ -1927,7 +1927,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Calendars(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -2029,7 +2029,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Sourcebooks(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -2087,7 +2087,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_NoteTypes(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -2249,7 +2249,7 @@ namespace GAMMA.ViewModels
                 {
                     message += "\n" + msg;
                 }
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
                 return false;
             }
             return true;
@@ -2272,7 +2272,7 @@ namespace GAMMA.ViewModels
                 {
                     message += "\n" + msg;
                 }
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
                 return false;
             }
             return true;

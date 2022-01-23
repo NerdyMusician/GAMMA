@@ -1228,7 +1228,7 @@ namespace GAMMA.Toolbox
                 xmlDoc.Load(filePath);
                 if (xmlDoc.ChildNodes[1].Name != "CreatureModelSet")
                 {
-                    new NotificationDialog("Invalid XML for Import").ShowDialog();
+                    HelperMethods.NotifyUser("Invalid XML for Import");
                     creatures = new List<CreatureModel>();
                     return;
                 }
@@ -1565,7 +1565,7 @@ namespace GAMMA.Toolbox
                 xmlDoc.Load(filePath);
                 if (xmlDoc.ChildNodes[1].Name != "SettingsViewModelSet")
                 {
-                    new NotificationDialog("Invalid XML for Import").ShowDialog();
+                    HelperMethods.NotifyUser("Invalid XML for Import");
                     settingsSet = new SettingsViewModel();
                     return;
                 }

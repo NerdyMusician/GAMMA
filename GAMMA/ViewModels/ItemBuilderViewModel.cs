@@ -2,6 +2,7 @@
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -228,7 +229,7 @@ namespace GAMMA.ViewModels
                 {
                     message += item + "\n";
                 }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             XDocument itemDocument = new();
@@ -298,7 +299,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Items(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -318,6 +319,35 @@ namespace GAMMA.ViewModels
         private void DoClearItemSearch()
         {
             ItemSearchText = "";
+        }
+        #endregion
+        #region PerformSelectiveExport
+        public ICommand PerformSelectiveExport => new RelayCommand(param => DoPerformSelectiveExport());
+        private void DoPerformSelectiveExport()
+        {
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository);
+            if (selectionDialog.ShowDialog() == true)
+            {
+                SaveFileDialog saveWindow = new()
+                {
+                    Filter = "XML Files (*.xml)|*.xml",
+                    FileName = "Exported Items.xml",
+                    InitialDirectory = Environment.CurrentDirectory
+                };
+                if (saveWindow.ShowDialog() == true)
+                {
+                    XDocument itemDocument = new();
+                    itemDocument.Add(XmlMethods.ListToXml((selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems));
+                    itemDocument.Save(saveWindow.FileName);
+                    YesNoDialog question = new("Items Exported\nOpen file explorer to file?");
+                    if (question.ShowDialog() == true)
+                    {
+                        if (question.Answer == false) { return; }
+                        string argument = "/select, \"" + saveWindow.FileName + "\"";
+                        System.Diagnostics.Process.Start("explorer.exe", argument);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -408,7 +438,7 @@ namespace GAMMA.ViewModels
                     if (allItemNames.Contains(item.Name) == false) { message += "\n" + lootBox.Name + " loot: " + item.Name; missingReference = true; }
                 }
             }
-            if (missingReference) { new NotificationDialog(message).ShowDialog(); return false; }
+            if (missingReference) { HelperMethods.NotifyUser(message); return false; }
             return true;
         }
         private bool CheckItemRestrictions()
@@ -426,7 +456,7 @@ namespace GAMMA.ViewModels
             }
             if (issueFound)
             {
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             return true;

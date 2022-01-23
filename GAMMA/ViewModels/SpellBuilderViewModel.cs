@@ -3,6 +3,7 @@ using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -183,7 +184,7 @@ namespace GAMMA.ViewModels
                 {
                     message += item + "\n";
                 }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             XDocument itemDocument = new();
@@ -243,7 +244,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Spells(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -263,6 +264,35 @@ namespace GAMMA.ViewModels
         private void DoClearSpellSearch()
         {
             SpellSearchText = "";
+        }
+        #endregion
+        #region PerformSelectiveExport
+        public ICommand PerformSelectiveExport => new RelayCommand(param => DoPerformSelectiveExport());
+        private void DoPerformSelectiveExport()
+        {
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository);
+            if (selectionDialog.ShowDialog() == true)
+            {
+                SaveFileDialog saveWindow = new()
+                {
+                    Filter = "XML Files (*.xml)|*.xml",
+                    FileName = "Exported Spells.xml",
+                    InitialDirectory = Environment.CurrentDirectory
+                };
+                if (saveWindow.ShowDialog() == true)
+                {
+                    XDocument itemDocument = new();
+                    itemDocument.Add(XmlMethods.ListToXml((selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedSpells));
+                    itemDocument.Save(saveWindow.FileName);
+                    YesNoDialog question = new("Spells Exported\nOpen file explorer to file?");
+                    if (question.ShowDialog() == true)
+                    {
+                        if (question.Answer == false) { return; }
+                        string argument = "/select, \"" + saveWindow.FileName + "\"";
+                        System.Diagnostics.Process.Start("explorer.exe", argument);
+                    }
+                }
+            }
         }
         #endregion
 

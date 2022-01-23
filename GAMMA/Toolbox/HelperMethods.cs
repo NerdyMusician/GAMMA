@@ -93,7 +93,7 @@ namespace GAMMA.Toolbox
 
                 if (errMessage != "")
                 {
-                    .NotifyUser(errMessage);
+                    NotifyUser(errMessage);
                     return false;
                 }
 
@@ -151,19 +151,31 @@ namespace GAMMA.Toolbox
                 NotifyUser(e.Message);
             }
         }
-        public static void NotifyUser(string message)
+        public static void NotifyUser(string message, UserNotificationType type = UserNotificationType.Simple)
         {
-            new NotificationDialog(message).ShowDialog();
+            if (type == UserNotificationType.Simple)
+            {
+                new NotificationDialog(message).ShowDialog();
+            }
+            if (type == UserNotificationType.Report)
+            {
+                new NotificationDialog(message, "Report").ShowDialog();
+            }
+        }
+        public enum UserNotificationType
+        {
+            Simple,
+            Report
         }
         public static void WriteToLogFile(string message, bool notifyUser = false)
         {
-            if (notifyUser) { new NotificationDialog(message).ShowDialog(); }
+            if (notifyUser) { HelperMethods.NotifyUser(message); }
             File.AppendAllText("log.txt", DateTime.Now + ": " + message + "\n");
         }
         public static void ClearLogFile(bool notifyUser = false)
         {
             File.WriteAllText("log.txt", "");
-            if (notifyUser) { new NotificationDialog("Log file cleared.").ShowDialog(); }
+            if (notifyUser) { HelperMethods.NotifyUser("Log file cleared."); }
         }
         public static Style GetStyle(string name)
         {
@@ -530,7 +542,7 @@ namespace GAMMA.Toolbox
             }
             if (showNotification)
             {
-                new NotificationDialog("Data Saved to " + dataPath.Split('/')[1] + ".").ShowDialog();
+                HelperMethods.NotifyUser("Data Saved to " + dataPath.Split('/')[1] + ".");
             }
             return true;
         }

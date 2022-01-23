@@ -170,7 +170,7 @@ namespace GAMMA.Windows
             if (atLeastOneTarget == false) { message += "\nMust select at least 1 target."; }
             if (message != "")
             {
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return;
             }
                 

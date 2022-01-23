@@ -5024,7 +5024,7 @@ namespace GAMMA.Models
                     output += "\n" + error;
                 }
                 DisplayCharacterCreationWarning = true;
-                new NotificationDialog(output, "Report").ShowDialog();
+                HelperMethods.NotifyUser(output, HelperMethods.UserNotificationType.Report);
                 YesNoDialog question = new("Potential issues found, complete character creation anyway?\n(a warning icon will be displayed in character screen)");
                 question.ShowDialog();
                 return question.Answer;

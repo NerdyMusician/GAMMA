@@ -253,7 +253,7 @@ namespace GAMMA.ViewModels
                     if (link.LinkedSpell == null) { message += "\n" + character.Name + " : " + link.Name; }
                 }
             }
-            if (message != "Missing spell links:") { new NotificationDialog(message).ShowDialog(); }
+            if (message != "Missing spell links:") { HelperMethods.NotifyUser(message); }
         }
 
         // Private Methods
@@ -281,7 +281,7 @@ namespace GAMMA.ViewModels
                     message += "\n" + failure;
                 }
                 message += "\n\nCharacter Data has not been saved.";
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
 

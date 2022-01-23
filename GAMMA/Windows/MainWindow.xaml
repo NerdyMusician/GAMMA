@@ -2607,7 +2607,7 @@
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding CreatureBuilderView.SaveCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.SortCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding CreatureBuilderView.ImportCreatures}" />
-                                
+                                <cc:IconButton ImageResource="{StaticResource Icon_Export}" Command="{Binding CreatureBuilderView.PerformSelectiveExport}" />
                             </StackPanel>
                         </DockPanel>
                         <Separator />
@@ -3650,6 +3650,7 @@
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ItemBuilderView.SaveItems}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ItemBuilderView.SortItems}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ItemBuilderView.ImportItems}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Export}" Command="{Binding ItemBuilderView.PerformSelectiveExport}" />
                                 <StackPanel>
                                     <cc:IconToggleButton Margin="0 2" ImageResource="{StaticResource Icon_Filter}" IsChecked="{Binding ItemBuilderView.ShowFilters, UpdateSourceTrigger=PropertyChanged}" />
                                     <Popup IsOpen="{Binding ItemBuilderView.ShowFilters, UpdateSourceTrigger=PropertyChanged}">
@@ -4063,14 +4064,16 @@
             <TabItem Header="Spells" IsSelected="{Binding TabSelected_SpellBuilder, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SettingsView.ShowData, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
                 <StackPanel Orientation="Horizontal" Margin="2">
                     <StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0 0 0 2">
+                        <DockPanel Margin="0 0 0 2">
                             <Label Content="Spells" />
-                            <Separator Width="70" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SpellBuilderView.AddSpell}" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding SpellBuilderView.SaveSpells}" ToolTip="Save spells" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding SpellBuilderView.SortSpells}" ToolTip="Sort spells" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding SpellBuilderView.ImportSpells}" ToolTip="Import spells" />
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SpellBuilderView.AddSpell}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding SpellBuilderView.SaveSpells}" ToolTip="Save spells" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding SpellBuilderView.SortSpells}" ToolTip="Sort spells" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding SpellBuilderView.ImportSpells}" ToolTip="Import spells" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Export}" Command="{Binding SpellBuilderView.PerformSelectiveExport}" />
+                            </StackPanel>
+                        </DockPanel>
                         <StackPanel Orientation="Horizontal" Margin="0">
                             <Image Style="{StaticResource Icon_Search}" />
                             <Separator />
