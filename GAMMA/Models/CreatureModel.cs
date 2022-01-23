@@ -3391,7 +3391,7 @@ namespace GAMMA.Models
                     Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Minions.Remove(this);
                     break;
                 case "Creature Builder":
-                    if (DoesCreatureHaveDependencies()) { return; }
+                    if (IsADepedency()) { return; }
                     Configuration.MainModelRef.CreatureBuilderView.AllCreatures.Remove(this);
                     Configuration.MainModelRef.CreatureBuilderView.FilteredCreatures.Remove(this);
                     break;
@@ -4422,7 +4422,7 @@ namespace GAMMA.Models
 
 
         }
-        private bool DoesCreatureHaveDependencies()
+        private bool IsADepedency()
         {
             List<string> foundDependencies = new();
             foreach (GameCampaign campaign in Configuration.MainModelRef.CampaignView.Campaigns)

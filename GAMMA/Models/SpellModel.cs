@@ -17,8 +17,8 @@ namespace GAMMA.Models
         public SpellModel()
         {
             Name = "New Spell";
-            ConsumedMaterials = new ObservableCollection<ItemModel>();
-            SpellClasses = new ObservableCollection<ConvertibleValue>();
+            ConsumedMaterials = new();
+            SpellClasses = new();
             PrimaryAbilities = new();
             SecondaryAbilities = new();
             IsTabSelected_PrimaryAbilities = true;
@@ -873,6 +873,7 @@ namespace GAMMA.Models
         }
         private void DoDeleteSpell()
         {
+            if (IsADepedency()) { return; }
             Configuration.MainModelRef.SpellBuilderView.AllSpells.Remove(this);
             Configuration.MainModelRef.SpellBuilderView.FilteredSpells.Remove(this);
         }
@@ -1085,6 +1086,93 @@ namespace GAMMA.Models
                 17 or 18 or 19 or 20 => 3,
                 _ => 0,
             };
+        }
+        private bool IsADepedency()
+        {
+            List<string> foundDependencies = new();
+            foreach (CreatureModel creature in Configuration.CreatureRepository)
+            {
+                foreach (SpellLink spell in creature.SpellLinks)
+                {
+                    if (this.Name == spell.Name) { foundDependencies.Add("Spell for creature " + creature.Name); }
+                }
+            }
+            foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
+            {
+                foreach (SpellLink spell in character.SpellLinks)
+                {
+                    if (this.Name == spell.Name) { foundDependencies.Add("Spell for character " + character.Name); }
+                }
+            }
+            foreach (PlayerClassModel playerClass in Configuration.MainModelRef.ToolsView.PlayerClasses)
+            {
+                foreach (FeatureModel feature in playerClass.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for class " + playerClass.Name); }
+                    }
+                }
+            }
+            foreach (PlayerSubclassModel playerSubClass in Configuration.MainModelRef.ToolsView.PlayerSubclasses)
+            {
+                foreach (FeatureModel feature in playerSubClass.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for subclass " + playerSubClass.Name); }
+                    }
+                }
+            }
+            foreach (PlayerRaceModel playerRace in Configuration.MainModelRef.ToolsView.PlayerRaces)
+            {
+                foreach (FeatureModel feature in playerRace.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for race " + playerRace.Name); }
+                    }
+                }
+            }
+            foreach (PlayerSubraceModel playerSubrace in Configuration.MainModelRef.ToolsView.PlayerSubraces)
+            {
+                foreach (FeatureModel feature in playerSubrace.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for subrace " + playerSubrace.Name); }
+                    }
+                }
+            }
+            foreach (PlayerBackgroundModel playerBackground in Configuration.MainModelRef.ToolsView.PlayerBackgrounds)
+            {
+                foreach (FeatureModel feature in playerBackground.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for background " + playerBackground.Name); }
+                    }
+                }
+            }
+            foreach (PlayerFeatModel playerFeat in Configuration.MainModelRef.ToolsView.PlayerFeats)
+            {
+                foreach (FeatureModel feature in playerFeat.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for feat " + playerFeat.Name); }
+                    }
+                }
+            }
+
+            if (foundDependencies.Count > 0)
+            {
+                string message = "Unable to delete " + this.Name + ", dependencies found:\n";
+                message += HelperMethods.GetStringFromList(foundDependencies, "\n");
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
+                return true;
+            }
+            return false;
         }
 
     }
