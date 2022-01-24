@@ -385,10 +385,8 @@ namespace GAMMA.Models
         {
             ObservableCollection<ItemModel> filteredItems = new();
             ObservableCollection<ItemModel> tools = new();
-            int cp = 0;
             foreach (ItemModel item in AllItems)
             {
-                cp += (item.RawValue * item.Quantity);
                 if (item.Name.ToUpper().Contains(SearchText.ToUpper()) == false) { continue; }
                 BoolOption filter = Filters.FirstOrDefault(filter => filter.Name == item.Type);
                 if (filter == null) { continue; }
@@ -398,10 +396,19 @@ namespace GAMMA.Models
             }
             FilteredItems = new(filteredItems.OrderBy(item => item.Name));
 
-            ItemValue = HelperMethods.GetDerivedCoinage(cp) + " (" + HelperMethods.GetDerivedCoinage(Convert.ToInt32(cp * 0.6)) + ")";
+            UpdateInventoryItemValueTotal();
 
             Count_AllItems = AllItems.Count;
             Count_FilteredItems = FilteredItems.Count;
+        }
+        public void UpdateInventoryItemValueTotal()
+        {
+            int cp = 0;
+            foreach (ItemModel item in AllItems)
+            {
+                cp += (item.RawValue * item.Quantity);
+            }
+            ItemValue = HelperMethods.GetDerivedCoinage(cp) + " (" + HelperMethods.GetDerivedCoinage(Convert.ToInt32(cp * 0.6)) + ")";
         }
         public void GetUpdatedItemData()
         {

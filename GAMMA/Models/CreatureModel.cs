@@ -1155,15 +1155,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Strength
         {
-            get
-            {
-                return _Attr_Strength;
-            }
+            get => _Attr_Strength;
             set
             {
                 _Attr_Strength = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }

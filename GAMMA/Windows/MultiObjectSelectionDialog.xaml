@@ -13,6 +13,12 @@
     <Window.Resources>
         <Style TargetType="Label" BasedOn="{StaticResource SectionHeader}" />
         <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
+        <Style TargetType="CheckBox" BasedOn="{StaticResource BaseCheckBox}" />
+        <Style TargetType="Separator">
+            <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Height" Value="4" />
+            <Setter Property="Width" Value="4" />
+        </Style>
         <DataTemplate x:Key="SourceDefaultTemplate">
             <StackPanel>
                 <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="180" />
@@ -221,16 +227,22 @@
                 </Border>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 19 0">
-            <cc:ImageButton Text="Submit"
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" x:Name="DIV_OocAddOption" Visibility="Collapsed">
+                <CheckBox x:Name="CHK_AddAsOoc" />
+                <Separator />
+                <TextBlock Text="Add as Out-of-Combat" Foreground="{StaticResource PrimaryFontColor}" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 19 0">
+                <cc:ImageButton Text="Submit"
                         ImageResource="{StaticResource Icon_Pass}"
                         Click="Submit_Clicked"
                         Width="80"/>
-            <cc:ImageButton Text="Cancel"
+                <cc:ImageButton Text="Cancel"
                         ImageResource="{StaticResource Icon_Fail}"
                         Click="Cancel_Clicked"
                         Width="80"/>
-        </StackPanel>
-        
+            </StackPanel>
+        </DockPanel>
     </StackPanel>
 </Window>

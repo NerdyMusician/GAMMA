@@ -831,7 +831,7 @@ namespace GAMMA.Models
         }
         private void DoAddCreatures(object param)
         {
-            MultiObjectSelectionDialog selectionDialog = new(Configuration.CreatureRepository.Where(creature => creature.IsValidated == true && creature.IsPlayer == false).ToList(), "Creatures");
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.CreatureRepository.Where(creature => creature.IsValidated == true && creature.IsPlayer == false).ToList(), "Creatures", true);
 
             if (selectionDialog.ShowDialog() == true)
             {
@@ -852,6 +852,7 @@ namespace GAMMA.Models
                         newCreature.RefreshCounters();
                         newCreature.GetPortraitFilepath();
                         newCreature.SetHighestSpeedValues();
+                        if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                         Combatants.Add(newCreature);
                     }
                 }
@@ -1027,6 +1028,7 @@ namespace GAMMA.Models
                     newCreature.RefreshSpellSlots();
                     newCreature.RefreshCounters();
                     newCreature.GetPortraitFilepath();
+                    if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                     Combatants.Add(newCreature);
                 }
                 if (msg != "")

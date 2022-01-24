@@ -4709,6 +4709,7 @@ namespace GAMMA.Models
 
                 if (Configuration.MainModelRef.SettingsView.UseCoinWeight) { carriedWeight += ((inventory.PlatinumPieces + inventory.GoldPieces + inventory.SilverPieces + inventory.CopperPieces) * 0.02m); }
                 carriedCurrency += (inventory.PlatinumPieces * 1000) + (inventory.GoldPieces * 100) + (inventory.SilverPieces * 10) + inventory.CopperPieces;
+                inventory.UpdateInventoryItemValueTotal();
 
             }
 
@@ -5073,9 +5074,9 @@ namespace GAMMA.Models
 
             MaxHealth = MaxHpCalc;
             if (CurrentHealth == 0) { CurrentHealth = MaxHpCalc; }
-            if (Speed == 0) { Speed = LinkedRace.BaseSpeed; }
+            if (Speed == 0) { Speed = (LinkedRace == null) ? 0 : LinkedRace.BaseSpeed; }
             if (ArmorClass == 0) { ArmorClass = 10 + DexterityModifier; }
-            if (Darkvision == 0) { Darkvision = LinkedRace.Darkvision; }
+            if (Darkvision == 0) { Darkvision = (LinkedRace == null) ? 0 : LinkedRace.Darkvision; }
 
             // SET HIT DICE
             List<HitDiceSet> newHitDice = new();
@@ -5149,11 +5150,17 @@ namespace GAMMA.Models
             IsExpert_Survival = false;
 
             // MARK SAVING THROWS AND SKILL PROFICIENCIES
-            PlayerClassModel baseClass = Configuration.MainModelRef.ToolsView.PlayerClasses.First(c => c.Name == PlayerClasses.First().ClassName);
-            foreach (FeatureModel feature in baseClass.Features)
+            if (PlayerClasses.Count > 0)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                PlayerClassModel baseClass = Configuration.MainModelRef.ToolsView.PlayerClasses.FirstOrDefault(c => c.Name == PlayerClasses.FirstOrDefault().ClassName);
+                if (baseClass != null)
+                {
+                    foreach (FeatureModel feature in baseClass.Features)
+                    {
+                        if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                        if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                    }
+                }
             }
             foreach (PlayerClassLinkModel pClass in PlayerClasses)
             {
@@ -5168,10 +5175,13 @@ namespace GAMMA.Models
                     }
                 }
             }
-            foreach (FeatureModel feature in LinkedRace.Features)
+            if (LinkedRace != null)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                foreach (FeatureModel feature in LinkedRace.Features)
+                {
+                    if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                    if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                }
             }
 
             if (LinkedSubrace != null)
@@ -5183,10 +5193,13 @@ namespace GAMMA.Models
                 }
             }
 
-            foreach (FeatureModel feature in LinkedBackground.Features)
+            if (LinkedBackground != null)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                foreach (FeatureModel feature in LinkedBackground.Features)
+                {
+                    if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                    if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                }
             }
 
             // SKILL PROFICIENCIES - CHOICE
@@ -5673,9 +5686,9 @@ namespace GAMMA.Models
                 tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", pc.Features.ToList(), tools);
             }
 
-            tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools);
-            if (LinkedSubrace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools); }
-            tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedBackground.Features.ToList(), tools);
+            if (LinkedRace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools); }
+            if (LinkedSubrace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedSubrace.Features.ToList(), tools); }
+            if (LinkedBackground != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedBackground.Features.ToList(), tools); }
 
             foreach (ChoiceSet choiceSet in ToolChoiceSegments)
             {
@@ -5712,8 +5725,11 @@ namespace GAMMA.Models
                 }
             }
 
-            otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
-            otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+            if (LinkedRace != null)
+            {
+                otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+                otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+            }
 
             if (LinkedSubrace != null)
             {
@@ -5721,8 +5737,11 @@ namespace GAMMA.Models
                 otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedSubrace.Features.ToList(), otherProfs);
             }
 
-            otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
-            otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+            if (LinkedBackground != null)
+            {
+                otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+                otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+            }
 
             foreach (ChoiceSet choiceSet in ArmorChoiceSegments)
             {
@@ -5760,12 +5779,18 @@ namespace GAMMA.Models
                 languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", pc.Features.ToList(), languages);
             }
 
-            languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedRace.Features.ToList(), languages);
+            if (LinkedRace != null)
+            {
+                languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedRace.Features.ToList(), languages);
+            }
             if (LinkedSubrace != null)
             {
                 languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedSubrace.Features.ToList(), languages);
             }
-            languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedBackground.Features.ToList(), languages);
+            if (LinkedBackground != null)
+            {
+                languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedBackground.Features.ToList(), languages);
+            }
 
             foreach (ChoiceSet choiceSet in LanguageChoiceSegments)
             {
