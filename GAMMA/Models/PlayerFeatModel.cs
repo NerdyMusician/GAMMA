@@ -19,32 +19,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
 
         // Commands
         #region RemoveFeat
-        private RelayCommand _RemoveFeat;
-        public ICommand RemoveFeat
-        {
-            get
-            {
-                if (_RemoveFeat == null)
-                {
-                    _RemoveFeat = new RelayCommand(DoRemoveFeat);
-                }
-                return _RemoveFeat;
-            }
-        }
+        public ICommand RemoveFeat => new RelayCommand(DoRemoveFeat);
         private void DoRemoveFeat(object param)
         {
             Configuration.MainModelRef.ToolsView.PlayerFeats.Remove(this);

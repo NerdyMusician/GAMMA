@@ -78,15 +78,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Type
@@ -94,30 +87,16 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                _Type = value;
-                NotifyPropertyChanged();
-            }
+            get => _Type;
+            set => SetAndNotify(ref _Type, value);
         }
         #endregion
         #region Types
         private List<string> _Types;
         public List<string> Types
         {
-            get
-            {
-                return _Types;
-            }
-            set
-            {
-                _Types = value;
-                NotifyPropertyChanged();
-            }
+            get => _Types;
+            set => SetAndNotify(ref _Types, value);
         }
         #endregion
         #region Description
@@ -125,15 +104,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region Output
@@ -141,15 +113,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Output
         {
-            get
-            {
-                return _Output;
-            }
-            set
-            {
-                _Output = value;
-                NotifyPropertyChanged();
-            }
+            get => _Output;
+            set => SetAndNotify(ref _Output, value);
         }
         #endregion
 
@@ -158,15 +123,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public int QuantityToPerform
         {
-            get
-            {
-                return _QuantityToPerform;
-            }
-            set
-            {
-                _QuantityToPerform = value;
-                NotifyPropertyChanged();
-            }
+            get => _QuantityToPerform;
+            set => SetAndNotify(ref _QuantityToPerform, value);
         }
         #endregion
         #region DoesQuantityScale
@@ -174,15 +132,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public bool DoesQuantityScale
         {
-            get
-            {
-                return _DoesQuantityScale;
-            }
-            set
-            {
-                _DoesQuantityScale = value;
-                NotifyPropertyChanged();
-            }
+            get => _DoesQuantityScale;
+            set => SetAndNotify(ref _DoesQuantityScale, value);
         }
         #endregion
         #region ScaleRate
@@ -190,15 +141,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public int ScaleRate
         {
-            get
-            {
-                return _ScaleRate;
-            }
-            set
-            {
-                _ScaleRate = value;
-                NotifyPropertyChanged();
-            }
+            get => _ScaleRate;
+            set => SetAndNotify(ref _ScaleRate, value);
         }
         #endregion
 
@@ -207,15 +151,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public int PresetScale
         {
-            get
-            {
-                return _PresetScale;
-            }
-            set
-            {
-                _PresetScale = value;
-                NotifyPropertyChanged();
-            }
+            get => _PresetScale;
+            set => SetAndNotify(ref _PresetScale, value);
         }
         #endregion
 
@@ -224,15 +161,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAVariable> Variables
         {
-            get
-            {
-                return _Variables;
-            }
-            set
-            {
-                _Variables = value;
-                NotifyPropertyChanged();
-            }
+            get => _Variables;
+            set => SetAndNotify(ref _Variables, value);
         }
         #endregion
         #region PreActions
@@ -240,15 +170,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAPreAction> PreActions
         {
-            get
-            {
-                return _PreActions;
-            }
-            set
-            {
-                _PreActions = value;
-                NotifyPropertyChanged();
-            }
+            get => _PreActions;
+            set => SetAndNotify(ref _PreActions, value);
         }
         #endregion
         #region PostActions
@@ -256,32 +179,17 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CAPostAction> PostActions
         {
-            get
-            {
-                return _PostActions;
-            }
-            set
-            {
-                _PostActions = value;
-                NotifyPropertyChanged();
-            }
+            get => _PostActions;
+            set => SetAndNotify(ref _PostActions, value);
         }
         #endregion
 
         #region InEditMode
         private bool _InEditMode;
-        
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
 

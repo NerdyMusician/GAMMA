@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region TableRows
@@ -36,15 +29,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<RollTableRowModel> TableRows
         {
-            get
-            {
-                return _TableRows;
-            }
-            set
-            {
-                _TableRows = value;
-                NotifyPropertyChanged();
-            }
+            get => _TableRows;
+            set => SetAndNotify(ref _TableRows, value);
         }
         #endregion
         #region HasModifier
@@ -52,15 +38,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasModifier
         {
-            get
-            {
-                return _HasModifier;
-            }
-            set
-            {
-                _HasModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasModifier;
+            set => SetAndNotify(ref _HasModifier, value);
         }
         #endregion
         #region ModifierInfo
@@ -68,15 +47,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string ModifierInfo
         {
-            get
-            {
-                return _ModifierInfo;
-            }
-            set
-            {
-                _ModifierInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _ModifierInfo;
+            set => SetAndNotify(ref _ModifierInfo, value);
         }
         #endregion
         #region AvailableToPlayers
@@ -84,68 +56,28 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool AvailableToPlayers
         {
-            get
-            {
-                return _AvailableToPlayers;
-            }
-            set
-            {
-                _AvailableToPlayers = value;
-                NotifyPropertyChanged();
-            }
+            get => _AvailableToPlayers;
+            set => SetAndNotify(ref _AvailableToPlayers, value);
         }
         #endregion
 
         // Commands
         #region AddRow
-        private RelayCommand _AddRow;
-        public ICommand AddRow
-        {
-            get
-            {
-                if (_AddRow == null)
-                {
-                    _AddRow = new RelayCommand(param => DoAddRow());
-                }
-                return _AddRow;
-            }
-        }
+        public ICommand AddRow => new RelayCommand(param => DoAddRow());
         private void DoAddRow()
         {
             TableRows.Add(new RollTableRowModel());
         }
         #endregion
         #region RemoveTable
-        private RelayCommand _RemoveTable;
-        public ICommand RemoveTable
-        {
-            get
-            {
-                if (_RemoveTable == null)
-                {
-                    _RemoveTable = new RelayCommand(param => DoRemoveTable());
-                }
-                return _RemoveTable;
-            }
-        }
+        public ICommand RemoveTable => new RelayCommand(param => DoRemoveTable());
         private void DoRemoveTable()
         {
             Configuration.MainModelRef.ToolsView.RollTables.Remove(this);
         }
         #endregion
         #region RollTable
-        private RelayCommand _RollTable;
-        public ICommand RollTable
-        {
-            get
-            {
-                if (_RollTable == null)
-                {
-                    _RollTable = new RelayCommand(param => DoRollTable());
-                }
-                return _RollTable;
-            }
-        }
+        public ICommand RollTable => new RelayCommand(param => DoRollTable());
         private void DoRollTable()
         {
             int minVal = 1;

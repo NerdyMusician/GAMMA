@@ -17,15 +17,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LowValue
         {
-            get
-            {
-                return _LowValue;
-            }
-            set
-            {
-                _LowValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _LowValue;
+            set => SetAndNotify(ref _LowValue, value);
         }
         #endregion
         #region HighValue
@@ -33,15 +26,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HighValue
         {
-            get
-            {
-                return _HighValue;
-            }
-            set
-            {
-                _HighValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _HighValue;
+            set => SetAndNotify(ref _HighValue, value);
         }
         #endregion
         #region Description
@@ -49,32 +35,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
 
         // Commands
         #region RemoveRow
-        private RelayCommand _RemoveRow;
-        public ICommand RemoveRow
-        {
-            get
-            {
-                if (_RemoveRow == null)
-                {
-                    _RemoveRow = new RelayCommand(param => DoRemoveRow());
-                }
-                return _RemoveRow;
-            }
-        }
+        public ICommand RemoveRow => new RelayCommand(param => DoRemoveRow());
         private void DoRemoveRow()
         {
             Configuration.MainModelRef.ToolsView.ActiveRollTable.TableRows.Remove(this);

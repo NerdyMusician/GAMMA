@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region PreserveFromDataWipe
@@ -36,15 +29,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool PreserveFromDataWipe
         {
-            get
-            {
-                return _PreserveFromDataWipe;
-            }
-            set
-            {
-                _PreserveFromDataWipe = value;
-                NotifyPropertyChanged();
-            }
+            get => _PreserveFromDataWipe;
+            set => SetAndNotify(ref _PreserveFromDataWipe, value);
         }
         #endregion
         #region IsValidated
@@ -52,15 +38,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
 

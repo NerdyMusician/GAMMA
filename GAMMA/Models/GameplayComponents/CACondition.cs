@@ -21,10 +21,7 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string ConditionVariable
         {
-            get
-            {
-                return _ConditionVariable;
-            }
+            get => _ConditionVariable;
             set
             {
                 _ConditionVariable = value;
@@ -38,10 +35,7 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string ConditionType
         {
-            get
-            {
-                return _ConditionType;
-            }
+            get => _ConditionType;
             set
             {
                 _ConditionType = value;
@@ -55,10 +49,7 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string ConditionValue
         {
-            get
-            {
-                return _ConditionValue;
-            }
+            get => _ConditionValue;
             set
             {
                 _ConditionValue = value;
@@ -72,62 +63,33 @@ namespace GAMMA.Models.GameplayComponents
         private List<string> _ConditionVariables;
         public List<string> ConditionVariables
         {
-            get
-            {
-                return _ConditionVariables;
-            }
-            set
-            {
-                _ConditionVariables = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConditionVariables;
+            set => SetAndNotify(ref _ConditionVariables, value);
         }
         #endregion
         #region ConditionTypes
         private List<string> _ConditionTypes;
         public List<string> ConditionTypes
         {
-            get
-            {
-                return _ConditionTypes;
-            }
-            set
-            {
-                _ConditionTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConditionTypes;
+            set => SetAndNotify(ref _ConditionTypes, value);
         }
         #endregion
 
         #region InEditMode
         private bool _InEditMode;
-        
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
         #region DisplayText
         private string _DisplayText;
         public string DisplayText
         {
-            get
-            {
-                return _DisplayText;
-            }
-            set
-            {
-                _DisplayText = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayText;
+            set => SetAndNotify(ref _DisplayText, value);
         }
         #endregion
 

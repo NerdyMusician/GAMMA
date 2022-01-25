@@ -24,10 +24,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string ClassName
         {
-            get
-            {
-                return _ClassName;
-            }
+            get => _ClassName;
             set
             {
                 _ClassName = value;
@@ -44,10 +41,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SubClassName
         {
-            get
-            {
-                return _SubClassName;
-            }
+            get => _SubClassName;
             set
             {
                 _SubClassName = value;
@@ -63,10 +57,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ClassLevel
         {
-            get
-            {
-                return _ClassLevel;
-            }
+            get => _ClassLevel;
             set
             {
                 _ClassLevel = value;
@@ -81,62 +72,30 @@ namespace GAMMA.Models
         private List<int> _ClassLevels;
         public List<int> ClassLevels
         {
-            get
-            {
-                return _ClassLevels;
-            }
-            set
-            {
-                _ClassLevels = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClassLevels;
+            set => SetAndNotify(ref _ClassLevels, value);
         }
         #endregion
         #region ClassList
         private List<string> _ClassList;
         public List<string> ClassList
         {
-            get
-            {
-                return _ClassList;
-            }
-            set
-            {
-                _ClassList = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClassList;
+            set => SetAndNotify(ref _ClassList, value);
         }
         #endregion
         #region SubclassList
         private List<string> _SubclassList;
         public List<string> SubclassList
         {
-            get
-            {
-                return _SubclassList;
-            }
-            set
-            {
-                _SubclassList = value;
-                NotifyPropertyChanged();
-            }
+            get => _SubclassList;
+            set => SetAndNotify(ref _SubclassList, value);
         }
         #endregion
 
         // Commands
         #region RemoveClassLink
-        private RelayCommand _RemoveClassLink;
-        public ICommand RemoveClassLink
-        {
-            get
-            {
-                if (_RemoveClassLink == null)
-                {
-                    _RemoveClassLink = new RelayCommand(param => DoRemoveClassLink());
-                }
-                return _RemoveClassLink;
-            }
-        }
+        public ICommand RemoveClassLink => new RelayCommand(param => DoRemoveClassLink());
         private void DoRemoveClassLink()
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.PlayerClasses.Remove(this);

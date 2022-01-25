@@ -19,16 +19,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsPrepared
@@ -36,10 +28,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsPrepared
         {
-            get
-            {
-                return _IsPrepared;
-            }
+            get => _IsPrepared;
             set
             {
                 _IsPrepared = value;
@@ -56,32 +45,14 @@ namespace GAMMA.Models
         private SpellModel _LinkedSpell;
         public SpellModel LinkedSpell
         {
-            get
-            {
-                return _LinkedSpell;
-            }
-            set
-            {
-                _LinkedSpell = value;
-                NotifyPropertyChanged();
-            }
+            get => _LinkedSpell;
+            set => SetAndNotify(ref _LinkedSpell, value);
         }
         #endregion
 
         // Commands
         #region RemoveSpellLink
-        private RelayCommand _RemoveSpellLink;
-        public ICommand RemoveSpellLink
-        {
-            get
-            {
-                if (_RemoveSpellLink == null)
-                {
-                    _RemoveSpellLink = new RelayCommand(DoRemoveSpellLink);
-                }
-                return _RemoveSpellLink;
-            }
-        }
+        public ICommand RemoveSpellLink => new RelayCommand(DoRemoveSpellLink);
         private void DoRemoveSpellLink(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("Missing parameter for DoRemoveSpellLink", true); return; }
