@@ -17,6 +17,7 @@
 - BUG: Fixed issue where inventory total item value was not updating on item quantity change
 - CODE: Changed 'new NotificationDialog()' calls to HelperMethods.NotifyUser(), better centralization for future updates if needed
 - CODE: Removal of NotebookModel that was previously used in standalone notes tab prior to Campaigns development
+- CODE: Removal of unused / empty ICommands
 
 GAMMA 1.28.02
 - CHANGE: no longer prompted to save existing character list prior to import if character list is empty

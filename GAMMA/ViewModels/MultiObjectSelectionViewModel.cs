@@ -87,60 +87,32 @@ namespace GAMMA.ViewModels
         private string _Mode;
         public string Mode
         {
-            get
-            {
-                return _Mode;
-            }
-            set
-            {
-                _Mode = value;
-                NotifyPropertyChanged();
-            }
+            get => _Mode;
+            set => SetAndNotify(ref _Mode, value);
         }
         #endregion
         #region ShowFilters
         private bool _ShowFilters;
         public bool ShowFilters
         {
-            get
-            {
-                return _ShowFilters;
-            }
-            set
-            {
-                _ShowFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowFilters;
+            set => SetAndNotify(ref _ShowFilters, value);
         }
         #endregion
         #region Filters
         private ObservableCollection<BoolOption> _Filters;
         public ObservableCollection<BoolOption> Filters
         {
-            get
-            {
-                return _Filters;
-            }
-            set
-            {
-                _Filters = value;
-                NotifyPropertyChanged();
-            }
+            get => _Filters;
+            set => SetAndNotify(ref _Filters, value);
         }
         #endregion
         #region SecondaryFilters
         private ObservableCollection<BoolOption> _SecondaryFilters;
         public ObservableCollection<BoolOption> SecondaryFilters
         {
-            get
-            {
-                return _SecondaryFilters;
-            }
-            set
-            {
-                _SecondaryFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _SecondaryFilters;
+            set => SetAndNotify(ref _SecondaryFilters, value);
         }
         #endregion
 
@@ -148,45 +120,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<CreatureModel> _SourceCreatures;
         public ObservableCollection<CreatureModel> SourceCreatures
         {
-            get
-            {
-                return _SourceCreatures;
-            }
-            set
-            {
-                _SourceCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourceCreatures;
+            set => SetAndNotify(ref _SourceCreatures, value);
         }
         #endregion
         #region FilteredSourceCreatures
         private ObservableCollection<CreatureModel> _FilteredSourceCreatures;
         public ObservableCollection<CreatureModel> FilteredSourceCreatures
         {
-            get
-            {
-                return _FilteredSourceCreatures;
-            }
-            set
-            {
-                _FilteredSourceCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSourceCreatures;
+            set => SetAndNotify(ref _FilteredSourceCreatures, value);
         }
         #endregion
         #region SelectedCreatures
         private ObservableCollection<CreatureModel> _SelectedCreatures;
         public ObservableCollection<CreatureModel> SelectedCreatures
         {
-            get
-            {
-                return _SelectedCreatures;
-            }
-            set
-            {
-                _SelectedCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _SelectedCreatures;
+            set => SetAndNotify(ref _SelectedCreatures, value);
         }
         #endregion
 
@@ -194,45 +145,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<ItemModel> _SourceItems;
         public ObservableCollection<ItemModel> SourceItems
         {
-            get
-            {
-                return _SourceItems;
-            }
-            set
-            {
-                _SourceItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourceItems;
+            set => SetAndNotify(ref _SourceItems, value);
         }
         #endregion
         #region FilteredSourceItems
         private ObservableCollection<ItemModel> _FilteredSourceItems;
         public ObservableCollection<ItemModel> FilteredSourceItems
         {
-            get
-            {
-                return _FilteredSourceItems;
-            }
-            set
-            {
-                _FilteredSourceItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSourceItems;
+            set => SetAndNotify(ref _FilteredSourceItems, value);
         }
         #endregion
         #region SelectedItems
         private ObservableCollection<ItemModel> _SelectedItems;
         public ObservableCollection<ItemModel> SelectedItems
         {
-            get
-            {
-                return _SelectedItems;
-            }
-            set
-            {
-                _SelectedItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _SelectedItems;
+            set => SetAndNotify(ref _SelectedItems, value);
         }
         #endregion
 
@@ -240,45 +170,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<SpellModel> _SourceSpells;
         public ObservableCollection<SpellModel> SourceSpells
         {
-            get
-            {
-                return _SourceSpells;
-            }
-            set
-            {
-                _SourceSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourceSpells;
+            set => SetAndNotify(ref _SourceSpells, value);
         }
         #endregion
         #region FilteredSourceSpells
         private ObservableCollection<SpellModel> _FilteredSourceSpells;
         public ObservableCollection<SpellModel> FilteredSourceSpells
         {
-            get
-            {
-                return _FilteredSourceSpells;
-            }
-            set
-            {
-                _FilteredSourceSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSourceSpells;
+            set => SetAndNotify(ref _FilteredSourceSpells, value);
         }
         #endregion
         #region SelectedSpells
         private ObservableCollection<SpellModel> _SelectedSpells;
         public ObservableCollection<SpellModel> SelectedSpells
         {
-            get
-            {
-                return _SelectedSpells;
-            }
-            set
-            {
-                _SelectedSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _SelectedSpells;
+            set => SetAndNotify(ref _SelectedSpells, value);
         }
         #endregion
 
@@ -286,45 +195,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<NpcModel> _SourceNpcs;
         public ObservableCollection<NpcModel> SourceNpcs
         {
-            get
-            {
-                return _SourceNpcs;
-            }
-            set
-            {
-                _SourceNpcs = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourceNpcs;
+            set => SetAndNotify(ref _SourceNpcs, value);
         }
         #endregion
         #region FilteredSourceNpcs
         private ObservableCollection<NpcModel> _FilteredSourceNpcs;
         public ObservableCollection<NpcModel> FilteredSourceNpcs
         {
-            get
-            {
-                return _FilteredSourceNpcs;
-            }
-            set
-            {
-                _FilteredSourceNpcs = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSourceNpcs;
+            set => SetAndNotify(ref _FilteredSourceNpcs, value);
         }
         #endregion
         #region SelectedNpcs
         private ObservableCollection<NpcModel> _SelectedNpcs;
         public ObservableCollection<NpcModel> SelectedNpcs
         {
-            get
-            {
-                return _SelectedNpcs;
-            }
-            set
-            {
-                _SelectedNpcs = value;
-                NotifyPropertyChanged();
-            }
+            get => _SelectedNpcs;
+            set => SetAndNotify(ref _SelectedNpcs, value);
         }
         #endregion
 
@@ -332,45 +220,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<ConvertibleValue> _SourceCVs;
         public ObservableCollection<ConvertibleValue> SourceCVs
         {
-            get
-            {
-                return _SourceCVs;
-            }
-            set
-            {
-                _SourceCVs = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourceCVs;
+            set => SetAndNotify(ref _SourceCVs, value);
         }
         #endregion
         #region FilteredSourceCVs
         private ObservableCollection<ConvertibleValue> _FilteredSourceCVs;
         public ObservableCollection<ConvertibleValue> FilteredSourceCVs
         {
-            get
-            {
-                return _FilteredSourceCVs;
-            }
-            set
-            {
-                _FilteredSourceCVs = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSourceCVs;
+            set => SetAndNotify(ref _FilteredSourceCVs, value);
         }
         #endregion
         #region SelectedCVs
         private ObservableCollection<ConvertibleValue> _SelectedCVs;
         public ObservableCollection<ConvertibleValue> SelectedCVs
         {
-            get
-            {
-                return _SelectedCVs;
-            }
-            set
-            {
-                _SelectedCVs = value;
-                NotifyPropertyChanged();
-            }
+            get => _SelectedCVs;
+            set => SetAndNotify(ref _SelectedCVs, value);
         }
         #endregion
 
@@ -378,10 +245,7 @@ namespace GAMMA.ViewModels
         private string _SourceTextSearch;
         public string SourceTextSearch
         {
-            get
-            {
-                return _SourceTextSearch;
-            }
+            get => _SourceTextSearch;
             set
             {
                 _SourceTextSearch = value;
@@ -394,47 +258,22 @@ namespace GAMMA.ViewModels
         private int _Count_SourceAll;
         public int Count_SourceAll
         {
-            get
-            {
-                return _Count_SourceAll;
-            }
-            set
-            {
-                _Count_SourceAll = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_SourceAll;
+            set => SetAndNotify(ref _Count_SourceAll, value);
         }
         #endregion
         #region Count_SourceFiltered
         private int _Count_SourceFiltered;
         public int Count_SourceFiltered
         {
-            get
-            {
-                return _Count_SourceFiltered;
-            }
-            set
-            {
-                _Count_SourceFiltered = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_SourceFiltered;
+            set => SetAndNotify(ref _Count_SourceFiltered, value);
         }
         #endregion
 
         // Commands
         #region SelectFilters
-        private RelayCommand _SelectFilters;
-        public ICommand SelectFilters
-        {
-            get
-            {
-                if (_SelectFilters == null)
-                {
-                    _SelectFilters = new RelayCommand(DoSelectFilters);
-                }
-                return _SelectFilters;
-            }
-        }
+        public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
         private void DoSelectFilters(object filter)
         {
             foreach (BoolOption option in Filters)

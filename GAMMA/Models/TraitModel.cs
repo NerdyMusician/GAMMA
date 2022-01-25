@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LevelObtained
         {
-            get
-            {
-                return _LevelObtained;
-            }
-            set
-            {
-                _LevelObtained = value;
-                NotifyPropertyChanged();
-            }
+            get => _LevelObtained;
+            set => SetAndNotify(ref _LevelObtained, value);
         }
         #endregion
         #region Name
@@ -36,15 +29,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Description
@@ -52,83 +38,36 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region InEditMode
         private bool _InEditMode;
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
 
         // Commands
         #region RemoveTraitFromPlayer
-        private RelayCommand _RemoveTraitFromPlayer;
-        public ICommand RemoveTraitFromPlayer
-        {
-            get
-            {
-                if (_RemoveTraitFromPlayer == null)
-                {
-                    _RemoveTraitFromPlayer = new RelayCommand(param => DoRemoveTraitFromPlayer());
-                }
-                return _RemoveTraitFromPlayer;
-            }
-        }
+        public ICommand RemoveTraitFromPlayer => new RelayCommand(param => DoRemoveTraitFromPlayer());
         private void DoRemoveTraitFromPlayer()
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Traits.Remove(this);
         }
         #endregion
         #region RemoveTraitFromCreature
-        private RelayCommand _RemoveTraitFromCreature;
-        public ICommand RemoveTraitFromCreature
-        {
-            get
-            {
-                if (_RemoveTraitFromCreature == null)
-                {
-                    _RemoveTraitFromCreature = new RelayCommand(param => DoRemoveTraitFromCreature());
-                }
-                return _RemoveTraitFromCreature;
-            }
-        }
+        public ICommand RemoveTraitFromCreature => new RelayCommand(param => DoRemoveTraitFromCreature());
         private void DoRemoveTraitFromCreature()
         {
             Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Traits.Remove(this);
         }
         #endregion
         #region RemoveTrait
-        private RelayCommand _RemoveTrait;
-        public ICommand RemoveTrait
-        {
-            get
-            {
-                if (_RemoveTrait == null)
-                {
-                    _RemoveTrait = new RelayCommand(DoRemoveTrait);
-                }
-                return _RemoveTrait;
-            }
-        }
+        public ICommand RemoveTrait => new RelayCommand(DoRemoveTrait);
         private void DoRemoveTrait(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("Invalid parameter to trait removal method.", true); return; }

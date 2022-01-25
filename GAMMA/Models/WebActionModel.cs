@@ -17,105 +17,56 @@ namespace GAMMA.Models
         private string _InteractionType;
         public string InteractionType
         {
-            get
-            {
-                return _InteractionType;
-            }
-            set
-            {
-                _InteractionType = value;
-                NotifyPropertyChanged();
-            }
+            get => _InteractionType;
+            set => SetAndNotify(ref _InteractionType, value);
         }
         #endregion
         #region InteractionTypes
         private List<string> _InteractionTypes;
         public List<string> InteractionTypes
         {
-            get
-            {
-                return _InteractionTypes;
-            }
-            set
-            {
-                _InteractionTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _InteractionTypes;
+            set => SetAndNotify(ref _InteractionTypes, value);
         }
         #endregion
         #region TargetElementHandle
         private string _TargetElementHandle;
         public string TargetElementHandle
         {
-            get
-            {
-                return _TargetElementHandle;
-            }
-            set
-            {
-                _TargetElementHandle = value;
-                NotifyPropertyChanged();
-            }
+            get => _TargetElementHandle;
+            set => SetAndNotify(ref _TargetElementHandle, value);
         }
         #endregion
         #region TargetElementHandles
         private List<string> _TargetElementHandles;
         public List<string> TargetElementHandles
         {
-            get
-            {
-                return _TargetElementHandles;
-            }
-            set
-            {
-                _TargetElementHandles = value;
-                NotifyPropertyChanged();
-            }
+            get => _TargetElementHandles;
+            set => SetAndNotify(ref _TargetElementHandles, value);
         }
         #endregion
         #region TargetElementMatchText
         private string _TargetElementMatchText;
         public string TargetElementMatchText
         {
-            get
-            {
-                return _TargetElementMatchText;
-            }
-            set
-            {
-                _TargetElementMatchText = value;
-                NotifyPropertyChanged();
-            }
+            get => _TargetElementMatchText;
+            set => SetAndNotify(ref _TargetElementMatchText, value);
         }
         #endregion
         #region ElementMatchIteration
         private int _ElementMatchIteration;
         public int ElementMatchIteration
         {
-            get
-            {
-                return _ElementMatchIteration;
-            }
-            set
-            {
-                _ElementMatchIteration = value;
-                NotifyPropertyChanged();
-            }
+            get => _ElementMatchIteration;
+            set => SetAndNotify(ref _ElementMatchIteration, value);
         }
         #endregion
         #region TextInputValue
         private string _TextInputValue;
         public string TextInputValue
         {
-            get
-            {
-                return _TextInputValue;
-            }
-            set
-            {
-                _TextInputValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _TextInputValue;
+            set => SetAndNotify(ref _TextInputValue, value);
         }
         #endregion
 

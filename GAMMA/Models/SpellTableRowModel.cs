@@ -31,10 +31,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SpellsKnownMode
         {
-            get
-            {
-                return _SpellsKnownMode;
-            }
+            get => _SpellsKnownMode;
             set
             {
                 _SpellsKnownMode = value;
@@ -47,15 +44,8 @@ namespace GAMMA.Models
         private bool _ShowSpellsKnownField;
         public bool ShowSpellsKnownField
         {
-            get
-            {
-                return _ShowSpellsKnownField;
-            }
-            set
-            {
-                _ShowSpellsKnownField = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowSpellsKnownField;
+            set => SetAndNotify(ref _ShowSpellsKnownField, value);
         }
         #endregion
         #region ShowSpellsCalcIcon
@@ -63,15 +53,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool ShowSpellsCalcIcon
         {
-            get
-            {
-                return _ShowSpellsCalcIcon;
-            }
-            set
-            {
-                _ShowSpellsCalcIcon = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowSpellsCalcIcon;
+            set => SetAndNotify(ref _ShowSpellsCalcIcon, value);
         }
         #endregion
 
@@ -80,15 +63,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ClassLevel
         {
-            get
-            {
-                return _ClassLevel;
-            }
-            set
-            {
-                _ClassLevel = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClassLevel;
+            set => SetAndNotify(ref _ClassLevel, value);
         }
         #endregion
         #region CantripsKnown
@@ -96,15 +72,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CantripsKnown
         {
-            get
-            {
-                return _CantripsKnown;
-            }
-            set
-            {
-                _CantripsKnown = value;
-                NotifyPropertyChanged();
-            }
+            get => _CantripsKnown;
+            set => SetAndNotify(ref _CantripsKnown, value);
         }
         #endregion
         #region SpellsKnown
@@ -112,15 +81,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellsKnown
         {
-            get
-            {
-                return _SpellsKnown;
-            }
-            set
-            {
-                _SpellsKnown = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellsKnown;
+            set => SetAndNotify(ref _SpellsKnown, value);
         }
         #endregion
 
@@ -129,15 +91,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_1st
         {
-            get
-            {
-                return _SpellSlots_1st;
-            }
-            set
-            {
-                _SpellSlots_1st = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_1st;
+            set => SetAndNotify(ref _SpellSlots_1st, value);
         }
         #endregion
         #region SpellSlots_2nd
@@ -145,15 +100,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_2nd
         {
-            get
-            {
-                return _SpellSlots_2nd;
-            }
-            set
-            {
-                _SpellSlots_2nd = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_2nd;
+            set => SetAndNotify(ref _SpellSlots_2nd, value);
         }
         #endregion
         #region SpellSlots_3rd
@@ -161,15 +109,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_3rd
         {
-            get
-            {
-                return _SpellSlots_3rd;
-            }
-            set
-            {
-                _SpellSlots_3rd = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_3rd;
+            set => SetAndNotify(ref _SpellSlots_3rd, value);
         }
         #endregion
         #region SpellSlots_4th
@@ -177,15 +118,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_4th
         {
-            get
-            {
-                return _SpellSlots_4th;
-            }
-            set
-            {
-                _SpellSlots_4th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_4th;
+            set => SetAndNotify(ref _SpellSlots_4th, value);
         }
         #endregion
         #region SpellSlots_5th
@@ -193,15 +127,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_5th
         {
-            get
-            {
-                return _SpellSlots_5th;
-            }
-            set
-            {
-                _SpellSlots_5th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_5th;
+            set => SetAndNotify(ref _SpellSlots_5th, value);
         }
         #endregion
         #region SpellSlots_6th
@@ -209,15 +136,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_6th
         {
-            get
-            {
-                return _SpellSlots_6th;
-            }
-            set
-            {
-                _SpellSlots_6th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_6th;
+            set => SetAndNotify(ref _SpellSlots_6th, value);
         }
         #endregion
         #region SpellSlots_7th
@@ -225,15 +145,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_7th
         {
-            get
-            {
-                return _SpellSlots_7th;
-            }
-            set
-            {
-                _SpellSlots_7th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_7th;
+            set => SetAndNotify(ref _SpellSlots_7th, value);
         }
         #endregion
         #region SpellSlots_8th
@@ -241,15 +154,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_8th
         {
-            get
-            {
-                return _SpellSlots_8th;
-            }
-            set
-            {
-                _SpellSlots_8th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_8th;
+            set => SetAndNotify(ref _SpellSlots_8th, value);
         }
         #endregion
         #region SpellSlots_9th
@@ -257,15 +163,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellSlots_9th
         {
-            get
-            {
-                return _SpellSlots_9th;
-            }
-            set
-            {
-                _SpellSlots_9th = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellSlots_9th;
+            set => SetAndNotify(ref _SpellSlots_9th, value);
         }
         #endregion
 

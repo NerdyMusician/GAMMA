@@ -162,18 +162,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ToggleLastCharacter
-        private RelayCommand _ToggleLastCharacter;
-        public ICommand ToggleLastCharacter
-        {
-            get
-            {
-                if (_ToggleLastCharacter == null)
-                {
-                    _ToggleLastCharacter = new RelayCommand(param => DoToggleLastCharacter());
-                }
-                return _ToggleLastCharacter;
-            }
-        }
+        public ICommand ToggleLastCharacter => new RelayCommand(param => DoToggleLastCharacter());
         private void DoToggleLastCharacter()
         {
             ActiveCharacter = LastActiveCharacter;

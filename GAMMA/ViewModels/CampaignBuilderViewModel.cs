@@ -45,15 +45,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameCampaign> Campaigns
         {
-            get
-            {
-                return _Campaigns;
-            }
-            set
-            {
-                _Campaigns = value;
-                NotifyPropertyChanged();
-            }
+            get => _Campaigns;
+            set => SetAndNotify(ref _Campaigns, value);
         }
         #endregion
         #region ActiveCampaign
@@ -61,48 +54,22 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public GameCampaign ActiveCampaign
         {
-            get
-            {
-                return _ActiveCampaign;
-            }
-            set
-            {
-                _ActiveCampaign = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveCampaign;
+            set => SetAndNotify(ref _ActiveCampaign, value);
         }
         #endregion
         #region LastSave
         private string _LastSave;
-        
         public string LastSave
         {
-            get
-            {
-                return _LastSave;
-            }
-            set
-            {
-                _LastSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _LastSave;
+            set => SetAndNotify(ref _LastSave, value);
         }
         #endregion
 
         // Commands
         #region AddCampaign
-        private RelayCommand _AddCampaign;
-        public ICommand AddCampaign
-        {
-            get
-            {
-                if (_AddCampaign == null)
-                {
-                    _AddCampaign = new RelayCommand(DoAddCampaign);
-                }
-                return _AddCampaign;
-            }
-        }
+        public ICommand AddCampaign => new RelayCommand(DoAddCampaign);
         private void DoAddCampaign(object param)
         {
             Campaigns.Add(new());
@@ -117,18 +84,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveCampaigns
-        private RelayCommand _SaveCampaigns;
-        public ICommand SaveCampaigns
-        {
-            get
-            {
-                if (_SaveCampaigns == null)
-                {
-                    _SaveCampaigns = new RelayCommand(param => DoSaveCampaigns());
-                }
-                return _SaveCampaigns;
-            }
-        }
+        public ICommand SaveCampaigns => new RelayCommand(param => DoSaveCampaigns());
         public void DoSaveCampaigns(bool notifyUser = true)
         {
             LastSave = DateTime.Now.ToString();
@@ -148,18 +104,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportCampaigns
-        private RelayCommand _ImportCampaigns;
-        public ICommand ImportCampaigns
-        {
-            get
-            {
-                if (_ImportCampaigns == null)
-                {
-                    _ImportCampaigns = new RelayCommand(param => DoImportCampaigns());
-                }
-                return _ImportCampaigns;
-            }
-        }
+        public ICommand ImportCampaigns => new RelayCommand(param => DoImportCampaigns());
         private void DoImportCampaigns()
         {
             OpenFileDialog openWindow = new()
@@ -180,10 +125,6 @@ namespace GAMMA.ViewModels
             }
         }
         #endregion
-
-        // Public Methods
-
-        // Private Methods
 
     }
 }

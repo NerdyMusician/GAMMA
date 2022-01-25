@@ -17,7 +17,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public SettingsViewModel()
         {
-            Roll20GameCharacterList = new ObservableCollection<GameCharacterSelection>();
+            Roll20GameCharacterList = new();
         }
 
         // Databound Properties
@@ -27,15 +27,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool InDmModeModern
         {
-            get
-            {
-                return _InDmModeModern;
-            }
-            set
-            {
-                _InDmModeModern = value;
-                NotifyPropertyChanged();
-            }
+            get => _InDmModeModern;
+            set => SetAndNotify(ref _InDmModeModern, value);
         }
         #endregion
         #region InDmModeClassic
@@ -43,15 +36,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool InDmModeClassic
         {
-            get
-            {
-                return _InDmModeClassic;
-            }
-            set
-            {
-                _InDmModeClassic = value;
-                NotifyPropertyChanged();
-            }
+            get => _InDmModeClassic;
+            set => SetAndNotify(ref _InDmModeClassic, value);
         }
         #endregion
         #region ShowData
@@ -59,15 +45,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool ShowData
         {
-            get
-            {
-                return _ShowData;
-            }
-            set
-            {
-                _ShowData = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowData;
+            set => SetAndNotify(ref _ShowData, value);
         }
         #endregion
         #region ShowMiniatureUtilization
@@ -75,15 +54,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool ShowMiniatureUtilization
         {
-            get
-            {
-                return _ShowMiniatureUtilization;
-            }
-            set
-            {
-                _ShowMiniatureUtilization = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowMiniatureUtilization;
+            set => SetAndNotify(ref _ShowMiniatureUtilization, value);
         }
         #endregion
 
@@ -93,15 +65,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool ShowDiceRolls
         {
-            get
-            {
-                return _ShowDiceRolls;
-            }
-            set
-            {
-                _ShowDiceRolls = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowDiceRolls;
+            set => SetAndNotify(ref _ShowDiceRolls, value);
         }
         #endregion
         #region UseCriticalHitMaxDamage
@@ -109,15 +74,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UseCriticalHitMaxDamage
         {
-            get
-            {
-                return _UseCriticalHitMaxDamage;
-            }
-            set
-            {
-                _UseCriticalHitMaxDamage = value;
-                NotifyPropertyChanged();
-            }
+            get => _UseCriticalHitMaxDamage;
+            set => SetAndNotify(ref _UseCriticalHitMaxDamage, value);
         }
         #endregion
         #region UsePlatinum
@@ -125,10 +83,7 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UsePlatinum
         {
-            get
-            {
-                return _UsePlatinum;
-            }
+            get => _UsePlatinum;
             set
             {
                 _UsePlatinum = value;
@@ -147,10 +102,7 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UseVariantEncumbrance
         {
-            get
-            {
-                return _UseVariantEncumbrance;
-            }
+            get => _UseVariantEncumbrance;
             set
             {
                 _UseVariantEncumbrance = value;
@@ -159,7 +111,6 @@ namespace GAMMA.ViewModels
                 if (Configuration.MainModelRef.CharacterBuilderView == null) { return; }
                 foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
                 {
-                    //character.UpdateTotals();
                     character.UpdateInventoryStats();
                 }
             }
@@ -170,10 +121,7 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UseCoinWeight
         {
-            get
-            {
-                return _UseCoinWeight;
-            }
+            get => _UseCoinWeight;
             set
             {
                 _UseCoinWeight = value;
@@ -183,7 +131,6 @@ namespace GAMMA.ViewModels
                 foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
                 {
                     character.UpdateInventoryStats();
-                    //character.UpdateTotals();
                 }
             }
         }
@@ -193,15 +140,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UseAveragedHitPoints
         {
-            get
-            {
-                return _UseAveragedHitPoints;
-            }
-            set
-            {
-                _UseAveragedHitPoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _UseAveragedHitPoints;
+            set => SetAndNotify(ref _UseAveragedHitPoints, value);
         }
         #endregion
         #region UseExperiencePoints
@@ -209,15 +149,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool UseExperiencePoints
         {
-            get
-            {
-                return _UseExperiencePoints;
-            }
-            set
-            {
-                _UseExperiencePoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _UseExperiencePoints;
+            set => SetAndNotify(ref _UseExperiencePoints, value);
         }
         #endregion
         #region EnforceSpellComponentConsumption
@@ -225,15 +158,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnforceSpellComponentConsumption
         {
-            get
-            {
-                return _EnforceSpellComponentConsumption;
-            }
-            set
-            {
-                _EnforceSpellComponentConsumption = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnforceSpellComponentConsumption;
+            set => SetAndNotify(ref _EnforceSpellComponentConsumption, value);
         }
         #endregion
         #region EnforceCreatureSpellSlots
@@ -241,15 +167,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnforceCreatureSpellSlots
         {
-            get
-            {
-                return _EnforceCreatureSpellSlots;
-            }
-            set
-            {
-                _EnforceCreatureSpellSlots = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnforceCreatureSpellSlots;
+            set => SetAndNotify(ref _EnforceCreatureSpellSlots, value);
         }
         #endregion
 
@@ -259,15 +178,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableCharacterAutosave
         {
-            get
-            {
-                return _EnableCharacterAutosave;
-            }
-            set
-            {
-                _EnableCharacterAutosave = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableCharacterAutosave;
+            set => SetAndNotify(ref _EnableCharacterAutosave, value);
         }
         #endregion
         #region EnableCampaignsAutosave
@@ -275,15 +187,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableCampaignsAutosave
         {
-            get
-            {
-                return _EnableCampaignsAutosave;
-            }
-            set
-            {
-                _EnableCampaignsAutosave = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableCampaignsAutosave;
+            set => SetAndNotify(ref _EnableCampaignsAutosave, value);
         }
         #endregion
 
@@ -293,15 +198,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableCharacterExitsave
         {
-            get
-            {
-                return _EnableCharacterExitsave;
-            }
-            set
-            {
-                _EnableCharacterExitsave = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableCharacterExitsave;
+            set => SetAndNotify(ref _EnableCharacterExitsave, value);
         }
         #endregion
         #region PromptCharacterExitsave
@@ -309,15 +207,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool PromptCharacterExitsave
         {
-            get
-            {
-                return _PromptCharacterExitsave;
-            }
-            set
-            {
-                _PromptCharacterExitsave = value;
-                NotifyPropertyChanged();
-            }
+            get => _PromptCharacterExitsave;
+            set => SetAndNotify(ref _PromptCharacterExitsave, value);
         }
         #endregion
 
@@ -326,15 +217,8 @@ namespace GAMMA.ViewModels
         private string _WebDriverStatus;
         public string WebDriverStatus
         {
-            get
-            {
-                return _WebDriverStatus;
-            }
-            set
-            {
-                _WebDriverStatus = value;
-                NotifyPropertyChanged();
-            }
+            get => _WebDriverStatus;
+            set => SetAndNotify(ref _WebDriverStatus, value);
         }
         #endregion
         #region Roll20Email
@@ -342,15 +226,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public string Roll20Email
         {
-            get
-            {
-                return _Roll20Email;
-            }
-            set
-            {
-                _Roll20Email = value;
-                NotifyPropertyChanged();
-            }
+            get => _Roll20Email;
+            set => SetAndNotify(ref _Roll20Email, value);
         }
         #endregion
         #region Roll20Password
@@ -358,15 +235,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public string Roll20Password
         {
-            get
-            {
-                return _Roll20Password;
-            }
-            set
-            {
-                _Roll20Password = value;
-                NotifyPropertyChanged();
-            }
+            get => _Roll20Password;
+            set => SetAndNotify(ref _Roll20Password, value);
         }
         #endregion
         #region Roll20GameCharacterList
@@ -374,15 +244,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameCharacterSelection> Roll20GameCharacterList
         {
-            get
-            {
-                return _Roll20GameCharacterList;
-            }
-            set
-            {
-                _Roll20GameCharacterList = value;
-                NotifyPropertyChanged();
-            }
+            get => _Roll20GameCharacterList;
+            set => SetAndNotify(ref _Roll20GameCharacterList, value);
         }
         #endregion
         #region ClearPasswordOnClose
@@ -390,15 +253,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool ClearPasswordOnClose
         {
-            get
-            {
-                return _ClearPasswordOnClose;
-            }
-            set
-            {
-                _ClearPasswordOnClose = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClearPasswordOnClose;
+            set => SetAndNotify(ref _ClearPasswordOnClose, value);
         }
         #endregion
 
@@ -408,15 +264,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableSoundEffects
         {
-            get
-            {
-                return _EnableSoundEffects;
-            }
-            set
-            {
-                _EnableSoundEffects = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableSoundEffects;
+            set => SetAndNotify(ref _EnableSoundEffects, value);
         }
         #endregion
         #region EnableSfx_DiceRoll
@@ -424,15 +273,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_DiceRoll
         {
-            get
-            {
-                return _EnableSfx_DiceRoll;
-            }
-            set
-            {
-                _EnableSfx_DiceRoll = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableSfx_DiceRoll;
+            set => SetAndNotify(ref _EnableSfx_DiceRoll, value);
         }
         #endregion
         #region EnableSfx_ShopItemMove
@@ -440,15 +282,8 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_ShopItemMove
         {
-            get
-            {
-                return _EnableSfx_ShopItemMove;
-            }
-            set
-            {
-                _EnableSfx_ShopItemMove = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableSfx_ShopItemMove;
+            set => SetAndNotify(ref _EnableSfx_ShopItemMove, value);
         }
         #endregion
         #region EnableSfx_ShopGreeting
@@ -456,50 +291,21 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public bool EnableSfx_ShopGreeting
         {
-            get
-            {
-                return _EnableSfx_ShopGreeting;
-            }
-            set
-            {
-                _EnableSfx_ShopGreeting = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnableSfx_ShopGreeting;
+            set => SetAndNotify(ref _EnableSfx_ShopGreeting, value);
         }
         #endregion
 
         // Commands
         #region AddGameCharacterPair
-        private RelayCommand _AddGameCharacterPair;
-        public ICommand AddGameCharacterPair
-        {
-            get
-            {
-                if (_AddGameCharacterPair == null)
-                {
-                    _AddGameCharacterPair = new RelayCommand(param => DoAddGameCharacterPair());
-                }
-                return _AddGameCharacterPair;
-            }
-        }
+        public ICommand AddGameCharacterPair => new RelayCommand(param => DoAddGameCharacterPair());
         private void DoAddGameCharacterPair()
         {
             Roll20GameCharacterList.Add(new GameCharacterSelection());
         }
         #endregion
         #region ViewFile
-        private RelayCommand _ViewFile;
-        public ICommand ViewFile
-        {
-            get
-            {
-                if (_ViewFile == null)
-                {
-                    _ViewFile = new RelayCommand(DoViewFile);
-                }
-                return _ViewFile;
-            }
-        }
+        public ICommand ViewFile => new RelayCommand(DoViewFile);
         private void DoViewFile(object param)
         {
             if (param == null) { return; }
@@ -547,18 +353,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SetReleaseSettings
-        private RelayCommand _SetReleaseSettings;
-        public ICommand SetReleaseSettings
-        {
-            get
-            {
-                if (_SetReleaseSettings == null)
-                {
-                    _SetReleaseSettings = new RelayCommand(param => DoSetReleaseSettings());
-                }
-                return _SetReleaseSettings;
-            }
-        }
+        public ICommand SetReleaseSettings => new RelayCommand(param => DoSetReleaseSettings());
         private void DoSetReleaseSettings()
         {
             // Application Settings
@@ -599,36 +394,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ClearLogFile
-        private RelayCommand _ClearLogFile;
-        public ICommand ClearLogFile
-        {
-            get
-            {
-                if (_ClearLogFile == null)
-                {
-                    _ClearLogFile = new RelayCommand(param => DoClearLogFile());
-                }
-                return _ClearLogFile;
-            }
-        }
+        public ICommand ClearLogFile => new RelayCommand(param => DoClearLogFile());
         private void DoClearLogFile()
         {
             HelperMethods.ClearLogFile(true);
         }
         #endregion
         #region RunOperation
-        private RelayCommand _RunOperation;
-        public ICommand RunOperation
-        {
-            get
-            {
-                if (_RunOperation == null)
-                {
-                    _RunOperation = new RelayCommand(param => DoRunOperation());
-                }
-                return _RunOperation;
-            }
-        }
+        public ICommand RunOperation => new RelayCommand(param => DoRunOperation());
         private void DoRunOperation()
         {
             string task = "SPELL CLASS CHECK";

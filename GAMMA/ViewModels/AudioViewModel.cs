@@ -30,70 +30,39 @@ namespace GAMMA.ViewModels
         private Uri _SfxSource;
         public Uri SfxSource
         {
-            get
-            {
-                return _SfxSource;
-            }
-            set
-            {
-                _SfxSource = value;
-                NotifyPropertyChanged();
-            }
+            get => _SfxSource;
+            set => SetAndNotify(ref _SfxSource, value);
         }
         #endregion
         #region MusicSource
         private Uri _MusicSource;
         public Uri MusicSource
         {
-            get
-            {
-                return _MusicSource;
-            }
-            set
-            {
-                _MusicSource = value;
-                NotifyPropertyChanged();
-            }
+            get => _MusicSource;
+            set => SetAndNotify(ref _MusicSource, value);
         }
         #endregion
         #region SystemAudioSource
         private Uri _SystemAudioSource;
         public Uri SystemAudioSource
         {
-            get
-            {
-                return _SystemAudioSource;
-            }
-            set
-            {
-                _SystemAudioSource = value;
-                NotifyPropertyChanged();
-            }
+            get => _SystemAudioSource;
+            set => SetAndNotify(ref _SystemAudioSource, value);
         }
         #endregion
         #region MusicVolumeDec
         private double _MusicVolumeDec;
         public double MusicVolumeDec
         {
-            get
-            {
-                return _MusicVolumeDec;
-            }
-            set
-            {
-                _MusicVolumeDec = value;
-                NotifyPropertyChanged();
-            }
+            get => _MusicVolumeDec;
+            set => SetAndNotify(ref _MusicVolumeDec, value);
         }
         #endregion
         #region MusicVolumeInt
         private int _MusicVolumeInt;
         public int MusicVolumeInt
         {
-            get
-            {
-                return _MusicVolumeInt;
-            }
+            get => _MusicVolumeInt;
             set
             {
                 _MusicVolumeInt = value;
@@ -106,25 +75,15 @@ namespace GAMMA.ViewModels
         private double _SfxVolumeDec;
         public double SfxVolumeDec
         {
-            get
-            {
-                return _SfxVolumeDec;
-            }
-            set
-            {
-                _SfxVolumeDec = value;
-                NotifyPropertyChanged();
-            }
+            get => _SfxVolumeDec;
+            set => SetAndNotify(ref _SfxVolumeDec, value);
         }
         #endregion
         #region SfxVolumeInt
         private int _SfxVolumeInt;
         public int SfxVolumeInt
         {
-            get
-            {
-                return _SfxVolumeInt;
-            }
+            get => _SfxVolumeInt;
             set
             {
                 _SfxVolumeInt = value;
@@ -137,25 +96,15 @@ namespace GAMMA.ViewModels
         private double _SystemVolumeDec;
         public double SystemVolumeDec
         {
-            get
-            {
-                return _SystemVolumeDec;
-            }
-            set
-            {
-                _SystemVolumeDec = value;
-                NotifyPropertyChanged();
-            }
+            get => _SystemVolumeDec;
+            set => SetAndNotify(ref _SystemVolumeDec, value);
         }
         #endregion
         #region SystemVolumeInt
         private int _SystemVolumeInt;
         public int SystemVolumeInt
         {
-            get
-            {
-                return _SystemVolumeInt;
-            }
+            get => _SystemVolumeInt;
             set
             {
                 _SystemVolumeInt = value;
@@ -168,113 +117,52 @@ namespace GAMMA.ViewModels
         private ObservableCollection<AudioCollectionModel> _MusicFiles;
         public ObservableCollection<AudioCollectionModel> MusicFiles
         {
-            get
-            {
-                return _MusicFiles;
-            }
-            set
-            {
-                _MusicFiles = value;
-                NotifyPropertyChanged();
-            }
+            get => _MusicFiles;
+            set => SetAndNotify(ref _MusicFiles, value);
         }
         #endregion
         #region SfxFiles
         private ObservableCollection<AudioCollectionModel> _SfxFiles;
         public ObservableCollection<AudioCollectionModel> SfxFiles
         {
-            get
-            {
-                return _SfxFiles;
-            }
-            set
-            {
-                _SfxFiles = value;
-                NotifyPropertyChanged();
-            }
+            get => _SfxFiles;
+            set => SetAndNotify(ref _SfxFiles, value);
         }
         #endregion
         #region NowPlaying_Music
         private string _NowPlaying_Music;
         public string NowPlaying_Music
         {
-            get
-            {
-                return _NowPlaying_Music;
-            }
-            set
-            {
-                _NowPlaying_Music = value;
-                NotifyPropertyChanged();
-            }
+            get => _NowPlaying_Music;
+            set => SetAndNotify(ref _NowPlaying_Music, value);
         }
         #endregion
         #region NowPlaying_Sfx
         private string _NowPlaying_Sfx;
         public string NowPlaying_Sfx
         {
-            get
-            {
-                return _NowPlaying_Sfx;
-            }
-            set
-            {
-                _NowPlaying_Sfx = value;
-                NotifyPropertyChanged();
-            }
+            get => _NowPlaying_Sfx;
+            set => SetAndNotify(ref _NowPlaying_Sfx, value);
         }
         #endregion
 
         // Commands
         #region ChangeMusic
-        private RelayCommand _ChangeMusic;
-        public ICommand ChangeMusic
-        {
-            get
-            {
-                if (_ChangeMusic == null)
-                {
-                    _ChangeMusic = new RelayCommand(DoChangeMusic);
-                }
-                return _ChangeMusic;
-            }
-        }
+        public ICommand ChangeMusic => new RelayCommand(DoChangeMusic);
         public void DoChangeMusic(object fileName)
         {
             MusicSource = new Uri(fileName.ToString(), UriKind.Absolute);
         }
         #endregion
         #region ChangeSfx
-        private RelayCommand _ChangeSfx;
-        public ICommand ChangeSfx
-        {
-            get
-            {
-                if (_ChangeSfx == null)
-                {
-                    _ChangeSfx = new RelayCommand(DoChangeSfx);
-                }
-                return _ChangeSfx;
-            }
-        }
+        public ICommand ChangeSfx => new RelayCommand(DoChangeSfx);
         public void DoChangeSfx(object fileName)
         {
             SfxSource = new Uri(fileName.ToString(), UriKind.Absolute);
         }
         #endregion
         #region ChangeSystemAudio
-        private RelayCommand _ChangeSystemAudio;
-        public ICommand ChangeSystemAudio
-        {
-            get
-            {
-                if (_ChangeSystemAudio == null)
-                {
-                    _ChangeSystemAudio = new RelayCommand(DoChangeSystemAudio);
-                }
-                return _ChangeSystemAudio;
-            }
-        }
+        public ICommand ChangeSystemAudio => new RelayCommand(DoChangeSystemAudio);
         public void DoChangeSystemAudio(object fileName)
         {
             SystemAudioSource = new Uri(fileName.ToString(), UriKind.Absolute);

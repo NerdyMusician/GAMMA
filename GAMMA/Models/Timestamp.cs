@@ -16,15 +16,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region TimeInfo
@@ -32,32 +25,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string TimeInfo
         {
-            get
-            {
-                return _TimeInfo;
-            }
-            set
-            {
-                _TimeInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _TimeInfo;
+            set => SetAndNotify(ref _TimeInfo, value);
         }
         #endregion
 
         // Commands
         #region UpdateTimestamp
-        private RelayCommand _UpdateTimestamp;
-        public ICommand UpdateTimestamp
-        {
-            get
-            {
-                if (_UpdateTimestamp == null)
-                {
-                    _UpdateTimestamp = new RelayCommand(DoUpdateTimestamp);
-                }
-                return _UpdateTimestamp;
-            }
-        }
+        public ICommand UpdateTimestamp => new RelayCommand(DoUpdateTimestamp);
         private void DoUpdateTimestamp(object param)
         {
             GameCampaign campaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
@@ -65,27 +40,12 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveTimestamp
-        private RelayCommand _RemoveTimestamp;
-        public ICommand RemoveTimestamp
-        {
-            get
-            {
-                if (_RemoveTimestamp == null)
-                {
-                    _RemoveTimestamp = new RelayCommand(DoRemoveTimestamp);
-                }
-                return _RemoveTimestamp;
-            }
-        }
+        public ICommand RemoveTimestamp => new RelayCommand(DoRemoveTimestamp);
         private void DoRemoveTimestamp(object param)
         {
             Configuration.MainModelRef.CampaignView.ActiveCampaign.Timestamps.Remove(this);
         }
         #endregion
-
-        // Public Methods
-
-        // Private Methods
 
     }
 }
