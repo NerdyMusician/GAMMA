@@ -43,229 +43,123 @@ namespace GAMMA.Models
         private string _IsBlinded_Tooltip;
         public string IsBlinded_Tooltip
         {
-            get
-            {
-                return _IsBlinded_Tooltip;
-            }
-            set
-            {
-                _IsBlinded_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsBlinded_Tooltip;
+            set => SetAndNotify(ref _IsBlinded_Tooltip, value);
         }
         #endregion
         #region IsCharmed_Tooltip
         private string _IsCharmed_Tooltip;
         public string IsCharmed_Tooltip
         {
-            get
-            {
-                return _IsCharmed_Tooltip;
-            }
-            set
-            {
-                _IsCharmed_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsCharmed_Tooltip;
+            set => SetAndNotify(ref _IsCharmed_Tooltip, value);
         }
         #endregion
         #region IsDeafened_Tooltip
         private string _IsDeafened_Tooltip;
         public string IsDeafened_Tooltip
         {
-            get
-            {
-                return _IsDeafened_Tooltip;
-            }
-            set
-            {
-                _IsDeafened_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsDeafened_Tooltip;
+            set => SetAndNotify(ref _IsDeafened_Tooltip, value);
         }
         #endregion
         #region IsFrightened_Tooltip
         private string _IsFrightened_Tooltip;
         public string IsFrightened_Tooltip
         {
-            get
-            {
-                return _IsFrightened_Tooltip;
-            }
-            set
-            {
-                _IsFrightened_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsFrightened_Tooltip;
+            set => SetAndNotify(ref _IsFrightened_Tooltip, value);
         }
         #endregion
         #region IsGrappled_Tooltip
         private string _IsGrappled_Tooltip;
         public string IsGrappled_Tooltip
         {
-            get
-            {
-                return _IsGrappled_Tooltip;
-            }
-            set
-            {
-                _IsGrappled_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsGrappled_Tooltip;
+            set => SetAndNotify(ref _IsGrappled_Tooltip, value);
         }
         #endregion
         #region IsIncapacitated_Tooltip
         private string _IsIncapacitated_Tooltip;
         public string IsIncapacitated_Tooltip
         {
-            get
-            {
-                return _IsIncapacitated_Tooltip;
-            }
-            set
-            {
-                _IsIncapacitated_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsIncapacitated_Tooltip;
+            set => SetAndNotify(ref _IsIncapacitated_Tooltip, value);
         }
         #endregion
         #region IsInvisible_Tooltip
         private string _IsInvisible_Tooltip;
         public string IsInvisible_Tooltip
         {
-            get
-            {
-                return _IsInvisible_Tooltip;
-            }
-            set
-            {
-                _IsInvisible_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsInvisible_Tooltip;
+            set => SetAndNotify(ref _IsInvisible_Tooltip, value);
         }
         #endregion
         #region IsParalyzed_Tooltip
         private string _IsParalyzed_Tooltip;
         public string IsParalyzed_Tooltip
         {
-            get
-            {
-                return _IsParalyzed_Tooltip;
-            }
-            set
-            {
-                _IsParalyzed_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsParalyzed_Tooltip;
+            set => SetAndNotify(ref _IsParalyzed_Tooltip, value);
         }
         #endregion
         #region IsPetrified_Tooltip
         private string _IsPetrified_Tooltip;
         public string IsPetrified_Tooltip
         {
-            get
-            {
-                return _IsPetrified_Tooltip;
-            }
-            set
-            {
-                _IsPetrified_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsPetrified_Tooltip;
+            set => SetAndNotify(ref _IsPetrified_Tooltip, value);
         }
         #endregion
         #region IsPoisoned_Tooltip
         private string _IsPoisoned_Tooltip;
         public string IsPoisoned_Tooltip
         {
-            get
-            {
-                return _IsPoisoned_Tooltip;
-            }
-            set
-            {
-                _IsPoisoned_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsPoisoned_Tooltip;
+            set => SetAndNotify(ref _IsPoisoned_Tooltip, value);
         }
         #endregion
         #region IsProne_Tooltip
         private string _IsProne_Tooltip;
         public string IsProne_Tooltip
         {
-            get
-            {
-                return _IsProne_Tooltip;
-            }
-            set
-            {
-                _IsProne_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsProne_Tooltip;
+            set => SetAndNotify(ref _IsProne_Tooltip, value);
         }
         #endregion
         #region IsRestrained_Tooltip
         private string _IsRestrained_Tooltip;
         public string IsRestrained_Tooltip
         {
-            get
-            {
-                return _IsRestrained_Tooltip;
-            }
-            set
-            {
-                _IsRestrained_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsRestrained_Tooltip;
+            set => SetAndNotify(ref _IsRestrained_Tooltip, value);
         }
         #endregion
         #region IsStunned_Tooltip
         private string _IsStunned_Tooltip;
         public string IsStunned_Tooltip
         {
-            get
-            {
-                return _IsStunned_Tooltip;
-            }
-            set
-            {
-                _IsStunned_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsStunned_Tooltip;
+            set => SetAndNotify(ref _IsStunned_Tooltip, value);
         }
         #endregion
         #region IsUnconscious_Tooltip
         private string _IsUnconscious_Tooltip;
         public string IsUnconscious_Tooltip
         {
-            get
-            {
-                return _IsUnconscious_Tooltip;
-            }
-            set
-            {
-                _IsUnconscious_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsUnconscious_Tooltip;
+            set => SetAndNotify(ref _IsUnconscious_Tooltip, value);
         }
         #endregion
         #region Exhaustion_Tooltip
         private string _Exhaustion_Tooltip;
         public string Exhaustion_Tooltip
         {
-            get
-            {
-                return _Exhaustion_Tooltip;
-            }
-            set
-            {
-                _Exhaustion_Tooltip = value;
-                NotifyPropertyChanged();
-            }
+            get => _Exhaustion_Tooltip;
+            set => SetAndNotify(ref _Exhaustion_Tooltip, value);
         }
         #endregion
 
-        // Spellcasting
         #region L1SpellsAvailable
         private int _L1SpellsAvailable;
         [XmlSaveMode(XSME.Single)]

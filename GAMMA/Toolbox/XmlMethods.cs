@@ -70,25 +70,6 @@ namespace GAMMA.Toolbox
         {
             row = SetObjectPropertiesFromNode(rowNode, new RollTableRowModel()) as RollTableRowModel;
         }
-        public static void NodeToObject(XmlNode notebookNode, out NotebookModel notebook)
-        {
-            NotebookModel newNotebook = SetObjectPropertiesFromNode(notebookNode, new NotebookModel()) as NotebookModel;
-
-            foreach (XmlNode childNode in notebookNode.ChildNodes)
-            {
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "Notes")
-                {
-                    foreach (XmlNode noteNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(noteNode, out NoteModel note);
-                        newNotebook.Notes.Add(note);
-                    }
-                }
-            }
-
-            notebook = newNotebook;
-
-        }
         public static void NodeToObject(XmlNode characterNode, out CharacterModel character)
         {
             CharacterModel newCharacter = SetObjectPropertiesFromNode(characterNode, new CharacterModel()) as CharacterModel;
@@ -1318,19 +1299,6 @@ namespace GAMMA.Toolbox
             }
 
             lootBoxes = newLootBoxes;
-
-        }
-        public static void XmlToList(string filePath, out List<NotebookModel> notebooks, XmlDocument xmlDoc = null)
-        {
-            List<NotebookModel> newNotebooks = new();
-
-            foreach (XmlNode notebookNode in GetXmlNodeListFromXmlDoc(filePath, "NotebookModelSet", xmlDoc))
-            {
-                NodeToObject(notebookNode, out NotebookModel notebook);
-                newNotebooks.Add(notebook);
-            }
-
-            notebooks = newNotebooks;
 
         }
         public static void XmlToList(string filePath, out List<RollTableModel> rollTables, XmlDocument xmlDoc = null)

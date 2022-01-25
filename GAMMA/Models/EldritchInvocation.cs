@@ -19,15 +19,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsValidated
@@ -35,15 +28,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region Sourcebook
@@ -51,15 +37,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
         #region Description
@@ -67,32 +46,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
 
         // Commands
         #region RemoveEldritchInvocation
-        private RelayCommand _RemoveEldritchInvocation;
-        public ICommand RemoveEldritchInvocation
-        {
-            get
-            {
-                if (_RemoveEldritchInvocation == null)
-                {
-                    _RemoveEldritchInvocation = new RelayCommand(DoRemoveEldritchInvocation);
-                }
-                return _RemoveEldritchInvocation;
-            }
-        }
+        public ICommand RemoveEldritchInvocation => new RelayCommand(DoRemoveEldritchInvocation);
         private void DoRemoveEldritchInvocation(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("No parameter passed for DoRemoveEldritchInvocation.", true); return; }

@@ -41,30 +41,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Names
         private List<string> _Names;
         public List<string> Names
         {
-            get
-            {
-                return _Names;
-            }
-            set
-            {
-                _Names = value;
-                NotifyPropertyChanged();
-            }
+            get => _Names;
+            set => SetAndNotify(ref _Names, value);
         }
         #endregion
         #region FeatureType
@@ -72,10 +58,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string FeatureType
         {
-            get
-            {
-                return _FeatureType;
-            }
+            get => _FeatureType;
             set
             {
                 if (value != null || FeatureType != null)
@@ -103,15 +86,8 @@ namespace GAMMA.Models
         private List<string> _FeatureTypes;
         public List<string> FeatureTypes
         {
-            get
-            {
-                return _FeatureTypes;
-            }
-            set
-            {
-                _FeatureTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _FeatureTypes;
+            set => SetAndNotify(ref _FeatureTypes, value);
         }
         #endregion
         #region LevelAvailable
@@ -119,60 +95,32 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LevelAvailable
         {
-            get
-            {
-                return _LevelAvailable;
-            }
-            set
-            {
-                _LevelAvailable = value;
-                NotifyPropertyChanged();
-            }
+            get => _LevelAvailable;
+            set => SetAndNotify(ref _LevelAvailable, value);
         }
         #endregion
         #region ShowDetailsField
         private bool _ShowDetailsField;
         public bool ShowDetailsField
         {
-            get
-            {
-                return _ShowDetailsField;
-            }
-            set
-            {
-                _ShowDetailsField = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowDetailsField;
+            set => SetAndNotify(ref _ShowDetailsField, value);
         }
         #endregion
         #region ShowChoiceNumField
         private bool _ShowChoiceNumField;
         public bool ShowChoiceNumField
         {
-            get
-            {
-                return _ShowChoiceNumField;
-            }
-            set
-            {
-                _ShowChoiceNumField = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowChoiceNumField;
+            set => SetAndNotify(ref _ShowChoiceNumField, value);
         }
         #endregion
         #region ShowChoiceList
         private bool _ShowChoiceList;
         public bool ShowChoiceList
         {
-            get
-            {
-                return _ShowChoiceList;
-            }
-            set
-            {
-                _ShowChoiceList = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowChoiceList;
+            set => SetAndNotify(ref _ShowChoiceList, value);
         }
         #endregion
         #region Details
@@ -180,15 +128,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Details
         {
-            get
-            {
-                return _Details;
-            }
-            set
-            {
-                _Details = value;
-                NotifyPropertyChanged();
-            }
+            get => _Details;
+            set => SetAndNotify(ref _Details, value);
         }
         #endregion
         #region ChoicesAllowed
@@ -196,15 +137,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ChoicesAllowed
         {
-            get
-            {
-                return _ChoicesAllowed;
-            }
-            set
-            {
-                _ChoicesAllowed = value;
-                NotifyPropertyChanged();
-            }
+            get => _ChoicesAllowed;
+            set => SetAndNotify(ref _ChoicesAllowed, value);
         }
         #endregion
         #region Choices
@@ -212,15 +146,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<FeatureData> Choices
         {
-            get
-            {
-                return _Choices;
-            }
-            set
-            {
-                _Choices = value;
-                NotifyPropertyChanged();
-            }
+            get => _Choices;
+            set => SetAndNotify(ref _Choices, value);
         }
         #endregion
 
@@ -275,18 +202,7 @@ namespace GAMMA.Models
 
         // Commands
         #region AddChoice
-        private RelayCommand _AddChoice;
-        public ICommand AddChoice
-        {
-            get
-            {
-                if (_AddChoice == null)
-                {
-                    _AddChoice = new RelayCommand(param => DoAddChoice());
-                }
-                return _AddChoice;
-            }
-        }
+        public ICommand AddChoice => new RelayCommand(param => DoAddChoice());
         private void DoAddChoice()
         {
             if (FeatureTypes.Contains(FeatureType) == false) { HelperMethods.NotifyUser("Invalid feature type."); return; }
@@ -421,18 +337,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveFeature
-        private RelayCommand _RemoveFeature;
-        public ICommand RemoveFeature
-        {
-            get
-            {
-                if (_RemoveFeature == null)
-                {
-                    _RemoveFeature = new RelayCommand(DoRemoveFeature);
-                }
-                return _RemoveFeature;
-            }
-        }
+        public ICommand RemoveFeature => new RelayCommand(DoRemoveFeature);
         private void DoRemoveFeature(object param)
         {
             if (param == null) { HelperMethods.NotifyUser("No parameter passed for DoRemoveFeature."); return; }
@@ -483,15 +388,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Description
@@ -499,15 +397,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region Quantity
@@ -515,15 +406,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
-            get
-            {
-                return _Quantity;
-            }
-            set
-            {
-                _Quantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _Quantity;
+            set => SetAndNotify(ref _Quantity, value);
         }
         #endregion
         #region Form
@@ -531,32 +415,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Form
         {
-            get
-            {
-                return _Form;
-            }
-            set
-            {
-                _Form = value;
-                NotifyPropertyChanged();
-            }
+            get => _Form;
+            set => SetAndNotify(ref _Form, value);
         }
         #endregion
 
         // Commands
         #region RemoveData
-        private RelayCommand _RemoveData;
-        public ICommand RemoveData
-        {
-            get
-            {
-                if (_RemoveData == null)
-                {
-                    _RemoveData = new RelayCommand(DoRemoveData);
-                }
-                return _RemoveData;
-            }
-        }
+        public ICommand RemoveData => new RelayCommand(DoRemoveData);
         private void DoRemoveData(object param)
         {
             if (param == null) { HelperMethods.NotifyUser("No parameter passed for DoRemoveData."); return; }
@@ -615,30 +481,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                _Type = value;
-                NotifyPropertyChanged();
-            }
+            get => _Type;
+            set => SetAndNotify(ref _Type, value);
         }
         #endregion
         #region Types
         private List<string> _Types;
         public List<string> Types
         {
-            get
-            {
-                return _Types;
-            }
-            set
-            {
-                _Types = value;
-                NotifyPropertyChanged();
-            }
+            get => _Types;
+            set => SetAndNotify(ref _Types, value);
         }
         #endregion
 

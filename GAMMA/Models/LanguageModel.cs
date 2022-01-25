@@ -22,15 +22,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsValidated
@@ -38,15 +31,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region Type
@@ -54,15 +40,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                _Type = value;
-                NotifyPropertyChanged();
-            }
+            get => _Type;
+            set => SetAndNotify(ref _Type, value);
         }
         #endregion
         #region Sourcebook
@@ -70,15 +49,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
         #region TypicalSpeakers
@@ -86,15 +58,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string TypicalSpeakers
         {
-            get
-            {
-                return _TypicalSpeakers;
-            }
-            set
-            {
-                _TypicalSpeakers = value;
-                NotifyPropertyChanged();
-            }
+            get => _TypicalSpeakers;
+            set => SetAndNotify(ref _TypicalSpeakers, value);
         }
         #endregion
         #region Script
@@ -102,15 +67,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Script
         {
-            get
-            {
-                return _Script;
-            }
-            set
-            {
-                _Script = value;
-                NotifyPropertyChanged();
-            }
+            get => _Script;
+            set => SetAndNotify(ref _Script, value);
         }
         #endregion
         #region Dialects
@@ -118,32 +76,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Dialects
         {
-            get
-            {
-                return _Dialects;
-            }
-            set
-            {
-                _Dialects = value;
-                NotifyPropertyChanged();
-            }
+            get => _Dialects;
+            set => SetAndNotify(ref _Dialects, value);
         }
         #endregion
 
         // Commands
         #region RemoveLanguage
-        private RelayCommand _RemoveLanguage;
-        public ICommand RemoveLanguage
-        {
-            get
-            {
-                if (_RemoveLanguage == null)
-                {
-                    _RemoveLanguage = new RelayCommand(DoRemoveLanguage);
-                }
-                return _RemoveLanguage;
-            }
-        }
+        public ICommand RemoveLanguage => new RelayCommand(DoRemoveLanguage);
         private void DoRemoveLanguage(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("LanguageModel.RemoveLanguage called without parameter.", true); return; }

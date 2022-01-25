@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CurrentHitDice
         {
-            get
-            {
-                return _CurrentHitDice;
-            }
-            set
-            {
-                _CurrentHitDice = value;
-                NotifyPropertyChanged();
-            }
+            get => _CurrentHitDice;
+            set => SetAndNotify(ref _CurrentHitDice, value);
         }
         #endregion
         #region MaxHitDice
@@ -36,30 +29,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int MaxHitDice
         {
-            get
-            {
-                return _MaxHitDice;
-            }
-            set
-            {
-                _MaxHitDice = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxHitDice;
+            set => SetAndNotify(ref _MaxHitDice, value);
         }
         #endregion
         #region HitDiceSides
         private List<string> _HitDiceSides;
         public List<string> HitDiceSides
         {
-            get
-            {
-                return _HitDiceSides;
-            }
-            set
-            {
-                _HitDiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _HitDiceSides;
+            set => SetAndNotify(ref _HitDiceSides, value);
         }
         #endregion
         #region HitDiceQuality
@@ -67,15 +46,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HitDiceQuality
         {
-            get
-            {
-                return _HitDiceQuality;
-            }
-            set
-            {
-                _HitDiceQuality = value;
-                NotifyPropertyChanged();
-            }
+            get => _HitDiceQuality;
+            set => SetAndNotify(ref _HitDiceQuality, value);
         }
         #endregion
 
@@ -203,18 +175,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveHitDice
-        private RelayCommand _RemoveHitDice;
-        public ICommand RemoveHitDice
-        {
-            get
-            {
-                if (_RemoveHitDice == null)
-                {
-                    _RemoveHitDice = new RelayCommand(param => DoRemoveHitDice());
-                }
-                return _RemoveHitDice;
-            }
-        }
+        public ICommand RemoveHitDice => new RelayCommand(param => DoRemoveHitDice());
         private void DoRemoveHitDice()
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.HitDiceSets.Remove(this);

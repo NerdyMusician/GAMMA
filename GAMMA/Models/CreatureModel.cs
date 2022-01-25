@@ -1169,15 +1169,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Dexterity
         {
-            get
-            {
-                return _Attr_Dexterity;
-            }
+            get => _Attr_Dexterity;
             set
             {
                 _Attr_Dexterity = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1187,15 +1183,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Constitution
         {
-            get
-            {
-                return _Attr_Constitution;
-            }
+            get => _Attr_Constitution;
             set
             {
                 _Attr_Constitution = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1205,15 +1197,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Intelligence
         {
-            get
-            {
-                return _Attr_Intelligence;
-            }
+            get => _Attr_Intelligence;
             set
             {
                 _Attr_Intelligence = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1223,17 +1211,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Wisdom
         {
-            get
-            {
-                return _Attr_Wisdom;
-            }
+            get => _Attr_Wisdom;
             set
             {
                 _Attr_Wisdom = value;
                 NotifyPropertyChanged();
-
-                SetPassivePerception();
-
                 UpdateModifiers();
             }
         }
@@ -1243,15 +1225,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Attr_Charisma
         {
-            get
-            {
-                return _Attr_Charisma;
-            }
+            get => _Attr_Charisma;
             set
             {
                 _Attr_Charisma = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1262,15 +1240,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int StrengthModifier
         {
-            get
-            {
-                return _StrengthModifier;
-            }
-            set
-            {
-                _StrengthModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _StrengthModifier;
+            set => SetAndNotify(ref _StrengthModifier, value);
         }
         #endregion
         #region DexterityModifier
@@ -1278,15 +1249,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DexterityModifier
         {
-            get
-            {
-                return _DexterityModifier;
-            }
-            set
-            {
-                _DexterityModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _DexterityModifier;
+            set => SetAndNotify(ref _DexterityModifier, value);
         }
         #endregion
         #region ConstitutionModifier
@@ -1294,15 +1258,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ConstitutionModifier
         {
-            get
-            {
-                return _ConstitutionModifier;
-            }
-            set
-            {
-                _ConstitutionModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConstitutionModifier;
+            set => SetAndNotify(ref _ConstitutionModifier, value);
         }
         #endregion
         #region IntelligenceModifier
@@ -1310,15 +1267,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int IntelligenceModifier
         {
-            get
-            {
-                return _IntelligenceModifier;
-            }
-            set
-            {
-                _IntelligenceModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _IntelligenceModifier;
+            set => SetAndNotify(ref _IntelligenceModifier, value);
         }
         #endregion
         #region WisdomModifier
@@ -1326,15 +1276,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int WisdomModifier
         {
-            get
-            {
-                return _WisdomModifier;
-            }
-            set
-            {
-                _WisdomModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _WisdomModifier;
+            set => SetAndNotify(ref _WisdomModifier, value);
         }
         #endregion
         #region CharismaModifier
@@ -1342,15 +1285,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CharismaModifier
         {
-            get
-            {
-                return _CharismaModifier;
-            }
-            set
-            {
-                _CharismaModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _CharismaModifier;
+            set => SetAndNotify(ref _CharismaModifier, value);
         }
         #endregion
 
@@ -1360,10 +1296,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Strength
         {
-            get
-            {
-                return _HasSave_Strength;
-            }
+            get => _HasSave_Strength;
             set
             {
                 _HasSave_Strength = value;
@@ -1377,15 +1310,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Dexterity
         {
-            get
-            {
-                return _HasSave_Dexterity;
-            }
+            get => _HasSave_Dexterity;
             set
             {
                 _HasSave_Dexterity = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1395,15 +1324,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Constitution
         {
-            get
-            {
-                return _HasSave_Constitution;
-            }
+            get => _HasSave_Constitution;
             set
             {
                 _HasSave_Constitution = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1413,15 +1338,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Intelligence
         {
-            get
-            {
-                return _HasSave_Intelligence;
-            }
+            get => _HasSave_Intelligence;
             set
             {
                 _HasSave_Intelligence = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1431,15 +1352,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Wisdom
         {
-            get
-            {
-                return _HasSave_Wisdom;
-            }
+            get => _HasSave_Wisdom;
             set
             {
                 _HasSave_Wisdom = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1449,15 +1366,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSave_Charisma
         {
-            get
-            {
-                return _HasSave_Charisma;
-            }
+            get => _HasSave_Charisma;
             set
             {
                 _HasSave_Charisma = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1468,15 +1381,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int StrengthSave
         {
-            get
-            {
-                return _StrengthSave;
-            }
-            set
-            {
-                _StrengthSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _StrengthSave;
+            set => SetAndNotify(ref _StrengthSave, value);
         }
         #endregion
         #region DexteritySave
@@ -1484,15 +1390,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DexteritySave
         {
-            get
-            {
-                return _DexteritySave;
-            }
-            set
-            {
-                _DexteritySave = value;
-                NotifyPropertyChanged();
-            }
+            get => _DexteritySave;
+            set => SetAndNotify(ref _DexteritySave, value);
         }
         #endregion
         #region ConstitutionSave
@@ -1500,15 +1399,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ConstitutionSave
         {
-            get
-            {
-                return _ConstitutionSave;
-            }
-            set
-            {
-                _ConstitutionSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConstitutionSave;
+            set => SetAndNotify(ref _ConstitutionSave, value);
         }
         #endregion
         #region IntelligenceSave
@@ -1516,15 +1408,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int IntelligenceSave
         {
-            get
-            {
-                return _IntelligenceSave;
-            }
-            set
-            {
-                _IntelligenceSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _IntelligenceSave;
+            set => SetAndNotify(ref _IntelligenceSave, value);
         }
         #endregion
         #region WisdomSave
@@ -1532,15 +1417,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int WisdomSave
         {
-            get
-            {
-                return _WisdomSave;
-            }
-            set
-            {
-                _WisdomSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _WisdomSave;
+            set => SetAndNotify(ref _WisdomSave, value);
         }
         #endregion
         #region CharismaSave
@@ -1548,15 +1426,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CharismaSave
         {
-            get
-            {
-                return _CharismaSave;
-            }
-            set
-            {
-                _CharismaSave = value;
-                NotifyPropertyChanged();
-            }
+            get => _CharismaSave;
+            set => SetAndNotify(ref _CharismaSave, value);
         }
         #endregion
 
@@ -1566,15 +1437,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Acrobatics
         {
-            get
-            {
-                return _IsProf_Acrobatics;
-            }
+            get => _IsProf_Acrobatics;
             set
             {
                 _IsProf_Acrobatics = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1584,15 +1451,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_AnimalHandling
         {
-            get
-            {
-                return _IsProf_AnimalHandling;
-            }
+            get => _IsProf_AnimalHandling;
             set
             {
                 _IsProf_AnimalHandling = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1602,15 +1465,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Arcana
         {
-            get
-            {
-                return _IsProf_Arcana;
-            }
+            get => _IsProf_Arcana;
             set
             {
                 _IsProf_Arcana = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1620,15 +1479,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Athletics
         {
-            get
-            {
-                return _IsProf_Athletics;
-            }
+            get => _IsProf_Athletics;
             set
             {
                 _IsProf_Athletics = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1638,15 +1493,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Deception
         {
-            get
-            {
-                return _IsProf_Deception;
-            }
+            get => _IsProf_Deception;
             set
             {
                 _IsProf_Deception = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1656,15 +1507,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_History
         {
-            get
-            {
-                return _IsProf_History;
-            }
+            get => _IsProf_History;
             set
             {
                 _IsProf_History = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1674,15 +1521,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Insight
         {
-            get
-            {
-                return _IsProf_Insight;
-            }
+            get => _IsProf_Insight;
             set
             {
                 _IsProf_Insight = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1692,15 +1535,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Intimidation
         {
-            get
-            {
-                return _IsProf_Intimidation;
-            }
+            get => _IsProf_Intimidation;
             set
             {
                 _IsProf_Intimidation = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1710,15 +1549,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Investigation
         {
-            get
-            {
-                return _IsProf_Investigation;
-            }
+            get => _IsProf_Investigation;
             set
             {
                 _IsProf_Investigation = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1728,15 +1563,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Medicine
         {
-            get
-            {
-                return _IsProf_Medicine;
-            }
+            get => _IsProf_Medicine;
             set
             {
                 _IsProf_Medicine = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1746,15 +1577,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Nature
         {
-            get
-            {
-                return _IsProf_Nature;
-            }
+            get => _IsProf_Nature;
             set
             {
                 _IsProf_Nature = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1764,17 +1591,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Perception
         {
-            get
-            {
-                return _IsProf_Perception;
-            }
+            get => _IsProf_Perception;
             set
             {
                 _IsProf_Perception = value;
                 NotifyPropertyChanged();
-
-                SetPassivePerception();
-
                 UpdateModifiers();
             }
         }
@@ -1784,15 +1605,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Performance
         {
-            get
-            {
-                return _IsProf_Performance;
-            }
+            get => _IsProf_Performance;
             set
             {
                 _IsProf_Performance = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1802,15 +1619,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Persuasion
         {
-            get
-            {
-                return _IsProf_Persuasion;
-            }
+            get => _IsProf_Persuasion;
             set
             {
                 _IsProf_Persuasion = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1820,15 +1633,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Religion
         {
-            get
-            {
-                return _IsProf_Religion;
-            }
+            get => _IsProf_Religion;
             set
             {
                 _IsProf_Religion = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1838,15 +1647,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_SleightOfHand
         {
-            get
-            {
-                return _IsProf_SleightOfHand;
-            }
+            get => _IsProf_SleightOfHand;
             set
             {
                 _IsProf_SleightOfHand = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1856,15 +1661,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Stealth
         {
-            get
-            {
-                return _IsProf_Stealth;
-            }
+            get => _IsProf_Stealth;
             set
             {
                 _IsProf_Stealth = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1874,15 +1675,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProf_Survival
         {
-            get
-            {
-                return _IsProf_Survival;
-            }
+            get => _IsProf_Survival;
             set
             {
                 _IsProf_Survival = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1893,15 +1690,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Acrobatics
         {
-            get
-            {
-                return _IsExpert_Acrobatics;
-            }
+            get => _IsExpert_Acrobatics;
             set
             {
                 _IsExpert_Acrobatics = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1911,15 +1704,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_AnimalHandling
         {
-            get
-            {
-                return _IsExpert_AnimalHandling;
-            }
+            get => _IsExpert_AnimalHandling;
             set
             {
                 _IsExpert_AnimalHandling = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1929,15 +1718,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Arcana
         {
-            get
-            {
-                return _IsExpert_Arcana;
-            }
+            get => _IsExpert_Arcana;
             set
             {
                 _IsExpert_Arcana = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1947,15 +1732,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Athletics
         {
-            get
-            {
-                return _IsExpert_Athletics;
-            }
+            get => _IsExpert_Athletics;
             set
             {
                 _IsExpert_Athletics = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1965,15 +1746,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Deception
         {
-            get
-            {
-                return _IsExpert_Deception;
-            }
+            get => _IsExpert_Deception;
             set
             {
                 _IsExpert_Deception = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -1983,15 +1760,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_History
         {
-            get
-            {
-                return _IsExpert_History;
-            }
+            get => _IsExpert_History;
             set
             {
                 _IsExpert_History = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2001,15 +1774,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Insight
         {
-            get
-            {
-                return _IsExpert_Insight;
-            }
+            get => _IsExpert_Insight;
             set
             {
                 _IsExpert_Insight = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2019,15 +1788,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Intimidation
         {
-            get
-            {
-                return _IsExpert_Intimidation;
-            }
+            get => _IsExpert_Intimidation;
             set
             {
                 _IsExpert_Intimidation = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2037,15 +1802,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Investigation
         {
-            get
-            {
-                return _IsExpert_Investigation;
-            }
+            get => _IsExpert_Investigation;
             set
             {
                 _IsExpert_Investigation = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2055,15 +1816,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Medicine
         {
-            get
-            {
-                return _IsExpert_Medicine;
-            }
+            get => _IsExpert_Medicine;
             set
             {
                 _IsExpert_Medicine = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2073,15 +1830,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Nature
         {
-            get
-            {
-                return _IsExpert_Nature;
-            }
+            get => _IsExpert_Nature;
             set
             {
                 _IsExpert_Nature = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2091,17 +1844,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Perception
         {
-            get
-            {
-                return _IsExpert_Perception;
-            }
+            get => _IsExpert_Perception;
             set
             {
                 _IsExpert_Perception = value;
                 NotifyPropertyChanged();
-
-                SetPassivePerception();
-
                 UpdateModifiers();
             }
         }
@@ -2111,15 +1858,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Performance
         {
-            get
-            {
-                return _IsExpert_Performance;
-            }
+            get => _IsExpert_Performance;
             set
             {
                 _IsExpert_Performance = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2129,15 +1872,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Persuasion
         {
-            get
-            {
-                return _IsExpert_Persuasion;
-            }
+            get => _IsExpert_Persuasion;
             set
             {
                 _IsExpert_Persuasion = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2147,15 +1886,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Religion
         {
-            get
-            {
-                return _IsExpert_Religion;
-            }
+            get => _IsExpert_Religion;
             set
             {
                 _IsExpert_Religion = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2165,15 +1900,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_SleightOfHand
         {
-            get
-            {
-                return _IsExpert_SleightOfHand;
-            }
+            get => _IsExpert_SleightOfHand;
             set
             {
                 _IsExpert_SleightOfHand = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2183,15 +1914,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Stealth
         {
-            get
-            {
-                return _IsExpert_Stealth;
-            }
+            get => _IsExpert_Stealth;
             set
             {
                 _IsExpert_Stealth = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2201,15 +1928,11 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsExpert_Survival
         {
-            get
-            {
-                return _IsExpert_Survival;
-            }
+            get => _IsExpert_Survival;
             set
             {
                 _IsExpert_Survival = value;
                 NotifyPropertyChanged();
-
                 UpdateModifiers();
             }
         }
@@ -2220,15 +1943,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int AcrobaticsModifier
         {
-            get
-            {
-                return _AcrobaticsModifier;
-            }
-            set
-            {
-                _AcrobaticsModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _AcrobaticsModifier;
+            set => SetAndNotify(ref _AcrobaticsModifier, value);
         }
         #endregion
         #region AnimalHandlingModifier
@@ -2236,15 +1952,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int AnimalHandlingModifier
         {
-            get
-            {
-                return _AnimalHandlingModifier;
-            }
-            set
-            {
-                _AnimalHandlingModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _AnimalHandlingModifier;
+            set => SetAndNotify(ref _AnimalHandlingModifier, value);
         }
         #endregion
         #region ArcanaModifier
@@ -2252,15 +1961,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ArcanaModifier
         {
-            get
-            {
-                return _ArcanaModifier;
-            }
-            set
-            {
-                _ArcanaModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _ArcanaModifier;
+            set => SetAndNotify(ref _ArcanaModifier, value);
         }
         #endregion
         #region AthleticsModifier
@@ -2268,15 +1970,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int AthleticsModifier
         {
-            get
-            {
-                return _AthleticsModifier;
-            }
-            set
-            {
-                _AthleticsModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _AthleticsModifier;
+            set => SetAndNotify(ref _AthleticsModifier, value);
         }
         #endregion
         #region DeceptionModifier
@@ -2284,15 +1979,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DeceptionModifier
         {
-            get
-            {
-                return _DeceptionModifier;
-            }
-            set
-            {
-                _DeceptionModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _DeceptionModifier;
+            set => SetAndNotify(ref _DeceptionModifier, value);
         }
         #endregion
         #region HistoryModifier
@@ -2300,15 +1988,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HistoryModifier
         {
-            get
-            {
-                return _HistoryModifier;
-            }
-            set
-            {
-                _HistoryModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _HistoryModifier;
+            set => SetAndNotify(ref _HistoryModifier, value);
         }
         #endregion
         #region InsightModifier
@@ -2316,15 +1997,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int InsightModifier
         {
-            get
-            {
-                return _InsightModifier;
-            }
-            set
-            {
-                _InsightModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _InsightModifier;
+            set => SetAndNotify(ref _InsightModifier, value);
         }
         #endregion
         #region IntimidationModifier
@@ -2332,15 +2006,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int IntimidationModifier
         {
-            get
-            {
-                return _IntimidationModifier;
-            }
-            set
-            {
-                _IntimidationModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _IntimidationModifier;
+            set => SetAndNotify(ref _IntimidationModifier, value);
         }
         #endregion
         #region InvestigationModifier
@@ -2348,15 +2015,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int InvestigationModifier
         {
-            get
-            {
-                return _InvestigationModifier;
-            }
-            set
-            {
-                _InvestigationModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _InvestigationModifier;
+            set => SetAndNotify(ref _InvestigationModifier, value);
         }
         #endregion
         #region MedicineModifier
@@ -2364,15 +2024,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int MedicineModifier
         {
-            get
-            {
-                return _MedicineModifier;
-            }
-            set
-            {
-                _MedicineModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _MedicineModifier;
+            set => SetAndNotify(ref _MedicineModifier, value);
         }
         #endregion
         #region NatureModifier
@@ -2380,15 +2033,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int NatureModifier
         {
-            get
-            {
-                return _NatureModifier;
-            }
-            set
-            {
-                _NatureModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _NatureModifier;
+            set => SetAndNotify(ref _NatureModifier, value);
         }
         #endregion
         #region PerceptionModifier
@@ -2396,15 +2042,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int PerceptionModifier
         {
-            get
-            {
-                return _PerceptionModifier;
-            }
-            set
-            {
-                _PerceptionModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _PerceptionModifier;
+            set => SetAndNotify(ref _PerceptionModifier, value);
         }
         #endregion
         #region PerformanceModifier
@@ -2412,15 +2051,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int PerformanceModifier
         {
-            get
-            {
-                return _PerformanceModifier;
-            }
-            set
-            {
-                _PerformanceModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _PerformanceModifier;
+            set => SetAndNotify(ref _PerformanceModifier, value);
         }
         #endregion
         #region PersuasionModifier
@@ -2428,15 +2060,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int PersuasionModifier
         {
-            get
-            {
-                return _PersuasionModifier;
-            }
-            set
-            {
-                _PersuasionModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _PersuasionModifier;
+            set => SetAndNotify(ref _PersuasionModifier, value);
         }
         #endregion
         #region ReligionModifier
@@ -2444,15 +2069,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int ReligionModifier
         {
-            get
-            {
-                return _ReligionModifier;
-            }
-            set
-            {
-                _ReligionModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _ReligionModifier;
+            set => SetAndNotify(ref _ReligionModifier, value);
         }
         #endregion
         #region SleightOfHandModifier
@@ -2460,15 +2078,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SleightOfHandModifier
         {
-            get
-            {
-                return _SleightOfHandModifier;
-            }
-            set
-            {
-                _SleightOfHandModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _SleightOfHandModifier;
+            set => SetAndNotify(ref _SleightOfHandModifier, value);
         }
         #endregion
         #region StealthModifier
@@ -2476,15 +2087,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int StealthModifier
         {
-            get
-            {
-                return _StealthModifier;
-            }
-            set
-            {
-                _StealthModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _StealthModifier;
+            set => SetAndNotify(ref _StealthModifier, value);
         }
         #endregion
         #region SurvivalModifier
@@ -2492,15 +2096,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SurvivalModifier
         {
-            get
-            {
-                return _SurvivalModifier;
-            }
-            set
-            {
-                _SurvivalModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _SurvivalModifier;
+            set => SetAndNotify(ref _SurvivalModifier, value);
         }
         #endregion
 
@@ -2509,240 +2106,128 @@ namespace GAMMA.Models
         private bool _DisplayPopup_Weapons;
         public bool DisplayPopup_Weapons
         {
-            get
-            {
-                return _DisplayPopup_Weapons;
-            }
-            set
-            {
-                _DisplayPopup_Weapons = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Weapons;
+            set => SetAndNotify(ref _DisplayPopup_Weapons, value);
         }
         #endregion
         #region DisplayPopup_Spells
         private bool _DisplayPopup_Spells;
         public bool DisplayPopup_Spells
         {
-            get
-            {
-                return _DisplayPopup_Spells;
-            }
-            set
-            {
-                _DisplayPopup_Spells = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Spells;
+            set => SetAndNotify(ref _DisplayPopup_Spells, value);
         }
         #endregion
         #region DisplayPopup_Skills
         private bool _DisplayPopup_Skills;
         public bool DisplayPopup_Skills
         {
-            get
-            {
-                return _DisplayPopup_Skills;
-            }
-            set
-            {
-                _DisplayPopup_Skills = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Skills;
+            set => SetAndNotify(ref _DisplayPopup_Skills, value);
         }
         #endregion
         #region DisplayPopup_Saves
         private bool _DisplayPopup_Saves;
         public bool DisplayPopup_Saves
         {
-            get
-            {
-                return _DisplayPopup_Saves;
-            }
-            set
-            {
-                _DisplayPopup_Saves = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Saves;
+            set => SetAndNotify(ref _DisplayPopup_Saves, value);
         }
         #endregion
         #region DisplayPopup_Checks
         private bool _DisplayPopup_Checks;
         public bool DisplayPopup_Checks
         {
-            get
-            {
-                return _DisplayPopup_Checks;
-            }
-            set
-            {
-                _DisplayPopup_Checks = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Checks;
+            set => SetAndNotify(ref _DisplayPopup_Checks, value);
         }
         #endregion
         #region DisplayPopup_Notes
         private bool _DisplayPopup_Notes;
         public bool DisplayPopup_Notes
         {
-            get
-            {
-                return _DisplayPopup_Notes;
-            }
-            set
-            {
-                _DisplayPopup_Notes = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Notes;
+            set => SetAndNotify(ref _DisplayPopup_Notes, value);
         }
         #endregion
         #region DisplayPopup_Conditions
         private bool _DisplayPopup_Conditions;
         public bool DisplayPopup_Conditions
         {
-            get
-            {
-                return _DisplayPopup_Conditions;
-            }
-            set
-            {
-                _DisplayPopup_Conditions = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Conditions;
+            set => SetAndNotify(ref _DisplayPopup_Conditions, value);
         }
         #endregion
         #region DisplayPopup_Health
         private bool _DisplayPopup_Health;
         public bool DisplayPopup_Health
         {
-            get
-            {
-                return _DisplayPopup_Health;
-            }
-            set
-            {
-                _DisplayPopup_Health = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopup_Health;
+            set => SetAndNotify(ref _DisplayPopup_Health, value);
         }
         #endregion
         #region DisplayPopupAlt_Weapons
         private bool _DisplayPopupAlt_Weapons;
         public bool DisplayPopupAlt_Weapons
         {
-            get
-            {
-                return _DisplayPopupAlt_Weapons;
-            }
-            set
-            {
-                _DisplayPopupAlt_Weapons = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Weapons;
+            set => SetAndNotify(ref _DisplayPopupAlt_Weapons, value);
         }
         #endregion
         #region DisplayPopupAlt_Spells
         private bool _DisplayPopupAlt_Spells;
         public bool DisplayPopupAlt_Spells
         {
-            get
-            {
-                return _DisplayPopupAlt_Spells;
-            }
-            set
-            {
-                _DisplayPopupAlt_Spells = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Spells;
+            set => SetAndNotify(ref _DisplayPopupAlt_Spells, value);
         }
         #endregion
         #region DisplayPopupAlt_Skills
         private bool _DisplayPopupAlt_Skills;
         public bool DisplayPopupAlt_Skills
         {
-            get
-            {
-                return _DisplayPopupAlt_Skills;
-            }
-            set
-            {
-                _DisplayPopupAlt_Skills = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Skills;
+            set => SetAndNotify(ref _DisplayPopupAlt_Skills, value);
         }
         #endregion
         #region DisplayPopupAlt_Saves
         private bool _DisplayPopupAlt_Saves;
         public bool DisplayPopupAlt_Saves
         {
-            get
-            {
-                return _DisplayPopupAlt_Saves;
-            }
-            set
-            {
-                _DisplayPopupAlt_Saves = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Saves;
+            set => SetAndNotify(ref _DisplayPopupAlt_Saves, value);
         }
         #endregion
         #region DisplayPopupAlt_Checks
         private bool _DisplayPopupAlt_Checks;
         public bool DisplayPopupAlt_Checks
         {
-            get
-            {
-                return _DisplayPopupAlt_Checks;
-            }
-            set
-            {
-                _DisplayPopupAlt_Checks = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Checks;
+            set => SetAndNotify(ref _DisplayPopupAlt_Checks, value);
         }
         #endregion
         #region DisplayPopupAlt_Notes
         private bool _DisplayPopupAlt_Notes;
         public bool DisplayPopupAlt_Notes
         {
-            get
-            {
-                return _DisplayPopupAlt_Notes;
-            }
-            set
-            {
-                _DisplayPopupAlt_Notes = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Notes;
+            set => SetAndNotify(ref _DisplayPopupAlt_Notes, value);
         }
         #endregion
         #region DisplayPopupAlt_Conditions
         private bool _DisplayPopupAlt_Conditions;
         public bool DisplayPopupAlt_Conditions
         {
-            get
-            {
-                return _DisplayPopupAlt_Conditions;
-            }
-            set
-            {
-                _DisplayPopupAlt_Conditions = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Conditions;
+            set => SetAndNotify(ref _DisplayPopupAlt_Conditions, value);
         }
         #endregion
         #region DisplayPopupAlt_Health
         private bool _DisplayPopupAlt_Health;
         public bool DisplayPopupAlt_Health
         {
-            get
-            {
-                return _DisplayPopupAlt_Health;
-            }
-            set
-            {
-                _DisplayPopupAlt_Health = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayPopupAlt_Health;
+            set => SetAndNotify(ref _DisplayPopupAlt_Health, value);
         }
         #endregion
 
@@ -2751,30 +2236,16 @@ namespace GAMMA.Models
         private bool _ShowTag_HasCondition;
         public bool ShowTag_HasCondition
         {
-            get
-            {
-                return _ShowTag_HasCondition;
-            }
-            set
-            {
-                _ShowTag_HasCondition = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowTag_HasCondition;
+            set => SetAndNotify(ref _ShowTag_HasCondition, value);
         }
         #endregion
         #region ShowTag_HasActiveEffects
         private bool _ShowTag_HasActiveEffects;
         public bool ShowTag_HasActiveEffects
         {
-            get
-            {
-                return _ShowTag_HasActiveEffects;
-            }
-            set
-            {
-                _ShowTag_HasActiveEffects = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowTag_HasActiveEffects;
+            set => SetAndNotify(ref _ShowTag_HasActiveEffects, value);
         }
         #endregion
 
@@ -2784,10 +2255,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsBlinded
         {
-            get
-            {
-                return _IsBlinded;
-            }
+            get => _IsBlinded;
             set
             {
                 _IsBlinded = value;
@@ -2801,10 +2269,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsCharmed
         {
-            get
-            {
-                return _IsCharmed;
-            }
+            get => _IsCharmed;
             set
             {
                 _IsCharmed = value;
@@ -2818,10 +2283,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsDeafened
         {
-            get
-            {
-                return _IsDeafened;
-            }
+            get => _IsDeafened;
             set
             {
                 _IsDeafened = value;
@@ -2835,10 +2297,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsFrightened
         {
-            get
-            {
-                return _IsFrightened;
-            }
+            get => _IsFrightened;
             set
             {
                 _IsFrightened = value;
@@ -2852,10 +2311,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsGrappled
         {
-            get
-            {
-                return _IsGrappled;
-            }
+            get => _IsGrappled;
             set
             {
                 _IsGrappled = value;
@@ -2869,10 +2325,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsIncapacitated
         {
-            get
-            {
-                return _IsIncapacitated;
-            }
+            get => _IsIncapacitated;
             set
             {
                 _IsIncapacitated = value;
@@ -2886,10 +2339,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsInvisible
         {
-            get
-            {
-                return _IsInvisible;
-            }
+            get => _IsInvisible;
             set
             {
                 _IsInvisible = value;
@@ -2903,10 +2353,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsParalyzed
         {
-            get
-            {
-                return _IsParalyzed;
-            }
+            get => _IsParalyzed;
             set
             {
                 _IsParalyzed = value;
@@ -2921,10 +2368,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsPetrified
         {
-            get
-            {
-                return _IsPetrified;
-            }
+            get => _IsPetrified;
             set
             {
                 _IsPetrified = value;
@@ -2939,10 +2383,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsPoisoned
         {
-            get
-            {
-                return _IsPoisoned;
-            }
+            get => _IsPoisoned;
             set
             {
                 _IsPoisoned = value;
@@ -2956,10 +2397,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsProne
         {
-            get
-            {
-                return _IsProne;
-            }
+            get => _IsProne;
             set
             {
                 _IsProne = value;
@@ -2973,10 +2411,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsRestrained
         {
-            get
-            {
-                return _IsRestrained;
-            }
+            get => _IsRestrained;
             set
             {
                 _IsRestrained = value;
@@ -2990,10 +2425,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsStunned
         {
-            get
-            {
-                return _IsStunned;
-            }
+            get => _IsStunned;
             set
             {
                 _IsStunned = value;
@@ -3008,10 +2440,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsUnconscious
         {
-            get
-            {
-                return _IsUnconscious;
-            }
+            get => _IsUnconscious;
             set
             {
                 _IsUnconscious = value;
@@ -3027,165 +2456,88 @@ namespace GAMMA.Models
         private string _FT_Speeds;
         public string FT_Speeds
         {
-            get
-            {
-                return _FT_Speeds;
-            }
-            set
-            {
-                _FT_Speeds = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Speeds;
+            set => SetAndNotify(ref _FT_Speeds, value);
         }
         #endregion
         #region FT_HitPoints
         private string _FT_HitPoints;
         public string FT_HitPoints
         {
-            get
-            {
-                return _FT_HitPoints;
-            }
-            set
-            {
-                _FT_HitPoints = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_HitPoints;
+            set => SetAndNotify(ref _FT_HitPoints, value);
         }
         #endregion
         #region FT_ArmorClass
         private string _FT_ArmorClass;
         public string FT_ArmorClass
         {
-            get
-            {
-                return _FT_ArmorClass;
-            }
-            set
-            {
-                _FT_ArmorClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_ArmorClass;
+            set => SetAndNotify(ref _FT_ArmorClass, value);
         }
         #endregion
         #region FT_Header
         private string _FT_Header;
         public string FT_Header
         {
-            get
-            {
-                return _FT_Header;
-            }
-            set
-            {
-                _FT_Header = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Header;
+            set => SetAndNotify(ref _FT_Header, value);
         }
         #endregion
         #region FT_Strength
         private string _FT_Strength;
         public string FT_Strength
         {
-            get
-            {
-                return _FT_Strength;
-            }
-            set
-            {
-                _FT_Strength = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Strength;
+            set => SetAndNotify(ref _FT_Strength, value);
         }
         #endregion
         #region FT_Dexterity
         private string _FT_Dexterity;
         public string FT_Dexterity
         {
-            get
-            {
-                return _FT_Dexterity;
-            }
-            set
-            {
-                _FT_Dexterity = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Dexterity;
+            set => SetAndNotify(ref _FT_Dexterity, value);
         }
         #endregion
         #region FT_Constitution
         private string _FT_Constitution;
         public string FT_Constitution
         {
-            get
-            {
-                return _FT_Constitution;
-            }
-            set
-            {
-                _FT_Constitution = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Constitution;
+            set => SetAndNotify(ref _FT_Constitution, value);
         }
         #endregion
         #region FT_Intelligence
         private string _FT_Intelligence;
         public string FT_Intelligence
         {
-            get
-            {
-                return _FT_Intelligence;
-            }
-            set
-            {
-                _FT_Intelligence = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Intelligence;
+            set => SetAndNotify(ref _FT_Intelligence, value);
         }
         #endregion
         #region FT_Wisdom
         private string _FT_Wisdom;
         public string FT_Wisdom
         {
-            get
-            {
-                return _FT_Wisdom;
-            }
-            set
-            {
-                _FT_Wisdom = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Wisdom;
+            set => SetAndNotify(ref _FT_Wisdom, value);
         }
         #endregion
         #region FT_Charisma
         private string _FT_Charisma;
         public string FT_Charisma
         {
-            get
-            {
-                return _FT_Charisma;
-            }
-            set
-            {
-                _FT_Charisma = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Charisma;
+            set => SetAndNotify(ref _FT_Charisma, value);
         }
         #endregion
         #region FT_Senses
         private string _FT_Senses;
         public string FT_Senses
         {
-            get
-            {
-                return _FT_Senses;
-            }
-            set
-            {
-                _FT_Senses = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_Senses;
+            set => SetAndNotify(ref _FT_Senses, value);
         }
         #endregion
 
@@ -3193,30 +2545,16 @@ namespace GAMMA.Models
         private List<BoolOption> _FT_TraitsAndAbilities_P1;
         public List<BoolOption> FT_TraitsAndAbilities_P1
         {
-            get
-            {
-                return _FT_TraitsAndAbilities_P1;
-            }
-            set
-            {
-                _FT_TraitsAndAbilities_P1 = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_TraitsAndAbilities_P1;
+            set => SetAndNotify(ref _FT_TraitsAndAbilities_P1, value);
         }
         #endregion
         #region FT_TraitsAndAbilities_P2
         private List<BoolOption> _FT_TraitsAndAbilities_P2;
         public List<BoolOption> FT_TraitsAndAbilities_P2
         {
-            get
-            {
-                return _FT_TraitsAndAbilities_P2;
-            }
-            set
-            {
-                _FT_TraitsAndAbilities_P2 = value;
-                NotifyPropertyChanged();
-            }
+            get => _FT_TraitsAndAbilities_P2;
+            set => SetAndNotify(ref _FT_TraitsAndAbilities_P2, value);
         }
         #endregion
 
@@ -3251,18 +2589,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddItemLink
-        private RelayCommand _AddItemLink;
-        public ICommand AddItemLink
-        {
-            get
-            {
-                if (_AddItemLink == null)
-                {
-                    _AddItemLink = new RelayCommand(param => DoAddItemLink());
-                }
-                return _AddItemLink;
-            }
-        }
+        public ICommand AddItemLink => new RelayCommand(param => DoAddItemLink());
         private void DoAddItemLink()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
@@ -3294,18 +2621,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddSpellLink
-        private RelayCommand _AddSpellLink;
-        public ICommand AddSpellLink
-        {
-            get
-            {
-                if (_AddSpellLink == null)
-                {
-                    _AddSpellLink = new RelayCommand(param => DoAddSpellLink());
-                }
-                return _AddSpellLink;
-            }
-        }
+        public ICommand AddSpellLink => new RelayCommand(param => DoAddSpellLink());
         private void DoAddSpellLink()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository.Where(spell => spell.IsValidated).ToList());
@@ -3329,36 +2645,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortSpellLinks
-        private RelayCommand _SortSpellLinks;
-        public ICommand SortSpellLinks
-        {
-            get
-            {
-                if (_SortSpellLinks == null)
-                {
-                    _SortSpellLinks = new RelayCommand(param => DoSortSpellLinks());
-                }
-                return _SortSpellLinks;
-            }
-        }
+        public ICommand SortSpellLinks => new RelayCommand(param => DoSortSpellLinks());
         private void DoSortSpellLinks()
         {
             SpellLinks = new(SpellLinks.OrderBy(sl => sl.LinkedSpell.SpellLevel).ThenBy(sl => sl.Name));
         }
         #endregion
         #region AddTraitToCreature
-        private RelayCommand _AddTraitToCreature;
-        public ICommand AddTraitToCreature
-        {
-            get
-            {
-                if (_AddTraitToCreature == null)
-                {
-                    _AddTraitToCreature = new RelayCommand(param => DoAddTraitToCreature());
-                }
-                return _AddTraitToCreature;
-            }
-        }
+        public ICommand AddTraitToCreature => new RelayCommand(param => DoAddTraitToCreature());
         private void DoAddTraitToCreature()
         {
             Traits.Add(new TraitModel());
@@ -3366,18 +2660,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveCreature
-        private RelayCommand _RemoveCreature;
-        public ICommand RemoveCreature
-        {
-            get
-            {
-                if (_RemoveCreature == null)
-                {
-                    _RemoveCreature = new RelayCommand(DoRemoveCreature);
-                }
-                return _RemoveCreature;
-            }
-        }
+        public ICommand RemoveCreature => new RelayCommand(DoRemoveCreature);
         private void DoRemoveCreature(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("Invalid parameter for DoRemoveCreature.", true); return; }
@@ -3413,18 +2696,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AdjustHitPoints
-        private RelayCommand _AdjustHitPoints;
-        public ICommand AdjustHitPoints
-        {
-            get
-            {
-                if (_AdjustHitPoints == null)
-                {
-                    _AdjustHitPoints = new RelayCommand(DoAdjustHitPoints);
-                }
-                return _AdjustHitPoints;
-            }
-        }
+        public ICommand AdjustHitPoints => new RelayCommand(DoAdjustHitPoints);
         private void DoAdjustHitPoints(object amount)
         {
             int newHealth = CurrentHitPoints + Convert.ToInt32(amount);
@@ -3434,18 +2706,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region MakeSkillCheck
-        private RelayCommand _MakeSkillCheck;
-        public ICommand MakeSkillCheck
-        {
-            get
-            {
-                if (_MakeSkillCheck == null)
-                {
-                    _MakeSkillCheck = new RelayCommand(DoMakeSkillCheck);
-                }
-                return _MakeSkillCheck;
-            }
-        }
+        public ICommand MakeSkillCheck => new RelayCommand(DoMakeSkillCheck);
         private void DoMakeSkillCheck(object parameter)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -3504,18 +2765,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region MakeSavingThrow
-        private RelayCommand _MakeSavingThrow;
-        public ICommand MakeSavingThrow
-        {
-            get
-            {
-                if (_MakeSavingThrow == null)
-                {
-                    _MakeSavingThrow = new RelayCommand(DoMakeSavingThrow);
-                }
-                return _MakeSavingThrow;
-            }
-        }
+        public ICommand MakeSavingThrow => new RelayCommand(DoMakeSavingThrow);
         private void DoMakeSavingThrow(object parameter)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -3570,18 +2820,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region MakeAttributeCheck
-        private RelayCommand _MakeAttributeCheck;
-        public ICommand MakeAttributeCheck
-        {
-            get
-            {
-                if (_MakeAttributeCheck == null)
-                {
-                    _MakeAttributeCheck = new RelayCommand(DoMakeAttributeCheck);
-                }
-                return _MakeAttributeCheck;
-            }
-        }
+        public ICommand MakeAttributeCheck => new RelayCommand(DoMakeAttributeCheck);
         private void DoMakeAttributeCheck(object parameter)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -3640,21 +2879,9 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollLoot
-        private RelayCommand _RollLoot;
-        public ICommand RollLoot
-        {
-            get
-            {
-                if (_RollLoot == null)
-                {
-                    _RollLoot = new RelayCommand(param => DoRollLoot());
-                }
-                return _RollLoot;
-            }
-        }
+        public ICommand RollLoot => new RelayCommand(param => DoRollLoot());
         private void DoRollLoot()
         {
-
             if (HasBeenLooted)
             {
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
@@ -3692,18 +2919,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region TestLootRoll
-        private RelayCommand _TestLootRoll;
-        public ICommand TestLootRoll
-        {
-            get
-            {
-                if (_TestLootRoll == null)
-                {
-                    _TestLootRoll = new RelayCommand(param => DoTestLootRoll());
-                }
-                return _TestLootRoll;
-            }
-        }
+        public ICommand TestLootRoll => new RelayCommand(param => DoTestLootRoll());
         private void DoTestLootRoll()
         {
             string message = "Loot found on " + Name + ": ";
@@ -3725,13 +2941,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region DuplicateCreature
-        public ICommand DuplicateCreature
-        {
-            get
-            {
-                return new RelayCommand(param => DoDuplicateCreature());
-            }
-        }
+        public ICommand DuplicateCreature => new RelayCommand(param => DoDuplicateCreature());
         private void DoDuplicateCreature()
         {
             CreatureModel duplicate = HelperMethods.DeepClone(this);
@@ -3743,36 +2953,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region ToggleEnemyAlly
-        private RelayCommand _ToggleEnemyAlly;
-        public ICommand ToggleEnemyAlly
-        {
-            get
-            {
-                if (_ToggleEnemyAlly == null)
-                {
-                    _ToggleEnemyAlly = new RelayCommand(param => DoToggleEnemyAlly());
-                }
-                return _ToggleEnemyAlly;
-            }
-        }
+        public ICommand ToggleEnemyAlly => new RelayCommand(param => DoToggleEnemyAlly());
         private void DoToggleEnemyAlly()
         {
             IsAlly = !IsAlly;
         }
         #endregion
         #region ToggleNpc
-        private RelayCommand _ToggleNpc;
-        public ICommand ToggleNpc
-        {
-            get
-            {
-                if (_ToggleNpc == null)
-                {
-                    _ToggleNpc = new RelayCommand(param => DoToggleNpc());
-                }
-                return _ToggleNpc;
-            }
-        }
+        public ICommand ToggleNpc => new RelayCommand(param => DoToggleNpc());
         private void DoToggleNpc()
         {
             IsNpc = !IsNpc;
@@ -3780,73 +2968,28 @@ namespace GAMMA.Models
         }
         #endregion
         #region ToggleOoc
-        private RelayCommand _ToggleOoc;
-        public ICommand ToggleOoc
-        {
-            get
-            {
-                if (_ToggleOoc == null)
-                {
-                    _ToggleOoc = new RelayCommand(param => DoToggleOoc());
-                }
-                return _ToggleOoc;
-            }
-        }
+        public ICommand ToggleOoc => new RelayCommand(param => DoToggleOoc());
         private void DoToggleOoc()
         {
             IsOoc = !IsOoc;
-            // Configuration.MainModelRef.TrackerView.SortCombatants();
         }
         #endregion
         #region SortTraits
-        private RelayCommand _SortTraits;
-        public ICommand SortTraits
-        {
-            get
-            {
-                if (_SortTraits == null)
-                {
-                    _SortTraits = new RelayCommand(param => DoSortTraits());
-                }
-                return _SortTraits;
-            }
-        }
+        public ICommand SortTraits => new RelayCommand(param => DoSortTraits());
         private void DoSortTraits()
         {
-            Traits = new ObservableCollection<TraitModel>(Traits.OrderBy(trait => trait.Name));
+            Traits = new(Traits.OrderBy(trait => trait.Name));
         }
         #endregion
         #region ToggleActiveCombatant
-        private RelayCommand _ToggleActiveCombatant;
-        public ICommand ToggleActiveCombatant
-        {
-            get
-            {
-                if (_ToggleActiveCombatant == null)
-                {
-                    _ToggleActiveCombatant = new RelayCommand(param => DoToggleActiveCombatant());
-                }
-                return _ToggleActiveCombatant;
-            }
-        }
+        public ICommand ToggleActiveCombatant => new RelayCommand(param => DoToggleActiveCombatant());
         private void DoToggleActiveCombatant()
         {
             IsActive = !IsActive;
         }
         #endregion
         #region PerformTamingSession
-        private RelayCommand _PerformTamingSession;
-        public ICommand PerformTamingSession
-        {
-            get
-            {
-                if (_PerformTamingSession == null)
-                {
-                    _PerformTamingSession = new RelayCommand(DoPerformTamingSession);
-                }
-                return _PerformTamingSession;
-            }
-        }
+        public ICommand PerformTamingSession => new RelayCommand(DoPerformTamingSession);
         private void DoPerformTamingSession(object adv)
         {
             if (adv == null) { adv = ""; }
@@ -4455,8 +3598,6 @@ namespace GAMMA.Models
             }
             return false;
         }
-
-
 
     }
 }

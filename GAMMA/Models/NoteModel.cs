@@ -2,7 +2,6 @@
 using GAMMA.Windows;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -28,10 +27,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Category
         {
-            get
-            {
-                return _Category;
-            }
+            get => _Category;
             set
             {
                 _Category = value;
@@ -53,15 +49,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Header
         {
-            get
-            {
-                return _Header;
-            }
-            set
-            {
-                _Header = value;
-                NotifyPropertyChanged();
-            }
+            get => _Header;
+            set => SetAndNotify(ref _Header, value);
         }
         #endregion
         #region Content
@@ -69,15 +58,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Content
         {
-            get
-            {
-                return _Content;
-            }
-            set
-            {
-                _Content = value;
-                NotifyPropertyChanged();
-            }
+            get => _Content;
+            set => SetAndNotify(ref _Content, value);
         }
         #endregion
         #region SubNotes
@@ -85,60 +67,32 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NoteModel> SubNotes
         {
-            get
-            {
-                return _SubNotes;
-            }
-            set
-            {
-                _SubNotes = value;
-                NotifyPropertyChanged();
-            }
+            get => _SubNotes;
+            set => SetAndNotify(ref _SubNotes, value);
         }
         #endregion
         #region IsExpanded
         private bool _IsExpanded;
         public bool IsExpanded
         {
-            get
-            {
-                return _IsExpanded;
-            }
-            set
-            {
-                _IsExpanded = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsExpanded;
+            set => SetAndNotify(ref _IsExpanded, value);
         }
         #endregion
         #region IsSelected
         private bool _IsSelected;
         public bool IsSelected
         {
-            get
-            {
-                return _IsSelected;
-            }
-            set
-            {
-                _IsSelected = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsSelected;
+            set => SetAndNotify(ref _IsSelected, value);
         }
         #endregion
         #region IsSearchMatch
         private bool _IsSearchMatch;
         public bool IsSearchMatch
         {
-            get
-            {
-                return _IsSearchMatch;
-            }
-            set
-            {
-                _IsSearchMatch = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsSearchMatch;
+            set => SetAndNotify(ref _IsSearchMatch, value);
         }
         #endregion
         #region AttachmentFileName
@@ -146,32 +100,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string AttachmentFileName
         {
-            get
-            {
-                return _AttachmentFileName;
-            }
-            set
-            {
-                _AttachmentFileName = value;
-                NotifyPropertyChanged();
-            }
+            get => _AttachmentFileName;
+            set => SetAndNotify(ref _AttachmentFileName, value);
         }
         #endregion
 
         // Commands
         #region AddSubNote
-        private RelayCommand _AddSubNote;
-        public ICommand AddSubNote
-        {
-            get
-            {
-                if (_AddSubNote == null)
-                {
-                    _AddSubNote = new RelayCommand(param => DoAddSubNote());
-                }
-                return _AddSubNote;
-            }
-        }
+        public ICommand AddSubNote => new RelayCommand(param => DoAddSubNote());
         private void DoAddSubNote()
         {
             IsExpanded = true;
@@ -188,18 +124,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region DeleteNote
-        private RelayCommand _DeleteNote;
-        public ICommand DeleteNote
-        {
-            get
-            {
-                if (_DeleteNote == null)
-                {
-                    _DeleteNote = new RelayCommand(param => DoDeleteNote());
-                }
-                return _DeleteNote;
-            }
-        }
+        public ICommand DeleteNote => new RelayCommand(param => DoDeleteNote());
         private void DoDeleteNote()
         {
             if (this.SubNotes.Count > 0)
@@ -227,36 +152,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region CopyNote
-        private RelayCommand _CopyNote;
-        public ICommand CopyNote
-        {
-            get
-            {
-                if (_CopyNote == null)
-                {
-                    _CopyNote = new RelayCommand(param => DoCopyNote());
-                }
-                return _CopyNote;
-            }
-        }
+        public ICommand CopyNote => new RelayCommand(param => DoCopyNote());
         private void DoCopyNote()
         {
             Configuration.CopiedNote = HelperMethods.DeepClone(this);
         }
         #endregion
         #region PasteNote
-        private RelayCommand _PasteNote;
-        public ICommand PasteNote
-        {
-            get
-            {
-                if (_PasteNote == null)
-                {
-                    _PasteNote = new RelayCommand(param => DoPasteNote());
-                }
-                return _PasteNote;
-            }
-        }
+        public ICommand PasteNote => new RelayCommand(param => DoPasteNote());
         private void DoPasteNote()
         {
             if (Configuration.CopiedNote == null) { return; }
@@ -266,18 +169,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SelectAttachment
-        private RelayCommand _SelectAttachment;
-        public ICommand SelectAttachment
-        {
-            get
-            {
-                if (_SelectAttachment == null)
-                {
-                    _SelectAttachment = new RelayCommand(param => DoSelectAttachment());
-                }
-                return _SelectAttachment;
-            }
-        }
+        public ICommand SelectAttachment => new RelayCommand(param => DoSelectAttachment());
         private void DoSelectAttachment()
         {
             OpenFileDialog openWindow = new()
@@ -313,18 +205,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ViewAttachment
-        private RelayCommand _ViewAttachment;
-        public ICommand ViewAttachment
-        {
-            get
-            {
-                if (_ViewAttachment == null)
-                {
-                    _ViewAttachment = new RelayCommand(param => DoViewAttachment());
-                }
-                return _ViewAttachment;
-            }
-        }
+        public ICommand ViewAttachment => new RelayCommand(param => DoViewAttachment());
         private void DoViewAttachment()
         {
             try
@@ -343,18 +224,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveAttachment
-        private RelayCommand _RemoveAttachment;
-        public ICommand RemoveAttachment
-        {
-            get
-            {
-                if (_RemoveAttachment == null)
-                {
-                    _RemoveAttachment = new RelayCommand(param => DoRemoveAttachment());
-                }
-                return _RemoveAttachment;
-            }
-        }
+        public ICommand RemoveAttachment => new RelayCommand(param => DoRemoveAttachment());
         private void DoRemoveAttachment()
         {
             try

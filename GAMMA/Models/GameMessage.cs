@@ -23,15 +23,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string MessageType
         {
-            get
-            {
-                return _MessageType;
-            }
-            set
-            {
-                _MessageType = value;
-                NotifyPropertyChanged();
-            }
+            get => _MessageType;
+            set => SetAndNotify(ref _MessageType, value);
         }
         #endregion
         #region MessageContent
@@ -39,32 +32,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string MessageContent
         {
-            get
-            {
-                return _MessageContent;
-            }
-            set
-            {
-                _MessageContent = value;
-                NotifyPropertyChanged();
-            }
+            get => _MessageContent;
+            set => SetAndNotify(ref _MessageContent, value);
         }
         #endregion
 
         // Commands
         #region RemoveMessage
-        private RelayCommand _RemoveMessage;
-        public ICommand RemoveMessage
-        {
-            get
-            {
-                if (_RemoveMessage == null)
-                {
-                    _RemoveMessage = new RelayCommand(DoRemoveMessage);
-                }
-                return _RemoveMessage;
-            }
-        }
+        public ICommand RemoveMessage => new RelayCommand(DoRemoveMessage);
         private void DoRemoveMessage(object param)
         {
             if (param == null) { return; }
@@ -72,10 +47,6 @@ namespace GAMMA.Models
             if (param.ToString() == "Character") { Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Messages.Remove(this); }
         }
         #endregion
-
-        // Public Methods
-
-        // Private Methods
 
     }
 }
