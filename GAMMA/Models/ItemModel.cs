@@ -30,10 +30,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
+            get => _Type;
             set
             {
                 _Type = value;
@@ -64,15 +61,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Sourcebook
@@ -80,15 +70,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
         #region Quantity
@@ -96,10 +79,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
-            get
-            {
-                return _Quantity;
-            }
+            get => _Quantity;
             set
             {
                 _Quantity = value;
@@ -113,10 +93,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public decimal Weight
         {
-            get
-            {
-                return _Weight;
-            }
+            get => _Weight;
             set
             {
                 _Weight = value;
@@ -130,10 +107,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int RawValue
         {
-            get
-            {
-                return _RawValue;
-            }
+            get => _RawValue;
             set
             {
                 _RawValue = value;
@@ -146,15 +120,8 @@ namespace GAMMA.Models
         private string _ProcessedValue;
         public string ProcessedValue
         {
-            get
-            {
-                return _ProcessedValue;
-            }
-            set
-            {
-                _ProcessedValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedValue;
+            set => SetAndNotify(ref _ProcessedValue, value);
         }
         #endregion
         #region Description
@@ -162,15 +129,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region Lore
@@ -178,30 +138,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Lore
         {
-            get
-            {
-                return _Lore;
-            }
-            set
-            {
-                _Lore = value;
-                NotifyPropertyChanged();
-            }
+            get => _Lore;
+            set => SetAndNotify(ref _Lore, value);
         }
         #endregion
         #region InEditMode
         private bool _InEditMode;
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
         #region DropChance
@@ -209,15 +155,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DropChance
         {
-            get
-            {
-                return _DropChance;
-            }
-            set
-            {
-                _DropChance = value;
-                NotifyPropertyChanged();
-            }
+            get => _DropChance;
+            set => SetAndNotify(ref _DropChance, value);
         }
         #endregion
         #region IsCraftable
@@ -225,15 +164,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsCraftable
         {
-            get
-            {
-                return _IsCraftable;
-            }
-            set
-            {
-                _IsCraftable = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsCraftable;
+            set => SetAndNotify(ref _IsCraftable, value);
         }
         #endregion
         #region CanDismantle
@@ -241,15 +173,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool CanDismantle
         {
-            get
-            {
-                return _CanDismantle;
-            }
-            set
-            {
-                _CanDismantle = value;
-                NotifyPropertyChanged();
-            }
+            get => _CanDismantle;
+            set => SetAndNotify(ref _CanDismantle, value);
         }
         #endregion
         #region CreatableThroughEnchanting
@@ -257,15 +182,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool CreatableThroughEnchanting
         {
-            get
-            {
-                return _CreatableThroughEnchanting;
-            }
-            set
-            {
-                _CreatableThroughEnchanting = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatableThroughEnchanting;
+            set => SetAndNotify(ref _CreatableThroughEnchanting, value);
         }
         #endregion
         #region CraftingToolkit
@@ -273,15 +191,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string CraftingToolkit
         {
-            get
-            {
-                return _CraftingToolkit;
-            }
-            set
-            {
-                _CraftingToolkit = value;
-                NotifyPropertyChanged();
-            }
+            get => _CraftingToolkit;
+            set => SetAndNotify(ref _CraftingToolkit, value);
         }
         #endregion
         #region EnchantingBaseItem
@@ -289,15 +200,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string EnchantingBaseItem
         {
-            get
-            {
-                return _EnchantingBaseItem;
-            }
-            set
-            {
-                _EnchantingBaseItem = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnchantingBaseItem;
+            set => SetAndNotify(ref _EnchantingBaseItem, value);
         }
         #endregion
         #region CraftingComponents
@@ -305,15 +209,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> CraftingComponents
         {
-            get
-            {
-                return _CraftingComponents;
-            }
-            set
-            {
-                _CraftingComponents = value;
-                NotifyPropertyChanged();
-            }
+            get => _CraftingComponents;
+            set => SetAndNotify(ref _CraftingComponents, value);
         }
         #endregion
         #region AcquiredComponents
@@ -321,15 +218,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> AcquiredComponents
         {
-            get
-            {
-                return _AcquiredComponents;
-            }
-            set
-            {
-                _AcquiredComponents = value;
-                NotifyPropertyChanged();
-            }
+            get => _AcquiredComponents;
+            set => SetAndNotify(ref _AcquiredComponents, value);
         }
         #endregion
         #region EnchantingRunes
@@ -337,15 +227,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> EnchantingRunes
         {
-            get
-            {
-                return _EnchantingRunes;
-            }
-            set
-            {
-                _EnchantingRunes = value;
-                NotifyPropertyChanged();
-            }
+            get => _EnchantingRunes;
+            set => SetAndNotify(ref _EnchantingRunes, value);
         }
         #endregion
         #region CraftingProgress
@@ -353,45 +236,24 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CraftingProgress
         {
-            get
-            {
-                return _CraftingProgress;
-            }
-            set
-            {
-                _CraftingProgress = value;
-                NotifyPropertyChanged();
-            }
+            get => _CraftingProgress;
+            set => SetAndNotify(ref _CraftingProgress, value);
         }
         #endregion
         #region IsCraftingMenuOpen
         private bool _IsCraftingMenuOpen;
         public bool IsCraftingMenuOpen
         {
-            get
-            {
-                return _IsCraftingMenuOpen;
-            }
-            set
-            {
-                _IsCraftingMenuOpen = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsCraftingMenuOpen;
+            set => SetAndNotify(ref _IsCraftingMenuOpen, value);
         }
         #endregion
         #region IsEnchantingMenuOpen
         private bool _IsEnchantingMenuOpen;
         public bool IsEnchantingMenuOpen
         {
-            get
-            {
-                return _IsEnchantingMenuOpen;
-            }
-            set
-            {
-                _IsEnchantingMenuOpen = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsEnchantingMenuOpen;
+            set => SetAndNotify(ref _IsEnchantingMenuOpen, value);
         }
         #endregion
         #region Environment
@@ -399,15 +261,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Environment
         {
-            get
-            {
-                return _Environment;
-            }
-            set
-            {
-                _Environment = value;
-                NotifyPropertyChanged();
-            }
+            get => _Environment;
+            set => SetAndNotify(ref _Environment, value);
         }
         #endregion
         #region CraftingDifficulty
@@ -415,15 +270,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CraftingDifficulty
         {
-            get
-            {
-                return _CraftingDifficulty;
-            }
-            set
-            {
-                _CraftingDifficulty = value;
-                NotifyPropertyChanged();
-            }
+            get => _CraftingDifficulty;
+            set => SetAndNotify(ref _CraftingDifficulty, value);
         }
         #endregion
         #region QuantityCrafted
@@ -431,15 +279,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int QuantityCrafted
         {
-            get
-            {
-                return _QuantityCrafted;
-            }
-            set
-            {
-                _QuantityCrafted = value;
-                NotifyPropertyChanged();
-            }
+            get => _QuantityCrafted;
+            set => SetAndNotify(ref _QuantityCrafted, value);
         }
         #endregion
         #region IsCustomItem
@@ -447,15 +288,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsCustomItem
         {
-            get
-            {
-                return _IsCustomItem;
-            }
-            set
-            {
-                _IsCustomItem = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsCustomItem;
+            set => SetAndNotify(ref _IsCustomItem, value);
         }
         #endregion
         #region IsValidated
@@ -463,75 +297,40 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region ShowCraftingSections
         private bool _ShowCraftingSections;
         public bool ShowCraftingSections
         {
-            get
-            {
-                return _ShowCraftingSections;
-            }
-            set
-            {
-                _ShowCraftingSections = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowCraftingSections;
+            set => SetAndNotify(ref _ShowCraftingSections, value);
         }
         #endregion
         #region ShowVolume
         private bool _ShowVolume;
         public bool ShowVolume
         {
-            get
-            {
-                return _ShowVolume;
-            }
-            set
-            {
-                _ShowVolume = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowVolume;
+            set => SetAndNotify(ref _ShowVolume, value);
         }
         #endregion
         #region ShowDrinkButton
         private bool _ShowDrinkButton;
         public bool ShowDrinkButton
         {
-            get
-            {
-                return _ShowDrinkButton;
-            }
-            set
-            {
-                _ShowDrinkButton = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowDrinkButton;
+            set => SetAndNotify(ref _ShowDrinkButton, value);
         }
         #endregion
         #region ShowAlcoholPercentage
         private bool _ShowAlcoholPercentage;
         public bool ShowAlcoholPercentage
         {
-            get
-            {
-                return _ShowAlcoholPercentage;
-            }
-            set
-            {
-                _ShowAlcoholPercentage = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowAlcoholPercentage;
+            set => SetAndNotify(ref _ShowAlcoholPercentage, value);
         }
         #endregion
         #region AlcoholPercentage
@@ -539,10 +338,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int AlcoholPercentage
         {
-            get
-            {
-                return _AlcoholPercentage;
-            }
+            get => _AlcoholPercentage;
             set
             {
                 _AlcoholPercentage = value;
@@ -555,15 +351,8 @@ namespace GAMMA.Models
         private int _AlcoholDc;
         public int AlcoholDc
         {
-            get
-            {
-                return _AlcoholDc;
-            }
-            set
-            {
-                _AlcoholDc = value;
-                NotifyPropertyChanged();
-            }
+            get => _AlcoholDc;
+            set => SetAndNotify(ref _AlcoholDc, value);
         }
         #endregion
         #region VolumeSize
@@ -571,10 +360,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string VolumeSize
         {
-            get
-            {
-                return _VolumeSize;
-            }
+            get => _VolumeSize;
             set
             {
                 _VolumeSize = value;
@@ -608,15 +394,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CurrentVolume
         {
-            get
-            {
-                return _CurrentVolume;
-            }
-            set
-            {
-                _CurrentVolume = value;
-                NotifyPropertyChanged();
-            }
+            get => _CurrentVolume;
+            set => SetAndNotify(ref _CurrentVolume, value);
         }
         #endregion
         #region MaxVolume
@@ -624,15 +403,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int MaxVolume
         {
-            get
-            {
-                return _MaxVolume;
-            }
-            set
-            {
-                _MaxVolume = value;
-                NotifyPropertyChanged();
-            }
+            get => _MaxVolume;
+            set => SetAndNotify(ref _MaxVolume, value);
         }
         #endregion
         #region DrinkVolStr
@@ -640,10 +412,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DrinkVolStr
         {
-            get
-            {
-                return _DrinkVolStr;
-            }
+            get => _DrinkVolStr;
             set
             {
                 _DrinkVolStr = value;
@@ -661,30 +430,16 @@ namespace GAMMA.Models
         private int _DrinkVolume;
         public int DrinkVolume
         {
-            get
-            {
-                return _DrinkVolume;
-            }
-            set
-            {
-                _DrinkVolume = value;
-                NotifyPropertyChanged();
-            }
+            get => _DrinkVolume;
+            set => SetAndNotify(ref _DrinkVolume, value);
         }
         #endregion
         #region ShowFishing
         private bool _ShowFishing;
         public bool ShowFishing
         {
-            get
-            {
-                return _ShowFishing;
-            }
-            set
-            {
-                _ShowFishing = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowFishing;
+            set => SetAndNotify(ref _ShowFishing, value);
         }
         #endregion
         #region FishingEnvironment
@@ -692,15 +447,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string FishingEnvironment
         {
-            get
-            {
-                return _FishingEnvironment;
-            }
-            set
-            {
-                _FishingEnvironment = value;
-                NotifyPropertyChanged();
-            }
+            get => _FishingEnvironment;
+            set => SetAndNotify(ref _FishingEnvironment, value);
         }
         #endregion
         #region Rarity
@@ -708,10 +456,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Rarity
         {
-            get
-            {
-                return _Rarity;
-            }
+            get => _Rarity;
             set
             {
                 _Rarity = value;
@@ -724,50 +469,26 @@ namespace GAMMA.Models
 
         #region ShowEquipButton_Hand
         private bool _ShowEquipButton_Hand;
-        
         public bool ShowEquipButton_Hand
         {
-            get
-            {
-                return _ShowEquipButton_Hand;
-            }
-            set
-            {
-                _ShowEquipButton_Hand = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowEquipButton_Hand;
+            set => SetAndNotify(ref _ShowEquipButton_Hand, value);
         }
         #endregion
         #region ShowEquipButton_Armor
         private bool _ShowEquipButton_Armor;
-        
         public bool ShowEquipButton_Armor
         {
-            get
-            {
-                return _ShowEquipButton_Armor;
-            }
-            set
-            {
-                _ShowEquipButton_Armor = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowEquipButton_Armor;
+            set => SetAndNotify(ref _ShowEquipButton_Armor, value);
         }
         #endregion
         #region ShowEquipButton_Accessory
         private bool _ShowEquipButton_Accessory;
-        
         public bool ShowEquipButton_Accessory
         {
-            get
-            {
-                return _ShowEquipButton_Accessory;
-            }
-            set
-            {
-                _ShowEquipButton_Accessory = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowEquipButton_Accessory;
+            set => SetAndNotify(ref _ShowEquipButton_Accessory, value);
         }
         #endregion
 
@@ -777,15 +498,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsMagic
         {
-            get
-            {
-                return _IsMagic;
-            }
-            set
-            {
-                _IsMagic = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsMagic;
+            set => SetAndNotify(ref _IsMagic, value);
         }
         #endregion
         #region RequiresAttunement
@@ -793,15 +507,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresAttunement
         {
-            get
-            {
-                return _RequiresAttunement;
-            }
-            set
-            {
-                _RequiresAttunement = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresAttunement;
+            set => SetAndNotify(ref _RequiresAttunement, value);
         }
         #endregion
         #region StatChanges
@@ -809,33 +516,18 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<LabeledNumber> StatChanges
         {
-            get
-            {
-                return _StatChanges;
-            }
-            set
-            {
-                _StatChanges = value;
-                NotifyPropertyChanged();
-            }
+            get => _StatChanges;
+            set => SetAndNotify(ref _StatChanges, value);
         }
         #endregion
 
         // Databound Properties - Armor Information
         #region ShowArmorInformation
         private bool _ShowArmorInformation;
-        
         public bool ShowArmorInformation
         {
-            get
-            {
-                return _ShowArmorInformation;
-            }
-            set
-            {
-                _ShowArmorInformation = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowArmorInformation;
+            set => SetAndNotify(ref _ShowArmorInformation, value);
         }
         #endregion
         #region BaseArmorClass
@@ -843,15 +535,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int BaseArmorClass
         {
-            get
-            {
-                return _BaseArmorClass;
-            }
-            set
-            {
-                _BaseArmorClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _BaseArmorClass;
+            set => SetAndNotify(ref _BaseArmorClass, value);
         }
         #endregion
         #region StrengthRequirement
@@ -859,15 +544,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int StrengthRequirement
         {
-            get
-            {
-                return _StrengthRequirement;
-            }
-            set
-            {
-                _StrengthRequirement = value;
-                NotifyPropertyChanged();
-            }
+            get => _StrengthRequirement;
+            set => SetAndNotify(ref _StrengthRequirement, value);
         }
         #endregion
         #region GivesStealthDisadvantage
@@ -875,33 +553,18 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool GivesStealthDisadvantage
         {
-            get
-            {
-                return _GivesStealthDisadvantage;
-            }
-            set
-            {
-                _GivesStealthDisadvantage = value;
-                NotifyPropertyChanged();
-            }
+            get => _GivesStealthDisadvantage;
+            set => SetAndNotify(ref _GivesStealthDisadvantage, value);
         }
         #endregion
 
         // Databound Properties - Weapon Information
         #region ShowWeaponInformation
         private bool _ShowWeaponInformation;
-        
         public bool ShowWeaponInformation
         {
-            get
-            {
-                return _ShowWeaponInformation;
-            }
-            set
-            {
-                _ShowWeaponInformation = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowWeaponInformation;
+            set => SetAndNotify(ref _ShowWeaponInformation, value);
         }
         #endregion
         #region DamageDiceQuantity
@@ -909,15 +572,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DamageDiceQuantity
         {
-            get
-            {
-                return _DamageDiceQuantity;
-            }
-            set
-            {
-                _DamageDiceQuantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageDiceQuantity;
+            set => SetAndNotify(ref _DamageDiceQuantity, value);
         }
         #endregion
         #region DamageDiceQuality
@@ -925,15 +581,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DamageDiceQuality
         {
-            get
-            {
-                return _DamageDiceQuality;
-            }
-            set
-            {
-                _DamageDiceQuality = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageDiceQuality;
+            set => SetAndNotify(ref _DamageDiceQuality, value);
         }
         #endregion
         #region DamageType
@@ -941,15 +590,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string DamageType
         {
-            get
-            {
-                return _DamageType;
-            }
-            set
-            {
-                _DamageType = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageType;
+            set => SetAndNotify(ref _DamageType, value);
         }
         #endregion
         #region RequiresAmmunition
@@ -957,15 +599,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresAmmunition
         {
-            get
-            {
-                return _RequiresAmmunition;
-            }
-            set
-            {
-                _RequiresAmmunition = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresAmmunition;
+            set => SetAndNotify(ref _RequiresAmmunition, value);
         }
         #endregion
         #region IsFinesse
@@ -973,15 +608,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsFinesse
         {
-            get
-            {
-                return _IsFinesse;
-            }
-            set
-            {
-                _IsFinesse = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsFinesse;
+            set => SetAndNotify(ref _IsFinesse, value);
         }
         #endregion
         #region IsHeavy
@@ -989,15 +617,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsHeavy
         {
-            get
-            {
-                return _IsHeavy;
-            }
-            set
-            {
-                _IsHeavy = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsHeavy;
+            set => SetAndNotify(ref _IsHeavy, value);
         }
         #endregion
         #region IsLight
@@ -1005,15 +626,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsLight
         {
-            get
-            {
-                return _IsLight;
-            }
-            set
-            {
-                _IsLight = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsLight;
+            set => SetAndNotify(ref _IsLight, value);
         }
         #endregion
         #region IsLoading
@@ -1021,15 +635,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsLoading
         {
-            get
-            {
-                return _IsLoading;
-            }
-            set
-            {
-                _IsLoading = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsLoading;
+            set => SetAndNotify(ref _IsLoading, value);
         }
         #endregion
         #region HasRange
@@ -1037,15 +644,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasRange
         {
-            get
-            {
-                return _HasRange;
-            }
-            set
-            {
-                _HasRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasRange;
+            set => SetAndNotify(ref _HasRange, value);
         }
         #endregion
         #region NormalRange
@@ -1053,15 +653,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int NormalRange
         {
-            get
-            {
-                return _NormalRange;
-            }
-            set
-            {
-                _NormalRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _NormalRange;
+            set => SetAndNotify(ref _NormalRange, value);
         }
         #endregion
         #region LongRange
@@ -1069,15 +662,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LongRange
         {
-            get
-            {
-                return _LongRange;
-            }
-            set
-            {
-                _LongRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _LongRange;
+            set => SetAndNotify(ref _LongRange, value);
         }
         #endregion
         #region HasReach
@@ -1085,15 +671,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasReach
         {
-            get
-            {
-                return _HasReach;
-            }
-            set
-            {
-                _HasReach = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasReach;
+            set => SetAndNotify(ref _HasReach, value);
         }
         #endregion
         #region CanBeThrown
@@ -1101,15 +680,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool CanBeThrown
         {
-            get
-            {
-                return _CanBeThrown;
-            }
-            set
-            {
-                _CanBeThrown = value;
-                NotifyPropertyChanged();
-            }
+            get => _CanBeThrown;
+            set => SetAndNotify(ref _CanBeThrown, value);
         }
         #endregion
         #region NormalThrowRange
@@ -1117,15 +689,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int NormalThrowRange
         {
-            get
-            {
-                return _NormalThrowRange;
-            }
-            set
-            {
-                _NormalThrowRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _NormalThrowRange;
+            set => SetAndNotify(ref _NormalThrowRange, value);
         }
         #endregion
         #region LongThrowRange
@@ -1133,15 +698,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LongThrowRange
         {
-            get
-            {
-                return _LongThrowRange;
-            }
-            set
-            {
-                _LongThrowRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _LongThrowRange;
+            set => SetAndNotify(ref _LongThrowRange, value);
         }
         #endregion
         #region IsTwoHanded
@@ -1149,15 +707,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsTwoHanded
         {
-            get
-            {
-                return _IsTwoHanded;
-            }
-            set
-            {
-                _IsTwoHanded = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsTwoHanded;
+            set => SetAndNotify(ref _IsTwoHanded, value);
         }
         #endregion
         #region IsVersatile
@@ -1165,15 +716,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsVersatile
         {
-            get
-            {
-                return _IsVersatile;
-            }
-            set
-            {
-                _IsVersatile = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsVersatile;
+            set => SetAndNotify(ref _IsVersatile, value);
         }
         #endregion
         #region VersatileDiceQuantity
@@ -1181,15 +725,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int VersatileDiceQuantity
         {
-            get
-            {
-                return _VersatileDiceQuantity;
-            }
-            set
-            {
-                _VersatileDiceQuantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _VersatileDiceQuantity;
+            set => SetAndNotify(ref _VersatileDiceQuantity, value);
         }
         #endregion
         #region VersatileDiceQuality
@@ -1197,15 +734,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int VersatileDiceQuality
         {
-            get
-            {
-                return _VersatileDiceQuality;
-            }
-            set
-            {
-                _VersatileDiceQuality = value;
-                NotifyPropertyChanged();
-            }
+            get => _VersatileDiceQuality;
+            set => SetAndNotify(ref _VersatileDiceQuality, value);
         }
         #endregion
         #region HitDamageBonus
@@ -1213,15 +743,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HitDamageBonus
         {
-            get
-            {
-                return _HitDamageBonus;
-            }
-            set
-            {
-                _HitDamageBonus = value;
-                NotifyPropertyChanged();
-            }
+            get => _HitDamageBonus;
+            set => SetAndNotify(ref _HitDamageBonus, value);
         }
         #endregion
 
@@ -1230,27 +753,14 @@ namespace GAMMA.Models
         private List<string> _ItemTypes;
         public List<string> ItemTypes
         {
-            get
-            {
-                return _ItemTypes;
-            }
-            set
-            {
-                _ItemTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemTypes;
+            set => SetAndNotify(ref _ItemTypes, value);
         }
         #endregion
 
         // Commands
         #region DuplicateItem
-        public ICommand DuplicateItem
-        {
-            get
-            {
-                return new RelayCommand(param => DoDuplicateItem());
-            }
-        }
+        public ICommand DuplicateItem => new RelayCommand(param => DoDuplicateItem());
         private void DoDuplicateItem()
         {
             ItemModel duplicate = HelperMethods.DeepClone(this);
@@ -1262,13 +772,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region DeleteItem
-        public ICommand DeleteItem
-        {
-            get
-            {
-                return new RelayCommand(param => DoDeleteItem());
-            }
-        }
+        public ICommand DeleteItem => new RelayCommand(param => DoDeleteItem());
         private void DoDeleteItem()
         {
             ItemBuilderViewModel itemBuilder = Configuration.MainModelRef.ItemBuilderView;
@@ -1278,36 +782,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveLootFromBox
-        private RelayCommand _RemoveLootFromBox;
-        public ICommand RemoveLootFromBox
-        {
-            get
-            {
-                if (_RemoveLootFromBox == null)
-                {
-                    _RemoveLootFromBox = new RelayCommand(param => DoRemoveLootFromBox());
-                }
-                return _RemoveLootFromBox;
-            }
-        }
+        public ICommand RemoveLootFromBox => new RelayCommand(param => DoRemoveLootFromBox());
         private void DoRemoveLootFromBox()
         {
             Configuration.MainModelRef.ToolsView.ActiveLootBox.Items.Remove(this);
         }
         #endregion
         #region RemoveItem
-        private RelayCommand _RemoveItem;
-        public ICommand RemoveItem
-        {
-            get
-            {
-                if (_RemoveItem == null)
-                {
-                    _RemoveItem = new RelayCommand(DoRemoveItem);
-                }
-                return _RemoveItem;
-            }
-        }
+        public ICommand RemoveItem => new RelayCommand(DoRemoveItem);
         private void DoRemoveItem(object param)
         {
             if (param == null) { return; }
@@ -1323,23 +805,12 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddCraftingComponent
-        private RelayCommand _AddCraftingComponent;
-        public ICommand AddCraftingComponent
-        {
-            get
-            {
-                if (_AddCraftingComponent == null)
-                {
-                    _AddCraftingComponent = new RelayCommand(param => DoAddCraftingComponent());
-                }
-                return _AddCraftingComponent;
-            }
-        }
+        public ICommand AddCraftingComponent => new RelayCommand(param => DoAddCraftingComponent());
         private void DoAddCraftingComponent()
         {
             if (Configuration.ItemTypes.Contains(Type) == false)
             {
-                new NotificationDialog("Please select a valid item type.").ShowDialog();
+                HelperMethods.NotifyUser("Please select a valid item type.");
                 return;
             }
 
@@ -1372,18 +843,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddAcquiredComponent
-        private RelayCommand _AddAcquiredComponent;
-        public ICommand AddAcquiredComponent
-        {
-            get
-            {
-                if (_AddAcquiredComponent == null)
-                {
-                    _AddAcquiredComponent = new RelayCommand(param => DoAddAcquiredComponent());
-                }
-                return _AddAcquiredComponent;
-            }
-        }
+        public ICommand AddAcquiredComponent => new RelayCommand(param => DoAddAcquiredComponent());
         private void DoAddAcquiredComponent()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Resource").ToList());
@@ -1411,18 +871,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddEnchantingRune
-        private RelayCommand _AddEnchantingRune;
-        public ICommand AddEnchantingRune
-        {
-            get
-            {
-                if (_AddEnchantingRune == null)
-                {
-                    _AddEnchantingRune = new RelayCommand(param => DoAddEnchantingRune());
-                }
-                return _AddEnchantingRune;
-            }
-        }
+        public ICommand AddEnchantingRune => new RelayCommand(param => DoAddEnchantingRune());
         private void DoAddEnchantingRune()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated && item.Type == "Rune").ToList());
@@ -1450,18 +899,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SelectToolkit
-        private RelayCommand _SelectToolkit;
-        public ICommand SelectToolkit
-        {
-            get
-            {
-                if (_SelectToolkit == null)
-                {
-                    _SelectToolkit = new RelayCommand(param => DoSelectToolkit());
-                }
-                return _SelectToolkit;
-            }
-        }
+        public ICommand SelectToolkit => new RelayCommand(param => DoSelectToolkit());
         private void DoSelectToolkit()
         {
             ObjectSelectionDialog itemSelect = new(Configuration.ItemRepository.Where(item => item.Type == "Tool" && item.IsValidated).ToList());
@@ -1474,18 +912,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SetEnchantingBaseItem
-        private RelayCommand _SetEnchantingBaseItem;
-        public ICommand SetEnchantingBaseItem
-        {
-            get
-            {
-                if (_SetEnchantingBaseItem == null)
-                {
-                    _SetEnchantingBaseItem = new RelayCommand(param => DoSetEnchantingBaseItem());
-                }
-                return _SetEnchantingBaseItem;
-            }
-        }
+        public ICommand SetEnchantingBaseItem => new RelayCommand(param => DoSetEnchantingBaseItem());
         private void DoSetEnchantingBaseItem()
         {
             ObjectSelectionDialog itemSelect = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
@@ -1498,90 +925,35 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveCraftingComponent
-        private RelayCommand _RemoveCraftingComponent;
-        public ICommand RemoveCraftingComponent
-        {
-            get
-            {
-                if (_RemoveCraftingComponent == null)
-                {
-                    _RemoveCraftingComponent = new RelayCommand(param => DoRemoveCraftingComponent());
-                }
-                return _RemoveCraftingComponent;
-            }
-        }
+        public ICommand RemoveCraftingComponent => new RelayCommand(param => DoRemoveCraftingComponent());
         private void DoRemoveCraftingComponent()
         {
             Configuration.MainModelRef.ItemBuilderView.ActiveItem.CraftingComponents.Remove(this);
         }
         #endregion
         #region RemoveAcquiredComponent
-        private RelayCommand _RemoveAcquiredComponent;
-        public ICommand RemoveAcquiredComponent
-        {
-            get
-            {
-                if (_RemoveAcquiredComponent == null)
-                {
-                    _RemoveAcquiredComponent = new RelayCommand(param => DoRemoveAcquiredComponent());
-                }
-                return _RemoveAcquiredComponent;
-            }
-        }
+        public ICommand RemoveAcquiredComponent => new RelayCommand(param => DoRemoveAcquiredComponent());
         private void DoRemoveAcquiredComponent()
         {
             Configuration.MainModelRef.ItemBuilderView.ActiveItem.AcquiredComponents.Remove(this);
         }
         #endregion
         #region RemoveEnchantingRune
-        private RelayCommand _RemoveEnchantingRune;
-        public ICommand RemoveEnchantingRune
-        {
-            get
-            {
-                if (_RemoveEnchantingRune == null)
-                {
-                    _RemoveEnchantingRune = new RelayCommand(param => DoRemoveEnchantingRune());
-                }
-                return _RemoveEnchantingRune;
-            }
-        }
+        public ICommand RemoveEnchantingRune => new RelayCommand(param => DoRemoveEnchantingRune());
         private void DoRemoveEnchantingRune()
         {
             Configuration.MainModelRef.ItemBuilderView.ActiveItem.EnchantingRunes.Remove(this);
         }
         #endregion
         #region RemoveConsumedMaterial
-        private RelayCommand _RemoveConsumedMaterial;
-        public ICommand RemoveConsumedMaterial
-        {
-            get
-            {
-                if (_RemoveConsumedMaterial == null)
-                {
-                    _RemoveConsumedMaterial = new RelayCommand(param => DoRemoveConsumedMaterial());
-                }
-                return _RemoveConsumedMaterial;
-            }
-        }
+        public ICommand RemoveConsumedMaterial => new RelayCommand(param => DoRemoveConsumedMaterial());
         private void DoRemoveConsumedMaterial()
         {
             Configuration.MainModelRef.SpellBuilderView.ActiveSpell.ConsumedMaterials.Remove(this);
         }
         #endregion
         #region WorkOnCrafting
-        private RelayCommand _WorkOnCrafting;
-        public ICommand WorkOnCrafting
-        {
-            get
-            {
-                if (_WorkOnCrafting == null)
-                {
-                    _WorkOnCrafting = new RelayCommand(DoWorkOnCrafting);
-                }
-                return _WorkOnCrafting;
-            }
-        }
+        public ICommand WorkOnCrafting => new RelayCommand(DoWorkOnCrafting);
         private void DoWorkOnCrafting(object timePeriod)
         {
             CharacterModel character = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
@@ -1619,7 +991,7 @@ namespace GAMMA.Models
                 character.Inventories[0].AllItems.Add(this);
                 character.Inventories[0].FilteredItems.Add(this);
                 character.CraftingBench.Remove(this);
-                new NotificationDialog(Name + " has been completed and moved to backpack.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
             HelperMethods.AddToPlayerLog(message);
@@ -1629,18 +1001,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region WorkOnEnchanting
-        private RelayCommand _WorkOnEnchanting;
-        public ICommand WorkOnEnchanting
-        {
-            get
-            {
-                if (_WorkOnEnchanting == null)
-                {
-                    _WorkOnEnchanting = new RelayCommand(DoWorkOnEnchanting);
-                }
-                return _WorkOnEnchanting;
-            }
-        }
+        public ICommand WorkOnEnchanting => new RelayCommand(DoWorkOnEnchanting);
         private void DoWorkOnEnchanting(object param)
         {
             bool hasEnchantingTool = false;
@@ -1653,14 +1014,14 @@ namespace GAMMA.Models
 
             if (hasEnchantingTool == false)
             {
-                new NotificationDialog("Missing Imbuing Lens").ShowDialog();
+                HelperMethods.NotifyUser("Missing Imbuing Lens");
                 return;
             }
 
             int spellLevel = Convert.ToInt32(param);
             if (HelperMethods.CheckForSpellSlots(ref character, spellLevel) == false)
             {
-                new NotificationDialog("Insufficient spell slot.").ShowDialog();
+                HelperMethods.NotifyUser("Insufficient spell slot.");
                 return;
             }
 
@@ -1678,7 +1039,7 @@ namespace GAMMA.Models
                 character.Inventories[0].AllItems.Add(itemToAdd);
                 character.Inventories[0].FilteredItems.Add(itemToAdd);
                 character.EnchantingTable.Remove(this);
-                new NotificationDialog(Name + " has been completed and moved to backpack.").ShowDialog();
+                HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
 
@@ -1687,18 +1048,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region DismantleItem
-        private RelayCommand _DismantleItem;
-        public ICommand DismantleItem
-        {
-            get
-            {
-                if (_DismantleItem == null)
-                {
-                    _DismantleItem = new RelayCommand(DoDismantleItem);
-                }
-                return _DismantleItem;
-            }
-        }
+        public ICommand DismantleItem => new RelayCommand(DoDismantleItem);
         private void DoDismantleItem(object param)
         {
             InventoryModel sourceInventory = param as InventoryModel;
@@ -1706,7 +1056,7 @@ namespace GAMMA.Models
 
             if (character.IsInCarriedItems(CraftingToolkit, 1) == false)
             {
-                new NotificationDialog("Missing tool: " + CraftingToolkit).ShowDialog();
+                HelperMethods.NotifyUser("Missing tool: " + CraftingToolkit);
                 return;
             }
 
@@ -1742,18 +1092,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region OfferItemToSell
-        private RelayCommand _OfferItemToSell;
-        public ICommand OfferItemToSell
-        {
-            get
-            {
-                if (_OfferItemToSell == null)
-                {
-                    _OfferItemToSell = new RelayCommand(DoOfferItemToSell);
-                }
-                return _OfferItemToSell;
-            }
-        }
+        public ICommand OfferItemToSell => new RelayCommand(DoOfferItemToSell);
         private void DoOfferItemToSell(object quantity)
         {
             int qty = Convert.ToInt32(quantity);
@@ -1785,18 +1124,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RetractItemToSell
-        private RelayCommand _RetractItemToSell;
-        public ICommand RetractItemToSell
-        {
-            get
-            {
-                if (_RetractItemToSell == null)
-                {
-                    _RetractItemToSell = new RelayCommand(DoRetractItemToSell);
-                }
-                return _RetractItemToSell;
-            }
-        }
+        public ICommand RetractItemToSell => new RelayCommand(DoRetractItemToSell);
         public void DoRetractItemToSell(object quantity)
         {
             int qty = Convert.ToInt32(quantity);
@@ -1824,18 +1152,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region OfferItemToBuy
-        private RelayCommand _OfferItemToBuy;
-        public ICommand OfferItemToBuy
-        {
-            get
-            {
-                if (_OfferItemToBuy == null)
-                {
-                    _OfferItemToBuy = new RelayCommand(DoOfferItemToBuy);
-                }
-                return _OfferItemToBuy;
-            }
-        }
+        public ICommand OfferItemToBuy => new RelayCommand(DoOfferItemToBuy);
         private void DoOfferItemToBuy(object quantity)
         {
             int qty = Convert.ToInt32(quantity);
@@ -1864,18 +1181,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RetractItemToBuy
-        private RelayCommand _RetractItemToBuy;
-        public ICommand RetractItemToBuy
-        {
-            get
-            {
-                if (_RetractItemToBuy == null)
-                {
-                    _RetractItemToBuy = new RelayCommand(DoRetractItemToBuy);
-                }
-                return _RetractItemToBuy;
-            }
-        }
+        public ICommand RetractItemToBuy => new RelayCommand(DoRetractItemToBuy);
         private void DoRetractItemToBuy(object quantity)
         {
             int qty = Convert.ToInt32(quantity);
@@ -1903,18 +1209,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ToolRoll
-        private RelayCommand _ToolRoll;
-        public ICommand ToolRoll
-        {
-            get
-            {
-                if (_ToolRoll == null)
-                {
-                    _ToolRoll = new RelayCommand(DoToolRoll);
-                }
-                return _ToolRoll;
-            }
-        }
+        public ICommand ToolRoll => new RelayCommand(DoToolRoll);
         private void DoToolRoll(object param)
         {
             int toolRoll;
@@ -1946,36 +1241,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveFromPlayerToolProf
-        private RelayCommand _RemoveFromPlayerToolProf;
-        public ICommand RemoveFromPlayerToolProf
-        {
-            get
-            {
-                if (_RemoveFromPlayerToolProf == null)
-                {
-                    _RemoveFromPlayerToolProf = new RelayCommand(param => DoRemoveFromPlayerToolProf());
-                }
-                return _RemoveFromPlayerToolProf;
-            }
-        }
+        public ICommand RemoveFromPlayerToolProf => new RelayCommand(param => DoRemoveFromPlayerToolProf());
         private void DoRemoveFromPlayerToolProf()
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ToolProficiencies.Remove(this);
         }
         #endregion
         #region Drink
-        private RelayCommand _Drink;
-        public ICommand Drink
-        {
-            get
-            {
-                if (_Drink == null)
-                {
-                    _Drink = new RelayCommand(DoDrink);
-                }
-                return _Drink;
-            }
-        }
+        public ICommand Drink => new RelayCommand(DoDrink);
         private void DoDrink(object param)
         {
             if (param == null) { return; }
@@ -2019,36 +1292,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region ResetVolume
-        private RelayCommand _ResetVolume;
-        public ICommand ResetVolume
-        {
-            get
-            {
-                if (_ResetVolume == null)
-                {
-                    _ResetVolume = new RelayCommand(param => DoResetVolume());
-                }
-                return _ResetVolume;
-            }
-        }
+        public ICommand ResetVolume => new RelayCommand(param => DoResetVolume());
         private void DoResetVolume()
         {
             CurrentVolume = MaxVolume;
         }
         #endregion
         #region Transfer
-        private RelayCommand _Transfer;
-        public ICommand Transfer
-        {
-            get
-            {
-                if (_Transfer == null)
-                {
-                    _Transfer = new RelayCommand(DoTransfer);
-                }
-                return _Transfer;
-            }
-        }
+        public ICommand Transfer => new RelayCommand(DoTransfer);
         private void DoTransfer(object param)
         {
             InventoryModel sourceInventory = param as InventoryModel;
@@ -2092,18 +1343,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveFromInventory
-        private RelayCommand _RemoveFromInventory;
-        public ICommand RemoveFromInventory
-        {
-            get
-            {
-                if (_RemoveFromInventory == null)
-                {
-                    _RemoveFromInventory = new RelayCommand(DoRemoveFromInventory);
-                }
-                return _RemoveFromInventory;
-            }
-        }
+        public ICommand RemoveFromInventory => new RelayCommand(DoRemoveFromInventory);
         private void DoRemoveFromInventory(object param)
         {
             if (param == null) { return; }
@@ -2113,18 +1353,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AdjustQuantity
-        private RelayCommand _AdjustQuantity;
-        public ICommand AdjustQuantity
-        {
-            get
-            {
-                if (_AdjustQuantity == null)
-                {
-                    _AdjustQuantity = new RelayCommand(DoAdjustQuantity);
-                }
-                return _AdjustQuantity;
-            }
-        }
+        public ICommand AdjustQuantity => new RelayCommand(DoAdjustQuantity);
         private void DoAdjustQuantity(object param)
         {
             if (param == null) { return; }
@@ -2197,9 +1426,6 @@ namespace GAMMA.Models
         }
         #endregion
 
-        // Public Methods
-        
-
         // Private Methods
         private void UpdateProcessedValue()
         {
@@ -2211,22 +1437,21 @@ namespace GAMMA.Models
             CreatureBuilderViewModel creatureBuilder = Configuration.MainModelRef.CreatureBuilderView;
             CharacterBuilderViewModel characterBuilder = Configuration.MainModelRef.CharacterBuilderView;
             SpellBuilderViewModel spellBuilder = Configuration.MainModelRef.SpellBuilderView;
-            bool foundDependency = false;
-            string message = "Unable to delete " + Name + ".";
+            List<string> foundDependencies = new();
             foreach (ItemModel item in itemBuilder.AllItems)
             {
                 foreach (ItemModel component in item.CraftingComponents)
                 {
-                    if (Name == component.Name) { message += "\nCrafting component for " + item.Name; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Crafting component for " + item.Name); }
                 }
                 foreach (ItemModel component in item.AcquiredComponents)
                 {
-                    if (Name == component.Name) { message += "\nAcquired component from " + item.Name; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Acquired component from " + item.Name); }
                 }
-                if (item.EnchantingBaseItem == Name) { message += "\nEnchanting base item for " + item.Name; foundDependency = true; }
+                if (item.EnchantingBaseItem == Name) { foundDependencies.Add("Enchanting base item for " + item.Name); }
                 foreach (ItemModel component in item.EnchantingRunes)
                 {
-                    if (Name == component.Name) { message += "\nEnchanting rune for " + item.Name + "."; foundDependency = true; }
+                    if (Name == component.Name) { foundDependencies.Add("Enchanting rune for " + item.Name); }
                 }
             }
             foreach (CharacterModel character in characterBuilder.Characters)
@@ -2235,7 +1460,7 @@ namespace GAMMA.Models
                 {
                     foreach (ItemModel item in inventory.AllItems)
                     {
-                        if (Name == item.Name) { message += "\n" + inventory.Name + " item for " + character.Name; foundDependency = true; }
+                        if (Name == item.Name) { foundDependencies.Add(inventory.Name + " inventory of " + character.Name); }
                     }
                 }
             }
@@ -2243,17 +1468,29 @@ namespace GAMMA.Models
             {
                 foreach (ItemModel item in spell.ConsumedMaterials)
                 {
-                    if (Name == item.Name) { message += "\nConsumed material for " + spell.Name; foundDependency = true; }
+                    if (Name == item.Name) { foundDependencies.Add("Consumed material for " + spell.Name); }
                 }
             }
             foreach (LootBoxModel lootBox in Configuration.MainModelRef.ToolsView.LootBoxes)
             {
                 foreach (ItemModel item in lootBox.Items)
                 {
-                    if (Name == item.Name) { message += "\nLoot item for " + lootBox.Name; foundDependency = true; }
+                    if (Name == item.Name) { foundDependencies.Add("Loot item for " + lootBox.Name); }
                 }
             }
-            if (foundDependency) { new NotificationDialog(message).ShowDialog(); return false; }
+            foreach (CreatureModel creature in creatureBuilder.AllCreatures)
+            {
+                foreach (ItemLink item in creature.ItemLinks)
+                {
+                    if (Name == item.Name) { foundDependencies.Add("Loot item for " + creature.Name); }
+                }
+            }
+            if (foundDependencies.Count > 0) 
+            {
+                string message = "Unable to delete " + Name + ":\n" + HelperMethods.GetStringFromList(foundDependencies, "\n");
+                HelperMethods.NotifyUser(message); 
+                return false; 
+            }
             return true;
         }
         private void AdjustVolume(int vol)
@@ -2294,7 +1531,7 @@ namespace GAMMA.Models
                 _ => 8
             };
         }
-        private string GetIntoxicationStatusFromLevel(int toxLevel)
+        private static string GetIntoxicationStatusFromLevel(int toxLevel)
         {
             return toxLevel switch
             {

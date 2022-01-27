@@ -23,15 +23,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Items
@@ -39,15 +32,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> Items
         {
-            get
-            {
-                return _Items;
-            }
-            set
-            {
-                _Items = value;
-                NotifyPropertyChanged();
-            }
+            get => _Items;
+            set => SetAndNotify(ref _Items, value);
         }
         #endregion
         #region ItemLinks
@@ -55,15 +41,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemLink> ItemLinks
         {
-            get
-            {
-                return _ItemLinks;
-            }
-            set
-            {
-                _ItemLinks = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemLinks;
+            set => SetAndNotify(ref _ItemLinks, value);
         }
         #endregion
         #region CoinageMinimum
@@ -71,10 +50,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CoinageMinimum
         {
-            get
-            {
-                return _CoinageMinimum;
-            }
+            get => _CoinageMinimum;
             set
             {
                 _CoinageMinimum = value;
@@ -88,10 +64,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CoinageMaximum
         {
-            get
-            {
-                return _CoinageMaximum;
-            }
+            get => _CoinageMaximum;
             set
             {
                 _CoinageMaximum = value;
@@ -104,47 +77,22 @@ namespace GAMMA.Models
         private string _ProcessedMinimum;
         public string ProcessedMinimum
         {
-            get
-            {
-                return _ProcessedMinimum;
-            }
-            set
-            {
-                _ProcessedMinimum = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedMinimum;
+            set => SetAndNotify(ref _ProcessedMinimum, value);
         }
         #endregion
         #region ProcessedMaximum
         private string _ProcessedMaximum;
         public string ProcessedMaximum
         {
-            get
-            {
-                return _ProcessedMaximum;
-            }
-            set
-            {
-                _ProcessedMaximum = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedMaximum;
+            set => SetAndNotify(ref _ProcessedMaximum, value);
         }
         #endregion
 
         // Commands
         #region AddItem
-        private RelayCommand _AddItem;
-        public ICommand AddItem
-        {
-            get
-            {
-                if (_AddItem == null)
-                {
-                    _AddItem = new RelayCommand(param => DoAddItem());
-                }
-                return _AddItem;
-            }
-        }
+        public ICommand AddItem => new RelayCommand(param => DoAddItem());
         private void DoAddItem()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
@@ -172,18 +120,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddItemLink
-        private RelayCommand _AddItemLink;
-        public ICommand AddItemLink
-        {
-            get
-            {
-                if (_AddItemLink == null)
-                {
-                    _AddItemLink = new RelayCommand(param => DoAddItemLink());
-                }
-                return _AddItemLink;
-            }
-        }
+        public ICommand AddItemLink => new RelayCommand(param => DoAddItemLink());
         private void DoAddItemLink()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());
@@ -209,36 +146,14 @@ namespace GAMMA.Models
         }
         #endregion
         #region DeleteLootBox
-        private RelayCommand _DeleteLootBox;
-        public ICommand DeleteLootBox
-        {
-            get
-            {
-                if (_DeleteLootBox == null)
-                {
-                    _DeleteLootBox = new RelayCommand(param => DoDeleteLootBox());
-                }
-                return _DeleteLootBox;
-            }
-        }
+        public ICommand DeleteLootBox => new RelayCommand(param => DoDeleteLootBox());
         private void DoDeleteLootBox()
         {
             Configuration.MainModelRef.ToolsView.LootBoxes.Remove(this);
         }
         #endregion
         #region RollLoot
-        private RelayCommand _RollLoot;
-        public ICommand RollLoot
-        {
-            get
-            {
-                if (_RollLoot == null)
-                {
-                    _RollLoot = new RelayCommand(param => DoRollLoot());
-                }
-                return _RollLoot;
-            }
-        }
+        public ICommand RollLoot => new RelayCommand(param => DoRollLoot());
         private void DoRollLoot()
         {
             string message = "Loot found in " + Name + ":";
@@ -254,7 +169,7 @@ namespace GAMMA.Models
                 if (dropQty > 0) { message += string.Format("\n{0} x {1}", dropQty, link.Name); }
             }
 
-            new NotificationDialog(message).ShowDialog();
+            HelperMethods.NotifyUser(message);
 
         }
         #endregion

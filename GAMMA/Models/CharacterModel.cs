@@ -3673,12 +3673,12 @@ namespace GAMMA.Models
 
                 if (hasCraftingTool == false)
                 {
-                    new NotificationDialog("Missing Imbuing Lens.").ShowDialog();
+                    HelperMethods.NotifyUser("Missing Imbuing Lens.");
                     return;
                 }
                 if (hasBaseItem == false)
                 {
-                    new NotificationDialog("Missing base item: " + itemToAdd.EnchantingBaseItem).ShowDialog();
+                    HelperMethods.NotifyUser("Missing base item: " + itemToAdd.EnchantingBaseItem);
                     return;
                 }
 
@@ -3709,7 +3709,7 @@ namespace GAMMA.Models
 
                 if (missingRunes != "")
                 {
-                    new NotificationDialog(missingRunes.Insert(0, "Insufficient enchanting runes:")).ShowDialog();
+                    HelperMethods.NotifyUser(missingRunes.Insert(0, "Insufficient enchanting runes:"));
                     return;
                 }
 
@@ -3890,7 +3890,7 @@ namespace GAMMA.Models
                     }
                 }
 
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
@@ -3907,21 +3907,7 @@ namespace GAMMA.Models
         public ICommand SortNotes => new RelayCommand(param => DoSortNotes());
         private void DoSortNotes()
         {
-            string message = "Are you sure you want to auto-sort your notes?" +
-                "\nSort Order" +
-                "\n1. Category: Location" +
-                "\n2. Category: Faction" +
-                "\n3. Category: Vendor" +
-                "\n4. Category: Character" +
-                "\n5. Category: Quest" +
-                "\n6. Category: Miscellaneous" +
-                "\n7. Header" +
-                "\nQuest sub notes are not sorted.";
-            YesNoDialog question = new(message);
-            if (question.ShowDialog() == false) { return; }
-
-            Notes = new ObservableCollection<NoteModel>(SortNoteList(Notes.ToList()));
-
+            Notes = new(SortNoteList(Notes.ToList()));
         }
         #endregion
         #region SortSpellLinks
@@ -4241,7 +4227,7 @@ namespace GAMMA.Models
             }
             if (Configuration.FishingEnvironments.Contains(FishingEnvironment) == false)
             {
-                new NotificationDialog("Please select a valid fishing environment.").ShowDialog();
+                HelperMethods.NotifyUser("Please select a valid fishing environment.");
                 return;
             }
             if (param == null) { param = ""; }
@@ -4272,7 +4258,7 @@ namespace GAMMA.Models
                 _ => 1
             };
             if (fish.Count == 0) { fish = Configuration.ItemRepository.Where(item => item.Type == "Fish").ToList(); }
-            if (fish.Count == 0) { new NotificationDialog("Tell your DM to put fish into the data repository.").ShowDialog(); return; }
+            if (fish.Count == 0) { HelperMethods.NotifyUser("Tell your DM to put fish into the data repository."); return; }
             int fishRoll = 0;
             for (int i = 0; i < attempts; i++) 
             {
@@ -4340,7 +4326,7 @@ namespace GAMMA.Models
         public ICommand ProcessGroupSave => new RelayCommand(param => DoProcessGroupSave());
         private void DoProcessGroupSave()
         {
-            if (Minions.Count <= 0) { new NotificationDialog("You have no minions.").ShowDialog(); return; }
+            if (Minions.Count <= 0) { HelperMethods.NotifyUser("You have no minions."); return; }
             EncounterMultiTargetDialog targetDialog = new(Minions.ToList());
             if (targetDialog.ShowDialog() == true)
             {
@@ -4470,9 +4456,8 @@ namespace GAMMA.Models
         public ICommand AddInventory => new RelayCommand(param => DoAddInventory());
         private void DoAddInventory()
         {
-            if (Inventories.Count >= 6) { new NotificationDialog("Inventory tab limit is 6.").ShowDialog(); return; }
+            if (Inventories.Count >= 6) { HelperMethods.NotifyUser("Inventory tab limit is 6."); return; }
             Inventories.Add(new());
-            //Inventories.Add(new InventoryModel(this));
         }
         #endregion
         #region ToggleRoll20Link
@@ -4710,6 +4695,7 @@ namespace GAMMA.Models
 
                 if (Configuration.MainModelRef.SettingsView.UseCoinWeight) { carriedWeight += ((inventory.PlatinumPieces + inventory.GoldPieces + inventory.SilverPieces + inventory.CopperPieces) * 0.02m); }
                 carriedCurrency += (inventory.PlatinumPieces * 1000) + (inventory.GoldPieces * 100) + (inventory.SilverPieces * 10) + inventory.CopperPieces;
+                inventory.UpdateInventoryItemValueTotal();
 
             }
 
@@ -5025,7 +5011,7 @@ namespace GAMMA.Models
                     output += "\n" + error;
                 }
                 DisplayCharacterCreationWarning = true;
-                new NotificationDialog(output, "Report").ShowDialog();
+                HelperMethods.NotifyUser(output, HelperMethods.UserNotificationType.Report);
                 YesNoDialog question = new("Potential issues found, complete character creation anyway?\n(a warning icon will be displayed in character screen)");
                 question.ShowDialog();
                 return question.Answer;
@@ -5074,9 +5060,9 @@ namespace GAMMA.Models
 
             MaxHealth = MaxHpCalc;
             if (CurrentHealth == 0) { CurrentHealth = MaxHpCalc; }
-            if (Speed == 0) { Speed = LinkedRace.BaseSpeed; }
+            if (Speed == 0) { Speed = (LinkedRace == null) ? 0 : LinkedRace.BaseSpeed; }
             if (ArmorClass == 0) { ArmorClass = 10 + DexterityModifier; }
-            if (Darkvision == 0) { Darkvision = LinkedRace.Darkvision; }
+            if (Darkvision == 0) { Darkvision = (LinkedRace == null) ? 0 : LinkedRace.Darkvision; }
 
             // SET HIT DICE
             List<HitDiceSet> newHitDice = new();
@@ -5150,11 +5136,17 @@ namespace GAMMA.Models
             IsExpert_Survival = false;
 
             // MARK SAVING THROWS AND SKILL PROFICIENCIES
-            PlayerClassModel baseClass = Configuration.MainModelRef.ToolsView.PlayerClasses.First(c => c.Name == PlayerClasses.First().ClassName);
-            foreach (FeatureModel feature in baseClass.Features)
+            if (PlayerClasses.Count > 0)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                PlayerClassModel baseClass = Configuration.MainModelRef.ToolsView.PlayerClasses.FirstOrDefault(c => c.Name == PlayerClasses.FirstOrDefault().ClassName);
+                if (baseClass != null)
+                {
+                    foreach (FeatureModel feature in baseClass.Features)
+                    {
+                        if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                        if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                    }
+                }
             }
             foreach (PlayerClassLinkModel pClass in PlayerClasses)
             {
@@ -5169,10 +5161,13 @@ namespace GAMMA.Models
                     }
                 }
             }
-            foreach (FeatureModel feature in LinkedRace.Features)
+            if (LinkedRace != null)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                foreach (FeatureModel feature in LinkedRace.Features)
+                {
+                    if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                    if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                }
             }
 
             if (LinkedSubrace != null)
@@ -5184,10 +5179,13 @@ namespace GAMMA.Models
                 }
             }
 
-            foreach (FeatureModel feature in LinkedBackground.Features)
+            if (LinkedBackground != null)
             {
-                if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
-                if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                foreach (FeatureModel feature in LinkedBackground.Features)
+                {
+                    if (feature.FeatureType == "Saving Throws - Set") { CCI_SavingThrows_Set(feature.Choices.ToList()); }
+                    if (feature.FeatureType == "Skill Proficiencies - Set") { CCI_SkillProficiencies_Set(feature.Choices.ToList()); }
+                }
             }
 
             // SKILL PROFICIENCIES - CHOICE
@@ -5674,9 +5672,9 @@ namespace GAMMA.Models
                 tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", pc.Features.ToList(), tools);
             }
 
-            tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools);
-            if (LinkedSubrace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools); }
-            tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedBackground.Features.ToList(), tools);
+            if (LinkedRace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedRace.Features.ToList(), tools); }
+            if (LinkedSubrace != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedSubrace.Features.ToList(), tools); }
+            if (LinkedBackground != null) { tools = AddOntoStringListFromFeatures("Tool Proficiencies - Set", LinkedBackground.Features.ToList(), tools); }
 
             foreach (ChoiceSet choiceSet in ToolChoiceSegments)
             {
@@ -5713,8 +5711,11 @@ namespace GAMMA.Models
                 }
             }
 
-            otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
-            otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+            if (LinkedRace != null)
+            {
+                otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+                otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedRace.Features.ToList(), otherProfs);
+            }
 
             if (LinkedSubrace != null)
             {
@@ -5722,8 +5723,11 @@ namespace GAMMA.Models
                 otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedSubrace.Features.ToList(), otherProfs);
             }
 
-            otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
-            otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+            if (LinkedBackground != null)
+            {
+                otherProfs = AddOntoStringListFromFeatures("Armor Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+                otherProfs = AddOntoStringListFromFeatures("Weapon Proficiencies - Set", LinkedBackground.Features.ToList(), otherProfs);
+            }
 
             foreach (ChoiceSet choiceSet in ArmorChoiceSegments)
             {
@@ -5761,12 +5765,18 @@ namespace GAMMA.Models
                 languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", pc.Features.ToList(), languages);
             }
 
-            languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedRace.Features.ToList(), languages);
+            if (LinkedRace != null)
+            {
+                languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedRace.Features.ToList(), languages);
+            }
             if (LinkedSubrace != null)
             {
                 languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedSubrace.Features.ToList(), languages);
             }
-            languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedBackground.Features.ToList(), languages);
+            if (LinkedBackground != null)
+            {
+                languages = AddOntoStringListFromFeatures("Language Proficiencies - Set", LinkedBackground.Features.ToList(), languages);
+            }
 
             foreach (ChoiceSet choiceSet in LanguageChoiceSegments)
             {

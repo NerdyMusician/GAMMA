@@ -40,15 +40,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Icon
@@ -56,30 +49,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Icon
         {
-            get
-            {
-                return _Icon;
-            }
-            set
-            {
-                _Icon = value;
-                NotifyPropertyChanged();
-            }
+            get => _Icon;
+            set => SetAndNotify(ref _Icon, value);
         }
         #endregion
         #region ShopIcons
         private List<string> _ShopIcons;
         public List<string> ShopIcons
         {
-            get
-            {
-                return _ShopIcons;
-            }
-            set
-            {
-                _ShopIcons = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShopIcons;
+            set => SetAndNotify(ref _ShopIcons, value);
         }
         #endregion
         #region ItemTypes
@@ -87,50 +66,21 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<BoolOption> ItemTypes
         {
-            get
-            {
-                return _ItemTypes;
-            }
-            set
-            {
-                _ItemTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemTypes;
+            set => SetAndNotify(ref _ItemTypes, value);
         }
         #endregion
 
         // Commands
         #region RemoveShop
-        private RelayCommand _RemoveShop;
-        public ICommand RemoveShop
-        {
-            get
-            {
-                if (_RemoveShop == null)
-                {
-                    _RemoveShop = new RelayCommand(param => DoRemoveShop());
-                }
-                return _RemoveShop;
-            }
-        }
+        public ICommand RemoveShop => new RelayCommand(param => DoRemoveShop());
         private void DoRemoveShop()
         {
             Configuration.MainModelRef.ToolsView.Shops.Remove(this);
         }
         #endregion
         #region OpenShop
-        private RelayCommand _OpenShop;
-        public ICommand OpenShop
-        {
-            get
-            {
-                if (_OpenShop == null)
-                {
-                    _OpenShop = new RelayCommand(DoOpenShop);
-                }
-                return _OpenShop;
-            }
-        }
+        public ICommand OpenShop => new RelayCommand(DoOpenShop);
         private void DoOpenShop(object param)
         {
             InventoryModel sourceInventory = param as InventoryModel;

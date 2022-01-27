@@ -32,15 +32,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Type
@@ -48,30 +41,16 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                _Type = value;
-                NotifyPropertyChanged();
-            }
+            get => _Type;
+            set => SetAndNotify(ref _Type, value);
         }
         #endregion
         #region Value
         private string _Value;
         public string Value
         {
-            get
-            {
-                return _Value;
-            }
-            set
-            {
-                _Value = value;
-                NotifyPropertyChanged();
-            }
+            get => _Value;
+            set => SetAndNotify(ref _Value, value);
         }
         #endregion
         #region IncludeHalfValue
@@ -79,15 +58,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public bool IncludeHalfValue
         {
-            get
-            {
-                return _IncludeHalfValue;
-            }
-            set
-            {
-                _IncludeHalfValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _IncludeHalfValue;
+            set => SetAndNotify(ref _IncludeHalfValue, value);
         }
         #endregion
         #region DoOutput
@@ -95,78 +67,41 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public bool DoOutput
         {
-            get
-            {
-                return _DoOutput;
-            }
-            set
-            {
-                _DoOutput = value;
-                NotifyPropertyChanged();
-            }
+            get => _DoOutput;
+            set => SetAndNotify(ref _DoOutput, value);
         }
         #endregion
         #region InEditMode
         private bool _InEditMode;
-        
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
 
         #region TypeOptions
         private List<string> _TypeOptions;
-        
         public List<string> TypeOptions
         {
-            get
-            {
-                return _TypeOptions;
-            }
-            set
-            {
-                _TypeOptions = value;
-                NotifyPropertyChanged();
-            }
+            get => _TypeOptions;
+            set => SetAndNotify(ref _TypeOptions, value);
         }
         #endregion
         #region Rolls
         private List<string> _Rolls;
         public List<string> Rolls
         {
-            get
-            {
-                return _Rolls;
-            }
-            set
-            {
-                _Rolls = value;
-                NotifyPropertyChanged();
-            }
+            get => _Rolls;
+            set => SetAndNotify(ref _Rolls, value);
         }
         #endregion
         #region Modifiers
         private List<string> _Modifiers;
         public List<string> Modifiers
         {
-            get
-            {
-                return _Modifiers;
-            }
-            set
-            {
-                _Modifiers = value;
-                NotifyPropertyChanged();
-            }
+            get => _Modifiers;
+            set => SetAndNotify(ref _Modifiers, value);
         }
         #endregion
 

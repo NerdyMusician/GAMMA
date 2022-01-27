@@ -44,6 +44,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Images\Icons\export.png" />
     <None Remove="Images\Icons\githubFaviconDark.png" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     <Resource Include="Images\Icons\cube.png" />
     <Resource Include="Images\Icons\download.png" />
     <Resource Include="Images\Icons\error.png" />
+    <Resource Include="Images\Icons\export.png" />
     <Resource Include="Images\Icons\filter.png" />
     <Resource Include="Images\Icons\githubFaviconDark.png" />
     <Resource Include="Images\Icons\home.png" />

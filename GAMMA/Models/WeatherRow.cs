@@ -18,15 +18,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Icon
         {
-            get
-            {
-                return _Icon;
-            }
-            set
-            {
-                _Icon = value;
-                NotifyPropertyChanged();
-            }
+            get => _Icon;
+            set => SetAndNotify(ref _Icon, value);
         }
         #endregion
         #region Name
@@ -34,15 +27,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Description
@@ -50,15 +36,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region LowValue
@@ -66,15 +45,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int LowValue
         {
-            get
-            {
-                return _LowValue;
-            }
-            set
-            {
-                _LowValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _LowValue;
+            set => SetAndNotify(ref _LowValue, value);
         }
         #endregion
         #region HighValue
@@ -82,26 +54,10 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HighValue
         {
-            get
-            {
-                return _HighValue;
-            }
-            set
-            {
-                _HighValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _HighValue;
+            set => SetAndNotify(ref _HighValue, value);
         }
         #endregion
-
-        // Commands
-
-
-        // Public Methods
-
-
-        // Private Methods
-
 
     }
 }

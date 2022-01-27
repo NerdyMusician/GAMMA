@@ -319,7 +319,7 @@ namespace GAMMA.Toolbox
         }
         private void DoRemoveConvertibleValue(object param)
         {
-            if (param == null) { new NotificationDialog("Invalid convertible value removal parameter.").ShowDialog(); return; }
+            if (param == null) { HelperMethods.NotifyUser("Invalid convertible value removal parameter."); return; }
             string location = param.ToString();
             switch (location)
             {
@@ -340,7 +340,7 @@ namespace GAMMA.Toolbox
                     Configuration.MainModelRef.CreatureBuilderView.ActiveCreature.Environments.Remove(this);
                     break;
                 default:
-                    new NotificationDialog("Unhandled parameter \"" + location + "\" in DoRemoveConvertibleValue").ShowDialog();
+                    HelperMethods.NotifyUser("Unhandled parameter \"" + location + "\" in DoRemoveConvertibleValue");
                     break;
             }
         }

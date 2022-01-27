@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace GAMMA.Models
@@ -36,15 +35,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region CalendarType
@@ -52,10 +44,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string CalendarType
         {
-            get
-            {
-                return _CalendarType;
-            }
+            get => _CalendarType;
             set
             {
                 _CalendarType = value;
@@ -69,10 +58,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public long CalendarStart
         {
-            get
-            {
-                return _CalendarStart;
-            }
+            get => _CalendarStart;
             set
             {
                 _CalendarStart = value;
@@ -86,10 +72,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public long CalendarProgress
         {
-            get
-            {
-                return _CalendarProgress;
-            }
+            get => _CalendarProgress;
             set
             {
                 _CalendarProgress = value;
@@ -102,124 +85,64 @@ namespace GAMMA.Models
         private string _CalendarStart_Processed;
         public string CalendarStart_Processed
         {
-            get
-            {
-                return _CalendarStart_Processed;
-            }
-            set
-            {
-                _CalendarStart_Processed = value;
-                NotifyPropertyChanged();
-            }
+            get => _CalendarStart_Processed;
+            set => SetAndNotify(ref _CalendarStart_Processed, value);
         }
         #endregion
         #region CalendarStart_Time
         private string _CalendarStart_Time;
         public string CalendarStart_Time
         {
-            get
-            {
-                return _CalendarStart_Time;
-            }
-            set
-            {
-                _CalendarStart_Time = value;
-                NotifyPropertyChanged();
-            }
+            get => _CalendarStart_Time;
+            set => SetAndNotify(ref _CalendarStart_Time, value);
         }
         #endregion
         #region CalendarProgress_Processed
         private string _CalendarProgress_Processed;
         public string CalendarProgress_Processed
         {
-            get
-            {
-                return _CalendarProgress_Processed;
-            }
-            set
-            {
-                _CalendarProgress_Processed = value;
-                NotifyPropertyChanged();
-            }
+            get => _CalendarProgress_Processed;
+            set => SetAndNotify(ref _CalendarProgress_Processed, value);
         }
         #endregion
         #region AdventureDate
         private string _AdventureDate;
         public string AdventureDate
         {
-            get
-            {
-                return _AdventureDate;
-            }
-            set
-            {
-                _AdventureDate = value;
-                NotifyPropertyChanged();
-            }
+            get => _AdventureDate;
+            set => SetAndNotify(ref _AdventureDate, value);
         }
         #endregion
         #region AdventureDayCount
         private int _AdventureDayCount;
-        
         public int AdventureDayCount
         {
-            get
-            {
-                return _AdventureDayCount;
-            }
-            set
-            {
-                _AdventureDayCount = value;
-                NotifyPropertyChanged();
-            }
+            get => _AdventureDayCount;
+            set => SetAndNotify(ref _AdventureDayCount, value);
         }
         #endregion
         #region TimeDigits
         private string _TimeDigits;
-        
         public string TimeDigits
         {
-            get
-            {
-                return _TimeDigits;
-            }
-            set
-            {
-                _TimeDigits = value;
-                NotifyPropertyChanged();
-            }
+            get => _TimeDigits;
+            set => SetAndNotify(ref _TimeDigits, value);
         }
         #endregion
         #region TimeIndicator
         private string _TimeIndicator;
-        
         public string TimeIndicator
         {
-            get
-            {
-                return _TimeIndicator;
-            }
-            set
-            {
-                _TimeIndicator = value;
-                NotifyPropertyChanged();
-            }
+            get => _TimeIndicator;
+            set => SetAndNotify(ref _TimeIndicator, value);
         }
         #endregion
         #region Display_ChangeTime
         private bool _Display_ChangeTime;
-        
         public bool Display_ChangeTime
         {
-            get
-            {
-                return _Display_ChangeTime;
-            }
-            set
-            {
-                _Display_ChangeTime = value;
-                NotifyPropertyChanged();
-            }
+            get => _Display_ChangeTime;
+            set => SetAndNotify(ref _Display_ChangeTime, value);
         }
         #endregion
         #region LastWeatherChange
@@ -227,15 +150,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public long LastWeatherChange
         {
-            get
-            {
-                return _LastWeatherChange;
-            }
-            set
-            {
-                _LastWeatherChange = value;
-                NotifyPropertyChanged();
-            }
+            get => _LastWeatherChange;
+            set => SetAndNotify(ref _LastWeatherChange, value);
         }
         #endregion
         #region WeatherType
@@ -243,10 +159,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string WeatherType
         {
-            get
-            {
-                return _WeatherType;
-            }
+            get => _WeatherType;
             set
             {
                 _WeatherType = value;
@@ -262,75 +175,40 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int WeatherIntensity
         {
-            get
-            {
-                return _WeatherIntensity;
-            }
-            set
-            {
-                _WeatherIntensity = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherIntensity;
+            set => SetAndNotify(ref _WeatherIntensity, value);
         }
         #endregion
         #region LinkedWeather
         private Weather _LinkedWeather;
         public Weather LinkedWeather
         {
-            get
-            {
-                return _LinkedWeather;
-            }
-            set
-            {
-                _LinkedWeather = value;
-                NotifyPropertyChanged();
-            }
+            get => _LinkedWeather;
+            set => SetAndNotify(ref _LinkedWeather, value);
         }
         #endregion
         #region WeatherIcon
         private string _WeatherIcon;
         public string WeatherIcon
         {
-            get
-            {
-                return _WeatherIcon;
-            }
-            set
-            {
-                _WeatherIcon = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherIcon;
+            set => SetAndNotify(ref _WeatherIcon, value);
         }
         #endregion
         #region WeatherName
         private string _WeatherName;
         public string WeatherName
         {
-            get
-            {
-                return _WeatherName;
-            }
-            set
-            {
-                _WeatherName = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherName;
+            set => SetAndNotify(ref _WeatherName, value);
         }
         #endregion
         #region WeatherInfo
         private string _WeatherInfo;
         public string WeatherInfo
         {
-            get
-            {
-                return _WeatherInfo;
-            }
-            set
-            {
-                _WeatherInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherInfo;
+            set => SetAndNotify(ref _WeatherInfo, value);
         }
         #endregion
         #region Notes
@@ -338,30 +216,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NoteModel> Notes
         {
-            get
-            {
-                return _Notes;
-            }
-            set
-            {
-                _Notes = value;
-                NotifyPropertyChanged();
-            }
+            get => _Notes;
+            set => SetAndNotify(ref _Notes, value);
         }
         #endregion
         #region ActiveNote
         private NoteModel _ActiveNote;
         public NoteModel ActiveNote
         {
-            get
-            {
-                return _ActiveNote;
-            }
-            set
-            {
-                _ActiveNote = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveNote;
+            set => SetAndNotify(ref _ActiveNote, value);
         }
         #endregion
         #region EncounterRound
@@ -369,31 +233,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int EncounterRound
         {
-            get
-            {
-                return _EncounterRound;
-            }
-            set
-            {
-                _EncounterRound = value;
-                NotifyPropertyChanged();
-            }
+            get => _EncounterRound;
+            set => SetAndNotify(ref _EncounterRound, value);
         }
         #endregion
         #region Display_OtherRolls
         private bool _Display_OtherRolls;
-        
         public bool Display_OtherRolls
         {
-            get
-            {
-                return _Display_OtherRolls;
-            }
-            set
-            {
-                _Display_OtherRolls = value;
-                NotifyPropertyChanged();
-            }
+            get => _Display_OtherRolls;
+            set => SetAndNotify(ref _Display_OtherRolls, value);
         }
         #endregion
         #region Timestamps
@@ -401,15 +250,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<Timestamp> Timestamps
         {
-            get
-            {
-                return _Timestamps;
-            }
-            set
-            {
-                _Timestamps = value;
-                NotifyPropertyChanged();
-            }
+            get => _Timestamps;
+            set => SetAndNotify(ref _Timestamps, value);
         }
         #endregion
         #region RetainMessageHistory
@@ -417,15 +259,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RetainMessageHistory
         {
-            get
-            {
-                return _RetainMessageHistory;
-            }
-            set
-            {
-                _RetainMessageHistory = value;
-                NotifyPropertyChanged();
-            }
+            get => _RetainMessageHistory;
+            set => SetAndNotify(ref _RetainMessageHistory, value);
         }
         #endregion
         #region Messages
@@ -433,15 +268,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<GameMessage> Messages
         {
-            get
-            {
-                return _Messages;
-            }
-            set
-            {
-                _Messages = value;
-                NotifyPropertyChanged();
-            }
+            get => _Messages;
+            set => SetAndNotify(ref _Messages, value);
         }
         #endregion
         #region LinkOutputToWeb
@@ -449,15 +277,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool LinkOutputToWeb
         {
-            get
-            {
-                return _LinkOutputToWeb;
-            }
-            set
-            {
-                _LinkOutputToWeb = value;
-                NotifyPropertyChanged();
-            }
+            get => _LinkOutputToWeb;
+            set => SetAndNotify(ref _LinkOutputToWeb, value);
         }
         #endregion
         #region Combatants
@@ -465,79 +286,40 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreatureModel> Combatants
         {
-            get
-            {
-                return _Combatants;
-            }
-            set
-            {
-                _Combatants = value;
-                NotifyPropertyChanged();
-            }
+            get => _Combatants;
+            set => SetAndNotify(ref _Combatants, value);
         }
         #endregion
         #region CombatantsByName
         private ObservableCollection<CreatureModel> _CombatantsByName;
-        
         public ObservableCollection<CreatureModel> CombatantsByName
         {
-            get
-            {
-                return _CombatantsByName;
-            }
-            set
-            {
-                _CombatantsByName = value;
-                NotifyPropertyChanged();
-            }
+            get => _CombatantsByName;
+            set => SetAndNotify(ref _CombatantsByName, value);
         }
         #endregion
         #region CombatantsByIsNpc
         private ObservableCollection<CreatureModel> _CombatantsByIsNpc;
-        
         public ObservableCollection<CreatureModel> CombatantsByIsNpc
         {
-            get
-            {
-                return _CombatantsByIsNpc;
-            }
-            set
-            {
-                _CombatantsByIsNpc = value;
-                NotifyPropertyChanged();
-            }
+            get => _CombatantsByIsNpc;
+            set => SetAndNotify(ref _CombatantsByIsNpc, value);
         }
         #endregion
         #region CombatantsByIsPlayer
         private ObservableCollection<CreatureModel> _CombatantsByIsPlayer;
-        
         public ObservableCollection<CreatureModel> CombatantsByIsPlayer
         {
-            get
-            {
-                return _CombatantsByIsPlayer;
-            }
-            set
-            {
-                _CombatantsByIsPlayer = value;
-                NotifyPropertyChanged();
-            }
+            get => _CombatantsByIsPlayer;
+            set => SetAndNotify(ref _CombatantsByIsPlayer, value);
         }
         #endregion
         #region ActiveCombatant
         private CreatureModel _ActiveCombatant;
-        
         public CreatureModel ActiveCombatant
         {
-            get
-            {
-                return _ActiveCombatant;
-            }
-            set
-            {
-                _ActiveCombatant = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveCombatant;
+            set => SetAndNotify(ref _ActiveCombatant, value);
         }
         #endregion
         #region Players
@@ -545,31 +327,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreatureModel> Players
         {
-            get
-            {
-                return _Players;
-            }
-            set
-            {
-                _Players = value;
-                NotifyPropertyChanged();
-            }
+            get => _Players;
+            set => SetAndNotify(ref _Players, value);
         }
         #endregion
         #region ActivePlayer
         private CreatureModel _ActivePlayer;
-        
         public CreatureModel ActivePlayer
         {
-            get
-            {
-                return _ActivePlayer;
-            }
-            set
-            {
-                _ActivePlayer = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayer;
+            set => SetAndNotify(ref _ActivePlayer, value);
         }
         #endregion
         #region Npcs
@@ -577,31 +344,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<NpcModel> Npcs
         {
-            get
-            {
-                return _Npcs;
-            }
-            set
-            {
-                _Npcs = value;
-                NotifyPropertyChanged();
-            }
+            get => _Npcs;
+            set => SetAndNotify(ref _Npcs, value);
         }
         #endregion
         #region ActiveNpc
         private NpcModel _ActiveNpc;
-        
         public NpcModel ActiveNpc
         {
-            get
-            {
-                return _ActiveNpc;
-            }
-            set
-            {
-                _ActiveNpc = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveNpc;
+            set => SetAndNotify(ref _ActiveNpc, value);
         }
         #endregion
         #region Packs
@@ -609,30 +361,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CreaturePackModel> Packs
         {
-            get
-            {
-                return _Packs;
-            }
-            set
-            {
-                _Packs = value;
-                NotifyPropertyChanged();
-            }
+            get => _Packs;
+            set => SetAndNotify(ref _Packs, value);
         }
         #endregion
         #region ActivePack
         private CreaturePackModel _ActivePack;
         public CreaturePackModel ActivePack
         {
-            get
-            {
-                return _ActivePack;
-            }
-            set
-            {
-                _ActivePack = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePack;
+            set => SetAndNotify(ref _ActivePack, value);
         }
         #endregion
 
@@ -642,15 +380,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int FallDistance
         {
-            get
-            {
-                return _FallDistance;
-            }
-            set
-            {
-                _FallDistance = value;
-                NotifyPropertyChanged();
-            }
+            get => _FallDistance;
+            set => SetAndNotify(ref _FallDistance, value);
         }
         #endregion
         #region CustomRollNumber
@@ -658,15 +389,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CustomRollNumber
         {
-            get
-            {
-                return _CustomRollNumber;
-            }
-            set
-            {
-                _CustomRollNumber = value;
-                NotifyPropertyChanged();
-            }
+            get => _CustomRollNumber;
+            set => SetAndNotify(ref _CustomRollNumber, value);
         }
         #endregion
         #region CustomRollSides
@@ -674,15 +398,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CustomRollSides
         {
-            get
-            {
-                return _CustomRollSides;
-            }
-            set
-            {
-                _CustomRollSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _CustomRollSides;
+            set => SetAndNotify(ref _CustomRollSides, value);
         }
         #endregion
         #region CustomRollModifier
@@ -690,32 +407,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int CustomRollModifier
         {
-            get
-            {
-                return _CustomRollModifier;
-            }
-            set
-            {
-                _CustomRollModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _CustomRollModifier;
+            set => SetAndNotify(ref _CustomRollModifier, value);
         }
         #endregion
 
         // Commands
         #region RemoveCampaign
-        private RelayCommand _RemoveCampaign;
-        public ICommand RemoveCampaign
-        {
-            get
-            {
-                if (_RemoveCampaign == null)
-                {
-                    _RemoveCampaign = new RelayCommand(DoRemoveCampaign);
-                }
-                return _RemoveCampaign;
-            }
-        }
+        public ICommand RemoveCampaign => new RelayCommand(DoRemoveCampaign);
         private void DoRemoveCampaign(object param)
         {
             YesNoDialog question = new("Are you sure you want to delete this campaign?");
@@ -724,71 +423,15 @@ namespace GAMMA.Models
             Configuration.MainModelRef.CampaignView.Campaigns.Remove(this);
         }
         #endregion
-        #region ModifyCalendar
-        private RelayCommand _ModifyCalendar;
-        public ICommand ModifyCalendar
-        {
-            get
-            {
-                if (_ModifyCalendar == null)
-                {
-                    _ModifyCalendar = new RelayCommand(DoModifyCalendar);
-                }
-                return _ModifyCalendar;
-            }
-        }
-        private void DoModifyCalendar(object param)
-        {
-        }
-        #endregion
-        #region ClearHistory
-        private RelayCommand _ClearHistory;
-        public ICommand ClearHistory
-        {
-            get
-            {
-                if (_ClearHistory == null)
-                {
-                    _ClearHistory = new RelayCommand(DoClearHistory);
-                }
-                return _ClearHistory;
-            }
-        }
-        private void DoClearHistory(object param)
-        {
-        }
-        #endregion
         #region AddTimestamp
-        private RelayCommand _AddTimestamp;
-        public ICommand AddTimestamp
-        {
-            get
-            {
-                if (_AddTimestamp == null)
-                {
-                    _AddTimestamp = new RelayCommand(DoAddTimestamp);
-                }
-                return _AddTimestamp;
-            }
-        }
+        public ICommand AddTimestamp => new RelayCommand(DoAddTimestamp);
         private void DoAddTimestamp(object param)
         {
             Timestamps.Add(new() { Name = "New Timestamp", TimeInfo = "Day " + AdventureDayCount + ", " + TimeDigits + " " + TimeIndicator });
         }
         #endregion
         #region RollDice
-        private RelayCommand _RollDice;
-        public ICommand RollDice
-        {
-            get
-            {
-                if (_RollDice == null)
-                {
-                    _RollDice = new RelayCommand(DoRollDice);
-                }
-                return _RollDice;
-            }
-        }
+        public ICommand RollDice => new RelayCommand(DoRollDice);
         private void DoRollDice(object param)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -798,18 +441,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region FlipCoin
-        private RelayCommand _FlipCoin;
-        public ICommand FlipCoin
-        {
-            get
-            {
-                if (_FlipCoin == null)
-                {
-                    _FlipCoin = new RelayCommand(DoFlipCoin);
-                }
-                return _FlipCoin;
-            }
-        }
+        public ICommand FlipCoin => new RelayCommand(DoFlipCoin);
         private void DoFlipCoin(object param)
         {
             int result = Configuration.RNG.Next(1, 3);
@@ -817,21 +449,10 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddCreatures
-        private RelayCommand _AddCreatures;
-        public ICommand AddCreatures
-        {
-            get
-            {
-                if (_AddCreatures == null)
-                {
-                    _AddCreatures = new RelayCommand(DoAddCreatures);
-                }
-                return _AddCreatures;
-            }
-        }
+        public ICommand AddCreatures => new RelayCommand(DoAddCreatures);
         private void DoAddCreatures(object param)
         {
-            MultiObjectSelectionDialog selectionDialog = new(Configuration.CreatureRepository.Where(creature => creature.IsValidated == true && creature.IsPlayer == false).ToList(), "Creatures");
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.CreatureRepository.Where(creature => creature.IsValidated == true && creature.IsPlayer == false).ToList(), "Creatures", true);
 
             if (selectionDialog.ShowDialog() == true)
             {
@@ -852,6 +473,7 @@ namespace GAMMA.Models
                         newCreature.RefreshCounters();
                         newCreature.GetPortraitFilepath();
                         newCreature.SetHighestSpeedValues();
+                        if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                         Combatants.Add(newCreature);
                     }
                 }
@@ -905,18 +527,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddPack
-        private RelayCommand _AddPack;
-        public ICommand AddPack
-        {
-            get
-            {
-                if (_AddPack == null)
-                {
-                    _AddPack = new RelayCommand(DoAddPack);
-                }
-                return _AddPack;
-            }
-        }
+        public ICommand AddPack => new RelayCommand(DoAddPack);
         private void DoAddPack(object param)
         {
             ObjectSelectionDialog packSelect = new(Packs.Where(p => p.IsActive).ToList());
@@ -988,18 +599,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddNpcs
-        private RelayCommand _AddNpcs;
-        public ICommand AddNpcs
-        {
-            get
-            {
-                if (_AddNpcs == null)
-                {
-                    _AddNpcs = new RelayCommand(DoAddNpcs);
-                }
-                return _AddNpcs;
-            }
-        }
+        public ICommand AddNpcs => new RelayCommand(DoAddNpcs);
         private void DoAddNpcs(object param)
         {
             MultiObjectSelectionDialog selectionDialog = new (Npcs.Where(npc => npc.BaseCreatureName != "" && npc.IsActive).ToList());
@@ -1027,29 +627,19 @@ namespace GAMMA.Models
                     newCreature.RefreshSpellSlots();
                     newCreature.RefreshCounters();
                     newCreature.GetPortraitFilepath();
+                    if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                     Combatants.Add(newCreature);
                 }
                 if (msg != "")
                 {
-                    new NotificationDialog(msg).ShowDialog();
+                    HelperMethods.NotifyUser(msg);
                 }
                 SortCombatants();
             }
         }
         #endregion
         #region AddPlayers
-        private RelayCommand _AddPlayers;
-        public ICommand AddPlayers
-        {
-            get
-            {
-                if (_AddPlayers == null)
-                {
-                    _AddPlayers = new RelayCommand(DoAddPlayers);
-                }
-                return _AddPlayers;
-            }
-        }
+        public ICommand AddPlayers => new RelayCommand(DoAddPlayers);
         private void DoAddPlayers(object param)
         {
             MultiObjectSelectionDialog selectionDialog = new (Configuration.CreatureRepository.Where(creature => creature.IsPlayer == true).ToList().Concat(Players.ToList()).ToList(), "Players");
@@ -1074,18 +664,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollInitiatives
-        private RelayCommand _RollInitiatives;
-        public ICommand RollInitiatives
-        {
-            get
-            {
-                if (_RollInitiatives == null)
-                {
-                    _RollInitiatives = new RelayCommand(DoRollInitiatives);
-                }
-                return _RollInitiatives;
-            }
-        }
+        public ICommand RollInitiatives => new RelayCommand(DoRollInitiatives);
         private void DoRollInitiatives(object param)
         {
             bool reroll = Convert.ToBoolean(param);
@@ -1119,18 +698,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortByInitiative
-        private RelayCommand _SortByInitiative;
-        public ICommand SortByInitiative
-        {
-            get
-            {
-                if (_SortByInitiative == null)
-                {
-                    _SortByInitiative = new RelayCommand(DoSortByInitiative);
-                }
-                return _SortByInitiative;
-            }
-        }
+        public ICommand SortByInitiative => new RelayCommand(DoSortByInitiative);
         private void DoSortByInitiative(object param)
         {
             SortCombatants();
@@ -1156,18 +724,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ClearCreatures
-        private RelayCommand _ClearCreatures;
-        public ICommand ClearCreatures
-        {
-            get
-            {
-                if (_ClearCreatures == null)
-                {
-                    _ClearCreatures = new RelayCommand(DoClearCreatures);
-                }
-                return _ClearCreatures;
-            }
-        }
+        public ICommand ClearCreatures => new RelayCommand(DoClearCreatures);
         private void DoClearCreatures(object param)
         {
             if (param.ToString() == "All")
@@ -1191,18 +748,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region KillCreatures
-        private RelayCommand _KillCreatures;
-        public ICommand KillCreatures
-        {
-            get
-            {
-                if (_KillCreatures == null)
-                {
-                    _KillCreatures = new RelayCommand(param => DoKillCreatures());
-                }
-                return _KillCreatures;
-            }
-        }
+        public ICommand KillCreatures => new RelayCommand(param => DoKillCreatures());
         private void DoKillCreatures()
         {
             YesNoDialog question = new("Kill all enemies?");
@@ -1289,18 +835,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ProcessGroupSave
-        private RelayCommand _ProcessGroupSave;
-        public ICommand ProcessGroupSave
-        {
-            get
-            {
-                if (_ProcessGroupSave == null)
-                {
-                    _ProcessGroupSave = new RelayCommand(param => DoProcessGroupSave());
-                }
-                return _ProcessGroupSave;
-            }
-        }
+        public ICommand ProcessGroupSave => new RelayCommand(param => DoProcessGroupSave());
         private void DoProcessGroupSave()
         {
             EncounterMultiTargetDialog targetDialog = new(Combatants.Where(creature => creature.IsPlayer == false && creature.IsOoc == false && creature.CurrentHitPoints > 0).ToList());
@@ -1429,18 +964,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ChangeTime
-        private RelayCommand _ChangeTime;
-        public ICommand ChangeTime
-        {
-            get
-            {
-                if (_ChangeTime == null)
-                {
-                    _ChangeTime = new RelayCommand(DoChangeTime);
-                }
-                return _ChangeTime;
-            }
-        }
+        public ICommand ChangeTime => new RelayCommand(DoChangeTime);
         public void DoChangeTime(object time)
         {
             CalendarProgress += Convert.ToInt64(time);
@@ -1452,18 +976,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ChangeWeather
-        private RelayCommand _ChangeWeather;
-        public ICommand ChangeWeather
-        {
-            get
-            {
-                if (_ChangeWeather == null)
-                {
-                    _ChangeWeather = new RelayCommand(DoChangeWeather);
-                }
-                return _ChangeWeather;
-            }
-        }
+        public ICommand ChangeWeather => new RelayCommand(DoChangeWeather);
         private void DoChangeWeather(object param)
         {
             WeatherIntensity = Convert.ToInt32(param);
@@ -1472,18 +985,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region ChangeActiveCreature
-        private RelayCommand _ChangeActiveCreature;
-        public ICommand ChangeActiveCreature
-        {
-            get
-            {
-                if (_ChangeActiveCreature == null)
-                {
-                    _ChangeActiveCreature = new RelayCommand(DoChangeActiveCreature);
-                }
-                return _ChangeActiveCreature;
-            }
-        }
+        public ICommand ChangeActiveCreature => new RelayCommand(DoChangeActiveCreature);
         private void DoChangeActiveCreature(object param)
         {
             if (Combatants.Count <= 0) { return; }
@@ -1545,18 +1047,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RollFallDamage
-        private RelayCommand _RollFallDamage;
-        public ICommand RollFallDamage
-        {
-            get
-            {
-                if (_RollFallDamage == null)
-                {
-                    _RollFallDamage = new RelayCommand(param => DoRollFallDamage());
-                }
-                return _RollFallDamage;
-            }
-        }
+        public ICommand RollFallDamage => new RelayCommand(param => DoRollFallDamage());
         private void DoRollFallDamage()
         {
             int rolls = FallDistance switch
@@ -1583,7 +1074,7 @@ namespace GAMMA.Models
                 int n when (n >= 190 && n <= 199) => 19,
                 _ => 20
             };
-            if (rolls == 0) { new NotificationDialog("Insufficient height for fall damage.").ShowDialog(); return; }
+            if (rolls == 0) { HelperMethods.NotifyUser("Insufficient height for fall damage."); return; }
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int result = 0;
             string diceRolls = "\nRoll: [";
@@ -1643,18 +1134,7 @@ namespace GAMMA.Models
         #endregion
 
         #region AddNote
-        private RelayCommand _AddNote;
-        public ICommand AddNote
-        {
-            get
-            {
-                if (_AddNote == null)
-                {
-                    _AddNote = new RelayCommand(param => DoAddNote());
-                }
-                return _AddNote;
-            }
-        }
+        public ICommand AddNote => new RelayCommand(param => DoAddNote());
         private void DoAddNote()
         {
             Notes.Add(new NoteModel());
@@ -1662,18 +1142,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortNotes
-        private RelayCommand _SortNotes;
-        public ICommand SortNotes
-        {
-            get
-            {
-                if (_SortNotes == null)
-                {
-                    _SortNotes = new RelayCommand(param => DoSortNotes());
-                }
-                return _SortNotes;
-            }
-        }
+        public ICommand SortNotes => new RelayCommand(param => DoSortNotes());
         private void DoSortNotes()
         {
             string message = "Are you sure you want to auto-sort your notes?" +
@@ -1694,18 +1163,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region PasteNote
-        private RelayCommand _PasteNote;
-        public ICommand PasteNote
-        {
-            get
-            {
-                if (_PasteNote == null)
-                {
-                    _PasteNote = new RelayCommand(param => DoPasteNote());
-                }
-                return _PasteNote;
-            }
-        }
+        public ICommand PasteNote => new RelayCommand(param => DoPasteNote());
         private void DoPasteNote()
         {
             if (Configuration.CopiedNote == null) { return; }
@@ -1713,18 +1171,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SearchNotes
-        private RelayCommand _SearchNotes;
-        public ICommand SearchNotes
-        {
-            get
-            {
-                if (_SearchNotes == null)
-                {
-                    _SearchNotes = new RelayCommand(param => DoSearchNotes());
-                }
-                return _SearchNotes;
-            }
-        }
+        public ICommand SearchNotes => new RelayCommand(param => DoSearchNotes());
         private void DoSearchNotes()
         {
             NoteSearchDialog searchDialog = new();
@@ -1736,18 +1183,7 @@ namespace GAMMA.Models
         #endregion
 
         #region AddNpc
-        private RelayCommand _AddNpc;
-        public ICommand AddNpc
-        {
-            get
-            {
-                if (_AddNpc == null)
-                {
-                    _AddNpc = new RelayCommand(param => DoAddNpc());
-                }
-                return _AddNpc;
-            }
-        }
+        public ICommand AddNpc => new RelayCommand(param => DoAddNpc());
         private void DoAddNpc()
         {
             Npcs.Add(new NpcModel());
@@ -1779,18 +1215,7 @@ namespace GAMMA.Models
         #endregion
 
         #region AddCreaturePack
-        private RelayCommand _AddCreaturePack;
-        public ICommand AddCreaturePack
-        {
-            get
-            {
-                if (_AddCreaturePack == null)
-                {
-                    _AddCreaturePack = new RelayCommand(param => DoAddCreaturePack());
-                }
-                return _AddCreaturePack;
-            }
-        }
+        public ICommand AddCreaturePack => new RelayCommand(param => DoAddCreaturePack());
         private void DoAddCreaturePack()
         {
             Packs.Add(new CreaturePackModel());
@@ -1813,18 +1238,7 @@ namespace GAMMA.Models
         #endregion
 
         #region AddPlayer
-        private RelayCommand _AddPlayer;
-        public ICommand AddPlayer
-        {
-            get
-            {
-                if (_AddPlayer == null)
-                {
-                    _AddPlayer = new RelayCommand(param => DoAddPlayer());
-                }
-                return _AddPlayer;
-            }
-        }
+        public ICommand AddPlayer => new RelayCommand(param => DoAddPlayer());
         private void DoAddPlayer()
         {
             Players.Add(new() { Name = "New Player", IsPlayer = true });
@@ -1832,18 +1246,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region SortPlayers
-        private RelayCommand _SortPlayers;
-        public ICommand SortPlayers
-        {
-            get
-            {
-                if (_SortPlayers == null)
-                {
-                    _SortPlayers = new RelayCommand(param => DoSortPlayers());
-                }
-                return _SortPlayers;
-            }
-        }
+        public ICommand SortPlayers => new RelayCommand(param => DoSortPlayers());
         private void DoSortPlayers()
         {
             Players = new ObservableCollection<CreatureModel>(Players.OrderBy(crt => crt.Name));

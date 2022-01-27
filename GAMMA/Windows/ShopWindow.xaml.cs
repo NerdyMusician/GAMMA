@@ -53,7 +53,7 @@ namespace GAMMA.Windows
         {
             if ((DataContext as ShopViewModel).CharacterCoinage + (DataContext as ShopViewModel).TransactionValue < 0)
             {
-                new NotificationDialog("Invalid funds.").ShowDialog();
+                HelperMethods.NotifyUser("Invalid funds.");
                 return;
             }
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_ShopFarewell);

@@ -62,7 +62,7 @@ namespace GAMMA.ViewModels
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
             
-            ApplicationVersion = "GAMMA 1.28.03 beta";
+            ApplicationVersion = "GAMMA 1.28.03";
 
             Configuration.LoadComplete = true;
 
@@ -76,90 +76,48 @@ namespace GAMMA.ViewModels
         private CreatureBuilderViewModel _CreatureBuilderView;
         public CreatureBuilderViewModel CreatureBuilderView
         {
-            get
-            {
-                return _CreatureBuilderView;
-            }
-            set
-            {
-                _CreatureBuilderView = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureBuilderView;
+            set => SetAndNotify(ref _CreatureBuilderView, value);
         }
         #endregion
         #region ItemBuilderView
         private ItemBuilderViewModel _ItemBuilderView;
         public ItemBuilderViewModel ItemBuilderView
         {
-            get
-            {
-                return _ItemBuilderView;
-            }
-            set
-            {
-                _ItemBuilderView = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemBuilderView;
+            set => SetAndNotify(ref _ItemBuilderView, value);
         }
         #endregion
         #region SpellBuilderView
         private SpellBuilderViewModel _SpellBuilderView;
         public SpellBuilderViewModel SpellBuilderView
         {
-            get
-            {
-                return _SpellBuilderView;
-            }
-            set
-            {
-                _SpellBuilderView = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellBuilderView;
+            set => SetAndNotify(ref _SpellBuilderView, value);
         }
         #endregion
         #region CharacterBuilderView
         private CharacterBuilderViewModel _CharacterBuilderView;
         public CharacterBuilderViewModel CharacterBuilderView
         {
-            get
-            {
-                return _CharacterBuilderView;
-            }
-            set
-            {
-                _CharacterBuilderView = value;
-                NotifyPropertyChanged();
-            }
+            get => _CharacterBuilderView;
+            set => SetAndNotify(ref _CharacterBuilderView, value);
         }
         #endregion
         #region ToolsView
         private ToolsViewModel _ToolsView;
         public ToolsViewModel ToolsView
         {
-            get
-            {
-                return _ToolsView;
-            }
-            set
-            {
-                _ToolsView = value;
-                NotifyPropertyChanged();
-            }
+            get => _ToolsView;
+            set => SetAndNotify(ref _ToolsView, value);
         }
         #endregion
         #region AudioView
         private AudioViewModel _AudioView;
         public AudioViewModel AudioView
         {
-            get
-            {
-                return _AudioView;
-            }
-            set
-            {
-                _AudioView = value;
-                NotifyPropertyChanged();
-            }
+            get => _AudioView;
+            set => SetAndNotify(ref _AudioView, value);
         }
         #endregion
         #region SettingsView
@@ -167,30 +125,16 @@ namespace GAMMA.ViewModels
         [XmlSaveMode(XSME.Single)]
         public SettingsViewModel SettingsView
         {
-            get
-            {
-                return _SettingsView;
-            }
-            set
-            {
-                _SettingsView = value;
-                NotifyPropertyChanged();
-            }
+            get => _SettingsView;
+            set => SetAndNotify(ref _SettingsView, value);
         }
         #endregion
         #region CampaignView
         private CampaignBuilderViewModel _CampaignView;
         public CampaignBuilderViewModel CampaignView
         {
-            get
-            {
-                return _CampaignView;
-            }
-            set
-            {
-                _CampaignView = value;
-                NotifyPropertyChanged();
-            }
+            get => _CampaignView;
+            set => SetAndNotify(ref _CampaignView, value);
         }
         #endregion
 
@@ -198,46 +142,16 @@ namespace GAMMA.ViewModels
         private string _WebDriverStatus;
         public string WebDriverStatus
         {
-            get
-            {
-                return _WebDriverStatus;
-            }
-            set
-            {
-                _WebDriverStatus = value;
-                NotifyPropertyChanged();
-            }
+            get => _WebDriverStatus;
+            set => SetAndNotify(ref _WebDriverStatus, value);
         }
         #endregion
         #region ApplicationVersion
         private string _ApplicationVersion;
         public string ApplicationVersion
         {
-            get
-            {
-                return _ApplicationVersion;
-            }
-            set
-            {
-                _ApplicationVersion = value;
-                NotifyPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region ChangeLog
-        private string _ChangeLog;
-        public string ChangeLog
-        {
-            get
-            {
-                return _ChangeLog;
-            }
-            set
-            {
-                _ChangeLog = value;
-                NotifyPropertyChanged();
-            }
+            get => _ApplicationVersion;
+            set => SetAndNotify(ref _ApplicationVersion, value);
         }
         #endregion
 
@@ -246,75 +160,40 @@ namespace GAMMA.ViewModels
         private bool _TabSelected_CreatureBuilder;
         public bool TabSelected_CreatureBuilder
         {
-            get
-            {
-                return _TabSelected_CreatureBuilder;
-            }
-            set
-            {
-                _TabSelected_CreatureBuilder = value;
-                NotifyPropertyChanged();
-            }
+            get => _TabSelected_CreatureBuilder;
+            set => SetAndNotify(ref _TabSelected_CreatureBuilder, value);
         }
         #endregion
         #region TabSelected_SpellBuilder
         private bool _TabSelected_SpellBuilder;
         public bool TabSelected_SpellBuilder
         {
-            get
-            {
-                return _TabSelected_SpellBuilder;
-            }
-            set
-            {
-                _TabSelected_SpellBuilder = value;
-                NotifyPropertyChanged();
-            }
+            get => _TabSelected_SpellBuilder;
+            set => SetAndNotify(ref _TabSelected_SpellBuilder, value);
         }
         #endregion
         #region TabSelected_Players
         private bool _TabSelected_Players;
         public bool TabSelected_Players
         {
-            get
-            {
-                return _TabSelected_Players;
-            }
-            set
-            {
-                _TabSelected_Players = value;
-                NotifyPropertyChanged();
-            }
+            get => _TabSelected_Players;
+            set => SetAndNotify(ref _TabSelected_Players, value);
         }
         #endregion
         #region TabSelected_ItemBuilder
         private bool _TabSelected_ItemBuilder;
         public bool TabSelected_ItemBuilder
         {
-            get
-            {
-                return _TabSelected_ItemBuilder;
-            }
-            set
-            {
-                _TabSelected_ItemBuilder = value;
-                NotifyPropertyChanged();
-            }
+            get => _TabSelected_ItemBuilder;
+            set => SetAndNotify(ref _TabSelected_ItemBuilder, value);
         }
         #endregion
         #region TabSelected_Campaigns
         private bool _TabSelected_Campaigns;
         public bool TabSelected_Campaigns
         {
-            get
-            {
-                return _TabSelected_Campaigns;
-            }
-            set
-            {
-                _TabSelected_Campaigns = value;
-                NotifyPropertyChanged();
-            }
+            get => _TabSelected_Campaigns;
+            set => SetAndNotify(ref _TabSelected_Campaigns, value);
         }
         #endregion
 
@@ -323,471 +202,252 @@ namespace GAMMA.ViewModels
         private List<string> _GameTypes;
         public List<string> GameTypes
         {
-            get
-            {
-                return _GameTypes;
-            }
-            set
-            {
-                _GameTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _GameTypes;
+            set => SetAndNotify(ref _GameTypes, value);
         }
         #endregion
         #region Sources
         private List<string> _Sources;
         public List<string> Sources
         {
-            get
-            {
-                return _Sources;
-            }
-            set
-            {
-                _Sources = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sources;
+            set => SetAndNotify(ref _Sources, value);
         }
         #endregion
         #region DiceSides
         private List<string> _DiceSides;
         public List<string> DiceSides
         {
-            get
-            {
-                return _DiceSides;
-            }
-            set
-            {
-                _DiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _DiceSides;
+            set => SetAndNotify(ref _DiceSides, value);
         }
         #endregion
         #region ItemTypes
         private List<string> _ItemTypes;
         public List<string> ItemTypes
         {
-            get
-            {
-                return _ItemTypes;
-            }
-            set
-            {
-                _ItemTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemTypes;
+            set => SetAndNotify(ref _ItemTypes, value);
         }
         #endregion
         #region DamageTypes
         private List<string> _DamageTypes;
         public List<string> DamageTypes
         {
-            get
-            {
-                return _DamageTypes;
-            }
-            set
-            {
-                _DamageTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageTypes;
+            set => SetAndNotify(ref _DamageTypes, value);
         }
         #endregion
         #region CreatureTypes
         private List<string> _CreatureTypes;
         public List<string> CreatureTypes
         {
-            get
-            {
-                return _CreatureTypes;
-            }
-            set
-            {
-                _CreatureTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureTypes;
+            set => SetAndNotify(ref _CreatureTypes, value);
         }
         #endregion
         #region CreatureCategories
         private List<string> _CreatureCategories;
         public List<string> CreatureCategories
         {
-            get
-            {
-                return _CreatureCategories;
-            }
-            set
-            {
-                _CreatureCategories = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureCategories;
+            set => SetAndNotify(ref _CreatureCategories, value);
         }
         #endregion
         #region Sizes
         private List<string> _Sizes;
         public List<string> Sizes
         {
-            get
-            {
-                return _Sizes;
-            }
-            set
-            {
-                _Sizes = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sizes;
+            set => SetAndNotify(ref _Sizes, value);
         }
         #endregion
         #region Alignments
         private List<string> _Alignments;
         public List<string> Alignments
         {
-            get
-            {
-                return _Alignments;
-            }
-            set
-            {
-                _Alignments = value;
-                NotifyPropertyChanged();
-            }
+            get => _Alignments;
+            set => SetAndNotify(ref _Alignments, value);
         }
         #endregion
         #region SchoolsOfMagic
         private List<string> _SchoolsOfMagic;
-        
         public List<string> SchoolsOfMagic
         {
-            get
-            {
-                return _SchoolsOfMagic;
-            }
-            set
-            {
-                _SchoolsOfMagic = value;
-                NotifyPropertyChanged();
-            }
+            get => _SchoolsOfMagic;
+            set => SetAndNotify(ref _SchoolsOfMagic, value);
         }
         #endregion
         #region AoeShapes
         private List<string> _AoeShapes;
-        
         public List<string> AoeShapes
         {
-            get
-            {
-                return _AoeShapes;
-            }
-            set
-            {
-                _AoeShapes = value;
-                NotifyPropertyChanged();
-            }
+            get => _AoeShapes;
+            set => SetAndNotify(ref _AoeShapes, value);
         }
         #endregion
         #region AbilityTypes
         private List<string> _AbilityTypes;
         public List<string> AbilityTypes
         {
-            get
-            {
-                return _AbilityTypes;
-            }
-            set
-            {
-                _AbilityTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _AbilityTypes;
+            set => SetAndNotify(ref _AbilityTypes, value);
         }
         #endregion
         #region Environments
         private List<string> _Environments;
         public List<string> Environments
         {
-            get
-            {
-                return _Environments;
-            }
-            set
-            {
-                _Environments = value;
-                NotifyPropertyChanged();
-            }
+            get => _Environments;
+            set => SetAndNotify(ref _Environments, value);
         }
         #endregion
         #region IconNames
         private List<string> _IconNames;
         public List<string> IconNames
         {
-            get
-            {
-                return _IconNames;
-            }
-            set
-            {
-                _IconNames = value;
-                NotifyPropertyChanged();
-            }
+            get => _IconNames;
+            set => SetAndNotify(ref _IconNames, value);
         }
         #endregion
         #region ChallengeRatings
         private List<string> _ChallengeRatings;
         public List<string> ChallengeRatings
         {
-            get
-            {
-                return _ChallengeRatings;
-            }
-            set
-            {
-                _ChallengeRatings = value;
-                NotifyPropertyChanged();
-            }
+            get => _ChallengeRatings;
+            set => SetAndNotify(ref _ChallengeRatings, value);
         }
         #endregion
         #region DamageProclivities
         private List<string> _DamageProclivities;
         public List<string> DamageProclivities
         {
-            get
-            {
-                return _DamageProclivities;
-            }
-            set
-            {
-                _DamageProclivities = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageProclivities;
+            set => SetAndNotify(ref _DamageProclivities, value);
         }
         #endregion
         #region Themes
         private List<string> _Themes;
         public List<string> Themes
         {
-            get
-            {
-                return _Themes;
-            }
-            set
-            {
-                _Themes = value;
-                NotifyPropertyChanged();
-            }
+            get => _Themes;
+            set => SetAndNotify(ref _Themes, value);
         }
         #endregion
         #region VolumeSizes
         private List<string> _VolumeSizes;
         public List<string> VolumeSizes
         {
-            get
-            {
-                return _VolumeSizes;
-            }
-            set
-            {
-                _VolumeSizes = value;
-                NotifyPropertyChanged();
-            }
+            get => _VolumeSizes;
+            set => SetAndNotify(ref _VolumeSizes, value);
         }
         #endregion
         #region DrinkVolumes
         private List<string> _DrinkVolumes;
         public List<string> DrinkVolumes
         {
-            get
-            {
-                return _DrinkVolumes;
-            }
-            set
-            {
-                _DrinkVolumes = value;
-                NotifyPropertyChanged();
-            }
+            get => _DrinkVolumes;
+            set => SetAndNotify(ref _DrinkVolumes, value);
         }
         #endregion
         #region FishingEnvironments
         private List<string> _FishingEnvironments;
         public List<string> FishingEnvironments
         {
-            get
-            {
-                return _FishingEnvironments;
-            }
-            set
-            {
-                _FishingEnvironments = value;
-                NotifyPropertyChanged();
-            }
+            get => _FishingEnvironments;
+            set => SetAndNotify(ref _FishingEnvironments, value);
         }
         #endregion
         #region RarityLevels
         private List<string> _RarityLevels;
         public List<string> RarityLevels
         {
-            get
-            {
-                return _RarityLevels;
-            }
-            set
-            {
-                _RarityLevels = value;
-                NotifyPropertyChanged();
-            }
+            get => _RarityLevels;
+            set => SetAndNotify(ref _RarityLevels, value);
         }
         #endregion
         #region PlayerClasses
         private List<string> _PlayerClasses;
         public List<string> PlayerClasses
         {
-            get
-            {
-                return _PlayerClasses;
-            }
-            set
-            {
-                _PlayerClasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerClasses;
+            set => SetAndNotify(ref _PlayerClasses, value);
         }
         #endregion
         #region SpellcastingClasses
         private List<string> _SpellcastingClasses;
         public List<string> SpellcastingClasses
         {
-            get
-            {
-                return _SpellcastingClasses;
-            }
-            set
-            {
-                _SpellcastingClasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellcastingClasses;
+            set => SetAndNotify(ref _SpellcastingClasses, value);
         }
         #endregion
         #region PlayerRaces
         private List<string> _PlayerRaces;
         public List<string> PlayerRaces
         {
-            get
-            {
-                return _PlayerRaces;
-            }
-            set
-            {
-                _PlayerRaces = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerRaces;
+            set => SetAndNotify(ref _PlayerRaces, value);
         }
         #endregion
         #region PlayerBackgrounds
         private List<string> _PlayerBackgrounds;
         public List<string> PlayerBackgrounds
         {
-            get
-            {
-                return _PlayerBackgrounds;
-            }
-            set
-            {
-                _PlayerBackgrounds = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerBackgrounds;
+            set => SetAndNotify(ref _PlayerBackgrounds, value);
         }
         #endregion
         #region SpellsKnownPerLevelOptions
         private List<string> _SpellsKnownPerLevelOptions;
         public List<string> SpellsKnownPerLevelOptions
         {
-            get
-            {
-                return _SpellsKnownPerLevelOptions;
-            }
-            set
-            {
-                _SpellsKnownPerLevelOptions = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellsKnownPerLevelOptions;
+            set => SetAndNotify(ref _SpellsKnownPerLevelOptions, value);
         }
         #endregion
         #region WeatherRepository
         private List<string> _WeatherRepository;
         public List<string> WeatherRepository
         {
-            get
-            {
-                return _WeatherRepository;
-            }
-            set
-            {
-                _WeatherRepository = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherRepository;
+            set => SetAndNotify(ref _WeatherRepository, value);
         }
         #endregion
         #region CalendarRepository
         private List<string> _CalendarRepository;
         public List<string> CalendarRepository
         {
-            get
-            {
-                return _CalendarRepository;
-            }
-            set
-            {
-                _CalendarRepository = value;
-                NotifyPropertyChanged();
-            }
+            get => _CalendarRepository;
+            set => SetAndNotify(ref _CalendarRepository, value);
         }
         #endregion
         #region SourcebookRepository
         private List<string> _SourcebookRepository;
         public List<string> SourcebookRepository
         {
-            get
-            {
-                return _SourcebookRepository;
-            }
-            set
-            {
-                _SourcebookRepository = value;
-                NotifyPropertyChanged();
-            }
+            get => _SourcebookRepository;
+            set => SetAndNotify(ref _SourcebookRepository, value);
         }
         #endregion
         #region NoteTypeRepository
         private List<string> _NoteTypeRepository;
         public List<string> NoteTypeRepository
         {
-            get { return _NoteTypeRepository; }
-            set { _NoteTypeRepository = value; NotifyPropertyChanged(); }
+            get => _NoteTypeRepository;
+            set => SetAndNotify(ref _NoteTypeRepository, value);
         }
         #endregion
         #region LanguageTypes
         public static List<string> LanguageTypes
         {
-            get
-            {
-                return new() { "Standard", "Exotic" };
-            }
+            get => new() { "Standard", "Exotic" };
         }
         #endregion
 
         // Commands
         #region ProcessKeyboardShortcut
-        private RelayCommand _ProcessKeyboardShortcut;
-        public ICommand ProcessKeyboardShortcut
-        {
-            get
-            {
-                if (_ProcessKeyboardShortcut == null)
-                {
-                    _ProcessKeyboardShortcut = new RelayCommand(DoProcessKeyboardShortcut);
-                }
-                return _ProcessKeyboardShortcut;
-            }
-        }
+        public ICommand ProcessKeyboardShortcut => new RelayCommand(DoProcessKeyboardShortcut);
         private void DoProcessKeyboardShortcut(object key)
         {
             switch (key.ToString())
@@ -812,18 +472,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region OpenWebDriver
-        private RelayCommand _OpenWebDriver;
-        public ICommand OpenWebDriver
-        {
-            get
-            {
-                if (_OpenWebDriver == null)
-                {
-                    _OpenWebDriver = new RelayCommand(param => DoOpenWebDriver());
-                }
-                return _OpenWebDriver;
-            }
-        }
+        public ICommand OpenWebDriver => new RelayCommand(param => DoOpenWebDriver());
         private void DoOpenWebDriver()
         {
             try
@@ -885,23 +534,12 @@ namespace GAMMA.ViewModels
             }
             catch (Exception e)
             {
-                new NotificationDialog(e.Message).ShowDialog();
+                HelperMethods.NotifyUser(e.Message);
             }
         }
         #endregion
         #region ResetDriver
-        private RelayCommand _ResetDriver;
-        public ICommand ResetDriver
-        {
-            get
-            {
-                if (_ResetDriver == null)
-                {
-                    _ResetDriver = new RelayCommand(param => DoResetDriver());
-                }
-                return _ResetDriver;
-            }
-        }
+        public ICommand ResetDriver => new RelayCommand(param => DoResetDriver());
         private void DoResetDriver()
         {
             try
@@ -920,18 +558,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region GetDriver
-        private RelayCommand _GetDriver;
-        public ICommand GetDriver
-        {
-            get
-            {
-                if (_GetDriver == null)
-                {
-                    _GetDriver = new RelayCommand(param => DoGetDriver());
-                }
-                return _GetDriver;
-            }
-        }
+        public ICommand GetDriver => new RelayCommand(param => DoGetDriver());
         private static void DoGetDriver()
         {
             try
@@ -945,18 +572,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region GenerateReport
-        private RelayCommand _GenerateReport;
-        public ICommand GenerateReport
-        {
-            get
-            {
-                if (_GenerateReport == null)
-                {
-                    _GenerateReport = new RelayCommand(DoGenerateReport);
-                }
-                return _GenerateReport;
-            }
-        }
+        public ICommand GenerateReport => new RelayCommand(DoGenerateReport);
         private void DoGenerateReport(object param)
         {
             if (param == null) { param = ""; }
@@ -971,11 +587,11 @@ namespace GAMMA.ViewModels
             };
             if (message != "")
             {
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
             }
             else
             {
-                new NotificationDialog("Invalid report type: " + param.ToString()).ShowDialog();
+                HelperMethods.NotifyUser("Invalid report type: " + param.ToString());
             }
         }
         #endregion
@@ -1010,7 +626,7 @@ namespace GAMMA.ViewModels
                 string message = e.Message;
                 if (message.Contains("Unable to locate element") && message.Contains("#speakingas")) { message = "Unable to interact with 'Speaking As' dropdown, please select manually in Roll20."; }
                 if (message.Contains("This version of ChromeDriver only supports Chrome version")) { message += "\n\nUpdate Chrome or use the Get WebDriver button to download the most recent ChromeDriver."; }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return null;
             }
 
@@ -1133,8 +749,8 @@ namespace GAMMA.ViewModels
             }
 
             message += GetStringFromList(creatureAbilityIssues, "\n\nCreatures", "\n");
-            message += GetStringFromList(creatureAbilityIssues, "\n\nSpells", "\n");
-            message += GetStringFromList(creatureAbilityIssues, "\n\nCharacters", "\n");
+            message += GetStringFromList(spellAbilityIssues, "\n\nSpells", "\n");
+            message += GetStringFromList(characterAbilityIssues, "\n\nCharacters", "\n");
 
             if (message == "GAMMA Custom Ability Report:") { message += "\n\nNo issues found."; }
 

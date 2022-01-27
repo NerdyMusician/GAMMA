@@ -22,15 +22,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsValidated
@@ -38,15 +31,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region WeeksPerMonth
@@ -54,15 +40,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int WeeksPerMonth
         {
-            get
-            {
-                return _WeeksPerMonth;
-            }
-            set
-            {
-                _WeeksPerMonth = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeeksPerMonth;
+            set => SetAndNotify(ref _WeeksPerMonth, value);
         }
         #endregion
         #region UseEras
@@ -70,15 +49,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool UseEras
         {
-            get
-            {
-                return _UseEras;
-            }
-            set
-            {
-                _UseEras = value;
-                NotifyPropertyChanged();
-            }
+            get => _UseEras;
+            set => SetAndNotify(ref _UseEras, value);
         }
         #endregion
         #region YearsPerEra
@@ -86,15 +58,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int YearsPerEra
         {
-            get
-            {
-                return _YearsPerEra;
-            }
-            set
-            {
-                _YearsPerEra = value;
-                NotifyPropertyChanged();
-            }
+            get => _YearsPerEra;
+            set => SetAndNotify(ref _YearsPerEra, value);
         }
         #endregion
         #region Months
@@ -102,15 +67,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Months
         {
-            get
-            {
-                return _Months;
-            }
-            set
-            {
-                _Months = value;
-                NotifyPropertyChanged();
-            }
+            get => _Months;
+            set => SetAndNotify(ref _Months, value);
         }
         #endregion
         #region Days
@@ -118,68 +76,28 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> Days
         {
-            get
-            {
-                return _Days;
-            }
-            set
-            {
-                _Days = value;
-                NotifyPropertyChanged();
-            }
+            get => _Days;
+            set => SetAndNotify(ref _Days, value);
         }
         #endregion
 
         // Commands
         #region RemoveCalendar
-        private RelayCommand _RemoveCalendar;
-        public ICommand RemoveCalendar
-        {
-            get
-            {
-                if (_RemoveCalendar == null)
-                {
-                    _RemoveCalendar = new RelayCommand(DoRemoveCalendar);
-                }
-                return _RemoveCalendar;
-            }
-        }
+        public ICommand RemoveCalendar => new RelayCommand(DoRemoveCalendar);
         private void DoRemoveCalendar(object param)
         {
             Configuration.MainModelRef.ToolsView.Calendars.Remove(this);
         }
         #endregion
         #region AddDay
-        private RelayCommand _AddDay;
-        public ICommand AddDay
-        {
-            get
-            {
-                if (_AddDay == null)
-                {
-                    _AddDay = new RelayCommand(DoAddDay);
-                }
-                return _AddDay;
-            }
-        }
+        public ICommand AddDay => new RelayCommand(DoAddDay);
         private void DoAddDay(object param)
         {
             Days.Add(new());
         }
         #endregion
         #region AddMonth
-        private RelayCommand _AddMonth;
-        public ICommand AddMonth
-        {
-            get
-            {
-                if (_AddMonth == null)
-                {
-                    _AddMonth = new RelayCommand(DoAddMonth);
-                }
-                return _AddMonth;
-            }
-        }
+        public ICommand AddMonth => new RelayCommand(DoAddMonth);
         private void DoAddMonth(object param)
         {
             Months.Add(new());
@@ -196,10 +114,6 @@ namespace GAMMA.Models
             Configuration.MainModelRef.ToolsView.ActiveCalendar = duplicate;
         }
         #endregion
-
-        // Public Methods
-
-        // Private Methods
 
     }
 }

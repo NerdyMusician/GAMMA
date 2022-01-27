@@ -2,6 +2,7 @@
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -31,45 +32,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<ItemModel> _AllItems;
         public ObservableCollection<ItemModel> AllItems
         {
-            get
-            {
-                return _AllItems;
-            }
-            set
-            {
-                _AllItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _AllItems;
+            set => SetAndNotify(ref _AllItems, value);
         }
         #endregion
         #region FilteredItems
         private ObservableCollection<ItemModel> _FilteredItems;
         public ObservableCollection<ItemModel> FilteredItems
         {
-            get
-            {
-                return _FilteredItems;
-            }
-            set
-            {
-                _FilteredItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredItems;
+            set => SetAndNotify(ref _FilteredItems, value);
         }
         #endregion
         #region ActiveItem
         private ItemModel _ActiveItem;
         public ItemModel ActiveItem
         {
-            get
-            {
-                return _ActiveItem;
-            }
-            set
-            {
-                _ActiveItem = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveItem;
+            set => SetAndNotify(ref _ActiveItem, value);
         }
         #endregion
 
@@ -77,15 +57,8 @@ namespace GAMMA.ViewModels
         private bool _ShowTools;
         public bool ShowTools
         {
-            get
-            {
-                return _ShowTools;
-            }
-            set
-            {
-                _ShowTools = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowTools;
+            set => SetAndNotify(ref _ShowTools, value);
         }
         #endregion
 
@@ -93,10 +66,7 @@ namespace GAMMA.ViewModels
         private string _ItemSearchText;
         public string ItemSearchText
         {
-            get
-            {
-                return _ItemSearchText;
-            }
+            get => _ItemSearchText;
             set
             {
                 _ItemSearchText = value;
@@ -109,30 +79,16 @@ namespace GAMMA.ViewModels
         private bool _ShowFilters;
         public bool ShowFilters
         {
-            get
-            {
-                return _ShowFilters;
-            }
-            set
-            {
-                _ShowFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowFilters;
+            set => SetAndNotify(ref _ShowFilters, value);
         }
         #endregion
         #region ItemTypeFilters
         private ObservableCollection<BoolOption> _ItemTypeFilters;
         public ObservableCollection<BoolOption> ItemTypeFilters
         {
-            get
-            {
-                return _ItemTypeFilters;
-            }
-            set
-            {
-                _ItemTypeFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _ItemTypeFilters;
+            set => SetAndNotify(ref _ItemTypeFilters, value);
         }
         #endregion
 
@@ -140,47 +96,22 @@ namespace GAMMA.ViewModels
         private int _Count_AllItems;
         public int Count_AllItems
         {
-            get
-            {
-                return _Count_AllItems;
-            }
-            set
-            {
-                _Count_AllItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_AllItems;
+            set => SetAndNotify(ref _Count_AllItems, value);
         }
         #endregion
         #region Count_FilteredItems
         private int _Count_FilteredItems;
         public int Count_FilteredItems
         {
-            get
-            {
-                return _Count_FilteredItems;
-            }
-            set
-            {
-                _Count_FilteredItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_FilteredItems;
+            set => SetAndNotify(ref _Count_FilteredItems, value);
         }
         #endregion
 
         // Commands
         #region AddItem
-        private RelayCommand _AddItem;
-        public ICommand AddItem
-        {
-            get
-            {
-                if (_AddItem == null)
-                {
-                    _AddItem = new RelayCommand(param => DoAddItem());
-                }
-                return _AddItem;
-            }
-        }
+        public ICommand AddItem => new RelayCommand(param => DoAddItem());
         private void DoAddItem()
         {
             AllItems.Add(new ItemModel());
@@ -189,18 +120,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveItems
-        private RelayCommand _SaveItems;
-        public ICommand SaveItems
-        {
-            get
-            {
-                if (_SaveItems == null)
-                {
-                    _SaveItems = new RelayCommand(param => DoSaveItems());
-                }
-                return _SaveItems;
-            }
-        }
+        public ICommand SaveItems => new RelayCommand(param => DoSaveItems());
         public bool DoSaveItems(bool notifyUser = true)
         {
             if (CheckItemReferences() == false) { return false; }
@@ -228,7 +148,7 @@ namespace GAMMA.ViewModels
                 {
                     message += item + "\n";
                 }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             XDocument itemDocument = new();
@@ -241,37 +161,15 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortItems
-        private RelayCommand _SortItems;
-        public ICommand SortItems
-        {
-            get
-            {
-                if (_SortItems == null)
-                {
-                    _SortItems = new RelayCommand(param => DoSortItems());
-                }
-                return _SortItems;
-            }
-        }
+        public ICommand SortItems => new RelayCommand(param => DoSortItems());
         private void DoSortItems()
         {
-            AllItems = new ObservableCollection<ItemModel>(AllItems.OrderBy(item => item.Name));
-            FilteredItems = new ObservableCollection<ItemModel>(FilteredItems.OrderBy(item => item.Name));
+            AllItems = new(AllItems.OrderBy(item => item.Name));
+            FilteredItems = new(FilteredItems.OrderBy(item => item.Name));
         }
         #endregion
         #region SelectFilters
-        private RelayCommand _SelectFilters;
-        public ICommand SelectFilters
-        {
-            get
-            {
-                if (_SelectFilters == null)
-                {
-                    _SelectFilters = new RelayCommand(DoSelectFilters);
-                }
-                return _SelectFilters;
-            }
-        }
+        public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
         private void DoSelectFilters(object filter)
         {
             foreach (BoolOption option in ItemTypeFilters)
@@ -298,26 +196,44 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Items(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
         #region ClearItemSearch
-        private RelayCommand _ClearItemSearch;
-        public ICommand ClearItemSearch
-        {
-            get
-            {
-                if (_ClearItemSearch == null)
-                {
-                    _ClearItemSearch = new RelayCommand(param => DoClearItemSearch());
-                }
-                return _ClearItemSearch;
-            }
-        }
+        public ICommand ClearItemSearch => new RelayCommand(param => DoClearItemSearch());
         private void DoClearItemSearch()
         {
             ItemSearchText = "";
+        }
+        #endregion
+        #region PerformSelectiveExport
+        public ICommand PerformSelectiveExport => new RelayCommand(param => DoPerformSelectiveExport());
+        private void DoPerformSelectiveExport()
+        {
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository);
+            if (selectionDialog.ShowDialog() == true)
+            {
+                SaveFileDialog saveWindow = new()
+                {
+                    Filter = "XML Files (*.xml)|*.xml",
+                    FileName = "Exported Items.xml",
+                    InitialDirectory = Environment.CurrentDirectory
+                };
+                if (saveWindow.ShowDialog() == true)
+                {
+                    XDocument itemDocument = new();
+                    itemDocument.Add(XmlMethods.ListToXml((selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedItems));
+                    itemDocument.Save(saveWindow.FileName);
+                    YesNoDialog question = new("Items Exported\nOpen file explorer to file?");
+                    if (question.ShowDialog() == true)
+                    {
+                        if (question.Answer == false) { return; }
+                        string argument = "/select, \"" + saveWindow.FileName + "\"";
+                        System.Diagnostics.Process.Start("explorer.exe", argument);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -408,7 +324,7 @@ namespace GAMMA.ViewModels
                     if (allItemNames.Contains(item.Name) == false) { message += "\n" + lootBox.Name + " loot: " + item.Name; missingReference = true; }
                 }
             }
-            if (missingReference) { new NotificationDialog(message).ShowDialog(); return false; }
+            if (missingReference) { HelperMethods.NotifyUser(message); return false; }
             return true;
         }
         private bool CheckItemRestrictions()
@@ -426,7 +342,7 @@ namespace GAMMA.ViewModels
             }
             if (issueFound)
             {
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             return true;

@@ -1,8 +1,8 @@
 ﻿using GAMMA.Models;
-using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,55 +35,31 @@ namespace GAMMA.ViewModels
         private ObservableCollection<SpellModel> _AllSpells;
         public ObservableCollection<SpellModel> AllSpells
         {
-            get
-            {
-                return _AllSpells;
-            }
-            set
-            {
-                _AllSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _AllSpells;
+            set => SetAndNotify(ref _AllSpells, value);
         }
         #endregion
         #region FilteredSpells
         private ObservableCollection<SpellModel> _FilteredSpells;
         public ObservableCollection<SpellModel> FilteredSpells
         {
-            get
-            {
-                return _FilteredSpells;
-            }
-            set
-            {
-                _FilteredSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredSpells;
+            set => SetAndNotify(ref _FilteredSpells, value);
         }
         #endregion
         #region ActiveSpell
         private SpellModel _ActiveSpell;
         public SpellModel ActiveSpell
         {
-            get
-            {
-                return _ActiveSpell;
-            }
-            set
-            {
-                _ActiveSpell = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveSpell;
+            set => SetAndNotify(ref _ActiveSpell, value);
         }
         #endregion
         #region SpellSearchText
         private string _SpellSearchText;
         public string SpellSearchText
         {
-            get
-            {
-                return _SpellSearchText;
-            }
+            get => _SpellSearchText;
             set
             {
                 _SpellSearchText = value;
@@ -97,47 +73,22 @@ namespace GAMMA.ViewModels
         private int _Count_AllSpells;
         public int Count_AllSpells
         {
-            get
-            {
-                return _Count_AllSpells;
-            }
-            set
-            {
-                _Count_AllSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_AllSpells;
+            set => SetAndNotify(ref _Count_AllSpells, value);
         }
         #endregion
         #region Count_FilteredSpells
         private int _Count_FilteredSpells;
         public int Count_FilteredSpells
         {
-            get
-            {
-                return _Count_FilteredSpells;
-            }
-            set
-            {
-                _Count_FilteredSpells = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_FilteredSpells;
+            set => SetAndNotify(ref _Count_FilteredSpells, value);
         }
         #endregion
 
         // Commands
         #region AddSpell
-        private RelayCommand _AddSpell;
-        public ICommand AddSpell
-        {
-            get
-            {
-                if (_AddSpell == null)
-                {
-                    _AddSpell = new RelayCommand(param => DoAddSpell());
-                }
-                return _AddSpell;
-            }
-        }
+        public ICommand AddSpell => new RelayCommand(param => DoAddSpell());
         private void DoAddSpell()
         {
             AllSpells.Add(new SpellModel());
@@ -146,21 +97,10 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveSpells
-        private RelayCommand _SaveSpells;
-        public ICommand SaveSpells
-        {
-            get
-            {
-                if (_SaveSpells == null)
-                {
-                    _SaveSpells = new RelayCommand(param => DoSaveSpells());
-                }
-                return _SaveSpells;
-            }
-        }
+        public ICommand SaveSpells => new RelayCommand(param => DoSaveSpells());
         public bool DoSaveSpells(bool notifyUser = true)
         {
-            if (AllSpells.Count() == 0)
+            if (AllSpells.Count == 0)
             {
                 // Prevents zero spell save crash
                 XDocument blankDoc = new();
@@ -183,7 +123,7 @@ namespace GAMMA.ViewModels
                 {
                     message += item + "\n";
                 }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             XDocument itemDocument = new();
@@ -196,37 +136,15 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortSpells
-        private RelayCommand _SortSpells;
-        public ICommand SortSpells
-        {
-            get
-            {
-                if (_SortSpells == null)
-                {
-                    _SortSpells = new RelayCommand(param => DoSortSpells());
-                }
-                return _SortSpells;
-            }
-        }
+        public ICommand SortSpells => new RelayCommand(param => DoSortSpells());
         private void DoSortSpells()
         {
-            AllSpells = new ObservableCollection<SpellModel>(AllSpells.OrderBy(item => item.Name));
-            FilteredSpells = new ObservableCollection<SpellModel>(FilteredSpells.OrderBy(item => item.Name));
+            AllSpells = new(AllSpells.OrderBy(item => item.Name));
+            FilteredSpells = new(FilteredSpells.OrderBy(item => item.Name));
         }
         #endregion
         #region ImportSpells
-        private RelayCommand _ImportSpells;
-        public ICommand ImportSpells
-        {
-            get
-            {
-                if (_ImportSpells == null)
-                {
-                    _ImportSpells = new RelayCommand(param => DoImportSpells());
-                }
-                return _ImportSpells;
-            }
-        }
+        public ICommand ImportSpells => new RelayCommand(param => DoImportSpells());
         private void DoImportSpells()
         {
             OpenFileDialog openWindow = new()
@@ -243,26 +161,44 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Spells(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
         #region ClearSpellSearch
-        private RelayCommand _ClearSpellSearch;
-        public ICommand ClearSpellSearch
-        {
-            get
-            {
-                if (_ClearSpellSearch == null)
-                {
-                    _ClearSpellSearch = new RelayCommand(param => DoClearSpellSearch());
-                }
-                return _ClearSpellSearch;
-            }
-        }
+        public ICommand ClearSpellSearch => new RelayCommand(param => DoClearSpellSearch());
         private void DoClearSpellSearch()
         {
             SpellSearchText = "";
+        }
+        #endregion
+        #region PerformSelectiveExport
+        public ICommand PerformSelectiveExport => new RelayCommand(param => DoPerformSelectiveExport());
+        private void DoPerformSelectiveExport()
+        {
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.SpellRepository);
+            if (selectionDialog.ShowDialog() == true)
+            {
+                SaveFileDialog saveWindow = new()
+                {
+                    Filter = "XML Files (*.xml)|*.xml",
+                    FileName = "Exported Spells.xml",
+                    InitialDirectory = Environment.CurrentDirectory
+                };
+                if (saveWindow.ShowDialog() == true)
+                {
+                    XDocument itemDocument = new();
+                    itemDocument.Add(XmlMethods.ListToXml((selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedSpells));
+                    itemDocument.Save(saveWindow.FileName);
+                    YesNoDialog question = new("Spells Exported\nOpen file explorer to file?");
+                    if (question.ShowDialog() == true)
+                    {
+                        if (question.Answer == false) { return; }
+                        string argument = "/select, \"" + saveWindow.FileName + "\"";
+                        System.Diagnostics.Process.Start("explorer.exe", argument);
+                    }
+                }
+            }
         }
         #endregion
 

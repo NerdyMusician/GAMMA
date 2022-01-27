@@ -92,30 +92,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<LootBoxModel> _LootBoxes;
         public ObservableCollection<LootBoxModel> LootBoxes
         {
-            get
-            {
-                return _LootBoxes;
-            }
-            set
-            {
-                _LootBoxes = value;
-                NotifyPropertyChanged();
-            }
+            get => _LootBoxes;
+            set => SetAndNotify(ref _LootBoxes, value);
         }
         #endregion
         #region ActiveLootBox
         private LootBoxModel _ActiveLootBox;
         public LootBoxModel ActiveLootBox
         {
-            get
-            {
-                return _ActiveLootBox;
-            }
-            set
-            {
-                _ActiveLootBox = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveLootBox;
+            set => SetAndNotify(ref _ActiveLootBox, value);
         }
         #endregion
 
@@ -123,45 +109,24 @@ namespace GAMMA.ViewModels
         private string _ScaledImageSource;
         public string ScaledImageSource
         {
-            get
-            {
-                return _ScaledImageSource;
-            }
-            set
-            {
-                _ScaledImageSource = value;
-                NotifyPropertyChanged();
-            }
+            get => _ScaledImageSource;
+            set => SetAndNotify(ref _ScaledImageSource, value);
         }
         #endregion
         #region ScaledImageHeight
         private int _ScaledImageHeight;
         public int ScaledImageHeight
         {
-            get
-            {
-                return _ScaledImageHeight;
-            }
-            set
-            {
-                _ScaledImageHeight = value;
-                NotifyPropertyChanged();
-            }
+            get => _ScaledImageHeight;
+            set => SetAndNotify(ref _ScaledImageHeight, value);
         }
         #endregion
         #region ScaledImageWidth
         private int _ScaledImageWidth;
         public int ScaledImageWidth
         {
-            get
-            {
-                return _ScaledImageWidth;
-            }
-            set
-            {
-                _ScaledImageWidth = value;
-                NotifyPropertyChanged();
-            }
+            get => _ScaledImageWidth;
+            set => SetAndNotify(ref _ScaledImageWidth, value);
         }
         #endregion
 
@@ -169,45 +134,24 @@ namespace GAMMA.ViewModels
         private ObservableCollection<RollTableModel> _RollTables;
         public ObservableCollection<RollTableModel> RollTables
         {
-            get
-            {
-                return _RollTables;
-            }
-            set
-            {
-                _RollTables = value;
-                NotifyPropertyChanged();
-            }
+            get => _RollTables;
+            set => SetAndNotify(ref _RollTables, value);
         }
         #endregion
         #region PlayerRollTables
         private ObservableCollection<RollTableModel> _PlayerRollTables;
         public ObservableCollection<RollTableModel> PlayerRollTables
         {
-            get
-            {
-                return _PlayerRollTables;
-            }
-            set
-            {
-                _PlayerRollTables = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerRollTables;
+            set => SetAndNotify(ref _PlayerRollTables, value);
         }
         #endregion
         #region ActiveRollTable
         private RollTableModel _ActiveRollTable;
         public RollTableModel ActiveRollTable
         {
-            get
-            {
-                return _ActiveRollTable;
-            }
-            set
-            {
-                _ActiveRollTable = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveRollTable;
+            set => SetAndNotify(ref _ActiveRollTable, value);
         }
         #endregion
 
@@ -215,30 +159,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<LanguageModel> _Languages;
         public ObservableCollection<LanguageModel> Languages
         {
-            get
-            {
-                return _Languages;
-            }
-            set
-            {
-                _Languages = value;
-                NotifyPropertyChanged();
-            }
+            get => _Languages;
+            set => SetAndNotify(ref _Languages, value);
         }
         #endregion
         #region ActiveLanguage
         private LanguageModel _ActiveLanguage;
         public LanguageModel ActiveLanguage
         {
-            get
-            {
-                return _ActiveLanguage;
-            }
-            set
-            {
-                _ActiveLanguage = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveLanguage;
+            set => SetAndNotify(ref _ActiveLanguage, value);
         }
         #endregion
 
@@ -246,30 +176,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerClassModel> _PlayerClasses;
         public ObservableCollection<PlayerClassModel> PlayerClasses
         {
-            get
-            {
-                return _PlayerClasses;
-            }
-            set
-            {
-                _PlayerClasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerClasses;
+            set => SetAndNotify(ref _PlayerClasses, value);
         }
         #endregion
         #region ActivePlayerClass
         private PlayerClassModel _ActivePlayerClass;
         public PlayerClassModel ActivePlayerClass
         {
-            get
-            {
-                return _ActivePlayerClass;
-            }
-            set
-            {
-                _ActivePlayerClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerClass;
+            set => SetAndNotify(ref _ActivePlayerClass, value);
         }
         #endregion
 
@@ -277,30 +193,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerSubclassModel> _PlayerSubclasses;
         public ObservableCollection<PlayerSubclassModel> PlayerSubclasses
         {
-            get
-            {
-                return _PlayerSubclasses;
-            }
-            set
-            {
-                _PlayerSubclasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerSubclasses;
+            set => SetAndNotify(ref _PlayerSubclasses, value);
         }
         #endregion
         #region ActivePlayerSubclass
         private PlayerSubclassModel _ActivePlayerSubclass;
         public PlayerSubclassModel ActivePlayerSubclass
         {
-            get
-            {
-                return _ActivePlayerSubclass;
-            }
-            set
-            {
-                _ActivePlayerSubclass = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerSubclass;
+            set => SetAndNotify(ref _ActivePlayerSubclass, value);
         }
         #endregion
 
@@ -308,30 +210,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerRaceModel> _PlayerRaces;
         public ObservableCollection<PlayerRaceModel> PlayerRaces
         {
-            get
-            {
-                return _PlayerRaces;
-            }
-            set
-            {
-                _PlayerRaces = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerRaces;
+            set => SetAndNotify(ref _PlayerRaces, value);
         }
         #endregion
         #region ActivePlayerRace
         private PlayerRaceModel _ActivePlayerRace;
         public PlayerRaceModel ActivePlayerRace
         {
-            get
-            {
-                return _ActivePlayerRace;
-            }
-            set
-            {
-                _ActivePlayerRace = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerRace;
+            set => SetAndNotify(ref _ActivePlayerRace, value);
         }
         #endregion
 
@@ -339,30 +227,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerSubraceModel> _PlayerSubraces;
         public ObservableCollection<PlayerSubraceModel> PlayerSubraces
         {
-            get
-            {
-                return _PlayerSubraces;
-            }
-            set
-            {
-                _PlayerSubraces = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerSubraces;
+            set => SetAndNotify(ref _PlayerSubraces, value);
         }
         #endregion
         #region ActivePlayerSubrace
         private PlayerSubraceModel _ActivePlayerSubrace;
         public PlayerSubraceModel ActivePlayerSubrace
         {
-            get
-            {
-                return _ActivePlayerSubrace;
-            }
-            set
-            {
-                _ActivePlayerSubrace = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerSubrace;
+            set => SetAndNotify(ref _ActivePlayerSubrace, value);
         }
         #endregion
 
@@ -370,30 +244,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerBackgroundModel> _PlayerBackgrounds;
         public ObservableCollection<PlayerBackgroundModel> PlayerBackgrounds
         {
-            get
-            {
-                return _PlayerBackgrounds;
-            }
-            set
-            {
-                _PlayerBackgrounds = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerBackgrounds;
+            set => SetAndNotify(ref _PlayerBackgrounds, value);
         }
         #endregion
         #region ActivePlayerBackground
         private PlayerBackgroundModel _ActivePlayerBackground;
         public PlayerBackgroundModel ActivePlayerBackground
         {
-            get
-            {
-                return _ActivePlayerBackground;
-            }
-            set
-            {
-                _ActivePlayerBackground = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerBackground;
+            set => SetAndNotify(ref _ActivePlayerBackground, value);
         }
         #endregion
 
@@ -401,30 +261,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<PlayerFeatModel> _PlayerFeats;
         public ObservableCollection<PlayerFeatModel> PlayerFeats
         {
-            get
-            {
-                return _PlayerFeats;
-            }
-            set
-            {
-                _PlayerFeats = value;
-                NotifyPropertyChanged();
-            }
+            get => _PlayerFeats;
+            set => SetAndNotify(ref _PlayerFeats, value);
         }
         #endregion
         #region ActivePlayerFeat
         private PlayerFeatModel _ActivePlayerFeat;
         public PlayerFeatModel ActivePlayerFeat
         {
-            get
-            {
-                return _ActivePlayerFeat;
-            }
-            set
-            {
-                _ActivePlayerFeat = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActivePlayerFeat;
+            set => SetAndNotify(ref _ActivePlayerFeat, value);
         }
         #endregion
 
@@ -432,30 +278,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<ShopModel> _Shops;
         public ObservableCollection<ShopModel> Shops
         {
-            get
-            {
-                return _Shops;
-            }
-            set
-            {
-                _Shops = value;
-                NotifyPropertyChanged();
-            }
+            get => _Shops;
+            set => SetAndNotify(ref _Shops, value);
         }
         #endregion
         #region ActiveShop
         private ShopModel _ActiveShop;
         public ShopModel ActiveShop
         {
-            get
-            {
-                return _ActiveShop;
-            }
-            set
-            {
-                _ActiveShop = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveShop;
+            set => SetAndNotify(ref _ActiveShop, value);
         }
         #endregion
 
@@ -463,30 +295,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<EldritchInvocation> _EldritchInvocations;
         public ObservableCollection<EldritchInvocation> EldritchInvocations
         {
-            get
-            {
-                return _EldritchInvocations;
-            }
-            set
-            {
-                _EldritchInvocations = value;
-                NotifyPropertyChanged();
-            }
+            get => _EldritchInvocations;
+            set => SetAndNotify(ref _EldritchInvocations, value);
         }
         #endregion
         #region ActiveEldritchInvocation
         private EldritchInvocation _ActiveEldritchInvocation;
         public EldritchInvocation ActiveEldritchInvocation
         {
-            get
-            {
-                return _ActiveEldritchInvocation;
-            }
-            set
-            {
-                _ActiveEldritchInvocation = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveEldritchInvocation;
+            set => SetAndNotify(ref _ActiveEldritchInvocation, value);
         }
         #endregion
 
@@ -494,30 +312,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<Weather> _Weathers;
         public ObservableCollection<Weather> Weathers
         {
-            get
-            {
-                return _Weathers;
-            }
-            set
-            {
-                _Weathers = value;
-                NotifyPropertyChanged();
-            }
+            get => _Weathers;
+            set => SetAndNotify(ref _Weathers, value);
         }
         #endregion
         #region ActiveWeather
         private Weather _ActiveWeather;
         public Weather ActiveWeather
         {
-            get
-            {
-                return _ActiveWeather;
-            }
-            set
-            {
-                _ActiveWeather = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveWeather;
+            set => SetAndNotify(ref _ActiveWeather, value);
         }
         #endregion
 
@@ -525,30 +329,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<GameCalendar> _Calendars;
         public ObservableCollection<GameCalendar> Calendars
         {
-            get
-            {
-                return _Calendars;
-            }
-            set
-            {
-                _Calendars = value;
-                NotifyPropertyChanged();
-            }
+            get => _Calendars;
+            set => SetAndNotify(ref _Calendars, value);
         }
         #endregion
         #region ActiveCalendar
         private GameCalendar _ActiveCalendar;
         public GameCalendar ActiveCalendar
         {
-            get
-            {
-                return _ActiveCalendar;
-            }
-            set
-            {
-                _ActiveCalendar = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveCalendar;
+            set => SetAndNotify(ref _ActiveCalendar, value);
         }
         #endregion
 
@@ -556,30 +346,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<Sourcebook> _Sourcebooks;
         public ObservableCollection<Sourcebook> Sourcebooks
         {
-            get
-            {
-                return _Sourcebooks;
-            }
-            set
-            {
-                _Sourcebooks = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebooks;
+            set => SetAndNotify(ref _Sourcebooks, value);
         }
         #endregion
         #region ActiveSourcebook
         private Sourcebook _ActiveSourcebook;
         public Sourcebook ActiveSourcebook
         {
-            get
-            {
-                return _ActiveSourcebook;
-            }
-            set
-            {
-                _ActiveSourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveSourcebook;
+            set => SetAndNotify(ref _ActiveSourcebook, value);
         }
         #endregion
 
@@ -587,16 +363,16 @@ namespace GAMMA.ViewModels
         private ObservableCollection<NoteType> _NoteTypes;
         public ObservableCollection<NoteType> NoteTypes
         {
-            get { return _NoteTypes; }
-            set { _NoteTypes = value; NotifyPropertyChanged(); }
+            get => _NoteTypes;
+            set => SetAndNotify(ref _NoteTypes, value);
         }
         #endregion
         #region ActiveNoteType
         private NoteType _ActiveNoteType;
         public NoteType ActiveNoteType
         {
-            get { return _ActiveNoteType; }
-            set { _ActiveNoteType = value; NotifyPropertyChanged(); }
+            get => _ActiveNoteType;
+            set => SetAndNotify(ref _ActiveNoteType, value);
         }
         #endregion
 
@@ -610,18 +386,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveLootBoxes
-        private RelayCommand _SaveLootBoxes;
-        public ICommand SaveLootBoxes
-        {
-            get
-            {
-                if (_SaveLootBoxes == null)
-                {
-                    _SaveLootBoxes = new RelayCommand(param => DoSaveLootBoxes());
-                }
-                return _SaveLootBoxes;
-            }
-        }
+        public ICommand SaveLootBoxes => new RelayCommand(param => DoSaveLootBoxes());
         public void DoSaveLootBoxes(bool notifyUser = true)
         {
             XDocument lootboxDocument = new();
@@ -638,36 +403,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortLootBoxes
-        private RelayCommand _SortLootBoxes;
-        public ICommand SortLootBoxes
-        {
-            get
-            {
-                if (_SortLootBoxes == null)
-                {
-                    _SortLootBoxes = new RelayCommand(param => DoSortLootBoxes());
-                }
-                return _SortLootBoxes;
-            }
-        }
+        public ICommand SortLootBoxes => new RelayCommand(param => DoSortLootBoxes());
         private void DoSortLootBoxes()
         {
             LootBoxes = new ObservableCollection<LootBoxModel>(LootBoxes.OrderBy(crt => crt.Name));
         }
         #endregion
         #region ImportLootBoxes
-        private RelayCommand _ImportLootBoxes;
-        public ICommand ImportLootBoxes
-        {
-            get
-            {
-                if (_ImportLootBoxes == null)
-                {
-                    _ImportLootBoxes = new RelayCommand(param => DoImportLootBoxes());
-                }
-                return _ImportLootBoxes;
-            }
-        }
+        public ICommand ImportLootBoxes => new RelayCommand(param => DoImportLootBoxes());
         private void DoImportLootBoxes()
         {
             OpenFileDialog openWindow = new()
@@ -690,18 +433,7 @@ namespace GAMMA.ViewModels
         #endregion
 
         #region AddRollTable
-        private RelayCommand _AddRollTable;
-        public ICommand AddRollTable
-        {
-            get
-            {
-                if (_AddRollTable == null)
-                {
-                    _AddRollTable = new RelayCommand(param => DoAddRollTable());
-                }
-                return _AddRollTable;
-            }
-        }
+        public ICommand AddRollTable => new RelayCommand(param => DoAddRollTable());
         private void DoAddRollTable()
         {
             RollTables.Add(new RollTableModel());
@@ -709,18 +441,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveRollTables
-        private RelayCommand _SaveRollTables;
-        public ICommand SaveRollTables
-        {
-            get
-            {
-                if (_SaveRollTables == null)
-                {
-                    _SaveRollTables = new RelayCommand(param => DoSaveRollTables());
-                }
-                return _SaveRollTables;
-            }
-        }
+        public ICommand SaveRollTables => new RelayCommand(param => DoSaveRollTables());
         public void DoSaveRollTables(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -740,36 +461,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortRollTables
-        private RelayCommand _SortRollTables;
-        public ICommand SortRollTables
-        {
-            get
-            {
-                if (_SortRollTables == null)
-                {
-                    _SortRollTables = new RelayCommand(param => DoSortRollTables());
-                }
-                return _SortRollTables;
-            }
-        }
+        public ICommand SortRollTables => new RelayCommand(param => DoSortRollTables());
         private void DoSortRollTables()
         {
             RollTables = new ObservableCollection<RollTableModel>(RollTables.OrderBy(crt => crt.Name));
         }
         #endregion
         #region ImportRollTables
-        private RelayCommand _ImportRollTables;
-        public ICommand ImportRollTables
-        {
-            get
-            {
-                if (_ImportRollTables == null)
-                {
-                    _ImportRollTables = new RelayCommand(param => DoImportRollTables());
-                }
-                return _ImportRollTables;
-            }
-        }
+        public ICommand ImportRollTables => new RelayCommand(param => DoImportRollTables());
         private void DoImportRollTables()
         {
             OpenFileDialog openWindow = new()
@@ -786,24 +485,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_RollTables(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region SelectImageForScaling
-        private RelayCommand _SelectImageForScaling;
-        public ICommand SelectImageForScaling
-        {
-            get
-            {
-                if (_SelectImageForScaling == null)
-                {
-                    _SelectImageForScaling = new RelayCommand(param => DoSelectImageForScaling());
-                }
-                return _SelectImageForScaling;
-            }
-        }
+        public ICommand SelectImageForScaling => new RelayCommand(param => DoSelectImageForScaling());
         private void DoSelectImageForScaling()
         {
             OpenFileDialog openWindow = new()
@@ -819,18 +507,7 @@ namespace GAMMA.ViewModels
         #endregion
 
         #region AddPlayerClass
-        private RelayCommand _AddPlayerClass;
-        public ICommand AddPlayerClass
-        {
-            get
-            {
-                if (_AddPlayerClass == null)
-                {
-                    _AddPlayerClass = new RelayCommand(param => DoAddPlayerClass());
-                }
-                return _AddPlayerClass;
-            }
-        }
+        public ICommand AddPlayerClass => new RelayCommand(param => DoAddPlayerClass());
         private void DoAddPlayerClass()
         {
             PlayerClasses.Add(new PlayerClassModel());
@@ -838,36 +515,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortPlayerClasses
-        private RelayCommand _SortPlayerClasses;
-        public ICommand SortPlayerClasses
-        {
-            get
-            {
-                if (_SortPlayerClasses == null)
-                {
-                    _SortPlayerClasses = new RelayCommand(param => DoSortPlayerClasses());
-                }
-                return _SortPlayerClasses;
-            }
-        }
+        public ICommand SortPlayerClasses => new RelayCommand(param => DoSortPlayerClasses());
         private void DoSortPlayerClasses()
         {
-            PlayerClasses = new ObservableCollection<PlayerClassModel>(PlayerClasses.OrderBy(pc => pc.Name));
+            PlayerClasses = new(PlayerClasses.OrderBy(pc => pc.Name));
         }
         #endregion
         #region SavePlayerClasses
-        private RelayCommand _SavePlayerClasses;
-        public ICommand SavePlayerClasses
-        {
-            get
-            {
-                if (_SavePlayerClasses == null)
-                {
-                    _SavePlayerClasses = new RelayCommand(param => DoSavePlayerClasses());
-                }
-                return _SavePlayerClasses;
-            }
-        }
+        public ICommand SavePlayerClasses => new RelayCommand(param => DoSavePlayerClasses());
         public void DoSavePlayerClasses(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -885,18 +540,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerClasses
-        private RelayCommand _ImportPlayerClasses;
-        public ICommand ImportPlayerClasses
-        {
-            get
-            {
-                if (_ImportPlayerClasses == null)
-                {
-                    _ImportPlayerClasses = new RelayCommand(param => DoImportPlayerClasses());
-                }
-                return _ImportPlayerClasses;
-            }
-        }
+        public ICommand ImportPlayerClasses => new RelayCommand(param => DoImportPlayerClasses());
         private void DoImportPlayerClasses()
         {
             OpenFileDialog openWindow = new()
@@ -913,24 +557,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerClasses(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddPlayerSubclass
-        private RelayCommand _AddPlayerSubclass;
-        public ICommand AddPlayerSubclass
-        {
-            get
-            {
-                if (_AddPlayerSubclass == null)
-                {
-                    _AddPlayerSubclass = new RelayCommand(param => DoAddPlayerSubclass());
-                }
-                return _AddPlayerSubclass;
-            }
-        }
+        public ICommand AddPlayerSubclass => new RelayCommand(param => DoAddPlayerSubclass());
         private void DoAddPlayerSubclass()
         {
             PlayerSubclasses.Add(new PlayerSubclassModel());
@@ -952,18 +585,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SavePlayerSubclasses
-        private RelayCommand _SavePlayerSubclasses;
-        public ICommand SavePlayerSubclasses
-        {
-            get
-            {
-                if (_SavePlayerSubclasses == null)
-                {
-                    _SavePlayerSubclasses = new RelayCommand(param => DoSavePlayerSubclasses());
-                }
-                return _SavePlayerSubclasses;
-            }
-        }
+        public ICommand SavePlayerSubclasses => new RelayCommand(param => DoSavePlayerSubclasses());
         public void DoSavePlayerSubclasses(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -980,18 +602,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerSubclasses
-        private RelayCommand _ImportPlayerSubclasses;
-        public ICommand ImportPlayerSubclasses
-        {
-            get
-            {
-                if (_ImportPlayerSubclasses == null)
-                {
-                    _ImportPlayerSubclasses = new RelayCommand(param => DoImportPlayerSubclasses());
-                }
-                return _ImportPlayerSubclasses;
-            }
-        }
+        public ICommand ImportPlayerSubclasses => new RelayCommand(param => DoImportPlayerSubclasses());
         private void DoImportPlayerSubclasses()
         {
             OpenFileDialog openWindow = new()
@@ -1008,24 +619,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerSubclasses(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddPlayerRace
-        private RelayCommand _AddPlayerRace;
-        public ICommand AddPlayerRace
-        {
-            get
-            {
-                if (_AddPlayerRace == null)
-                {
-                    _AddPlayerRace = new RelayCommand(param => DoAddPlayerRace());
-                }
-                return _AddPlayerRace;
-            }
-        }
+        public ICommand AddPlayerRace => new RelayCommand(param => DoAddPlayerRace());
         private void DoAddPlayerRace()
         {
             PlayerRaces.Add(new PlayerRaceModel());
@@ -1082,18 +682,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerRaces
-        private RelayCommand _ImportPlayerRaces;
-        public ICommand ImportPlayerRaces
-        {
-            get
-            {
-                if (_ImportPlayerRaces == null)
-                {
-                    _ImportPlayerRaces = new RelayCommand(param => DoImportPlayerRaces());
-                }
-                return _ImportPlayerRaces;
-            }
-        }
+        public ICommand ImportPlayerRaces => new RelayCommand(param => DoImportPlayerRaces());
         private void DoImportPlayerRaces()
         {
             OpenFileDialog openWindow = new()
@@ -1110,24 +699,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerRaces(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddPlayerSubrace
-        private RelayCommand _AddPlayerSubrace;
-        public ICommand AddPlayerSubrace
-        {
-            get
-            {
-                if (_AddPlayerSubrace == null)
-                {
-                    _AddPlayerSubrace = new RelayCommand(param => DoAddPlayerSubrace());
-                }
-                return _AddPlayerSubrace;
-            }
-        }
+        public ICommand AddPlayerSubrace => new RelayCommand(param => DoAddPlayerSubrace());
         private void DoAddPlayerSubrace()
         {
             PlayerSubraces.Add(new PlayerSubraceModel());
@@ -1149,18 +727,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SavePlayerSubraces
-        private RelayCommand _SavePlayerSubraces;
-        public ICommand SavePlayerSubraces
-        {
-            get
-            {
-                if (_SavePlayerSubraces == null)
-                {
-                    _SavePlayerSubraces = new RelayCommand(param => DoSavePlayerSubraces());
-                }
-                return _SavePlayerSubraces;
-            }
-        }
+        public ICommand SavePlayerSubraces => new RelayCommand(param => DoSavePlayerSubraces());
         public void DoSavePlayerSubraces(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1178,18 +745,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerSubraces
-        private RelayCommand _ImportPlayerSubraces;
-        public ICommand ImportPlayerSubraces
-        {
-            get
-            {
-                if (_ImportPlayerSubraces == null)
-                {
-                    _ImportPlayerSubraces = new RelayCommand(param => DoImportPlayerSubraces());
-                }
-                return _ImportPlayerSubraces;
-            }
-        }
+        public ICommand ImportPlayerSubraces => new RelayCommand(param => DoImportPlayerSubraces());
         private void DoImportPlayerSubraces()
         {
             OpenFileDialog openWindow = new()
@@ -1206,61 +762,28 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerSubraces(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddPlayerBackground
-        private RelayCommand _AddPlayerBackground;
-        public ICommand AddPlayerBackground
-        {
-            get
-            {
-                if (_AddPlayerBackground == null)
-                {
-                    _AddPlayerBackground = new RelayCommand(param => DoAddPlayerBackground());
-                }
-                return _AddPlayerBackground;
-            }
-        }
+        public ICommand AddPlayerBackground => new RelayCommand(param => DoAddPlayerBackground());
         private void DoAddPlayerBackground()
         {
-            PlayerBackgrounds.Add(new PlayerBackgroundModel());
+            PlayerBackgrounds.Add(new());
             ActivePlayerBackground = PlayerBackgrounds.Last();
         }
         #endregion
         #region SortPlayerBackgrounds
-        private RelayCommand _SortPlayerBackgrounds;
-        public ICommand SortPlayerBackgrounds
-        {
-            get
-            {
-                if (_SortPlayerBackgrounds == null)
-                {
-                    _SortPlayerBackgrounds = new RelayCommand(param => DoSortPlayerBackgrounds());
-                }
-                return _SortPlayerBackgrounds;
-            }
-        }
+        public ICommand SortPlayerBackgrounds => new RelayCommand(param => DoSortPlayerBackgrounds());
         private void DoSortPlayerBackgrounds()
         {
             PlayerBackgrounds = new ObservableCollection<PlayerBackgroundModel>(PlayerBackgrounds.OrderBy(crt => crt.Name));
         }
         #endregion
         #region SavePlayerBackgrounds
-        private RelayCommand _SavePlayerBackgrounds;
-        public ICommand SavePlayerBackgrounds
-        {
-            get
-            {
-                if (_SavePlayerBackgrounds == null)
-                {
-                    _SavePlayerBackgrounds = new RelayCommand(param => DoSavePlayerBackgrounds());
-                }
-                return _SavePlayerBackgrounds;
-            }
-        }
+        public ICommand SavePlayerBackgrounds => new RelayCommand(param => DoSavePlayerBackgrounds());
         public void DoSavePlayerBackgrounds(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1280,18 +803,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerBackgrounds
-        private RelayCommand _ImportPlayerBackgrounds;
-        public ICommand ImportPlayerBackgrounds
-        {
-            get
-            {
-                if (_ImportPlayerBackgrounds == null)
-                {
-                    _ImportPlayerBackgrounds = new RelayCommand(param => DoImportPlayerBackgrounds());
-                }
-                return _ImportPlayerBackgrounds;
-            }
-        }
+        public ICommand ImportPlayerBackgrounds => new RelayCommand(param => DoImportPlayerBackgrounds());
         private void DoImportPlayerBackgrounds()
         {
             OpenFileDialog openWindow = new()
@@ -1308,24 +820,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerBackgrounds(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddPlayerFeat
-        private RelayCommand _AddPlayerFeat;
-        public ICommand AddPlayerFeat
-        {
-            get
-            {
-                if (_AddPlayerFeat == null)
-                {
-                    _AddPlayerFeat = new RelayCommand(param => DoAddPlayerFeat());
-                }
-                return _AddPlayerFeat;
-            }
-        }
+        public ICommand AddPlayerFeat => new RelayCommand(param => DoAddPlayerFeat());
         private void DoAddPlayerFeat()
         {
             PlayerFeats.Add(new PlayerFeatModel());
@@ -1333,36 +834,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortPlayerFeats
-        private RelayCommand _SortPlayerFeats;
-        public ICommand SortPlayerFeats
-        {
-            get
-            {
-                if (_SortPlayerFeats == null)
-                {
-                    _SortPlayerFeats = new RelayCommand(param => DoSortPlayerFeats());
-                }
-                return _SortPlayerFeats;
-            }
-        }
+        public ICommand SortPlayerFeats => new RelayCommand(param => DoSortPlayerFeats());
         private void DoSortPlayerFeats()
         {
-            PlayerFeats = new ObservableCollection<PlayerFeatModel>(PlayerFeats.OrderBy(crt => crt.Name));
+            PlayerFeats = new(PlayerFeats.OrderBy(crt => crt.Name));
         }
         #endregion
         #region SavePlayerFeats
-        private RelayCommand _SavePlayerFeats;
-        public ICommand SavePlayerFeats
-        {
-            get
-            {
-                if (_SavePlayerFeats == null)
-                {
-                    _SavePlayerFeats = new RelayCommand(param => DoSavePlayerFeats());
-                }
-                return _SavePlayerFeats;
-            }
-        }
+        public ICommand SavePlayerFeats => new RelayCommand(param => DoSavePlayerFeats());
         public void DoSavePlayerFeats(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1381,18 +860,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportPlayerFeats
-        private RelayCommand _ImportPlayerFeats;
-        public ICommand ImportPlayerFeats
-        {
-            get
-            {
-                if (_ImportPlayerFeats == null)
-                {
-                    _ImportPlayerFeats = new RelayCommand(param => DoImportPlayerFeats());
-                }
-                return _ImportPlayerFeats;
-            }
-        }
+        public ICommand ImportPlayerFeats => new RelayCommand(param => DoImportPlayerFeats());
         private void DoImportPlayerFeats()
         {
             OpenFileDialog openWindow = new()
@@ -1409,61 +877,28 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_PlayerFeats(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddLanguage
-        private RelayCommand _AddLanguage;
-        public ICommand AddLanguage
-        {
-            get
-            {
-                if (_AddLanguage == null)
-                {
-                    _AddLanguage = new RelayCommand(param => DoAddLanguage());
-                }
-                return _AddLanguage;
-            }
-        }
+        public ICommand AddLanguage => new RelayCommand(param => DoAddLanguage());
         private void DoAddLanguage()
         {
-            Languages.Add(new LanguageModel());
+            Languages.Add(new());
             ActiveLanguage = Languages.Last();
         }
         #endregion
         #region SortLanguages
-        private RelayCommand _SortLanguages;
-        public ICommand SortLanguages
-        {
-            get
-            {
-                if (_SortLanguages == null)
-                {
-                    _SortLanguages = new RelayCommand(param => DoSortLanguages());
-                }
-                return _SortLanguages;
-            }
-        }
+        public ICommand SortLanguages => new RelayCommand(param => DoSortLanguages());
         private void DoSortLanguages()
         {
-            Languages = new ObservableCollection<LanguageModel>(Languages.OrderBy(crt => crt.Name));
+            Languages = new(Languages.OrderBy(crt => crt.Name));
         }
         #endregion
         #region SaveLanguages
-        private RelayCommand _SaveLanguages;
-        public ICommand SaveLanguages
-        {
-            get
-            {
-                if (_SaveLanguages == null)
-                {
-                    _SaveLanguages = new RelayCommand(param => DoSaveLanguages());
-                }
-                return _SaveLanguages;
-            }
-        }
+        public ICommand SaveLanguages => new RelayCommand(param => DoSaveLanguages());
         public void DoSaveLanguages(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1482,18 +917,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportLanguages
-        private RelayCommand _ImportLanguages;
-        public ICommand ImportLanguages
-        {
-            get
-            {
-                if (_ImportLanguages == null)
-                {
-                    _ImportLanguages = new RelayCommand(param => DoImportLanguages());
-                }
-                return _ImportLanguages;
-            }
-        }
+        public ICommand ImportLanguages => new RelayCommand(param => DoImportLanguages());
         private void DoImportLanguages()
         {
             OpenFileDialog openWindow = new()
@@ -1510,25 +934,14 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Languages(openWindow.FileName, out string message);
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
         #endregion
 
         #region AddShop
-        private RelayCommand _AddShop;
-        public ICommand AddShop
-        {
-            get
-            {
-                if (_AddShop == null)
-                {
-                    _AddShop = new RelayCommand(param => DoAddShop());
-                }
-                return _AddShop;
-            }
-        }
+        public ICommand AddShop => new RelayCommand(param => DoAddShop());
         private void DoAddShop()
         {
             Shops.Add(new ShopModel());
@@ -1537,36 +950,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortShops
-        private RelayCommand _SortShops;
-        public ICommand SortShops
-        {
-            get
-            {
-                if (_SortShops == null)
-                {
-                    _SortShops = new RelayCommand(param => DoSortShops());
-                }
-                return _SortShops;
-            }
-        }
+        public ICommand SortShops => new RelayCommand(param => DoSortShops());
         private void DoSortShops()
         {
-            Shops = new ObservableCollection<ShopModel>(Shops.OrderBy(crt => crt.Name));
+            Shops = new(Shops.OrderBy(crt => crt.Name));
         }
         #endregion
         #region SaveShops
-        private RelayCommand _SaveShops;
-        public ICommand SaveShops
-        {
-            get
-            {
-                if (_SaveShops == null)
-                {
-                    _SaveShops = new RelayCommand(param => DoSaveShops());
-                }
-                return _SaveShops;
-            }
-        }
+        public ICommand SaveShops => new RelayCommand(param => DoSaveShops());
         public void DoSaveShops(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1585,18 +976,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportShops
-        private RelayCommand _ImportShops;
-        public ICommand ImportShops
-        {
-            get
-            {
-                if (_ImportShops == null)
-                {
-                    _ImportShops = new RelayCommand(param => DoImportShops());
-                }
-                return _ImportShops;
-            }
-        }
+        public ICommand ImportShops => new RelayCommand(param => DoImportShops());
         private void DoImportShops()
         {
             OpenFileDialog openWindow = new()
@@ -1613,61 +993,28 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Shops(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddEldritchInvocation
-        private RelayCommand _AddEldritchInvocation;
-        public ICommand AddEldritchInvocation
-        {
-            get
-            {
-                if (_AddEldritchInvocation == null)
-                {
-                    _AddEldritchInvocation = new RelayCommand(param => DoAddEldritchInvocation());
-                }
-                return _AddEldritchInvocation;
-            }
-        }
+        public ICommand AddEldritchInvocation => new RelayCommand(param => DoAddEldritchInvocation());
         private void DoAddEldritchInvocation()
         {
-            EldritchInvocations.Add(new EldritchInvocation());
+            EldritchInvocations.Add(new());
             ActiveEldritchInvocation = EldritchInvocations.Last();
         }
         #endregion
         #region SortEldritchInvocations
-        private RelayCommand _SortEldritchInvocations;
-        public ICommand SortEldritchInvocations
-        {
-            get
-            {
-                if (_SortEldritchInvocations == null)
-                {
-                    _SortEldritchInvocations = new RelayCommand(param => DoSortEldritchInvocations());
-                }
-                return _SortEldritchInvocations;
-            }
-        }
+        public ICommand SortEldritchInvocations => new RelayCommand(param => DoSortEldritchInvocations());
         private void DoSortEldritchInvocations()
         {
             EldritchInvocations = new ObservableCollection<EldritchInvocation>(EldritchInvocations.OrderBy(ei => ei.Name));
         }
         #endregion
         #region SaveEldritchInvocations
-        private RelayCommand _SaveEldritchInvocations;
-        public ICommand SaveEldritchInvocations
-        {
-            get
-            {
-                if (_SaveEldritchInvocations == null)
-                {
-                    _SaveEldritchInvocations = new RelayCommand(param => DoSaveEldritchInvocations());
-                }
-                return _SaveEldritchInvocations;
-            }
-        }
+        public ICommand SaveEldritchInvocations => new RelayCommand(param => DoSaveEldritchInvocations());
         public void DoSaveEldritchInvocations(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -1686,18 +1033,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportEldritchInvocations
-        private RelayCommand _ImportEldritchInvocations;
-        public ICommand ImportEldritchInvocations
-        {
-            get
-            {
-                if (_ImportEldritchInvocations == null)
-                {
-                    _ImportEldritchInvocations = new RelayCommand(param => DoImportEldritchInvocations());
-                }
-                return _ImportEldritchInvocations;
-            }
-        }
+        public ICommand ImportEldritchInvocations => new RelayCommand(param => DoImportEldritchInvocations());
         private void DoImportEldritchInvocations()
         {
             OpenFileDialog openWindow = new()
@@ -1714,24 +1050,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Invocations(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddWeather
-        private RelayCommand _AddWeather;
-        public ICommand AddWeather
-        {
-            get
-            {
-                if (_AddWeather == null)
-                {
-                    _AddWeather = new RelayCommand(param => DoAddWeather());
-                }
-                return _AddWeather;
-            }
-        }
+        public ICommand AddWeather => new RelayCommand(param => DoAddWeather());
         private void DoAddWeather()
         {
             Weather newWeather = new() { Name = "New Weather" };
@@ -1746,36 +1071,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortWeathers
-        private RelayCommand _SortWeathers;
-        public ICommand SortWeathers
-        {
-            get
-            {
-                if (_SortWeathers == null)
-                {
-                    _SortWeathers = new RelayCommand(param => DoSortWeathers());
-                }
-                return _SortWeathers;
-            }
-        }
+        public ICommand SortWeathers => new RelayCommand(param => DoSortWeathers());
         private void DoSortWeathers()
         {
-            Weathers = new ObservableCollection<Weather>(Weathers.OrderBy(ei => ei.Name));
+            Weathers = new(Weathers.OrderBy(ei => ei.Name));
         }
         #endregion
         #region SaveWeathers
-        private RelayCommand _SaveWeathers;
-        public ICommand SaveWeathers
-        {
-            get
-            {
-                if (_SaveWeathers == null)
-                {
-                    _SaveWeathers = new RelayCommand(param => DoSaveWeathers());
-                }
-                return _SaveWeathers;
-            }
-        }
+        public ICommand SaveWeathers => new RelayCommand(param => DoSaveWeathers());
         public void DoSaveWeathers(bool notifyUser = true)
         {
             if (ValidateData_Weathers() == false) { return; }
@@ -1795,18 +1098,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportWeathers
-        private RelayCommand _ImportWeathers;
-        public ICommand ImportWeathers
-        {
-            get
-            {
-                if (_ImportWeathers == null)
-                {
-                    _ImportWeathers = new RelayCommand(param => DoImportWeathers());
-                }
-                return _ImportWeathers;
-            }
-        }
+        public ICommand ImportWeathers => new RelayCommand(param => DoImportWeathers());
         private void DoImportWeathers()
         {
             OpenFileDialog openWindow = new()
@@ -1823,25 +1115,14 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Weather(openWindow.FileName, out string message);
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
 
             }
         }
         #endregion
 
         #region AddCalendar
-        private RelayCommand _AddCalendar;
-        public ICommand AddCalendar
-        {
-            get
-            {
-                if (_AddCalendar == null)
-                {
-                    _AddCalendar = new RelayCommand(param => DoAddCalendar());
-                }
-                return _AddCalendar;
-            }
-        }
+        public ICommand AddCalendar => new RelayCommand(param => DoAddCalendar());
         private void DoAddCalendar()
         {
             GameCalendar newCalendar = new();
@@ -1850,36 +1131,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortCalendars
-        private RelayCommand _SortCalendars;
-        public ICommand SortCalendars
-        {
-            get
-            {
-                if (_SortCalendars == null)
-                {
-                    _SortCalendars = new RelayCommand(param => DoSortCalendars());
-                }
-                return _SortCalendars;
-            }
-        }
+        public ICommand SortCalendars => new RelayCommand(param => DoSortCalendars());
         private void DoSortCalendars()
         {
-            Calendars = new ObservableCollection<GameCalendar>(Calendars.OrderBy(ei => ei.Name));
+            Calendars = new(Calendars.OrderBy(ei => ei.Name));
         }
         #endregion
         #region SaveCalendars
-        private RelayCommand _SaveCalendars;
-        public ICommand SaveCalendars
-        {
-            get
-            {
-                if (_SaveCalendars == null)
-                {
-                    _SaveCalendars = new RelayCommand(param => DoSaveCalendars());
-                }
-                return _SaveCalendars;
-            }
-        }
+        public ICommand SaveCalendars => new RelayCommand(param => DoSaveCalendars());
         public void DoSaveCalendars(bool notifyUser = true)
         {
             if (ValidateData_Calendars() == false) { return; }
@@ -1899,18 +1158,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportCalendars
-        private RelayCommand _ImportCalendars;
-        public ICommand ImportCalendars
-        {
-            get
-            {
-                if (_ImportCalendars == null)
-                {
-                    _ImportCalendars = new RelayCommand(param => DoImportCalendars());
-                }
-                return _ImportCalendars;
-            }
-        }
+        public ICommand ImportCalendars => new RelayCommand(param => DoImportCalendars());
         private void DoImportCalendars()
         {
             OpenFileDialog openWindow = new()
@@ -1927,24 +1175,13 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Calendars(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
 
         #region AddSourcebook
-        private RelayCommand _AddSourcebook;
-        public ICommand AddSourcebook
-        {
-            get
-            {
-                if (_AddSourcebook == null)
-                {
-                    _AddSourcebook = new RelayCommand(param => DoAddSourcebook());
-                }
-                return _AddSourcebook;
-            }
-        }
+        public ICommand AddSourcebook => new RelayCommand(param => DoAddSourcebook());
         private void DoAddSourcebook()
         {
             Sourcebooks.Add(new());
@@ -1952,36 +1189,14 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortSourcebooks
-        private RelayCommand _SortSourcebooks;
-        public ICommand SortSourcebooks
-        {
-            get
-            {
-                if (_SortSourcebooks == null)
-                {
-                    _SortSourcebooks = new RelayCommand(param => DoSortSourcebooks());
-                }
-                return _SortSourcebooks;
-            }
-        }
+        public ICommand SortSourcebooks => new RelayCommand(param => DoSortSourcebooks());
         private void DoSortSourcebooks()
         {
             Sourcebooks = new(Sourcebooks.OrderBy(sb => sb.Name));
         }
         #endregion
         #region SaveSourcebooks
-        private RelayCommand _SaveSourcebooks;
-        public ICommand SaveSourcebooks
-        {
-            get
-            {
-                if (_SaveSourcebooks == null)
-                {
-                    _SaveSourcebooks = new RelayCommand(param => DoSaveSourcebooks());
-                }
-                return _SaveSourcebooks;
-            }
-        }
+        public ICommand SaveSourcebooks => new RelayCommand(param => DoSaveSourcebooks());
         public void DoSaveSourcebooks(bool notifyUser = true)
         {
             XDocument xmlDoc = new();
@@ -2001,18 +1216,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportSourcebooks
-        private RelayCommand _ImportSourcebooks;
-        public ICommand ImportSourcebooks
-        {
-            get
-            {
-                if (_ImportSourcebooks == null)
-                {
-                    _ImportSourcebooks = new RelayCommand(param => DoImportSourcebooks());
-                }
-                return _ImportSourcebooks;
-            }
-        }
+        public ICommand ImportSourcebooks => new RelayCommand(param => DoImportSourcebooks());
         private void DoImportSourcebooks()
         {
             OpenFileDialog openWindow = new()
@@ -2029,7 +1233,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Sourcebooks(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -2087,7 +1291,7 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_NoteTypes(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
@@ -2249,7 +1453,7 @@ namespace GAMMA.ViewModels
                 {
                     message += "\n" + msg;
                 }
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
                 return false;
             }
             return true;
@@ -2272,7 +1476,7 @@ namespace GAMMA.ViewModels
                 {
                     message += "\n" + msg;
                 }
-                new NotificationDialog(message, "Report").ShowDialog();
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
                 return false;
             }
             return true;

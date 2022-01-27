@@ -27,15 +27,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsValidated
@@ -43,15 +36,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region Sourcebook
@@ -59,15 +45,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
 
@@ -76,15 +55,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> EquipmentChoices
         {
-            get
-            {
-                return _EquipmentChoices;
-            }
-            set
-            {
-                _EquipmentChoices = value;
-                NotifyPropertyChanged();
-            }
+            get => _EquipmentChoices;
+            set => SetAndNotify(ref _EquipmentChoices, value);
         }
         #endregion
 
@@ -93,10 +65,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasSpellcasting
         {
-            get
-            {
-                return _HasSpellcasting;
-            }
+            get => _HasSpellcasting;
             set
             {
                 if (value == false && SpellTableRows.Count() > 0)
@@ -116,15 +85,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SpellcastingAbility
         {
-            get
-            {
-                return _SpellcastingAbility;
-            }
-            set
-            {
-                _SpellcastingAbility = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellcastingAbility;
+            set => SetAndNotify(ref _SpellcastingAbility, value);
         }
         #endregion
         #region SpellsKnownPerLevelType
@@ -132,10 +94,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SpellsKnownPerLevelType
         {
-            get
-            {
-                return _SpellsKnownPerLevelType;
-            }
+            get => _SpellsKnownPerLevelType;
             set
             {
                 _SpellsKnownPerLevelType = value;
@@ -149,30 +108,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<SpellTableRowModel> SpellTableRows
         {
-            get
-            {
-                return _SpellTableRows;
-            }
-            set
-            {
-                _SpellTableRows = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellTableRows;
+            set => SetAndNotify(ref _SpellTableRows, value);
         }
         #endregion
         #region MulticlassingSlotsOptions
         private List<string> _MulticlassingSlotsOptions;
         public List<string> MulticlassingSlotsOptions
         {
-            get
-            {
-                return _MulticlassingSlotsOptions;
-            }
-            set
-            {
-                _MulticlassingSlotsOptions = value;
-                NotifyPropertyChanged();
-            }
+            get => _MulticlassingSlotsOptions;
+            set => SetAndNotify(ref _MulticlassingSlotsOptions, value);
         }
         #endregion
         #region MulticlassingSlots
@@ -180,15 +125,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string MulticlassingSlots
         {
-            get
-            {
-                return _MulticlassingSlots;
-            }
-            set
-            {
-                _MulticlassingSlots = value;
-                NotifyPropertyChanged();
-            }
+            get => _MulticlassingSlots;
+            set => SetAndNotify(ref _MulticlassingSlots, value);
         }
         #endregion
         #region CanCastRituals
@@ -196,15 +134,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool CanCastRituals
         {
-            get
-            {
-                return _CanCastRituals;
-            }
-            set
-            {
-                _CanCastRituals = value;
-                NotifyPropertyChanged();
-            }
+            get => _CanCastRituals;
+            set => SetAndNotify(ref _CanCastRituals, value);
         }
         #endregion
 
@@ -213,68 +144,28 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<FeatureModel> Features
         {
-            get
-            {
-                return _Features;
-            }
-            set
-            {
-                _Features = value;
-                NotifyPropertyChanged();
-            }
+            get => _Features;
+            set => SetAndNotify(ref _Features, value);
         }
         #endregion
 
         // Commands
         #region AddEquipmentChoice
-        private RelayCommand _AddEquipmentChoice;
-        public ICommand AddEquipmentChoice
-        {
-            get
-            {
-                if (_AddEquipmentChoice == null)
-                {
-                    _AddEquipmentChoice = new RelayCommand(param => DoAddEquipmentChoice());
-                }
-                return _AddEquipmentChoice;
-            }
-        }
+        public ICommand AddEquipmentChoice => new RelayCommand(param => DoAddEquipmentChoice());
         private void DoAddEquipmentChoice()
         {
             EquipmentChoices.Add(new ConvertibleValue("New Equipment Choice"));
         }
         #endregion
         #region AddFeature
-        private RelayCommand _AddFeature;
-        public ICommand AddFeature
-        {
-            get
-            {
-                if (_AddFeature == null)
-                {
-                    _AddFeature = new RelayCommand(param => DoAddFeature());
-                }
-                return _AddFeature;
-            }
-        }
+        public ICommand AddFeature => new RelayCommand(param => DoAddFeature());
         private void DoAddFeature()
         {
             Features.Add(new());
         }
         #endregion
         #region SortFeatures
-        private RelayCommand _SortFeatures;
-        public ICommand SortFeatures
-        {
-            get
-            {
-                if (_SortFeatures == null)
-                {
-                    _SortFeatures = new RelayCommand(param => DoSortFeatures());
-                }
-                return _SortFeatures;
-            }
-        }
+        public ICommand SortFeatures => new RelayCommand(param => DoSortFeatures());
         private void DoSortFeatures()
         {
             Features = new(Features.OrderBy(feature =>

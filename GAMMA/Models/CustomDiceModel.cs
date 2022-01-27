@@ -19,15 +19,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region DiceQuantity
@@ -35,15 +28,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DiceQuantity
         {
-            get
-            {
-                return _DiceQuantity;
-            }
-            set
-            {
-                _DiceQuantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _DiceQuantity;
+            set => SetAndNotify(ref _DiceQuantity, value);
         }
         #endregion
         #region DiceSides
@@ -51,15 +37,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DiceSides
         {
-            get
-            {
-                return _DiceSides;
-            }
-            set
-            {
-                _DiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _DiceSides;
+            set => SetAndNotify(ref _DiceSides, value);
         }
         #endregion
         #region DiceModifier
@@ -67,15 +46,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DiceModifier
         {
-            get
-            {
-                return _DiceModifier;
-            }
-            set
-            {
-                _DiceModifier = value;
-                NotifyPropertyChanged();
-            }
+            get => _DiceModifier;
+            set => SetAndNotify(ref _DiceModifier, value);
         }
         #endregion
 
@@ -101,18 +73,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveDiceSet
-        private RelayCommand _RemoveDiceSet;
-        public ICommand RemoveDiceSet
-        {
-            get
-            {
-                if (_RemoveDiceSet == null)
-                {
-                    _RemoveDiceSet = new RelayCommand(param => DoRemoveDiceSet());
-                }
-                return _RemoveDiceSet;
-            }
-        }
+        public ICommand RemoveDiceSet => new RelayCommand(param => DoRemoveDiceSet());
         private void DoRemoveDiceSet()
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.CustomDiceSets.Remove(this);

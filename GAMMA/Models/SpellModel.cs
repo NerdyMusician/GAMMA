@@ -17,8 +17,8 @@ namespace GAMMA.Models
         public SpellModel()
         {
             Name = "New Spell";
-            ConsumedMaterials = new ObservableCollection<ItemModel>();
-            SpellClasses = new ObservableCollection<ConvertibleValue>();
+            ConsumedMaterials = new();
+            SpellClasses = new();
             PrimaryAbilities = new();
             SecondaryAbilities = new();
             IsTabSelected_PrimaryAbilities = true;
@@ -30,15 +30,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Sourcebook
@@ -46,15 +39,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Sourcebook
         {
-            get
-            {
-                return _Sourcebook;
-            }
-            set
-            {
-                _Sourcebook = value;
-                NotifyPropertyChanged();
-            }
+            get => _Sourcebook;
+            set => SetAndNotify(ref _Sourcebook, value);
         }
         #endregion
         #region Description
@@ -62,15 +48,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region SpellClasses
@@ -78,15 +57,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> SpellClasses
         {
-            get
-            {
-                return _SpellClasses;
-            }
-            set
-            {
-                _SpellClasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellClasses;
+            set => SetAndNotify(ref _SpellClasses, value);
         }
         #endregion
         #region IsValidated
@@ -94,15 +66,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
 
@@ -110,30 +75,16 @@ namespace GAMMA.Models
         private bool _IsTabSelected_PrimaryAbilities;
         public bool IsTabSelected_PrimaryAbilities
         {
-            get
-            {
-                return _IsTabSelected_PrimaryAbilities;
-            }
-            set
-            {
-                _IsTabSelected_PrimaryAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsTabSelected_PrimaryAbilities;
+            set => SetAndNotify(ref _IsTabSelected_PrimaryAbilities, value);
         }
         #endregion
         #region IsTabSelected_SecondaryAbilities
         private bool _IsTabSelected_SecondaryAbilities;
         public bool IsTabSelected_SecondaryAbilities
         {
-            get
-            {
-                return _IsTabSelected_SecondaryAbilities;
-            }
-            set
-            {
-                _IsTabSelected_SecondaryAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsTabSelected_SecondaryAbilities;
+            set => SetAndNotify(ref _IsTabSelected_SecondaryAbilities, value);
         }
         #endregion
 
@@ -142,15 +93,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SchoolOfMagic
         {
-            get
-            {
-                return _SchoolOfMagic;
-            }
-            set
-            {
-                _SchoolOfMagic = value;
-                NotifyPropertyChanged();
-            }
+            get => _SchoolOfMagic;
+            set => SetAndNotify(ref _SchoolOfMagic, value);
         }
         #endregion
         #region CastingTime
@@ -158,15 +102,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string CastingTime
         {
-            get
-            {
-                return _CastingTime;
-            }
-            set
-            {
-                _CastingTime = value;
-                NotifyPropertyChanged();
-            }
+            get => _CastingTime;
+            set => SetAndNotify(ref _CastingTime, value);
         }
         #endregion
         #region SpellDuration
@@ -174,15 +111,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SpellDuration
         {
-            get
-            {
-                return _SpellDuration;
-            }
-            set
-            {
-                _SpellDuration = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellDuration;
+            set => SetAndNotify(ref _SpellDuration, value);
         }
         #endregion
         #region SpellLevel
@@ -190,15 +120,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int SpellLevel
         {
-            get
-            {
-                return _SpellLevel;
-            }
-            set
-            {
-                _SpellLevel = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellLevel;
+            set => SetAndNotify(ref _SpellLevel, value);
         }
         #endregion
 
@@ -207,15 +130,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Range
         {
-            get
-            {
-                return _Range;
-            }
-            set
-            {
-                _Range = value;
-                NotifyPropertyChanged();
-            }
+            get => _Range;
+            set => SetAndNotify(ref _Range, value);
         }
         #endregion
         #region HasAreaOfEffect
@@ -223,15 +139,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasAreaOfEffect
         {
-            get
-            {
-                return _HasAreaOfEffect;
-            }
-            set
-            {
-                _HasAreaOfEffect = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasAreaOfEffect;
+            set => SetAndNotify(ref _HasAreaOfEffect, value);
         }
         #endregion
         #region AoeRange
@@ -239,31 +148,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int AoeRange
         {
-            get
-            {
-                return _AoeRange;
-            }
-            set
-            {
-                _AoeRange = value;
-                NotifyPropertyChanged();
-            }
+            get => _AoeRange;
+            set => SetAndNotify(ref _AoeRange, value);
         }
         #endregion
         #region AoeRange2
         private int _AoeRange2;
-        
         public int AoeRange2
         {
-            get
-            {
-                return _AoeRange2;
-            }
-            set
-            {
-                _AoeRange2 = value;
-                NotifyPropertyChanged();
-            }
+            get => _AoeRange2;
+            set => SetAndNotify(ref _AoeRange2, value);
         }
         #endregion
         #region AoeShape
@@ -271,15 +165,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string AoeShape
         {
-            get
-            {
-                return _AoeShape;
-            }
-            set
-            {
-                _AoeShape = value;
-                NotifyPropertyChanged();
-            }
+            get => _AoeShape;
+            set => SetAndNotify(ref _AoeShape, value);
         }
         #endregion
 
@@ -288,16 +175,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsPrepared
         {
-            get
-            {
-                return _IsPrepared;
-            }
-            set
-            {
-                _IsPrepared = value;
-                NotifyPropertyChanged();
-
-            }
+            get => _IsPrepared;
+            set => SetAndNotify(ref _IsPrepared, value);
         }
         #endregion
         #region HasScaling
@@ -306,15 +185,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool HasScaling
         {
-            get
-            {
-                return _HasScaling;
-            }
-            set
-            {
-                _HasScaling = value;
-                NotifyPropertyChanged();
-            }
+            get => _HasScaling;
+            set => SetAndNotify(ref _HasScaling, value);
         }
         #endregion
         #region RitualCapable
@@ -322,15 +194,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RitualCapable
         {
-            get
-            {
-                return _RitualCapable;
-            }
-            set
-            {
-                _RitualCapable = value;
-                NotifyPropertyChanged();
-            }
+            get => _RitualCapable;
+            set => SetAndNotify(ref _RitualCapable, value);
         }
         #endregion
         #region RequiresConcentration
@@ -338,15 +203,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresConcentration
         {
-            get
-            {
-                return _RequiresConcentration;
-            }
-            set
-            {
-                _RequiresConcentration = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresConcentration;
+            set => SetAndNotify(ref _RequiresConcentration, value);
         }
         #endregion
         #region RequiresSomatic
@@ -354,15 +212,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresSomatic
         {
-            get
-            {
-                return _RequiresSomatic;
-            }
-            set
-            {
-                _RequiresSomatic = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresSomatic;
+            set => SetAndNotify(ref _RequiresSomatic, value);
         }
         #endregion
         #region RequiresVerbal
@@ -370,15 +221,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresVerbal
         {
-            get
-            {
-                return _RequiresVerbal;
-            }
-            set
-            {
-                _RequiresVerbal = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresVerbal;
+            set => SetAndNotify(ref _RequiresVerbal, value);
         }
         #endregion
 
@@ -387,15 +231,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool RequiresMaterial
         {
-            get
-            {
-                return _RequiresMaterial;
-            }
-            set
-            {
-                _RequiresMaterial = value;
-                NotifyPropertyChanged();
-            }
+            get => _RequiresMaterial;
+            set => SetAndNotify(ref _RequiresMaterial, value);
         }
         #endregion
         #region DoesConsumeMaterials
@@ -403,15 +240,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool DoesConsumeMaterials
         {
-            get
-            {
-                return _DoesConsumeMaterials;
-            }
-            set
-            {
-                _DoesConsumeMaterials = value;
-                NotifyPropertyChanged();
-            }
+            get => _DoesConsumeMaterials;
+            set => SetAndNotify(ref _DoesConsumeMaterials, value);
         }
         #endregion
         #region ConsumedMaterials
@@ -419,15 +249,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> ConsumedMaterials
         {
-            get
-            {
-                return _ConsumedMaterials;
-            }
-            set
-            {
-                _ConsumedMaterials = value;
-                NotifyPropertyChanged();
-            }
+            get => _ConsumedMaterials;
+            set => SetAndNotify(ref _ConsumedMaterials, value);
         }
         #endregion
         #region Materials
@@ -435,15 +258,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Materials
         {
-            get
-            {
-                return _Materials;
-            }
-            set
-            {
-                _Materials = value;
-                NotifyPropertyChanged();
-            }
+            get => _Materials;
+            set => SetAndNotify(ref _Materials, value);
         }
         #endregion
 
@@ -452,15 +268,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> PrimaryAbilities
         {
-            get
-            {
-                return _PrimaryAbilities;
-            }
-            set
-            {
-                _PrimaryAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _PrimaryAbilities;
+            set => SetAndNotify(ref _PrimaryAbilities, value);
         }
         #endregion
         #region SecondaryAbilities
@@ -468,145 +277,74 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CustomAbility> SecondaryAbilities
         {
-            get
-            {
-                return _SecondaryAbilities;
-            }
-            set
-            {
-                _SecondaryAbilities = value;
-                NotifyPropertyChanged();
-            }
+            get => _SecondaryAbilities;
+            set => SetAndNotify(ref _SecondaryAbilities, value);
         }
         #endregion
 
         // Databound Properties - Dropdown Sources
         #region SchoolsOfMagic
         private List<string> _SchoolsOfMagic;
-        
         public List<string> SchoolsOfMagic
         {
-            get
-            {
-                return _SchoolsOfMagic;
-            }
-            set
-            {
-                _SchoolsOfMagic = value;
-                NotifyPropertyChanged();
-            }
+            get => _SchoolsOfMagic;
+            set => SetAndNotify(ref _SchoolsOfMagic, value);
         }
         #endregion
         #region AoeShapes
         private List<string> _AoeShapes;
-        
         public List<string> AoeShapes
         {
-            get
-            {
-                return _AoeShapes;
-            }
-            set
-            {
-                _AoeShapes = value;
-                NotifyPropertyChanged();
-            }
+            get => _AoeShapes;
+            set => SetAndNotify(ref _AoeShapes, value);
         }
         #endregion
         #region DamageDiceSides
         private List<string> _DamageDiceSides;
-        
         public List<string> DamageDiceSides
         {
-            get
-            {
-                return _DamageDiceSides;
-            }
-            set
-            {
-                _DamageDiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageDiceSides;
+            set => SetAndNotify(ref _DamageDiceSides, value);
         }
         #endregion
         #region DamageTypes
         private List<string> _DamageTypes;
-        
         public List<string> DamageTypes
         {
-            get
-            {
-                return _DamageTypes;
-            }
-            set
-            {
-                _DamageTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _DamageTypes;
+            set => SetAndNotify(ref _DamageTypes, value);
         }
         #endregion
         #region SaveDamageTypes
         private List<string> _SaveDamageTypes;
-        
         public List<string> SaveDamageTypes
         {
-            get
-            {
-                return _SaveDamageTypes;
-            }
-            set
-            {
-                _SaveDamageTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _SaveDamageTypes;
+            set => SetAndNotify(ref _SaveDamageTypes, value);
         }
         #endregion
         #region HealingDiceSides
         private List<string> _HealingDiceSides;
-        
         public List<string> HealingDiceSides
         {
-            get
-            {
-                return _HealingDiceSides;
-            }
-            set
-            {
-                _HealingDiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _HealingDiceSides;
+            set => SetAndNotify(ref _HealingDiceSides, value);
         }
         #endregion
         #region SaveAttributes
         private List<string> _SaveAttributes;
-        
         public List<string> SaveAttributes
         {
-            get
-            {
-                return _SaveAttributes;
-            }
-            set
-            {
-                _SaveAttributes = value;
-                NotifyPropertyChanged();
-            }
+            get => _SaveAttributes;
+            set => SetAndNotify(ref _SaveAttributes, value);
         }
         #endregion
         #region SaveDamageDiceSides
         private List<string> _SaveDamageDiceSides;
-        
         public List<string> SaveDamageDiceSides
         {
-            get
-            {
-                return _SaveDamageDiceSides;
-            }
-            set
-            {
-                _SaveDamageDiceSides = value;
-                NotifyPropertyChanged();
-            }
+            get => _SaveDamageDiceSides;
+            set => SetAndNotify(ref _SaveDamageDiceSides, value);
         }
         #endregion
 
@@ -615,15 +353,8 @@ namespace GAMMA.Models
         private bool _DisplayFieldSet_DndSpell;
         public bool DisplayFieldSet_DndSpell
         {
-            get
-            {
-                return _DisplayFieldSet_DndSpell;
-            }
-            set
-            {
-                _DisplayFieldSet_DndSpell = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayFieldSet_DndSpell;
+            set => SetAndNotify(ref _DisplayFieldSet_DndSpell, value);
         }
         #endregion
 
@@ -642,7 +373,7 @@ namespace GAMMA.Models
             bool castAsRitual = false;
 
             // Pre-Cast Check
-            if (PrimaryAbilities.Count() == 0) { HelperMethods.NotifyUser("No abilities available for this spell, please verify data."); return; }
+            if (PrimaryAbilities.Count == 0) { HelperMethods.NotifyUser("No abilities available for this spell, please verify data."); return; }
 
             // Creature / Character Retrieval
             if ((param as object[]) == null)
@@ -738,7 +469,7 @@ namespace GAMMA.Models
                 }
             }
 
-            if (PrimaryAbilities.Count() > 1)
+            if (PrimaryAbilities.Count > 1)
             {
                 List<ConvertibleValue> abilityNames = new();
                 foreach (CustomAbility ability in PrimaryAbilities)
@@ -846,13 +577,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region DuplicateSpell
-        public ICommand DuplicateSpell
-        {
-            get
-            {
-                return new RelayCommand(param => DoDuplicateSpell());
-            }
-        }
+        public ICommand DuplicateSpell => new RelayCommand(param => DoDuplicateSpell());
         private void DoDuplicateSpell()
         {
             SpellModel duplicate = HelperMethods.DeepClone(this);
@@ -864,32 +589,16 @@ namespace GAMMA.Models
         }
         #endregion
         #region DeleteSpell
-        public ICommand DeleteSpell
-        {
-            get
-            {
-                return new RelayCommand(param => DoDeleteSpell());
-            }
-        }
+        public ICommand DeleteSpell => new RelayCommand(param => DoDeleteSpell());
         private void DoDeleteSpell()
         {
+            if (IsADepedency()) { return; }
             Configuration.MainModelRef.SpellBuilderView.AllSpells.Remove(this);
             Configuration.MainModelRef.SpellBuilderView.FilteredSpells.Remove(this);
         }
         #endregion
         #region AddConsumedMaterial
-        private RelayCommand _AddConsumedMaterial;
-        public ICommand AddConsumedMaterial
-        {
-            get
-            {
-                if (_AddConsumedMaterial == null)
-                {
-                    _AddConsumedMaterial = new RelayCommand(param => DoAddConsumedMaterial());
-                }
-                return _AddConsumedMaterial;
-            }
-        }
+        public ICommand AddConsumedMaterial => new RelayCommand(param => DoAddConsumedMaterial());
         private void DoAddConsumedMaterial()
         {
             ObjectSelectionDialog itemSelect = new(Configuration.ItemRepository.ToList());
@@ -906,18 +615,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddSpellClass
-        private RelayCommand _AddSpellClass;
-        public ICommand AddSpellClass
-        {
-            get
-            {
-                if (_AddSpellClass == null)
-                {
-                    _AddSpellClass = new RelayCommand(param => DoAddSpellClass());
-                }
-                return _AddSpellClass;
-            }
-        }
+        public ICommand AddSpellClass => new RelayCommand(param => DoAddSpellClass());
         private void DoAddSpellClass()
         {
             List<ConvertibleValue> options = new();
@@ -1076,7 +774,7 @@ namespace GAMMA.Models
             return true;
 
         }
-        private int CantripScaleAdd(int casterLevel)
+        private static int CantripScaleAdd(int casterLevel)
         {
             return casterLevel switch
             {
@@ -1085,6 +783,93 @@ namespace GAMMA.Models
                 17 or 18 or 19 or 20 => 3,
                 _ => 0,
             };
+        }
+        private bool IsADepedency()
+        {
+            List<string> foundDependencies = new();
+            foreach (CreatureModel creature in Configuration.CreatureRepository)
+            {
+                foreach (SpellLink spell in creature.SpellLinks)
+                {
+                    if (this.Name == spell.Name) { foundDependencies.Add("Spell for creature " + creature.Name); }
+                }
+            }
+            foreach (CharacterModel character in Configuration.MainModelRef.CharacterBuilderView.Characters)
+            {
+                foreach (SpellLink spell in character.SpellLinks)
+                {
+                    if (this.Name == spell.Name) { foundDependencies.Add("Spell for character " + character.Name); }
+                }
+            }
+            foreach (PlayerClassModel playerClass in Configuration.MainModelRef.ToolsView.PlayerClasses)
+            {
+                foreach (FeatureModel feature in playerClass.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for class " + playerClass.Name); }
+                    }
+                }
+            }
+            foreach (PlayerSubclassModel playerSubClass in Configuration.MainModelRef.ToolsView.PlayerSubclasses)
+            {
+                foreach (FeatureModel feature in playerSubClass.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for subclass " + playerSubClass.Name); }
+                    }
+                }
+            }
+            foreach (PlayerRaceModel playerRace in Configuration.MainModelRef.ToolsView.PlayerRaces)
+            {
+                foreach (FeatureModel feature in playerRace.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for race " + playerRace.Name); }
+                    }
+                }
+            }
+            foreach (PlayerSubraceModel playerSubrace in Configuration.MainModelRef.ToolsView.PlayerSubraces)
+            {
+                foreach (FeatureModel feature in playerSubrace.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for subrace " + playerSubrace.Name); }
+                    }
+                }
+            }
+            foreach (PlayerBackgroundModel playerBackground in Configuration.MainModelRef.ToolsView.PlayerBackgrounds)
+            {
+                foreach (FeatureModel feature in playerBackground.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for background " + playerBackground.Name); }
+                    }
+                }
+            }
+            foreach (PlayerFeatModel playerFeat in Configuration.MainModelRef.ToolsView.PlayerFeats)
+            {
+                foreach (FeatureModel feature in playerFeat.Features)
+                {
+                    foreach (FeatureData item in feature.Choices)
+                    {
+                        if (item.Name == this.Name) { foundDependencies.Add("Spell for feat " + playerFeat.Name); }
+                    }
+                }
+            }
+
+            if (foundDependencies.Count > 0)
+            {
+                string message = "Unable to delete " + this.Name + ", dependencies found:\n";
+                message += HelperMethods.GetStringFromList(foundDependencies, "\n");
+                HelperMethods.NotifyUser(message, HelperMethods.UserNotificationType.Report);
+                return true;
+            }
+            return false;
         }
 
     }

@@ -19,32 +19,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SubraceOf
         {
-            get
-            {
-                return _SubraceOf;
-            }
-            set
-            {
-                _SubraceOf = value;
-                NotifyPropertyChanged();
-            }
+            get => _SubraceOf;
+            set => SetAndNotify(ref _SubraceOf, value);
         }
         #endregion
 
         // Commands
         #region RemovePlayerSubrace
-        private RelayCommand _RemovePlayerSubrace;
-        public ICommand RemovePlayerSubrace
-        {
-            get
-            {
-                if (_RemovePlayerSubrace == null)
-                {
-                    _RemovePlayerSubrace = new RelayCommand(param => DoRemovePlayerSubrace());
-                }
-                return _RemovePlayerSubrace;
-            }
-        }
+        public ICommand RemovePlayerSubrace => new RelayCommand(param => DoRemovePlayerSubrace());
         private void DoRemovePlayerSubrace()
         {
             Configuration.MainModelRef.ToolsView.PlayerSubraces.Remove(this);

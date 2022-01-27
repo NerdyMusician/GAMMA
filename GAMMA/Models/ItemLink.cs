@@ -19,15 +19,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region DropChance
@@ -35,15 +28,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int DropChance
         {
-            get
-            {
-                return _DropChance;
-            }
-            set
-            {
-                _DropChance = value;
-                NotifyPropertyChanged();
-            }
+            get => _DropChance;
+            set => SetAndNotify(ref _DropChance, value);
         }
         #endregion
         #region Quantity
@@ -51,47 +37,22 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Quantity
         {
-            get
-            {
-                return _Quantity;
-            }
-            set
-            {
-                _Quantity = value;
-                NotifyPropertyChanged();
-            }
+            get => _Quantity;
+            set => SetAndNotify(ref _Quantity, value);
         }
         #endregion
         #region LinkedItem
         private ItemModel _LinkedItem;
         public ItemModel LinkedItem
         {
-            get
-            {
-                return _LinkedItem;
-            }
-            set
-            {
-                _LinkedItem = value;
-                NotifyPropertyChanged();
-            }
+            get => _LinkedItem;
+            set => SetAndNotify(ref _LinkedItem, value);
         }
         #endregion
 
         // Commands
         #region RemoveItemLink
-        private RelayCommand _RemoveItemLink;
-        public ICommand RemoveItemLink
-        {
-            get
-            {
-                if (_RemoveItemLink == null)
-                {
-                    _RemoveItemLink = new RelayCommand(DoRemoveItemLink);
-                }
-                return _RemoveItemLink;
-            }
-        }
+        public ICommand RemoveItemLink => new RelayCommand(DoRemoveItemLink);
         private void DoRemoveItemLink(object param)
         {
             if (param == null) { HelperMethods.WriteToLogFile("Missing parameter for DoRemoveItemLink", true); return; }

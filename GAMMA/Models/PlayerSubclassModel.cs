@@ -24,30 +24,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SubclassOf
         {
-            get
-            {
-                return _SubclassOf;
-            }
-            set
-            {
-                _SubclassOf = value;
-                NotifyPropertyChanged();
-            }
+            get => _SubclassOf;
+            set => SetAndNotify(ref _SubclassOf, value);
         }
         #endregion
         #region ClassList
         private List<string> _ClassList;
         public List<string> ClassList
         {
-            get
-            {
-                return _ClassList;
-            }
-            set
-            {
-                _ClassList = value;
-                NotifyPropertyChanged();
-            }
+            get => _ClassList;
+            set => SetAndNotify(ref _ClassList, value);
         }
         #endregion
         #region Traits
@@ -55,30 +41,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<TraitModel> Traits
         {
-            get
-            {
-                return _Traits;
-            }
-            set
-            {
-                _Traits = value;
-                NotifyPropertyChanged();
-            }
+            get => _Traits;
+            set => SetAndNotify(ref _Traits, value);
         }
         #endregion
         #region SpellcastingClasses
         private List<string> _SpellcastingClasses;
         public List<string> SpellcastingClasses
         {
-            get
-            {
-                return _SpellcastingClasses;
-            }
-            set
-            {
-                _SpellcastingClasses = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellcastingClasses;
+            set => SetAndNotify(ref _SpellcastingClasses, value);
         }
         #endregion
         #region SpellcastingClass
@@ -86,50 +58,21 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SpellcastingClass
         {
-            get
-            {
-                return _SpellcastingClass;
-            }
-            set
-            {
-                _SpellcastingClass = value;
-                NotifyPropertyChanged();
-            }
+            get => _SpellcastingClass;
+            set => SetAndNotify(ref _SpellcastingClass, value);
         }
         #endregion
 
         // Commands
         #region RemoveSubclass
-        private RelayCommand _RemoveSubclass;
-        public ICommand RemoveSubclass
-        {
-            get
-            {
-                if (_RemoveSubclass == null)
-                {
-                    _RemoveSubclass = new RelayCommand(param => DoRemoveSubclass());
-                }
-                return _RemoveSubclass;
-            }
-        }
+        public ICommand RemoveSubclass => new RelayCommand(param => DoRemoveSubclass());
         private void DoRemoveSubclass()
         {
             Configuration.MainModelRef.ToolsView.PlayerSubclasses.Remove(this);
         }
         #endregion
         #region AddTrait
-        private RelayCommand _AddTrait;
-        public ICommand AddTrait
-        {
-            get
-            {
-                if (_AddTrait == null)
-                {
-                    _AddTrait = new RelayCommand(param => DoAddTrait());
-                }
-                return _AddTrait;
-            }
-        }
+        public ICommand AddTrait => new RelayCommand(param => DoAddTrait());
         private void DoAddTrait()
         {
             Traits.Add(new TraitModel());

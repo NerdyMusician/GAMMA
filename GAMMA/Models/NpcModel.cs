@@ -20,15 +20,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region Description
@@ -36,15 +29,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region BaseCreatureName
@@ -52,15 +38,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string BaseCreatureName
         {
-            get
-            {
-                return _BaseCreatureName;
-            }
-            set
-            {
-                _BaseCreatureName = value;
-                NotifyPropertyChanged();
-            }
+            get => _BaseCreatureName;
+            set => SetAndNotify(ref _BaseCreatureName, value);
         }
         #endregion
         #region IsFriendly
@@ -68,15 +47,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsFriendly
         {
-            get
-            {
-                return _IsFriendly;
-            }
-            set
-            {
-                _IsFriendly = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsFriendly;
+            set => SetAndNotify(ref _IsFriendly, value);
         }
         #endregion
         #region IsActive
@@ -84,25 +56,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
-            get { return _IsActive; }
-            set { _IsActive = value; NotifyPropertyChanged(); }
+            get => _IsActive;
+            set => SetAndNotify(ref _IsActive, value);
         }
         #endregion
 
         // Commands
         #region SelectBaseCreature
-        private RelayCommand _SelectBaseCreature;
-        public ICommand SelectBaseCreature
-        {
-            get
-            {
-                if (_SelectBaseCreature == null)
-                {
-                    _SelectBaseCreature = new RelayCommand(param => DoSelectBaseCreature());
-                }
-                return _SelectBaseCreature;
-            }
-        }
+        public ICommand SelectBaseCreature => new RelayCommand(param => DoSelectBaseCreature());
         private void DoSelectBaseCreature()
         {
             ObjectSelectionDialog itemSelect;
@@ -119,18 +80,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemoveNpcFromCampaign
-        private RelayCommand _RemoveNpcFromCampaign;
-        public ICommand RemoveNpcFromCampaign
-        {
-            get
-            {
-                if (_RemoveNpcFromCampaign == null)
-                {
-                    _RemoveNpcFromCampaign = new RelayCommand(param => DoRemoveNpcFromCampaign());
-                }
-                return _RemoveNpcFromCampaign;
-            }
-        }
+        public ICommand RemoveNpcFromCampaign => new RelayCommand(param => DoRemoveNpcFromCampaign());
         private void DoRemoveNpcFromCampaign()
         {
             Configuration.MainModelRef.CampaignView.ActiveCampaign.Npcs.Remove(this);

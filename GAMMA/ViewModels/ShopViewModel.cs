@@ -13,10 +13,10 @@ namespace GAMMA.ViewModels
         public ShopViewModel(List<ItemModel> shopItems, List<ItemModel> characterItems, int characterCoinage)
         {
             Configuration.ShopRef = this;
-            ShopItems = new ObservableCollection<ItemModel>(shopItems);
-            CharacterItems = new ObservableCollection<ItemModel>(characterItems);
-            CharacterOfferedItems = new ObservableCollection<ItemModel>();
-            ShopOfferedItems = new ObservableCollection<ItemModel>();
+            ShopItems = new(shopItems);
+            CharacterItems = new(characterItems);
+            CharacterOfferedItems = new();
+            ShopOfferedItems = new();
             CharacterCoinage = characterCoinage;
             TransactionValue = 0;
         }
@@ -26,70 +26,39 @@ namespace GAMMA.ViewModels
         private ObservableCollection<ItemModel> _ShopItems;
         public ObservableCollection<ItemModel> ShopItems
         {
-            get
-            {
-                return _ShopItems;
-            }
-            set
-            {
-                _ShopItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShopItems;
+            set => SetAndNotify(ref _ShopItems, value);
         }
         #endregion
         #region ShopOfferedItems
         private ObservableCollection<ItemModel> _ShopOfferedItems;
         public ObservableCollection<ItemModel> ShopOfferedItems
         {
-            get
-            {
-                return _ShopOfferedItems;
-            }
-            set
-            {
-                _ShopOfferedItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShopOfferedItems;
+            set => SetAndNotify(ref _ShopOfferedItems, value);
         }
         #endregion
         #region CharacterItems
         private ObservableCollection<ItemModel> _CharacterItems;
         public ObservableCollection<ItemModel> CharacterItems
         {
-            get
-            {
-                return _CharacterItems;
-            }
-            set
-            {
-                _CharacterItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _CharacterItems;
+            set => SetAndNotify(ref _CharacterItems, value);
         }
         #endregion
         #region CharacterOfferedItems
         private ObservableCollection<ItemModel> _CharacterOfferedItems;
         public ObservableCollection<ItemModel> CharacterOfferedItems
         {
-            get
-            {
-                return _CharacterOfferedItems;
-            }
-            set
-            {
-                _CharacterOfferedItems = value;
-                NotifyPropertyChanged();
-            }
+            get => _CharacterOfferedItems;
+            set => SetAndNotify(ref _CharacterOfferedItems, value);
         }
         #endregion
         #region CharacterCoinage
         private int _CharacterCoinage;
         public int CharacterCoinage
         {
-            get
-            {
-                return _CharacterCoinage;
-            }
+            get => _CharacterCoinage;
             set
             {
                 _CharacterCoinage = value;
@@ -102,25 +71,15 @@ namespace GAMMA.ViewModels
         private string _ProcessedCharacterCoinage;
         public string ProcessedCharacterCoinage
         {
-            get
-            {
-                return _ProcessedCharacterCoinage;
-            }
-            set
-            {
-                _ProcessedCharacterCoinage = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedCharacterCoinage;
+            set => SetAndNotify(ref _ProcessedCharacterCoinage, value);
         }
         #endregion
         #region TransactionValue
         private int _TransactionValue;
         public int TransactionValue
         {
-            get
-            {
-                return _TransactionValue;
-            }
+            get => _TransactionValue;
             set
             {
                 _TransactionValue = value;
@@ -134,30 +93,16 @@ namespace GAMMA.ViewModels
         private string _ProcessedValue;
         public string ProcessedValue
         {
-            get
-            {
-                return _ProcessedValue;
-            }
-            set
-            {
-                _ProcessedValue = value;
-                NotifyPropertyChanged();
-            }
+            get => _ProcessedValue;
+            set => SetAndNotify(ref _ProcessedValue, value);
         }
         #endregion
         #region ToWho
         private string _ToWho;
         public string ToWho
         {
-            get
-            {
-                return _ToWho;
-            }
-            set
-            {
-                _ToWho = value;
-                NotifyPropertyChanged();
-            }
+            get => _ToWho;
+            set => SetAndNotify(ref _ToWho, value);
         }
         #endregion
 

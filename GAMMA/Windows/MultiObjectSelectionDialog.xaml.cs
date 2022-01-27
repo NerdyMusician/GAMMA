@@ -13,10 +13,11 @@ namespace GAMMA.Windows
     public partial class MultiObjectSelectionDialog : Window
     {
         // Constructors
-        public MultiObjectSelectionDialog(List<CreatureModel> creatures, string mode)
+        public MultiObjectSelectionDialog(List<CreatureModel> creatures, string mode, bool displayOocOption = false)
         {
             InitializeComponent();
             WindowTitle.Text = (mode == "Creatures") ? "Creature Selection" : "Player Selection";
+            if (displayOocOption) { DIV_OocAddOption.Visibility = Visibility.Visible; }
             DataContext = new MultiObjectSelectionViewModel(creatures, mode);
 
             SourceItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding
@@ -85,6 +86,7 @@ namespace GAMMA.Windows
         {
             InitializeComponent();
             WindowTitle.Text = mode;
+            DIV_OocAddOption.Visibility = Visibility.Visible;
             DataContext = new MultiObjectSelectionViewModel(cvs, mode);
 
             SourceItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding

@@ -27,15 +27,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region IsValidated
@@ -43,15 +36,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsValidated
         {
-            get
-            {
-                return _IsValidated;
-            }
-            set
-            {
-                _IsValidated = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsValidated;
+            set => SetAndNotify(ref _IsValidated, value);
         }
         #endregion
         #region Climate
@@ -59,30 +45,16 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Climate
         {
-            get
-            {
-                return _Climate;
-            }
-            set
-            {
-                _Climate = value;
-                NotifyPropertyChanged();
-            }
+            get => _Climate;
+            set => SetAndNotify(ref _Climate, value);
         }
         #endregion
         #region Climates
         private List<string> _Climates;
         public List<string> Climates
         {
-            get
-            {
-                return _Climates;
-            }
-            set
-            {
-                _Climates = value;
-                NotifyPropertyChanged();
-            }
+            get => _Climates;
+            set => SetAndNotify(ref _Climates, value);
         }
         #endregion
         #region WeatherEntries
@@ -90,66 +62,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<WeatherRow> WeatherEntries
         {
-            get
-            {
-                return _WeatherEntries;
-            }
-            set
-            {
-                _WeatherEntries = value;
-                NotifyPropertyChanged();
-            }
+            get => _WeatherEntries;
+            set => SetAndNotify(ref _WeatherEntries, value);
         }
         #endregion
 
         // Commands
-        #region AddWeatherEntry
-        private RelayCommand _AddWeatherEntry;
-        public ICommand AddWeatherEntry
-        {
-            get
-            {
-                if (_AddWeatherEntry == null)
-                {
-                    _AddWeatherEntry = new RelayCommand(DoAddWeatherEntry);
-                }
-                return _AddWeatherEntry;
-            }
-        }
-        private void DoAddWeatherEntry(object param)
-        {
-        }
-        #endregion
-        #region SortWeatherEntries
-        private RelayCommand _SortWeatherEntries;
-        public ICommand SortWeatherEntries
-        {
-            get
-            {
-                if (_SortWeatherEntries == null)
-                {
-                    _SortWeatherEntries = new RelayCommand(DoSortWeatherEntries);
-                }
-                return _SortWeatherEntries;
-            }
-        }
-        private void DoSortWeatherEntries(object param)
-        {
-        }
-        #endregion
         #region RemoveWeather
-        private RelayCommand _RemoveWeather;
-        public ICommand RemoveWeather
-        {
-            get
-            {
-                if (_RemoveWeather == null)
-                {
-                    _RemoveWeather = new RelayCommand(DoRemoveWeather);
-                }
-                return _RemoveWeather;
-            }
-        }
+        public ICommand RemoveWeather => new RelayCommand(DoRemoveWeather);
         private void DoRemoveWeather(object param)
         {
             Configuration.MainModelRef.ToolsView.Weathers.Remove(this);
@@ -167,8 +87,5 @@ namespace GAMMA.Models
         }
         #endregion
 
-        // Public Methods
-
-        // Private Methods
     }
 }

@@ -28,7 +28,7 @@
         <Setter Property="Source" Value="../Images/Icons/dm_import.png" />
     </Style>
     <Style TargetType="Image" x:Key="Icon_Export" BasedOn="{StaticResource Icon_Base}">
-        <Setter Property="Source" Value="../Images/Icons/upload.png" />
+        <Setter Property="Source" Value="../Images/Icons/export.png" />
     </Style>
     <Style TargetType="Image" x:Key="Icon_Filter" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/filter.png" />

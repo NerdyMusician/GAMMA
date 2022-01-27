@@ -1,10 +1,6 @@
 ﻿using GAMMA.Toolbox;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GAMMA.Models
@@ -23,15 +19,8 @@ namespace GAMMA.Models
         private string _DisplayName;
         public string DisplayName
         {
-            get
-            {
-                return _DisplayName;
-            }
-            set
-            {
-                _DisplayName = value;
-                NotifyPropertyChanged();
-            }
+            get => _DisplayName;
+            set => SetAndNotify(ref _DisplayName, value);
         }
         #endregion
         #region FilePath
@@ -39,15 +28,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string FilePath
         {
-            get
-            {
-                return _FilePath;
-            }
-            set
-            {
-                _FilePath = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilePath;
+            set => SetAndNotify(ref _FilePath, value);
         }
         #endregion
         #region SearchTags
@@ -55,15 +37,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ConvertibleValue> SearchTags
         {
-            get
-            {
-                return _SearchTags;
-            }
-            set
-            {
-                _SearchTags = value;
-                NotifyPropertyChanged();
-            }
+            get => _SearchTags;
+            set => SetAndNotify(ref _SearchTags, value);
         }
         #endregion
 
@@ -72,7 +47,7 @@ namespace GAMMA.Models
         public ICommand AddSearchTag => new RelayCommand(DoAddSearchTag);
         private void DoAddSearchTag(object param)
         {
-
+            // TODO
         }
         #endregion
 

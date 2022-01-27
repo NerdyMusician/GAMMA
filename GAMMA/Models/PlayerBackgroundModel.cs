@@ -25,15 +25,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Description
         {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                _Description = value;
-                NotifyPropertyChanged();
-            }
+            get => _Description;
+            set => SetAndNotify(ref _Description, value);
         }
         #endregion
         #region GoldPieces
@@ -41,15 +34,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int GoldPieces
         {
-            get
-            {
-                return _GoldPieces;
-            }
-            set
-            {
-                _GoldPieces = value;
-                NotifyPropertyChanged();
-            }
+            get => _GoldPieces;
+            set => SetAndNotify(ref _GoldPieces, value);
         }
         #endregion
         #region MandatoryEquipment
@@ -57,50 +43,21 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<ItemModel> MandatoryEquipment
         {
-            get
-            {
-                return _MandatoryEquipment;
-            }
-            set
-            {
-                _MandatoryEquipment = value;
-                NotifyPropertyChanged();
-            }
+            get => _MandatoryEquipment;
+            set => SetAndNotify(ref _MandatoryEquipment, value);
         }
         #endregion
 
         // Commands
         #region RemovePlayerBackground
-        private RelayCommand _RemovePlayerBackground;
-        public ICommand RemovePlayerBackground
-        {
-            get
-            {
-                if (_RemovePlayerBackground == null)
-                {
-                    _RemovePlayerBackground = new RelayCommand(param => DoRemovePlayerBackground());
-                }
-                return _RemovePlayerBackground;
-            }
-        }
+        public ICommand RemovePlayerBackground => new RelayCommand(param => DoRemovePlayerBackground());
         private void DoRemovePlayerBackground()
         {
             Configuration.MainModelRef.ToolsView.PlayerBackgrounds.Remove(this);
         }
         #endregion
         #region AddMandatoryEquipment
-        private RelayCommand _AddMandatoryEquipment;
-        public ICommand AddMandatoryEquipment
-        {
-            get
-            {
-                if (_AddMandatoryEquipment == null)
-                {
-                    _AddMandatoryEquipment = new RelayCommand(param => DoAddMandatoryEquipment());
-                }
-                return _AddMandatoryEquipment;
-            }
-        }
+        public ICommand AddMandatoryEquipment => new RelayCommand(param => DoAddMandatoryEquipment());
         private void DoAddMandatoryEquipment()
         {
             MultiObjectSelectionDialog selectionDialog = new(Configuration.ItemRepository.Where(item => item.IsValidated).ToList());

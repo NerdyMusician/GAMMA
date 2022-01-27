@@ -34,10 +34,7 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string Action
         {
-            get
-            {
-                return _Action;
-            }
+            get => _Action;
             set
             {
                 _Action = value;
@@ -51,45 +48,24 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<CACondition> Conditions
         {
-            get
-            {
-                return _Conditions;
-            }
-            set
-            {
-                _Conditions = value;
-                NotifyPropertyChanged();
-            }
+            get => _Conditions;
+            set => SetAndNotify(ref _Conditions, value);
         }
         #endregion
         #region ValueSetA
         private List<string> _ValueSetA;
         public List<string> ValueSetA
         {
-            get
-            {
-                return _ValueSetA;
-            }
-            set
-            {
-                _ValueSetA = value;
-                NotifyPropertyChanged();
-            }
+            get => _ValueSetA;
+            set => SetAndNotify(ref _ValueSetA, value);
         }
         #endregion
         #region ValueSetB
         private List<string> _ValueSetB;
         public List<string> ValueSetB
         {
-            get
-            {
-                return _ValueSetB;
-            }
-            set
-            {
-                _ValueSetB = value;
-                NotifyPropertyChanged();
-            }
+            get => _ValueSetB;
+            set => SetAndNotify(ref _ValueSetB, value);
         }
         #endregion
         #region ValueA
@@ -97,15 +73,8 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string ValueA
         {
-            get
-            {
-                return _ValueA;
-            }
-            set
-            {
-                _ValueA = value;
-                NotifyPropertyChanged();
-            }
+            get => _ValueA;
+            set => SetAndNotify(ref _ValueA, value);
         }
         #endregion
         #region ValueB
@@ -113,45 +82,24 @@ namespace GAMMA.Models.GameplayComponents
         [XmlSaveMode(XSME.Single)]
         public string ValueB
         {
-            get
-            {
-                return _ValueB;
-            }
-            set
-            {
-                _ValueB = value;
-                NotifyPropertyChanged();
-            }
+            get => _ValueB;
+            set => SetAndNotify(ref _ValueB, value);
         }
         #endregion
         #region LabelA
         private string _LabelA;
         public string LabelA
         {
-            get
-            {
-                return _LabelA;
-            }
-            set
-            {
-                _LabelA = value;
-                NotifyPropertyChanged();
-            }
+            get => _LabelA;
+            set => SetAndNotify(ref _LabelA, value);
         }
         #endregion
         #region LabelB
         private string _LabelB;
         public string LabelB
         {
-            get
-            {
-                return _LabelB;
-            }
-            set
-            {
-                _LabelB = value;
-                NotifyPropertyChanged();
-            }
+            get => _LabelB;
+            set => SetAndNotify(ref _LabelB, value);
         }
         #endregion
 
@@ -160,15 +108,8 @@ namespace GAMMA.Models.GameplayComponents
         
         public List<string> ActionOptions
         {
-            get
-            {
-                return _ActionOptions;
-            }
-            set
-            {
-                _ActionOptions = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActionOptions;
+            set => SetAndNotify(ref _ActionOptions, value);
         }
         #endregion
 
@@ -176,47 +117,25 @@ namespace GAMMA.Models.GameplayComponents
         private bool _ShowValueA;
         public bool ShowValueA
         {
-            get
-            {
-                return _ShowValueA;
-            }
-            set
-            {
-                _ShowValueA = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowValueA;
+            set => SetAndNotify(ref _ShowValueA, value);
         }
         #endregion
         #region ShowValueB
         private bool _ShowValueB;
         public bool ShowValueB
         {
-            get
-            {
-                return _ShowValueB;
-            }
-            set
-            {
-                _ShowValueB = value;
-                NotifyPropertyChanged();
-            }
+            get => _ShowValueB;
+            set => SetAndNotify(ref _ShowValueB, value);
         }
         #endregion
 
         #region InEditMode
         private bool _InEditMode;
-        
         public bool InEditMode
         {
-            get
-            {
-                return _InEditMode;
-            }
-            set
-            {
-                _InEditMode = value;
-                NotifyPropertyChanged();
-            }
+            get => _InEditMode;
+            set => SetAndNotify(ref _InEditMode, value);
         }
         #endregion
 

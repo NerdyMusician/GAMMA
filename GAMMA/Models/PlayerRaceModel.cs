@@ -21,15 +21,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string AgeInfo
         {
-            get
-            {
-                return _AgeInfo;
-            }
-            set
-            {
-                _AgeInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _AgeInfo;
+            set => SetAndNotify(ref _AgeInfo, value);
         }
         #endregion
         #region AlignmentInfo
@@ -37,15 +30,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string AlignmentInfo
         {
-            get
-            {
-                return _AlignmentInfo;
-            }
-            set
-            {
-                _AlignmentInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _AlignmentInfo;
+            set => SetAndNotify(ref _AlignmentInfo, value);
         }
         #endregion
         #region SizeInfo
@@ -53,15 +39,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string SizeInfo
         {
-            get
-            {
-                return _SizeInfo;
-            }
-            set
-            {
-                _SizeInfo = value;
-                NotifyPropertyChanged();
-            }
+            get => _SizeInfo;
+            set => SetAndNotify(ref _SizeInfo, value);
         }
         #endregion
         #region Size
@@ -69,32 +48,17 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Size
         {
-            get
-            {
-                return _Size;
-            }
-            set
-            {
-                _Size = value;
-                NotifyPropertyChanged();
-            }
+            get => _Size;
+            set => SetAndNotify(ref _Size, value);
         }
         #endregion
-
         #region FeatsGranted
         private int _FeatsGranted;
         [XmlSaveMode(XSME.Single)]
         public int FeatsGranted
         {
-            get
-            {
-                return _FeatsGranted;
-            }
-            set
-            {
-                _FeatsGranted = value;
-                NotifyPropertyChanged();
-            }
+            get => _FeatsGranted;
+            set => SetAndNotify(ref _FeatsGranted, value);
         }
         #endregion
         #region BaseSpeed
@@ -102,15 +66,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int BaseSpeed
         {
-            get
-            {
-                return _BaseSpeed;
-            }
-            set
-            {
-                _BaseSpeed = value;
-                NotifyPropertyChanged();
-            }
+            get => _BaseSpeed;
+            set => SetAndNotify(ref _BaseSpeed, value);
         }
         #endregion
         #region Languages
@@ -118,15 +75,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Languages
         {
-            get
-            {
-                return _Languages;
-            }
-            set
-            {
-                _Languages = value;
-                NotifyPropertyChanged();
-            }
+            get => _Languages;
+            set => SetAndNotify(ref _Languages, value);
         }
         #endregion
         #region Darkvision
@@ -134,67 +84,30 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int Darkvision
         {
-            get
-            {
-                return _Darkvision;
-            }
-            set
-            {
-                _Darkvision = value;
-                NotifyPropertyChanged();
-            }
+            get => _Darkvision;
+            set => SetAndNotify(ref _Darkvision, value);
         }
         #endregion
-
         #region Traits
         private ObservableCollection<TraitModel> _Traits;
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<TraitModel> Traits
         {
-            get
-            {
-                return _Traits;
-            }
-            set
-            {
-                _Traits = value;
-                NotifyPropertyChanged();
-            }
+            get => _Traits;
+            set => SetAndNotify(ref _Traits, value);
         }
         #endregion
 
         // Commands
         #region RemovePlayerRace
-        private RelayCommand _RemovePlayerRace;
-        public ICommand RemovePlayerRace
-        {
-            get
-            {
-                if (_RemovePlayerRace == null)
-                {
-                    _RemovePlayerRace = new RelayCommand(param => DoRemovePlayerRace());
-                }
-                return _RemovePlayerRace;
-            }
-        }
+        public ICommand RemovePlayerRace => new RelayCommand(param => DoRemovePlayerRace());
         private void DoRemovePlayerRace()
         {
             Configuration.MainModelRef.ToolsView.PlayerRaces.Remove(this);
         }
         #endregion
         #region AddTrait
-        private RelayCommand _AddTrait;
-        public ICommand AddTrait
-        {
-            get
-            {
-                if (_AddTrait == null)
-                {
-                    _AddTrait = new RelayCommand(param => DoAddTrait());
-                }
-                return _AddTrait;
-            }
-        }
+        public ICommand AddTrait => new RelayCommand(param => DoAddTrait());
         private void DoAddTrait()
         {
             Traits.Add(new TraitModel());

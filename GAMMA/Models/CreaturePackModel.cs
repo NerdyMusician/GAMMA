@@ -25,15 +25,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region CreatureList
@@ -41,15 +34,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<PackCreatureModel> CreatureList
         {
-            get
-            {
-                return _CreatureList;
-            }
-            set
-            {
-                _CreatureList = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureList;
+            set => SetAndNotify(ref _CreatureList, value);
         }
         #endregion
         #region NpcList
@@ -57,15 +43,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Enumerable)]
         public ObservableCollection<PackCreatureModel> NpcList
         {
-            get
-            {
-                return _NpcList;
-            }
-            set
-            {
-                _NpcList = value;
-                NotifyPropertyChanged();
-            }
+            get => _NpcList;
+            set => SetAndNotify(ref _NpcList, value);
         }
         #endregion
         #region IsAlly
@@ -73,15 +52,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsAlly
         {
-            get
-            {
-                return _IsAlly;
-            }
-            set
-            {
-                _IsAlly = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsAlly;
+            set => SetAndNotify(ref _IsAlly, value);
         }
         #endregion
         #region IsActive
@@ -89,25 +61,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsActive
         {
-            get { return _IsActive; }
-            set { _IsActive = value; NotifyPropertyChanged(); }
+            get => _IsActive;
+            set => SetAndNotify(ref _IsActive, value);
         }
         #endregion
 
         // Commands
         #region AddCreatures
-        private RelayCommand _AddCreatures;
-        public ICommand AddCreatures
-        {
-            get
-            {
-                if (_AddCreatures == null)
-                {
-                    _AddCreatures = new RelayCommand(param => DoAddCreatures());
-                }
-                return _AddCreatures;
-            }
-        }
+        public ICommand AddCreatures => new RelayCommand(param => DoAddCreatures());
         private void DoAddCreatures()
         {
             MultiObjectSelectionDialog selectionDialog;
@@ -137,18 +98,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddNpcs
-        private RelayCommand _AddNpcs;
-        public ICommand AddNpcs
-        {
-            get
-            {
-                if (_AddNpcs == null)
-                {
-                    _AddNpcs = new RelayCommand(param => DoAddNpcs());
-                }
-                return _AddNpcs;
-            }
-        }
+        public ICommand AddNpcs => new RelayCommand(param => DoAddNpcs());
         private void DoAddNpcs()
         {
             List<NpcModel> npcs = new();
@@ -177,18 +127,7 @@ namespace GAMMA.Models
         }
         #endregion
         #region RemovePackFromCampaign
-        private RelayCommand _RemovePackFromCampaign;
-        public ICommand RemovePackFromCampaign
-        {
-            get
-            {
-                if (_RemovePackFromCampaign == null)
-                {
-                    _RemovePackFromCampaign = new RelayCommand(param => DoRemovePackFromCampaign());
-                }
-                return _RemovePackFromCampaign;
-            }
-        }
+        public ICommand RemovePackFromCampaign => new RelayCommand(param => DoRemovePackFromCampaign());
         private void DoRemovePackFromCampaign()
         {
             Configuration.MainModelRef.CampaignView.ActiveCampaign.Packs.Remove(this);

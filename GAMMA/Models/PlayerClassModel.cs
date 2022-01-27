@@ -19,32 +19,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public int HitDice
         {
-            get
-            {
-                return _HitDice;
-            }
-            set
-            {
-                _HitDice = value;
-                NotifyPropertyChanged();
-            }
+            get => _HitDice;
+            set => SetAndNotify(ref _HitDice, value);
         }
         #endregion
 
         // Commands
         #region RemovePlayerClass
-        private RelayCommand _RemovePlayerClass;
-        public ICommand RemovePlayerClass
-        {
-            get
-            {
-                if (_RemovePlayerClass == null)
-                {
-                    _RemovePlayerClass = new RelayCommand(DoRemovePlayerClass);
-                }
-                return _RemovePlayerClass;
-            }
-        }
+        public ICommand RemovePlayerClass => new RelayCommand(DoRemovePlayerClass);
         private void DoRemovePlayerClass(object param)
         {
             if (param.ToString() == "Configuration")

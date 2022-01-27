@@ -2,6 +2,7 @@
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -40,55 +41,31 @@ namespace GAMMA.ViewModels
         private ObservableCollection<CreatureModel> _AllCreatures;
         public ObservableCollection<CreatureModel> AllCreatures
         {
-            get
-            {
-                return _AllCreatures;
-            }
-            set
-            {
-                _AllCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _AllCreatures;
+            set => SetAndNotify(ref _AllCreatures, value);
         }
         #endregion
         #region FilteredCreatures
         private ObservableCollection<CreatureModel> _FilteredCreatures;
         public ObservableCollection<CreatureModel> FilteredCreatures
         {
-            get
-            {
-                return _FilteredCreatures;
-            }
-            set
-            {
-                _FilteredCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _FilteredCreatures;
+            set => SetAndNotify(ref _FilteredCreatures, value);
         }
         #endregion
         #region ActiveCreature
         private CreatureModel _ActiveCreature;
         public CreatureModel ActiveCreature
         {
-            get
-            {
-                return _ActiveCreature;
-            }
-            set
-            {
-                _ActiveCreature = value;
-                NotifyPropertyChanged();
-            }
+            get => _ActiveCreature;
+            set => SetAndNotify(ref _ActiveCreature, value);
         }
         #endregion
         #region CreatureSearchText
         private string _CreatureSearchText;
         public string CreatureSearchText
         {
-            get
-            {
-                return _CreatureSearchText;
-            }
+            get => _CreatureSearchText;
             set
             {
                 _CreatureSearchText = value;
@@ -102,30 +79,16 @@ namespace GAMMA.ViewModels
         private List<string> _CreatureSubCategories;
         public List<string> CreatureSubCategories
         {
-            get
-            {
-                return _CreatureSubCategories;
-            }
-            set
-            {
-                _CreatureSubCategories = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureSubCategories;
+            set => SetAndNotify(ref _CreatureSubCategories, value);
         }
         #endregion
         #region ArmorTypes
         private List<string> _ArmorTypes;
         public List<string> ArmorTypes
         {
-            get
-            {
-                return _ArmorTypes;
-            }
-            set
-            {
-                _ArmorTypes = value;
-                NotifyPropertyChanged();
-            }
+            get => _ArmorTypes;
+            set => SetAndNotify(ref _ArmorTypes, value);
         }
         #endregion
 
@@ -133,25 +96,15 @@ namespace GAMMA.ViewModels
         private bool _IsFilterMenuOpen;
         public bool IsFilterMenuOpen
         {
-            get
-            {
-                return _IsFilterMenuOpen;
-            }
-            set
-            {
-                _IsFilterMenuOpen = value;
-                NotifyPropertyChanged();
-            }
+            get => _IsFilterMenuOpen;
+            set => SetAndNotify(ref _IsFilterMenuOpen, value);
         }
         #endregion
         #region Filter_PlayersOnly
         private bool _Filter_PlayersOnly;
         public bool Filter_PlayersOnly
         {
-            get
-            {
-                return _Filter_PlayersOnly;
-            }
+            get => _Filter_PlayersOnly;
             set
             {
                 _Filter_PlayersOnly = value;
@@ -164,10 +117,7 @@ namespace GAMMA.ViewModels
         private bool _Filter_ValidatedOnly;
         public bool Filter_ValidatedOnly
         {
-            get
-            {
-                return _Filter_ValidatedOnly;
-            }
+            get => _Filter_ValidatedOnly;
             set
             {
                 _Filter_ValidatedOnly = value;
@@ -180,10 +130,7 @@ namespace GAMMA.ViewModels
         private bool _Filter_MiniatureOnly;
         public bool Filter_MiniatureOnly
         {
-            get
-            {
-                return _Filter_MiniatureOnly;
-            }
+            get => _Filter_MiniatureOnly;
             set
             {
                 _Filter_MiniatureOnly = value;
@@ -197,62 +144,30 @@ namespace GAMMA.ViewModels
         private int _Count_AllCreatures;
         public int Count_AllCreatures
         {
-            get
-            {
-                return _Count_AllCreatures;
-            }
-            set
-            {
-                _Count_AllCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_AllCreatures;
+            set => SetAndNotify(ref _Count_AllCreatures, value);
         }
         #endregion
         #region Count_FilteredCreatures
         private int _Count_FilteredCreatures;
         public int Count_FilteredCreatures
         {
-            get
-            {
-                return _Count_FilteredCreatures;
-            }
-            set
-            {
-                _Count_FilteredCreatures = value;
-                NotifyPropertyChanged();
-            }
+            get => _Count_FilteredCreatures;
+            set => SetAndNotify(ref _Count_FilteredCreatures, value);
         }
         #endregion
         #region CreatureTypeFilters
         private ObservableCollection<BoolOption> _CreatureTypeFilters;
         public ObservableCollection<BoolOption> CreatureTypeFilters
         {
-            get
-            {
-                return _CreatureTypeFilters;
-            }
-            set
-            {
-                _CreatureTypeFilters = value;
-                NotifyPropertyChanged();
-            }
+            get => _CreatureTypeFilters;
+            set => SetAndNotify(ref _CreatureTypeFilters, value);
         }
         #endregion
 
         // Commands
         #region AddCreature
-        private RelayCommand _AddCreature;
-        public ICommand AddCreature
-        {
-            get
-            {
-                if (_AddCreature == null)
-                {
-                    _AddCreature = new RelayCommand(param => DoAddCreature());
-                }
-                return _AddCreature;
-            }
-        }
+        public ICommand AddCreature => new RelayCommand(param => DoAddCreature());
         private void DoAddCreature()
         {
             AllCreatures.Add(new CreatureModel());
@@ -263,18 +178,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SaveCreatures
-        private RelayCommand _SaveCreatures;
-        public ICommand SaveCreatures
-        {
-            get
-            {
-                if (_SaveCreatures == null)
-                {
-                    _SaveCreatures = new RelayCommand(param => DoSaveCreatures());
-                }
-                return _SaveCreatures;
-            }
-        }
+        public ICommand SaveCreatures => new RelayCommand(param => DoSaveCreatures());
         public bool DoSaveCreatures(bool notifyUser = true)
         {
             // CheckCreatureLoot();
@@ -301,7 +205,7 @@ namespace GAMMA.ViewModels
                 {
                     message += item + "\n";
                 }
-                new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
                 return false;
             }
             XDocument itemDocument = new();
@@ -315,18 +219,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortCreatures
-        private RelayCommand _SortCreatures;
-        public ICommand SortCreatures
-        {
-            get
-            {
-                if (_SortCreatures == null)
-                {
-                    _SortCreatures = new RelayCommand(param => DoSortCreatures());
-                }
-                return _SortCreatures;
-            }
-        }
+        public ICommand SortCreatures => new RelayCommand(param => DoSortCreatures());
         private void DoSortCreatures()
         {
             AllCreatures = new ObservableCollection<CreatureModel>(AllCreatures.OrderBy(item => item.Name));
@@ -334,18 +227,7 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region ImportCreatures
-        private RelayCommand _ImportCreatures;
-        public ICommand ImportCreatures
-        {
-            get
-            {
-                if (_ImportCreatures == null)
-                {
-                    _ImportCreatures = new RelayCommand(param => DoImportCreatures());
-                }
-                return _ImportCreatures;
-            }
-        }
+        public ICommand ImportCreatures => new RelayCommand(param => DoImportCreatures());
         private void DoImportCreatures()
         {
             OpenFileDialog openWindow = new()
@@ -362,46 +244,53 @@ namespace GAMMA.ViewModels
             if (openWindow.ShowDialog() == true)
             {
                 DataImport.ImportData_Creatures(openWindow.FileName, out string message);
-                _ = new NotificationDialog(message).ShowDialog();
+                HelperMethods.NotifyUser(message);
             }
         }
         #endregion
         #region ClearCreatureSearch
-        private RelayCommand _ClearCreatureSearch;
-        public ICommand ClearCreatureSearch
-        {
-            get
-            {
-                if (_ClearCreatureSearch == null)
-                {
-                    _ClearCreatureSearch = new RelayCommand(param => DoClearCreatureSearch());
-                }
-                return _ClearCreatureSearch;
-            }
-        }
+        public ICommand ClearCreatureSearch => new RelayCommand(param => DoClearCreatureSearch());
         private void DoClearCreatureSearch()
         {
             CreatureSearchText = "";
         }
         #endregion
         #region SelectFilters
-        private RelayCommand _SelectFilters;
-        public ICommand SelectFilters
-        {
-            get
-            {
-                if (_SelectFilters == null)
-                {
-                    _SelectFilters = new RelayCommand(DoSelectFilters);
-                }
-                return _SelectFilters;
-            }
-        }
+        public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
         private void DoSelectFilters(object filter)
         {
             foreach (BoolOption option in CreatureTypeFilters)
             {
                 option.Marked = (filter.ToString() == "All") ? true : false;
+            }
+        }
+        #endregion
+        #region PerformSelectiveExport
+        public ICommand PerformSelectiveExport => new RelayCommand(param => DoPerformSelectiveExport());
+        private void DoPerformSelectiveExport()
+        {
+            MultiObjectSelectionDialog selectionDialog = new(Configuration.CreatureRepository, "Creatures");
+            if (selectionDialog.ShowDialog() == true)
+            {
+                SaveFileDialog saveWindow = new()
+                {
+                    Filter = "XML Files (*.xml)|*.xml",
+                    FileName = "Exported Creatures.xml",
+                    InitialDirectory = Environment.CurrentDirectory
+                };
+                if (saveWindow.ShowDialog() == true)
+                {
+                    XDocument itemDocument = new();
+                    itemDocument.Add(XmlMethods.ListToXml((selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedCreatures));
+                    itemDocument.Save(saveWindow.FileName);
+                    YesNoDialog question = new("Creatures Exported\nOpen file explorer to file?");
+                    if (question.ShowDialog() == true)
+                    {
+                        if (question.Answer == false) { return; }
+                        string argument = "/select, \"" + saveWindow.FileName + "\"";
+                        System.Diagnostics.Process.Start("explorer.exe", argument);
+                    }
+                }
             }
         }
         #endregion

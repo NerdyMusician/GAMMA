@@ -1,9 +1,4 @@
 ﻿using GAMMA.Toolbox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GAMMA.Models
@@ -22,10 +17,7 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public bool IsSelected
         {
-            get
-            {
-                return _IsSelected;
-            }
+            get => _IsSelected;
             set
             {
                 _IsSelected = value;
@@ -39,15 +31,8 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Game
         {
-            get
-            {
-                return _Game;
-            }
-            set
-            {
-                _Game = value;
-                NotifyPropertyChanged();
-            }
+            get => _Game;
+            set => SetAndNotify(ref _Game, value);
         }
         #endregion
         #region Character
@@ -55,32 +40,14 @@ namespace GAMMA.Models
         [XmlSaveMode(XSME.Single)]
         public string Character
         {
-            get
-            {
-                return _Character;
-            }
-            set
-            {
-                _Character = value;
-                NotifyPropertyChanged();
-            }
+            get => _Character;
+            set => SetAndNotify(ref _Character, value);
         }
         #endregion
 
         // Commands
         #region RemovePair
-        private RelayCommand _RemovePair;
-        public ICommand RemovePair
-        {
-            get
-            {
-                if (_RemovePair == null)
-                {
-                    _RemovePair = new RelayCommand(param => DoRemovePair());
-                }
-                return _RemovePair;
-            }
-        }
+        public ICommand RemovePair => new RelayCommand(param => DoRemovePair());
         private void DoRemovePair()
         {
             Configuration.MainModelRef.SettingsView.Roll20GameCharacterList.Remove(this);
