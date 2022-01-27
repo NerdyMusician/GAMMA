@@ -3907,21 +3907,7 @@ namespace GAMMA.Models
         public ICommand SortNotes => new RelayCommand(param => DoSortNotes());
         private void DoSortNotes()
         {
-            string message = "Are you sure you want to auto-sort your notes?" +
-                "\nSort Order" +
-                "\n1. Category: Location" +
-                "\n2. Category: Faction" +
-                "\n3. Category: Vendor" +
-                "\n4. Category: Character" +
-                "\n5. Category: Quest" +
-                "\n6. Category: Miscellaneous" +
-                "\n7. Header" +
-                "\nQuest sub notes are not sorted.";
-            YesNoDialog question = new(message);
-            if (question.ShowDialog() == false) { return; }
-
-            Notes = new ObservableCollection<NoteModel>(SortNoteList(Notes.ToList()));
-
+            Notes = new(SortNoteList(Notes.ToList()));
         }
         #endregion
         #region SortSpellLinks

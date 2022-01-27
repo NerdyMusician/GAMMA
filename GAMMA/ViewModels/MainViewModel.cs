@@ -62,7 +62,7 @@ namespace GAMMA.ViewModels
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
             
-            ApplicationVersion = "GAMMA 1.28.03 beta";
+            ApplicationVersion = "GAMMA 1.28.03";
 
             Configuration.LoadComplete = true;
 
@@ -749,8 +749,8 @@ namespace GAMMA.ViewModels
             }
 
             message += GetStringFromList(creatureAbilityIssues, "\n\nCreatures", "\n");
-            message += GetStringFromList(creatureAbilityIssues, "\n\nSpells", "\n");
-            message += GetStringFromList(creatureAbilityIssues, "\n\nCharacters", "\n");
+            message += GetStringFromList(spellAbilityIssues, "\n\nSpells", "\n");
+            message += GetStringFromList(characterAbilityIssues, "\n\nCharacters", "\n");
 
             if (message == "GAMMA Custom Ability Report:") { message += "\n\nNo issues found."; }
 

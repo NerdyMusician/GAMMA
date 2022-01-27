@@ -891,7 +891,6 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SortLanguages
-        private RelayCommand _SortLanguages;
         public ICommand SortLanguages => new RelayCommand(param => DoSortLanguages());
         private void DoSortLanguages()
         {

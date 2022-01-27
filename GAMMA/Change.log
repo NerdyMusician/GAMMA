@@ -15,9 +15,12 @@
 - BUG: Fixed issue where duplicating ability added duplicate suggested values to its dropdowns
 - BUG: Fixed issue where item deletion dependency check wasn't checking creature loot tables
 - BUG: Fixed issue where inventory total item value was not updating on item quantity change
+- BUG: Fixed issue where only creature ability issues were outputting in report, and were doing so under spells and character headers also
+- BUG: Removed sorting warning from character notes that displayed pre-1.28 preset sort order
 - CODE: Changed 'new NotificationDialog()' calls to HelperMethods.NotifyUser(), better centralization for future updates if needed
 - CODE: Removal of NotebookModel that was previously used in standalone notes tab prior to Campaigns development
 - CODE: Removal of unused / empty ICommands
+- CODE: Completion of shorthanding properties and commands for models, ~10k lines removed from 1.28.00 to now
 
 GAMMA 1.28.02
 - CHANGE: no longer prompted to save existing character list prior to import if character list is empty

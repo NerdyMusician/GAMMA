@@ -73,7 +73,6 @@ namespace GAMMA.Models
 
         // Commands
         #region RemoveShop
-        private RelayCommand _RemoveShop;
         public ICommand RemoveShop => new RelayCommand(param => DoRemoveShop());
         private void DoRemoveShop()
         {
@@ -81,7 +80,6 @@ namespace GAMMA.Models
         }
         #endregion
         #region OpenShop
-        private RelayCommand _OpenShop;
         public ICommand OpenShop => new RelayCommand(DoOpenShop);
         private void DoOpenShop(object param)
         {

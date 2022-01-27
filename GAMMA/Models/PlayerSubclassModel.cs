@@ -72,7 +72,6 @@ namespace GAMMA.Models
         }
         #endregion
         #region AddTrait
-        private RelayCommand _AddTrait;
         public ICommand AddTrait => new RelayCommand(param => DoAddTrait());
         private void DoAddTrait()
         {
