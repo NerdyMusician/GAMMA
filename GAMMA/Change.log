@@ -1,5 +1,8 @@
 ﻿GAMMA 1.29.00
 - NEW: Horde Mechanics - able to add creatures to Campaign Gameplay as a horde, multiple of the same type per slot, horde size scales with hit points
+- NEW: Creature Exhaustion - added the exhaustion condition to creatures, automatically rolls disadvantaged for skill checks and saves where appropriate
+- NEW: Shop Haggling - able to now adjust the buy and sell percentages of the Shop feature, enabling dungeon masters to simulate economic conditions of stores
+- CHANGE: Moved audio level settings to SettingsView and now save/load the values on application close/start
 - BUG: Fixed issue where creature rolled HP was not maxing
 - CODE: Changed over various roll code to use HelperMethods.RollDice
 

@@ -150,6 +150,15 @@
     <Style TargetType="Image" x:Key="Icon_Sync" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/sync.png" />
     </Style>
+    <Style TargetType="Image" x:Key="Icon_Alert" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/alert.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Markup" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/markup.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Text_Blue" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/text_blue.png" />
+    </Style>
     
     <!-- Weather Icons -->
     <Style TargetType="Image" x:Key="Icon_Weather_Clear" BasedOn="{StaticResource Icon_Base}">

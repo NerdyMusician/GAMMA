@@ -10,8 +10,8 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource PrimaryBackground}"
         BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
-        mc:Ignorable="d" Height="640" Width="1024">
-    <StackPanel>
+        mc:Ignorable="d" Height="652" Width="1048">
+    <StackPanel Margin="8">
         <StackPanel.Resources>
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
@@ -54,7 +54,15 @@
             <Separator Width="72" Visibility="Hidden" />
             
         </StackPanel>
-        <TextBlock Text="*player items are sold for 60% of their value" HorizontalAlignment="Center" Margin="0 0 0 2" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 2">
+            <TextBlock Text="Sell at " VerticalAlignment="Center" />
+            <cc:GammaTextBox Text="{Binding SellRate, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PartialBorderTextBox}" Width="36" />
+            <TextBlock Text="%" VerticalAlignment="Center" />
+            <Separator Width="32" Visibility="Hidden" />
+            <TextBlock Text="Buy at " VerticalAlignment="Center" />
+            <cc:GammaTextBox Text="{Binding BuyRate, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PartialBorderTextBox}" Width="36" />
+            <TextBlock Text="%" VerticalAlignment="Center" />
+        </StackPanel>
         <Rectangle />
         <StackPanel Orientation="Horizontal">
             <StackPanel>
@@ -232,7 +240,7 @@
                                         <Separator Width="4" Visibility="Hidden" />
                                         <Image Style="{StaticResource Icon_Coins}" />
                                         <Separator Width="2" Visibility="Hidden" />
-                                        <TextBlock Text="{Binding ProcessedValue}" Width="39" />
+                                        <TextBlock Text="{Binding ShopValue}" Width="39" />
                                         <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}}" />
                                         <Separator Width="2" Visibility="Hidden" />
                                         <TextBlock Text="{Binding Name}" Width="100" />

@@ -527,10 +527,30 @@ namespace GAMMA.Toolbox
                         newSettingsSet.Roll20GameCharacterList.Add(pair);
                     }
                 }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "StartupWebActions")
+                {
+                    foreach (XmlNode pairNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(pairNode, out WebActionModel action);
+                        newSettingsSet.StartupWebActions.Add(action);
+                    }
+                }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "OutputWebActions")
+                {
+                    foreach (XmlNode pairNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(pairNode, out WebActionModel action);
+                        newSettingsSet.OutputWebActions.Add(action);
+                    }
+                }
             }
 
             settingsSet = newSettingsSet;
 
+        }
+        public static void NodeToObject(XmlNode webActionNode, out WebActionModel webAction)
+        {
+            webAction = SetObjectPropertiesFromNode(webActionNode, new WebActionModel()) as WebActionModel;
         }
         public static void NodeToObject(XmlNode gamePairNode, out GameCharacterSelection gamePair)
         {

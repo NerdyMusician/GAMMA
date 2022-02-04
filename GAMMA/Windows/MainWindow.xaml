@@ -549,9 +549,9 @@
         <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding ProcessKeyboardShortcut}" CommandParameter="CtrlS" />
     </Window.InputBindings>
     <StackPanel>
-        <MediaElement x:Name="SfxPlayer" Visibility="Collapsed" Source="{Binding AudioView.SfxSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding AudioView.SfxVolumeDec}" />
-        <MediaElement x:Name="SystemAudioPlayer" Visibility="Collapsed" Source="{Binding AudioView.SystemAudioSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding AudioView.SystemVolumeDec}" />
-        <MediaElement x:Name="MusicPlayer" Visibility="Collapsed" Source="{Binding AudioView.MusicSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding AudioView.MusicVolumeDec}" MediaEnded="MusicPlayer_MediaEnded"  />
+        <MediaElement x:Name="SfxPlayer" Visibility="Collapsed" Source="{Binding AudioView.SfxSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding SettingsView.SfxVolumeDec}" />
+        <MediaElement x:Name="SystemAudioPlayer" Visibility="Collapsed" Source="{Binding AudioView.SystemAudioSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding SettingsView.SystemVolumeDec}" />
+        <MediaElement x:Name="MusicPlayer" Visibility="Collapsed" Source="{Binding AudioView.MusicSource, UpdateSourceTrigger=PropertyChanged}" LoadedBehavior="Manual" Volume="{Binding SettingsView.MusicVolumeDec}" MediaEnded="MusicPlayer_MediaEnded"  />
         <DockPanel x:Name="TitleBar" Width="1320" MouseDown="Window_MouseDown" Background="Transparent" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" Margin="8">
                 <Separator />
@@ -1242,6 +1242,10 @@
                                                                                     <cc:FieldLabel Text="Unconscious" ToolTip="{Binding IsUnconscious_Tooltip}" />
                                                                                     <CheckBox IsChecked="{Binding IsUnconscious}" Margin="0" />
                                                                                 </StackPanel>
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <cc:FieldLabel Text="Exhaustion" ToolTip="{Binding Exhaustion_Tooltip}" />
+                                                                                    <cc:GammaTextBox Text="{Binding ExhaustionLevel}" Width="24" />
+                                                                                </StackPanel>
                                                                             </StackPanel>
                                                                             <Separator Width="2" />
                                                                         </StackPanel>
@@ -1928,6 +1932,10 @@
                                                                                 <StackPanel Orientation="Horizontal">
                                                                                     <cc:FieldLabel Text="Unconscious" ToolTip="{Binding IsUnconscious_Tooltip}" />
                                                                                     <CheckBox IsChecked="{Binding IsUnconscious}" Margin="0" />
+                                                                                </StackPanel>
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <cc:FieldLabel Text="Exhaustion" ToolTip="{Binding Exhaustion_Tooltip}" />
+                                                                                    <cc:GammaTextBox Text="{Binding ExhaustionLevel}" Width="24" />
                                                                                 </StackPanel>
                                                                             </StackPanel>
                                                                             <Separator Width="2" />
@@ -6683,11 +6691,94 @@
                                                                                                 </StackPanel>
                                                                                             </Popup>
                                                                                         </StackPanel>
+                                                                                        <StackPanel>
+                                                                                            <cc:MiniToggleButton ImageResource="{StaticResource Icon_Debuff}" IsChecked="{Binding DisplayPopup_Conditions}" Margin="2" ToolTip="Conditions" />
+                                                                                            <Popup IsOpen="{Binding DisplayPopup_Conditions}" AllowsTransparency="True">
+                                                                                                <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="2" CornerRadius="2">
+                                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                                        <StackPanel.Resources>
+                                                                                                            <Style TargetType="{x:Type cc:FieldLabel}">
+                                                                                                                <Setter Property="Width" Value="88" />
+                                                                                                            </Style>
+                                                                                                        </StackPanel.Resources>
+                                                                                                        <StackPanel.Background>
+                                                                                                            <StaticResource ResourceKey="PrimaryBackground"/>
+                                                                                                        </StackPanel.Background>
+                                                                                                        <StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Blinded" ToolTip="{Binding IsBlinded_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsBlinded}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Charmed" ToolTip="{Binding IsCharmed_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsCharmed}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Deafened" ToolTip="{Binding IsDeafened_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsDeafened}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Frightened" ToolTip="{Binding IsFrightened_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsFrightened}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Grappled" ToolTip="{Binding IsGrappled_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsGrappled}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Incapacitated" ToolTip="{Binding IsIncapacitated_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsIncapacitated}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Invisible" ToolTip="{Binding IsInvisible_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsInvisible}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                        </StackPanel>
+                                                                                                        <Rectangle Style="{StaticResource VerticalDivider}" />
+                                                                                                        <StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Paralyzed" ToolTip="{Binding IsParalyzed_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsParalyzed}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Petrified" ToolTip="{Binding IsPetrified_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsPetrified}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Poisoned" ToolTip="{Binding IsPoisoned_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsPoisoned}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Prone" ToolTip="{Binding IsProne_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsProne}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Restrained" ToolTip="{Binding IsRestrained_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsRestrained}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Stunned" ToolTip="{Binding IsStunned_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsStunned}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Unconscious" ToolTip="{Binding IsUnconscious_Tooltip}" />
+                                                                                                                <CheckBox IsChecked="{Binding IsUnconscious}" Margin="0" />
+                                                                                                            </StackPanel>
+                                                                                                            <StackPanel Orientation="Horizontal">
+                                                                                                                <cc:FieldLabel Text="Exhaustion" ToolTip="{Binding Exhaustion_Tooltip}" />
+                                                                                                                <cc:GammaTextBox Text="{Binding ExhaustionLevel}" Width="24" />
+                                                                                                            </StackPanel>
+                                                                                                        </StackPanel>
+                                                                                                        <Separator Width="2" />
+                                                                                                    </StackPanel>
+                                                                                                </Border>
+                                                                                            </Popup>
+                                                                                        </StackPanel>
                                                                                     </StackPanel>
                                                                                 </StackPanel>
                                                                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="2">
                                                                                     <Image Style="{StaticResource Icon_Rpg_Note}" Margin="2 4" VerticalAlignment="Top" />
-                                                                                    <cc:GammaTextBox Text="{Binding Notes}" Width="148" Height="56" AcceptsReturn="True" TextWrapping="Wrap" />
+                                                                                    <cc:GammaTextBox Text="{Binding Notes}" Width="124" Height="56" AcceptsReturn="True" TextWrapping="Wrap" />
                                                                                 </StackPanel>
                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveCreature}" CommandParameter="Character Minions" VerticalAlignment="Top" Margin="4 2" />
                                                                             </StackPanel>
@@ -8013,7 +8104,7 @@
                                 <cc:IconButton ImageResource="{StaticResource Icon_Stop}" Click="MusicStopButton_Click" />
                                 <Separator Width="16" />
                                 <Image Style="{StaticResource Icon_Audio}" Margin="2 0 4 0" />
-                                <Slider Value="{Binding AudioView.MusicVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="100" VerticalAlignment="Center" />
+                                <Slider Value="{Binding SettingsView.MusicVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="100" VerticalAlignment="Center" />
                             </StackPanel>
                             <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                 <ScrollViewer Height="580">
@@ -8093,7 +8184,7 @@
                                 <cc:IconButton ImageResource="{StaticResource Icon_Stop}" Click="SfxStopButton_Click" />
                                 <Separator Width="16" />
                                 <Image Style="{StaticResource Icon_Audio}" Margin="2 0 4 0" />
-                                <Slider Value="{Binding AudioView.SfxVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="100" VerticalAlignment="Center" />
+                                <Slider Value="{Binding SettingsView.SfxVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="100" VerticalAlignment="Center" />
                             </StackPanel>
                             <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                 <ScrollViewer Height="580">
@@ -11200,7 +11291,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <cc:FieldLabel Text="System SFX Volume" />
                                     <Image Style="{StaticResource Icon_Audio}" Margin="2 0 4 0" />
-                                    <Slider Value="{Binding AudioView.SystemVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="140" VerticalAlignment="Center" />
+                                    <Slider Value="{Binding SettingsView.SystemVolumeInt, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Width="140" VerticalAlignment="Center" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <CheckBox IsChecked="{Binding SettingsView.EnableSoundEffects, UpdateSourceTrigger=PropertyChanged}" />
@@ -11274,58 +11365,184 @@
                                     <cc:FieldLabel Width="400" TextWrapping="Wrap"><Run Text="WebDriver Status: " /><Run Text=" "/><Run Text="{Binding SettingsView.WebDriverStatus}" /></cc:FieldLabel>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <cc:ImageButton Text="Open Roll20" ImageResource="{StaticResource Icon_D20}" Command="{Binding OpenWebDriver}" />
+                                    <cc:ImageButton Text="Start WebDriver" ImageResource="{StaticResource Icon_Play}" Command="{Binding OpenWebDriver}" />
                                     <cc:ImageButton Text="Reset WebDriver" ImageResource="{StaticResource Icon_Refresh}" Command="{Binding ResetDriver}" />
                                     <cc:ImageButton Text="Get WebDriver" ImageResource="{StaticResource Icon_Import}" Command="{Binding GetDriver}" />
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Separator />
-                                    <Image Style="{StaticResource Icon_Warning}" />
-                                    <cc:FieldLabel Text="Stored as plain text." FontStyle="Italic" />
-                                </StackPanel>
-                                <Separator />
-                                <StackPanel Orientation="Horizontal">
-                                    <cc:FieldLabel Text="Email" Width="76" />
-                                    <cc:GammaTextBox Text="{Binding SettingsView.Roll20Email, UpdateSourceTrigger=PropertyChanged}" />
-                                </StackPanel>
-                                <Separator />
-                                <StackPanel Orientation="Horizontal">
-                                    <cc:FieldLabel Text="Password" Width="76" />
-                                    <cc:GammaTextBox x:Name="TBX_R20Pass"  Text="{Binding SettingsView.Roll20Password, UpdateSourceTrigger=PropertyChanged}" KeyDown="TBX_R20Pass_KeyDown" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Separator Width="82" />
-                                    <CheckBox IsChecked="{Binding SettingsView.ClearPasswordOnClose, UpdateSourceTrigger=PropertyChanged}" Margin="0" />
-                                    <cc:FieldLabel Text="Clear Password on Close" Width="160" />
-                                </StackPanel>
-                                <Separator />
-                                <DockPanel>
-                                    <cc:FieldLabel Text="Game and Character Selection" Width="auto" />
-                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddGameCharacterPair}" HorizontalAlignment="Right" />
-                                </DockPanel>
-                                <Border Style="{StaticResource ListBorder}">
-                                    <ScrollViewer Height="128" Width="460">
-                                        <ItemsControl ItemsSource="{Binding SettingsView.Roll20GameCharacterList}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Orientation="Horizontal" Margin="2">
-                                                        <CheckBox IsChecked="{Binding IsSelected}" />
-                                                        <Separator />
-                                                        <Image Style="{StaticResource Icon_Gamepad}" />
-                                                        <Separator />
-                                                        <cc:GammaTextBox Text="{Binding Game}" Width="192" />
-                                                        <Separator />
-                                                        <Image Style="{StaticResource Icon_Users}" />
-                                                        <Separator />
-                                                        <cc:GammaTextBox Text="{Binding Character}" Width="148" />
-                                                        <Separator />
-                                                        <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemovePair}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </ScrollViewer>
-                                </Border>
+                                <TabControl BorderThickness="0 2 0 0">
+                                    <TabControl.Resources>
+                                        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource BlueTab}">
+                                            <Setter Property="Width" Value="128" />
+                                        </Style>
+                                    </TabControl.Resources>
+                                    <TabItem Header="Game Selection">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Separator />
+                                                <Image Style="{StaticResource Icon_Alert}" />
+                                                <cc:FieldLabel Text="Stored as plain text." FontStyle="Italic" />
+                                            </StackPanel>
+                                            <Separator />
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Email" Width="76" />
+                                                <cc:GammaTextBox Text="{Binding SettingsView.Roll20Email, UpdateSourceTrigger=PropertyChanged}" />
+                                            </StackPanel>
+                                            <Separator />
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Password" Width="76" />
+                                                <cc:GammaTextBox x:Name="TBX_R20Pass"  Text="{Binding SettingsView.Roll20Password, UpdateSourceTrigger=PropertyChanged}" KeyDown="TBX_R20Pass_KeyDown" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Separator Width="82" />
+                                                <CheckBox IsChecked="{Binding SettingsView.ClearPasswordOnClose, UpdateSourceTrigger=PropertyChanged}" Margin="0" />
+                                                <cc:FieldLabel Text="Clear Password on Close" Width="160" />
+                                            </StackPanel>
+                                            <Separator />
+                                            <DockPanel>
+                                                <cc:FieldLabel Text="Game and Character Selection" Width="auto" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddGameCharacterPair}" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <Border Style="{StaticResource ListBorder}">
+                                                <ScrollViewer Height="128" Width="460">
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.Roll20GameCharacterList}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                                    <CheckBox IsChecked="{Binding IsSelected}" />
+                                                                    <Separator />
+                                                                    <Image Style="{StaticResource Icon_Gamepad}" />
+                                                                    <Separator />
+                                                                    <cc:GammaTextBox Text="{Binding Game}" Width="192" />
+                                                                    <Separator />
+                                                                    <Image Style="{StaticResource Icon_Users}" />
+                                                                    <Separator />
+                                                                    <cc:GammaTextBox Text="{Binding Character}" Width="148" />
+                                                                    <Separator />
+                                                                    <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemovePair}" />
+                                                                </StackPanel>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </ScrollViewer>
+                                            </Border>
+                                        </StackPanel>
+                                    </TabItem>
+                                    <TabItem Header="Startup Sequence">
+                                        <StackPanel Margin="4">
+                                            <DockPanel>
+                                                <cc:FieldLabel Text="Startup Web Actions" />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Startup" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <Border Style="{StaticResource ListBorder}" Margin="0 4">
+                                                <ScrollViewer Height="480">
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.StartupWebActions}" Width="420">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Grid HorizontalAlignment="Left" Margin="4">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="4" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition />
+                                                                        <RowDefinition Height="4" />
+                                                                        <RowDefinition />
+                                                                    </Grid.RowDefinitions>
+                                                                    <Grid.ContextMenu>
+                                                                        <ContextMenu>
+                                                                            <MenuItem Header="Insert New Above" Command="{Binding AddActionAbove}" CommandParameter="Startup" />
+                                                                            <MenuItem Header="Insert New Below" Command="{Binding AddActionBelow}" CommandParameter="Startup" />
+                                                                        </ContextMenu>
+                                                                    </Grid.ContextMenu>
+
+                                                                    <Image Style="{StaticResource Icon_Workflow}" Grid.Column="0" Grid.Row="0" Margin="2" />
+
+                                                                    <Image Style="{StaticResource Icon_Action}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="148" Grid.Column="2" Grid.Row="0" IsEditable="false" />
+                                                                    <Image Style="{StaticResource Icon_Text_Blue}" Grid.Column="3" Grid.Row="0" Margin="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="148" Grid.Column="4" Grid.Row="0" />
+                                                                    <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Startup" Grid.Column="6" Grid.Row="0" />
+
+                                                                    <Image Style="{StaticResource Icon_Markup}" Grid.Column="1" Grid.Row="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TargetElementHandles}" Text="{Binding TargetElementHandle}" Width="148" Grid.Column="2" Grid.Row="2" IsEditable="false" />
+                                                                    <cc:FieldLabel Text=" = " Width="auto" Grid.Column="3" Grid.Row="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TargetElementMatchText}" Width="148" Grid.Column="4" Grid.Row="2" />
+                                                                    <cc:GammaTextBox Text="{Binding ElementMatchIteration}" Width="24" Grid.Column="6" Grid.Row="2" />
+
+
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </ScrollViewer>
+                                            </Border>
+                                            
+                                        </StackPanel>
+                                    </TabItem>
+                                    <TabItem Header="Output Sequence">
+                                        <StackPanel Margin="4">
+                                            <DockPanel>
+                                                <cc:FieldLabel Text="Output Web Actions" />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Output" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <Border Style="{StaticResource ListBorder}" Margin="0 4">
+                                                <ScrollViewer Height="480">
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.OutputWebActions}" Width="420">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Grid HorizontalAlignment="Left" Margin="4" Background="Transparent">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                        <ColumnDefinition Width="4" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition />
+                                                                        <RowDefinition Height="4" />
+                                                                        <RowDefinition />
+                                                                    </Grid.RowDefinitions>
+                                                                    <Grid.ContextMenu>
+                                                                        <ContextMenu>
+                                                                            <MenuItem Header="Insert New Above" Command="{Binding AddActionAbove}" CommandParameter="Output" />
+                                                                            <MenuItem Header="Insert New Below" Command="{Binding AddActionBelow}" CommandParameter="Output" />
+                                                                        </ContextMenu>
+                                                                    </Grid.ContextMenu>
+
+                                                                    <Image Style="{StaticResource Icon_Workflow}" Grid.Column="0" Grid.Row="0" Margin="2" />
+
+                                                                    <Image Style="{StaticResource Icon_Action}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="148" Grid.Column="2" Grid.Row="0" IsEditable="false" />
+                                                                    <Image Style="{StaticResource Icon_Text_Blue}" Grid.Column="3" Grid.Row="0" Margin="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="148" Grid.Column="4" Grid.Row="0" />
+                                                                    <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Output" Grid.Column="6" Grid.Row="0" />
+
+                                                                    <Image Style="{StaticResource Icon_Markup}" Grid.Column="1" Grid.Row="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TargetElementHandles}" Text="{Binding TargetElementHandle}" Width="148" Grid.Column="2" Grid.Row="2" IsEditable="false" />
+                                                                    <cc:FieldLabel Text=" = " Width="auto" Grid.Column="3" Grid.Row="2" />
+                                                                    <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TargetElementMatchText}" Width="148" Grid.Column="4" Grid.Row="2" />
+                                                                    <cc:GammaTextBox Text="{Binding ElementMatchIteration}" Width="24" Grid.Column="6" Grid.Row="2" />
+
+
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+
+                                                </ScrollViewer>
+                                            </Border>
+                                            
+                                        </StackPanel>
+                                    </TabItem>
+                                </TabControl>
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="About GAMMA">

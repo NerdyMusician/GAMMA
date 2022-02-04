@@ -1,7 +1,6 @@
 ﻿using GAMMA.Models;
 using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
-using GAMMA.Windows;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -478,6 +477,23 @@ namespace GAMMA.ViewModels
             try
             {
                 WebDriver = CreateWebDriver();
+                foreach (WebActionModel webAction in SettingsView.StartupWebActions)
+                {
+                    if (!webAction.PerformWebAction(ref WebDriver))
+                    {
+                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementMatchText);
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                HelperMethods.NotifyUser(e.Message);
+            }
+            return;
+            try
+            {
+                WebDriver = CreateWebDriver();
                 //WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
                 WebDriver.Navigate().GoToUrl("https://roll20.net/welcome");
                 if (SettingsView.Roll20Email != "")
@@ -596,6 +612,8 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        // Public Methods
+
         // Private Methods
         private IWebDriver CreateWebDriver()
         {
@@ -617,7 +635,7 @@ namespace GAMMA.ViewModels
 
                 driver = new ChromeDriver(service, options, TimeSpan.FromSeconds(180));
                 driver.Manage().Window.Maximize();
-
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
                 SettingsView.WebDriverStatus = "Active - Handle:" + driver.CurrentWindowHandle;
                 return driver;
             }

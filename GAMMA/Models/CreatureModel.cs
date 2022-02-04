@@ -945,6 +945,15 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _ConditionImmunities, value);
         }
         #endregion
+        #region ExhaustionLevel
+        private int _ExhaustionLevel;
+        [XmlSaveMode(XSME.Single)]
+        public int ExhaustionLevel
+        {
+            get => _ExhaustionLevel;
+            set => SetAndNotify(ref _ExhaustionLevel, value);
+        }
+        #endregion
 
         #region DamageProclivity_Acid
         private string _DamageProclivity_Acid;
@@ -2753,24 +2762,11 @@ namespace GAMMA.Models
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
             }
+            if (ExhaustionLevel >= 1) { useDisadvantage = true; useAdvantage = false; }
             int skillModifier = HelperMethods.GetSkillModifier(skill.ToString(), this);
             int total;
-            int finalRoll;
-            int firstRoll = Configuration.RNG.Next(1, 21);
-            int secondRoll = Configuration.RNG.Next(1, 21);
-            if (useAdvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? firstRoll : secondRoll;
-            }
-            else if (useDisadvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? secondRoll : firstRoll;
-            }
-            else
-            {
-                finalRoll = firstRoll;
-            }
-            total = finalRoll + skillModifier;
+            int roll = HelperMethods.RollD20(useAdvantage, useDisadvantage);
+            total = roll + skillModifier;
             DisplayPopup_Skills = false;
             DisplayPopupAlt_Skills = false;
 
@@ -2781,12 +2777,7 @@ namespace GAMMA.Models
                 (useAdvantage) ? " with advantage" : "",
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
-            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + skillModifier; }
-
-            //if (Configuration.MainModelRef.TabSelected_Tracker)
-            //{
-            //    HelperMethods.AddToEncounterLog(message);
-            //}
+            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + skillModifier; }
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
                 HelperMethods.AddToCampaignMessages(message, "Skill Check");
@@ -2812,24 +2803,11 @@ namespace GAMMA.Models
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
             }
+            if (ExhaustionLevel >= 3) { useDisadvantage = true; useAdvantage = false; }
             int saveModifier = HelperMethods.GetSaveModifier(save.ToString(), this);
             int total;
-            int finalRoll;
-            int firstRoll = Configuration.RNG.Next(1, 21);
-            int secondRoll = Configuration.RNG.Next(1, 21);
-            if (useAdvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? firstRoll : secondRoll;
-            }
-            else if (useDisadvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? secondRoll : firstRoll;
-            }
-            else
-            {
-                finalRoll = firstRoll;
-            }
-            total = finalRoll + saveModifier;
+            int roll = HelperMethods.RollD20(useAdvantage, useDisadvantage);
+            total = roll + saveModifier;
             DisplayPopup_Saves = false;
             DisplayPopupAlt_Saves = false;
 
@@ -2840,7 +2818,7 @@ namespace GAMMA.Models
                 (useAdvantage) ? " with advantage" : "",
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
-            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + saveModifier; }
+            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + saveModifier; }
 
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {

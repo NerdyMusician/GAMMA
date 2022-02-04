@@ -124,6 +124,14 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _ProcessedValue, value);
         }
         #endregion
+        #region ShopValue
+        private string _ShopValue;
+        public string ShopValue
+        {
+            get => _ShopValue;
+            set => SetAndNotify(ref _ShopValue, value);
+        }
+        #endregion
         #region Description
         private string _Description;
         [XmlSaveMode(XSME.Single)]

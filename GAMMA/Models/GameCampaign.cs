@@ -963,6 +963,13 @@ namespace GAMMA.Models
                             creature.IsUnconscious = (!creature.IsImmune_Unconscious);
                             if (creature.IsUnconscious) { message += "\n" + creature.DisplayName + " has become " + targetDialog.ConditionOnFail + "."; }
                             break;
+                        case "Raise Exhaustion":
+                            if (!creature.IsImmune_Exhaustion)
+                            {
+                                creature.ExhaustionLevel++;
+                                message += "\n" + creature.DisplayName + " has raised to level " + creature.ExhaustionLevel + " exhaustion.";
+                            }
+                            break;
                         default:
                             break;
                     }
