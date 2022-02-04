@@ -649,7 +649,7 @@ namespace GAMMA.Toolbox
             }
             return fullText;
         }
-        public static void RollDice(int qty, int sides, out int result, out List<string> rolls)
+        public static void RollDice(int qty, int sides, int mod, out int result, out List<string> rolls)
         {
             rolls = new();
             result = 0;
@@ -659,6 +659,7 @@ namespace GAMMA.Toolbox
                 rolls.Add(roll.ToString());
                 result += roll;
             }
+            result += mod;
             
         }
         public static string PadNumbers(string input)

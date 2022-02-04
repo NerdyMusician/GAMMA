@@ -93,8 +93,12 @@
             <StackPanel Orientation="Horizontal">
                 <Image Style="{Binding CreatureCategory, Converter={tool:ImageBasedOnCreatureType}}" />
                 <Separator Width="4" Visibility="Hidden" />
-                <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="240" VerticalAlignment="Center" />
-                <TextBlock VerticalAlignment="Center" Width="56" Foreground="{StaticResource PrimaryFontColor}">
+                <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="180" VerticalAlignment="Center" />
+                <Separator Width="4" Visibility="Hidden" />
+                <CheckBox IsChecked="{Binding IsHorde}" />
+                <Image Style="{StaticResource Icon_Horde}" />
+                <cc:GammaTextBox Text="{Binding MaxHordeSize}" Width="28" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" BorderBrush="{StaticResource ButtonBorder}" Background="Transparent" Foreground="{StaticResource PrimaryFontColor}" BorderThickness="2 0 0 2" />
+                <TextBlock VerticalAlignment="Center" Width="54" Foreground="{StaticResource PrimaryFontColor}">
                         <Run Text="Qty:" />
                         <Run Text="{Binding QuantityToAdd, Mode=OneWay}" />
                 </TextBlock>

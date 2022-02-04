@@ -667,7 +667,7 @@ namespace GAMMA.Models.GameplayComponents
                                 diceQty += preAction.DiceQuantity;
                             }
                         }
-                        HelperMethods.RollDice(diceQty, preAction.DiceQuality, out int result, out List<string> rolls);
+                        HelperMethods.RollDice(diceQty, preAction.DiceQuality, 0, out int result, out List<string> rolls);
                         target.Value = (Convert.ToInt32(target.Value) + result).ToString();
                         target.Rolls.AddRange(rolls);
                     }

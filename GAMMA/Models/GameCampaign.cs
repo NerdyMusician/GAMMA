@@ -464,6 +464,7 @@ namespace GAMMA.Models
                         int existingCreatureCount = Combatants.Where(creature => creature.Name == newCreature.Name).Count();
                         if (existingCreatureCount > 25) { break; }
                         newCreature.RollHitPoints(Configuration.MainModelRef.SettingsView.UseAveragedHitPoints);
+                        newCreature.SetHordeStats();
                         newCreature.SetPassivePerception();
                         newCreature.HasBeenLooted = false;
                         if (newCreature.IsPlayer == false) { newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount]; }
@@ -476,6 +477,10 @@ namespace GAMMA.Models
                         if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                         Combatants.Add(newCreature);
                     }
+
+                    // cleanup
+                    selectedCreature.IsHorde = false;
+                    selectedCreature.MaxHordeSize = 0;
                 }
                 SortCombatants();
             }
@@ -548,7 +553,10 @@ namespace GAMMA.Models
                         CreatureModel newCreature = HelperMethods.DeepClone(matchedCreature);
                         int existingCreatureCount = Combatants.Where(creature => creature.Name == newCreature.Name).Count();
                         if (existingCreatureCount > 25) { break; }
+                        newCreature.IsHorde = creature.IsHorde;
+                        newCreature.MaxHordeSize = creature.MaxHordeSize;
                         newCreature.RollHitPoints(Configuration.MainModelRef.SettingsView.UseAveragedHitPoints);
+                        newCreature.SetHordeStats();
                         newCreature.SetPassivePerception();
                         newCreature.HasBeenLooted = false;
                         if (newCreature.IsPlayer == false) { newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount]; }
@@ -1099,9 +1107,9 @@ namespace GAMMA.Models
         private void DoRollCustomDice(object param)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
-            HelperMethods.RollDice(CustomRollNumber, CustomRollSides, out int result, out List<string> rolls);
+            HelperMethods.RollDice(CustomRollNumber, CustomRollSides, CustomRollModifier, out int result, out List<string> rolls);
             string message = "Custom roll " + CustomRollNumber + "d" + CustomRollSides + "+" + CustomRollModifier;
-            message += "\nResult: " + (result + CustomRollModifier);
+            message += "\nResult: " + result;
             message += "\nRoll: [" + HelperMethods.GetStringFromList(rolls, " + ") + "] + " + CustomRollModifier;
             HelperMethods.AddToCampaignMessages(message, "DM Roll");
         }

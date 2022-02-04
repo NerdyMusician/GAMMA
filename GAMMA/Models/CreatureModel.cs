@@ -1,5 +1,4 @@
-﻿using ExtensionMethods;
-using GAMMA.Models.GameplayComponents;
+﻿using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
@@ -115,6 +114,14 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _Name, value);
         }
         #endregion
+        #region QuickInfo
+        private string _QuickInfo;
+        public string QuickInfo
+        {
+            get => _QuickInfo;
+            set => SetAndNotify(ref _QuickInfo, value);
+        }
+        #endregion
         #region PortraitImagePath
         private string _PortraitImagePath;
         public string PortraitImagePath
@@ -184,6 +191,32 @@ namespace GAMMA.Models
         {
             get => _IsOoc;
             set => SetAndNotify(ref _IsOoc, value);
+        }
+        #endregion
+        #region IsHorde
+        private bool _IsHorde;
+        [XmlSaveMode(XSME.Single)]
+        public bool IsHorde
+        {
+            get => _IsHorde;
+            set => SetAndNotify(ref _IsHorde, value);
+        }
+        #endregion
+        #region MaxHordeSize
+        private int _MaxHordeSize;
+        [XmlSaveMode(XSME.Single)]
+        public int MaxHordeSize
+        {
+            get => _MaxHordeSize;
+            set => SetAndNotify(ref _MaxHordeSize, value);
+        }
+        #endregion
+        #region CurrentHordeSize
+        private int _CurrentHordeSize;
+        public int CurrentHordeSize
+        {
+            get => _CurrentHordeSize;
+            set => SetAndNotify(ref _CurrentHordeSize, value);
         }
         #endregion
         #region HasMiniature
@@ -2703,6 +2736,7 @@ namespace GAMMA.Models
             if (newHealth < 0) { newHealth = 0; }
             if (newHealth > MaxHitPoints) { newHealth = MaxHitPoints; }
             CurrentHitPoints = newHealth;
+            SetCurrentHordeSize();
         }
         #endregion
         #region MakeSkillCheck
@@ -3129,17 +3163,53 @@ namespace GAMMA.Models
             }
             else
             {
-                for (int i = 0; i < HitDiceQuantity; i++)
-                {
-                    totalHealth += Configuration.RNG.Next(1, HitDiceQuality);
-                }
-                totalHealth += HitDiceModifier;
+                HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out totalHealth, out _);
             }
 
             if (totalHealth == 0) { totalHealth = 1; }
             MaxHitPoints = totalHealth;
             CurrentHitPoints = totalHealth;
 
+        }
+        public void SetHordeStats()
+        {
+            int totalHealth = 0;
+
+            if (IsHorde)
+            {
+                for (int i = 0; i < MaxHordeSize; i++)
+                {
+                    HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out int hp, out _);
+                    totalHealth += hp;
+                }
+            }
+            else
+            {
+                HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out totalHealth, out _);
+            }
+
+            if (totalHealth == 0) { totalHealth = 1; }
+            MaxHitPoints = totalHealth;
+            CurrentHitPoints = totalHealth;
+            CurrentHordeSize = MaxHordeSize;
+
+        }
+        public void SetCurrentHordeSize()
+        {
+            if (IsHorde)
+            {
+                CurrentHordeSize = (int)(((float)CurrentHitPoints / (float)MaxHitPoints) * (float)MaxHordeSize) + 1;
+                if (CurrentHordeSize > MaxHordeSize) { CurrentHordeSize = MaxHordeSize; }
+                if (CurrentHitPoints > 0 && CurrentHordeSize == 0) { CurrentHordeSize = 1; }
+                if (CurrentHitPoints == 0) { CurrentHordeSize = 0; }
+                SetQuickInfo();
+            }
+        }
+        public void SetQuickInfo()
+        {
+            QuickInfo = IsHorde ? 
+                QuickInfo = string.Format("{0} Horde [{1}/{2}]", CreatureCategory, CurrentHordeSize, MaxHordeSize)
+                : QuickInfo = string.Format("{0} {1} - {2}", Size, CreatureCategory, IsAlly ? "Ally" : "Enemy");
         }
         public void SetPassivePerception()
         {
@@ -3185,6 +3255,7 @@ namespace GAMMA.Models
             GenerateTraitAndAbilityLists();
             UpdateDamageProclivityTexts();
             UpdateImmuneConditionText();
+            SetQuickInfo();
 
         }
         public void ConnectSpellLinks()

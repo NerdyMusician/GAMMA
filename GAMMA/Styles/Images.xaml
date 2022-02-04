@@ -365,6 +365,9 @@
     
     
     <!-- Unsorted -->
+    <Style TargetType="Image" x:Key="Icon_Horde" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/horde.png" />
+    </Style>
     <Style TargetType="Image" x:Key="Icon_AddCreature" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/creature_add.png" />
     </Style>

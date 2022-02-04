@@ -46,6 +46,7 @@
   <ItemGroup>
     <None Remove="Images\Icons\export.png" />
     <None Remove="Images\Icons\githubFaviconDark.png" />
+    <None Remove="Images\Icons\horde.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.Linq" />
@@ -85,6 +86,7 @@
     <Resource Include="Images\Icons\filter.png" />
     <Resource Include="Images\Icons\githubFaviconDark.png" />
     <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\horde.png" />
     <Resource Include="Images\Icons\pass.png" />
     <Resource Include="Images\Icons\pause.png" />
     <Resource Include="Images\Icons\play.png" />

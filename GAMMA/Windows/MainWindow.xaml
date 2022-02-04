@@ -673,7 +673,7 @@
                                                             </cc:GammaTextBox.ToolTip>
                                                         </cc:GammaTextBox>
                                                         <StackPanel Margin="2 0">
-                                                            <TextBlock FontStyle="Italic" Width="164" HorizontalAlignment="Left" Foreground="{StaticResource PrimaryFontColor}"><Run Text="{Binding Size, Mode=OneWay}" /><Run Text=" "/><Run Text="{Binding CreatureCategory, Mode=OneWay}" /><Run Text=" "/><Run Text="-" /><Run Text=" "/><Run Text="{Binding IsAlly, Converter={tool:EnemyAlly}}" /></TextBlock>
+                                                            <TextBlock Text="{Binding QuickInfo}" FontStyle="Italic" Width="164" HorizontalAlignment="Left" Foreground="{StaticResource PrimaryFontColor}" />
                                                             <StackPanel Orientation="Horizontal" Height="18">
                                                                 <Image Style="{StaticResource Icon_Tag_DV}" Visibility="{Binding Vulnerabilities, Converter={tool:CollapsedIfNullOrEmpty}}" ToolTip="Creature has damage vulnerabilities." Margin="0 0 2 0" />
                                                                 <Image Style="{StaticResource Icon_Tag_DR}" Visibility="{Binding Resistances, Converter={tool:CollapsedIfNullOrEmpty}}" ToolTip="Creature has damage resistances." Margin="0 0 2 0" />
@@ -1357,7 +1357,7 @@
                                                             </cc:GammaTextBox.ToolTip>
                                                         </cc:GammaTextBox>
                                                         <StackPanel Margin="2 0">
-                                                            <TextBlock FontStyle="Italic" Width="164" Foreground="{StaticResource PrimaryFontColor}"><Run Text="{Binding Size, Mode=OneWay}" /><Run Text=" "/><Run Text="{Binding CreatureCategory, Mode=OneWay}" /><Run Text=" "/><Run Text="-" /><Run Text=" "/><Run Text="{Binding IsAlly, Converter={tool:EnemyAlly}}" /></TextBlock>
+                                                            <TextBlock Text="{Binding QuickInfo}" FontStyle="Italic" Width="164" HorizontalAlignment="Left" Foreground="{StaticResource PrimaryFontColor}" />
                                                             <StackPanel Orientation="Horizontal" Height="18">
                                                                 <Image Style="{StaticResource Icon_Tag_DV}" Visibility="{Binding Vulnerabilities, Converter={tool:CollapsedIfNullOrEmpty}}" ToolTip="Creature has damage vulnerabilities." Margin="0 0 2 0" />
                                                                 <Image Style="{StaticResource Icon_Tag_DR}" Visibility="{Binding Resistances, Converter={tool:CollapsedIfNullOrEmpty}}" ToolTip="Creature has damage resistances." Margin="0 0 2 0" />
@@ -2545,14 +2545,18 @@
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
                                                             </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
-                                                                <ScrollViewer Height="360" Width="240">
+                                                                <ScrollViewer Height="360" Width="340">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.CreatureList}">
                                                                         <ItemsControl.ItemTemplate>
                                                                             <DataTemplate>
                                                                                 <StackPanel Orientation="Horizontal" Margin="2">
                                                                                     <cc:GammaTextBox Text="{Binding Quantity}" Width="36" />
                                                                                     <TextBlock Text="x" Margin="4" />
-                                                                                    <TextBlock Text="{Binding CreatureName, FallbackValue=Goblin}" Margin="4" Width="128" />
+                                                                                    <TextBlock Text="{Binding CreatureName, FallbackValue=Goblin}" Margin="4" Width="172" />
+                                                                                    <Separator />
+                                                                                    <CheckBox IsChecked="{Binding IsHorde}" />
+                                                                                    <Image Style="{StaticResource Icon_Horde}" />
+                                                                                    <cc:GammaTextBox Text="{Binding MaxHordeSize}" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" />
                                                                                     <Separator />
                                                                                     <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveCreature}" />
                                                                                 </StackPanel>
