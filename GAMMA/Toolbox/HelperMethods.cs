@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.WebAutomation;
 using GAMMA.Windows;
 using OpenQA.Selenium;
 using System;
@@ -18,66 +19,110 @@ namespace GAMMA.Toolbox
     public static class HelperMethods
     {
         // Public Methods
-        public static void AddToPlayerLog(string message, string type = "", bool copyToWeb = false)
+        //public static void AddToPlayerLog(string message, string type = "", bool copyToWeb = false)
+        //{
+        //    CharacterModel activeChar = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+        //    activeChar.Messages.Insert(0, new() { MessageType = type, MessageContent = message.Insert(0, activeChar.Name) });
+        //    if (activeChar.OutputLinkedToRoll20 && copyToWeb)
+        //    {
+        //        OutputToWebChat(message);
+        //    }
+        //}
+        //public static void AddToCampaignMessages(string message, string type, bool copyToWeb = false)
+        //{
+        //    if (Configuration.MainModelRef.CampaignView == null) { return; }
+        //    GameCampaign activeCampaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
+        //    if (activeCampaign == null) { WriteToLogFile("Unable to write to campaign messages, no active campaign selected."); return; }
+        //    activeCampaign.Messages.Insert(0, new(type, message));
+        //    if (activeCampaign.LinkOutputToWeb && copyToWeb)
+        //    {
+        //        OutputToWebChat(message);
+        //    }
+        //}
+        public static void AddToGameplayLog(string message, string type = "", bool copyToWeb = false)
         {
-            CharacterModel activeChar = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
-            activeChar.Messages.Insert(0, new() { MessageType = type, MessageContent = message.Replace("\n..........", "") });
-            if (activeChar.OutputLinkedToRoll20 && copyToWeb)
+            if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
-                if (message.Contains(activeChar.Name))
+                if (Configuration.MainModelRef.CampaignView == null) { return; }
+                GameCampaign campaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
+                if (campaign == null) { WriteToLogFile("Error with writing to campaign gameplay log.", true); return; }
+                campaign.Messages.Insert(0, new(type, message));
+                if (campaign.LinkOutputToWeb && copyToWeb)
                 {
-                    AddToRoll20Chat(message.Replace(activeChar.Name, "/me ").Replace("...........", "/me -"));
+                    OutputToWebChat(message);
                 }
-                else
+            }
+            if (Configuration.MainModelRef.TabSelected_Players)
+            {
+                if (Configuration.MainModelRef.CharacterBuilderView == null) { return; }
+                CharacterModel character = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+                if (character == null) { WriteToLogFile("Error with writing to character gameplay log.", true); return; }
+                if (message.Contains(character.Name) == false)
                 {
-                    AddToRoll20Chat(message.Insert(0, "/me | "));
+                    // assume output is for a creature / minion
+                    message = message.Insert(0, character.Name + " | ");
+                }
+                character.Messages.Insert(0, new(type, message));
+                if (character.OutputLinkedToRoll20 && copyToWeb)
+                {
+                    if (!string.IsNullOrEmpty(Configuration.MainModelRef.SettingsView.OutputNameSwap))
+                    {
+                        message = message.Replace(character.Name, Configuration.MainModelRef.SettingsView.OutputNameSwap);
+                    }
+                    OutputToWebChat(message);
                 }
             }
         }
-        public static void AddToCampaignMessages(string message, string type, bool copyToWeb = false)
-        {
-            if (Configuration.MainModelRef.CampaignView == null) { return; }
-            GameCampaign activeCampaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
-            if (activeCampaign == null) { WriteToLogFile("Unable to write to campaign messages, no active campaign selected."); return; }
-            activeCampaign.Messages.Insert(0, new(type, message));
-            if (activeCampaign.LinkOutputToWeb && copyToWeb)
-            {
-                AddToRoll20Chat(message);
-            }
-        }
-        public static void AddToRoll20Chat(string message)
+        public static void OutputToWebChat(string message)
         {
             IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
-            CharacterModel characterRef = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
-
-            try
+            foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.OutputWebActions)
             {
+                if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                {
+                    NotifyUser("No elements provided for web action.");
+                    break;
+                }
+                if (!webAction.PerformWebAction(ref driverRef, message))
+                {
+                    NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                    break;
+                }
+            }
+        }
+        //public static void AddToRoll20Chat(string message)
+        //{
+        //    IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
+        //    CharacterModel characterRef = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+
+        //    try
+        //    {
                 
-                string errMessage = "";
+        //        string errMessage = "";
 
-                if (driverRef == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo Web Driver detected."; }
-                if (driverRef.CurrentWindowHandle == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo window handle available."; }
-                else if (driverRef.FindElement(By.Id("textchat-input")) == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nCannot find text chat element."; }
+        //        if (driverRef == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo Web Driver detected."; }
+        //        if (driverRef.CurrentWindowHandle == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo window handle available."; }
+        //        else if (driverRef.FindElement(By.Id("textchat-input")) == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nCannot find text chat element."; }
 
-                if (errMessage != "")
-                {
-                    NotifyUser(errMessage);
-                    return;
-                }
+        //        if (errMessage != "")
+        //        {
+        //            NotifyUser(errMessage);
+        //            return;
+        //        }
 
-                Configuration.MainModelRef.WebDriver.FindElement(By.Id("ui-id-1")).Click();
-                IWebElement chatField = Configuration.MainModelRef.WebDriver.FindElement(By.Id("textchat-input")).FindElement(By.CssSelector("textarea"));
-                chatField.SendKeys(message);
-                chatField.SendKeys("\n");
-            }
-            catch (Exception e)
-            {
-                characterRef.OutputLinkedToRoll20 = false;
-                AddToPlayerLog(characterRef.Name + " has disconnected from Roll20.");
-                NotifyUser(e.Message);
-            }
-        }
-        public static bool SwitchRoll20ChatAsCurrent()
+        //        Configuration.MainModelRef.WebDriver.FindElement(By.Id("ui-id-1")).Click();
+        //        IWebElement chatField = Configuration.MainModelRef.WebDriver.FindElement(By.Id("textchat-input")).FindElement(By.CssSelector("textarea"));
+        //        chatField.SendKeys(message);
+        //        chatField.SendKeys("\n");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        characterRef.OutputLinkedToRoll20 = false;
+        //        AddToPlayerLog(characterRef.Name + " has disconnected from Roll20.");
+        //        NotifyUser(e.Message);
+        //    }
+        //}
+        public static bool SwitchbackActiveCharacter()
         {
             IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
             CharacterModel characterRef = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
@@ -89,7 +134,6 @@ namespace GAMMA.Toolbox
 
                 if (driverRef == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo Web Driver detected."; }
                 if (driverRef.CurrentWindowHandle == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo window handle available."; }
-                if (driverRef.FindElement(By.Id("speakingas")) == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nCannot find Speaking As dropdown."; }
 
                 if (errMessage != "")
                 {
@@ -97,60 +141,73 @@ namespace GAMMA.Toolbox
                     return false;
                 }
 
-                IWebElement spkAs = driverRef.FindElement(By.Id("speakingas"));
-                spkAs.Click();
-                spkAs.SendKeys(characterRef.Name.Split()[0]);
-                spkAs.SendKeys("\n");
+                //IWebElement spkAs = driverRef.FindElement(By.Id("speakingas"));
+                //spkAs.Click();
+                //spkAs.SendKeys(characterRef.Name.Split()[0]);
+                //spkAs.SendKeys("\n");
+
+                foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.SwitchbackWebActions)
+                {
+                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    {
+                        NotifyUser("No elements provided for web action.");
+                        break;
+                    }
+                    if (!webAction.PerformWebAction(ref driverRef))
+                    {
+                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        break;
+                    }
+                }
+
                 return true;
 
             }
             catch (Exception e)
             {
-                string message = e.Message;
-                if (message.Contains("Unable to locate element") && message.Contains("#speakingas")) { message = "Unable to interact with Roll20 chat, please ensure that you are fully logged into the Roll20 tabletop game you wish to join."; }
-                NotifyUser(message);
+                NotifyUser(e.Message);
                 return false;
             }
 
         }
-        public static void InteractWithWebElement(List<WebActionModel> webActions)
-        {
-            IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
-            try
-            {
-                if (driverRef == null) { NotifyUser("No Web Driver detected."); return; }
-                if (driverRef.CurrentWindowHandle == null) { NotifyUser("No window handle available."); return; }
+        //public static void InteractWithWebElement(List<WebActionModel> webActions)
+        //{
+        //    IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
+        //    try
+        //    {
+        //        if (driverRef == null) { NotifyUser("No Web Driver detected."); return; }
+        //        if (driverRef.CurrentWindowHandle == null) { NotifyUser("No window handle available."); return; }
 
-                foreach (WebActionModel webAction in webActions)
-                {
-                    ReadOnlyCollection<IWebElement> webElements = webAction.TargetElementHandle switch
-                    {
-                        "ID" => driverRef.FindElements(By.Id(webAction.TargetElementMatchText)),
-                        "Class" => driverRef.FindElements(By.ClassName(webAction.TargetElementMatchText)),
-                        "Link Text" => driverRef.FindElements(By.PartialLinkText(webAction.TargetElementMatchText)),
-                        _ => null
-                    };
-                    if (webElements == null) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
-                    if (webElements.Count == 0) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
-                    IWebElement webElement = webElements[webAction.ElementMatchIteration];
-                    switch (webAction.InteractionType)
-                    {
-                        case "Click":
-                            webElement.Click();
-                            break;
-                        case "Text Input":
-                            webElement.SendKeys(webAction.TextInputValue);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                NotifyUser(e.Message);
-            }
-        }
+        //        foreach (WebActionModel webAction in webActions)
+        //        {
+        //            ReadOnlyCollection<IWebElement> webElements = webAction.TargetElementHandle switch
+        //            {
+        //                "ID" => driverRef.FindElements(By.Id(webAction.TargetElementMatchText)),
+        //                "Class" => driverRef.FindElements(By.ClassName(webAction.TargetElementMatchText)),
+        //                "Link Text" => driverRef.FindElements(By.PartialLinkText(webAction.TargetElementMatchText)),
+        //                _ => null
+        //            };
+        //            if (webElements == null) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
+        //            if (webElements.Count == 0) { NotifyUser("Invalid or missing Target Element Handle for Web Action."); return; }
+        //            IWebElement webElement = webElements[webAction.ElementMatchIteration];
+        //            switch (webAction.InteractionType)
+        //            {
+        //                case "Click":
+        //                    webElement.Click();
+        //                    break;
+        //                case "Text Input":
+        //                    webElement.SendKeys(webAction.TextInputValue);
+        //                    break;
+        //                default:
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        NotifyUser(e.Message);
+        //    }
+        //}
         public static void NotifyUser(string message, UserNotificationType type = UserNotificationType.Simple)
         {
             if (type == UserNotificationType.Simple)

@@ -1002,7 +1002,7 @@ namespace GAMMA.Models
                 HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
             IsCraftingMenuOpen = false;
 
@@ -1051,7 +1051,7 @@ namespace GAMMA.Models
                 return;
             }
 
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
         }
         #endregion
@@ -1244,7 +1244,7 @@ namespace GAMMA.Models
             message += refChar.Name + " used " + Name + ((param.ToString() == "Advantage") ? " with advantage." : ((param.ToString() == "Disadvantage") ? " with disadvantage." : "."));
             message += "\nResult: " + toolTotal;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + toolRoll + "] + " + toolMod; }
-            HelperMethods.AddToPlayerLog(message, "Default", true);
+            HelperMethods.AddToGameplayLog(message, "Default", true);
             
         }
         #endregion
@@ -1283,11 +1283,11 @@ namespace GAMMA.Models
                     string intoxicationStatus = GetIntoxicationStatusFromLevel(player.IntoxicationLevel);
                     message += "\n" + player.Name + " is now " + intoxicationStatus + ".";
                 }
-                HelperMethods.AddToPlayerLog(message, "Default", true);
+                HelperMethods.AddToGameplayLog(message, "Default", true);
             }
             else
             {
-                HelperMethods.AddToPlayerLog(player.Name + " poured a drink of " + Name + ".", "Default", true);
+                HelperMethods.AddToGameplayLog(player.Name + " poured a drink of " + Name + ".", "Default", true);
             }
 
             if (param.ToString() == "ShopBypass") { return; }

@@ -2778,14 +2778,7 @@ namespace GAMMA.Models
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + skillModifier; }
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Skill Check");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            HelperMethods.AddToGameplayLog(message, "Skill Check", true);
 
         }
         #endregion
@@ -2819,15 +2812,15 @@ namespace GAMMA.Models
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + saveModifier; }
-
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Saving Throw");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            HelperMethods.AddToGameplayLog(message, "Saving Throw", true);
+            //if (Configuration.MainModelRef.TabSelected_Campaigns)
+            //{
+            //    HelperMethods.AddToCampaignMessages(message, "Saving Throw");
+            //}
+            //else
+            //{
+            //    HelperMethods.AddToGameplayLog(message, "Default", true);
+            //}
 
         }
         #endregion
@@ -2876,15 +2869,7 @@ namespace GAMMA.Models
             message += "\nResult: " + total;
 
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + attrMod; }
-
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Ability Check");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            HelperMethods.AddToGameplayLog(message, "Ability Check", true);
             DisplayPopup_Checks = false;
             DisplayPopupAlt_Checks = false;
 
@@ -2898,7 +2883,7 @@ namespace GAMMA.Models
             {
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
                 {
-                    HelperMethods.AddToCampaignMessages(DisplayName + " has already been looted.", "Loot");
+                    HelperMethods.AddToGameplayLog(DisplayName + " has already been looted.", "Loot");
                 }
                 return;
             }
@@ -2922,10 +2907,11 @@ namespace GAMMA.Models
             //{
             //    HelperMethods.AddToEncounterLog(message);
             //}
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Loot");
-            }
+            //if (Configuration.MainModelRef.TabSelected_Campaigns)
+            //{
+            //    HelperMethods.AddToCampaignMessages(message, "Loot");
+            //}
+            HelperMethods.AddToGameplayLog(message, "Loot");
             HasBeenLooted = true;
 
         }
@@ -3036,7 +3022,7 @@ namespace GAMMA.Models
                 _ => "\nRelation with " + Name + " is unchanged."
             };
 
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
             if (TamingProgress <= 0)
             {
@@ -3081,14 +3067,10 @@ namespace GAMMA.Models
         {
             Initiative = Configuration.RNG.Next(1, 21) + HelperMethods.GetAttributeModifier(Attr_Dexterity);
             string message = Name + " rolled for initiative and got " + Initiative + ".";
+            HelperMethods.AddToGameplayLog(message, "Initiative");
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
-                HelperMethods.AddToCampaignMessages(message, "Initiative");
                 Configuration.MainModelRef.CampaignView.ActiveCampaign.SortByInitiative.Execute(null);
-            }
-            if (Configuration.MainModelRef.TabSelected_Players)
-            {
-                HelperMethods.AddToPlayerLog(message, "Initiative", true);
             }
         }
         #endregion

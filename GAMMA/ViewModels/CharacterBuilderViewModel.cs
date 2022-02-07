@@ -75,7 +75,7 @@ namespace GAMMA.ViewModels
                 Configuration.HasUsedCharacterBuilder = true;
                 if (value.OutputLinkedToRoll20 == true)
                 {
-                    HelperMethods.SwitchRoll20ChatAsCurrent();
+                    HelperMethods.SwitchbackActiveCharacter();
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace GAMMA.ViewModels
             ActiveCharacter = LastActiveCharacter;
             if (ActiveCharacter.OutputLinkedToRoll20)
             {
-                HelperMethods.SwitchRoll20ChatAsCurrent();
+                HelperMethods.SwitchbackActiveCharacter();
             }
         }
         #endregion

@@ -426,7 +426,7 @@ namespace GAMMA.Models
                 {
                     if (HelperMethods.CheckForSpellSlots(ref character, castingLevel) == false)
                     {
-                        HelperMethods.AddToPlayerLog("Insufficient spell slots to cast " + Name + ".");
+                        HelperMethods.AddToGameplayLog("Insufficient spell slots to cast " + Name + ".");
                         return;
                     }
                 }
@@ -438,7 +438,7 @@ namespace GAMMA.Models
                         {
                             if (Configuration.MainModelRef.TabSelected_Campaigns)
                             {
-                                HelperMethods.AddToCampaignMessages(creature.DisplayName + " has insufficient spell slots to cast " + Name + ".", "Spell");
+                                HelperMethods.AddToGameplayLog(creature.DisplayName + " has insufficient spell slots to cast " + Name + ".", "Spell");
                                 return;
                             }
                         }
@@ -452,7 +452,7 @@ namespace GAMMA.Models
                 {
                     if (CheckForSpellMaterials(ref character) == false)
                     {
-                        HelperMethods.AddToPlayerLog("Insufficient casting materials.");
+                        HelperMethods.AddToGameplayLog("Insufficient casting materials.");
                         return;
                     }
                 }
@@ -544,34 +544,36 @@ namespace GAMMA.Models
                 }
 
                 // Output Message
-                if (character != null)
-                {
-                    HelperMethods.AddToPlayerLog(message, "Default", true);
-                }
-                if (creature != null)
-                {
-                    if (Configuration.MainModelRef.TabSelected_Campaigns)
-                    {
-                        HelperMethods.AddToCampaignMessages(message, "Spell");
-                    }
-                    else
-                    {
-                        HelperMethods.AddToPlayerLog(message, "Default", true);
-                    }
-                }
+                HelperMethods.AddToGameplayLog(message, "Spell", true);
+                //if (character != null)
+                //{
+                //    HelperMethods.AddToPlayerLog(message, "Default", true);
+                //}
+                //if (creature != null)
+                //{
+                //    if (Configuration.MainModelRef.TabSelected_Campaigns)
+                //    {
+                //        HelperMethods.AddToCampaignMessages(message, "Spell");
+                //    }
+                //    else
+                //    {
+                //        HelperMethods.AddToPlayerLog(message, "Default", true);
+                //    }
+                //}
                 
             }
             else
             {
                 message += "\nAn error has occurred while processing the ability.";
-                if (Configuration.MainModelRef.TabSelected_Campaigns)
-                {
-                    HelperMethods.AddToCampaignMessages(message, "Spell");
-                }
-                else
-                {
-                    HelperMethods.AddToPlayerLog(message, "Default", true);
-                }
+                HelperMethods.AddToGameplayLog(message, "Spell", true);
+                //if (Configuration.MainModelRef.TabSelected_Campaigns)
+                //{
+                //    HelperMethods.AddToCampaignMessages(message, "Spell");
+                //}
+                //else
+                //{
+                //    HelperMethods.AddToGameplayLog(message, "Default", true);
+                //}
             }
 
         }

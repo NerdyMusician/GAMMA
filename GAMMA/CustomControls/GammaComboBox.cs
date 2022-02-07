@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GAMMA.CustomControls
 {
@@ -7,6 +8,12 @@ namespace GAMMA.CustomControls
         public GammaComboBox() : base()
         {
 
+        }
+
+        protected override void OnPreviewMouseWheel(MouseWheelEventArgs e)
+        {
+            e.Handled = !IsDropDownOpen;
+            base.OnPreviewMouseWheel(e);
         }
 
     }

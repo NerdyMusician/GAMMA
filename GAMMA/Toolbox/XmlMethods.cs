@@ -1,5 +1,6 @@
 ﻿using GAMMA.Models;
 using GAMMA.Models.GameplayComponents;
+using GAMMA.Models.WebAutomation;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
 using System;
@@ -543,6 +544,14 @@ namespace GAMMA.Toolbox
                         newSettingsSet.OutputWebActions.Add(action);
                     }
                 }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "SwitchbackWebActions")
+                {
+                    foreach (XmlNode pairNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(pairNode, out WebActionModel action);
+                        newSettingsSet.SwitchbackWebActions.Add(action);
+                    }
+                }
             }
 
             settingsSet = newSettingsSet;
@@ -550,7 +559,26 @@ namespace GAMMA.Toolbox
         }
         public static void NodeToObject(XmlNode webActionNode, out WebActionModel webAction)
         {
-            webAction = SetObjectPropertiesFromNode(webActionNode, new WebActionModel()) as WebActionModel;
+            WebActionModel newWebAction = SetObjectPropertiesFromNode(webActionNode, new WebActionModel()) as WebActionModel;
+
+            foreach (XmlNode childNode in webActionNode.ChildNodes)
+            {
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "TargetElementStack")
+                {
+                    foreach (XmlNode pairNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(pairNode, out WebElementModel elm);
+                        newWebAction.TargetElementStack.Add(elm);
+                    }
+                }
+            }
+
+            webAction = newWebAction;
+
+        }
+        public static void NodeToObject(XmlNode webElementNode, out WebElementModel webElement)
+        {
+            webElement = SetObjectPropertiesFromNode(webElementNode, new WebElementModel()) as WebElementModel;
         }
         public static void NodeToObject(XmlNode gamePairNode, out GameCharacterSelection gamePair)
         {

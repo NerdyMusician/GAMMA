@@ -59,8 +59,8 @@ namespace GAMMA.Models
             if (param == null) { HelperMethods.WriteToLogFile("No parameter passed to HitDiceSet.RollHitDice", true); return; }
 
             CharacterModel RefChar = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
-            if (CurrentHitDice <= 0) { HelperMethods.AddToPlayerLog(RefChar.Name + " has no more hit dice."); return; }
-            if (RefChar.CurrentHealth == RefChar.MaxHealth) { HelperMethods.AddToPlayerLog(RefChar.Name + " is at max health already."); return; }
+            if (CurrentHitDice <= 0) { HelperMethods.AddToGameplayLog(RefChar.Name + " has no more hit dice."); return; }
+            if (RefChar.CurrentHealth == RefChar.MaxHealth) { HelperMethods.AddToGameplayLog(RefChar.Name + " is at max health already."); return; }
 
             string diceLimit = param.ToString();
             string message = "";
@@ -85,7 +85,7 @@ namespace GAMMA.Models
                 case "ToBloodied":
                     if (RefChar.Status == "Bloodied" || RefChar.Status == "Bruised" || RefChar.Status == "Fine")
                     {
-                        HelperMethods.AddToPlayerLog("Character is already at Bloodied or better.");
+                        HelperMethods.AddToGameplayLog("Character is already at Bloodied or better.");
                         return;
                     }
                     do
@@ -106,7 +106,7 @@ namespace GAMMA.Models
                 case "ToBruised":
                     if (RefChar.Status == "Bruised" || RefChar.Status == "Fine")
                     {
-                        HelperMethods.AddToPlayerLog("Character is already at Bruised or better.");
+                        HelperMethods.AddToGameplayLog("Character is already at Bruised or better.");
                         return;
                     }
                     do
@@ -127,7 +127,7 @@ namespace GAMMA.Models
                 case "ToFine":
                     if (RefChar.Status == "Fine")
                     {
-                        HelperMethods.AddToPlayerLog("Character is already at Fine or better.");
+                        HelperMethods.AddToGameplayLog("Character is already at Fine or better.");
                         return;
                     }
                     do
@@ -149,7 +149,7 @@ namespace GAMMA.Models
                     int maxRoll = HitDiceQuality + RefChar.ConstitutionModifier;
                     if (RefChar.MaxHealth - RefChar.CurrentHealth < maxRoll)
                     {
-                        HelperMethods.AddToPlayerLog("Character is already within one hit dice of maximum health.");
+                        HelperMethods.AddToGameplayLog("Character is already within one hit dice of maximum health.");
                         return;
                     }
                     do
@@ -171,7 +171,7 @@ namespace GAMMA.Models
                     HelperMethods.WriteToLogFile("Invalid parameter " + diceLimit + " passed to HitDiceSet.RollHitDice", true);
                     return;
             }
-            HelperMethods.AddToPlayerLog(message, "Default", true);
+            HelperMethods.AddToGameplayLog(message, "Default", true);
         }
         #endregion
         #region RemoveHitDice

@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.WebAutomation;
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using System;
@@ -20,6 +21,7 @@ namespace GAMMA.ViewModels
             Roll20GameCharacterList = new();
             StartupWebActions = new();
             OutputWebActions = new();
+            SwitchbackWebActions = new();
         }
 
         // Databound Properties
@@ -276,6 +278,24 @@ namespace GAMMA.ViewModels
         {
             get => _OutputWebActions;
             set => SetAndNotify(ref _OutputWebActions, value);
+        }
+        #endregion
+        #region OutputNameSwap
+        private string _OutputNameSwap;
+        [XmlSaveMode(XSME.Single)]
+        public string OutputNameSwap
+        {
+            get => _OutputNameSwap;
+            set => SetAndNotify(ref _OutputNameSwap, value);
+        }
+        #endregion
+        #region SwitchbackWebActions
+        private ObservableCollection<WebActionModel> _SwitchbackWebActions;
+        [XmlSaveMode(XSME.Enumerable)]
+        public ObservableCollection<WebActionModel> SwitchbackWebActions
+        {
+            get => _SwitchbackWebActions;
+            set => SetAndNotify(ref _SwitchbackWebActions, value);
         }
         #endregion
 
@@ -832,6 +852,10 @@ namespace GAMMA.ViewModels
             if (param.ToString() == "Output")
             {
                 OutputWebActions.Add(new());
+            }
+            if (param.ToString() == "Switchback")
+            {
+                SwitchbackWebActions.Add(new());
             }
         }
         #endregion

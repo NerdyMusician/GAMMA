@@ -1,5 +1,6 @@
 ﻿using GAMMA.Models;
 using GAMMA.Models.GameplayComponents;
+using GAMMA.Models.WebAutomation;
 using GAMMA.Toolbox;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -477,13 +478,33 @@ namespace GAMMA.ViewModels
             try
             {
                 WebDriver = CreateWebDriver();
+                bool connectionSuccessful = true;
                 foreach (WebActionModel webAction in SettingsView.StartupWebActions)
                 {
-                    if (!webAction.PerformWebAction(ref WebDriver))
+                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
                     {
-                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementMatchText);
+                        HelperMethods.NotifyUser("No elements provided for web action.");
+                        connectionSuccessful = false;
                         break;
                     }
+                    if (!webAction.PerformWebAction(ref WebDriver))
+                    {
+                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        connectionSuccessful = false;
+                        break;
+                    }
+                }
+                if (connectionSuccessful == false) { return; }
+                GameCharacterSelection game = Configuration.MainModelRef.SettingsView.Roll20GameCharacterList.FirstOrDefault(g => g.IsSelected);
+                if (game == null) { return; }
+                CharacterModel defChar = Configuration.MainModelRef.CharacterBuilderView.Characters.FirstOrDefault(chr => chr.Name.Contains(game.Character));
+                if (defChar != null)
+                {
+                    Configuration.MainModelRef.TabSelected_Players = true;
+                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter = defChar;
+                    Configuration.MainModelRef.CharacterBuilderView.ShowCharacterList = false;
+                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ShowActionHistory = false;
+                    defChar.OutputLinkedToRoll20 = true;
                 }
             }
             catch (Exception e)
@@ -491,67 +512,67 @@ namespace GAMMA.ViewModels
                 HelperMethods.NotifyUser(e.Message);
             }
             return;
-            try
-            {
-                WebDriver = CreateWebDriver();
-                //WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-                WebDriver.Navigate().GoToUrl("https://roll20.net/welcome");
-                if (SettingsView.Roll20Email != "")
-                {
-                    WebDriver.FindElement(By.Id("email")).SendKeys(SettingsView.Roll20Email);
-                }
-                if (SettingsView.Roll20Password != "")
-                {
-                    WebDriver.FindElement(By.Id("password")).SendKeys(SettingsView.Roll20Password);
-                }
-                if (SettingsView.Roll20Email != "" && SettingsView.Roll20Password != "")
-                {
-                    WebDriver.FindElement(By.Id("login")).Click();
-                    string game = "";
-                    string character = "";
-                    foreach (GameCharacterSelection pair in SettingsView.Roll20GameCharacterList)
-                    {
-                        if (pair.IsSelected == true)
-                        {
-                            game = pair.Game;
-                            character = pair.Character;
-                            break;
-                        }
-                    }
-                    if (game != "")
-                    {
-                        Thread.Sleep(1000);
-                        WebDriver.FindElement(By.LinkText(game)).Click();
-                        WebDriver.FindElement(By.Id("playButton")).Click();
-                        if (character != "")
-                        {
-                            CharacterModel defChar = Configuration.MainModelRef.CharacterBuilderView.Characters.FirstOrDefault(chr => chr.Name.Contains(character));
-                            if (defChar != null)
-                            {
-                                Configuration.MainModelRef.TabSelected_Players = true;
-                                Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter = defChar;
-                                Configuration.MainModelRef.CharacterBuilderView.ShowCharacterList = false;
-                                Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ShowActionHistory = false;
-                                try
-                                {
-                                    Thread.Sleep(3000);
-                                    IWebElement spkAs = WebDriver.FindElement(By.Id("speakingas"));
-                                    spkAs.Click();
-                                    spkAs.SendKeys(defChar.Name.Split()[0]);
-                                    spkAs.SendKeys("\n");
-                                }
-                                catch { }
-                                defChar.OutputLinkedToRoll20 = true;
-                                HelperMethods.AddToRoll20Chat("/me has connected with " + ApplicationVersion + ".");
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                HelperMethods.NotifyUser(e.Message);
-            }
+            //try
+            //{
+            //    WebDriver = CreateWebDriver();
+            //    //WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            //    WebDriver.Navigate().GoToUrl("https://roll20.net/welcome");
+            //    if (SettingsView.Roll20Email != "")
+            //    {
+            //        WebDriver.FindElement(By.Id("email")).SendKeys(SettingsView.Roll20Email);
+            //    }
+            //    if (SettingsView.Roll20Password != "")
+            //    {
+            //        WebDriver.FindElement(By.Id("password")).SendKeys(SettingsView.Roll20Password);
+            //    }
+            //    if (SettingsView.Roll20Email != "" && SettingsView.Roll20Password != "")
+            //    {
+            //        WebDriver.FindElement(By.Id("login")).Click();
+            //        string game = "";
+            //        string character = "";
+            //        foreach (GameCharacterSelection pair in SettingsView.Roll20GameCharacterList)
+            //        {
+            //            if (pair.IsSelected == true)
+            //            {
+            //                game = pair.Game;
+            //                character = pair.Character;
+            //                break;
+            //            }
+            //        }
+            //        if (game != "")
+            //        {
+            //            Thread.Sleep(1000);
+            //            WebDriver.FindElement(By.LinkText(game)).Click();
+            //            WebDriver.FindElement(By.Id("playButton")).Click();
+            //            if (character != "")
+            //            {
+            //                CharacterModel defChar = Configuration.MainModelRef.CharacterBuilderView.Characters.FirstOrDefault(chr => chr.Name.Contains(character));
+            //                if (defChar != null)
+            //                {
+            //                    Configuration.MainModelRef.TabSelected_Players = true;
+            //                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter = defChar;
+            //                    Configuration.MainModelRef.CharacterBuilderView.ShowCharacterList = false;
+            //                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ShowActionHistory = false;
+            //                    try
+            //                    {
+            //                        Thread.Sleep(3000);
+            //                        IWebElement spkAs = WebDriver.FindElement(By.Id("speakingas"));
+            //                        spkAs.Click();
+            //                        spkAs.SendKeys(defChar.Name.Split()[0]);
+            //                        spkAs.SendKeys("\n");
+            //                    }
+            //                    catch { }
+            //                    defChar.OutputLinkedToRoll20 = true;
+            //                    HelperMethods.AddToRoll20Chat("/me has connected with " + ApplicationVersion + ".");
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    HelperMethods.NotifyUser(e.Message);
+            //}
         }
         #endregion
         #region ResetDriver

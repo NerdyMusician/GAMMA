@@ -117,7 +117,7 @@ namespace GAMMA.Models
             if (Configuration.MainModelRef.TabSelected_Players)
             {
                 msg = msg.Insert(0, Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Name + " rolled on the " + Name + " table.\nResult: " + roll + "\n");
-                HelperMethods.AddToPlayerLog(msg, "Default", true);
+                HelperMethods.AddToGameplayLog(msg, "Default", true);
             }
             else
             {
