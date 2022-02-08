@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.WebAutomation;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
 using System;
@@ -200,6 +201,13 @@ namespace GAMMA.Toolbox
         public static void ImportData_Settings(string filepath, out string message)
         {
             XmlMethods.XmlToObject(filepath, out SettingsViewModel sv);
+
+            // Prevents nulling of web sequences importing data from 1.28 to 1.29
+            if (sv.StartupWebActions.Count == 0) { sv.StartupWebActions = Configuration.MainModelRef.SettingsView.StartupWebActions; }
+            if (sv.OutputWebActions.Count == 0) { sv.OutputWebActions = Configuration.MainModelRef.SettingsView.OutputWebActions; }
+            if (sv.SwitchbackWebActions.Count == 0) { sv.SwitchbackWebActions = Configuration.MainModelRef.SettingsView.SwitchbackWebActions; }
+            if (string.IsNullOrEmpty(sv.OutputNameSwap)) { sv.OutputNameSwap = Configuration.MainModelRef.SettingsView.OutputNameSwap; }
+
             Configuration.MainModelRef.SettingsView = sv;
             message = "Settings Imported.";
 
