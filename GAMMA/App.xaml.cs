@@ -10,5 +10,6 @@ namespace GAMMA
 {
     public partial class App : Application
     {
+
     }
 }

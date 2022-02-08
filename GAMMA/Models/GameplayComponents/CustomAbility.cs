@@ -282,7 +282,7 @@ namespace GAMMA.Models.GameplayComponents
                     CharacterModel character = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
                     string message = character.Name + " uses " + Name + ".";
                     ProcessAbility(null, character, "Normal", PresetScale, out string abilityMessage, out _); // Cannot make additional layer of active effects
-                    HelperMethods.AddToPlayerLog(message + "\n" + abilityMessage, "Default", true);
+                    HelperMethods.AddToGameplayLog(message + "\n" + abilityMessage, "Default", true);
                 }
             }
             if (param.GetType() == typeof(CreatureModel))
@@ -292,13 +292,13 @@ namespace GAMMA.Models.GameplayComponents
                 {
                     string message = "- " + creature.DisplayName + " uses " + Name + ".";
                     ProcessAbility(creature, null, "Normal", PresetScale, out string abilityMessage, out _); // Cannot make additional layer of active effects
-                    HelperMethods.AddToPlayerLog(message + "\n" + abilityMessage, "Default", true);
+                    HelperMethods.AddToGameplayLog(message + "\n" + abilityMessage, "Default", true);
                 } // TODO - double check new active effects available for minions
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
                 {
                     string message = creature.DisplayName + " uses " + Name + ".";
                     ProcessAbility(creature, null,  "Normal", PresetScale, out string abilityMessage, out _); // Cannot make additional layer of active effects
-                    HelperMethods.AddToCampaignMessages(message + "\n" + abilityMessage, "Spell");
+                    HelperMethods.AddToGameplayLog(message + "\n" + abilityMessage, "Spell");
                 }
             }
             
@@ -349,14 +349,7 @@ namespace GAMMA.Models.GameplayComponents
             string message = "";
             if (attackingPlayer != null) { message += attackingPlayer.Name + " uses " + Name + "."; }
             else if (attackingCreature != null) { message += attackingCreature.DisplayName + " uses " + Name + "."; }
-            if (Configuration.MainModelRef.TabSelected_Players)
-            {
-                HelperMethods.AddToPlayerLog(message + attackMessage, "Attack", true);
-            }
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message + attackMessage, "Attack");
-            }
+            HelperMethods.AddToGameplayLog(message + attackMessage, "Attack", true);
             if (Configuration.MainModelRef.TabSelected_CreatureBuilder) // Test button on creatures
             {
                 HelperMethods.NotifyUser(message + attackMessage);
@@ -667,7 +660,7 @@ namespace GAMMA.Models.GameplayComponents
                                 diceQty += preAction.DiceQuantity;
                             }
                         }
-                        HelperMethods.RollDice(diceQty, preAction.DiceQuality, out int result, out List<string> rolls);
+                        HelperMethods.RollDice(diceQty, preAction.DiceQuality, 0, out int result, out List<string> rolls);
                         target.Value = (Convert.ToInt32(target.Value) + result).ToString();
                         target.Rolls.AddRange(rolls);
                     }

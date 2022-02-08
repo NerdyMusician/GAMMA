@@ -19,6 +19,8 @@ namespace GAMMA.ViewModels
             ShopOfferedItems = new();
             CharacterCoinage = characterCoinage;
             TransactionValue = 0;
+            BuyRate = 100;
+            SellRate = 60;
         }
 
         // Databound Properties
@@ -105,6 +107,35 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _ToWho, value);
         }
         #endregion
+        #region BuyRate
+        private int _BuyRate;
+        public int BuyRate
+        {
+            get => _BuyRate;
+            set
+            {
+                if (value < 0) { value = 0; }
+                _BuyRate = value;
+                NotifyPropertyChanged();
+                UpdateTransactionValue();
+                UpdateShopPrices();
+            }
+        }
+        #endregion
+        #region SellRate
+        private int _SellRate;
+        public int SellRate
+        {
+            get => _SellRate;
+            set
+            {
+                if (value < 0) { value = 0; }
+                _SellRate = value;
+                NotifyPropertyChanged();
+                UpdateTransactionValue();
+            }
+        }
+        #endregion
 
         // Public Methods
         public void UpdateTransactionValue()
@@ -122,10 +153,18 @@ namespace GAMMA.ViewModels
                 shopValue += item.RawValue * item.Quantity;
             }
 
-            playerValue = Convert.ToInt32((decimal)playerValue * 0.6m);
+            playerValue = Convert.ToInt32((decimal)playerValue * (decimal)(SellRate / 100m));
+            shopValue = Convert.ToInt32((decimal)shopValue * (decimal)(BuyRate / 100m));
 
             TransactionValue = playerValue - shopValue;
 
+        }
+        private void UpdateShopPrices()
+        {
+            foreach (ItemModel item in ShopItems)
+            {
+                item.ShopValue = HelperMethods.GetDerivedCoinage(Convert.ToInt32((decimal)item.RawValue * (decimal)(BuyRate / 100m)));
+            }
         }
         public void UndoCharacterOfferings()
         {

@@ -69,7 +69,7 @@ namespace GAMMA.Models
             rslt += DiceModifier;
             msg += "\nResult: " + rslt;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { msg += "\nRoll: [" + dr + "] + " + DiceModifier; }
-            HelperMethods.AddToPlayerLog(msg, "Default", true);
+            HelperMethods.AddToGameplayLog(msg, "Default", true);
         }
         #endregion
         #region RemoveDiceSet

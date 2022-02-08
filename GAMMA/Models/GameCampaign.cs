@@ -437,7 +437,7 @@ namespace GAMMA.Models
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int result = Configuration.RNG.Next(1, Convert.ToInt32(param) + 1);
             string message = "DM rolls 1d" + param + "\nResult: " + result;
-            HelperMethods.AddToCampaignMessages(message, "DM Roll");
+            HelperMethods.AddToGameplayLog(message, "DM Roll");
         }
         #endregion
         #region FlipCoin
@@ -445,7 +445,7 @@ namespace GAMMA.Models
         private void DoFlipCoin(object param)
         {
             int result = Configuration.RNG.Next(1, 3);
-            HelperMethods.AddToCampaignMessages(string.Format("DM flips a coin.\nResult: {0}.", (result == 1) ? "Heads" : "Tails"), "Coin Flip");
+            HelperMethods.AddToGameplayLog(string.Format("DM flips a coin.\nResult: {0}.", (result == 1) ? "Heads" : "Tails"), "Coin Flip");
         }
         #endregion
         #region AddCreatures
@@ -464,6 +464,7 @@ namespace GAMMA.Models
                         int existingCreatureCount = Combatants.Where(creature => creature.Name == newCreature.Name).Count();
                         if (existingCreatureCount > 25) { break; }
                         newCreature.RollHitPoints(Configuration.MainModelRef.SettingsView.UseAveragedHitPoints);
+                        newCreature.SetHordeStats();
                         newCreature.SetPassivePerception();
                         newCreature.HasBeenLooted = false;
                         if (newCreature.IsPlayer == false) { newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount]; }
@@ -476,6 +477,10 @@ namespace GAMMA.Models
                         if (selectionDialog.CHK_AddAsOoc.IsChecked == true) { newCreature.IsOoc = true; }
                         Combatants.Add(newCreature);
                     }
+
+                    // cleanup
+                    selectedCreature.IsHorde = false;
+                    selectedCreature.MaxHordeSize = 0;
                 }
                 SortCombatants();
             }
@@ -548,7 +553,10 @@ namespace GAMMA.Models
                         CreatureModel newCreature = HelperMethods.DeepClone(matchedCreature);
                         int existingCreatureCount = Combatants.Where(creature => creature.Name == newCreature.Name).Count();
                         if (existingCreatureCount > 25) { break; }
+                        newCreature.IsHorde = creature.IsHorde;
+                        newCreature.MaxHordeSize = creature.MaxHordeSize;
                         newCreature.RollHitPoints(Configuration.MainModelRef.SettingsView.UseAveragedHitPoints);
+                        newCreature.SetHordeStats();
                         newCreature.SetPassivePerception();
                         newCreature.HasBeenLooted = false;
                         if (newCreature.IsPlayer == false) { newCreature.TrackerIndicator = Configuration.AlphaArray[existingCreatureCount]; }
@@ -692,7 +700,7 @@ namespace GAMMA.Models
                 message = "No new initiatives rolled.";
             }
 
-            HelperMethods.AddToCampaignMessages(message, "Initiative");
+            HelperMethods.AddToGameplayLog(message, "Initiative");
             SortCombatants();
 
         }
@@ -719,7 +727,7 @@ namespace GAMMA.Models
                         creature.RefreshSpellSlots();
                     }
                 }
-                HelperMethods.AddToCampaignMessages("Allied NPC hit points and spell slots have been reset.", "Other");
+                HelperMethods.AddToGameplayLog("Allied NPC hit points and spell slots have been reset.", "Other");
             }
         }
         #endregion
@@ -822,7 +830,7 @@ namespace GAMMA.Models
 
             if (Configuration.MainModelRef.SettingsView.UseExperiencePoints) { message += "\n" + totalXp + " experience points gained."; }
 
-            HelperMethods.AddToCampaignMessages(message, "Loot");
+            HelperMethods.AddToGameplayLog(message, "Loot");
 
             if (param == null) { return; }
             bool.TryParse(param.ToString(), out bool remove);
@@ -955,11 +963,18 @@ namespace GAMMA.Models
                             creature.IsUnconscious = (!creature.IsImmune_Unconscious);
                             if (creature.IsUnconscious) { message += "\n" + creature.DisplayName + " has become " + targetDialog.ConditionOnFail + "."; }
                             break;
+                        case "Raise Exhaustion":
+                            if (!creature.IsImmune_Exhaustion)
+                            {
+                                creature.ExhaustionLevel++;
+                                message += "\n" + creature.DisplayName + " has raised to level " + creature.ExhaustionLevel + " exhaustion.";
+                            }
+                            break;
                         default:
                             break;
                     }
                 }
-                HelperMethods.AddToCampaignMessages(message, "Saving Throw");
+                HelperMethods.AddToGameplayLog(message, "Saving Throw");
             }
         }
         #endregion
@@ -1091,7 +1106,7 @@ namespace GAMMA.Models
             {
                 message += diceRolls;
             }
-            HelperMethods.AddToCampaignMessages(message, "Fall Damage");
+            HelperMethods.AddToGameplayLog(message, "Fall Damage");
         }
         #endregion
         #region RollCustomDice
@@ -1099,11 +1114,11 @@ namespace GAMMA.Models
         private void DoRollCustomDice(object param)
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
-            HelperMethods.RollDice(CustomRollNumber, CustomRollSides, out int result, out List<string> rolls);
+            HelperMethods.RollDice(CustomRollNumber, CustomRollSides, CustomRollModifier, out int result, out List<string> rolls);
             string message = "Custom roll " + CustomRollNumber + "d" + CustomRollSides + "+" + CustomRollModifier;
-            message += "\nResult: " + (result + CustomRollModifier);
+            message += "\nResult: " + result;
             message += "\nRoll: [" + HelperMethods.GetStringFromList(rolls, " + ") + "] + " + CustomRollModifier;
-            HelperMethods.AddToCampaignMessages(message, "DM Roll");
+            HelperMethods.AddToGameplayLog(message, "DM Roll");
         }
         #endregion
         #region ClearMessages
@@ -1376,7 +1391,7 @@ namespace GAMMA.Models
                     WeatherIcon = wr.Icon;
                 }
             }
-            if (WeatherName != oldWeather) { HelperMethods.AddToCampaignMessages("Weather has changed to " + WeatherName + ".", "Weather Change"); }
+            if (WeatherName != oldWeather) { HelperMethods.AddToGameplayLog("Weather has changed to " + WeatherName + ".", "Weather Change"); }
         }
         private List<NoteModel> SortNoteList(List<NoteModel> notes)
         {

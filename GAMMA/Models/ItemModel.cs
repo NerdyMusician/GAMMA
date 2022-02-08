@@ -1,4 +1,5 @@
-﻿using GAMMA.Toolbox;
+﻿using GAMMA.Models.GameplayComponents;
+using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
 using System;
@@ -122,6 +123,14 @@ namespace GAMMA.Models
         {
             get => _ProcessedValue;
             set => SetAndNotify(ref _ProcessedValue, value);
+        }
+        #endregion
+        #region ShopValue
+        private string _ShopValue;
+        public string ShopValue
+        {
+            get => _ShopValue;
+            set => SetAndNotify(ref _ShopValue, value);
         }
         #endregion
         #region Description
@@ -994,7 +1003,7 @@ namespace GAMMA.Models
                 HelperMethods.NotifyUser(Name + " has been completed and moved to backpack.");
                 return;
             }
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
             IsCraftingMenuOpen = false;
 
@@ -1043,7 +1052,7 @@ namespace GAMMA.Models
                 return;
             }
 
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
         }
         #endregion
@@ -1236,7 +1245,7 @@ namespace GAMMA.Models
             message += refChar.Name + " used " + Name + ((param.ToString() == "Advantage") ? " with advantage." : ((param.ToString() == "Disadvantage") ? " with disadvantage." : "."));
             message += "\nResult: " + toolTotal;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + toolRoll + "] + " + toolMod; }
-            HelperMethods.AddToPlayerLog(message, "Default", true);
+            HelperMethods.AddToGameplayLog(message, "Default", true);
             
         }
         #endregion
@@ -1275,11 +1284,11 @@ namespace GAMMA.Models
                     string intoxicationStatus = GetIntoxicationStatusFromLevel(player.IntoxicationLevel);
                     message += "\n" + player.Name + " is now " + intoxicationStatus + ".";
                 }
-                HelperMethods.AddToPlayerLog(message, "Default", true);
+                HelperMethods.AddToGameplayLog(message, "Default", true);
             }
             else
             {
-                HelperMethods.AddToPlayerLog(player.Name + " poured a drink of " + Name + ".", "Default", true);
+                HelperMethods.AddToGameplayLog(player.Name + " poured a drink of " + Name + ".", "Default", true);
             }
 
             if (param.ToString() == "ShopBypass") { return; }
@@ -1423,6 +1432,40 @@ namespace GAMMA.Models
         private void DoAddStatChange(object param)
         {
             StatChanges.Add(new(Configuration.AlterantStats));
+        }
+        #endregion
+        #region GenerateCharacterAttack
+        public ICommand GenerateCharacterAttack => new RelayCommand(DoGenerateCharacterAttack);
+        private void DoGenerateCharacterAttack(object param)
+        {
+            CharacterModel charRef = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+            if (charRef == null) { return; }
+            bool abilityOfSameNameExists = false;
+            foreach (CustomAbility ability in charRef.Abilities)
+            {
+                if (ability.Name == Name)
+                {
+                    abilityOfSameNameExists = true;
+                    break;
+                }
+            }
+            if (abilityOfSameNameExists)
+            {
+                if (!HelperMethods.AskYesNo("This character already contains an attack with the same name " + Name + ", continue?")) { return; }
+            }
+            string damageType = DamageType + " Damage";
+            string attackStat = "Strength";
+            if ((HasRange || IsFinesse) && charRef.DexterityModifier > charRef.StrengthModifier) { attackStat = "Dexterity"; }
+            CustomAbility newAbility = new();
+            newAbility.Name = Name;
+            newAbility.Type = (Type.Contains("Ranged")) ? "Ranged" : "Melee";
+            newAbility.Variables.Add(new("Attack", "Number"));
+            newAbility.Variables.Add(new(damageType, "Number"));
+            newAbility.PreActions.Add(new("Make Attack Roll", "Attack", attackStat, true));
+            newAbility.PreActions.Add(new("Add Roll", damageType, DamageDiceQuantity, DamageDiceQuality, true));
+            newAbility.PreActions.Add(new("Add Stat Value", damageType, attackStat));
+            charRef.Abilities.Add(newAbility);
+            HelperMethods.NotifyUser(Name + " attack added.");
         }
         #endregion
 

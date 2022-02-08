@@ -2654,7 +2654,7 @@ namespace GAMMA.Models
                 NotifyPropertyChanged();
                 if (brokeConcentration)
                 {
-                    HelperMethods.AddToPlayerLog("Concentration has been broken.");
+                    HelperMethods.AddToGameplayLog("Concentration has been broken.");
                 }
             }
         }
@@ -3280,7 +3280,7 @@ namespace GAMMA.Models
                     rslt += CustomDiceMod;
                     msg += "\nResult: " + rslt;
                     if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { msg += "\nRoll: [" + dr + "] + " + CustomDiceMod; }
-                    HelperMethods.AddToPlayerLog(msg, "Default", true);
+                    HelperMethods.AddToGameplayLog(msg, "Default", true);
                     return;
                 default:
                     modifier = 0;
@@ -3301,7 +3301,7 @@ namespace GAMMA.Models
             output += "\nResult: " + total;
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { output += "\nRoll: [" + finalRoll + "] + " + modifier; }
 
-            HelperMethods.AddToPlayerLog(output, "Default", true);
+            HelperMethods.AddToGameplayLog(output, "Default", true);
 
             DisplayPopup_Skills = false;
             DisplayPopup_Checks = false;
@@ -3337,7 +3337,7 @@ namespace GAMMA.Models
             int total = finalRoll + DexterityModifier;
             Initiative = total;
 
-            HelperMethods.AddToPlayerLog(string.Format("{0} rolled for initiative{3}{4}.\nResult: {1}{2}",
+            HelperMethods.AddToGameplayLog(string.Format("{0} rolled for initiative{3}{4}.\nResult: {1}{2}",
                 Name,
                 total,
                 (Configuration.MainModelRef.SettingsView.ShowDiceRolls) ? "\nRoll: [" + finalRoll + "] + " + DexterityModifier : "",
@@ -3352,7 +3352,7 @@ namespace GAMMA.Models
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int result = Configuration.RNG.Next(1, Convert.ToInt32(diceSides) + 1);
-            HelperMethods.AddToPlayerLog(Name + " rolls 1d" + diceSides + " and gets " + result + ".", "Default", true);
+            HelperMethods.AddToGameplayLog(Name + " rolls 1d" + diceSides + " and gets " + result + ".", "Default", true);
         }
         #endregion
         #region FlipCoin
@@ -3360,7 +3360,7 @@ namespace GAMMA.Models
         private void DoFlipCoin()
         {
             int result = Configuration.RNG.Next(1, 3);
-            HelperMethods.AddToPlayerLog(string.Format("{0} flips a coin and gets {1}.", Name, (result == 1) ? "heads" : "tails"), "Default", true);
+            HelperMethods.AddToGameplayLog(string.Format("{0} flips a coin and gets {1}.", Name, (result == 1) ? "heads" : "tails"), "Default", true);
         }
         #endregion
         #region ShortRest
@@ -3377,7 +3377,7 @@ namespace GAMMA.Models
             }
 
             IsConcentrating = false;
-            HelperMethods.AddToPlayerLog(Name + " took a short rest.");
+            HelperMethods.AddToGameplayLog(Name + " took a short rest.");
 
         }
         #endregion
@@ -3413,7 +3413,7 @@ namespace GAMMA.Models
                 minion.CurrentHitPoints = minion.MaxHitPoints;
             }
             IsConcentrating = false;
-            HelperMethods.AddToPlayerLog(Name + " took a long rest and recovered health and spell slots.", "Rest", true);
+            HelperMethods.AddToGameplayLog(Name + " took a long rest and recovered health and spell slots.", "Rest", true);
         }
         #endregion
         #region RollDeathSave
@@ -3429,6 +3429,8 @@ namespace GAMMA.Models
             if (roll >= 10 && roll <= 19) { _DeathSaves++; message += Name + " makes a death save (" + roll + ") and gets one success."; }
             if (roll == 20) { _DeathSaves = 0; _DeathFails = 0; CurrentHealth = 1; message += Name + " has recovered."; }
 
+            message += " [" + _DeathSaves + "p/" + _DeathFails + "f]";
+
             if (_DeathSaves >= 1) { DeathSave1 = true; }
             if (_DeathSaves >= 2) { DeathSave2 = true; }
             if (_DeathSaves >= 3) { DeathSave3 = true; message += "\n" + Name + " has stabilized."; }
@@ -3437,7 +3439,7 @@ namespace GAMMA.Models
             if (_DeathFails >= 2) { DeathFail2 = true; }
             if (_DeathFails >= 3) { DeathFail3 = true; message += "\n" + Name + " has died."; }
 
-            HelperMethods.AddToPlayerLog(message, "Default", true);
+            HelperMethods.AddToGameplayLog(message, "Default", true);
 
         }
         #endregion
@@ -4149,7 +4151,7 @@ namespace GAMMA.Models
             if (msg != "")
             {
                 if (playSound) { HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll); }
-                HelperMethods.AddToPlayerLog(msg, "Default", true);
+                HelperMethods.AddToGameplayLog(msg, "Default", true);
             }
 
             DisplayPopup_StandardActions = false;
@@ -4243,7 +4245,7 @@ namespace GAMMA.Models
             {
                 message += "\nRoll: [" + roll + "] + " + profBonus + " + " + FishingBonus;
             }
-            if (roll == 1) { HelperMethods.AddToPlayerLog(Name + " found nothing while fishing, tough luck!", "Default", true); return; }
+            if (roll == 1) { HelperMethods.AddToGameplayLog(Name + " found nothing while fishing, tough luck!", "Default", true); return; }
             List<ItemModel> fish = new();
             fish.AddRange(Configuration.ItemRepository.Where(item => item.Type == "Adventuring Gear" && item.RawValue <= 10));
             if (result >= 5) { fish.AddRange(Configuration.ItemRepository.Where(item => item.Type == "Fish" && item.FishingEnvironment == FishingEnvironment)); }
@@ -4296,7 +4298,7 @@ namespace GAMMA.Models
                     {
                         message += "\nCatch Roll: [" + catchRoll + "] + " + StrengthSave;
                     }
-                    HelperMethods.AddToPlayerLog(message, "Default", true);
+                    HelperMethods.AddToGameplayLog(message, "Default", true);
                     return;
                 }
             }
@@ -4318,7 +4320,7 @@ namespace GAMMA.Models
                 Inventories[0].AllItems.Last().PropertyChanged += DndPlayerModel_PropertyChanged;
                 Inventories[0].FilteredItems.Add(caughtFish);
             }
-            HelperMethods.AddToPlayerLog(message, "Default", true);
+            HelperMethods.AddToGameplayLog(message, "Default", true);
 
         }
         #endregion
@@ -4444,11 +4446,18 @@ namespace GAMMA.Models
                             creature.IsUnconscious = (!creature.IsImmune_Unconscious);
                             if (creature.IsUnconscious) { message += "\n" + creature.DisplayName + " has become " + targetDialog.ConditionOnFail + "."; }
                             break;
+                        case "Raise Exhaustion":
+                            if (!creature.IsImmune_Exhaustion)
+                            {
+                                creature.ExhaustionLevel++;
+                                message += "\n" + creature.DisplayName + " has raised to level " + creature.ExhaustionLevel + " exhaustion.";
+                            }
+                            break;
                         default:
                             break;
                     }
                 }
-                HelperMethods.AddToPlayerLog(message, "Save", true);
+                HelperMethods.AddToGameplayLog(message, "Save", true);
             }
         }
         #endregion
@@ -4467,18 +4476,18 @@ namespace GAMMA.Models
             bool desiredState = !OutputLinkedToRoll20;
             if (Configuration.MainModelRef.WebDriver == null && desiredState == true)
             {
-                HelperMethods.NotifyUser("The WebDriver is not started or not available.\nGo to Settings > WebDriver > Open Roll20 to start it.");
+                HelperMethods.NotifyUser("The WebDriver is not started or not available.\nGo to Settings > WebDriver > Start WebDriver to start it.");
                 return;
             }
             else
             {
-                bool canLink = HelperMethods.SwitchRoll20ChatAsCurrent();
-                if (canLink && desiredState == true) { HelperMethods.AddToPlayerLog(Name + " has connected to Roll20", "Default", true); }
+                
+                if (HelperMethods.SwitchbackActiveCharacter() && desiredState == true) { HelperMethods.AddToGameplayLog(Name + " will now output to web", "Default", true); }
                 OutputLinkedToRoll20 = true;
             }
             if (desiredState == false)
             {
-                HelperMethods.AddToPlayerLog(Name + " has disconnected from Roll20.");
+                HelperMethods.AddToGameplayLog(Name + " will no longer output to web.");
                 OutputLinkedToRoll20 = false;
             }
 
@@ -4543,6 +4552,46 @@ namespace GAMMA.Models
                     HelperMethods.WriteToLogFile("Invalid parameter " + param.ToString() + " passed to CharacterModel.DoClearMessages.", true);
                     return;
             }
+
+        }
+        #endregion
+        #region GenerateLootList
+        public ICommand GenerateLootList => new RelayCommand(DoGenerateLootList);
+        private void DoGenerateLootList(object param)
+        {
+            string message = "Character's Carried Loot:";
+            int totalGoldDrop = 0;
+            int totalSilverDrop = 0;
+            int totalCopperDrop = 0;
+            Dictionary<string, int> lootedItems = new();
+
+            foreach (InventoryModel inventory in Inventories)
+            {
+                if (!inventory.IsCarried) { continue; }
+                totalCopperDrop += inventory.CopperPieces;
+                totalSilverDrop += inventory.SilverPieces;
+                totalGoldDrop += inventory.GoldPieces;
+                foreach (ItemModel item in inventory.AllItems)
+                {
+                    if (lootedItems.ContainsKey(item.Name)) { lootedItems[item.Name] += item.Quantity; }
+                    else { lootedItems.Add(item.Name, item.Quantity); }
+                }
+            }
+
+            message += string.Format("\nMoney: {0}{1}{2}{3}{4}",
+                (totalGoldDrop > 0) ? totalGoldDrop + "gp" : "",
+                (totalGoldDrop > 0 && totalSilverDrop > 0) ? " " : "",
+                (totalSilverDrop > 0) ? totalSilverDrop + "sp" : "",
+                (totalSilverDrop > 0 && totalCopperDrop > 0) ? " " : "",
+                (totalCopperDrop > 0) ? totalCopperDrop + "cp" : "");
+            foreach (KeyValuePair<string, int> item in lootedItems)
+            {
+                message += "\n" + item.Value + " x " + item.Key;
+            }
+
+            if (totalGoldDrop == 0 && totalSilverDrop == 0 && totalCopperDrop == 0 && lootedItems.Count == 0) { message = "No loot found."; }
+
+            HelperMethods.AddToGameplayLog(message, "Loot");
 
         }
         #endregion

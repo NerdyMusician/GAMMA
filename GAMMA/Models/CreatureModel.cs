@@ -1,5 +1,4 @@
-﻿using ExtensionMethods;
-using GAMMA.Models.GameplayComponents;
+﻿using GAMMA.Models.GameplayComponents;
 using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
@@ -44,6 +43,10 @@ namespace GAMMA.Models
             DamageProclivity_Bludgeoning = "Normal";
             DamageProclivity_Slashing = "Normal";
             DamageProclivity_Piercing = "Normal";
+
+            //DamageVulnerabilities = new();
+            //DamageResistances = new();
+            //DamageImmunities = new();
 
         }
 
@@ -115,6 +118,14 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _Name, value);
         }
         #endregion
+        #region QuickInfo
+        private string _QuickInfo;
+        public string QuickInfo
+        {
+            get => _QuickInfo;
+            set => SetAndNotify(ref _QuickInfo, value);
+        }
+        #endregion
         #region PortraitImagePath
         private string _PortraitImagePath;
         public string PortraitImagePath
@@ -184,6 +195,32 @@ namespace GAMMA.Models
         {
             get => _IsOoc;
             set => SetAndNotify(ref _IsOoc, value);
+        }
+        #endregion
+        #region IsHorde
+        private bool _IsHorde;
+        [XmlSaveMode(XSME.Single)]
+        public bool IsHorde
+        {
+            get => _IsHorde;
+            set => SetAndNotify(ref _IsHorde, value);
+        }
+        #endregion
+        #region MaxHordeSize
+        private int _MaxHordeSize;
+        [XmlSaveMode(XSME.Single)]
+        public int MaxHordeSize
+        {
+            get => _MaxHordeSize;
+            set => SetAndNotify(ref _MaxHordeSize, value);
+        }
+        #endregion
+        #region CurrentHordeSize
+        private int _CurrentHordeSize;
+        public int CurrentHordeSize
+        {
+            get => _CurrentHordeSize;
+            set => SetAndNotify(ref _CurrentHordeSize, value);
         }
         #endregion
         #region HasMiniature
@@ -912,6 +949,43 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _ConditionImmunities, value);
         }
         #endregion
+        #region ExhaustionLevel
+        private int _ExhaustionLevel;
+        [XmlSaveMode(XSME.Single)]
+        public int ExhaustionLevel
+        {
+            get => _ExhaustionLevel;
+            set => SetAndNotify(ref _ExhaustionLevel, value);
+        }
+        #endregion
+
+        //#region DamageVulnerabilities
+        //private ObservableCollection<ConvertibleValue> _DamageVulnerabilities;
+        //[XmlSaveMode(XSME.Enumerable)]
+        //public ObservableCollection<ConvertibleValue> DamageVulnerabilities
+        //{
+        //    get => _DamageVulnerabilities;
+        //    set => SetAndNotify(ref _DamageVulnerabilities, value);
+        //}
+        //#endregion
+        //#region DamageResistances
+        //private ObservableCollection<ConvertibleValue> _DamageResistances;
+        //[XmlSaveMode(XSME.Enumerable)]
+        //public ObservableCollection<ConvertibleValue> DamageResistances
+        //{
+        //    get => _DamageResistances;
+        //    set => SetAndNotify(ref _DamageResistances, value);
+        //}
+        //#endregion
+        //#region DamageImmunities
+        //private ObservableCollection<ConvertibleValue> _DamageImmunities;
+        //[XmlSaveMode(XSME.Enumerable)]
+        //public ObservableCollection<ConvertibleValue> DamageImmunities
+        //{
+        //    get => _DamageImmunities;
+        //    set => SetAndNotify(ref _DamageImmunities, value);
+        //}
+        //#endregion
 
         #region DamageProclivity_Acid
         private string _DamageProclivity_Acid;
@@ -1237,7 +1311,7 @@ namespace GAMMA.Models
 
         #region StrengthModifier
         private int _StrengthModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int StrengthModifier
         {
             get => _StrengthModifier;
@@ -1246,7 +1320,7 @@ namespace GAMMA.Models
         #endregion
         #region DexterityModifier
         private int _DexterityModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int DexterityModifier
         {
             get => _DexterityModifier;
@@ -1255,7 +1329,7 @@ namespace GAMMA.Models
         #endregion
         #region ConstitutionModifier
         private int _ConstitutionModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int ConstitutionModifier
         {
             get => _ConstitutionModifier;
@@ -1264,7 +1338,7 @@ namespace GAMMA.Models
         #endregion
         #region IntelligenceModifier
         private int _IntelligenceModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int IntelligenceModifier
         {
             get => _IntelligenceModifier;
@@ -1273,7 +1347,7 @@ namespace GAMMA.Models
         #endregion
         #region WisdomModifier
         private int _WisdomModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int WisdomModifier
         {
             get => _WisdomModifier;
@@ -1282,7 +1356,7 @@ namespace GAMMA.Models
         #endregion
         #region CharismaModifier
         private int _CharismaModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int CharismaModifier
         {
             get => _CharismaModifier;
@@ -1378,7 +1452,7 @@ namespace GAMMA.Models
 
         #region StrengthSave
         private int _StrengthSave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int StrengthSave
         {
             get => _StrengthSave;
@@ -1387,7 +1461,7 @@ namespace GAMMA.Models
         #endregion
         #region DexteritySave
         private int _DexteritySave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int DexteritySave
         {
             get => _DexteritySave;
@@ -1396,7 +1470,7 @@ namespace GAMMA.Models
         #endregion
         #region ConstitutionSave
         private int _ConstitutionSave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int ConstitutionSave
         {
             get => _ConstitutionSave;
@@ -1405,7 +1479,7 @@ namespace GAMMA.Models
         #endregion
         #region IntelligenceSave
         private int _IntelligenceSave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int IntelligenceSave
         {
             get => _IntelligenceSave;
@@ -1414,7 +1488,7 @@ namespace GAMMA.Models
         #endregion
         #region WisdomSave
         private int _WisdomSave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int WisdomSave
         {
             get => _WisdomSave;
@@ -1423,7 +1497,7 @@ namespace GAMMA.Models
         #endregion
         #region CharismaSave
         private int _CharismaSave;
-        [XmlSaveMode(XSME.Single)]
+        
         public int CharismaSave
         {
             get => _CharismaSave;
@@ -1940,7 +2014,7 @@ namespace GAMMA.Models
 
         #region AcrobaticsModifier
         private int _AcrobaticsModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int AcrobaticsModifier
         {
             get => _AcrobaticsModifier;
@@ -1949,7 +2023,7 @@ namespace GAMMA.Models
         #endregion
         #region AnimalHandlingModifier
         private int _AnimalHandlingModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int AnimalHandlingModifier
         {
             get => _AnimalHandlingModifier;
@@ -1958,7 +2032,7 @@ namespace GAMMA.Models
         #endregion
         #region ArcanaModifier
         private int _ArcanaModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int ArcanaModifier
         {
             get => _ArcanaModifier;
@@ -1967,7 +2041,7 @@ namespace GAMMA.Models
         #endregion
         #region AthleticsModifier
         private int _AthleticsModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int AthleticsModifier
         {
             get => _AthleticsModifier;
@@ -1976,7 +2050,7 @@ namespace GAMMA.Models
         #endregion
         #region DeceptionModifier
         private int _DeceptionModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int DeceptionModifier
         {
             get => _DeceptionModifier;
@@ -1985,7 +2059,7 @@ namespace GAMMA.Models
         #endregion
         #region HistoryModifier
         private int _HistoryModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int HistoryModifier
         {
             get => _HistoryModifier;
@@ -1994,7 +2068,7 @@ namespace GAMMA.Models
         #endregion
         #region InsightModifier
         private int _InsightModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int InsightModifier
         {
             get => _InsightModifier;
@@ -2003,7 +2077,7 @@ namespace GAMMA.Models
         #endregion
         #region IntimidationModifier
         private int _IntimidationModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int IntimidationModifier
         {
             get => _IntimidationModifier;
@@ -2012,7 +2086,7 @@ namespace GAMMA.Models
         #endregion
         #region InvestigationModifier
         private int _InvestigationModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int InvestigationModifier
         {
             get => _InvestigationModifier;
@@ -2021,7 +2095,7 @@ namespace GAMMA.Models
         #endregion
         #region MedicineModifier
         private int _MedicineModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int MedicineModifier
         {
             get => _MedicineModifier;
@@ -2030,7 +2104,7 @@ namespace GAMMA.Models
         #endregion
         #region NatureModifier
         private int _NatureModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int NatureModifier
         {
             get => _NatureModifier;
@@ -2039,7 +2113,7 @@ namespace GAMMA.Models
         #endregion
         #region PerceptionModifier
         private int _PerceptionModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int PerceptionModifier
         {
             get => _PerceptionModifier;
@@ -2048,7 +2122,7 @@ namespace GAMMA.Models
         #endregion
         #region PerformanceModifier
         private int _PerformanceModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int PerformanceModifier
         {
             get => _PerformanceModifier;
@@ -2057,7 +2131,7 @@ namespace GAMMA.Models
         #endregion
         #region PersuasionModifier
         private int _PersuasionModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int PersuasionModifier
         {
             get => _PersuasionModifier;
@@ -2066,7 +2140,7 @@ namespace GAMMA.Models
         #endregion
         #region ReligionModifier
         private int _ReligionModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int ReligionModifier
         {
             get => _ReligionModifier;
@@ -2075,7 +2149,7 @@ namespace GAMMA.Models
         #endregion
         #region SleightOfHandModifier
         private int _SleightOfHandModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int SleightOfHandModifier
         {
             get => _SleightOfHandModifier;
@@ -2084,7 +2158,7 @@ namespace GAMMA.Models
         #endregion
         #region StealthModifier
         private int _StealthModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int StealthModifier
         {
             get => _StealthModifier;
@@ -2093,7 +2167,7 @@ namespace GAMMA.Models
         #endregion
         #region SurvivalModifier
         private int _SurvivalModifier;
-        [XmlSaveMode(XSME.Single)]
+        
         public int SurvivalModifier
         {
             get => _SurvivalModifier;
@@ -2703,6 +2777,7 @@ namespace GAMMA.Models
             if (newHealth < 0) { newHealth = 0; }
             if (newHealth > MaxHitPoints) { newHealth = MaxHitPoints; }
             CurrentHitPoints = newHealth;
+            SetCurrentHordeSize();
         }
         #endregion
         #region MakeSkillCheck
@@ -2719,24 +2794,11 @@ namespace GAMMA.Models
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
             }
+            if (ExhaustionLevel >= 1) { useDisadvantage = true; useAdvantage = false; }
             int skillModifier = HelperMethods.GetSkillModifier(skill.ToString(), this);
             int total;
-            int finalRoll;
-            int firstRoll = Configuration.RNG.Next(1, 21);
-            int secondRoll = Configuration.RNG.Next(1, 21);
-            if (useAdvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? firstRoll : secondRoll;
-            }
-            else if (useDisadvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? secondRoll : firstRoll;
-            }
-            else
-            {
-                finalRoll = firstRoll;
-            }
-            total = finalRoll + skillModifier;
+            int roll = HelperMethods.RollD20(useAdvantage, useDisadvantage);
+            total = roll + skillModifier;
             DisplayPopup_Skills = false;
             DisplayPopupAlt_Skills = false;
 
@@ -2747,20 +2809,8 @@ namespace GAMMA.Models
                 (useAdvantage) ? " with advantage" : "",
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
-            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + skillModifier; }
-
-            //if (Configuration.MainModelRef.TabSelected_Tracker)
-            //{
-            //    HelperMethods.AddToEncounterLog(message);
-            //}
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Skill Check");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + skillModifier; }
+            HelperMethods.AddToGameplayLog(message, "Skill Check", true);
 
         }
         #endregion
@@ -2778,24 +2828,11 @@ namespace GAMMA.Models
                 useDisadvantage = (parts[1] == "Disadvantage");
                 useAdvantage = (parts[1] == "Advantage");
             }
+            if (ExhaustionLevel >= 3) { useDisadvantage = true; useAdvantage = false; }
             int saveModifier = HelperMethods.GetSaveModifier(save.ToString(), this);
             int total;
-            int finalRoll;
-            int firstRoll = Configuration.RNG.Next(1, 21);
-            int secondRoll = Configuration.RNG.Next(1, 21);
-            if (useAdvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? firstRoll : secondRoll;
-            }
-            else if (useDisadvantage)
-            {
-                finalRoll = (firstRoll >= secondRoll) ? secondRoll : firstRoll;
-            }
-            else
-            {
-                finalRoll = firstRoll;
-            }
-            total = finalRoll + saveModifier;
+            int roll = HelperMethods.RollD20(useAdvantage, useDisadvantage);
+            total = roll + saveModifier;
             DisplayPopup_Saves = false;
             DisplayPopupAlt_Saves = false;
 
@@ -2806,16 +2843,16 @@ namespace GAMMA.Models
                 (useAdvantage) ? " with advantage" : "",
                 (useDisadvantage) ? " with disadvantage" : "");
             message += "\nResult: " + total;
-            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + saveModifier; }
-
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Saving Throw");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + roll + "] + " + saveModifier; }
+            HelperMethods.AddToGameplayLog(message, "Saving Throw", true);
+            //if (Configuration.MainModelRef.TabSelected_Campaigns)
+            //{
+            //    HelperMethods.AddToCampaignMessages(message, "Saving Throw");
+            //}
+            //else
+            //{
+            //    HelperMethods.AddToGameplayLog(message, "Default", true);
+            //}
 
         }
         #endregion
@@ -2864,15 +2901,7 @@ namespace GAMMA.Models
             message += "\nResult: " + total;
 
             if (Configuration.MainModelRef.SettingsView.ShowDiceRolls) { message += "\nRoll: [" + finalRoll + "] + " + attrMod; }
-
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Ability Check");
-            }
-            else
-            {
-                HelperMethods.AddToPlayerLog(message, "Default", true);
-            }
+            HelperMethods.AddToGameplayLog(message, "Ability Check", true);
             DisplayPopup_Checks = false;
             DisplayPopupAlt_Checks = false;
 
@@ -2886,7 +2915,7 @@ namespace GAMMA.Models
             {
                 if (Configuration.MainModelRef.TabSelected_Campaigns)
                 {
-                    HelperMethods.AddToCampaignMessages(DisplayName + " has already been looted.", "Loot");
+                    HelperMethods.AddToGameplayLog(DisplayName + " has already been looted.", "Loot");
                 }
                 return;
             }
@@ -2910,10 +2939,11 @@ namespace GAMMA.Models
             //{
             //    HelperMethods.AddToEncounterLog(message);
             //}
-            if (Configuration.MainModelRef.TabSelected_Campaigns)
-            {
-                HelperMethods.AddToCampaignMessages(message, "Loot");
-            }
+            //if (Configuration.MainModelRef.TabSelected_Campaigns)
+            //{
+            //    HelperMethods.AddToCampaignMessages(message, "Loot");
+            //}
+            HelperMethods.AddToGameplayLog(message, "Loot");
             HasBeenLooted = true;
 
         }
@@ -3024,7 +3054,7 @@ namespace GAMMA.Models
                 _ => "\nRelation with " + Name + " is unchanged."
             };
 
-            HelperMethods.AddToPlayerLog(message);
+            HelperMethods.AddToGameplayLog(message);
 
             if (TamingProgress <= 0)
             {
@@ -3069,14 +3099,10 @@ namespace GAMMA.Models
         {
             Initiative = Configuration.RNG.Next(1, 21) + HelperMethods.GetAttributeModifier(Attr_Dexterity);
             string message = Name + " rolled for initiative and got " + Initiative + ".";
+            HelperMethods.AddToGameplayLog(message, "Initiative");
             if (Configuration.MainModelRef.TabSelected_Campaigns)
             {
-                HelperMethods.AddToCampaignMessages(message, "Initiative");
                 Configuration.MainModelRef.CampaignView.ActiveCampaign.SortByInitiative.Execute(null);
-            }
-            if (Configuration.MainModelRef.TabSelected_Players)
-            {
-                HelperMethods.AddToPlayerLog(message, "Initiative", true);
             }
         }
         #endregion
@@ -3129,17 +3155,67 @@ namespace GAMMA.Models
             }
             else
             {
-                for (int i = 0; i < HitDiceQuantity; i++)
-                {
-                    totalHealth += Configuration.RNG.Next(1, HitDiceQuality);
-                }
-                totalHealth += HitDiceModifier;
+                HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out totalHealth, out _);
             }
 
             if (totalHealth == 0) { totalHealth = 1; }
             MaxHitPoints = totalHealth;
             CurrentHitPoints = totalHealth;
 
+        }
+        public void SetHordeStats()
+        {
+            int totalHealth = 0;
+
+            if (IsHorde)
+            {
+                for (int i = 0; i < MaxHordeSize; i++)
+                {
+                    HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out int hp, out _);
+                    totalHealth += hp;
+                }
+            }
+            else
+            {
+                HelperMethods.RollDice(HitDiceQuantity, HitDiceQuality, HitDiceModifier, out totalHealth, out _);
+            }
+
+            if (totalHealth == 0) { totalHealth = 1; }
+            MaxHitPoints = totalHealth;
+            CurrentHitPoints = totalHealth;
+            CurrentHordeSize = MaxHordeSize;
+
+        }
+        public void SetCurrentHordeSize()
+        {
+            if (IsHorde)
+            {
+                CurrentHordeSize = (int)(((float)CurrentHitPoints / (float)MaxHitPoints) * (float)MaxHordeSize) + 1;
+                if (CurrentHordeSize > MaxHordeSize) { CurrentHordeSize = MaxHordeSize; }
+                if (CurrentHitPoints > 0 && CurrentHordeSize == 0) { CurrentHordeSize = 1; }
+                if (CurrentHitPoints == 0) { CurrentHordeSize = 0; }
+                SetQuickInfo();
+            }
+        }
+        public void SetQuickInfo()
+        {
+            string size = Size;
+            if (Configuration.MainModelRef.SettingsView.DisplayShorthandCreatureSize)
+            {
+                size = size switch
+                {
+                    "Tiny" => "XS",
+                    "Small" => "S",
+                    "Medium" => "M",
+                    "Large" => "L",
+                    "Huge" => "XL",
+                    "Gargantuan" => "2XL",
+                    _ => size
+                };
+            }
+            QuickInfo = IsHorde ? 
+                QuickInfo = string.Format("{0} Horde [{1}/{2}]", CreatureCategory, CurrentHordeSize, MaxHordeSize)
+                : QuickInfo = string.Format("{0} {1} - {2}", size, CreatureCategory, IsAlly ? "Ally" : "Enemy");
         }
         public void SetPassivePerception()
         {
@@ -3185,6 +3261,7 @@ namespace GAMMA.Models
             GenerateTraitAndAbilityLists();
             UpdateDamageProclivityTexts();
             UpdateImmuneConditionText();
+            SetQuickInfo();
 
         }
         public void ConnectSpellLinks()
@@ -3287,6 +3364,13 @@ namespace GAMMA.Models
             HighestSpeedType = type;
             HighestSpeedValue = val;
 
+        }
+        public void UpdateToNewProclivityCollections()
+        {
+            // Temporary method for 1.28->1.29, remove in 1.30
+            // Reconsider - start from AdjustDamageFromProclivity HelperMethod
+            //if (DamageProclivity_Acid == "Vulnerable") { DamageVulnerabilities.Add(new("Acid")); }
+            //if (DamageProclivity_Bludgeoning == "Vulnerable") { DamageVulnerabilities.Add(new("Bludgeoning")); }
         }
 
         // Private Methods

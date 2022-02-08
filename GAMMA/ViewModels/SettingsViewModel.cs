@@ -1,4 +1,5 @@
 ﻿using GAMMA.Models;
+using GAMMA.Models.WebAutomation;
 using GAMMA.Toolbox;
 using GAMMA.Windows;
 using System;
@@ -18,6 +19,9 @@ namespace GAMMA.ViewModels
         public SettingsViewModel()
         {
             Roll20GameCharacterList = new();
+            StartupWebActions = new();
+            OutputWebActions = new();
+            SwitchbackWebActions = new();
         }
 
         // Databound Properties
@@ -171,6 +175,29 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _EnforceCreatureSpellSlots, value);
         }
         #endregion
+        #region DisplayShorthandCreatureSize
+        private bool _DisplayShorthandCreatureSize;
+        [XmlSaveMode(XSME.Single)]
+        public bool DisplayShorthandCreatureSize
+        {
+            get => _DisplayShorthandCreatureSize;
+            set
+            {
+                _DisplayShorthandCreatureSize = value;
+                NotifyPropertyChanged();
+                if (Configuration.LoadComplete)
+                {
+                    foreach (GameCampaign campaign in Configuration.MainModelRef.CampaignView.Campaigns)
+                    {
+                        foreach (CreatureModel combatant in campaign.Combatants)
+                        {
+                            combatant.SetQuickInfo();
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
 
         // Settings - Autosave
         #region EnableCharacterAutosave
@@ -258,6 +285,43 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        #region StartupWebActions
+        private ObservableCollection<WebActionModel> _StartupWebActions;
+        [XmlSaveMode(XSME.Enumerable)]
+        public ObservableCollection<WebActionModel> StartupWebActions
+        {
+            get => _StartupWebActions;
+            set => SetAndNotify(ref _StartupWebActions, value);
+        }
+        #endregion
+        #region OutputWebActions
+        private ObservableCollection<WebActionModel> _OutputWebActions;
+        [XmlSaveMode(XSME.Enumerable)]
+        public ObservableCollection<WebActionModel> OutputWebActions
+        {
+            get => _OutputWebActions;
+            set => SetAndNotify(ref _OutputWebActions, value);
+        }
+        #endregion
+        #region OutputNameSwap
+        private string _OutputNameSwap;
+        [XmlSaveMode(XSME.Single)]
+        public string OutputNameSwap
+        {
+            get => _OutputNameSwap;
+            set => SetAndNotify(ref _OutputNameSwap, value);
+        }
+        #endregion
+        #region SwitchbackWebActions
+        private ObservableCollection<WebActionModel> _SwitchbackWebActions;
+        [XmlSaveMode(XSME.Enumerable)]
+        public ObservableCollection<WebActionModel> SwitchbackWebActions
+        {
+            get => _SwitchbackWebActions;
+            set => SetAndNotify(ref _SwitchbackWebActions, value);
+        }
+        #endregion
+
         // Settings - Audio
         #region EnableSoundEffects
         private bool _EnableSoundEffects;
@@ -293,6 +357,73 @@ namespace GAMMA.ViewModels
         {
             get => _EnableSfx_ShopGreeting;
             set => SetAndNotify(ref _EnableSfx_ShopGreeting, value);
+        }
+        #endregion
+
+        #region MusicVolumeDec
+        private double _MusicVolumeDec;
+        public double MusicVolumeDec
+        {
+            get => _MusicVolumeDec;
+            set => SetAndNotify(ref _MusicVolumeDec, value);
+        }
+        #endregion
+        #region MusicVolumeInt
+        private int _MusicVolumeInt;
+        [XmlSaveMode(XSME.Single)]
+        public int MusicVolumeInt
+        {
+            get => _MusicVolumeInt;
+            set
+            {
+                _MusicVolumeInt = value;
+                NotifyPropertyChanged();
+                MusicVolumeDec = Convert.ToDouble(value) / 100;
+            }
+        }
+        #endregion
+        #region SfxVolumeDec
+        private double _SfxVolumeDec;
+        public double SfxVolumeDec
+        {
+            get => _SfxVolumeDec;
+            set => SetAndNotify(ref _SfxVolumeDec, value);
+        }
+        #endregion
+        #region SfxVolumeInt
+        private int _SfxVolumeInt;
+        [XmlSaveMode(XSME.Single)]
+        public int SfxVolumeInt
+        {
+            get => _SfxVolumeInt;
+            set
+            {
+                _SfxVolumeInt = value;
+                NotifyPropertyChanged();
+                SfxVolumeDec = Convert.ToDouble(value) / 100;
+            }
+        }
+        #endregion
+        #region SystemVolumeDec
+        private double _SystemVolumeDec;
+        public double SystemVolumeDec
+        {
+            get => _SystemVolumeDec;
+            set => SetAndNotify(ref _SystemVolumeDec, value);
+        }
+        #endregion
+        #region SystemVolumeInt
+        private int _SystemVolumeInt;
+        [XmlSaveMode(XSME.Single)]
+        public int SystemVolumeInt
+        {
+            get => _SystemVolumeInt;
+            set
+            {
+                _SystemVolumeInt = value;
+                NotifyPropertyChanged();
+                SystemVolumeDec = Convert.ToDouble(value) / 100;
+            }
         }
         #endregion
 
@@ -386,6 +517,13 @@ namespace GAMMA.ViewModels
             EnableSfx_DiceRoll = true;
             EnableSfx_ShopGreeting = false;
             EnableSfx_ShopItemMove = true;
+
+            MusicVolumeInt = 100;
+            SfxVolumeInt = 100;
+            SystemVolumeInt = 100;
+            MusicVolumeDec = 1;
+            SfxVolumeDec = 1;
+            SystemVolumeDec = 1;
 
             // WebDriver Settings
             Roll20Email = "";
@@ -722,6 +860,25 @@ namespace GAMMA.ViewModels
                 HelperMethods.ClearLogFile();
                 HelperMethods.WriteToLogFile("Release Data Cleanup Completed Successfully\nThe application will now close.", true);
                 System.Windows.Application.Current.MainWindow.Close();
+            }
+        }
+        #endregion
+        #region AddWebAction
+        public ICommand AddWebAction => new RelayCommand(DoAddWebAction);
+        private void DoAddWebAction(object param)
+        {
+            if (param == null) { return; }
+            if (param.ToString() == "Startup")
+            {
+                StartupWebActions.Add(new());
+            }
+            if (param.ToString() == "Output")
+            {
+                OutputWebActions.Add(new());
+            }
+            if (param.ToString() == "Switchback")
+            {
+                SwitchbackWebActions.Add(new());
             }
         }
         #endregion

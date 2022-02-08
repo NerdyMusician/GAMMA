@@ -15,7 +15,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.24.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.29.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -23,10 +23,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>gammabluewash.ico</ApplicationIcon>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
@@ -44,8 +45,12 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Images\Icons\alert.png" />
     <None Remove="Images\Icons\export.png" />
     <None Remove="Images\Icons\githubFaviconDark.png" />
+    <None Remove="Images\Icons\horde.png" />
+    <None Remove="Images\Icons\markup.png" />
+    <None Remove="Images\Icons\text_blue.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.Linq" />
@@ -55,9 +60,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\Npcs.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="GAMMA 1.27.00 User Manual.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -74,6 +76,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Icons\alert.png" />
     <Resource Include="Images\Icons\arrow_down.png" />
     <Resource Include="Images\Icons\arrow_down_blue.png" />
     <Resource Include="Images\Icons\arrow_up.png" />
@@ -85,12 +88,15 @@
     <Resource Include="Images\Icons\filter.png" />
     <Resource Include="Images\Icons\githubFaviconDark.png" />
     <Resource Include="Images\Icons\home.png" />
+    <Resource Include="Images\Icons\horde.png" />
+    <Resource Include="Images\Icons\markup.png" />
     <Resource Include="Images\Icons\pass.png" />
     <Resource Include="Images\Icons\pause.png" />
     <Resource Include="Images\Icons\play.png" />
     <Resource Include="Images\Icons\plus_green.png" />
     <Resource Include="Images\Icons\step.png" />
     <Resource Include="Images\Icons\stop.png" />
+    <Resource Include="Images\Icons\text_blue.png" />
     <Resource Include="Images\Icons\upload.png" />
     <Resource Include="Images\Icons\warning.png" />
   </ItemGroup>
@@ -454,9 +460,15 @@
     <None Update="Data\NoteTypes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="GAMMA 1.29.00 User Manual.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="WebDriver\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -472,5 +484,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>gammabluewash.ico</ApplicationIcon>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
 </Project>

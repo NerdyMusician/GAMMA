@@ -83,15 +83,30 @@ namespace GAMMA.Models
                     {
                         if (selectedCreature.Name == packCreature.CreatureName)
                         {
-                            packCreature.Quantity += selectedCreature.QuantityToAdd;
-                            matchFound = true;
-                            break;
+                            if (selectedCreature.IsHorde == packCreature.IsHorde)
+                            {
+                                if (selectedCreature.MaxHordeSize == packCreature.MaxHordeSize)
+                                {
+                                    packCreature.Quantity += selectedCreature.QuantityToAdd;
+                                    matchFound = true;
+                                    break;
+                                }
+                            }
                         }
                     }
                     if (matchFound == false)
                     {
-                        CreatureList.Add(new PackCreatureModel { CreatureName = selectedCreature.Name, Quantity = selectedCreature.QuantityToAdd });
+                        CreatureList.Add(new() { 
+                            CreatureName = selectedCreature.Name, 
+                            Quantity = selectedCreature.QuantityToAdd, 
+                            IsHorde = selectedCreature.IsHorde, 
+                            MaxHordeSize = selectedCreature.MaxHordeSize });
                     }
+
+                    // cleanup
+                    selectedCreature.IsHorde = false;
+                    selectedCreature.MaxHordeSize = 0;
+
                 }
             }
 

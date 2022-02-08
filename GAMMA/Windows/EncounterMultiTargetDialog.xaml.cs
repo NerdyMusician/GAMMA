@@ -18,7 +18,7 @@ namespace GAMMA.Windows
             CBX_PrimaryDamageType.ItemsSource = Configuration.DamageTypes.ToList();
             CBX_SecondaryDamageType.ItemsSource = Configuration.DamageTypes.ToList();
             ComboBox_EffectType.ItemsSource = new List<string> { "Attack", "Other" };
-            ComboBox_Condition.ItemsSource = new List<string> { "None", "Special", "Blinded", "Charmed", "Deafened", "Exhaustion", "Frightened", "Grappled", "Paralyzed", "Petrified", "Poisoned", "Prone", "Restrained", "Stunned", "Unconscious" };
+            ComboBox_Condition.ItemsSource = new List<string> { "None", "Special", "Blinded", "Charmed", "Deafened", "Exhaustion", "Frightened", "Grappled", "Paralyzed", "Petrified", "Poisoned", "Prone", "Restrained", "Stunned", "Unconscious", "Raise Exhaustion" };
             ComboBox_EffectType.SelectionChanged += ComboBox_EffectType_SelectionChanged;
             ComboBox_Condition.SelectionChanged += ComboBox_Condition_SelectionChanged;
             ComboBox_EffectType.SelectedItem = "Attack";

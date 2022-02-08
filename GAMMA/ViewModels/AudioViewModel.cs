@@ -13,12 +13,6 @@ namespace GAMMA.ViewModels
         // Constructors
         public AudioViewModel()
         {
-            MusicVolumeInt = 100;
-            SfxVolumeInt = 100;
-            SystemVolumeInt = 100;
-            MusicVolumeDec = 1;
-            SfxVolumeDec = 1;
-            SystemVolumeDec = 1;
             MusicFiles = new ObservableCollection<AudioCollectionModel>();
             SfxFiles = new ObservableCollection<AudioCollectionModel>();
             GetMusicFiles();
@@ -50,69 +44,7 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _SystemAudioSource, value);
         }
         #endregion
-        #region MusicVolumeDec
-        private double _MusicVolumeDec;
-        public double MusicVolumeDec
-        {
-            get => _MusicVolumeDec;
-            set => SetAndNotify(ref _MusicVolumeDec, value);
-        }
-        #endregion
-        #region MusicVolumeInt
-        private int _MusicVolumeInt;
-        public int MusicVolumeInt
-        {
-            get => _MusicVolumeInt;
-            set
-            {
-                _MusicVolumeInt = value;
-                NotifyPropertyChanged();
-                MusicVolumeDec = Convert.ToDouble(value) / 100;
-            }
-        }
-        #endregion
-        #region SfxVolumeDec
-        private double _SfxVolumeDec;
-        public double SfxVolumeDec
-        {
-            get => _SfxVolumeDec;
-            set => SetAndNotify(ref _SfxVolumeDec, value);
-        }
-        #endregion
-        #region SfxVolumeInt
-        private int _SfxVolumeInt;
-        public int SfxVolumeInt
-        {
-            get => _SfxVolumeInt;
-            set
-            {
-                _SfxVolumeInt = value;
-                NotifyPropertyChanged();
-                SfxVolumeDec = Convert.ToDouble(value) / 100;
-            }
-        }
-        #endregion
-        #region SystemVolumeDec
-        private double _SystemVolumeDec;
-        public double SystemVolumeDec
-        {
-            get => _SystemVolumeDec;
-            set => SetAndNotify(ref _SystemVolumeDec, value);
-        }
-        #endregion
-        #region SystemVolumeInt
-        private int _SystemVolumeInt;
-        public int SystemVolumeInt
-        {
-            get => _SystemVolumeInt;
-            set
-            {
-                _SystemVolumeInt = value;
-                NotifyPropertyChanged();
-                SystemVolumeDec = Convert.ToDouble(value) / 100;
-            }
-        }
-        #endregion
+        
         #region MusicFiles
         private ObservableCollection<AudioCollectionModel> _MusicFiles;
         public ObservableCollection<AudioCollectionModel> MusicFiles

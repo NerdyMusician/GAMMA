@@ -110,15 +110,16 @@ namespace GAMMA.Windows
                 CreatureModel creature = (sender as Button).DataContext as CreatureModel;
                 foreach (CreatureModel selectedCreature in (DataContext as MultiObjectSelectionViewModel).SelectedCreatures)
                 {
-                    if (creature.Name == selectedCreature.Name)
+                    if (creature.Name == selectedCreature.Name && selectedCreature.IsHorde == false)
                     {
                         if ((DataContext as MultiObjectSelectionViewModel).Mode == "Players") { return; }
                         selectedCreature.QuantityToAdd++;
                         return;
                     }
                 }
-                (DataContext as MultiObjectSelectionViewModel).SelectedCreatures.Add(creature);
-                creature.QuantityToAdd = 1;
+                CreatureModel newCreature = HelperMethods.DeepClone(creature);
+                newCreature.QuantityToAdd = 1;
+                (DataContext as MultiObjectSelectionViewModel).SelectedCreatures.Add(newCreature);
             }
             if (objectType == typeof(ItemModel))
             {
