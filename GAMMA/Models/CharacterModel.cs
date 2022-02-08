@@ -3429,6 +3429,8 @@ namespace GAMMA.Models
             if (roll >= 10 && roll <= 19) { _DeathSaves++; message += Name + " makes a death save (" + roll + ") and gets one success."; }
             if (roll == 20) { _DeathSaves = 0; _DeathFails = 0; CurrentHealth = 1; message += Name + " has recovered."; }
 
+            message += " [" + _DeathSaves + "p/" + _DeathFails + "f]";
+
             if (_DeathSaves >= 1) { DeathSave1 = true; }
             if (_DeathSaves >= 2) { DeathSave2 = true; }
             if (_DeathSaves >= 3) { DeathSave3 = true; message += "\n" + Name + " has stabilized."; }
@@ -4550,6 +4552,46 @@ namespace GAMMA.Models
                     HelperMethods.WriteToLogFile("Invalid parameter " + param.ToString() + " passed to CharacterModel.DoClearMessages.", true);
                     return;
             }
+
+        }
+        #endregion
+        #region GenerateLootList
+        public ICommand GenerateLootList => new RelayCommand(DoGenerateLootList);
+        private void DoGenerateLootList(object param)
+        {
+            string message = "Character's Carried Loot:";
+            int totalGoldDrop = 0;
+            int totalSilverDrop = 0;
+            int totalCopperDrop = 0;
+            Dictionary<string, int> lootedItems = new();
+
+            foreach (InventoryModel inventory in Inventories)
+            {
+                if (!inventory.IsCarried) { continue; }
+                totalCopperDrop += inventory.CopperPieces;
+                totalSilverDrop += inventory.SilverPieces;
+                totalGoldDrop += inventory.GoldPieces;
+                foreach (ItemModel item in inventory.AllItems)
+                {
+                    if (lootedItems.ContainsKey(item.Name)) { lootedItems[item.Name] += item.Quantity; }
+                    else { lootedItems.Add(item.Name, item.Quantity); }
+                }
+            }
+
+            message += string.Format("\nMoney: {0}{1}{2}{3}{4}",
+                (totalGoldDrop > 0) ? totalGoldDrop + "gp" : "",
+                (totalGoldDrop > 0 && totalSilverDrop > 0) ? " " : "",
+                (totalSilverDrop > 0) ? totalSilverDrop + "sp" : "",
+                (totalSilverDrop > 0 && totalCopperDrop > 0) ? " " : "",
+                (totalCopperDrop > 0) ? totalCopperDrop + "cp" : "");
+            foreach (KeyValuePair<string, int> item in lootedItems)
+            {
+                message += "\n" + item.Value + " x " + item.Key;
+            }
+
+            if (totalGoldDrop == 0 && totalSilverDrop == 0 && totalCopperDrop == 0 && lootedItems.Count == 0) { message = "No loot found."; }
+
+            HelperMethods.AddToGameplayLog(message, "Loot");
 
         }
         #endregion

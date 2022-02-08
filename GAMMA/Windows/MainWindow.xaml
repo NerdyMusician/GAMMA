@@ -652,6 +652,7 @@
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Mark as NPC" Command="{Binding ToggleNpc}" />
                                                                 <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
+                                                                <MenuItem Header="Kill Creature" Command="{Binding AdjustHitPoints}" CommandParameter="-9999" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -663,6 +664,7 @@
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Unmark as NPC" Command="{Binding ToggleNpc}" />
                                                                 <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
+                                                                <MenuItem Header="Kill Creature" Command="{Binding AdjustHitPoints}" CommandParameter="-9999" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -1339,6 +1341,7 @@
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Mark as NPC" Command="{Binding ToggleNpc}" />
                                                                 <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
+                                                                <MenuItem Header="Kill Creature" Command="{Binding AdjustHitPoints}" CommandParameter="-9999" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -1351,6 +1354,7 @@
                                                                 <MenuItem Header="Toggle OOC" Command="{Binding ToggleOoc}" />
                                                                 <MenuItem Header="Unmark as NPC" Command="{Binding ToggleNpc}" />
                                                                 <MenuItem Header="Reroll Initiative" Command="{Binding RollInitiative}" />
+                                                                <MenuItem Header="Kill Creature" Command="{Binding AdjustHitPoints}" CommandParameter="-9999" />
                                                             </ContextMenu>
                                                         </Image.ContextMenu>
                                                     </Image>
@@ -7473,6 +7477,7 @@
                                                         <TabItem.ContextMenu>
                                                             <ContextMenu>
                                                                 <MenuItem Header="Add Inventory Tab" Command="{Binding CharacterBuilderView.ActiveCharacter.AddInventory}" />
+                                                                <MenuItem Header="Generate Loot List" Command="{Binding CharacterBuilderView.ActiveCharacter.GenerateLootList}" />
                                                             </ContextMenu>
                                                         </TabItem.ContextMenu>
                                                         <TabControl TabStripPlacement="Top" BorderThickness="0 2 0 0" ItemsSource="{Binding CharacterBuilderView.ActiveCharacter.Inventories}" HorizontalAlignment="Left">
@@ -7701,6 +7706,7 @@
                                                                                                 <cc:ImageButton Text="Transfer to..." ImageResource="{StaticResource Icon_Transfer}" Command="{Binding ActiveItem.Transfer}" CommandParameter="{Binding}" />
                                                                                                 <cc:ImageButton ImageResource="{StaticResource Icon_Hand}" Text="Equip Main Hand" Command="{Binding ActiveItem.EquipToCharacter}" CommandParameter="MainHand" Visibility="{Binding ActiveItem.ShowEquipButton_Hand, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                                                                 <cc:ImageButton ImageResource="{StaticResource Icon_Hand}" Text="Equip Off Hand" Command="{Binding ActiveItem.EquipToCharacter}" CommandParameter="OffHand" Visibility="{Binding ActiveItem.ShowEquipButton_Hand, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
+                                                                                                <cc:ImageButton ImageResource="{StaticResource Icon_Crossed_Swords}" Text="Add Attack" Command="{Binding ActiveItem.GenerateCharacterAttack}" Visibility="{Binding ActiveItem.ShowEquipButton_Hand, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                                                                 <cc:ImageButton ImageResource="{StaticResource Icon_Rpg_Heavy_Armor}" Text="Equip Armor" Command="{Binding ActiveItem.EquipToCharacter}" CommandParameter="Armor" Visibility="{Binding ActiveItem.ShowEquipButton_Armor, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                                                                 <cc:ImageButton ImageResource="{StaticResource Icon_Rpg_Ring}" Text="Equip Accessory" Command="{Binding ActiveItem.EquipToCharacter}" CommandParameter="Accessory" Visibility="{Binding ActiveItem.ShowEquipButton_Accessory, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
                                                                                                 <cc:ImageButton ImageResource="{StaticResource Icon_Rpg_Orb}" Text="Attune Item" Command="{Binding ActiveItem.AttuneToCharacter}" Visibility="{Binding ActiveItem.RequiresAttunement, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
@@ -11282,6 +11288,12 @@
                                     <cc:FieldLabel Text="Enforce Creature Spell Slots" Width="auto" />
                                 </StackPanel>
                                 <TextBlock Style="{StaticResource SettingInfo}" Text="Toggles whether or not to enforce that a creature has the necessary spell slots to cast." />
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding SettingsView.DisplayShorthandCreatureSize, UpdateSourceTrigger=PropertyChanged}" />
+                                    <cc:FieldLabel Text="Display Shorthand Creature Size" Width="auto" />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource SettingInfo}" Text="Toggles displaying creature size in a shorthand format (XS, S, M, L, XL, 2XL) in campaign gameplay" />
+
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Audio">

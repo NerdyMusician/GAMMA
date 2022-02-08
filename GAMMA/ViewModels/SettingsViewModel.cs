@@ -175,6 +175,29 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _EnforceCreatureSpellSlots, value);
         }
         #endregion
+        #region DisplayShorthandCreatureSize
+        private bool _DisplayShorthandCreatureSize;
+        [XmlSaveMode(XSME.Single)]
+        public bool DisplayShorthandCreatureSize
+        {
+            get => _DisplayShorthandCreatureSize;
+            set
+            {
+                _DisplayShorthandCreatureSize = value;
+                NotifyPropertyChanged();
+                if (Configuration.LoadComplete)
+                {
+                    foreach (GameCampaign campaign in Configuration.MainModelRef.CampaignView.Campaigns)
+                    {
+                        foreach (CreatureModel combatant in campaign.Combatants)
+                        {
+                            combatant.SetQuickInfo();
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
 
         // Settings - Autosave
         #region EnableCharacterAutosave

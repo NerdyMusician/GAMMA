@@ -3,10 +3,17 @@
 - NEW: Creature Exhaustion - added the exhaustion condition to creatures, automatically rolls disadvantaged for skill checks and saves where appropriate
 - NEW: Shop Haggling - able to now adjust the buy and sell percentages of the Shop feature, enabling dungeon masters to simulate economic conditions of stores
 - NEW: Configurable Web Actions - no longer limited to the selenium actions taken to output to Roll20
+- NEW: Creature Size Shorthand - gameplay setting available to show shorthanded size for creatures on campaign gameplay tiles
+- NEW: Button for weapons viewed in inventory to add stats as an attack under gameplay
+- NEW: Right-click option for campaign creature cards to kill it instantly (reduces HP by 9999)
+- NEW: Character inventory right-click option to generate loot list in event of character death and party looting
 - CHANGE: Moved audio level settings to SettingsView and now save/load the values on application close/start
+- CHANGE: Player death save roll now includes the current total pass / fail ratio for output
 - BUG: Fixed issue where creature rolled HP was not maxing
+- BUG: Fixed issue where prompt for saving current campaigns was showing even if there were no current campaigns available
 - CODE: Changed over various roll code to use HelperMethods.RollDice
 - CODE: Condensed helper methods for writing to game logs and outputting to web
+- CODE: Removed XmlSaveMode attribute from creature skill, attribute, and save mods, since those are calculated values. ~10% save file size reduction
 
 GAMMA 1.28.03
 - NEW: Added button to allow name sorting for pack creature and NPC lists

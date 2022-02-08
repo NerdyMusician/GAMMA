@@ -16,7 +16,8 @@ namespace GAMMA.Toolbox
     public enum XSME
     {
         Single,
-        Enumerable
+        Enumerable,
+        Pending
     }
 
 }

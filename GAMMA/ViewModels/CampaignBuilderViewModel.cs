@@ -112,11 +112,14 @@ namespace GAMMA.ViewModels
                 Filter = "XML Files (*.xml)|*.xml"
             };
 
-            YesNoDialog question = new("Prior to import, the current campaign list must be saved.\nContinue?");
-            question.ShowDialog();
-            if (question.Answer == false) { return; }
+            if (Campaigns.Count > 0)
+            {
+                YesNoDialog question = new("Prior to import, the current campaign list must be saved.\nContinue?");
+                question.ShowDialog();
+                if (question.Answer == false) { return; }
 
-            DoSaveCampaigns(false);
+                DoSaveCampaigns(false);
+            }
 
             if (openWindow.ShowDialog() == true)
             {

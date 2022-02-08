@@ -45,7 +45,12 @@ namespace GAMMA.Toolbox
             {
                 if (Configuration.MainModelRef.CampaignView == null) { return; }
                 GameCampaign campaign = Configuration.MainModelRef.CampaignView.ActiveCampaign;
-                if (campaign == null) { WriteToLogFile("Error with writing to campaign gameplay log.", true); return; }
+                if (campaign == null) 
+                { 
+                    if (type == "Weather Change") { return; }
+                    WriteToLogFile("Error with writing to campaign gameplay log.\nType: " + type + "\nMessage: " + message, true); 
+                    return; 
+                }
                 campaign.Messages.Insert(0, new(type, message));
                 if (campaign.LinkOutputToWeb && copyToWeb)
                 {
@@ -223,6 +228,12 @@ namespace GAMMA.Toolbox
         {
             Simple,
             Report
+        }
+        public static bool AskYesNo(string message)
+        {
+            YesNoDialog question = new(message);
+            question.ShowDialog();
+            return question.Answer;
         }
         public static void WriteToLogFile(string message, bool notifyUser = false)
         {

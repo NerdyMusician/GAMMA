@@ -1,4 +1,5 @@
-﻿using GAMMA.Toolbox;
+﻿using GAMMA.Models.GameplayComponents;
+using GAMMA.Toolbox;
 using GAMMA.ViewModels;
 using GAMMA.Windows;
 using System;
@@ -1431,6 +1432,40 @@ namespace GAMMA.Models
         private void DoAddStatChange(object param)
         {
             StatChanges.Add(new(Configuration.AlterantStats));
+        }
+        #endregion
+        #region GenerateCharacterAttack
+        public ICommand GenerateCharacterAttack => new RelayCommand(DoGenerateCharacterAttack);
+        private void DoGenerateCharacterAttack(object param)
+        {
+            CharacterModel charRef = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
+            if (charRef == null) { return; }
+            bool abilityOfSameNameExists = false;
+            foreach (CustomAbility ability in charRef.Abilities)
+            {
+                if (ability.Name == Name)
+                {
+                    abilityOfSameNameExists = true;
+                    break;
+                }
+            }
+            if (abilityOfSameNameExists)
+            {
+                if (!HelperMethods.AskYesNo("This character already contains an attack with the same name " + Name + ", continue?")) { return; }
+            }
+            string damageType = DamageType + " Damage";
+            string attackStat = "Strength";
+            if ((HasRange || IsFinesse) && charRef.DexterityModifier > charRef.StrengthModifier) { attackStat = "Dexterity"; }
+            CustomAbility newAbility = new();
+            newAbility.Name = Name;
+            newAbility.Type = (Type.Contains("Ranged")) ? "Ranged" : "Melee";
+            newAbility.Variables.Add(new("Attack", "Number"));
+            newAbility.Variables.Add(new(damageType, "Number"));
+            newAbility.PreActions.Add(new("Make Attack Roll", "Attack", attackStat, true));
+            newAbility.PreActions.Add(new("Add Roll", damageType, DamageDiceQuantity, DamageDiceQuality, true));
+            newAbility.PreActions.Add(new("Add Stat Value", damageType, attackStat));
+            charRef.Abilities.Add(newAbility);
+            HelperMethods.NotifyUser(Name + " attack added.");
         }
         #endregion
 
