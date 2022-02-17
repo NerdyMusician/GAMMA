@@ -5674,6 +5674,16 @@ namespace GAMMA.Models
                 }
             }
         }
+        public void SetAlterantSuggestedValues()
+        {
+            foreach (CharacterAlterant alterant in Alterants)
+            {
+                foreach (LabeledNumber stat in alterant.StatChanges)
+                {
+                    stat.NameSuggestions = Configuration.AlterantStats;
+                }
+            }
+        }
 
         // Private Methods - Character Creation Implementation
         private void CCI_SavingThrows_Set(List<FeatureData> choices)

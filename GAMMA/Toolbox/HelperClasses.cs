@@ -132,30 +132,16 @@ namespace GAMMA.Toolbox
         [XmlSaveMode(XSME.Single)]
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                NotifyPropertyChanged();
-            }
+            get => _Name;
+            set => SetAndNotify(ref _Name, value);
         }
         #endregion
         #region NameSuggestions
         private List<string> _NameSuggestions;
         public List<string> NameSuggestions
         {
-            get
-            {
-                return _NameSuggestions;
-            }
-            set
-            {
-                _NameSuggestions = value;
-                NotifyPropertyChanged();
-            }
+            get => _NameSuggestions;
+            set => SetAndNotify(ref _NameSuggestions, value);
         }
         #endregion
         #region Value
@@ -163,15 +149,8 @@ namespace GAMMA.Toolbox
         [XmlSaveMode(XSME.Single)]
         public int Value
         {
-            get
-            {
-                return _Value;
-            }
-            set
-            {
-                _Value = value;
-                NotifyPropertyChanged();
-            }
+            get => _Value; 
+            set => SetAndNotify(ref _Value, value);
         }
         #endregion
 

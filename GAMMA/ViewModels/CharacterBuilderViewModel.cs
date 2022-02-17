@@ -41,6 +41,7 @@ namespace GAMMA.ViewModels
                 character.UpdateAbilityDropdowns();
                 character.MaxHealth = character.GetCalculatedMaxHitPoints(character.ConstitutionModifier);
                 character.ValidateCharacterCreation();
+                character.SetAlterantSuggestedValues();
             }
             ShowCharacterList = true;
             RunNullSpellLinkCheck();

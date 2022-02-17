@@ -781,6 +781,14 @@
                                                                                                                 </MultiBinding>
                                                                                                             </MenuItem.CommandParameter>
                                                                                                         </MenuItem>
+                                                                                                        <MenuItem Header="Sleeper Hit" Command="{Binding MakeAttack}">
+                                                                                                            <MenuItem.CommandParameter>
+                                                                                                                <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                                                                                                                    <Binding Path="PlacementTarget.Tag.DataContext" RelativeSource="{RelativeSource AncestorType={x:Type ContextMenu}, Mode=FindAncestor}" />
+                                                                                                                    <Binding Source="Sleeper Hit" />
+                                                                                                                </MultiBinding>
+                                                                                                            </MenuItem.CommandParameter>
+                                                                                                        </MenuItem>
                                                                                                     </ContextMenu>
                                                                                                 </cc:ImageButton.ContextMenu>
                                                                                             </cc:ImageButton>
@@ -1472,6 +1480,14 @@
                                                                                                                 <MultiBinding Converter="{StaticResource MultiValueConverter}">
                                                                                                                     <Binding Path="PlacementTarget.Tag.DataContext" RelativeSource="{RelativeSource AncestorType={x:Type ContextMenu}, Mode=FindAncestor}" />
                                                                                                                     <Binding Source="Disadvantage" />
+                                                                                                                </MultiBinding>
+                                                                                                            </MenuItem.CommandParameter>
+                                                                                                        </MenuItem>
+                                                                                                        <MenuItem Header="Sleeper Hit" Command="{Binding MakeAttack}">
+                                                                                                            <MenuItem.CommandParameter>
+                                                                                                                <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                                                                                                                    <Binding Path="PlacementTarget.Tag.DataContext" RelativeSource="{RelativeSource AncestorType={x:Type ContextMenu}, Mode=FindAncestor}" />
+                                                                                                                    <Binding Source="Sleeper Hit" />
                                                                                                                 </MultiBinding>
                                                                                                             </MenuItem.CommandParameter>
                                                                                                         </MenuItem>
@@ -5849,8 +5865,8 @@
                                                                                     <DataTemplate>
                                                                                         <StackPanel Orientation="Horizontal" Margin="2">
                                                                                             <StackPanel>
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Orb_Green}" ToolTip="Is Active" Command="{Binding ToggleActive}" VerticalAlignment="Top" Visibility="{Binding IsActive, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Orb_Gray}" ToolTip="Is Active" Command="{Binding ToggleActive}" VerticalAlignment="Top" Visibility="{Binding IsActive, Converter={tool:CollapsedIfTrueOtherwiseVisible}}" />
+                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Switch_On}" ToolTip="Is Active" Command="{Binding ToggleActive}" VerticalAlignment="Top" Visibility="{Binding IsActive, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
+                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Switch_Off}" ToolTip="Is Active" Command="{Binding ToggleActive}" VerticalAlignment="Top" Visibility="{Binding IsActive, Converter={tool:CollapsedIfTrueOtherwiseVisible}}" />
                                                                                             </StackPanel>
                                                                                             <Separator Width="2" />
                                                                                             <cc:MiniToggleButton ImageResource="{StaticResource Icon_Wrench}" IsChecked="{Binding InEditMode}" VerticalAlignment="Top" />

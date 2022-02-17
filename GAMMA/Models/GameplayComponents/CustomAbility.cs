@@ -544,10 +544,11 @@ namespace GAMMA.Models.GameplayComponents
                         CAVariable disVar = variables.First(v => v.Name == "[Attack with Disadvantage]");
                         bool useAdv = attackMode == "Advantage";
                         bool useDis = attackMode == "Disadvantage";
+                        if (attackMode == "Sleeper Hit") { useAdv = true; }
                         if (advVar.Value == "True") { useAdv = true; }
                         if (disVar.Value == "True") { useDis = true; }
                         attackRoll = HelperMethods.RollD20(useAdv, useDis);
-                        if (attackRoll == 20) 
+                        if (attackRoll == 20 || attackMode == "Sleeper Hit") 
                         { 
                             isCriticalHit = true;
                             variables.First(v => v.Name == "[Is Critical Hit]").Value = "True";
