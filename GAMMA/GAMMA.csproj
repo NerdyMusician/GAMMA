@@ -15,7 +15,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.29.0.0</ApplicationVersion>
+    <ApplicationVersion>1.29.1.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -50,6 +50,8 @@
     <None Remove="Images\Icons\githubFaviconDark.png" />
     <None Remove="Images\Icons\horde.png" />
     <None Remove="Images\Icons\markup.png" />
+    <None Remove="Images\Icons\switch_off.png" />
+    <None Remove="Images\Icons\switch_on.png" />
     <None Remove="Images\Icons\text_blue.png" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +98,8 @@
     <Resource Include="Images\Icons\plus_green.png" />
     <Resource Include="Images\Icons\step.png" />
     <Resource Include="Images\Icons\stop.png" />
+    <Resource Include="Images\Icons\switch_off.png" />
+    <Resource Include="Images\Icons\switch_on.png" />
     <Resource Include="Images\Icons\text_blue.png" />
     <Resource Include="Images\Icons\upload.png" />
     <Resource Include="Images\Icons\warning.png" />

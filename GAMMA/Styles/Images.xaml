@@ -159,6 +159,12 @@
     <Style TargetType="Image" x:Key="Icon_Text_Blue" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/text_blue.png" />
     </Style>
+    <Style TargetType="Image" x:Key="Icon_Switch_On" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/switch_on.png" />
+    </Style>
+    <Style TargetType="Image" x:Key="Icon_Switch_Off" BasedOn="{StaticResource Icon_Base}">
+        <Setter Property="Source" Value="../Images/Icons/switch_off.png" />
+    </Style>
     
     <!-- Weather Icons -->
     <Style TargetType="Image" x:Key="Icon_Weather_Clear" BasedOn="{StaticResource Icon_Base}">

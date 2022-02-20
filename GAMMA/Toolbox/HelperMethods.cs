@@ -853,6 +853,7 @@ namespace GAMMA.Toolbox
             ms.Position = 0; // Fixes "Root element is missing" issue https://stackoverflow.com/questions/30698349/xml-serializing-and-deserializing-with-memory-stream 
             return (T)xmlSerializer.Deserialize(ms);
         }
+        
 
     }
 }

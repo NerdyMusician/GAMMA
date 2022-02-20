@@ -84,6 +84,7 @@ namespace GAMMA.Models
         private void DoRemoveAlterant(object param)
         {
             Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Alterants.Remove(this);
+            UpdateCharacterStats();
         }
         #endregion
         #region ToggleActive

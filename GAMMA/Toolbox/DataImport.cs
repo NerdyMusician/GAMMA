@@ -752,6 +752,7 @@ namespace GAMMA.Toolbox
                 }
                 character.UpdateInventoryItemCategories();
                 character.ValidateCharacterCreation();
+                character.SetAlterantSuggestedValues();
             }
 
             Configuration.MainModelRef.CharacterBuilderView.RunNullSpellLinkCheck();
