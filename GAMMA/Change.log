@@ -1,6 +1,8 @@
 ﻿GAMMA 1.29.01
 - NEW: Campaign > Gameplay > Creatures can now attack with option "Sleeper Hit" to roll with advantage and crit, emulating attacking a paralyzed player
+- NEW: Added Inactive tab for Campaign gameplay to house Ooc and 0hp creatures
 - CHANGE: New icons for alterant active/inactive toggle
+- CHANGE: Other gameplay tabs no longer hold onto Ooc and 0hp combatants after re-sort
 - BUG: Fixed issue where existing alterant stat change dropdowns weren't populating for existing or imported characters
 - BUG: Fixed issue where removing an active character alterant did not re-update character's current stats
 
