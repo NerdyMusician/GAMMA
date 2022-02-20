@@ -16,9 +16,11 @@ namespace GAMMA.Models
         public GameCampaign()
         {
             Combatants = new();
+            CombatantsByInitiative = new();
             CombatantsByName = new();
             CombatantsByIsNpc = new();
             CombatantsByIsPlayer = new();
+            InactiveCombatants = new();
             Messages = new();
             Timestamps = new();
             Npcs = new();
@@ -290,6 +292,14 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _Combatants, value);
         }
         #endregion
+        #region CombatantsByInitiative
+        private ObservableCollection<CreatureModel> _CombatantsByInitiative;
+        public ObservableCollection<CreatureModel> CombatantsByInitiative
+        {
+            get => _CombatantsByInitiative;
+            set => SetAndNotify(ref _CombatantsByInitiative, value);
+        }
+        #endregion
         #region CombatantsByName
         private ObservableCollection<CreatureModel> _CombatantsByName;
         public ObservableCollection<CreatureModel> CombatantsByName
@@ -312,6 +322,14 @@ namespace GAMMA.Models
         {
             get => _CombatantsByIsPlayer;
             set => SetAndNotify(ref _CombatantsByIsPlayer, value);
+        }
+        #endregion
+        #region InactiveCombatants
+        private ObservableCollection<CreatureModel> _InactiveCombatants;
+        public ObservableCollection<CreatureModel> InactiveCombatants
+        {
+            get => _InactiveCombatants;
+            set => SetAndNotify(ref _InactiveCombatants, value);
         }
         #endregion
         #region ActiveCombatant
@@ -1297,14 +1315,18 @@ namespace GAMMA.Models
         {
             if (Combatants.Count == 0) 
             {
+                CombatantsByInitiative = new();
                 CombatantsByName = new();
                 CombatantsByIsNpc = new();
                 CombatantsByIsPlayer = new();
+                InactiveCombatants = new();
+                return;
             }
-            Combatants = new(Combatants.OrderBy(item => (item.CurrentHitPoints <= 0 && item.IsPlayer == false)).ThenBy(item => item.IsOoc).ThenByDescending(item => item.Initiative).ToList());
-            CombatantsByName = new(Combatants.OrderBy(item => (item.CurrentHitPoints <= 0 && item.IsPlayer == false)).ThenBy(item => item.IsOoc).ThenBy(c => c.DisplayName));
+            CombatantsByInitiative = new(Combatants.Where(c => !c.IsOoc && c.CurrentHitPoints > 0).OrderBy(c => c.IsPlayer == false).ThenByDescending(c => c.Initiative).ToList());
+            CombatantsByName = new(Combatants.Where(c => !c.IsOoc && c.CurrentHitPoints > 0).OrderBy(c => c.IsPlayer == false).ThenBy(c => c.DisplayName));
             CombatantsByIsPlayer = new(Combatants.Where(c => c.IsPlayer).OrderBy(c => c.Name));
             CombatantsByIsNpc = new(Combatants.Where(c => c.IsNpc).OrderBy(item => item.IsOoc).ThenBy(c => c.Name));
+            InactiveCombatants = new(Combatants.Where(c => c.IsOoc || c.CurrentHitPoints <= 0));
         }
         public void UpdateCalendarAndWeather()
         {

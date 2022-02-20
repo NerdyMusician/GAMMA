@@ -2274,7 +2274,7 @@
                                         <TabControl BorderThickness="0 2 0 0">
                                             <TabItem Header="By Initiative">
                                                 <ScrollViewer Height="400" x:Name="CombatantsInitiativeList">
-                                                    <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.Combatants}" ItemTemplateSelector="{StaticResource ListCombatantTemplateSelector}" />
+                                                    <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.CombatantsByInitiative}" ItemTemplateSelector="{StaticResource ListCombatantTemplateSelector}" />
                                                 </ScrollViewer>
                                             </TabItem>
                                             <TabItem Header="By Name">
@@ -2290,6 +2290,11 @@
                                             <TabItem Header="Players">
                                                 <ScrollViewer Height="400" x:Name="CombatantsPlayerList">
                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.CombatantsByIsPlayer}" ItemTemplateSelector="{StaticResource ListCombatantTemplateSelector}" />
+                                                </ScrollViewer>
+                                            </TabItem>
+                                            <TabItem Header="Inactive">
+                                                <ScrollViewer Height="400" x:Name="InactiveCombatantList">
+                                                    <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.InactiveCombatants}" ItemTemplateSelector="{StaticResource ListCombatantTemplateSelector}" />
                                                 </ScrollViewer>
                                             </TabItem>
                                         </TabControl>

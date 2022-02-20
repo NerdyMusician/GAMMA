@@ -188,6 +188,7 @@ namespace GAMMA.Windows
                 CombatantsNameList.Height = this.ActualHeight - 360;
                 CombatantsNpcList.Height = this.ActualHeight - 360;
                 CombatantsPlayerList.Height = this.ActualHeight - 360;
+                InactiveCombatantList.Height = this.ActualHeight - 360;
                 TitleBar.Width = this.ActualWidth - 24;
             }
             catch { }
