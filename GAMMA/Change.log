@@ -1,4 +1,7 @@
-﻿GAMMA 1.29.01
+﻿GAMMA 1.29.02
+- BUG: Fixed UI issue where pack creature delete button wasn't reachable
+
+GAMMA 1.29.01
 - NEW: Campaign > Gameplay > Creatures can now attack with option "Sleeper Hit" to roll with advantage and crit, emulating attacking a paralyzed player
 - NEW: Added Inactive tab for Campaign gameplay to house Ooc and 0hp creatures
 - CHANGE: New icons for alterant active/inactive toggle

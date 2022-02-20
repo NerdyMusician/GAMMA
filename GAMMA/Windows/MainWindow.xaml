@@ -2578,7 +2578,7 @@
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
                                                             </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
-                                                                <ScrollViewer Height="360" Width="340">
+                                                                <ScrollViewer Height="360" MinWidth="340">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.CreatureList}">
                                                                         <ItemsControl.ItemTemplate>
                                                                             <DataTemplate>
@@ -2589,7 +2589,7 @@
                                                                                     <Separator />
                                                                                     <CheckBox IsChecked="{Binding IsHorde}" />
                                                                                     <Image Style="{StaticResource Icon_Horde}" />
-                                                                                    <cc:GammaTextBox Text="{Binding MaxHordeSize}" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" />
+                                                                                    <cc:GammaTextBox Text="{Binding MaxHordeSize}" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" Width="32" />
                                                                                     <Separator />
                                                                                     <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveCreature}" />
                                                                                 </StackPanel>

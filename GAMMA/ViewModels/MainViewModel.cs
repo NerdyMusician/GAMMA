@@ -62,7 +62,7 @@ namespace GAMMA.ViewModels
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
             
-            ApplicationVersion = "GAMMA 1.29.01";
+            ApplicationVersion = "GAMMA 1.29.02 beta";
 
             Configuration.LoadComplete = true;
 
