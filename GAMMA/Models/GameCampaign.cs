@@ -1322,8 +1322,8 @@ namespace GAMMA.Models
                 InactiveCombatants = new();
                 return;
             }
-            CombatantsByInitiative = new(Combatants.Where(c => !c.IsOoc && c.CurrentHitPoints > 0).OrderBy(c => c.IsPlayer == false).ThenByDescending(c => c.Initiative).ToList());
-            CombatantsByName = new(Combatants.Where(c => !c.IsOoc && c.CurrentHitPoints > 0).OrderBy(c => c.IsPlayer == false).ThenBy(c => c.DisplayName));
+            CombatantsByInitiative = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderBy(c => c.IsPlayer == false).ThenByDescending(c => c.Initiative).ToList());
+            CombatantsByName = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderBy(c => c.IsPlayer == false).ThenBy(c => c.DisplayName));
             CombatantsByIsPlayer = new(Combatants.Where(c => c.IsPlayer).OrderBy(c => c.Name));
             CombatantsByIsNpc = new(Combatants.Where(c => c.IsNpc).OrderBy(item => item.IsOoc).ThenBy(c => c.Name));
             InactiveCombatants = new(Combatants.Where(c => c.IsOoc || c.CurrentHitPoints <= 0));
