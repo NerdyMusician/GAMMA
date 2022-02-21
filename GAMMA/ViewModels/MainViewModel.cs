@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Windows.Input;
@@ -423,8 +424,8 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SourcebookRepository
-        private List<string> _SourcebookRepository;
-        public List<string> SourcebookRepository
+        private ObservableCollection<string> _SourcebookRepository;
+        public ObservableCollection<string> SourcebookRepository
         {
             get => _SourcebookRepository;
             set => SetAndNotify(ref _SourcebookRepository, value);

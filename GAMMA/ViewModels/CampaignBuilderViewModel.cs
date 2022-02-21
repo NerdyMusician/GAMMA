@@ -34,6 +34,7 @@ namespace GAMMA.ViewModels
                     creature.ConnectItemLinks();
                     creature.GetPortraitFilepath();
                     creature.SetHighestSpeedValues();
+                    creature.SetCurrentHordeSize();
                 }
                 campaign.UpdateCalendarAndWeather();
             }
