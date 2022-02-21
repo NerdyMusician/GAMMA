@@ -19,9 +19,9 @@ namespace GAMMA.Models
             Type = "Adventuring Gear";
             Name = "New Item";
             ItemTypes = Configuration.ItemTypes.ToList();
-            CraftingComponents = new ObservableCollection<ItemModel>();
-            AcquiredComponents = new ObservableCollection<ItemModel>();
-            EnchantingRunes = new ObservableCollection<ItemModel>();
+            CraftingComponents = new();
+            AcquiredComponents = new();
+            EnchantingRunes = new();
             StatChanges = new();
         }
 

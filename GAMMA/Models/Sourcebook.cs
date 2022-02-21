@@ -56,7 +56,6 @@ namespace GAMMA.Models
         // Private Methods
         private bool IsReferenced()
         {
-            string message = "";
             List<string> references = new();
 
             foreach (CreatureModel creature in Configuration.MainModelRef.CreatureBuilderView.AllCreatures)
@@ -79,6 +78,7 @@ namespace GAMMA.Models
             }
 
             return false;
+
         }
 
     }

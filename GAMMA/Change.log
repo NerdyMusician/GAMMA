@@ -1,6 +1,7 @@
 ﻿GAMMA 1.29.02
 - CHANGE: Players can now be marked as Active/Inactive for a campaign and add dialog will only grab active
 - CHANGE: Added reference check for sourcebook deletion
+- CHANGE: Spell school icon updates
 - BUG: Fixed UI issue where pack creature delete button wasn't reachable
 - BUG: Fixed issue where players weren't sorting into initiative order
 - BUG: Fixed issue where initative was sorting from lowest to highest
