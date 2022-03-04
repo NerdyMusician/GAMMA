@@ -411,6 +411,7 @@ namespace GAMMA.Models.GameplayComponents
             activeEffects = new();
 
             int rounds = QuantityToPerform;
+            if (creature != null) { rounds += creature.CurrentHordeSize; }
             if (DoesQuantityScale)
             {
                 rounds += (scale * ScaleRate);

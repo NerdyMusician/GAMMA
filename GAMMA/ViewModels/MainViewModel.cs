@@ -18,6 +18,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public MainViewModel()
         {
+            ApplicationVersion = "GAMMA 1.29.02";
             Configuration.MainModelRef = this;
             PlayerClasses = new();
             SpellcastingClasses = new();
@@ -62,8 +63,6 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            
-            ApplicationVersion = "GAMMA 1.29.02 beta";
 
             Configuration.LoadComplete = true;
 

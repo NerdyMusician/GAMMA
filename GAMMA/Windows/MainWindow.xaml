@@ -6833,6 +6833,8 @@
                                                         <cc:MiniButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CharacterBuilderView.ActiveCharacter.SortTraits}" />
                                                         <Separator />
                                                         <cc:MiniToggleButton ImageResource="{StaticResource Icon_Wrench}" CloseOnWindowFocusLoss="False" IsChecked="{Binding CharacterBuilderView.ActiveCharacter.TraitEditModeEnabled, UpdateSourceTrigger=PropertyChanged}" />
+                                                        <Separator />
+                                                        <cc:MiniToggleButton ImageResource="{StaticResource Icon_Search}" Command="{Binding CharacterBuilderView.ActiveCharacter.SearchTraits}" />
                                                     </StackPanel>
                                                 </DockPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left" Margin="0 2">

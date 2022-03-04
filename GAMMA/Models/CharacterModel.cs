@@ -4596,6 +4596,54 @@ namespace GAMMA.Models
         }
         #endregion
 
+        public ICommand SearchTraits => new RelayCommand(DoSearchTraits);
+        private void DoSearchTraits(object param)
+        {
+            NoteSearchDialog noteSearchDialog = new();
+            if (noteSearchDialog.ShowDialog() == true)
+            {
+                string output = "";
+                bool searchHeader = (bool)noteSearchDialog.CBX_LookInHeader.IsChecked;
+                bool searchContent = (bool)noteSearchDialog.CBX_LookInContent.IsChecked;
+                bool useCaseMatch = (bool)noteSearchDialog.CBX_UseCaseMatch.IsChecked;
+                string text = noteSearchDialog.TBX_SearchText.Text;
+
+                foreach (TraitModel trait in Traits)
+                {
+                    bool isMatch = false;
+                    if (searchHeader == true)
+                    {
+                        if (useCaseMatch == true)
+                        {
+                            if (trait.Name.Contains(text)) { isMatch = true; }
+                        }
+                        else
+                        {
+                            if (trait.Name.ToUpper().Contains(text.ToUpper())) { isMatch = true; }
+                        }
+                    }
+                    if (searchContent == true)
+                    {
+                        if (useCaseMatch == true)
+                        {
+                            if (trait.Description.Contains(text)) { isMatch = true; }
+                        }
+                        else
+                        {
+                            if (trait.Description.ToUpper().Contains(text.ToUpper())) { isMatch = true; }
+                        }
+                    }
+
+                    if (isMatch == true) { output += $"{trait.Name}\n{trait.Description}\n\n"; }
+
+                }
+
+                if (output.Length > 0) { HelperMethods.NotifyUser(output, HelperMethods.UserNotificationType.Report); }
+                else { HelperMethods.NotifyUser("No matches found."); }
+
+            }
+        }
+
         // Commands - Character Creator
         #region ChangeBaseAttribute
         public ICommand ChangeBaseAttribute => new RelayCommand(DoChangeBaseAttribute);

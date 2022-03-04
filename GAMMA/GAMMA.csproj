@@ -15,7 +15,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.29.1.0</ApplicationVersion>
+    <ApplicationVersion>1.29.2.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -49,6 +49,7 @@
     <None Remove="Images\Icons\export.png" />
     <None Remove="Images\Icons\githubFaviconDark.png" />
     <None Remove="Images\Icons\horde.png" />
+    <None Remove="Images\Icons\magnifying_glass.png" />
     <None Remove="Images\Icons\markup.png" />
     <None Remove="Images\Icons\switch_off.png" />
     <None Remove="Images\Icons\switch_on.png" />
@@ -91,6 +92,7 @@
     <Resource Include="Images\Icons\githubFaviconDark.png" />
     <Resource Include="Images\Icons\home.png" />
     <Resource Include="Images\Icons\horde.png" />
+    <Resource Include="Images\Icons\magnifying_glass.png" />
     <Resource Include="Images\Icons\markup.png" />
     <Resource Include="Images\Icons\pass.png" />
     <Resource Include="Images\Icons\pause.png" />
