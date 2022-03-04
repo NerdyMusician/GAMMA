@@ -3,6 +3,7 @@ using GAMMA.Toolbox;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace GAMMA.Windows
@@ -13,6 +14,7 @@ namespace GAMMA.Windows
         public ObjectSelectionDialog()
         {
             InitializeComponent();
+
         }
         public ObjectSelectionDialog(List<ItemModel> items, bool multiAdd = false)
         {
@@ -111,5 +113,10 @@ namespace GAMMA.Windows
             }
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ToolTipService.ShowDurationProperty.OverrideMetadata(
+    typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
+        }
     }
 }

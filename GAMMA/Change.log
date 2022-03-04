@@ -1,4 +1,20 @@
-﻿GAMMA 1.29.01
+﻿GAMMA 1.29.02
+- NEW: Able to search character traits and display report of items containing entered text
+- CHANGE: Players can now be marked as Active/Inactive for a campaign and add dialog will only grab active
+- CHANGE: Added reference check for sourcebook deletion
+- CHANGE: Spell school icon updates
+- CHANGE: Horde creature attacks will output the number of times of the horde
+- BUG: Fixed UI issue where pack creature delete button wasn't reachable
+- BUG: Fixed issue where players weren't sorting into initiative order
+- BUG: Fixed issue where initative was sorting from lowest to highest
+- BUG: Fixed issue where horde size wasn't updating on application load
+- BUG: Fixed issue where horde size wasn't updating after Group Save utility usage
+- BUG: Fixed issue where horde size wasn't updating after campaign import
+- BUG: Fixed enemy/ally toggle not updating Quick Info
+- BUG: Fixed issue where sourcebook delete button did not work
+- BUG: Fixed issue where sourcebook dropdowns do not update with data change
+
+GAMMA 1.29.01
 - NEW: Campaign > Gameplay > Creatures can now attack with option "Sleeper Hit" to roll with advantage and crit, emulating attacking a paralyzed player
 - NEW: Added Inactive tab for Campaign gameplay to house Ooc and 0hp creatures
 - CHANGE: New icons for alterant active/inactive toggle

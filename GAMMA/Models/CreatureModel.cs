@@ -2987,6 +2987,7 @@ namespace GAMMA.Models
         private void DoToggleEnemyAlly()
         {
             IsAlly = !IsAlly;
+            SetQuickInfo();
         }
         #endregion
         #region ToggleNpc

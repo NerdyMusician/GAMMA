@@ -238,10 +238,15 @@ namespace GAMMA.Models.WebAutomation
                     {
                         webElements = webDriver.FindElements(By.CssSelector(handleMatch));
                     }
+                    if (element.TargetElementHandle == "XPath")
+                    {
+                        webElements = webDriver.FindElements(By.XPath(handleMatch));
+                    }
                     if (webElements.Count < element.ElementMatchIteration + 1)
                     {
                         return null;
                     }
+                    
                     int x = 0;
                     foreach (IWebElement webElement in webElements)
                     {

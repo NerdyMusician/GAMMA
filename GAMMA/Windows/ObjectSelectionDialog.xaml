@@ -9,7 +9,7 @@
         mc:Ignorable="d" Height="120" Width="360"
         WindowStyle="None" Background="{StaticResource PrimaryBackground}"
         BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
-        WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True" Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="cc:ImageButton" BasedOn="{StaticResource ImageButton}" />
         <Style TargetType="{x:Type cc:GammaComboBox}" BasedOn="{StaticResource CustomComboBox}">
@@ -84,30 +84,32 @@
                     <TextBlock Text="{Binding Name}" />
                     <Image Style="{StaticResource Icon_Info}" HorizontalAlignment="Right">
                         <Image.ToolTip>
-                            <StackPanel>
-                                <ItemsControl ItemsSource="{Binding CreatureList}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Foreground="{StaticResource TooltipFontColor}">
+                            <ToolTip StaysOpen="True">
+                                <StackPanel>
+                                    <ItemsControl ItemsSource="{Binding CreatureList}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Foreground="{StaticResource TooltipFontColor}">
                                                 <Run Text="-" />
                                                 <Run Text="{Binding Quantity}" />
                                                 <Run Text="x" />
                                                 <Run Text="{Binding CreatureName}" />
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                                <ItemsControl ItemsSource="{Binding NpcList}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Foreground="{StaticResource TooltipFontColor}">
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <ItemsControl ItemsSource="{Binding NpcList}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Foreground="{StaticResource TooltipFontColor}">
                                                 <Run Text="-" />
                                                 <Run Text="{Binding CreatureName}" />
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ToolTip>
                         </Image.ToolTip>
                     </Image>
                 </DockPanel>

@@ -834,6 +834,7 @@ namespace GAMMA.Toolbox
                     combatant.ConnectSpellLinks();
                     combatant.GetPortraitFilepath();
                     combatant.SetFormattedTexts();
+                    combatant.SetHordeStats();
                 }
                 campaign.SortCombatants();
                 campaign.UpdateCalendarAndWeather();

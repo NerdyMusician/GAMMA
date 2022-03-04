@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Windows.Input;
@@ -17,6 +18,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public MainViewModel()
         {
+            ApplicationVersion = "GAMMA 1.29.02";
             Configuration.MainModelRef = this;
             PlayerClasses = new();
             SpellcastingClasses = new();
@@ -61,8 +63,6 @@ namespace GAMMA.ViewModels
             if (SettingsView.InDmModeModern) { TabSelected_Campaigns = true; }
             else { TabSelected_Players = true; }
             SettingsView.WebDriverStatus = "Closed";
-            
-            ApplicationVersion = "GAMMA 1.29.01";
 
             Configuration.LoadComplete = true;
 
@@ -423,8 +423,8 @@ namespace GAMMA.ViewModels
         }
         #endregion
         #region SourcebookRepository
-        private List<string> _SourcebookRepository;
-        public List<string> SourcebookRepository
+        private ObservableCollection<string> _SourcebookRepository;
+        public ObservableCollection<string> SourcebookRepository
         {
             get => _SourcebookRepository;
             set => SetAndNotify(ref _SourcebookRepository, value);

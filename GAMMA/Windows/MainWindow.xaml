@@ -2411,7 +2411,7 @@
                                                   SelectedItem="{Binding CampaignView.ActiveCampaign.ActivePlayer}">
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate>
-                                                        <TextBlock Text="{Binding Name}" Foreground="{StaticResource PrimaryFontColor}" />
+                                                        <TextBlock Text="{Binding Name}" Foreground="{Binding IsActive, Converter={tool:ValidationFontColor}}" />
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                             </ListView>
@@ -2462,6 +2462,10 @@
                                             <StackPanel Orientation="Horizontal">
                                                 <cc:FieldLabel Text="Other Information" />
                                                 <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActivePlayer.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="128" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <cc:FieldLabel Text="Is Active?" />
+                                                <CheckBox IsChecked="{Binding CampaignView.ActiveCampaign.ActivePlayer.IsActive}" />
                                             </StackPanel>
                                             <Separator />
                                             <cc:ImageButton ImageResource="{StaticResource Icon_X}" Text="Delete Player" Command="{Binding CampaignView.ActiveCampaign.ActivePlayer.RemoveCreature}" CommandParameter="Active Campaign Player" HorizontalAlignment="Right" />
@@ -2578,7 +2582,7 @@
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
                                                             </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
-                                                                <ScrollViewer Height="360" Width="340">
+                                                                <ScrollViewer Height="360" MinWidth="340">
                                                                     <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActivePack.CreatureList}">
                                                                         <ItemsControl.ItemTemplate>
                                                                             <DataTemplate>
@@ -2589,7 +2593,7 @@
                                                                                     <Separator />
                                                                                     <CheckBox IsChecked="{Binding IsHorde}" />
                                                                                     <Image Style="{StaticResource Icon_Horde}" />
-                                                                                    <cc:GammaTextBox Text="{Binding MaxHordeSize}" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" />
+                                                                                    <cc:GammaTextBox Text="{Binding MaxHordeSize}" Visibility="{Binding IsHorde, Converter={tool:HiddenIfFalseOtherwiseVisible}}" Width="32" />
                                                                                     <Separator />
                                                                                     <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveCreature}" />
                                                                                 </StackPanel>
@@ -2744,7 +2748,7 @@
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Source" />
-                                            <cc:GammaComboBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository}" IsEditable="False" />
+                                            <cc:GammaComboBox Text="{Binding CreatureBuilderView.ActiveCreature.Sourcebook, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SourcebookRepository, UpdateSourceTrigger=PropertyChanged}" IsEditable="False" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <cc:FieldLabel Text="Data Validated?" Width="118" />
@@ -6829,6 +6833,8 @@
                                                         <cc:MiniButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CharacterBuilderView.ActiveCharacter.SortTraits}" />
                                                         <Separator />
                                                         <cc:MiniToggleButton ImageResource="{StaticResource Icon_Wrench}" CloseOnWindowFocusLoss="False" IsChecked="{Binding CharacterBuilderView.ActiveCharacter.TraitEditModeEnabled, UpdateSourceTrigger=PropertyChanged}" />
+                                                        <Separator />
+                                                        <cc:MiniToggleButton ImageResource="{StaticResource Icon_Search}" Command="{Binding CharacterBuilderView.ActiveCharacter.SearchTraits}" />
                                                     </StackPanel>
                                                 </DockPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left" Margin="0 2">

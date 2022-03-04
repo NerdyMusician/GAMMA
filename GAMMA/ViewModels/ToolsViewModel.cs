@@ -1402,12 +1402,13 @@ namespace GAMMA.ViewModels
         private void SetConfigList_Sourcebooks()
         {
             if (Configuration.MainModelRef.SourcebookRepository == null) { return; }
-            Configuration.MainModelRef.SourcebookRepository.Clear();
+            List<string> sourcebooks = new();
             foreach (Sourcebook sourcebook in Sourcebooks)
             {
                 if (sourcebook.IsValidated == false) { continue; }
-                Configuration.MainModelRef.SourcebookRepository.Add(sourcebook.Name);
+                sourcebooks.Add(sourcebook.Name);
             }
+            Configuration.MainModelRef.SourcebookRepository = new(sourcebooks);
         }
         private void SetConfigList_NoteTypes()
         {

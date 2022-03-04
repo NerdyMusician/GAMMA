@@ -668,7 +668,7 @@ namespace GAMMA.Models
         public ICommand AddPlayers => new RelayCommand(DoAddPlayers);
         private void DoAddPlayers(object param)
         {
-            MultiObjectSelectionDialog selectionDialog = new (Configuration.CreatureRepository.Where(creature => creature.IsPlayer == true).ToList().Concat(Players.ToList()).ToList(), "Players");
+            MultiObjectSelectionDialog selectionDialog = new (Configuration.CreatureRepository.Where(c => c.IsPlayer && c.IsActive).ToList().Concat(Players.ToList()).ToList(), "Players");
 
             if (selectionDialog.ShowDialog() == true)
             {
@@ -926,6 +926,7 @@ namespace GAMMA.Models
                         message += "\n" + creature.DisplayName + " has died.";
                         continue;
                     }
+                    creature.SetCurrentHordeSize();
                     if (passedThrow) { continue; } // Skip condition check
                     switch (targetDialog.ConditionOnFail)
                     {
@@ -1021,10 +1022,10 @@ namespace GAMMA.Models
         public ICommand ChangeActiveCreature => new RelayCommand(DoChangeActiveCreature);
         private void DoChangeActiveCreature(object param)
         {
-            if (Combatants.Count <= 0) { return; }
-            CreatureModel activeCreature = Combatants.FirstOrDefault(crt => crt.IsActive);
-            CreatureModel firstCreature = Combatants.First();
-            CreatureModel lastCreature = Combatants.Last();
+            if (CombatantsByInitiative.Count <= 0) { return; }
+            CreatureModel activeCreature = CombatantsByInitiative.FirstOrDefault(crt => crt.IsActive);
+            CreatureModel firstCreature = CombatantsByInitiative.First();
+            CreatureModel lastCreature = CombatantsByInitiative.Last();
             if (activeCreature == null) { param = "Reset"; }
             string action = param.ToString();
             switch (action)
@@ -1036,13 +1037,13 @@ namespace GAMMA.Models
                     {
                         if (indexOfNext == -1)
                         {
-                            indexOfNext = (activeCreature == lastCreature) ? 0 : Combatants.IndexOf(activeCreature) + 1;
+                            indexOfNext = (activeCreature == lastCreature) ? 0 : CombatantsByInitiative.IndexOf(activeCreature) + 1;
                         }
-                        if (indexOfNext >= Combatants.Count) { indexOfNext = 0; }
+                        if (indexOfNext >= CombatantsByInitiative.Count) { indexOfNext = 0; }
                         if (indexOfNext == 0) { EncounterRound++; }
-                        if (Combatants[indexOfNext] == activeCreature) { return; } // if it makes a full round and finds nothing
-                        if ((Combatants[indexOfNext].IsOoc || Combatants[indexOfNext].CurrentHitPoints <= 0) && Combatants[indexOfNext].IsPlayer == false) { indexOfNext++; }
-                        else { Combatants[indexOfNext].IsActive = true; foundNext = true; }
+                        if (CombatantsByInitiative[indexOfNext] == activeCreature) { return; } // if it makes a full round and finds nothing
+                        if ((CombatantsByInitiative[indexOfNext].IsOoc || CombatantsByInitiative[indexOfNext].CurrentHitPoints <= 0) && CombatantsByInitiative[indexOfNext].IsPlayer == false) { indexOfNext++; }
+                        else { CombatantsByInitiative[indexOfNext].IsActive = true; foundNext = true; }
 
                     }
                     while (foundNext == false);
@@ -1054,13 +1055,13 @@ namespace GAMMA.Models
                     {
                         if (indexOfPrevious == -1)
                         {
-                            indexOfPrevious = (activeCreature == firstCreature) ? Combatants.IndexOf(lastCreature) : Combatants.IndexOf(activeCreature) - 1;
+                            indexOfPrevious = (activeCreature == firstCreature) ? CombatantsByInitiative.IndexOf(lastCreature) : CombatantsByInitiative.IndexOf(activeCreature) - 1;
                         }
-                        if (indexOfPrevious == (Combatants.IndexOf(lastCreature))) { EncounterRound--; }
+                        if (indexOfPrevious == (CombatantsByInitiative.IndexOf(lastCreature))) { EncounterRound--; }
                         if (EncounterRound == 0) { EncounterRound = 1; return; }
-                        if (Combatants[indexOfPrevious] == activeCreature) { return; } // if it makes a full round and finds nothing
-                        if ((Combatants[indexOfPrevious].IsOoc || Combatants[indexOfPrevious].CurrentHitPoints <= 0) && Combatants[indexOfPrevious].IsPlayer == false) { indexOfPrevious--; }
-                        else { Combatants[indexOfPrevious].IsActive = true; foundPrev = true; }
+                        if (CombatantsByInitiative[indexOfPrevious] == activeCreature) { return; } // if it makes a full round and finds nothing
+                        if ((CombatantsByInitiative[indexOfPrevious].IsOoc || CombatantsByInitiative[indexOfPrevious].CurrentHitPoints <= 0) && CombatantsByInitiative[indexOfPrevious].IsPlayer == false) { indexOfPrevious--; }
+                        else { CombatantsByInitiative[indexOfPrevious].IsActive = true; foundPrev = true; }
                     }
                     while (foundPrev == false);
                     break;
@@ -1068,7 +1069,7 @@ namespace GAMMA.Models
                     YesNoDialog question = new("Reset combat to round 1?");
                     question.ShowDialog();
                     if (question.Answer == false) { return; }
-                    CreatureModel resetCreature = Combatants.FirstOrDefault(crt => (crt.IsOoc == false && crt.CurrentHitPoints > 0) || crt.IsPlayer);
+                    CreatureModel resetCreature = CombatantsByInitiative.FirstOrDefault(crt => (crt.IsOoc == false && crt.CurrentHitPoints > 0) || crt.IsPlayer);
                     if (resetCreature == null) { UpdateActiveCombatant(); return; }
                     else { resetCreature.IsActive = true; }
                     EncounterRound = 1;
@@ -1322,7 +1323,7 @@ namespace GAMMA.Models
                 InactiveCombatants = new();
                 return;
             }
-            CombatantsByInitiative = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderBy(c => c.IsPlayer == false).ThenByDescending(c => c.Initiative).ToList());
+            CombatantsByInitiative = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderByDescending(c => c.Initiative).ToList());
             CombatantsByName = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderBy(c => c.IsPlayer == false).ThenBy(c => c.DisplayName));
             CombatantsByIsPlayer = new(Combatants.Where(c => c.IsPlayer).OrderBy(c => c.Name));
             CombatantsByIsNpc = new(Combatants.Where(c => c.IsNpc).OrderBy(item => item.IsOoc).ThenBy(c => c.Name));
