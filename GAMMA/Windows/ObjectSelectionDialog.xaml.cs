@@ -51,6 +51,7 @@ namespace GAMMA.Windows
             DialogHeader.Text = "Select a Pack";
             ObjectSelectDropdown.OriginalSource = packs;
             ObjectSelectDropdown.ItemsSource = packs;
+            OutOfCombatSelection.Visibility = Visibility.Visible;
         }
         public ObjectSelectionDialog(List<InventoryModel> inventories, int quantity)
         {
@@ -115,8 +116,8 @@ namespace GAMMA.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ToolTipService.ShowDurationProperty.OverrideMetadata(
-    typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
+            //ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
+            // causes application crash opening window more than once
         }
     }
 }
