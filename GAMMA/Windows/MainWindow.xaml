@@ -95,6 +95,9 @@
             <Setter Property="Orientation" Value="Horizontal" />
             <Setter Property="Margin" Value="0 4 0 0" />
         </Style>
+        <Style TargetType="StackPanel" x:Key="SPNL_SectionWrapper">
+            <Setter Property="Margin" Value="4 2" />
+        </Style>
         <DataTemplate x:Key="CustomAbilityForm">
             <StackPanel Orientation="Horizontal" Width="340">
                 <cc:MiniButton ImageResource="{Binding Type, Converter={tool:ImageBasedOnAbilityType}}" Command="{Binding MakeAttack}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" VerticalAlignment="Top" Margin="2 4 2 0">
@@ -569,7 +572,7 @@
         </DockPanel>
         <TabControl BorderThickness="0 2 0 0">
             <TabItem Header="Campaigns" IsSelected="{Binding TabSelected_Campaigns, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SettingsView.InDmModeModern, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                <StackPanel Orientation="Horizontal" Margin="8 2">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}" Orientation="Horizontal">
                     <StackPanel>
                         <DockPanel>
                             <Label Content="Campaigns" />
@@ -2639,7 +2642,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Creatures" IsSelected="{Binding TabSelected_CreatureBuilder, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SettingsView.ShowData, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
-                <StackPanel Orientation="Horizontal" Margin="4 0">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}" Orientation="Horizontal">
                     <StackPanel>
                         <DockPanel>
                             <Label Content="Creatures" />
@@ -3682,7 +3685,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Items" IsSelected="{Binding TabSelected_ItemBuilder, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SettingsView.ShowData, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
-                <StackPanel Orientation="Horizontal" Margin="4 0">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}" Orientation="Horizontal">
                     <StackPanel>
                         <DockPanel>
                             <Label Content="Items" />
@@ -4103,7 +4106,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Spells" IsSelected="{Binding TabSelected_SpellBuilder, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SettingsView.ShowData, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
-                <StackPanel Orientation="Horizontal" Margin="2">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}" Orientation="Horizontal">
                     <StackPanel>
                         <DockPanel Margin="0 0 0 2">
                             <Label Content="Spells" />
@@ -4302,8 +4305,7 @@
                                                 <ContextMenu>
                                                     <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Attack" />
                                                     <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Save" />
-                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Attack" />
-                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Save" />
+                                                    
                                                     <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Primary" />
                                                 </ContextMenu>
                                             </cc:IconButton.ContextMenu>
@@ -4323,6 +4325,8 @@
                                         <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary">
                                             <cc:IconButton.ContextMenu>
                                                 <ContextMenu>
+                                                    <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Attack" />
+                                                    <MenuItem Header="Add from Quick Save Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Save" />
                                                     <MenuItem Header="Paste Copied Ability" Command="{Binding SpellBuilderView.ActiveSpell.PasteCopiedAbility}" CommandParameter="Secondary" />
                                                 </ContextMenu>
                                             </cc:IconButton.ContextMenu>
@@ -4340,7 +4344,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Characters" IsSelected="{Binding TabSelected_Players, UpdateSourceTrigger=PropertyChanged}">
-                <StackPanel>
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.Resources>
                             
@@ -6905,7 +6909,8 @@
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <cc:FieldLabel Text="Spell Attack Mod" />
-                                                        <TextBlock Text="{Binding CharacterBuilderView.ActiveCharacter.SpellAttackBonus, FallbackValue=10, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" />
+                                                        <TextBlock Text="{Binding CharacterBuilderView.ActiveCharacter.SpellAttackBonus, FallbackValue=10, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="32" />
+                                                        <cc:MiniButton ImageResource="{StaticResource Icon_Dice}" Command="{Binding CharacterBuilderView.ActiveCharacter.PlayerRoll}" CommandParameter="SpellAttack" />
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal">
                                                         <cc:FieldLabel Text="Spell Ability Mod" />
@@ -8126,7 +8131,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Audio">
-                <StackPanel Margin="8">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Label Content="Music" HorizontalAlignment="Left" Margin="4 0" />
@@ -8286,7 +8291,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Other Tools" Visibility="{Binding SettingsView.ShowData, Converter={tool:CollapsedIfFalseOtherwiseVisible}, UpdateSourceTrigger=PropertyChanged}">
-                <StackPanel Margin="8 4 0 0">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}">
                     <Label Content="Additional Tools and Data" />
                     <Separator />
                     <TabControl Background="Transparent" TabStripPlacement="Left" Height="680" Width="1320" BorderThickness="2 2 0 0" Padding="0">
@@ -11195,7 +11200,7 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Settings">
-                <StackPanel Margin="8 0">
+                <StackPanel Style="{StaticResource SPNL_SectionWrapper}">
                     <Label Content="Settings" />
                     <Separator />
                     <TabControl TabStripPlacement="Left" Background="Transparent" BorderThickness="2 2 0 0" BorderBrush="{StaticResource ButtonBorder}" Height="800">

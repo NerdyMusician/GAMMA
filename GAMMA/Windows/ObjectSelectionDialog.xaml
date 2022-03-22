@@ -143,10 +143,10 @@
                                      Width="338" Height="24" TextSearch.TextPath="Name"
                                  Margin="4"
                                      ItemTemplateSelector="{StaticResource TemplateSelector}" />
-        <StackPanel Orientation="Horizontal">
+        <DockPanel Width="340">
             <StackPanel Orientation="Horizontal"
                         Name="QuantitySection"
-                        Visibility="Hidden">
+                        Visibility="Collapsed">
                 <TextBlock Text="Quantity"
                            FontWeight="Bold"
                            Foreground="{StaticResource PrimaryFontColor}"
@@ -161,13 +161,17 @@
                          Width="48"
                          Margin="4 2" />
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="OutOfCombatSelection" Visibility="Collapsed">
+                <CheckBox x:Name="CheckBox_AddAsOoc" Style="{StaticResource BaseCheckBox}" />
+                <TextBlock Text="Add as OOC" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Margin="4" />
+            </StackPanel>
             <cc:ImageButton Text="Submit"
                         ImageResource="{StaticResource Icon_Pass}"
                         Click="Submit_Clicked"
                         HorizontalAlignment="Right"
                         Width="80"
-                            Margin="152 0 0 0"/>
-        </StackPanel>
+                            Margin="0"/>
+        </DockPanel>
         
     </StackPanel>
 </Window>

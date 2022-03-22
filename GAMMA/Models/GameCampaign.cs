@@ -585,6 +585,7 @@ namespace GAMMA.Models
                         newCreature.RefreshCounters();
                         newCreature.GetPortraitFilepath();
                         newCreature.SetHighestSpeedValues();
+                        newCreature.IsOoc = (bool)packSelect.CheckBox_AddAsOoc.IsChecked;
                         Combatants.Add(newCreature);
                     }
                 }
@@ -1327,7 +1328,7 @@ namespace GAMMA.Models
             CombatantsByName = new(Combatants.Where(c => (!c.IsOoc && c.CurrentHitPoints > 0) || c.IsPlayer).OrderBy(c => c.IsPlayer == false).ThenBy(c => c.DisplayName));
             CombatantsByIsPlayer = new(Combatants.Where(c => c.IsPlayer).OrderBy(c => c.Name));
             CombatantsByIsNpc = new(Combatants.Where(c => c.IsNpc).OrderBy(item => item.IsOoc).ThenBy(c => c.Name));
-            InactiveCombatants = new(Combatants.Where(c => (c.IsOoc || c.CurrentHitPoints <= 0) && !c.IsPlayer));
+            InactiveCombatants = new(Combatants.Where(c => (c.IsOoc || c.CurrentHitPoints <= 0) && !c.IsPlayer).OrderBy(c => !c.IsOoc).ThenBy(c => c.Name));
         }
         public void UpdateCalendarAndWeather()
         {

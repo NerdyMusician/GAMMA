@@ -1,4 +1,14 @@
-﻿GAMMA 1.29.02
+﻿GAMMA 1.29.03
+- NEW: Able to add a creature pack as out-of-combat
+- NEW: Added button to make generic spell attack roll for character
+- CHANGE: Updated Inactive Combatants sort order
+- CHANGE: Adjusted UI spacings
+- CHANGE: XML data save adjustment to reduce file size (10-50% save data file size reductions)
+- BUG: Fixed issue where opening ObjectSelectionDialog more than once crashes application
+- BUG: Fixed horde attack count scale (was adding 1 attack more than it should)
+- BUG: Spell secondary ability add menu options were incorrectly listed for primary add button
+
+GAMMA 1.29.02
 - NEW: Able to search character traits and display report of items containing entered text
 - CHANGE: Players can now be marked as Active/Inactive for a campaign and add dialog will only grab active
 - CHANGE: Added reference check for sourcebook deletion
