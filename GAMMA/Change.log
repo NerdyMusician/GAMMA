@@ -1,4 +1,7 @@
-﻿GAMMA 1.29.03
+﻿GAMMA 1.29.04
+- BUG: Fixed issue where non-horde creature attacks were performing at zero quantity
+
+GAMMA 1.29.03
 - NEW: Able to add a creature pack as out-of-combat
 - NEW: Added button to make generic spell attack roll for character
 - CHANGE: Updated Inactive Combatants sort order
