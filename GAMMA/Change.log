@@ -1,4 +1,7 @@
-﻿GAMMA 1.29.04
+﻿GAMMA 1.29.05
+- CHANGE: initiave rolling for DM does not affect creatures marked out-of-combat
+
+GAMMA 1.29.04
 - BUG: Fixed issue where non-horde creature attacks were performing at zero quantity
 
 GAMMA 1.29.03

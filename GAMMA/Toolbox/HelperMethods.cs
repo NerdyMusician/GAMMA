@@ -60,19 +60,26 @@ namespace GAMMA.Toolbox
         }
         public static void OutputToWebChat(string message)
         {
-            IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
-            foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.OutputWebActions)
+            try
             {
-                if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
+                foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.OutputWebActions)
                 {
-                    NotifyUser("No elements provided for web action.");
-                    break;
+                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    {
+                        NotifyUser("No elements provided for web action.");
+                        break;
+                    }
+                    if (!webAction.PerformWebAction(ref driverRef, message))
+                    {
+                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        break;
+                    }
                 }
-                if (!webAction.PerformWebAction(ref driverRef, message))
-                {
-                    NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
-                    break;
-                }
+            }
+            catch (Exception e)
+            {
+                NotifyUser(e.Message);
             }
         }
         public static bool SwitchbackActiveCharacter()

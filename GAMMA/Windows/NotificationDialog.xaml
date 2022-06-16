@@ -7,7 +7,7 @@
         xmlns:cc="clr-namespace:GAMMA.CustomControls"
         mc:Ignorable="d" WindowStyle="None" Height="240" Width="320"
         Background="{StaticResource PrimaryBackground}" 
-        AllowsTransparency="True" 
+        AllowsTransparency="True"
         BorderBrush="{StaticResource WindowBorder}" BorderThickness="2"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>

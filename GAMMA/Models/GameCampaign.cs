@@ -700,7 +700,7 @@ namespace GAMMA.Models
 
             foreach (CreatureModel creature in Combatants)
             {
-                if (creature.IsPlayer == false)
+                if (creature.IsPlayer == false && !creature.IsOoc)
                 {
                     if (creature.Initiative == 0 || reroll)
                     {
