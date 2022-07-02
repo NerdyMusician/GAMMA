@@ -57,7 +57,7 @@
     <Style TargetType="Image" x:Key="Icon_Info" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/dm_info.png" />
     </Style>
-    <Style TargetType="Image" x:Key="Icon_Plus_Green" BasedOn="{StaticResource Icon_Base}">
+    <Style TargetType="Image" x:Key="Icon_Add" BasedOn="{StaticResource Icon_Base}">
         <Setter Property="Source" Value="../Images/Icons/dm_add.png" />
     </Style>
     <Style TargetType="Image" x:Key="Icon_PaintBrush" BasedOn="{StaticResource Icon_Base}">

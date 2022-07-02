@@ -852,6 +852,10 @@ namespace GAMMA.Toolbox
                 }
             }
         }
+        public static string GetUniqueId()
+        {
+            return Guid.NewGuid().ToString().Replace("-", "");
+        }
         public static T DeepClone<T>(this T obj)
         {
             using MemoryStream ms = new();

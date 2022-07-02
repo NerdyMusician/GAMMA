@@ -182,7 +182,7 @@
                             </StackPanel>
                             <DockPanel Width="400" HorizontalAlignment="Left">
                                 <cc:FieldLabel Text="Classes and Levels" VerticalAlignment="Center" />
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddClassLink}" HorizontalAlignment="Right" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddClassLink}" HorizontalAlignment="Right" />
                             </DockPanel>
                             <ItemsControl ItemsSource="{Binding PlayerClasses, UpdateSourceTrigger=PropertyChanged}">
                                 <ItemsControl.ItemTemplate>
@@ -283,32 +283,32 @@
                                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Strength,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Strength,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Strength,Increment" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Dexterity,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Dexterity,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Dexterity,Increment" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Constitution,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Constitution,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Constitution,Increment" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="4" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Intelligence,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Intelligence,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Intelligence,Increment" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="5" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Wisdom,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Wisdom,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Wisdom,Increment" />
                                         </StackPanel>
                                         <StackPanel Grid.Column="6" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                             <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Charisma,Decrement" />
                                             <Separator />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Charisma,Increment" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeBaseAttribute}" CommandParameter="Charisma,Increment" />
                                         </StackPanel>
                                     </Grid>
                                 </StackPanel>
@@ -362,32 +362,32 @@
                                                 <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Strength,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Strength,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Strength,Increment" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Dexterity,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Dexterity,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Dexterity,Increment" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Constitution,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Constitution,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Constitution,Increment" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="4" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Intelligence,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Intelligence,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Intelligence,Increment" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="5" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Wisdom,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Wisdom,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Wisdom,Increment" />
                                                 </StackPanel>
                                                 <StackPanel Grid.Column="6" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding MaxPoints, Converter={tool:VisibleIfEqualOrMore}, ConverterParameter=1}">
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ChangeAttribute}" CommandParameter="Charisma,Decrement" />
                                                     <Separator />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ChangeAttribute}" CommandParameter="Charisma,Increment" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ChangeAttribute}" CommandParameter="Charisma,Increment" />
                                                 </StackPanel>
 
                                             </Grid>

@@ -81,6 +81,19 @@ namespace GAMMA.ViewModels
             SecondaryFilters = new();
             SourceTextSearch = "";
         }
+        public MultiObjectSelectionViewModel(List<GameNote> records, string mode)
+        {
+            InitializeCollections();
+            SourceNotes = new(records);
+            Mode = mode;
+            SourceTextSearch = "";
+        }
+        private void InitializeCollections()
+        {
+            SourceNotes = new();
+            FilteredSourceNotes = new();
+            SelectedNotes = new();
+        }
 
         // Databound Properties
         #region Mode
@@ -270,6 +283,25 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _Count_SourceFiltered, value);
         }
         #endregion
+
+        private ObservableCollection<GameNote> _SourceNotes;
+        public ObservableCollection<GameNote> SourceNotes
+        {
+            get => _SourceNotes;
+            set => SetAndNotify(ref _SourceNotes, value);
+        }
+        private ObservableCollection<GameNote> _FilteredSourceNotes;
+        public ObservableCollection<GameNote> FilteredSourceNotes
+        {
+            get => _FilteredSourceNotes;
+            set => SetAndNotify(ref _FilteredSourceNotes, value);
+        }
+        private ObservableCollection<GameNote> _SelectedNotes;
+        public ObservableCollection<GameNote> SelectedNotes
+        {
+            get => _SelectedNotes;
+            set => SetAndNotify(ref _SelectedNotes, value);
+        }
 
         // Commands
         #region SelectFilters

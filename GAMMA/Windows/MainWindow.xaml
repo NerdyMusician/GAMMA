@@ -197,7 +197,7 @@
                         <Separator />
                         <DockPanel>
                             <cc:FieldLabel Text="Variables" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddVariable}" />
+                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddVariable}" />
                         </DockPanel>
                         <Border Style="{StaticResource ListBorder}" Visibility="{Binding Variables.Count, Converter={tool:CollapsedIfZero}}">
                             <ItemsControl ItemsSource="{Binding Variables}" Margin="0 0 0 4">
@@ -242,7 +242,7 @@
                         <Separator />
                         <DockPanel>
                             <cc:FieldLabel Text="Pre-Output Actions" Width="160" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddPreAction}" />
+                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddPreAction}" />
                         </DockPanel>
                         <Border Style="{StaticResource ListBorder}" Visibility="{Binding PreActions.Count, Converter={tool:CollapsedIfZero}}">
                             <ItemsControl ItemsSource="{Binding PreActions}" Margin="0 0 0 4">
@@ -294,7 +294,7 @@
                                                     <Separator />
                                                     <DockPanel>
                                                         <cc:FieldLabel Text="Conditions" Width="74" />
-                                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddCondition}" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddCondition}" />
                                                     </DockPanel>
                                                     <Border Style="{StaticResource ListBorder}" Visibility="{Binding Conditions.Count, Converter={tool:CollapsedIfZero}}">
                                                         <ItemsControl ItemsSource="{Binding Conditions}" Margin="0 0 0 4">
@@ -343,7 +343,7 @@
                                                         </StackPanel>
                                                         <DockPanel Width="274">
                                                             <cc:FieldLabel Text="Translations" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddPair}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddPair}" />
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}" Visibility="{Binding Pairs.Count, Converter={tool:CollapsedIfZero}}">
                                                             <ItemsControl ItemsSource="{Binding Pairs}">
@@ -367,7 +367,7 @@
                                                         <Separator />
                                                         <DockPanel>
                                                             <cc:FieldLabel Text="Answers" Width="160" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddAnswer}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddAnswer}" />
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}" Visibility="{Binding Answers.Count, Converter={tool:CollapsedIfZero}}">
                                                             <ItemsControl ItemsSource="{Binding Answers}">
@@ -449,7 +449,7 @@
                         <Separator />
                         <DockPanel>
                             <cc:FieldLabel Text="Post-Output Actions" Width="160" />
-                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddPostAction}" />
+                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddPostAction}" />
                         </DockPanel>
                         <Border Style="{StaticResource ListBorder}" Visibility="{Binding PostActions.Count, Converter={tool:CollapsedIfZero}}">
                             <ItemsControl ItemsSource="{Binding PostActions}" Margin="0 0 0 4">
@@ -475,7 +475,7 @@
                                                     <Separator />
                                                     <DockPanel>
                                                         <cc:FieldLabel Text="Conditions" Width="74" />
-                                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" />
                                                     </DockPanel>
                                                     <Border Style="{StaticResource ListBorder}" Visibility="{Binding Conditions.Count, Converter={tool:CollapsedIfZero}}">
                                                         <ItemsControl ItemsSource="{Binding Conditions}" Margin="0 0 0 4">
@@ -577,7 +577,7 @@
                         <DockPanel>
                             <Label Content="Campaigns" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.AddCampaign}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.AddCampaign}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding CampaignView.SaveCampaigns}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.SortCampaigns}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding CampaignView.ImportCampaigns}" />
@@ -751,7 +751,7 @@
                                                                                                 <Separator Width="8" />
                                                                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding AlterCurrentCount}" CommandParameter="-1" />
                                                                                                 <Separator />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
+                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
                                                                                                 <Separator />
                                                                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Refresh}" Command="{Binding ResetCount}" />
                                                                                             </StackPanel>
@@ -1453,7 +1453,7 @@
                                                                                                 <Separator Width="8" />
                                                                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding AlterCurrentCount}" CommandParameter="-1" />
                                                                                                 <Separator />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
+                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
                                                                                                 <Separator />
                                                                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Refresh}" Command="{Binding ResetCount}" />
                                                                                             </StackPanel>
@@ -2237,7 +2237,7 @@
                                         <Separator />
                                         <DockPanel>
                                             <TextBlock Text="Timestamps" VerticalAlignment="Bottom" />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddTimestamp}" HorizontalAlignment="Right" Margin="0 0 0 -2" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.AddTimestamp}" HorizontalAlignment="Right" Margin="0 0 0 -2" />
                                         </DockPanel>
                                         <Border Style="{StaticResource ListBorder}">
                                             <ScrollViewer Width="240" Height="160">
@@ -2306,94 +2306,190 @@
                             </TabItem>
                             <TabItem Header="Notes">
                                 <StackPanel Margin="4 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <StackPanel>
-                                            <DockPanel Margin="0 2">
-                                                <Label Content="Campaign Notes" />
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Page_Add}" Command="{Binding CampaignView.ActiveCampaign.AddNote}" ToolTip="Add new root note." />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortNotes}" ToolTip="Sort notes." />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Page_Edit}" Command="{Binding CampaignView.ActiveCampaign.PasteNote}" ToolTip="Paste note as root note." />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Search}" Command="{Binding CampaignView.ActiveCampaign.SearchNotes}" ToolTip="Search notes.">
-                                                        <cc:IconButton.ContextMenu>
-                                                            <ContextMenu>
-                                                                <MenuItem Header="Reset Search" Command="{Binding CampaignView.ActiveCampaign.ClearSearchMatches}" />
-                                                            </ContextMenu>
-                                                        </cc:IconButton.ContextMenu>
-                                                    </cc:IconButton>
-                                                </StackPanel>
-                                            </DockPanel>
-                                            <TreeView Background="Transparent" ItemsSource="{Binding CampaignView.ActiveCampaign.Notes, UpdateSourceTrigger=PropertyChanged}" SelectedItemChanged="CampaignNotesTreeView_SelectedItemChanged"
-                                                              Width="340" Height="560" BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" Margin="2 0" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                                                <TreeView.ItemContainerStyle>
-                                                    <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource DMTreeViewItem}">
-                                                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                                    </Style>
-                                                </TreeView.ItemContainerStyle>
-                                                <TreeView.ItemTemplate>
-                                                    <HierarchicalDataTemplate ItemsSource="{Binding SubNotes}">
-                                                        <StackPanel Orientation="Horizontal" Margin="2">
-                                                            <StackPanel.ContextMenu>
-                                                                <ContextMenu>
-                                                                    <MenuItem Header="Add Sub Note" Command="{Binding AddSubNote}" />
-                                                                    <MenuItem Header="Delete Note" Command="{Binding DeleteNote}" />
-                                                                    <MenuItem Header="Copy Note" Command="{Binding CopyNote}" />
-                                                                    <MenuItem Header="Paste Note" Command="{Binding PasteNote}" />
-                                                                </ContextMenu>
-                                                            </StackPanel.ContextMenu>
-                                                            <Image Style="{Binding Icon, Converter={tool:ImageBasedOnIconName}}" />
-                                                            <Separator />
-                                                            <Image Style="{StaticResource Icon_Search}" Visibility="{Binding IsSearchMatch, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
-                                                            <Separator />
-                                                            <TextBlock Text="{Binding Header}" Foreground="{StaticResource PrimaryFontColor}" />
-                                                            <Separator />
-                                                            <Image Style="{StaticResource Icon_Paperclip}" Visibility="{Binding AttachmentFileName, Converter={tool:CollapsedIfNullOrEmpty}}" />
+                                    <TabControl BorderThickness="0 2 0 0">
+                                        <TabItem Header="Linked Note System (new)" Width="200">
+
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel>
+                                                    <DockPanel>
+                                                        <Label Content="Notes" />
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.AddNewNote}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortNewNotes}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sync}" Command="{Binding CampaignView.ActiveCampaign.SyncNewNotes}" />
                                                         </StackPanel>
-                                                    </HierarchicalDataTemplate>
-                                                </TreeView.ItemTemplate>
-                                            </TreeView>
-                                        </StackPanel>
-                                        <StackPanel Margin="8 20 0 0" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote, Converter={tool:CollapsedIfNull}}">
-                                            <StackPanel.Resources>
-                                                <Style TargetType="StackPanel">
-                                                    <Setter Property="Margin" Value="0 0 0 8" />
-                                                </Style>
-                                            </StackPanel.Resources>
-                                            <Label Content="Note" Margin="4 8 0 4" />
-                                            <StackPanel Orientation="Horizontal">
-                                                <cc:FieldLabel Text="Category" />
-                                                <cc:GammaComboBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding NoteTypeRepository, UpdateSourceTrigger=PropertyChanged}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <cc:FieldLabel Text="Header" />
-                                                <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Header, UpdateSourceTrigger=PropertyChanged}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <cc:FieldLabel Text="Content" />
-                                                <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Content, UpdateSourceTrigger=PropertyChanged}" 
-                                                                 TextWrapping="Wrap" AcceptsReturn="True" Height="406" Width="340" VerticalScrollBarVisibility="Visible" BorderThickness="0 2" SelectAllOnFocus="False" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <cc:FieldLabel Text="Attachment" />
-                                                <cc:MiniButton ImageResource="{StaticResource Icon_Folder}" ToolTip="Select a file." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.SelectAttachment}" />
-                                                <Separator />
-                                                <StackPanel Orientation="Horizontal" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote.AttachmentFileName, Converter={tool:CollapsedIfNullOrEmpty}}" Margin="0">
-                                                    <cc:MiniButton ImageResource="{StaticResource Icon_Window}" ToolTip="View attachment." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.ViewAttachment}" />
-                                                    <Separator />
-                                                    <TextBlock Text="File:" VerticalAlignment="Center" />
-                                                    <Separator />
-                                                    <TextBlock Text="{Binding CampaignView.ActiveCampaign.ActiveNote.AttachmentFileName, UpdateSourceTrigger=PropertyChanged, FallbackValue=world map.png}" VerticalAlignment="Center" FontWeight="Normal" Width="230" />
-                                                    <Separator />
-                                                    <cc:MiniButton ImageResource="{StaticResource Icon_X}" ToolTip="Remove attachment." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.RemoveAttachment}" />
+                                                    </DockPanel>
+                                                    <DockPanel HorizontalAlignment="Left" Margin="0 0 0 2">
+                                                        <Image Style="{StaticResource Icon_Search}" />
+                                                        <Separator />
+                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.NoteSearchText}" Width="168" />
+                                                        <Separator />
+                                                        <cc:MiniButton ImageResource="{StaticResource Icon_Eraser}" Command="{Binding CampaignView.ActiveCampaign.ClearNoteSearch}" />
+                                                    </DockPanel>
+                                                    <ListView Style="{StaticResource BorderedListView}"
+                                                  Width="216" Height="562"
+                                                  ItemsSource="{Binding CampaignView.ActiveCampaign.FilteredNewNotes}"
+                                                  SelectedItem="{Binding CampaignView.ActiveCampaign.ActiveNewNote}">
+                                                        <ListView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Image Style="{Binding Type, Converter={tool:ImageBasedOnNoteType}}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Name}" MinWidth="160" Foreground="{StaticResource PrimaryFontColor}" />
+                                                                </StackPanel>
+                                                            </DataTemplate>
+                                                        </ListView.ItemTemplate>
+                                                    </ListView>
+                                                </StackPanel>
+                                                <StackPanel Margin="16 24 0 0" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote, Converter={tool:CollapsedIfNull}}">
+                                                    <TextBlock Text="Game Note Information" />
+                                                    <Rectangle />
+                                                    <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                        <cc:FieldLabel Text="Title" />
+                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Name, UpdateSourceTrigger=PropertyChanged}" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.RemoveNote}" CommandParameter="Campaign" />
+                                                    </StackPanel>
+                                                    <StackPanel Style="{StaticResource SPNL_FieldRow}">
+                                                        <cc:FieldLabel Text="Type" />
+                                                        <cc:GammaComboBox ItemsSource="{Binding NoteTypes}" SelectedValue="{Binding CampaignView.ActiveCampaign.ActiveNote.Type, UpdateSourceTrigger=PropertyChanged}" />
+                                                    </StackPanel>
+                                                    <StackPanel Style="{StaticResource SPNL_FieldRow}" Orientation="Vertical">
+                                                        <cc:FieldLabel Text="Content" />
+                                                        <Rectangle />
+                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Content, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="4 0" Width="420" Height="180" AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                                                    </StackPanel>
+                                                    <DockPanel Margin="4 8 0 0">
+                                                        <TextBlock Text="Associated Notes" VerticalAlignment="Bottom" />
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddNewAssociatedNote}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Link}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddAssociations}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.SortNotes}" />
+                                                        </StackPanel>
+                                                    </DockPanel>
+                                                    <Border Style="{StaticResource ListBorder}">
+                                                        <ScrollViewer Height="234">
+                                                            <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActiveNote.AssociatedNotes}" Width="410">
+                                                                <ItemsControl.ItemsPanel>
+                                                                    <ItemsPanelTemplate>
+                                                                        <WrapPanel></WrapPanel>
+                                                                    </ItemsPanelTemplate>
+                                                                </ItemsControl.ItemsPanel>
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Border Style="{StaticResource SegmentTile}" HorizontalAlignment="Left">
+                                                                            <StackPanel Orientation="Horizontal">
+                                                                                <Image Style="{Binding Type, Converter={tool:ImageBasedOnNoteType}}" />
+                                                                                <Separator />
+                                                                                <TextBlock Text="{Binding Name}" Width="144" VerticalAlignment="Center">
+                                                                                    <TextBlock.ContextMenu>
+                                                                                        <ContextMenu>
+                                                                                            <MenuItem Header="Remove Association" Command="{Binding RemoveNote}" CommandParameter="Note" />
+                                                                                        </ContextMenu>
+                                                                                    </TextBlock.ContextMenu>
+                                                                                </TextBlock>
+                                                                                <Separator />
+                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Link}" Command="{Binding GoToNote}" />
+                                                                            </StackPanel>
+                                                                        </Border>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </ScrollViewer>
+                                                    </Border>
                                                 </StackPanel>
                                             </StackPanel>
-                                            <StackPanel Orientation="Horizontal" Margin="126 -4 0 0">
-                                                <cc:ImageButton ImageResource="{StaticResource Icon_Page_Add}" Text="Add Sub Note" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddSubNote}" />
-                                                <cc:ImageButton ImageResource="{StaticResource Icon_Page_Delete}" Text="Delete Note" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.DeleteNote}" />
+                                        </TabItem>
+                                        <TabItem Header="Tree Note System (old)" Width="200">
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel>
+                                                    <DockPanel Margin="0 2">
+                                                        <Label Content="Campaign Notes" />
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Page_Add}" Command="{Binding CampaignView.ActiveCampaign.AddNote}" ToolTip="Add new root note." />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortNotes}" ToolTip="Sort notes." />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Page_Edit}" Command="{Binding CampaignView.ActiveCampaign.PasteNote}" ToolTip="Paste note as root note." />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Search}" Command="{Binding CampaignView.ActiveCampaign.SearchNotes}" ToolTip="Search notes.">
+                                                                <cc:IconButton.ContextMenu>
+                                                                    <ContextMenu>
+                                                                        <MenuItem Header="Reset Search" Command="{Binding CampaignView.ActiveCampaign.ClearSearchMatches}" />
+                                                                    </ContextMenu>
+                                                                </cc:IconButton.ContextMenu>
+                                                            </cc:IconButton>
+                                                        </StackPanel>
+                                                    </DockPanel>
+                                                    <TreeView Background="Transparent" ItemsSource="{Binding CampaignView.ActiveCampaign.Notes, UpdateSourceTrigger=PropertyChanged}" SelectedItemChanged="CampaignNotesTreeView_SelectedItemChanged"
+                                                              Width="340" Height="560" BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" Margin="2 0" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                                        <TreeView.ItemContainerStyle>
+                                                            <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource DMTreeViewItem}">
+                                                                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                            </Style>
+                                                        </TreeView.ItemContainerStyle>
+                                                        <TreeView.ItemTemplate>
+                                                            <HierarchicalDataTemplate ItemsSource="{Binding SubNotes}">
+                                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                                    <StackPanel.ContextMenu>
+                                                                        <ContextMenu>
+                                                                            <MenuItem Header="Add Sub Note" Command="{Binding AddSubNote}" />
+                                                                            <MenuItem Header="Delete Note" Command="{Binding DeleteNote}" />
+                                                                            <MenuItem Header="Copy Note" Command="{Binding CopyNote}" />
+                                                                            <MenuItem Header="Paste Note" Command="{Binding PasteNote}" />
+                                                                        </ContextMenu>
+                                                                    </StackPanel.ContextMenu>
+                                                                    <Image Style="{Binding Icon, Converter={tool:ImageBasedOnIconName}}" />
+                                                                    <Separator />
+                                                                    <Image Style="{StaticResource Icon_Search}" Visibility="{Binding IsSearchMatch, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" />
+                                                                    <Separator />
+                                                                    <TextBlock Text="{Binding Header}" Foreground="{StaticResource PrimaryFontColor}" />
+                                                                    <Separator />
+                                                                    <Image Style="{StaticResource Icon_Paperclip}" Visibility="{Binding AttachmentFileName, Converter={tool:CollapsedIfNullOrEmpty}}" />
+                                                                </StackPanel>
+                                                            </HierarchicalDataTemplate>
+                                                        </TreeView.ItemTemplate>
+                                                    </TreeView>
+                                                </StackPanel>
+                                                <StackPanel Margin="8 20 0 0" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote, Converter={tool:CollapsedIfNull}}">
+                                                    <StackPanel.Resources>
+                                                        <Style TargetType="StackPanel">
+                                                            <Setter Property="Margin" Value="0 0 0 8" />
+                                                        </Style>
+                                                    </StackPanel.Resources>
+                                                    <Label Content="Note" Margin="4 8 0 4" />
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <cc:FieldLabel Text="Category" />
+                                                        <cc:GammaComboBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Category, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding NoteTypeRepository, UpdateSourceTrigger=PropertyChanged}" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <cc:FieldLabel Text="Header" />
+                                                        <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Header, UpdateSourceTrigger=PropertyChanged}" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <cc:FieldLabel Text="Content" />
+                                                        <cc:GammaTextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Content, UpdateSourceTrigger=PropertyChanged}" 
+                                                                 TextWrapping="Wrap" AcceptsReturn="True" Height="406" Width="340" VerticalScrollBarVisibility="Visible" BorderThickness="0 2" SelectAllOnFocus="False" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <cc:FieldLabel Text="Attachment" />
+                                                        <cc:MiniButton ImageResource="{StaticResource Icon_Folder}" ToolTip="Select a file." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.SelectAttachment}" />
+                                                        <Separator />
+                                                        <StackPanel Orientation="Horizontal" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote.AttachmentFileName, Converter={tool:CollapsedIfNullOrEmpty}}" Margin="0">
+                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Window}" ToolTip="View attachment." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.ViewAttachment}" />
+                                                            <Separator />
+                                                            <TextBlock Text="File:" VerticalAlignment="Center" />
+                                                            <Separator />
+                                                            <TextBlock Text="{Binding CampaignView.ActiveCampaign.ActiveNote.AttachmentFileName, UpdateSourceTrigger=PropertyChanged, FallbackValue=world map.png}" VerticalAlignment="Center" FontWeight="Normal" Width="230" />
+                                                            <Separator />
+                                                            <cc:MiniButton ImageResource="{StaticResource Icon_X}" ToolTip="Remove attachment." Command="{Binding CampaignView.ActiveCampaign.ActiveNote.RemoveAttachment}" />
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" Margin="126 -4 0 0">
+                                                        <cc:ImageButton ImageResource="{StaticResource Icon_Page_Add}" Text="Add Sub Note" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddSubNote}" />
+                                                        <cc:ImageButton ImageResource="{StaticResource Icon_Page_Delete}" Text="Delete Note" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.DeleteNote}" />
+                                                    </StackPanel>
+                                                </StackPanel>
                                             </StackPanel>
-                                        </StackPanel>
-                                    </StackPanel>
+                                        </TabItem>
+                                    </TabControl>
                                 </StackPanel>
                             </TabItem>
                             <TabItem Header="Players">
@@ -2403,7 +2499,7 @@
                                             <DockPanel>
                                                 <Label Content="Players" />
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddPlayer}" ToolTip="Add New Player" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.AddPlayer}" ToolTip="Add New Player" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortPlayers}" ToolTip="Sort Player List" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sync}" Command="{Binding CampaignView.ActiveCampaign.SyncPlayerData}" ToolTip="Sync Player Data" />
                                                 </StackPanel>
@@ -2483,7 +2579,7 @@
                                             <DockPanel>
                                                 <Label Content="NPCs" />
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddNpc}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.AddNpc}" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortNpcs}" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sync}" Command="{Binding CampaignView.ActiveCampaign.SyncNpcData}" ToolTip="Sync NPC Data" />
                                                 </StackPanel>
@@ -2539,7 +2635,7 @@
                                             <DockPanel>
                                                 <Label Content="Creature Packs" />
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.AddCreaturePack}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.AddCreaturePack}" />
                                                     <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.SortPacks}" />
                                                 </StackPanel>
                                             </DockPanel>
@@ -2581,7 +2677,7 @@
                                                     <TabItem Header="Creatures">
                                                         <StackPanel>
                                                             <DockPanel HorizontalAlignment="Right">
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddCreatures}" />
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
                                                             </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
@@ -2610,7 +2706,7 @@
                                                     <TabItem Header="NPCs">
                                                         <StackPanel>
                                                             <DockPanel HorizontalAlignment="Right">
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.AddNpcs}" />
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActivePack.SortPackLists}" />
                                                             </DockPanel>
                                                             <Border Style="{StaticResource ListBorder}">
@@ -2647,7 +2743,7 @@
                         <DockPanel>
                             <Label Content="Creatures" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.AddCreature}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.AddCreature}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding CreatureBuilderView.SaveCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.SortCreatures}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding CreatureBuilderView.ImportCreatures}" />
@@ -2812,7 +2908,7 @@
                                         <StackPanel Margin="2 4 0 0">
                                             <DockPanel>
                                                 <TextBlock Text="Environments" VerticalAlignment="Bottom" />
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddEnvironment}" HorizontalAlignment="Right" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.ActiveCreature.AddEnvironment}" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <Rectangle />
                                             <ItemsControl ItemsSource="{Binding CreatureBuilderView.ActiveCreature.Environments, UpdateSourceTrigger=PropertyChanged}" Width="328" Height="58" HorizontalAlignment="Left">
@@ -3089,7 +3185,7 @@
                                         <TabItem Header="Attacks / Abilities">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Blank">
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Blank">
                                                         <cc:IconButton.ContextMenu>
                                                             <ContextMenu>
                                                                 <MenuItem Header="Add from Quick Attack Template" Command="{Binding CreatureBuilderView.ActiveCreature.AddAbility}" CommandParameter="Quick Attack" />
@@ -3109,7 +3205,7 @@
                                         </TabItem>
                                         <TabItem Header="Counters">
                                             <StackPanel>
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddCounter}" HorizontalAlignment="Right" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.ActiveCreature.AddCounter}" HorizontalAlignment="Right" />
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                                     <ScrollViewer VerticalScrollBarVisibility="Visible" Width="348" Height="560">
                                                         <ItemsControl ItemsSource="{Binding CreatureBuilderView.ActiveCreature.Counters, UpdateSourceTrigger=PropertyChanged}">
@@ -3475,7 +3571,7 @@
                                     <StackPanel Orientation="Horizontal" Margin="0">
                                         <Label Content="Features and Traits" />
                                         <Separator Width="632" />
-                                        <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddTraitToCreature}" />
+                                        <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.ActiveCreature.AddTraitToCreature}" />
                                         <Separator />
                                         <cc:MiniButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.ActiveCreature.SortTraits}" />
                                         <Separator />
@@ -3569,7 +3665,7 @@
                                     <DockPanel>
                                         <Label Content="Spell List" />
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CreatureBuilderView.ActiveCreature.AddSpellLink}" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CreatureBuilderView.ActiveCreature.AddSpellLink}" />
                                             <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CreatureBuilderView.ActiveCreature.SortSpellLinks}" />
                                         </StackPanel>
                                     </DockPanel>
@@ -3690,7 +3786,7 @@
                         <DockPanel>
                             <Label Content="Items" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ItemBuilderView.AddItem}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ItemBuilderView.AddItem}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ItemBuilderView.SaveItems}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ItemBuilderView.SortItems}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ItemBuilderView.ImportItems}" />
@@ -3967,7 +4063,7 @@
                                             <Separator />
                                             <DockPanel>
                                                 <cc:FieldLabel Text="Stat Changes" />
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ItemBuilderView.ActiveItem.AddStatChange}" HorizontalAlignment="Right" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ItemBuilderView.ActiveItem.AddStatChange}" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <ItemsControl ItemsSource="{Binding ItemBuilderView.ActiveItem.StatChanges}" BorderThickness="0 2" BorderBrush="{StaticResource ButtonBorder}">
                                                 <ItemsControl.ItemTemplate>
@@ -4011,7 +4107,7 @@
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="Crafting Components" Width="234" />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ItemBuilderView.ActiveItem.AddCraftingComponent}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ItemBuilderView.ActiveItem.AddCraftingComponent}" />
                                                 </StackPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left" Margin="4 0 0 0">
                                                     <ScrollViewer Width="260" Height="160">
@@ -4039,7 +4135,7 @@
                                             <StackPanel Margin="12 0 0 0" Visibility="{Binding ItemBuilderView.ActiveItem.CanDismantle, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="Acquired Components" Width="238" Margin="0" />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ItemBuilderView.ActiveItem.AddAcquiredComponent}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ItemBuilderView.ActiveItem.AddAcquiredComponent}" />
                                                 </StackPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left">
                                                     <ScrollViewer Width="260" Height="160">
@@ -4077,7 +4173,7 @@
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="Enchanting Runes" Width="234" />
-                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ItemBuilderView.ActiveItem.AddEnchantingRune}" />
+                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ItemBuilderView.ActiveItem.AddEnchantingRune}" />
                                                 </StackPanel>
                                                 <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left" Margin="4 0 0 0">
                                                     <ScrollViewer Width="260" Height="160">
@@ -4111,7 +4207,7 @@
                         <DockPanel Margin="0 0 0 2">
                             <Label Content="Spells" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SpellBuilderView.AddSpell}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SpellBuilderView.AddSpell}" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding SpellBuilderView.SaveSpells}" ToolTip="Save spells" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding SpellBuilderView.SortSpells}" ToolTip="Sort spells" />
                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding SpellBuilderView.ImportSpells}" ToolTip="Import spells" />
@@ -4171,7 +4267,7 @@
                         <StackPanel Margin="70 4 0 0">
                             <DockPanel>
                                 <TextBlock Text="Classes" VerticalAlignment="Bottom" />
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SpellBuilderView.ActiveSpell.AddSpellClass}" HorizontalAlignment="Right" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SpellBuilderView.ActiveSpell.AddSpellClass}" HorizontalAlignment="Right" />
                             </DockPanel>
                             <Rectangle />
                             <ItemsControl ItemsSource="{Binding SpellBuilderView.ActiveSpell.SpellClasses, UpdateSourceTrigger=PropertyChanged}" Width="282" Height="128">
@@ -4273,7 +4369,7 @@
                             <StackPanel Orientation="Horizontal" Margin="0">
                                 <Label Content="Materials Consumed" />
                                 <Separator Width="134" />
-                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SpellBuilderView.ActiveSpell.AddConsumedMaterial}" />
+                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SpellBuilderView.ActiveSpell.AddConsumedMaterial}" />
                             </StackPanel>
                             <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Right">
                                 <ScrollViewer VerticalScrollBarVisibility="Visible" Width="294" Height="188">
@@ -4300,7 +4396,7 @@
                                 <StackPanel>
                                     <DockPanel>
                                         <cc:FieldLabel Text="Primary Abilities" />
-                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary">
+                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary">
                                             <cc:IconButton.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Primary Quick Attack" />
@@ -4322,7 +4418,7 @@
                                 <StackPanel>
                                     <DockPanel>
                                         <cc:FieldLabel Text="Secondary Abilities" />
-                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary">
+                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary">
                                             <cc:IconButton.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem Header="Add from Quick Attack Template" Command="{Binding SpellBuilderView.ActiveSpell.AddAbility}" CommandParameter="Secondary Quick Attack" />
@@ -5676,7 +5772,7 @@
                                                                             <Separator />
                                                                             <DockPanel>
                                                                                 <TextBlock Text="Custom Rolls" VerticalAlignment="Bottom" />
-                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding CharacterBuilderView.ActiveCharacter.AddCustomDice}" />
+                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding CharacterBuilderView.ActiveCharacter.AddCustomDice}" />
                                                                             </DockPanel>
                                                                             <Border Style="{StaticResource ListBorder}">
                                                                                 <ScrollViewer Width="348" Height="108">
@@ -5793,7 +5889,7 @@
                                                         <TabControl BorderThickness="0 2 0 0" Width="356">
                                                             <TabItem Header="Attacks / Abilities" Width="128">
                                                                 <StackPanel>
-                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right">
+                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Blank" HorizontalAlignment="Right">
                                                                         <cc:IconButton.ContextMenu>
                                                                             <ContextMenu>
                                                                                 <MenuItem Header="Add from Quick Attack Template" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAbility}" CommandParameter="Quick Attack" />
@@ -5811,7 +5907,7 @@
                                                             </TabItem>
                                                             <TabItem Header="Counters">
                                                                 <StackPanel>
-                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddCounterToPlayer}" HorizontalAlignment="Right" />
+                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddCounterToPlayer}" HorizontalAlignment="Right" />
                                                                     <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                                                         <ScrollViewer VerticalScrollBarVisibility="Visible" Width="348" Height="510">
                                                                             <ItemsControl ItemsSource="{Binding CharacterBuilderView.ActiveCharacter.Counters, UpdateSourceTrigger=PropertyChanged}">
@@ -5828,7 +5924,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:MiniButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding AlterCurrentCount}" CommandParameter="-1" />
                                                                                                 <TextBlock FontWeight="Bold" Width="64" TextAlignment="Center" VerticalAlignment="Center"><Run Text="{Binding CurrentValue}" /><Run Text=" "/><Run Text="/" /><Run Text=" "/><Run Text="{Binding MaxValue}" /></TextBlock>
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
+                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
                                                                                                 <Separator Width="24" />
                                                                                                 <Image Style="{StaticResource Icon_Info}" ToolTipService.ShowDuration="30000" ToolTipService.InitialShowDelay="100">
                                                                                                     <Image.ToolTip>
@@ -5870,7 +5966,7 @@
                                                             </TabItem>
                                                             <TabItem Header="Alterants">
                                                                 <StackPanel>
-                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAlterant}" HorizontalAlignment="Right" />
+                                                                    <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddAlterant}" HorizontalAlignment="Right" />
                                                                     <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                                                         <ScrollViewer VerticalScrollBarVisibility="Visible" Width="348" Height="510">
                                                                             <ItemsControl ItemsSource="{Binding CharacterBuilderView.ActiveCharacter.Alterants, UpdateSourceTrigger=PropertyChanged}">
@@ -5900,7 +5996,7 @@
                                                                                                     </StackPanel>
                                                                                                     <DockPanel>
                                                                                                         <cc:FieldLabel Text="Stat Changes" />
-                                                                                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddStatChange}" HorizontalAlignment="Right" />
+                                                                                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddStatChange}" HorizontalAlignment="Right" />
                                                                                                     </DockPanel>
                                                                                                     <ItemsControl ItemsSource="{Binding StatChanges}" BorderThickness="0 2" BorderBrush="{StaticResource ButtonBorder}">
                                                                                                         <ItemsControl.ItemTemplate>
@@ -6245,7 +6341,7 @@
                                                                                                                             <Separator Width="8" />
                                                                                                                             <cc:MiniButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding AlterCurrentCount}" CommandParameter="-1" />
                                                                                                                             <Separator />
-                                                                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
+                                                                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AlterCurrentCount}" CommandParameter="1" />
                                                                                                                             <Separator />
                                                                                                                             <cc:MiniButton ImageResource="{StaticResource Icon_Refresh}" Command="{Binding ResetCount}" />
                                                                                                                         </StackPanel>
@@ -6472,7 +6568,7 @@
                                                                                                         </cc:ImageButton>
                                                                                                     </StackPanel>
                                                                                                     <StackPanel>
-                                                                                                        <cc:ImageButton Text="Medicine" ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding MakeSkillCheck}" CommandParameter="Medicine">
+                                                                                                        <cc:ImageButton Text="Medicine" ImageResource="{StaticResource Icon_Add}" Command="{Binding MakeSkillCheck}" CommandParameter="Medicine">
                                                                                                             <cc:ImageButton.ContextMenu>
                                                                                                                 <ContextMenu>
                                                                                                                     <MenuItem Header="Advantage" Command="{Binding MakeSkillCheck}" CommandParameter="Medicine,Advantage" />
@@ -6832,7 +6928,7 @@
                                                 <DockPanel>
                                                     <Label Content="Features and Traits" />
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                        <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddTraitToPlayer}" />
+                                                        <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddTraitToPlayer}" />
                                                         <Separator />
                                                         <cc:MiniButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CharacterBuilderView.ActiveCharacter.SortTraits}" />
                                                         <Separator />
@@ -6989,7 +7085,7 @@
                                                             </TextBlock>
                                                         </StackPanel>
                                                         <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Right">
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddSpellLink}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CharacterBuilderView.ActiveCharacter.AddSpellLink}" />
                                                             <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CharacterBuilderView.ActiveCharacter.SortSpellLinks}" />
                                                         </StackPanel>
                                                     </DockPanel>
@@ -7613,7 +7709,7 @@
                                                                                 </Popup>
                                                                             </StackPanel>
                                                                             <Separator />
-                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddItem}" CommandParameter="Preset" ToolTip="Add Items">
+                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddItem}" CommandParameter="Preset" ToolTip="Add Items">
                                                                                 <cc:MiniButton.ContextMenu>
                                                                                     <ContextMenu>
                                                                                         <MenuItem Header="Add Custom Item" Command="{Binding AddItem}" CommandParameter="Custom" />
@@ -7703,7 +7799,7 @@
                                                                                                 <Separator />
                                                                                                 <cc:GammaTextBox Text="{Binding ActiveItem.Quantity, UpdateSourceTrigger=PropertyChanged}" Width="64" />
                                                                                                 <Separator />
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ActiveItem.AdjustQuantity}" CommandParameter="1" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ActiveItem.AdjustQuantity}" CommandParameter="1" />
                                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Minus}" Command="{Binding ActiveItem.AdjustQuantity}" CommandParameter="-1" />
                                                                                             </StackPanel>
                                                                                             <StackPanel Orientation="Horizontal" Margin="0 2">
@@ -8318,7 +8414,7 @@
                                         <DockPanel>
                                             <Label Content="Shops" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddShop}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddShop}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortShops}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveShops}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportShops}" />
@@ -8386,7 +8482,7 @@
                                         <DockPanel>
                                             <Label Content="Loot Boxes" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddLootBox}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddLootBox}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortLootBoxes}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveLootBoxes}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportLootBoxes}" />
@@ -8429,7 +8525,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <Label Content="Loot Box Items" />
                                             <Separator Width="244" />
-                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActiveLootBox.AddItemLink}" />
+                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActiveLootBox.AddItemLink}" />
                                         </StackPanel>
                                         <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2">
                                             <ScrollViewer VerticalScrollBarVisibility="Visible" Height="444">
@@ -8498,7 +8594,7 @@
                                         <DockPanel>
                                             <Label Content="Roll Tables" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddRollTable}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddRollTable}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortRollTables}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveRollTables}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportRollTables}" />
@@ -8532,7 +8628,7 @@
                                         <DockPanel>
                                             <TextBlock Text="Table Rows" Margin="4" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActiveRollTable.AddRow}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActiveRollTable.AddRow}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Dice}" Command="{Binding ToolsView.ActiveRollTable.RollTable}" />
                                             </StackPanel>
                                         </DockPanel>
@@ -8569,7 +8665,7 @@
                                         <DockPanel>
                                             <Label Content="Sourcebooks" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddSourcebook}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddSourcebook}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortSourcebooks}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveSourcebooks}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportSourcebooks}" />
@@ -8618,7 +8714,7 @@
                                         <DockPanel>
                                             <Label Content="Note Types" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddNoteType}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddNoteType}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortNoteTypes}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveNoteTypes}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportNoteTypes}" />
@@ -8673,7 +8769,7 @@
                                         <DockPanel>
                                             <Label Content="Languages" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddLanguage}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddLanguage}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortLanguages}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveLanguages}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportLanguages}" />
@@ -8744,7 +8840,7 @@
                                         <DockPanel>
                                             <Label Content="Player Classes" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerClass}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerClass}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerClasses}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SavePlayerClasses}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportPlayerClasses}" />
@@ -8810,7 +8906,7 @@
                                                             <TextBlock Text="Player Class Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerClass.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerClass.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerClass.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -8860,7 +8956,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -8965,7 +9061,7 @@
                                                                         <Separator />
                                                                         <DockPanel>
                                                                             <TextBlock Text="Specific Weapons" VerticalAlignment="Bottom" />
-                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerClass.AddWeaponProfs}" />
+                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerClass.AddWeaponProfs}" />
                                                                         </DockPanel>
                                                                         <Border Style="{StaticResource ListBorder}">
                                                                             <ScrollViewer Height="92" Width="270">
@@ -9016,7 +9112,7 @@
                                                                         <Separator />
                                                                         <DockPanel>
                                                                             <TextBlock Text="Specific Tools" VerticalAlignment="Bottom" />
-                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerClass.AddToolProfs}" />
+                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerClass.AddToolProfs}" />
                                                                         </DockPanel>
                                                                         <Border Style="{StaticResource ListBorder}">
                                                                             <ScrollViewer Height="92" Width="270">
@@ -9193,7 +9289,7 @@
                                                     <StackPanel Margin="10 4">
                                                         <DockPanel>
                                                             <TextBlock Text="Equipment Choices" VerticalAlignment="Bottom" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerClass.AddEquipmentChoice}" HorizontalAlignment="Right" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerClass.AddEquipmentChoice}" HorizontalAlignment="Right" />
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
                                                             <ScrollViewer Width="360" Height="200">
@@ -9348,7 +9444,7 @@
                                                                 <RowDefinition />
                                                             </Grid.RowDefinitions>
 
-                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerClass.AddTrait}" />
+                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerClass.AddTrait}" />
 
                                                             <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
                                                             <TextBlock Text="Level" Grid.Column="1" Grid.Row="1" />
@@ -9399,7 +9495,7 @@
                                         <DockPanel>
                                             <Label Content="Player Subclasses" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerSubclass}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerSubclass}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerSubclasses}">
                                                     <cc:IconButton.ContextMenu>
                                                         <ContextMenu>
@@ -9471,7 +9567,7 @@
                                                             <TextBlock Text="Player Subclass Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerSubclass.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerSubclass.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerSubclass.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -9521,7 +9617,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -9711,7 +9807,7 @@
                                         <DockPanel>
                                             <Label Content="Player Races" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerRace}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerRace}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerRaces}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SavePlayerRaces}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportPlayerRaces}" />
@@ -9804,7 +9900,7 @@
                                                             <TextBlock Text="Player Race Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerRace.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerRace.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerRace.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -9854,7 +9950,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -9973,7 +10069,7 @@
                                                                         </StackPanel>
                                                                         <DockPanel>
                                                                             <TextBlock Text="Specific Languages" VerticalAlignment="Bottom" />
-                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerRace.AddLanguageProfs}" />
+                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerRace.AddLanguageProfs}" />
                                                                         </DockPanel>
                                                                         <Border Style="{StaticResource ListBorder}">
                                                                             <ScrollViewer Height="92" Width="270">
@@ -10013,7 +10109,7 @@
                                                                 <RowDefinition />
                                                             </Grid.RowDefinitions>
 
-                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerRace.AddTrait}" />
+                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerRace.AddTrait}" />
 
                                                             <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
                                                             <TextBlock Text="Level" Grid.Column="1" Grid.Row="1" />
@@ -10065,7 +10161,7 @@
                                         <DockPanel>
                                             <Label Content="Player Subraces" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerSubrace}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerSubrace}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerSubraces}">
                                                     <cc:IconButton.ContextMenu>
                                                         <ContextMenu>
@@ -10135,7 +10231,7 @@
                                                             <TextBlock Text="Player Subrace Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerSubrace.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerSubrace.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerSubrace.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -10185,7 +10281,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -10304,7 +10400,7 @@
                                                                 <RowDefinition />
                                                             </Grid.RowDefinitions>
 
-                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerSubrace.AddTrait}" />
+                                                            <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Left" Command="{Binding ToolsView.ActivePlayerSubrace.AddTrait}" />
 
                                                             <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
                                                             <TextBlock Text="Level" Grid.Column="1" Grid.Row="1" />
@@ -10358,7 +10454,7 @@
                                         <DockPanel>
                                             <Label Content="Backgrounds" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerBackground}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerBackground}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerBackgrounds}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SavePlayerBackgrounds}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportPlayerBackgrounds}" />
@@ -10424,7 +10520,7 @@
                                                             <TextBlock Text="Player Background Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerBackground.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerBackground.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerBackground.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -10474,7 +10570,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -10609,7 +10705,7 @@
                                                                         </StackPanel>
                                                                         <DockPanel>
                                                                             <TextBlock Text="Specific Languages" VerticalAlignment="Bottom" />
-                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerBackground.AddLanguageProfs}" />
+                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerBackground.AddLanguageProfs}" />
                                                                         </DockPanel>
                                                                         <Border Style="{StaticResource ListBorder}">
                                                                             <ScrollViewer Height="92" Width="270">
@@ -10660,7 +10756,7 @@
                                                                         <Separator />
                                                                         <DockPanel>
                                                                             <TextBlock Text="Specific Tools" VerticalAlignment="Bottom" />
-                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerBackground.AddToolProfs}" />
+                                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding ToolsView.ActivePlayerBackground.AddToolProfs}" />
                                                                         </DockPanel>
                                                                         <Border Style="{StaticResource ListBorder}">
                                                                             <ScrollViewer Height="92" Width="270">
@@ -10691,7 +10787,7 @@
                                                         </StackPanel>
                                                         <DockPanel>
                                                             <TextBlock Text="Set Equipment" VerticalAlignment="Bottom" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerBackground.AddMandatoryEquipment}" HorizontalAlignment="Right" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerBackground.AddMandatoryEquipment}" HorizontalAlignment="Right" />
                                                         </DockPanel>
                                                         <Border BorderBrush="{StaticResource ButtonBorder}" BorderThickness="0 2" HorizontalAlignment="Left" Margin="0 2">
                                                             <ScrollViewer VerticalScrollBarVisibility="Visible" Width="360" Height="128">
@@ -10721,7 +10817,7 @@
                                                         </Border>
                                                         <DockPanel>
                                                             <TextBlock Text="Equipment Choices" VerticalAlignment="Bottom" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerBackground.AddEquipmentChoice}" HorizontalAlignment="Right" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerBackground.AddEquipmentChoice}" HorizontalAlignment="Right" />
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
                                                             <ScrollViewer Width="360" Height="128">
@@ -10770,7 +10866,7 @@
                                         <DockPanel>
                                             <Label Content="Player Feats" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddPlayerFeat}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddPlayerFeat}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortPlayerFeats}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SavePlayerFeats}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportPlayerFeats}" />
@@ -10835,7 +10931,7 @@
                                                             <TextBlock Text="Player Feat Features" VerticalAlignment="Bottom" Margin="0 2" />
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.ActivePlayerFeat.SortFeatures}" />
-                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActivePlayerFeat.AddFeature}" />
+                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActivePlayerFeat.AddFeature}" />
                                                             </StackPanel>
                                                         </DockPanel>
                                                         <Border Style="{StaticResource ListBorder}">
@@ -10885,7 +10981,7 @@
                                                                                         </StackPanel>
                                                                                         <StackPanel Visibility="{Binding ShowChoiceList, Converter={tool:CollapsedIfFalseOtherwiseVisible}}" Margin="72 0 0 16">
                                                                                             <StackPanel Orientation="Horizontal">
-                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
+                                                                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" HorizontalAlignment="Right" Command="{Binding AddChoice}" />
                                                                                                 <TextBlock Text="Choices / Set Items" VerticalAlignment="Center" />
                                                                                             </StackPanel>
                                                                                             <Border Background="#070707" BorderBrush="#070707" CornerRadius="2">
@@ -10954,7 +11050,7 @@
                                         <DockPanel>
                                             <Label Content="Invocations" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddEldritchInvocation}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddEldritchInvocation}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortEldritchInvocations}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveEldritchInvocations}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportEldritchInvocations}" />
@@ -11018,7 +11114,7 @@
                                         <DockPanel>
                                             <Label Content="Weather Climates" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddWeather}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddWeather}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortWeathers}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveWeathers}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportWeathers}" />
@@ -11090,7 +11186,7 @@
                                         <DockPanel>
                                             <Label Content="Game Calendars" />
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.AddCalendar}" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.AddCalendar}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding ToolsView.SortCalendars}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Save}" Command="{Binding ToolsView.SaveCalendars}" />
                                                 <cc:IconButton ImageResource="{StaticResource Icon_Import}" Command="{Binding ToolsView.ImportCalendars}" />
@@ -11147,7 +11243,7 @@
                                                 <DockPanel>
                                                     <TextBlock Text="Days" Margin="4" />
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActiveCalendar.AddDay}" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActiveCalendar.AddDay}" />
                                                     </StackPanel>
                                                 </DockPanel>
                                                 <Border Style="{StaticResource ListBorder}">
@@ -11170,7 +11266,7 @@
                                                 <DockPanel>
                                                     <TextBlock Text="Months" Margin="4" />
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                        <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding ToolsView.ActiveCalendar.AddMonth}" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding ToolsView.ActiveCalendar.AddMonth}" />
                                                     </StackPanel>
                                                 </DockPanel>
                                                 <Border Style="{StaticResource ListBorder}">
@@ -11444,7 +11540,7 @@
                                             <Separator />
                                             <DockPanel>
                                                 <cc:FieldLabel Text="Game and Character Selection" Width="auto" />
-                                                <cc:IconButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddGameCharacterPair}" HorizontalAlignment="Right" />
+                                                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SettingsView.AddGameCharacterPair}" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}">
                                                 <ScrollViewer Height="128" Width="460">
@@ -11475,7 +11571,7 @@
                                         <StackPanel Margin="4">
                                             <DockPanel>
                                                 <cc:FieldLabel Text="Startup Web Actions" />
-                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Startup" HorizontalAlignment="Right" />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Startup" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
@@ -11501,7 +11597,7 @@
                                                                             <Separator />
                                                                             <DockPanel Margin="20 0 0 0">
                                                                                 <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
+                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
                                                                             </DockPanel>
                                                                             <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
                                                                                 <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">
@@ -11544,7 +11640,7 @@
                                             </StackPanel>
                                             <DockPanel>
                                                 <cc:FieldLabel Text="Output Web Actions" />
-                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Output" HorizontalAlignment="Right" />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Output" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
@@ -11570,7 +11666,7 @@
                                                                             <Separator />
                                                                             <DockPanel Margin="20 0 0 0">
                                                                                 <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
+                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
                                                                             </DockPanel>
                                                                             <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
                                                                                 <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">
@@ -11608,7 +11704,7 @@
                                         <StackPanel Margin="4">
                                             <DockPanel>
                                                 <cc:FieldLabel Text="Character Switchback Web Actions" Width="auto" />
-                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Switchback" HorizontalAlignment="Right" />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding SettingsView.AddWebAction}" CommandParameter="Switchback" HorizontalAlignment="Right" />
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
@@ -11634,7 +11730,7 @@
                                                                             <Separator />
                                                                             <DockPanel Margin="20 0 0 0">
                                                                                 <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Plus_Green}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
+                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
                                                                             </DockPanel>
                                                                             <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
                                                                                 <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">

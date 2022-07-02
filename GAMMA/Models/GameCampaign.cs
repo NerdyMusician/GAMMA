@@ -391,6 +391,36 @@ namespace GAMMA.Models
             set => SetAndNotify(ref _ActivePack, value);
         }
         #endregion
+        private ObservableCollection<GameNote> _FilteredNewNotes;
+        public ObservableCollection<GameNote> FilteredNewNotes
+        {
+            get => _FilteredNewNotes;
+            set => SetAndNotify(ref _FilteredNewNotes, value);
+        }
+        private ObservableCollection<GameNote> _NewNotes;
+        [XmlSaveMode(XSME.Enumerable)]
+        public ObservableCollection<GameNote> NewNotes
+        {
+            get => _NewNotes;
+            set => SetAndNotify(ref _NewNotes, value);
+        }
+        private GameNote _ActiveNewNote;
+        public GameNote ActiveNewNote
+        {
+            get => _ActiveNewNote;
+            set => SetAndNotify(ref _ActiveNewNote, value);
+        }
+        private string _NoteSearchText;
+        public string NoteSearchText
+        {
+            get => _NoteSearchText;
+            set
+            {
+                _NoteSearchText = value;
+                NotifyPropertyChanged();
+                UpdateFilteredNewNotes();
+            }
+        }
 
         // Etc Rolls
         #region FallDistance
@@ -1433,6 +1463,16 @@ namespace GAMMA.Models
                 }
             }
             return sortedNotes;
+        }
+        private void UpdateFilteredNewNotes()
+        {
+            FilteredNewNotes.Clear();
+            foreach (GameNote note in NewNotes)
+            {
+                if (string.IsNullOrEmpty(NoteSearchText)) { FilteredNewNotes.Add(note); continue; }
+                if (note.Name.ToUpper().Contains(NoteSearchText.ToUpper())) { FilteredNewNotes.Add(note); continue; }
+                if (note.Content.ToUpper().Contains(NoteSearchText.ToUpper())) { FilteredNewNotes.Add(note); continue; }
+            }
         }
 
     }

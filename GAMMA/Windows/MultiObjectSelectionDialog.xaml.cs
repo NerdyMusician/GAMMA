@@ -100,6 +100,20 @@ namespace GAMMA.Windows
             });
 
         }
+        public MultiObjectSelectionDialog(List<GameNote> records, string title)
+        {
+            InitializeComponent();
+            WindowTitle.Text = $"{title} Selection";
+            DataContext = new MultiObjectSelectionViewModel(records, title);
+            SourceItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding
+            {
+                Source = (DataContext as MultiObjectSelectionViewModel).FilteredSourceNotes
+            });
+            SelectedItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding
+            {
+                Source = (DataContext as MultiObjectSelectionViewModel).SelectedNotes
+            });
+        }
 
         // Private Methods
         private void AddItem_Clicked(object sender, RoutedEventArgs e)
