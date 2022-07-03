@@ -185,6 +185,15 @@ namespace GAMMA.Windows
                 }
                 (DataContext as MultiObjectSelectionViewModel).SelectedCVs.Add(cv);
             }
+            if (objectType == typeof(GameNote))
+            {
+                GameNote gn = (sender as Button).DataContext as GameNote;
+                foreach (GameNote selectedGameNote in (DataContext as MultiObjectSelectionViewModel).SelectedNotes)
+                {
+                    if (gn.Name == selectedGameNote.Name) { return; }
+                }
+                (DataContext as MultiObjectSelectionViewModel).SelectedNotes.Add(gn);
+            }
         }
         private void RemoveItem_Clicked(object sender, RoutedEventArgs e)
         {
@@ -221,6 +230,11 @@ namespace GAMMA.Windows
             {
                 ConvertibleValue cv = (sender as Button).DataContext as ConvertibleValue;
                 (DataContext as MultiObjectSelectionViewModel).SelectedCVs.Remove(cv);
+            }
+            if (objectType == typeof(GameNote))
+            {
+                GameNote gn = (sender as Button).DataContext as GameNote;
+                (DataContext as MultiObjectSelectionViewModel).SelectedNotes.Remove(gn);
             }
         }
         private void EraserButton_Clicked(object sender, RoutedEventArgs e)

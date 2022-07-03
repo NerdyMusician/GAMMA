@@ -24,6 +24,14 @@
                 <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="180" />
             </StackPanel>
         </DataTemplate>
+        <DataTemplate x:Key="SourceNoteTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{Binding Type, Converter={tool:ImageBasedOnNoteType}, Mode=OneWay}" />
+                <Separator Width="4" Visibility="Hidden" />
+                <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="220" VerticalAlignment="Center" />
+                <cc:IconButton ImageResource="{StaticResource Icon_Add}" Click="AddItem_Clicked" />
+            </StackPanel>
+        </DataTemplate>
         <DataTemplate x:Key="SourceItemTemplate">
             <StackPanel Orientation="Horizontal">
                 <Image Style="{Binding Type, Converter={tool:ImageBasedOnItemType}, Mode=OneWay}" />
@@ -75,6 +83,14 @@
         <DataTemplate x:Key="SelectedDefaultTemplate">
             <StackPanel>
                 <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="180" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="SelectedNoteTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{Binding Type, Converter={tool:ImageBasedOnNoteType}, Mode=OneWay}" />
+                <Separator Width="4" Visibility="Hidden" />
+                <TextBlock Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource PrimaryFontColor}" FontWeight="Bold" Width="220" VerticalAlignment="Center" />
+                <cc:IconButton ImageResource="{StaticResource Icon_X}" Click="RemoveItem_Clicked" />
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="SelectedItemTemplate">
@@ -134,14 +150,16 @@
                                          CreatureTemplate="{StaticResource SourceCreatureTemplate}"
                                          SpellTemplate="{StaticResource SourceSpellTemplate}"
                                          NpcTemplate="{StaticResource SourceNpcTemplate}"
-                                         ConvertibleValueTemplate="{StaticResource SourceCVTemplate}" />
+                                         ConvertibleValueTemplate="{StaticResource SourceCVTemplate}"
+                                         NoteTemplate="{StaticResource SourceNoteTemplate}"/>
         <tool:ObjectTypeTemplateSelector x:Key="SelectedTemplateSelector"
                                          DefaultDataTemplate="{StaticResource SelectedDefaultTemplate}"
                                          ItemTemplate="{StaticResource SelectedItemTemplate}"
                                          CreatureTemplate="{StaticResource SelectedCreatureTemplate}"
                                          SpellTemplate="{StaticResource SelectedSpellTemplate}"
                                          NpcTemplate="{StaticResource SelectedNpcTemplate}"
-                                         ConvertibleValueTemplate="{StaticResource SelectedCVTemplate}" />
+                                         ConvertibleValueTemplate="{StaticResource SelectedCVTemplate}"
+                                         NoteTemplate="{StaticResource SelectedNoteTemplate}"/>
 
         <Style TargetType="{x:Type ScrollBar}">
             <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />

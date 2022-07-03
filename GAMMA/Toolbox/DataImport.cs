@@ -839,6 +839,7 @@ namespace GAMMA.Toolbox
                 campaign.SortCombatants();
                 campaign.UpdateCalendarAndWeather();
                 campaign.UpdateActiveCombatant();
+                campaign.UpdateFilteredNewNotes();
             }
 
             return;
