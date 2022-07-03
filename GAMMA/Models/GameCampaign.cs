@@ -27,6 +27,8 @@ namespace GAMMA.Models
             Players = new();
             Packs = new();
             Notes = new();
+            NewNotes = new();
+            FilteredNewNotes = new();
             CalendarStart = 0;
             CalendarProgress = 0;
         }
@@ -1337,6 +1339,40 @@ namespace GAMMA.Models
             HelperMethods.NotifyUser("Player Data Synced to Gameplay");
         }
         #endregion
+        public ICommand AddNewNote => new RelayCommand(DoAddNewNote);
+        private void DoAddNewNote(object param)
+        {
+            GameNote newNote = new();
+            newNote.SetNewNoteValues();
+            NewNotes.Add(newNote);
+            UpdateFilteredNewNotes();
+            ActiveNewNote = newNote;
+        }
+        public ICommand SortNewNotes => new RelayCommand(DoSortNewNotes);
+        private void DoSortNewNotes(object param)
+        {
+            NewNotes = new(NewNotes.OrderBy(n => n.Type).ThenBy(n => n.Name));
+        }
+        public ICommand SyncNewNotes => new RelayCommand(DoSyncNewNotes);
+        private void DoSyncNewNotes(object param)
+        {
+            foreach (GameNote note in NewNotes)
+            {
+                foreach (GameNote associatedNote in note.AssociatedNotes)
+                {
+                    GameNote matchedNote = NewNotes.First(n => n.Id == associatedNote.Id);
+                    associatedNote.Name = matchedNote.Name;
+                    associatedNote.Type = matchedNote.Type;
+                    associatedNote.Content = matchedNote.Content;
+                }
+            }
+            HelperMethods.NotifyUser("Notes and associations synced");
+        }
+        public ICommand ClearNoteSearch => new RelayCommand(DoClearNoteSearch);
+        private void DoClearNoteSearch(object param)
+        {
+            NoteSearchText = string.Empty;
+        }
 
         // Public Methods
         public void UpdateActiveCombatant()
@@ -1464,7 +1500,7 @@ namespace GAMMA.Models
             }
             return sortedNotes;
         }
-        private void UpdateFilteredNewNotes()
+        public void UpdateFilteredNewNotes()
         {
             FilteredNewNotes.Clear();
             foreach (GameNote note in NewNotes)

@@ -446,6 +446,22 @@ namespace GAMMA.Toolbox
             note = newNote;
 
         }
+        public static void NodeToObject(XmlNode noteNode, out GameNote note)
+        {
+            GameNote newNote = SetObjectPropertiesFromNode(noteNode, new GameNote()) as GameNote;
+            foreach (XmlNode childNode in noteNode.ChildNodes)
+            {
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "AssociatedNotes")
+                {
+                    foreach (XmlNode assNoteNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(assNoteNode, out GameNote assNote);
+                        newNote.AssociatedNotes.Add(assNote);
+                    }
+                }
+            }
+            note = newNote;
+        }
         public static void NodeToObject(XmlNode itemNode, out ItemModel item)
         {
             ItemModel newItem = SetObjectPropertiesFromNode(itemNode, new ItemModel()) as ItemModel;
@@ -1026,6 +1042,14 @@ namespace GAMMA.Toolbox
                     {
                         NodeToObject(node, out NoteModel obj);
                         newCampaign.Notes.Add(obj);
+                    }
+                }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "NewNotes")
+                {
+                    foreach (XmlNode node in childNode.ChildNodes)
+                    {
+                        NodeToObject(node, out GameNote obj);
+                        newCampaign.NewNotes.Add(obj);
                     }
                 }
             }

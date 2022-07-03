@@ -63,6 +63,7 @@ namespace GAMMA.Models
             newNote.SetNewNoteValues();
             AssociatedNotes.Add(newNote.DeepClone());
             Configuration.MainModelRef.CampaignView.ActiveCampaign.NewNotes.Add(newNote);
+            Configuration.MainModelRef.CampaignView.ActiveCampaign.UpdateFilteredNewNotes();
             Configuration.MainModelRef.CampaignView.ActiveCampaign.ActiveNewNote = newNote;
             GameNote copyOfThis = this.DeepClone();
             copyOfThis.AssociatedNotes.Clear();
@@ -109,6 +110,7 @@ namespace GAMMA.Models
                 {
                     note.AssociatedNotes = new(note.AssociatedNotes.Where(n => n.Id != id));
                 }
+                Configuration.MainModelRef.CampaignView.ActiveCampaign.UpdateFilteredNewNotes();
             }
             if (param.ToString() == "Note")
             {

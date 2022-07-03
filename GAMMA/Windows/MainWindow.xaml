@@ -2341,34 +2341,34 @@
                                                         </ListView.ItemTemplate>
                                                     </ListView>
                                                 </StackPanel>
-                                                <StackPanel Margin="16 24 0 0" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNote, Converter={tool:CollapsedIfNull}}">
+                                                <StackPanel Margin="16 24 0 0" Visibility="{Binding CampaignView.ActiveCampaign.ActiveNewNote, Converter={tool:CollapsedIfNull}}">
                                                     <TextBlock Text="Game Note Information" />
                                                     <Rectangle />
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                         <cc:FieldLabel Text="Title" />
-                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Name, UpdateSourceTrigger=PropertyChanged}" />
-                                                        <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.RemoveNote}" CommandParameter="Campaign" />
+                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNewNote.Name, UpdateSourceTrigger=PropertyChanged}" />
+                                                        <cc:IconButton ImageResource="{StaticResource Icon_X}" Command="{Binding CampaignView.ActiveCampaign.ActiveNewNote.RemoveNote}" CommandParameter="Campaign" />
                                                     </StackPanel>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}">
                                                         <cc:FieldLabel Text="Type" />
-                                                        <cc:GammaComboBox ItemsSource="{Binding NoteTypes}" SelectedValue="{Binding CampaignView.ActiveCampaign.ActiveNote.Type, UpdateSourceTrigger=PropertyChanged}" />
+                                                        <cc:GammaComboBox ItemsSource="{Binding NoteTypes}" SelectedValue="{Binding CampaignView.ActiveCampaign.ActiveNewNote.Type, UpdateSourceTrigger=PropertyChanged}" />
                                                     </StackPanel>
                                                     <StackPanel Style="{StaticResource SPNL_FieldRow}" Orientation="Vertical">
                                                         <cc:FieldLabel Text="Content" />
                                                         <Rectangle />
-                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNote.Content, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="4 0" Width="420" Height="180" AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                                                        <TextBox Text="{Binding CampaignView.ActiveCampaign.ActiveNewNote.Content, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="4 0" Width="420" Height="180" AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
                                                     </StackPanel>
                                                     <DockPanel Margin="4 8 0 0">
                                                         <TextBlock Text="Associated Notes" VerticalAlignment="Bottom" />
                                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddNewAssociatedNote}" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Link}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.AddAssociations}" />
-                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActiveNote.SortNotes}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Add}" Command="{Binding CampaignView.ActiveCampaign.ActiveNewNote.AddNewAssociatedNote}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Link}" Command="{Binding CampaignView.ActiveCampaign.ActiveNewNote.AddAssociations}" />
+                                                            <cc:IconButton ImageResource="{StaticResource Icon_Sort}" Command="{Binding CampaignView.ActiveCampaign.ActiveNewNote.SortNotes}" />
                                                         </StackPanel>
                                                     </DockPanel>
                                                     <Border Style="{StaticResource ListBorder}">
                                                         <ScrollViewer Height="234">
-                                                            <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActiveNote.AssociatedNotes}" Width="410">
+                                                            <ItemsControl ItemsSource="{Binding CampaignView.ActiveCampaign.ActiveNewNote.AssociatedNotes}" Width="410">
                                                                 <ItemsControl.ItemsPanel>
                                                                     <ItemsPanelTemplate>
                                                                         <WrapPanel></WrapPanel>

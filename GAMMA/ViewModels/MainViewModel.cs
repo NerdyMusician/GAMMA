@@ -445,6 +445,11 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        public List<string> NoteTypes
+        {
+            get { return new(AppData.NoteTypes); }
+        }
+
         // Commands
         #region ProcessKeyboardShortcut
         public ICommand ProcessKeyboardShortcut => new RelayCommand(DoProcessKeyboardShortcut);

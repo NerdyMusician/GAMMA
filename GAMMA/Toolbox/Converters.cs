@@ -991,7 +991,8 @@ namespace GAMMA.Toolbox
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string iconName = (AppData.NoteTypeIcons.ContainsKey(value.ToString())) ? AppData.NoteTypeIcons[value.ToString()] : AppData.IconRpgNote;
+            if (value == null) { value = string.Empty; }
+            string iconName = AppData.NoteTypeIcons[value.ToString()];
             return Configuration.framework.FindResource(iconName) as Style;
         }
     }
@@ -1004,7 +1005,8 @@ namespace GAMMA.Toolbox
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string iconName = (AppData.NoteTypeIcons.ContainsKey(value.ToString())) ? AppData.NoteTypeIcons[value.ToString()] : AppData.IconRpgNote;
+            if (value == null) { value = string.Empty; }
+            string iconName = AppData.NoteTypeIcons[value.ToString()];
             return Configuration.framework.FindResource(iconName) as Style;
         }
     }

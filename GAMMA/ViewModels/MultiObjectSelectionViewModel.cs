@@ -376,6 +376,15 @@ namespace GAMMA.ViewModels
                     Count_SourceAll = SourceNpcs.Count();
 
                     break;
+                case "Associated Notes":
+                    FilteredSourceNotes.Clear();
+                    foreach (GameNote note in SourceNotes)
+                    {
+                        if (note.Name.ToUpper().Contains(SourceTextSearch.ToUpper()) == true) { FilteredSourceNotes.Add(note); }
+                    }
+                    Count_SourceFiltered = FilteredSourceNotes.Count();
+                    Count_SourceAll = SourceNotes.Count();
+                    break;
                 default:
                     FilteredSourceCVs.Clear();
                     foreach (ConvertibleValue cv in SourceCVs)
