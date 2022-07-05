@@ -1351,7 +1351,8 @@ namespace GAMMA.Models
         public ICommand SortNewNotes => new RelayCommand(DoSortNewNotes);
         private void DoSortNewNotes(object param)
         {
-            NewNotes = new(NewNotes.OrderBy(n => n.Type).ThenBy(n => n.Name));
+            NewNotes = new(NewNotes.OrderByDescending(n => n.IsFavorite).ThenBy(n => n.Type).ThenBy(n => n.Name));
+            UpdateFilteredNewNotes();
         }
         public ICommand SyncNewNotes => new RelayCommand(DoSyncNewNotes);
         private void DoSyncNewNotes(object param)
@@ -1502,6 +1503,7 @@ namespace GAMMA.Models
         }
         public void UpdateFilteredNewNotes()
         {
+            string activeNoteId = (ActiveNewNote != null) ? ActiveNewNote.Id : string.Empty;
             FilteredNewNotes.Clear();
             foreach (GameNote note in NewNotes)
             {
@@ -1509,6 +1511,7 @@ namespace GAMMA.Models
                 if (note.Name.ToUpper().Contains(NoteSearchText.ToUpper())) { FilteredNewNotes.Add(note); continue; }
                 if (note.Content.ToUpper().Contains(NoteSearchText.ToUpper())) { FilteredNewNotes.Add(note); continue; }
             }
+            ActiveNewNote = FilteredNewNotes.FirstOrDefault(n => n.Id == activeNoteId);
         }
 
     }
