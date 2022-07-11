@@ -239,7 +239,7 @@ namespace GAMMA.Windows
         }
         private void EraserButton_Clicked(object sender, RoutedEventArgs e)
         {
-            (DataContext as MultiObjectSelectionViewModel).SourceTextSearch = "";
+            (DataContext as MultiObjectSelectionViewModel).SourceTextSearch = string.Empty;
         }
         private void Submit_Clicked(object sender, RoutedEventArgs e)
         {

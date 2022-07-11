@@ -13,7 +13,7 @@ namespace GAMMA.Models.GameplayComponents
         {
             Name = "New Variable";
             Type = "Number";
-            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+            TypeOptions = new(AppData.VarTypes);
             Rolls = new();
             Modifiers = new();
             DoOutput = true;
@@ -120,13 +120,13 @@ namespace GAMMA.Models.GameplayComponents
         // Public Methods
         public void ResetTypeOptions()
         {
-            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+            TypeOptions = new(AppData.VarTypes);
         }
 
         // Private Methods
         private void InitializeCollections()
         {
-            TypeOptions = new() { "Text", "Number", "Toggled Option" };
+            TypeOptions = new(AppData.VarTypes);
             Rolls = new();
             Modifiers = new();
         }

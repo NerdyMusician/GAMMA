@@ -18,8 +18,8 @@ namespace GAMMA.Models.GameplayComponents
             InitializeCollections();
             Name = "New Ability";
             Type = "None";
-            Output = "";
-            Description = "";
+            Output = string.Empty;
+            Description = string.Empty;
             QuantityToPerform = 1;
             
         }
@@ -28,8 +28,8 @@ namespace GAMMA.Models.GameplayComponents
             InitializeCollections();
             Name = "Basic Attack";
             Type = "Melee";
-            Output = "";
-            Description = "";
+            Output = string.Empty;
+            Description = string.Empty;
             QuantityToPerform = 1;
 
             CAVariable attackVariable = new();
@@ -37,7 +37,7 @@ namespace GAMMA.Models.GameplayComponents
 
             attackVariable.Name = "Attack";
 
-            damageVariable.Name = damageType + " Damage";
+            damageVariable.Name = $"{damageType} Damage";
 
             Variables.Add(attackVariable);
             Variables.Add(damageVariable);
@@ -346,7 +346,7 @@ namespace GAMMA.Models.GameplayComponents
                 useOptions = true;
             }
             ProcessAbility(attackingCreature, attackingPlayer, attackMode, 0, out string attackMessage, out _, useOptions); // These abilities do not make spell effects
-            string message = "";
+            string message = string.Empty;
             if (attackingPlayer != null) { message += attackingPlayer.Name + " uses " + Name + "."; }
             else if (attackingCreature != null) { message += attackingCreature.DisplayName + " uses " + Name + "."; }
             HelperMethods.AddToGameplayLog(message + attackMessage, "Attack", true);
@@ -401,14 +401,19 @@ namespace GAMMA.Models.GameplayComponents
         // Public Methods
         public bool ProcessAbility(CreatureModel creature, CharacterModel character, string attackMode, int scale, out string message, out List<string> activeEffects, bool useOptions = false)
         {
+            message = string.Empty;
+            activeEffects = new();
+            List<string> errors = new();
+
+            errors = PreRunValidation();
+            if (errors.Count > 1) { HelperMethods.NotifyUser(errors); return false; }
+
             List<CAVariable> variables = new();
             foreach (CAVariable v in Variables)
             {
                 variables.Add(HelperMethods.DeepClone(v));
             }
             string mode = GetAbilityProcessingMode(creature, character);
-            message = "";
-            activeEffects = new();
 
             int rounds = QuantityToPerform;
             if (creature != null) { if (creature.IsHorde) { rounds += creature.CurrentHordeSize - 1; } }
@@ -442,48 +447,13 @@ namespace GAMMA.Models.GameplayComponents
                 }
             }
 
-            // Check PostAction Resource Usage
-            foreach (CAPostAction postAction in PostActions)
-            {
-                if (postAction.Action == "Expend Counter")
-                {
-                    CounterModel counter = (character != null) ? character.Counters.FirstOrDefault(c => c.Name == postAction.ValueA) : creature.Counters.FirstOrDefault(c => c.Name == postAction.ValueA);
-                    if (counter == null)
-                    {
-                        message += "\nCounter \"" + postAction.ValueA + "\" not found.";
-                        return false;
-                    }
-                    bool validInt = int.TryParse(postAction.ValueB, out int result);
-                    if (validInt == false)
-                    {
-                        message += "\nInvalid value \"" + postAction.ValueB + "\", expected number.";
-                        return false;
-                    }
-                    if (counter.CurrentValue - (result * QuantityToPerform) < 0)
-                    {
-                        message += "\nInsufficient counter amount available for \"" + postAction.ValueA + "\".";
-                        return false;
-                    }
-                }
-            }
+            errors = CheckPostActionCounterUsage((character != null) ? character.Counters.ToList() : creature.Counters.ToList());
+            if (errors.Count > 1) { HelperMethods.NotifyUser(errors); return false; }
 
             for (int n = 0; n < rounds; n++)
             {
-                if (n > 0) { message += "\n..........."; } // String to swap for Roll20 output with /me
-
-                // Prepare Variables
-                foreach (CAVariable v in variables)
-                {
-                    if (v.Type == "Text") { v.Value = ""; }
-                    if (v.Type == "Number") { v.Value = "0"; }
-                    if (v.Type == "Toggled Option")
-                    {
-                        if (useOptions == false) { v.Value = "False"; }
-                    }
-                    if (v.Type == "Internal Bool" ) { v.Value = "False"; }
-                    v.Rolls = new();
-                    v.Modifiers = new();
-                }
+                if (n > 0) { message += $"\n................."; } // visual spacer
+                PrepareCustomVariables(ref variables, useOptions);
 
                 int attackRoll = 0;
                 bool isCriticalHit = false;
@@ -491,16 +461,15 @@ namespace GAMMA.Models.GameplayComponents
                 // Process Pre-Actions
                 foreach (CAPreAction preAction in PreActions)
                 {
-                    CAVariable target = variables.FirstOrDefault(v => v.Name == preAction.Target);
-                    if (target == null) { HelperMethods.NotifyUser("Invalid target \"" + preAction.Target + "\", variable not found."); return false; }
+                    CAVariable target = variables.FirstOrDefault(v => v.Name == preAction.Target)!;
                     bool conditionFailure = false;
 
                     // Check Conditions
                     foreach (CACondition condition in preAction.Conditions)
                     {
-                        if (condition.ConditionType == "") { HelperMethods.NotifyUser("Missing condition type."); return false; }
-                        string valueA = "";
-                        string valueB = "";
+                        if (condition.ConditionType == string.Empty) { HelperMethods.NotifyUser("Missing condition type."); return false; }
+                        string valueA = string.Empty;
+                        string valueB = string.Empty;
                         CAVariable conditionVariable = variables.FirstOrDefault(v => v.Name == condition.ConditionVariable);
                         CharacterAlterant alterant = null;
                         if (character != null) { alterant = character.Alterants.FirstOrDefault(a => a.Name == condition.ConditionVariable); }
@@ -845,8 +814,8 @@ namespace GAMMA.Models.GameplayComponents
                     // Check Condition
                     foreach (CACondition condition in postAction.Conditions)
                     {
-                        string valueA = "";
-                        string valueB = "";
+                        string valueA = string.Empty;
+                        string valueB = string.Empty;
                         CAVariable conditionVariable = variables.FirstOrDefault(v => v.Name == condition.ConditionVariable);
                         CAVariable conditionValue = variables.FirstOrDefault(v => v.Name == condition.ConditionValue);
                         if (conditionVariable == null) { HelperMethods.NotifyUser("Variable \"" + condition.ConditionVariable + "\" not found."); return false; }
@@ -1061,7 +1030,7 @@ namespace GAMMA.Models.GameplayComponents
             string description = Type += ": ";
             bool hasAttackRoll = false;
             int attackBonus = 0;
-            string attackTarget = "";
+            string attackTarget = string.Empty;
             Dictionary<string, string> damageDiceRolls = new();
             Dictionary<string, List<int>> damageDiceMods = new();
             
@@ -1287,6 +1256,70 @@ namespace GAMMA.Models.GameplayComponents
         }
 
         // Private Methods
+        private List<string> PreRunValidation()
+        {
+            List<string> errors = new();
+            errors.Add($"Pre-run validation has failed for {Name}.");
+
+            foreach (CAPreAction preAction in PreActions)
+            {
+                CAVariable target = Variables.FirstOrDefault(v => v.Name == preAction.Target);
+                if (target == null) { errors.Add($"Invalid target \"{preAction.Target}\", variable not found."); }
+
+                foreach (CACondition condition in preAction.Conditions)
+                {
+                    if (condition.ConditionType == string.Empty) { errors.Add($"Missing condition type for {preAction.Action}:{preAction.Target}."); }
+                }
+
+            }
+
+            return errors;
+
+        }
+        private List<string> CheckPostActionCounterUsage(List<CounterModel> counters)
+        {
+            List<string> errors = new();
+            errors.Add($"Counter validation has failed for {Name}.");
+
+            foreach (CAPostAction postAction in PostActions)
+            {
+                if (postAction.Action == AppData.PostAction_Expend_Counter)
+                {
+                    CounterModel counter = counters.FirstOrDefault(c => c.Name == postAction.ValueA);
+                    if (counter == null)
+                    {
+                        errors.Add($"Counter \"{postAction.ValueA}\" not found.");
+                    }
+                    bool validInt = int.TryParse(postAction.ValueB, out int result);
+                    if (validInt == false)
+                    {
+                        errors.Add($"Invalid value \"{postAction.ValueB}\", expected number.");
+                    }
+                    if (counter.CurrentValue - (result * QuantityToPerform) < 0)
+                    {
+                        errors.Add($"Insufficient counter amount available for \"{postAction.ValueA}\".");
+                    }
+                }
+            }
+
+            return errors;
+
+        }
+        private static void PrepareCustomVariables(ref List<CAVariable> variables, bool useOptions)
+        {
+            foreach (CAVariable v in variables)
+            {
+                if (v.Type == AppData.VarType_Text) { v.Value = string.Empty; }
+                if (v.Type == AppData.VarType_Number) { v.Value = "0"; }
+                if (v.Type == AppData.VarType_Toggled_Option)
+                {
+                    if (useOptions == false) { v.Value = "False"; }
+                }
+                if (v.Type == AppData.SpecType_Internal_Bool) { v.Value = "False"; }
+                v.Rolls = new();
+                v.Modifiers = new();
+            }
+        }
         private static bool CheckVariable(string variableName, List<CAVariable> variables, string expectedType, out CAVariable v)
         {
             v = variables.FirstOrDefault(v => v.Name == variableName);

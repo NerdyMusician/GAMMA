@@ -1,4 +1,5 @@
-﻿using GAMMA.Toolbox;
+﻿using ExtensionMethods;
+using GAMMA.Toolbox;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -489,15 +490,14 @@ namespace GAMMA.Models.GameplayComponents
             ShowScaling = false;
             ShowPairForm = false;
 
-            List<string> scalableActions = new() { "Add Set Value", "Add Roll" };
-            ShowScaling = scalableActions.Contains(Action);
-            ShowSetValueForm = (Action == "Add Set Value" || Action == "Append Text");
-            ShowRollValueForm = (Action == "Add Roll");
-            ShowStatValueForm = (Action == "Add Stat Value");
-            ShowCalculatedValueForm = (Action == "Add Calculated Value");
-            ShowQuestion = (Action == "QA Prompt");
-            ShowAttackForm = Action == "Make Attack Roll";
-            ShowPairForm = Action == "Translate Value";
+            ShowScaling = Action.IsIn(AppData.PreAction_Add_Set_Value, AppData.PreAction_Add_Roll);
+            ShowSetValueForm = (Action == AppData.PreAction_Add_Set_Value || Action == AppData.PreAction_Append_Text);
+            ShowRollValueForm = (Action == AppData.PreAction_Add_Roll);
+            ShowStatValueForm = (Action == AppData.PreAction_Add_Stat_Value);
+            ShowCalculatedValueForm = (Action == AppData.PreAction_Add_Calculated_Value);
+            ShowQuestion = (Action == AppData.PreAction_QA_Prompt);
+            ShowAttackForm = Action == AppData.PreAction_Make_Attack_Roll;
+            ShowPairForm = Action == AppData.PreAction_Translate_Value;
 
         }
         private void UpdateDisplayText()
@@ -507,7 +507,7 @@ namespace GAMMA.Models.GameplayComponents
         private void InitializeCollections()
         {
             Answers = new();
-            ActionOptions = new() { "Add Roll", "Add Set Value", "Add Stat Value", "Add Calculated Value", "QA Prompt", "Make Attack Roll", "Numeric Value Prompt", "Translate Value" };
+            ActionOptions = new(AppData.PreActions);
             StatOptions = new() { "Spellcasting Ability Modifier", "Spellcasting Attack Modifier", "Spellcasting Save DC", "Proficiency Bonus", "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
             Conditions = new();
             CalculationOptions = new() { "multiplied by", "divided by", "plus", "minus" };

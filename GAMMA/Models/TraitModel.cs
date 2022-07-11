@@ -11,7 +11,7 @@ namespace GAMMA.Models
         public TraitModel()
         {
             Name = "New Trait";
-            Description = "";
+            Description = string.Empty;
         }
 
         // Databound Properties

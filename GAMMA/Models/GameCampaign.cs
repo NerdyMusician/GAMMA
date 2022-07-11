@@ -592,7 +592,7 @@ namespace GAMMA.Models
 
                 CreaturePackModel selectedPack = packSelect.SelectedObject as CreaturePackModel;
 
-                string msg = "";
+                string msg = string.Empty;
                 foreach (PackCreatureModel creature in selectedPack.CreatureList)
                 {
                     CreatureModel matchedCreature = Configuration.CreatureRepository.FirstOrDefault(crt => crt.Name == creature.CreatureName);
@@ -664,7 +664,7 @@ namespace GAMMA.Models
             MultiObjectSelectionDialog selectionDialog = new (Npcs.Where(npc => npc.BaseCreatureName != "" && npc.IsActive).ToList());
             if (selectionDialog.ShowDialog() == true)
             {
-                string msg = "";
+                string msg = string.Empty;
                 foreach (NpcModel selectedNpc in (selectionDialog.DataContext as MultiObjectSelectionViewModel).SelectedNpcs)
                 {
                     CreatureModel baseCreature = Configuration.CreatureRepository.FirstOrDefault(creature => creature.Name == selectedNpc.BaseCreatureName);
@@ -728,7 +728,7 @@ namespace GAMMA.Models
         {
             bool reroll = Convert.ToBoolean(param);
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
-            string message = "";
+            string message = string.Empty;
 
             foreach (CreatureModel creature in Combatants)
             {

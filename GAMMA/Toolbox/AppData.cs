@@ -14,10 +14,13 @@ namespace GAMMA.Toolbox
             List<string> n = new();
             foreach (MemberInfo mi in typeof(AppData).GetMembers())
             {
-                if (mi.Name.StartsWith(prefix)) { n.Add(mi.Name.Replace(prefix, string.Empty)); }
+                if (mi.Name.StartsWith(prefix)) { n.Add(mi.Name.Replace(prefix, string.Empty).Replace("_"," ")); }
             }
             return n;
         }
+
+        // Misc
+
 
         // Icons
         public const string Icon_Book = "Icon_Book";
@@ -66,6 +69,37 @@ namespace GAMMA.Toolbox
             { NoteType_Trap, Icon_Trap },
             { NoteType_Vendor, Icon_Vendor },
         };
-        
+
+        // Variable Types
+        public const string VarType_Text = "Text";
+        public const string VarType_Number = "Number";
+        public const string VarType_Toggled_Option = "Toggled Option";
+        public static readonly List<string> VarTypes = GetPropertiesStartingWith("VarType_");
+        public const string SpecType_Internal_Bool = "Internal Bool";
+
+        // Pre-Action Types
+        public const string PreAction_Add_Roll = "Add Roll";
+        public const string PreAction_Add_Set_Value = "Add Set Value";
+        public const string PreAction_Add_Stat_Value = "Add Stat Value";
+        public const string PreAction_Add_Calculated_Value = "Add Calculated Value";
+        public const string PreAction_Append_Text = "Append Text";
+        public const string PreAction_QA_Prompt = "QA Prompt";
+        public const string PreAction_Make_Attack_Roll = "Make Attack Roll";
+        public const string PreAction_Numeric_Value_Prompt = "Numeric Value Prompt";
+        public const string PreAction_Translate_Value = "Translate Value";
+        public static readonly List<string> PreActions = GetPropertiesStartingWith("PreAction_");
+
+        // Post-Action Types
+        public const string PostAction_Activate_Concentration = "Activate Concentration";
+        public const string PostAction_Activate_Alterant = "Activate Alterant";
+        public const string PostAction_Add_Minions = "Add Minions";
+        public const string PostAction_Add_to_Current_HP = "Add to Current HP";
+        public const string PostAction_Add_to_Temporary_HP = "Add to Temporary HP";
+        public const string PostAction_Add_Active_Effect = "Add Active Effect";
+        public const string PostAction_Expend_Counter = "Expend Counter";
+        public const string PostAction_Roll_Table = "Roll Table";
+        public const string PostAction_Subtract_from_Current_Hp = "Subtract from Current HP";
+        public static readonly List<string> PostActions = GetPropertiesStartingWith("PostAction_");
+
     }
 }

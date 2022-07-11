@@ -556,7 +556,7 @@ namespace GAMMA.ViewModels
         public ICommand GenerateReport => new RelayCommand(DoGenerateReport);
         private void DoGenerateReport(object param)
         {
-            if (param == null) { param = ""; }
+            if (param == null) { param = string.Empty; }
             string message = param.ToString() switch
             {
                 "Fish" => GenerateReport_Fish(),
@@ -763,7 +763,7 @@ namespace GAMMA.ViewModels
         }
         private static string GetStringFromList(List<string> lines, string stringPrefix = "", string linePrefix = "")
         {
-            string message = "";
+            string message = string.Empty;
             if (lines.Count > 0)
             {
                 message += stringPrefix;

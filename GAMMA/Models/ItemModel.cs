@@ -1226,7 +1226,7 @@ namespace GAMMA.Models
             int toolMod;
             bool hasProf;
             CharacterModel refChar;
-            string message = "";
+            string message = string.Empty;
 
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             toolRoll = HelperMethods.RollD20((param.ToString() == "Advantage"), (param.ToString() == "Disadvantage"));

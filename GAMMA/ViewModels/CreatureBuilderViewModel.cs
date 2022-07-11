@@ -26,7 +26,7 @@ namespace GAMMA.ViewModels
             CreatureSubCategories = new();
             UpdateSubCategories();
             UpdateArmorTypes();
-            CreatureSearchText = "";
+            CreatureSearchText = string.Empty;
             foreach (CreatureModel creature in AllCreatures)
             {
                 creature.ConnectSpellLinks();
@@ -252,7 +252,7 @@ namespace GAMMA.ViewModels
         public ICommand ClearCreatureSearch => new RelayCommand(param => DoClearCreatureSearch());
         private void DoClearCreatureSearch()
         {
-            CreatureSearchText = "";
+            CreatureSearchText = string.Empty;
         }
         #endregion
         #region SelectFilters

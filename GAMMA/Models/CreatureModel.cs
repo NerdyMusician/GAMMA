@@ -17,7 +17,7 @@ namespace GAMMA.Models
         public CreatureModel()
         {
             Name = "New Creature";
-            Languages = "";
+            Languages = string.Empty;
             Abilities = new();
             Counters = new();
             SpellLinks = new();
@@ -25,10 +25,10 @@ namespace GAMMA.Models
             ItemLinks = new();
             ActiveEffectAbilities = new();
             Environments = new();
-            Vulnerabilities = "";
-            Immunities = "";
-            Resistances = "";
-            ConditionImmunities = "";
+            Vulnerabilities = string.Empty;
+            Immunities = string.Empty;
+            Resistances = string.Empty;
+            ConditionImmunities = string.Empty;
 
             DamageProclivity_Acid = "Normal";
             DamageProclivity_Cold = "Normal";
@@ -3023,7 +3023,7 @@ namespace GAMMA.Models
         public ICommand PerformTamingSession => new RelayCommand(DoPerformTamingSession);
         private void DoPerformTamingSession(object adv)
         {
-            if (adv == null) { adv = ""; }
+            if (adv == null) { adv = string.Empty; }
             CharacterModel character = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter;
             bool useAdv = (adv.ToString() == "A");
             bool useDis = (adv.ToString() == "D");
@@ -3234,7 +3234,7 @@ namespace GAMMA.Models
         }
         public void SetFormattedTexts()
         {
-            FT_Speeds = "";
+            FT_Speeds = string.Empty;
             if (Speed > 0) { FT_Speeds += Speed + " ft."; }
             if (SwimSpeed > 0) { FT_Speeds += ((FT_Speeds == "") ? "" : ", ") + "Swim " + SwimSpeed + " ft."; }
             if (FlySpeed > 0) { FT_Speeds += ((FT_Speeds == "") ? "" : ", ") + "Fly " + FlySpeed + " ft."; }
@@ -3252,7 +3252,7 @@ namespace GAMMA.Models
             FT_Wisdom = string.Format("{0} ({1}{2})", Attr_Wisdom, ((WisdomModifier >= 0) ? "+" : ""), WisdomModifier);
             FT_Charisma = string.Format("{0} ({1}{2})", Attr_Charisma, ((CharismaModifier >= 0) ? "+" : ""), CharismaModifier);
 
-            FT_Senses = "";
+            FT_Senses = string.Empty;
             if (Blindsight > 0) { FT_Senses += "Blindsight " + Blindsight + " ft."; }
             if (Darkvision > 0) { FT_Senses += ((FT_Senses == "") ? "" : ", ") + "Darkvision " + Darkvision + " ft."; }
             if (Tremorsense > 0) { FT_Senses += ((FT_Senses == "") ? "" : ", ") + "Tremorsense " + Tremorsense + " ft."; }
@@ -3353,7 +3353,7 @@ namespace GAMMA.Models
         }
         public void SetHighestSpeedValues()
         {
-            string type = "";
+            string type = string.Empty;
             int val = 0;
 
             if (Speed > val) { type = "Walk"; val = Speed; }
@@ -3534,7 +3534,7 @@ namespace GAMMA.Models
         }
         private void UpdateImmuneConditionText()
         {
-            string text = "";
+            string text = string.Empty;
             text += (IsImmune_Blinded) ? "Blinded, " : "";
             text += (IsImmune_Charmed) ? "Charmed, " : "";
             text += (IsImmune_Deafened) ? "Deafened, " : "";
@@ -3558,9 +3558,9 @@ namespace GAMMA.Models
         }
         private void UpdateDamageProclivityTexts()
         {
-            string vul = "";
-            string res = "";
-            string imm = "";
+            string vul = string.Empty;
+            string res = string.Empty;
+            string imm = string.Empty;
 
             vul += (DamageProclivity_Acid == "Vulnerable") ? "Acid, " : "";
             vul += (DamageProclivity_Cold == "Vulnerable") ? "Cold, " : "";

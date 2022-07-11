@@ -28,5 +28,9 @@ namespace ExtensionMethods
             }
             return labeledNumbers;
         }
+        public static bool IsIn(this string source, params string[] potentialMatches)
+        {
+            return potentialMatches.Contains(source);
+        }
     }
 }

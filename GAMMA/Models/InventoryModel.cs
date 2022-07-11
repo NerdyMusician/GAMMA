@@ -21,7 +21,7 @@ namespace GAMMA.Models
             AllItems = new();
             FilteredItems = new();
             Filters = new();
-            SearchText = "";
+            SearchText = string.Empty;
 
             AllItems.CollectionChanged += AllItems_CollectionChanged;
             SetFilterList();
@@ -276,7 +276,7 @@ namespace GAMMA.Models
         public ICommand ClearSearch => new RelayCommand(DoClearSearch);
         private void DoClearSearch(object param)
         {
-            SearchText = "";
+            SearchText = string.Empty;
             UpdateFilteredList();
         }
         #endregion
@@ -453,7 +453,7 @@ namespace GAMMA.Models
             if (textInput.ShowDialog() == true)
             {
                 string message = "Added Items:\n";
-                string invalidItems = "";
+                string invalidItems = string.Empty;
                 string[] lines = textInput.DumpTextValue.Replace("\r","").Split('\n');
                 Dictionary<string, int> itemsAndQuantities = new();
                 foreach (string line in lines)

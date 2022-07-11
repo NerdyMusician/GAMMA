@@ -23,7 +23,7 @@ namespace GAMMA.ViewModels
             FilteredItems = new ObservableCollection<ItemModel>(AllItems.ToList());
             ItemTypeFilters = new ObservableCollection<BoolOption>();
             SetFilterLists();
-            ItemSearchText = "";
+            ItemSearchText = string.Empty;
             Configuration.ItemRepository = AllItems.ToList();
         }
 
@@ -204,7 +204,7 @@ namespace GAMMA.ViewModels
         public ICommand ClearItemSearch => new RelayCommand(param => DoClearItemSearch());
         private void DoClearItemSearch()
         {
-            ItemSearchText = "";
+            ItemSearchText = string.Empty;
         }
         #endregion
         #region PerformSelectiveExport

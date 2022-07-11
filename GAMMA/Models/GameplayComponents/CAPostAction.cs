@@ -12,17 +12,7 @@ namespace GAMMA.Models.GameplayComponents
         // Constructors
         public CAPostAction()
         {
-            ActionOptions = new()
-            {
-                "Activate Concentration",
-                "Activate Alterant",
-                "Add Minions",
-                "Add to Current HP",
-                "Add to Temporary HP",
-                "Add Active Effect",
-                "Expend Counter",
-                "Subtract from Current HP",
-            };
+            ActionOptions = new(AppData.PostActions);
             Conditions = new();
             ValueSetA = new();
             ValueSetB = new();
@@ -164,11 +154,11 @@ namespace GAMMA.Models.GameplayComponents
             ShowValueA = false;
             ShowValueB = false;
 
-            if (Action == "Add to Current HP") { ShowValueA = true; LabelA = "Value"; }
-            if (Action == "Subtract from Current HP") { ShowValueA = true; LabelA = "Value"; }
-            if (Action == "Add to Temporary HP") { ShowValueA = true; LabelA = "Value"; }
-            if (Action == "Add Minions") { ShowValueA = true; LabelA = "Creature Name"; ShowValueB = true; LabelB = "Quantity"; }
-            if (Action == "Add Active Effect") 
+            if (Action == AppData.PostAction_Add_to_Current_HP) { ShowValueA = true; LabelA = "Value"; }
+            if (Action == AppData.PostAction_Subtract_from_Current_Hp) { ShowValueA = true; LabelA = "Value"; }
+            if (Action == AppData.PostAction_Add_to_Temporary_HP) { ShowValueA = true; LabelA = "Value"; }
+            if (Action == AppData.PostAction_Add_Minions) { ShowValueA = true; LabelA = "Creature Name"; ShowValueB = true; LabelB = "Quantity"; }
+            if (Action == AppData.PostAction_Add_Active_Effect) 
             { 
                 ShowValueA = true; 
                 LabelA = "Ability"; 
@@ -181,7 +171,7 @@ namespace GAMMA.Models.GameplayComponents
                     }
                 }
             }
-            if (Action == "Expend Counter")
+            if (Action == AppData.PostAction_Expend_Counter)
             {
                 ShowValueA = true; LabelA = "Counter"; 
                 ShowValueB = true; LabelB = "Amount";
@@ -203,8 +193,18 @@ namespace GAMMA.Models.GameplayComponents
                     }
                 }
             }
-            if (Action == "Activate Concentration") { }
-            if (Action == "Activate Alterant") { ShowValueA = true; LabelA = "Alterant"; }
+            if (Action == AppData.PostAction_Activate_Concentration) { }
+            if (Action == AppData.PostAction_Activate_Alterant) { ShowValueA = true; LabelA = "Alterant"; }
+            if (Action == AppData.PostAction_Roll_Table) 
+            { 
+                ShowValueA = true; 
+                LabelA = "Table";
+                ValueSetA = new();
+                foreach (RollTableModel rollTable in Configuration.MainModelRef.ToolsView.RollTables)
+                {
+                    if (rollTable.AvailableToPlayers) { ValueSetA.Add(rollTable.Name); }
+                }
+            }
 
         }
 

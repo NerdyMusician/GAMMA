@@ -17,7 +17,7 @@ namespace GAMMA.Toolbox
         // Public Methods
         public static XElement ListToXml(IEnumerable itemList, string enumName = "")
         {
-            string elementName = "";
+            string elementName = string.Empty;
             List<XElement> items = new();
             foreach (object item in itemList)
             {

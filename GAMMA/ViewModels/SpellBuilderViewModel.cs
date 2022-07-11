@@ -26,7 +26,7 @@ namespace GAMMA.ViewModels
 
             FilteredSpells = new ObservableCollection<SpellModel>(AllSpells.ToList());
             Configuration.SpellRepository = AllSpells.ToList();
-            SpellSearchText = "";
+            SpellSearchText = string.Empty;
 
         }
 
@@ -169,7 +169,7 @@ namespace GAMMA.ViewModels
         public ICommand ClearSpellSearch => new RelayCommand(param => DoClearSpellSearch());
         private void DoClearSpellSearch()
         {
-            SpellSearchText = "";
+            SpellSearchText = string.Empty;
         }
         #endregion
         #region PerformSelectiveExport

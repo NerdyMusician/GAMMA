@@ -90,7 +90,7 @@ namespace GAMMA.Toolbox
             try
             {
 
-                string errMessage = "";
+                string errMessage = string.Empty;
 
                 if (driverRef == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo Web Driver detected."; }
                 if (driverRef.CurrentWindowHandle == null) { characterRef.OutputLinkedToRoll20 = false; errMessage += "\nNo window handle available."; }
@@ -125,6 +125,10 @@ namespace GAMMA.Toolbox
             }
 
         }
+        public static void NotifyUser(List<string> messages)
+        {
+            NotifyUser(GetStringFromList(messages), UserNotificationType.Report);
+        }
         public static void NotifyUser(string message, UserNotificationType type = UserNotificationType.Simple)
         {
             if (type == UserNotificationType.Simple)
@@ -149,13 +153,13 @@ namespace GAMMA.Toolbox
         }
         public static void WriteToLogFile(string message, bool notifyUser = false)
         {
-            if (notifyUser) { HelperMethods.NotifyUser(message); }
+            if (notifyUser) { NotifyUser(message); }
             File.AppendAllText("log.txt", DateTime.Now + ": " + message + "\n");
         }
         public static void ClearLogFile(bool notifyUser = false)
         {
             File.WriteAllText("log.txt", "");
-            if (notifyUser) { HelperMethods.NotifyUser("Log file cleared."); }
+            if (notifyUser) { NotifyUser("Log file cleared."); }
         }
         public static Style GetStyle(string name)
         {
@@ -346,7 +350,7 @@ namespace GAMMA.Toolbox
         }
         public static string GetFormattedModifiers(List<string> mods)
         {
-            string output = "";
+            string output = string.Empty;
             for (int i = 0; i < mods.Count; i++)
             {
                 if (i > 0) { output += " + "; }
@@ -569,7 +573,7 @@ namespace GAMMA.Toolbox
         }
         public static string GetStringFromList(List<string> list, string separator = "\n\n")
         {
-            string fullText = "";
+            string fullText = string.Empty;
             for (int i = 0; i < list.Count; i++)
             {
                 if (i + 1 < list.Count)
@@ -585,7 +589,7 @@ namespace GAMMA.Toolbox
         }
         public static string GetStringFromList(List<int> list, string separator = "\n\n")
         {
-            string fullText = "";
+            string fullText = string.Empty;
             for (int i = 0; i < list.Count; i++)
             {
                 if (i + 1 < list.Count)
@@ -601,7 +605,7 @@ namespace GAMMA.Toolbox
         }
         public static string GetStringFromDictionary(SortedDictionary<string, int> dictionary, string spacer = " : ", string separator = "\n")
         {
-            string fullText = "";
+            string fullText = string.Empty;
             if (dictionary.Count <= 0) { return fullText; }
             string firstKey = dictionary.First().Key;
             foreach (KeyValuePair<string, int> pair in dictionary)
@@ -616,7 +620,7 @@ namespace GAMMA.Toolbox
         }
         public static string GetStringFromDictionary(SortedDictionary<int, int> dictionary, string header, string spacer = " : ", string separator = "\n")
         {
-            string fullText = "";
+            string fullText = string.Empty;
             if (dictionary.Count <= 0) { return fullText; }
             int firstKey = dictionary.First().Key;
             foreach (KeyValuePair<int, int> pair in dictionary)

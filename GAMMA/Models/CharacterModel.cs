@@ -119,7 +119,7 @@ namespace GAMMA.Models
                 NotifyPropertyChanged();
                 LinkedRace = Configuration.MainModelRef.ToolsView.PlayerRaces.FirstOrDefault(race => race.Name == value);
                 UpdateSubraceList();
-                if (Subraces.Contains(Subrace) == false) { Subrace = ""; }
+                if (Subraces.Contains(Subrace) == false) { Subrace = string.Empty; }
                 UpdateDisplayRace();
             }
         }
@@ -3268,7 +3268,7 @@ namespace GAMMA.Models
                     break;
                 case "CustomRoll":
                     string msg = Name + " made a custom roll (" + CustomDiceQuantity + "d" + CustomDiceSides + "+" + CustomDiceMod + ").";
-                    string dr = "";
+                    string dr = string.Empty;
                     int rslt = 0;
                     for (int i = 0; i < CustomDiceQuantity; i++)
                     {
@@ -3422,7 +3422,7 @@ namespace GAMMA.Models
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             int roll = Configuration.RNG.Next(1, 21);
-            string message = "";
+            string message = string.Empty;
 
             if (roll == 1) { _DeathFails += 2; message += Name + " makes a death save (" + roll + ") and gets two failures."; }
             if (roll >= 2 && roll <= 9) { _DeathFails++; message += Name + " makes a death save (" + roll + ") and gets one failure."; }
@@ -3605,7 +3605,7 @@ namespace GAMMA.Models
                     return;
                 }
 
-                string missingItems = "";
+                string missingItems = string.Empty;
 
                 foreach (ItemModel component in itemToAdd.CraftingComponents)
                 {
@@ -3684,7 +3684,7 @@ namespace GAMMA.Models
                     return;
                 }
 
-                string missingRunes = "";
+                string missingRunes = string.Empty;
                 foreach (ItemModel rune in itemToAdd.EnchantingRunes)
                 {
                     bool haveItem = false;
@@ -3757,7 +3757,7 @@ namespace GAMMA.Models
         {
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
             if (Configuration.Environments.Contains(HerbalismEnvironment) == false) { return; }
-            HerbalismResultText = "";
+            HerbalismResultText = string.Empty;
             int ingredientsRoll = Configuration.RNG.Next(1, 5);
             int profBonus = (ToolProficiencies.FirstOrDefault(tool => tool.Name == "Herbalism Kit") != null) ? ProficiencyBonus : 0;
             int numberOfIngredientsFound = ingredientsRoll + profBonus;
@@ -3847,7 +3847,7 @@ namespace GAMMA.Models
                     }
                 }
 
-                string message = "";
+                string message = string.Empty;
                 int roll = Configuration.RNG.Next(1, 21);
                 int mod = (IntelligenceModifier > WisdomModifier) ? IntelligenceModifier : WisdomModifier;
                 int prof = (ToolProficiencies.FirstOrDefault(tool => tool.Name == "Alchemist's Supplies") != null) ? ProficiencyBonus : 0;
@@ -4042,7 +4042,7 @@ namespace GAMMA.Models
         private void DoPerformStandardAction(object param)
         {
             string action = param.ToString();
-            string msg = "";
+            string msg = string.Empty;
             bool playSound = false;
             switch (action)
             {
@@ -4232,7 +4232,7 @@ namespace GAMMA.Models
                 HelperMethods.NotifyUser("Please select a valid fishing environment.");
                 return;
             }
-            if (param == null) { param = ""; }
+            if (param == null) { param = string.Empty; }
             bool useAdv = param.ToString() == "Advantage";
             bool useDis = param.ToString() == "Disadvantage";
             HelperMethods.PlaySystemAudio(Configuration.SystemAudio_DiceRoll);
@@ -4508,22 +4508,22 @@ namespace GAMMA.Models
             switch (param.ToString())
             {
                 case "MainHand":
-                    MainHandItem = "";
+                    MainHandItem = string.Empty;
                     break;
                 case "OffHand":
-                    OffHandItem = "";
+                    OffHandItem = string.Empty;
                     break;
                 case "Armor":
-                    ArmorItem = "";
+                    ArmorItem = string.Empty;
                     break;
                 case "AttunedSlotA":
-                    AttunedItemA = "";
+                    AttunedItemA = string.Empty;
                     break;
                 case "AttunedSlotB":
-                    AttunedItemB = "";
+                    AttunedItemB = string.Empty;
                     break;
                 case "AttunedSlotC":
-                    AttunedItemC = "";
+                    AttunedItemC = string.Empty;
                     break;
                 default: break;
             }
@@ -4602,7 +4602,7 @@ namespace GAMMA.Models
             NoteSearchDialog noteSearchDialog = new();
             if (noteSearchDialog.ShowDialog() == true)
             {
-                string output = "";
+                string output = string.Empty;
                 bool searchHeader = (bool)noteSearchDialog.CBX_LookInHeader.IsChecked;
                 bool searchContent = (bool)noteSearchDialog.CBX_LookInContent.IsChecked;
                 bool useCaseMatch = (bool)noteSearchDialog.CBX_UseCaseMatch.IsChecked;
@@ -4864,7 +4864,7 @@ namespace GAMMA.Models
         }
         public void SetClassAutoText()
         {
-            ClassAutoText = "";
+            ClassAutoText = string.Empty;
             if (PlayerClasses.Count <= 0) { return; }
             if (PlayerClasses.Count == 1)
             {
@@ -5030,7 +5030,7 @@ namespace GAMMA.Models
                         if (feature.FeatureType == "Multiclass Ability Prerequisite - Or")
                         {
                             bool foundMatch = false;
-                            string stat = "";
+                            string stat = string.Empty;
                             foreach (FeatureData featureData in feature.Choices)
                             {
                                 if (featureData.Name == "Strength")
@@ -5501,7 +5501,7 @@ namespace GAMMA.Models
                     }
                 }
                 Inventories[0].IsCarried = true;
-                Inventories[0].SearchText = "";
+                Inventories[0].SearchText = string.Empty;
 
             }
 
@@ -5852,7 +5852,7 @@ namespace GAMMA.Models
             }
 
             otherProfs.Sort();
-            string output = "";
+            string output = string.Empty;
             for (int i = 0; i < otherProfs.Count; i++)
             {
                 if (i > 0) { output += ", "; }
@@ -5894,7 +5894,7 @@ namespace GAMMA.Models
             }
 
             languages.Sort();
-            string output = "";
+            string output = string.Empty;
             for (int i = 0; i < languages.Count; i++)
             {
                 if (i > 0) { output += ", "; }

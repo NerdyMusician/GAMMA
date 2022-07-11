@@ -24,7 +24,7 @@ namespace GAMMA.ViewModels
                 Filters.Add(new BoolOption { Name = type, Marked = true });
                 Filters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<ItemModel> items)
         {
@@ -39,7 +39,7 @@ namespace GAMMA.ViewModels
                 Filters.Add(new BoolOption { Name = type, Marked = true });
                 Filters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<SpellModel> spells)
         {
@@ -59,7 +59,7 @@ namespace GAMMA.ViewModels
                 SecondaryFilters.Add(new BoolOption { Name = "Level " + i, Marked = true });
                 SecondaryFilters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<NpcModel> npcs)
         {
@@ -69,7 +69,7 @@ namespace GAMMA.ViewModels
             Mode = "Npcs";
             Filters = new ObservableCollection<BoolOption>();
             SecondaryFilters = new();
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<ConvertibleValue> cvs, string mode)
         {
@@ -79,14 +79,14 @@ namespace GAMMA.ViewModels
             Mode = mode;
             Filters = new();
             SecondaryFilters = new();
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<GameNote> records, string mode)
         {
             InitializeCollections();
             SourceNotes = new(records);
             Mode = mode;
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         private void InitializeCollections()
         {
@@ -357,7 +357,7 @@ namespace GAMMA.ViewModels
                     foreach (CreatureModel creature in SourceCreatures)
                     {
                         if (creature.Name.ToUpper().Contains(SourceTextSearch.ToUpper()) == false) { continue; }
-                        if (creature.CreatureCategory == null) { creature.CreatureCategory = ""; }
+                        if (creature.CreatureCategory == null) { creature.CreatureCategory = string.Empty; }
                         if (Filters.First(filter => filter.Name == creature.CreatureCategory).Marked) { FilteredSourceCreatures.Add(creature); }
                     }
 

@@ -82,7 +82,7 @@ namespace GAMMA.Models
         {
             int minVal = 1;
             int maxVal = 1;
-            string msg = "";
+            string msg = string.Empty;
 
             foreach (RollTableRowModel row in TableRows)
             {
