@@ -155,7 +155,7 @@ namespace GAMMA.Models.GameplayComponents
             ShowValueB = false;
 
             if (Action == AppData.PostAction_Add_to_Current_HP) { ShowValueA = true; LabelA = "Value"; }
-            if (Action == AppData.PostAction_Subtract_from_Current_Hp) { ShowValueA = true; LabelA = "Value"; }
+            if (Action == AppData.PostAction_Subtract_from_Current_HP) { ShowValueA = true; LabelA = "Value"; }
             if (Action == AppData.PostAction_Add_to_Temporary_HP) { ShowValueA = true; LabelA = "Value"; }
             if (Action == AppData.PostAction_Add_Minions) { ShowValueA = true; LabelA = "Creature Name"; ShowValueB = true; LabelB = "Quantity"; }
             if (Action == AppData.PostAction_Add_Active_Effect) 

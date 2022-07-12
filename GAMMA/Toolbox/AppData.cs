@@ -98,7 +98,7 @@ namespace GAMMA.Toolbox
         public const string PostAction_Add_Active_Effect = "Add Active Effect";
         public const string PostAction_Expend_Counter = "Expend Counter";
         public const string PostAction_Roll_Table = "Roll Table";
-        public const string PostAction_Subtract_from_Current_Hp = "Subtract from Current HP";
+        public const string PostAction_Subtract_from_Current_HP = "Subtract from Current HP";
         public static readonly List<string> PostActions = GetPropertiesStartingWith("PostAction_");
 
     }
