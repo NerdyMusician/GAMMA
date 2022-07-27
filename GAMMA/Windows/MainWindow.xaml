@@ -2327,7 +2327,7 @@
                                                         <cc:MiniButton ImageResource="{StaticResource Icon_Eraser}" Command="{Binding CampaignView.ActiveCampaign.ClearNoteSearch}" />
                                                     </DockPanel>
                                                     <ListView Style="{StaticResource BorderedListView}"
-                                                  Width="216" Height="562"
+                                                  Width="216" Height="562" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                                   ItemsSource="{Binding CampaignView.ActiveCampaign.FilteredNewNotes}"
                                                   SelectedItem="{Binding CampaignView.ActiveCampaign.ActiveNewNote}">
                                                         <ListView.ItemTemplate>
@@ -2336,7 +2336,7 @@
                                                                     <Image Style="{StaticResource Icon_Star}" Visibility="{Binding IsFavorite, Converter={tool:HiddenIfFalseOtherwiseVisible}}" />
                                                                     <Image Style="{Binding Type, Converter={tool:ImageBasedOnNoteType}}" />
                                                                     <Separator />
-                                                                    <TextBlock Text="{Binding Name}" MinWidth="160" Foreground="{StaticResource PrimaryFontColor}" />
+                                                                    <TextBlock Text="{Binding Name}" MinWidth="140" Foreground="{StaticResource PrimaryFontColor}" />
                                                                 </StackPanel>
                                                             </DataTemplate>
                                                         </ListView.ItemTemplate>
