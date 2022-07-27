@@ -2390,6 +2390,11 @@
                                                                                             <MenuItem Header="Remove Association" Command="{Binding RemoveNote}" CommandParameter="Note" />
                                                                                         </ContextMenu>
                                                                                     </TextBlock.ContextMenu>
+                                                                                    <TextBlock.ToolTip>
+                                                                                        <ToolTip>
+                                                                                            <TextBlock Text="{Binding Content}" Width="300" TextWrapping="Wrap" />
+                                                                                        </ToolTip>
+                                                                                    </TextBlock.ToolTip>
                                                                                 </TextBlock>
                                                                                 <Separator />
                                                                                 <cc:IconButton ImageResource="{StaticResource Icon_Link}" Command="{Binding GoToNote}" />
