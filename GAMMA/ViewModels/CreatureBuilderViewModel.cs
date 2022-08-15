@@ -20,7 +20,8 @@ namespace GAMMA.ViewModels
             XmlMethods.XmlToList(Configuration.CreatureDataFilePath, out List<CreatureModel> creatures, out _);
             AllCreatures = new ObservableCollection<CreatureModel>(creatures);
             FilteredCreatures = new ObservableCollection<CreatureModel>(AllCreatures.ToList());
-            CreatureTypeFilters = new ObservableCollection<BoolOption>();
+            CreatureTypeFilters = new();
+            CreatureSourceFilters = new();
             SetFilterLists();
             Configuration.CreatureRepository = AllCreatures.ToList();
             CreatureSubCategories = new();
@@ -140,6 +141,20 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        private bool _IsFilterListOpen_ByCategory;
+        public bool IsFilterListOpen_ByCategory
+        {
+            get => _IsFilterListOpen_ByCategory;
+            set => SetAndNotify(ref _IsFilterListOpen_ByCategory, value);
+        }
+
+        private bool _IsFilterListOpen_BySource;
+        public bool IsFilterListOpen_BySource
+        {
+            get => _IsFilterListOpen_BySource;
+            set => SetAndNotify(ref _IsFilterListOpen_BySource, value);
+        }
+
         #region Count_AllCreatures
         private int _Count_AllCreatures;
         public int Count_AllCreatures
@@ -164,6 +179,13 @@ namespace GAMMA.ViewModels
             set => SetAndNotify(ref _CreatureTypeFilters, value);
         }
         #endregion
+
+        private ObservableCollection<BoolOption> _CreatureSourceFilters;
+        public ObservableCollection<BoolOption> CreatureSourceFilters
+        {
+            get => _CreatureSourceFilters;
+            set => SetAndNotify(ref _CreatureSourceFilters, value);
+        }
 
         // Commands
         #region AddCreature
@@ -215,6 +237,7 @@ namespace GAMMA.ViewModels
             HelperMethods.WriteToLogFile("Creatures Saved.", notifyUser);
             UpdateSubCategories();
             UpdateArmorTypes();
+            SetFilterLists();
             return true;
         }
         #endregion
@@ -257,11 +280,23 @@ namespace GAMMA.ViewModels
         #endregion
         #region SelectFilters
         public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
-        private void DoSelectFilters(object filter)
+        private void DoSelectFilters(object filterParams)
         {
-            foreach (BoolOption option in CreatureTypeFilters)
+            string filterList = filterParams.ToString().Split(',')[0];
+            string filterOption = filterParams.ToString().Split(',')[1];
+            if (filterList == "Category")
             {
-                option.Marked = (filter.ToString() == "All") ? true : false;
+                foreach (BoolOption option in CreatureTypeFilters)
+                {
+                    option.Marked = (filterOption == "All") ? true : false;
+                }
+            }
+            if (filterList == "Source")
+            {
+                foreach (BoolOption option in CreatureSourceFilters)
+                {
+                    option.Marked = (filterOption == "All") ? true : false;
+                }
             }
         }
         #endregion
@@ -327,9 +362,17 @@ namespace GAMMA.ViewModels
                 if (Filter_PlayersOnly == true && creature.IsPlayer == false) { continue; }
                 if (Filter_ValidatedOnly == true && creature.IsValidated == false) { continue; }
                 if (Filter_MiniatureOnly == true && creature.HasMiniature == false) { continue; }
+
                 BoolOption filter = CreatureTypeFilters.FirstOrDefault(filter => filter.Name == creature.CreatureCategory);
                 if (filter == null) { continue; }
-                if (filter.Marked) { filteredCreatures.Add(creature); }
+                if (!filter.Marked) { continue; }
+
+                filter = CreatureSourceFilters.FirstOrDefault(filter => filter.Name == creature.Sourcebook);
+                if (filter == null) { continue; }
+                if (!filter.Marked) { continue; }
+
+                filteredCreatures.Add(creature);
+
             }
             FilteredCreatures = new ObservableCollection<CreatureModel>(filteredCreatures.OrderBy(creature => creature.Name));
 
@@ -341,10 +384,19 @@ namespace GAMMA.ViewModels
             foreach (string type in Configuration.CreatureCategories)
             {
                 CreatureTypeFilters.Add(new BoolOption { Name = type, Marked = true });
-                CreatureTypeFilters.Last().PropertyChanged += new PropertyChangedEventHandler(CreatureTypeFilter_PropertyChanged);
+                CreatureTypeFilters.Last().PropertyChanged += new PropertyChangedEventHandler(CreatureFilter_PropertyChanged);
+            }
+
+            CreatureSourceFilters.Add(new() { Name = string.Empty, Marked = true });
+            CreatureSourceFilters.Last().PropertyChanged += new PropertyChangedEventHandler(CreatureFilter_PropertyChanged);
+            foreach (CreatureModel creature in AllCreatures)
+            {
+                if (CreatureSourceFilters.FirstOrDefault(c => c.Name == creature.Sourcebook) != null) { continue; }
+                CreatureSourceFilters.Add(new() { Name = creature.Sourcebook, Marked = true });
+                CreatureSourceFilters.Last().PropertyChanged += new PropertyChangedEventHandler(CreatureFilter_PropertyChanged);
             }
         }
-        private void CreatureTypeFilter_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void CreatureFilter_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             UpdateFilteredCreatureList();
         }
