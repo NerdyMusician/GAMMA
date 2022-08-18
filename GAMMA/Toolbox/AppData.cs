@@ -46,6 +46,7 @@ namespace GAMMA.Toolbox
         public const string NoteType_Landmark = "Landmark";
         public const string NoteType_Location = "Location";
         public const string NoteType_Map = "Map";
+        public const string NoteType_Miscellaneous = "Miscellaneous";
         public const string NoteType_Other = "Other";
         public const string NoteType_Puzzle = "Puzzle";
         public const string NoteType_Quest = "Quest";
@@ -63,6 +64,7 @@ namespace GAMMA.Toolbox
             { NoteType_Landmark, Icon_Mountain },
             { NoteType_Location, Icon_Home },
             { NoteType_Map, Icon_Map },
+            { NoteType_Miscellaneous, Icon_RpgNote },
             { NoteType_Other, Icon_RpgNote },
             { NoteType_Puzzle, Icon_Puzzle },
             { NoteType_Quest, Icon_Book },

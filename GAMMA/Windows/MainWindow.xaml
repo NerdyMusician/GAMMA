@@ -11532,6 +11532,34 @@
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Web Driver">
+                            <TabItem.Resources>
+                                <DataTemplate x:Key="WebActionTemplate">
+                                    <Border Style="{StaticResource SegmentTile}">
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Style="{StaticResource Icon_Action}" />
+                                                <Separator />
+                                                <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="160" IsEditable="false" />
+                                                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowInputField, Converter={tool:HiddenIfFalseOtherwiseVisible}, FallbackValue=Visible}">
+                                                    <Separator />
+                                                    <Image Style="{StaticResource Icon_Text_Blue}" />
+                                                    <Separator />
+                                                    <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="172" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowTargetField, Converter={tool:HiddenIfFalseOtherwiseVisible}, FallbackValue=Visible}">
+                                                    <Separator />
+                                                    <Image Style="{StaticResource Icon_Markup}" />
+                                                    <Separator />
+                                                    <cc:GammaTextBox Text="{Binding TargetElement}" Width="240" />
+                                                </StackPanel>
+                                                <Separator />
+                                                <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Startup" />
+                                            </StackPanel>
+                                            <Separator />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </TabItem.Resources>
                             <StackPanel Margin="8 4">
                                 <cc:SubsectionHeader Text="WebDriver" />
                                 <Rectangle Style="{StaticResource HorizontalDivider}" />
@@ -11611,56 +11639,7 @@
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
-                                                    <ItemsControl ItemsSource="{Binding SettingsView.StartupWebActions}" Width="420">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <Border Style="{StaticResource SegmentTile}">
-                                                                    <StackPanel HorizontalAlignment="Left">
-                                                                        <StackPanel Orientation="Horizontal">
-                                                                            <Image Style="{StaticResource Icon_Action}" />
-                                                                            <Separator />
-                                                                            <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="160" IsEditable="false" />
-                                                                            <StackPanel Orientation="Horizontal" Visibility="{Binding ShowInputField, Converter={tool:HiddenIfFalseOtherwiseVisible}, FallbackValue=Visible}">
-                                                                                <Separator />
-                                                                                <Image Style="{StaticResource Icon_Text_Blue}" />
-                                                                                <Separator />
-                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="172" />
-                                                                            </StackPanel>
-                                                                            <Separator />
-                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Startup" />
-                                                                        </StackPanel>
-                                                                        <StackPanel Visibility="{Binding ShowTargetStack, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                                                            <Separator />
-                                                                            <DockPanel Margin="20 0 0 0">
-                                                                                <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
-                                                                            </DockPanel>
-                                                                            <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
-                                                                                <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">
-                                                                                    <ItemsControl.ItemTemplate>
-                                                                                        <DataTemplate>
-                                                                                            <StackPanel Orientation="Horizontal" Margin="0 2">
-                                                                                                <Image Style="{StaticResource Icon_Markup}" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TargetElementHandles}" Text="{Binding TargetElementHandle}" Width="140" IsEditable="false" />
-                                                                                                <cc:FieldLabel Text=" = " Width="auto" />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TargetElementMatchText}" Width="152" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaTextBox Text="{Binding ElementMatchIteration}" Width="24" />
-                                                                                                <Separator />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveElement}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
-                                                                                            </StackPanel>
-                                                                                        </DataTemplate>
-                                                                                    </ItemsControl.ItemTemplate>
-                                                                                </ItemsControl>
-                                                                            </Border>
-                                                                        </StackPanel>
-                                                                        <Separator />
-                                                                    </StackPanel>
-                                                                </Border>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.StartupWebActions}" ItemTemplate="{StaticResource WebActionTemplate}" />
                                                 </ScrollViewer>
                                             </Border>
                                         </StackPanel>
@@ -11680,60 +11659,9 @@
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
-                                                    <ItemsControl ItemsSource="{Binding SettingsView.OutputWebActions}" Width="420">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <Border Style="{StaticResource SegmentTile}">
-                                                                    <StackPanel HorizontalAlignment="Left">
-                                                                        <StackPanel Orientation="Horizontal">
-                                                                            <Image Style="{StaticResource Icon_Action}" />
-                                                                            <Separator />
-                                                                            <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="160" IsEditable="false" />
-                                                                            <StackPanel Orientation="Horizontal" Visibility="{Binding ShowInputField, Converter={tool:HiddenIfFalseOtherwiseVisible}, FallbackValue=Visible}">
-                                                                                <Separator />
-                                                                                <Image Style="{StaticResource Icon_Text_Blue}" />
-                                                                                <Separator />
-                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="172" />
-                                                                            </StackPanel>
-                                                                            <Separator />
-                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Output" />
-                                                                        </StackPanel>
-                                                                        <StackPanel Visibility="{Binding ShowTargetStack, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                                                            <Separator />
-                                                                            <DockPanel Margin="20 0 0 0">
-                                                                                <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
-                                                                            </DockPanel>
-                                                                            <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
-                                                                                <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">
-                                                                                    <ItemsControl.ItemTemplate>
-                                                                                        <DataTemplate>
-                                                                                            <StackPanel Orientation="Horizontal" Margin="0 2">
-                                                                                                <Image Style="{StaticResource Icon_Markup}" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TargetElementHandles}" Text="{Binding TargetElementHandle}" Width="140" IsEditable="false" />
-                                                                                                <cc:FieldLabel Text=" = " Width="auto" />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TargetElementMatchText}" Width="152" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaTextBox Text="{Binding ElementMatchIteration}" Width="24" />
-                                                                                                <Separator />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveElement}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
-                                                                                            </StackPanel>
-                                                                                        </DataTemplate>
-                                                                                    </ItemsControl.ItemTemplate>
-                                                                                </ItemsControl>
-                                                                            </Border>
-                                                                        </StackPanel>
-                                                                        <Separator />
-                                                                    </StackPanel>
-                                                                </Border>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.OutputWebActions}"  ItemTemplate="{StaticResource WebActionTemplate}" />
                                                 </ScrollViewer>
                                             </Border>
-                                            
                                         </StackPanel>
                                     </TabItem>
                                     <TabItem Header="Switchback Sequence">
@@ -11744,56 +11672,7 @@
                                             </DockPanel>
                                             <Border Style="{StaticResource ListBorder}" Margin="0 4">
                                                 <ScrollViewer Height="480">
-                                                    <ItemsControl ItemsSource="{Binding SettingsView.SwitchbackWebActions}" Width="420">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <Border Style="{StaticResource SegmentTile}">
-                                                                    <StackPanel HorizontalAlignment="Left">
-                                                                        <StackPanel Orientation="Horizontal">
-                                                                            <Image Style="{StaticResource Icon_Action}" />
-                                                                            <Separator />
-                                                                            <cc:GammaComboBox ItemsSource="{Binding InteractionTypes}" Text="{Binding InteractionType}" Width="160" IsEditable="false" />
-                                                                            <StackPanel Orientation="Horizontal" Visibility="{Binding ShowInputField, Converter={tool:HiddenIfFalseOtherwiseVisible}, FallbackValue=Visible}">
-                                                                                <Separator />
-                                                                                <Image Style="{StaticResource Icon_Text_Blue}" />
-                                                                                <Separator />
-                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TextInputValue}" Width="172" />
-                                                                            </StackPanel>
-                                                                            <Separator />
-                                                                            <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveWebAction}" CommandParameter="Switchback" />
-                                                                        </StackPanel>
-                                                                        <StackPanel Visibility="{Binding ShowTargetStack, Converter={tool:CollapsedIfFalseOtherwiseVisible}}">
-                                                                            <Separator />
-                                                                            <DockPanel Margin="20 0 0 0">
-                                                                                <cc:FieldLabel Text="Target Element Stack" />
-                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_Add}" Command="{Binding AddElement}" HorizontalAlignment="Right" />
-                                                                            </DockPanel>
-                                                                            <Border Style="{StaticResource ListBorder}" Margin="20 0 0 0">
-                                                                                <ItemsControl ItemsSource="{Binding TargetElementStack}" Margin="0 2">
-                                                                                    <ItemsControl.ItemTemplate>
-                                                                                        <DataTemplate>
-                                                                                            <StackPanel Orientation="Horizontal" Margin="0 2">
-                                                                                                <Image Style="{StaticResource Icon_Markup}" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TargetElementHandles}" Text="{Binding TargetElementHandle}" Width="140" IsEditable="false" />
-                                                                                                <cc:FieldLabel Text=" = " Width="auto" />
-                                                                                                <cc:GammaComboBox ItemsSource="{Binding TextInputSuggestions}" Text="{Binding TargetElementMatchText}" Width="152" />
-                                                                                                <Separator />
-                                                                                                <cc:GammaTextBox Text="{Binding ElementMatchIteration}" Width="24" />
-                                                                                                <Separator />
-                                                                                                <cc:MiniButton ImageResource="{StaticResource Icon_X}" Command="{Binding RemoveElement}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}, Mode=FindAncestor}}" />
-                                                                                            </StackPanel>
-                                                                                        </DataTemplate>
-                                                                                    </ItemsControl.ItemTemplate>
-                                                                                </ItemsControl>
-                                                                            </Border>
-                                                                        </StackPanel>
-                                                                        <Separator />
-                                                                    </StackPanel>
-                                                                </Border>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
+                                                    <ItemsControl ItemsSource="{Binding SettingsView.SwitchbackWebActions}"  ItemTemplate="{StaticResource WebActionTemplate}" />
                                                 </ScrollViewer>
                                             </Border>
                                         </StackPanel>

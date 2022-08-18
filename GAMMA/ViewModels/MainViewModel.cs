@@ -486,15 +486,15 @@ namespace GAMMA.ViewModels
                 bool connectionSuccessful = true;
                 foreach (WebActionModel webAction in SettingsView.StartupWebActions)
                 {
-                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    if (string.IsNullOrEmpty(webAction.TargetElement) && webAction.ShowTargetField)
                     {
-                        HelperMethods.NotifyUser("No elements provided for web action.");
+                        HelperMethods.NotifyUser("No element xpath provided for web action.");
                         connectionSuccessful = false;
                         break;
                     }
                     if (!webAction.PerformWebAction(ref WebDriver))
                     {
-                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElement);
                         connectionSuccessful = false;
                         break;
                     }

@@ -65,14 +65,14 @@ namespace GAMMA.Toolbox
                 IWebDriver driverRef = Configuration.MainModelRef.WebDriver;
                 foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.OutputWebActions)
                 {
-                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    if (string.IsNullOrEmpty(webAction.TargetElement) && webAction.ShowTargetField)
                     {
                         NotifyUser("No elements provided for web action.");
                         break;
                     }
                     if (!webAction.PerformWebAction(ref driverRef, message))
                     {
-                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElement);
                         break;
                     }
                 }
@@ -103,14 +103,14 @@ namespace GAMMA.Toolbox
 
                 foreach (WebActionModel webAction in Configuration.MainModelRef.SettingsView.SwitchbackWebActions)
                 {
-                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    if (string.IsNullOrEmpty(webAction.TargetElement) && webAction.ShowTargetField)
                     {
-                        NotifyUser("No elements provided for web action.");
+                        NotifyUser("No element xpath provided for web action.");
                         break;
                     }
                     if (!webAction.PerformWebAction(ref driverRef))
                     {
-                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElement);
                         break;
                     }
                 }
