@@ -1,4 +1,11 @@
-﻿GAMMA 1.29.05
+﻿GAMMA 1.30.00
+- NEW: New note system available for DMs
+- NEW: Creature builder list source filtering
+- CHANGE: Change of web sequences to xpath only
+- CHANGE: Additional prompt for data import regarding web sequences
+- BUG: Minor UI fixes
+
+GAMMA 1.29.05
 - CHANGE: initiave rolling for DM does not affect creatures marked out-of-combat
 
 GAMMA 1.29.04
