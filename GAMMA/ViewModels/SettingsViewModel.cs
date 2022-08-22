@@ -441,7 +441,7 @@ namespace GAMMA.ViewModels
         {
             if (param == null) { return; }
             string fileType = param.ToString();
-            string fileName = "";
+            string fileName = string.Empty;
             string[] files;
             string currentDirectory = Environment.CurrentDirectory + "\\";
             switch (fileType)
@@ -526,8 +526,8 @@ namespace GAMMA.ViewModels
             SystemVolumeDec = 1;
 
             // WebDriver Settings
-            Roll20Email = "";
-            Roll20Password = "";
+            Roll20Email = string.Empty;
+            Roll20Password = string.Empty;
             Roll20GameCharacterList.Clear();
         }
         #endregion
@@ -763,7 +763,7 @@ namespace GAMMA.ViewModels
             {
                 creature.HasMiniature = false;
                 creature.MiniatureQuantity = 0;
-                creature.MiniatureLocation = "";
+                creature.MiniatureLocation = string.Empty;
             }
             validations.Add("Creatures", HelperMethods.SaveToXml(Configuration.MainModelRef.CreatureBuilderView.AllCreatures.Where(crt => allowedSources.Contains(crt.Sourcebook)).ToList(), "CreatureModelSet", Configuration.CreatureDataFilePath));
             validations.Add("Items", HelperMethods.SaveToXml(Configuration.MainModelRef.ItemBuilderView.AllItems.Where(item => allowedSources.Contains(item.Sourcebook)).ToList(), "ItemModelSet", Configuration.ItemDataFilePath));
@@ -826,7 +826,7 @@ namespace GAMMA.ViewModels
             {
                 creature.HasMiniature = false;
                 creature.MiniatureQuantity = 0;
-                creature.MiniatureLocation = "";
+                creature.MiniatureLocation = string.Empty;
             }
             validations.Add("Creatures", HelperMethods.SaveToXml(Configuration.MainModelRef.CreatureBuilderView.AllCreatures.ToList(), "CreatureModelSet", Configuration.CreatureDataFilePath));
             validations.Add("Characters", HelperMethods.SaveToXml(new List<CharacterModel>(), "CharacterModelSet", Configuration.CharacterDataFilePath));
@@ -886,7 +886,7 @@ namespace GAMMA.ViewModels
         // Public Methods
         public void SaveSettings()
         {
-            if (ClearPasswordOnClose) { Roll20Password = ""; }
+            if (ClearPasswordOnClose) { Roll20Password = string.Empty; }
             XDocument xmlDoc = new();
             xmlDoc.Add(XmlMethods.ListToXml(new List<SettingsViewModel> { this }));
             xmlDoc.Save(Configuration.SettingsDataFilePath);

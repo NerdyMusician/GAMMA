@@ -14,7 +14,7 @@ namespace GAMMA.Windows
             AnswerList.ItemsSource = answers;
         }
 
-        public string Answer = "";
+        public string Answer = string.Empty;
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {

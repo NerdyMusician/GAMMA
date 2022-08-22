@@ -63,7 +63,7 @@ namespace GAMMA.Models
             if (RefChar.CurrentHealth == RefChar.MaxHealth) { HelperMethods.AddToGameplayLog(RefChar.Name + " is at max health already."); return; }
 
             string diceLimit = param.ToString();
-            string message = "";
+            string message = string.Empty;
             int diceRoll;
             int total;
             List<int> rolls = new();

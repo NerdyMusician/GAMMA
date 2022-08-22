@@ -985,6 +985,17 @@ namespace GAMMA.Toolbox
             return Configuration.framework.FindResource(iconName) as Style;
         }
     }
+    public class ImageBasedOnNoteType : ConverterMarkupExtension<ImageBasedOnNoteType>
+    {
+        public ImageBasedOnNoteType() { }
+
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null) { value = string.Empty; }
+            string iconName = AppData.NoteTypeIcons[value.ToString()];
+            return Configuration.framework.FindResource(iconName) as Style;
+        }
+    }
     public class ImageBasedOnNoteCategory : ConverterMarkupExtension<ImageBasedOnNoteCategory>
     {
         public ImageBasedOnNoteCategory()
@@ -994,22 +1005,8 @@ namespace GAMMA.Toolbox
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string iconName = value switch
-            {
-                "Character" => "Icon_Smile",
-                "Faction" => "Icon_Hand",
-                "Location" => "Icon_Home",
-                "District" => "Icon_Hex",
-                "Encounter" => "Icon_Crossed_Swords",
-                "Item" => "Icon_Pack",
-                "Landmark" => "Icon_Mountain",
-                "Map" => "Icon_Map",
-                "Puzzle" => "Icon_Puzzle",
-                "Quest" => "Icon_Book",
-                "Vendor" => "Icon_Vendor",
-                "Trap" => "Icon_Trap",
-                _ => "Icon_Rpg_Note"
-            };
+            if (value == null) { value = string.Empty; }
+            string iconName = AppData.NoteTypeIcons[value.ToString()];
             return Configuration.framework.FindResource(iconName) as Style;
         }
     }

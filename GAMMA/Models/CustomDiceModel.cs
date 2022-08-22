@@ -57,7 +57,7 @@ namespace GAMMA.Models
         private void DoRollDice(object param)
         {
             string msg = Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.Name + " made a custom roll: " + Name + " (" + DiceQuantity + "d" + DiceSides + "+" + DiceModifier + ").";
-            string dr = "";
+            string dr = string.Empty;
             int rslt = 0;
             for (int i = 0; i < DiceQuantity; i++)
             {

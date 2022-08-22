@@ -24,7 +24,7 @@ namespace GAMMA.ViewModels
                 Filters.Add(new BoolOption { Name = type, Marked = true });
                 Filters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<ItemModel> items)
         {
@@ -39,7 +39,7 @@ namespace GAMMA.ViewModels
                 Filters.Add(new BoolOption { Name = type, Marked = true });
                 Filters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<SpellModel> spells)
         {
@@ -59,7 +59,7 @@ namespace GAMMA.ViewModels
                 SecondaryFilters.Add(new BoolOption { Name = "Level " + i, Marked = true });
                 SecondaryFilters.Last().PropertyChanged += new PropertyChangedEventHandler(Filter_PropertyChanged);
             }
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<NpcModel> npcs)
         {
@@ -69,7 +69,7 @@ namespace GAMMA.ViewModels
             Mode = "Npcs";
             Filters = new ObservableCollection<BoolOption>();
             SecondaryFilters = new();
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
         }
         public MultiObjectSelectionViewModel(List<ConvertibleValue> cvs, string mode)
         {
@@ -79,7 +79,20 @@ namespace GAMMA.ViewModels
             Mode = mode;
             Filters = new();
             SecondaryFilters = new();
-            SourceTextSearch = "";
+            SourceTextSearch = string.Empty;
+        }
+        public MultiObjectSelectionViewModel(List<GameNote> records, string mode)
+        {
+            InitializeCollections();
+            SourceNotes = new(records);
+            Mode = mode;
+            SourceTextSearch = string.Empty;
+        }
+        private void InitializeCollections()
+        {
+            SourceNotes = new();
+            FilteredSourceNotes = new();
+            SelectedNotes = new();
         }
 
         // Databound Properties
@@ -271,6 +284,25 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        private ObservableCollection<GameNote> _SourceNotes;
+        public ObservableCollection<GameNote> SourceNotes
+        {
+            get => _SourceNotes;
+            set => SetAndNotify(ref _SourceNotes, value);
+        }
+        private ObservableCollection<GameNote> _FilteredSourceNotes;
+        public ObservableCollection<GameNote> FilteredSourceNotes
+        {
+            get => _FilteredSourceNotes;
+            set => SetAndNotify(ref _FilteredSourceNotes, value);
+        }
+        private ObservableCollection<GameNote> _SelectedNotes;
+        public ObservableCollection<GameNote> SelectedNotes
+        {
+            get => _SelectedNotes;
+            set => SetAndNotify(ref _SelectedNotes, value);
+        }
+
         // Commands
         #region SelectFilters
         public ICommand SelectFilters => new RelayCommand(DoSelectFilters);
@@ -325,7 +357,7 @@ namespace GAMMA.ViewModels
                     foreach (CreatureModel creature in SourceCreatures)
                     {
                         if (creature.Name.ToUpper().Contains(SourceTextSearch.ToUpper()) == false) { continue; }
-                        if (creature.CreatureCategory == null) { creature.CreatureCategory = ""; }
+                        if (creature.CreatureCategory == null) { creature.CreatureCategory = string.Empty; }
                         if (Filters.First(filter => filter.Name == creature.CreatureCategory).Marked) { FilteredSourceCreatures.Add(creature); }
                     }
 
@@ -343,6 +375,15 @@ namespace GAMMA.ViewModels
                     Count_SourceFiltered = FilteredSourceNpcs.Count();
                     Count_SourceAll = SourceNpcs.Count();
 
+                    break;
+                case "Associated Notes":
+                    FilteredSourceNotes.Clear();
+                    foreach (GameNote note in SourceNotes)
+                    {
+                        if (note.Name.ToUpper().Contains(SourceTextSearch.ToUpper()) == true) { FilteredSourceNotes.Add(note); }
+                    }
+                    Count_SourceFiltered = FilteredSourceNotes.Count();
+                    Count_SourceAll = SourceNotes.Count();
                     break;
                 default:
                     FilteredSourceCVs.Clear();

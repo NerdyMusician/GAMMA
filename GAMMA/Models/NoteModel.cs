@@ -17,7 +17,7 @@ namespace GAMMA.Models
         {
             Category = "Other";
             Header = "New Note";
-            Content = "";
+            Content = string.Empty;
             SubNotes = new ObservableCollection<NoteModel>();
         }
 
@@ -218,7 +218,7 @@ namespace GAMMA.Models
                 question.ShowDialog();
                 if (question.Answer == true)
                 {
-                    AttachmentFileName = "";
+                    AttachmentFileName = string.Empty;
                 }
             }
         }
@@ -230,7 +230,7 @@ namespace GAMMA.Models
             try
             {
                 string fileName = AttachmentFileName;
-                AttachmentFileName = "";
+                AttachmentFileName = string.Empty;
                 YesNoDialog question = new("Attachment unlinked, delete file?");
                 if (question.ShowDialog() == true)
                 {

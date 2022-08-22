@@ -17,7 +17,7 @@ namespace GAMMA.Toolbox
         // Public Methods
         public static XElement ListToXml(IEnumerable itemList, string enumName = "")
         {
-            string elementName = "";
+            string elementName = string.Empty;
             List<XElement> items = new();
             foreach (object item in itemList)
             {
@@ -446,6 +446,22 @@ namespace GAMMA.Toolbox
             note = newNote;
 
         }
+        public static void NodeToObject(XmlNode noteNode, out GameNote note)
+        {
+            GameNote newNote = SetObjectPropertiesFromNode(noteNode, new GameNote()) as GameNote;
+            foreach (XmlNode childNode in noteNode.ChildNodes)
+            {
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "AssociatedNotes")
+                {
+                    foreach (XmlNode assNoteNode in childNode.ChildNodes)
+                    {
+                        NodeToObject(assNoteNode, out GameNote assNote);
+                        newNote.AssociatedNotes.Add(assNote);
+                    }
+                }
+            }
+            note = newNote;
+        }
         public static void NodeToObject(XmlNode itemNode, out ItemModel item)
         {
             ItemModel newItem = SetObjectPropertiesFromNode(itemNode, new ItemModel()) as ItemModel;
@@ -562,25 +578,8 @@ namespace GAMMA.Toolbox
         public static void NodeToObject(XmlNode webActionNode, out WebActionModel webAction)
         {
             WebActionModel newWebAction = SetObjectPropertiesFromNode(webActionNode, new WebActionModel()) as WebActionModel;
-
-            foreach (XmlNode childNode in webActionNode.ChildNodes)
-            {
-                if (childNode.Attributes.GetNamedItem("Name").InnerText == "TargetElementStack")
-                {
-                    foreach (XmlNode pairNode in childNode.ChildNodes)
-                    {
-                        NodeToObject(pairNode, out WebElementModel elm);
-                        newWebAction.TargetElementStack.Add(elm);
-                    }
-                }
-            }
-
             webAction = newWebAction;
 
-        }
-        public static void NodeToObject(XmlNode webElementNode, out WebElementModel webElement)
-        {
-            webElement = SetObjectPropertiesFromNode(webElementNode, new WebElementModel()) as WebElementModel;
         }
         public static void NodeToObject(XmlNode gamePairNode, out GameCharacterSelection gamePair)
         {
@@ -1026,6 +1025,14 @@ namespace GAMMA.Toolbox
                     {
                         NodeToObject(node, out NoteModel obj);
                         newCampaign.Notes.Add(obj);
+                    }
+                }
+                if (childNode.Attributes.GetNamedItem("Name").InnerText == "NewNotes")
+                {
+                    foreach (XmlNode node in childNode.ChildNodes)
+                    {
+                        NodeToObject(node, out GameNote obj);
+                        newCampaign.NewNotes.Add(obj);
                     }
                 }
             }

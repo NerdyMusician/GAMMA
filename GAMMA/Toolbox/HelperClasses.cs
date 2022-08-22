@@ -109,13 +109,13 @@ namespace GAMMA.Toolbox
         // Constructors
         public LabeledNumber()
         {
-            Name = "";
+            Name = string.Empty;
             Value = 0;
             NameSuggestions = new();
         }
         public LabeledNumber(List<string> nameSuggestions)
         {
-            Name = "";
+            Name = string.Empty;
             Value = 0;
             NameSuggestions = nameSuggestions;
         }
@@ -182,8 +182,8 @@ namespace GAMMA.Toolbox
         // constructors
         public StringPair()
         {
-            ValueA = "";
-            ValueB = "";
+            ValueA = string.Empty;
+            ValueB = string.Empty;
         }
 
         // Databound Properties

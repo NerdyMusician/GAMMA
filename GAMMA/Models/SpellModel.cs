@@ -366,8 +366,8 @@ namespace GAMMA.Models
             CreatureModel creature = null;
             CharacterModel character = null;
             CustomAbility abilityToUse = null;
-            string message = "";
-            string name = "";
+            string message = string.Empty;
+            string name = string.Empty;
             string mode = "Normal";
             int castingLevel = 0;
             bool castAsRitual = false;

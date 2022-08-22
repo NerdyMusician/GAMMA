@@ -151,7 +151,7 @@ namespace GAMMA.Windows
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            string message = "";
+            string message = string.Empty;
             if (SaveAbility == null) { message += "\nSave Ability must be selected."; }
             if (SaveDifficulty <= 0) { message += "\nInvalid Save Difficulty value."; }
             if (ComboBox_EffectType.SelectedItem.ToString() == "Attack" && PrimaryDamageOnFail <= 0) { message += "\nInvalid primary damage value for attack."; }

@@ -18,7 +18,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public MainViewModel()
         {
-            ApplicationVersion = "GAMMA 1.29.05 beta";
+            ApplicationVersion = "GAMMA 1.30.00";
             Configuration.MainModelRef = this;
             PlayerClasses = new();
             SpellcastingClasses = new();
@@ -445,6 +445,11 @@ namespace GAMMA.ViewModels
         }
         #endregion
 
+        public List<string> NoteTypes
+        {
+            get { return new(AppData.NoteTypes); }
+        }
+
         // Commands
         #region ProcessKeyboardShortcut
         public ICommand ProcessKeyboardShortcut => new RelayCommand(DoProcessKeyboardShortcut);
@@ -481,15 +486,15 @@ namespace GAMMA.ViewModels
                 bool connectionSuccessful = true;
                 foreach (WebActionModel webAction in SettingsView.StartupWebActions)
                 {
-                    if (webAction.TargetElementStack.Count <= 0 && webAction.ShowTargetStack)
+                    if (string.IsNullOrEmpty(webAction.TargetElement) && webAction.ShowTargetField)
                     {
-                        HelperMethods.NotifyUser("No elements provided for web action.");
+                        HelperMethods.NotifyUser("No element xpath provided for web action.");
                         connectionSuccessful = false;
                         break;
                     }
                     if (!webAction.PerformWebAction(ref WebDriver))
                     {
-                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElementStack.Last().TargetElementMatchText);
+                        HelperMethods.NotifyUser("Web Action Failed: " + webAction.InteractionType + " > " + webAction.TargetElement);
                         connectionSuccessful = false;
                         break;
                     }
@@ -512,67 +517,6 @@ namespace GAMMA.ViewModels
                 HelperMethods.NotifyUser(e.Message);
             }
             return;
-            //try
-            //{
-            //    WebDriver = CreateWebDriver();
-            //    //WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            //    WebDriver.Navigate().GoToUrl("https://roll20.net/welcome");
-            //    if (SettingsView.Roll20Email != "")
-            //    {
-            //        WebDriver.FindElement(By.Id("email")).SendKeys(SettingsView.Roll20Email);
-            //    }
-            //    if (SettingsView.Roll20Password != "")
-            //    {
-            //        WebDriver.FindElement(By.Id("password")).SendKeys(SettingsView.Roll20Password);
-            //    }
-            //    if (SettingsView.Roll20Email != "" && SettingsView.Roll20Password != "")
-            //    {
-            //        WebDriver.FindElement(By.Id("login")).Click();
-            //        string game = "";
-            //        string character = "";
-            //        foreach (GameCharacterSelection pair in SettingsView.Roll20GameCharacterList)
-            //        {
-            //            if (pair.IsSelected == true)
-            //            {
-            //                game = pair.Game;
-            //                character = pair.Character;
-            //                break;
-            //            }
-            //        }
-            //        if (game != "")
-            //        {
-            //            Thread.Sleep(1000);
-            //            WebDriver.FindElement(By.LinkText(game)).Click();
-            //            WebDriver.FindElement(By.Id("playButton")).Click();
-            //            if (character != "")
-            //            {
-            //                CharacterModel defChar = Configuration.MainModelRef.CharacterBuilderView.Characters.FirstOrDefault(chr => chr.Name.Contains(character));
-            //                if (defChar != null)
-            //                {
-            //                    Configuration.MainModelRef.TabSelected_Players = true;
-            //                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter = defChar;
-            //                    Configuration.MainModelRef.CharacterBuilderView.ShowCharacterList = false;
-            //                    Configuration.MainModelRef.CharacterBuilderView.ActiveCharacter.ShowActionHistory = false;
-            //                    try
-            //                    {
-            //                        Thread.Sleep(3000);
-            //                        IWebElement spkAs = WebDriver.FindElement(By.Id("speakingas"));
-            //                        spkAs.Click();
-            //                        spkAs.SendKeys(defChar.Name.Split()[0]);
-            //                        spkAs.SendKeys("\n");
-            //                    }
-            //                    catch { }
-            //                    defChar.OutputLinkedToRoll20 = true;
-            //                    HelperMethods.AddToRoll20Chat("/me has connected with " + ApplicationVersion + ".");
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    HelperMethods.NotifyUser(e.Message);
-            //}
         }
         #endregion
         #region ResetDriver
@@ -612,7 +556,7 @@ namespace GAMMA.ViewModels
         public ICommand GenerateReport => new RelayCommand(DoGenerateReport);
         private void DoGenerateReport(object param)
         {
-            if (param == null) { param = ""; }
+            if (param == null) { param = string.Empty; }
             string message = param.ToString() switch
             {
                 "Fish" => GenerateReport_Fish(),
@@ -819,7 +763,7 @@ namespace GAMMA.ViewModels
         }
         private static string GetStringFromList(List<string> lines, string stringPrefix = "", string linePrefix = "")
         {
-            string message = "";
+            string message = string.Empty;
             if (lines.Count > 0)
             {
                 message += stringPrefix;

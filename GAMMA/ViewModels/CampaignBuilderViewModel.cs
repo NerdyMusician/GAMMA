@@ -37,6 +37,7 @@ namespace GAMMA.ViewModels
                     creature.SetCurrentHordeSize();
                 }
                 campaign.UpdateCalendarAndWeather();
+                campaign.UpdateFilteredNewNotes();
             }
         }
 

@@ -100,6 +100,20 @@ namespace GAMMA.Windows
             });
 
         }
+        public MultiObjectSelectionDialog(List<GameNote> records, string title)
+        {
+            InitializeComponent();
+            WindowTitle.Text = $"{title} Selection";
+            DataContext = new MultiObjectSelectionViewModel(records, title);
+            SourceItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding
+            {
+                Source = (DataContext as MultiObjectSelectionViewModel).FilteredSourceNotes
+            });
+            SelectedItems.SetBinding(ItemsControl.ItemsSourceProperty, new Binding
+            {
+                Source = (DataContext as MultiObjectSelectionViewModel).SelectedNotes
+            });
+        }
 
         // Private Methods
         private void AddItem_Clicked(object sender, RoutedEventArgs e)
@@ -171,6 +185,15 @@ namespace GAMMA.Windows
                 }
                 (DataContext as MultiObjectSelectionViewModel).SelectedCVs.Add(cv);
             }
+            if (objectType == typeof(GameNote))
+            {
+                GameNote gn = (sender as Button).DataContext as GameNote;
+                foreach (GameNote selectedGameNote in (DataContext as MultiObjectSelectionViewModel).SelectedNotes)
+                {
+                    if (gn.Name == selectedGameNote.Name) { return; }
+                }
+                (DataContext as MultiObjectSelectionViewModel).SelectedNotes.Add(gn);
+            }
         }
         private void RemoveItem_Clicked(object sender, RoutedEventArgs e)
         {
@@ -208,10 +231,15 @@ namespace GAMMA.Windows
                 ConvertibleValue cv = (sender as Button).DataContext as ConvertibleValue;
                 (DataContext as MultiObjectSelectionViewModel).SelectedCVs.Remove(cv);
             }
+            if (objectType == typeof(GameNote))
+            {
+                GameNote gn = (sender as Button).DataContext as GameNote;
+                (DataContext as MultiObjectSelectionViewModel).SelectedNotes.Remove(gn);
+            }
         }
         private void EraserButton_Clicked(object sender, RoutedEventArgs e)
         {
-            (DataContext as MultiObjectSelectionViewModel).SourceTextSearch = "";
+            (DataContext as MultiObjectSelectionViewModel).SourceTextSearch = string.Empty;
         }
         private void Submit_Clicked(object sender, RoutedEventArgs e)
         {

@@ -202,10 +202,13 @@ namespace GAMMA.Toolbox
         {
             XmlMethods.XmlToObject(filepath, out SettingsViewModel sv);
 
-            // Prevents nulling of web sequences importing data from 1.28 to 1.29
-            if (sv.StartupWebActions.Count == 0) { sv.StartupWebActions = Configuration.MainModelRef.SettingsView.StartupWebActions; }
-            if (sv.OutputWebActions.Count == 0) { sv.OutputWebActions = Configuration.MainModelRef.SettingsView.OutputWebActions; }
-            if (sv.SwitchbackWebActions.Count == 0) { sv.SwitchbackWebActions = Configuration.MainModelRef.SettingsView.SwitchbackWebActions; }
+            bool overwrite = HelperMethods.AskYesNo("Overwrite web sequence settings?");
+
+            // Count == 0 Prevents nulling of web sequences importing data from 1.28 to 1.29
+            // !overwrite Prevents breaking of web sequences importing data from 1.29 to 1.30
+            if (sv.StartupWebActions.Count == 0 || !overwrite) { sv.StartupWebActions = Configuration.MainModelRef.SettingsView.StartupWebActions; }
+            if (sv.OutputWebActions.Count == 0 || !overwrite) { sv.OutputWebActions = Configuration.MainModelRef.SettingsView.OutputWebActions; }
+            if (sv.SwitchbackWebActions.Count == 0 || !overwrite) { sv.SwitchbackWebActions = Configuration.MainModelRef.SettingsView.SwitchbackWebActions; }
             if (string.IsNullOrEmpty(sv.OutputNameSwap)) { sv.OutputNameSwap = Configuration.MainModelRef.SettingsView.OutputNameSwap; }
 
             Configuration.MainModelRef.SettingsView = sv;
@@ -839,6 +842,7 @@ namespace GAMMA.Toolbox
                 campaign.SortCombatants();
                 campaign.UpdateCalendarAndWeather();
                 campaign.UpdateActiveCombatant();
+                campaign.UpdateFilteredNewNotes();
             }
 
             return;

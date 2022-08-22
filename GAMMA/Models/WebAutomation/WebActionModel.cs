@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Windows.Input;
@@ -12,12 +11,27 @@ namespace GAMMA.Models.WebAutomation
     [Serializable]
     public class WebActionModel : BaseModel
     {
+        // Web Actions
+        const string ActionClick = "Click";
+        const string ActionTextInput = "Text Input";
+        const string ActionGoToUrl = "Go to URL";
+        const string ActionWait = "Wait for X Seconds";
+        const string ActionPressEnter = "Press Enter Key";
+
+        // Text Input Suggestions
+        const string InputLoginName = "{Login Name}";
+        const string InputLoginPass = "{Login Pass}";
+        const string InputGameName = "{Game Name}";
+        const string InputCharacterName = "{Character Name}";
+        const string InputAppVersion = "{App Version}";
+        const string InputMessage = "{Message}";
+        const string InputActiveCharacterName = "{Active Character Name}";
+
         // Constructors
         public WebActionModel()
         {
-            InteractionTypes = new(){ "Click", "Text Input", "Go to URL", "Wait for X Seconds", "Press Enter Key" };
-            TextInputSuggestions = new() { "{Login Name}", "{Login Pass}", "{Game Name}", "{Character Name}", "{App Version}", "{Message}", "{Active Character Name}" };
-            TargetElementStack = new();
+            InteractionTypes = new() { ActionClick, ActionTextInput, ActionGoToUrl, ActionWait, ActionPressEnter };
+            TextInputSuggestions = new() { InputLoginName, InputLoginPass, InputGameName, InputCharacterName, InputAppVersion, InputMessage, InputActiveCharacterName };
         }
 
         // Databound Properties
@@ -32,7 +46,7 @@ namespace GAMMA.Models.WebAutomation
                 _InteractionType = value;
                 NotifyPropertyChanged();
                 ShowInputField = InputFields.Contains(value);
-                ShowTargetStack = TargetFields.Contains(value);
+                ShowTargetField = TargetFields.Contains(value);
             }
         }
         #endregion
@@ -42,15 +56,6 @@ namespace GAMMA.Models.WebAutomation
         {
             get => _InteractionTypes;
             set => SetAndNotify(ref _InteractionTypes, value);
-        }
-        #endregion
-        #region TargetElementStack
-        private ObservableCollection<WebElementModel> _TargetElementStack;
-        [XmlSaveMode(XSME.Enumerable)]
-        public ObservableCollection<WebElementModel> TargetElementStack
-        {
-            get => _TargetElementStack;
-            set => SetAndNotify(ref _TargetElementStack, value);
         }
         #endregion
         #region TextInputValue
@@ -78,18 +83,23 @@ namespace GAMMA.Models.WebAutomation
             set => SetAndNotify(ref _ShowInputField, value);
         }
         #endregion
-        #region ShowTargetStack
-        private bool _ShowTargetStack;
-        public bool ShowTargetStack
+        private bool _ShowTargetField;
+        public bool ShowTargetField
         {
-            get => _ShowTargetStack;
-            set => SetAndNotify (ref _ShowTargetStack, value);
+            get => _ShowTargetField;
+            set => SetAndNotify(ref _ShowTargetField, value);
         }
-        #endregion
+        private string _TargetElement;
+        [XmlSaveMode(XSME.Single)]
+        public string TargetElement
+        {
+            get => _TargetElement;
+            set => SetAndNotify(ref _TargetElement, value);
+        }
 
         // Private Properties
-        private List<string> InputFields = new() { "Text Input", "Go to URL", "Wait for X Seconds" };
-        private List<string> TargetFields = new() { "Click", "Text Input", "Press Enter Key" };
+        private List<string> InputFields = new() { ActionTextInput, ActionGoToUrl, ActionWait };
+        private List<string> TargetFields = new() { ActionClick, ActionTextInput, ActionPressEnter };
 
         // Commands
         #region RemoveWebAction
@@ -111,95 +121,45 @@ namespace GAMMA.Models.WebAutomation
             }
         }
         #endregion
-        #region AddActionAbove
-        public ICommand AddActionAbove => new RelayCommand(DoAddActionAbove);
-        private void DoAddActionAbove(object param)
-        {
-            if (param == null) { return; }
-            
-            if (param.ToString() == "Startup")
-            {
-                int index = Configuration.MainModelRef.SettingsView.StartupWebActions.IndexOf(this);
-                Configuration.MainModelRef.SettingsView.StartupWebActions.Insert(index, new());
-            }
-            if (param.ToString() == "Output")
-            {
-                int index = Configuration.MainModelRef.SettingsView.OutputWebActions.IndexOf(this);
-                Configuration.MainModelRef.SettingsView.OutputWebActions.Insert(index, new());
-            }
-        }
-        #endregion
-        #region AddActionBelow
-        public ICommand AddActionBelow => new RelayCommand(DoAddActionBelow);
-        private void DoAddActionBelow(object param)
-        {
-            if (param == null) { return; }
-
-            if (param.ToString() == "Startup")
-            {
-                int index = Configuration.MainModelRef.SettingsView.StartupWebActions.IndexOf(this);
-                if (Configuration.MainModelRef.SettingsView.StartupWebActions.Last() == this)
-                {
-                    Configuration.MainModelRef.SettingsView.StartupWebActions.Add(new());
-                }
-                Configuration.MainModelRef.SettingsView.StartupWebActions.Insert(index + 1, new());
-            }
-            if (param.ToString() == "Output")
-            {
-                int index = Configuration.MainModelRef.SettingsView.OutputWebActions.IndexOf(this);
-                if (Configuration.MainModelRef.SettingsView.OutputWebActions.Last() == this)
-                {
-                    Configuration.MainModelRef.SettingsView.OutputWebActions.Add(new());
-                }
-                Configuration.MainModelRef.SettingsView.OutputWebActions.Insert(index + 1, new());
-            }
-        }
-        #endregion
-        #region AddElement
-        public ICommand AddElement => new RelayCommand(DoAddElement);
-        private void DoAddElement(object param)
-        {
-            TargetElementStack.Add(new());
-        }
-        #endregion
 
         // Public Methods
         public bool PerformWebAction(ref IWebDriver webDriver, string message = "")
         {
             
             string textInput = ReplaceTextPlaceholders(TextInputValue, message);
-            if (InteractionType == "Go to URL")
+            string targetElement = ReplaceTextPlaceholders(TargetElement, message);
+            if (InteractionType == ActionGoToUrl)
             {
                 webDriver.Navigate().GoToUrl(textInput);
             }
-            if (InteractionType == "Click")
+            if (InteractionType == ActionClick)
             {
-                IWebElement element = GetWebElement(ref webDriver);
+                IWebElement element = webDriver.FindElement(By.XPath(targetElement));
                 if (element != null)
                 {
                     element.Click();
                 }
                 else { return false; }
             }
-            if (InteractionType == "Text Input")
+            if (InteractionType == ActionTextInput)
             {
-                IWebElement element = GetWebElement(ref webDriver);
+                IWebElement element = webDriver.FindElement(By.XPath(targetElement));
                 if (element != null)
                 {
                     element.SendKeys(textInput);
                 }
                 else { return false; }
             }
-            if (InteractionType == "Wait for X Seconds")
+            if (InteractionType == ActionWait)
             {
                 if (int.TryParse(textInput, out int value))
                 {
                     Thread.Sleep(value * 1000);
                 }
             }
-            if (InteractionType == "Press Enter Key")
+            if (InteractionType == ActionPressEnter)
             {
-                IWebElement element = GetWebElement(ref webDriver);
+                IWebElement element = webDriver.FindElement(By.XPath(targetElement));
                 if (element != null)
                 {
                     element.SendKeys("\n");
@@ -210,92 +170,6 @@ namespace GAMMA.Models.WebAutomation
         }
 
         // Private Methods
-        private IWebElement GetWebElement(ref IWebDriver webDriver)
-        {
-            IReadOnlyCollection<IWebElement> webElements = null;
-            IWebElement targetElement = null;
-
-            int i = 0;
-            foreach (WebElementModel element in TargetElementStack)
-            {
-                string handleMatch = ReplaceTextPlaceholders(element.TargetElementMatchText);
-                if (i > 0 && webElements == null) { continue; }
-                if (webElements == null)
-                {
-                    if (element.TargetElementHandle == "ID")
-                    {
-                        webElements = webDriver.FindElements(By.Id(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "Class")
-                    {
-                        webElements = webDriver.FindElements(By.ClassName(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "Link Text")
-                    {
-                        webElements = webDriver.FindElements(By.LinkText(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "CSS Selector")
-                    {
-                        webElements = webDriver.FindElements(By.CssSelector(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "XPath")
-                    {
-                        webElements = webDriver.FindElements(By.XPath(handleMatch));
-                    }
-                    if (webElements.Count < element.ElementMatchIteration + 1)
-                    {
-                        return null;
-                    }
-                    
-                    int x = 0;
-                    foreach (IWebElement webElement in webElements)
-                    {
-                        if (x == element.ElementMatchIteration)
-                        {
-                            targetElement = webElement;
-                        }
-                        x++;
-                    }
-                }
-                else
-                {
-                    if (element.TargetElementHandle == "ID")
-                    {
-                        webElements = targetElement.FindElements(By.Id(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "Class")
-                    {
-                        webElements = targetElement.FindElements(By.ClassName(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "Link Text")
-                    {
-                        webElements = targetElement.FindElements(By.LinkText(handleMatch));
-                    }
-                    if (element.TargetElementHandle == "CSS Selector")
-                    {
-                        webElements = targetElement.FindElements(By.CssSelector(handleMatch));
-                    }
-                    if (webElements.Count < element.ElementMatchIteration + 1)
-                    {
-                        return null;
-                    }
-                    int x = 0;
-                    foreach (IWebElement webElement in webElements)
-                    {
-                        if (x == element.ElementMatchIteration)
-                        {
-                            targetElement = webElement;
-                        }
-                        x++;
-                    }
-                }
-            }
-
-            if (targetElement != null) { return targetElement; }
-            return null;
-
-
-        }
         private string ReplaceTextPlaceholders(string text, string message = "")
         {
             if (string.IsNullOrEmpty(text)) { return ""; }
