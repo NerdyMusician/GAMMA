@@ -4995,7 +4995,7 @@ namespace GAMMA.Models
             if (TotalLevel == 0) { errors.Add("No character levels selected."); }
             if (TotalLevel >= 20) { errors.Add("Total level exceeds 20."); }
             if (LinkedRace == null) { errors.Add("No Race selected."); }
-            if (LinkedSubrace == null) { errors.Add("No Subrace selected."); }
+            if (LinkedSubrace == null && Subraces.Count > 0) { errors.Add("No Subrace selected."); }
             if (LinkedBackground == null) { errors.Add("No Background selected."); }
 
             foreach (PlayerClassLinkModel pclm in PlayerClasses)

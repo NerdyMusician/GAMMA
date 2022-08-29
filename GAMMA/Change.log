@@ -1,4 +1,9 @@
-﻿GAMMA 1.30.00
+﻿GAMMA 1.30.01
+- BUG: Fixed issue where attribute points remaining was wrong on initial character edit
+- BUG: Fixed issue where proficiency choices remaining count was incorrect on character level up
+- BUG: Fixed issue where character validation warned of blank subraces on races with no subrace available
+
+GAMMA 1.30.00
 - NEW: New note system available for DMs
 - NEW: Creature builder list source filtering
 - CHANGE: Change of web sequences to xpath only
