@@ -18,7 +18,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public MainViewModel()
         {
-            ApplicationVersion = "GAMMA 1.30.00";
+            ApplicationVersion = "GAMMA 1.30.01 beta";
             Configuration.MainModelRef = this;
             PlayerClasses = new();
             SpellcastingClasses = new();

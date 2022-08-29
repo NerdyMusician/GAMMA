@@ -4709,13 +4709,13 @@ namespace GAMMA.Models
             }
             else
             {
-                BaseAttributePoints = 27 - pointsUsed;
                 StrengthBaseScore = nextStr;
                 DexterityBaseScore = nextDex;
                 ConstitutionBaseScore = nextCon;
                 IntelligenceBaseScore = nextInt;
                 WisdomBaseScore = nextWis;
                 CharismaBaseScore = nextCha;
+                UpdateAttributePointsRemaining();
             }
         }
         #endregion
@@ -4740,6 +4740,18 @@ namespace GAMMA.Models
 
         }
         #endregion
+
+        private void UpdateAttributePointsRemaining()
+        {
+            int pointsUsed = 0;
+            pointsUsed += HelperMethods.GetPointCostFromScore(StrengthBaseScore);
+            pointsUsed += HelperMethods.GetPointCostFromScore(DexterityBaseScore);
+            pointsUsed += HelperMethods.GetPointCostFromScore(ConstitutionBaseScore);
+            pointsUsed += HelperMethods.GetPointCostFromScore(IntelligenceBaseScore);
+            pointsUsed += HelperMethods.GetPointCostFromScore(WisdomBaseScore);
+            pointsUsed += HelperMethods.GetPointCostFromScore(CharismaBaseScore);
+            BaseAttributePoints = 27 - pointsUsed;
+        }
 
         // Public Methods
         public void ConnectItemLinks()
@@ -6234,6 +6246,7 @@ namespace GAMMA.Models
                     choice.PropertyChanged += CharacterAttributeFeatChoiceSelection_PropertyChanged;
                 }
             }
+            UpdateAttributePointsRemaining();
             UpdateOtherStatChoices();
             UpdateAttributeSets();
             UpdateFeatUsage();
@@ -6575,6 +6588,7 @@ namespace GAMMA.Models
             }
 
             langChoices = GetExistingChoiceMarkings(langChoices, LanguageChoiceSegments.ToList());
+            UpdateChoicesRemaining(ref langChoices);
 
             SetLanguageProfs = new(setLangs);
             LanguageChoiceSegments = new(langChoices);
@@ -6618,7 +6632,18 @@ namespace GAMMA.Models
             }
 
             toolChoices = GetExistingChoiceMarkings(toolChoices, ToolChoiceSegments.ToList());
-            foreach (ChoiceSet choiceSet in toolChoices)
+            UpdateChoicesRemaining(ref toolChoices);
+
+            SetToolProfs = new(setTools);
+            ToolChoiceSegments = new(toolChoices);
+
+            ObservableCollection<ChoiceSet> toolChoiceSegments = ToolChoiceSegments;
+            if (UnmarkChoicesFromSets(ref toolChoiceSegments, SetToolProfs)) { return; }
+
+        }
+        private void UpdateChoicesRemaining(ref List<ChoiceSet> choiceSets)
+        {
+            foreach (ChoiceSet choiceSet in choiceSets)
             {
                 int choicesLeft = choiceSet.MaxChoices;
                 foreach (BoolOption option in choiceSet.Choices)
@@ -6627,13 +6652,6 @@ namespace GAMMA.Models
                 }
                 choiceSet.ChoicesRemaining = choicesLeft;
             }
-
-            SetToolProfs = new(setTools);
-            ToolChoiceSegments = new(toolChoices);
-
-            ObservableCollection<ChoiceSet> toolChoiceSegments = ToolChoiceSegments;
-            if (UnmarkChoicesFromSets(ref toolChoiceSegments, SetToolProfs)) { return; }
-
         }
         private void UpdateWeaponSets()
         {
@@ -6670,6 +6688,7 @@ namespace GAMMA.Models
             }
 
             weaponChoices = GetExistingChoiceMarkings(weaponChoices, WeaponChoiceSegments.ToList());
+            UpdateChoicesRemaining(ref weaponChoices);
 
             SetWeaponProfs = new(setWeapons);
             WeaponChoiceSegments = new(weaponChoices);
@@ -6742,15 +6761,7 @@ namespace GAMMA.Models
             }
 
             spellChoices = GetExistingChoiceMarkings(spellChoices, SpellChoiceSegments.ToList());
-            foreach (ChoiceSet choiceSet in spellChoices)
-            {
-                int choicesLeft = choiceSet.MaxChoices;
-                foreach (BoolOption option in choiceSet.Choices)
-                {
-                    if (option.Marked) { choicesLeft--; }
-                }
-                choiceSet.ChoicesRemaining = choicesLeft;
-            }
+            UpdateChoicesRemaining(ref spellChoices);
 
             SpellChoiceSegments = new(spellChoices);
 
@@ -6790,6 +6801,7 @@ namespace GAMMA.Models
             }
 
             armorChoices = GetExistingChoiceMarkings(armorChoices, ArmorChoiceSegments.ToList());
+            UpdateChoicesRemaining(ref armorChoices);
 
             SetArmorProfs = new(setArmors);
             ArmorChoiceSegments = new(armorChoices);
@@ -6845,15 +6857,7 @@ namespace GAMMA.Models
             }
 
             traitChoices = GetExistingChoiceMarkings(traitChoices, TraitChoiceSegments.ToList());
-            foreach (ChoiceSet choiceSet in traitChoices)
-            {
-                int choicesLeft = choiceSet.MaxChoices;
-                foreach (BoolOption option in choiceSet.Choices)
-                {
-                    if (option.Marked) { choicesLeft--; }
-                }
-                choiceSet.ChoicesRemaining = choicesLeft;
-            }
+            UpdateChoicesRemaining(ref traitChoices);
 
             SetTraits = new(setTraits.OrderBy(t => t.Name));
             TraitChoiceSegments = new(traitChoices);
