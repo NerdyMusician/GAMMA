@@ -488,15 +488,15 @@ namespace GAMMA.Models
             // Build Initial Casting Output
             if (castAsRitual)
             {
-                message += name + " casts " + Name + " as a ritual.";
+                message += name + " casts " + Name + " as a ritual. ";
             }
             else if (SpellLevel > 0)
             {
-                message += name + " casts " + Name + " at level " + castingLevel + ".";
+                message += name + " casts " + Name + " at level " + castingLevel + ". ";
             }
             else
             {
-                message += name + " casts " + Name + ".";
+                message += name + " casts " + Name + ". ";
             }
 
             // Set Casting Scale
