@@ -2,6 +2,7 @@
 - BUG: Fixed issue where attribute points remaining was wrong on initial character edit
 - BUG: Fixed issue where proficiency choices remaining count was incorrect on character level up
 - BUG: Fixed issue where character validation warned of blank subraces on races with no subrace available
+- BUG: Fixed issue where cancelling a templated ability add didn't remove it from the ability list
 
 GAMMA 1.30.00
 - NEW: New note system available for DMs

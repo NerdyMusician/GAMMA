@@ -1154,7 +1154,7 @@ namespace GAMMA.Models.GameplayComponents
                 }
             }
         }
-        public void PopulateFromQuickForm(bool includeSaveDc = false)
+        public bool PopulateFromQuickForm(bool includeSaveDc = false)
         {
             QuickAddAbilityDialog abilityDialog = new(includeSaveDc);
             if (abilityDialog.ShowDialog() == true)
@@ -1229,8 +1229,10 @@ namespace GAMMA.Models.GameplayComponents
                         Output += ".";
                     }
                 }
+                return true;
 
             }
+            else { return false; }
         }
 
         // Private Methods

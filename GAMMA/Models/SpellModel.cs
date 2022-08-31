@@ -656,22 +656,22 @@ namespace GAMMA.Models
             if (param.ToString() == "Primary Quick Attack")
             {
                 PrimaryAbilities.Add(new());
-                PrimaryAbilities.Last().PopulateFromQuickForm();
+                if (!PrimaryAbilities.Last().PopulateFromQuickForm()) { PrimaryAbilities.Remove(PrimaryAbilities.Last()); }
             }
             if (param.ToString() == "Primary Quick Save")
             {
                 PrimaryAbilities.Add(new());
-                PrimaryAbilities.Last().PopulateFromQuickForm(true);
+                if (!PrimaryAbilities.Last().PopulateFromQuickForm(true)) { PrimaryAbilities.Remove(PrimaryAbilities.Last()); }
             }
             if (param.ToString() == "Secondary Quick Attack")
             {
                 SecondaryAbilities.Add(new());
-                SecondaryAbilities.Last().PopulateFromQuickForm();
+                if (!SecondaryAbilities.Last().PopulateFromQuickForm()) { SecondaryAbilities.Remove(SecondaryAbilities.Last()); }
             }
             if (param.ToString() == "Secondary Quick Save")
             {
                 SecondaryAbilities.Add(new());
-                SecondaryAbilities.Last().PopulateFromQuickForm(true);
+                if (!SecondaryAbilities.Last().PopulateFromQuickForm(true)) { SecondaryAbilities.Remove(SecondaryAbilities.Last()); }
             }
         }
         #endregion

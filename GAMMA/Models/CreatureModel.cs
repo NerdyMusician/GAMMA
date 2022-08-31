@@ -2645,12 +2645,12 @@ namespace GAMMA.Models
             if (param.ToString() == "Quick Attack")
             {
                 Abilities.Add(new());
-                Abilities.Last().PopulateFromQuickForm();
+                if (!Abilities.Last().PopulateFromQuickForm()) { Abilities.Remove(Abilities.Last()); }
             }
             if (param.ToString() == "Quick Save")
             {
                 Abilities.Add(new());
-                Abilities.Last().PopulateFromQuickForm(true);
+                if (!Abilities.Last().PopulateFromQuickForm(true)) { Abilities.Remove(Abilities.Last()); }
             }
         }
         #endregion
