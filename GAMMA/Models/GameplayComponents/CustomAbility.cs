@@ -409,15 +409,20 @@ namespace GAMMA.Models.GameplayComponents
             message = string.Empty;
             activeEffects = new();
             List<string> errors = new();
-
-            errors = PreRunValidation();
-            if (errors.Count > 1) { HelperMethods.NotifyUser(errors); return false; }
-
             List<CAVariable> variables = new();
+
             foreach (CAVariable v in Variables)
             {
                 variables.Add(HelperMethods.DeepClone(v));
             }
+            foreach (string v in Configuration.InternalAbilityVariables)
+            {
+                variables.Add(new() { Name = v, Type = "Internal Bool" });
+            }
+
+            errors = PreRunValidation(variables);
+            if (errors.Count > 1) { HelperMethods.NotifyUser(errors); return false; }
+
             string mode = GetAbilityProcessingMode(creature, character);
 
             int rounds = QuantityToPerform;
@@ -428,10 +433,6 @@ namespace GAMMA.Models.GameplayComponents
             }
 
             // Add Preset Variables
-            foreach (string v in Configuration.InternalAbilityVariables)
-            {
-                variables.Add(new() { Name = v, Type = "Internal Bool" });
-            }
             if (useOptions)
             {
                 List<string> optsUsed = new();
@@ -1236,14 +1237,14 @@ namespace GAMMA.Models.GameplayComponents
         }
 
         // Private Methods
-        private List<string> PreRunValidation()
+        private List<string> PreRunValidation(List<CAVariable> variables)
         {
             List<string> errors = new();
             errors.Add($"Pre-run validation has failed for {Name}.");
 
             foreach (CAPreAction preAction in PreActions)
             {
-                CAVariable target = Variables.FirstOrDefault(v => v.Name == preAction.Target);
+                CAVariable target = variables.FirstOrDefault(v => v.Name == preAction.Target);
                 if (target == null) { errors.Add($"Invalid target \"{preAction.Target}\", variable not found."); }
 
                 foreach (CACondition condition in preAction.Conditions)
