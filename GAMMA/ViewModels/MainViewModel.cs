@@ -18,7 +18,7 @@ namespace GAMMA.ViewModels
         // Constructors
         public MainViewModel()
         {
-            ApplicationVersion = "GAMMA 1.30.01 beta";
+            ApplicationVersion = "GAMMA 1.30.01";
             Configuration.MainModelRef = this;
             PlayerClasses = new();
             SpellcastingClasses = new();
@@ -29,12 +29,12 @@ namespace GAMMA.ViewModels
             SourcebookRepository = new();
             XmlMethods.XmlToObject(Configuration.SettingsDataFilePath, out SettingsViewModel sv);
             if (sv != null) { SettingsView = sv; } else { SettingsView = new SettingsViewModel(); }
-            ItemBuilderView = new ItemBuilderViewModel();
-            SpellBuilderView = new SpellBuilderViewModel();
-            ToolsView = new ToolsViewModel();
-            CreatureBuilderView = new CreatureBuilderViewModel();
-            CharacterBuilderView = new CharacterBuilderViewModel();
-            AudioView = new AudioViewModel();
+            ItemBuilderView = new();
+            SpellBuilderView = new();
+            ToolsView = new();
+            CreatureBuilderView = new();
+            CharacterBuilderView = new();
+            AudioView = new();
             CampaignView = new();
 
             // Configuration Data
